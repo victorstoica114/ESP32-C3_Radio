@@ -13,6 +13,7 @@
 //   RADIO_RA02_SX1278
 //   RADIO_E28_SX1280
 //   RADIO_EBYTE
+//   RADIO_EBYTE_E22_SX1268
 //   RADIO_XL1276_D01_SX1276
 //
 // RADIO_PROGRAM options:
@@ -25,7 +26,7 @@
 
 // Change these two defines when switching what you want to test.
 #ifndef RADIO_MODULE
-#define RADIO_MODULE  RADIO_RA02_SX1278
+#define RADIO_MODULE  RADIO_EBYTE_E22_SX1268
 #endif
 
 #ifndef RADIO_PROGRAM

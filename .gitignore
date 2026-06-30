@@ -17,6 +17,10 @@ compile_commands.json
 *.map
 *.factory.bin
 
+# Local test logs
+log/*
+!log/.gitignore
+
 # OS/editor noise
 .DS_Store
 Thumbs.db

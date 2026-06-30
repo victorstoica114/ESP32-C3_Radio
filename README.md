@@ -26,6 +26,11 @@ Common pins used by many sketches:
 - Status LED: GPIO 8
 - SPI CS/NSS: GPIO 7
 
+The integrated OLED on the ESP32-C3 OLED devboard is wired to GPIO 5/GPIO 6.
+Module schematics may expose other SDA/SCL labels for external headers, but that
+does not change the onboard OLED wiring. If a future board/module variant uses a
+different OLED wiring, document that exception in the module section below.
+
 Some radio modules share GPIO 5/GPIO 6 with SPI MISO/MOSI. In the affected
 firmware variants, the OLED I2C bus is released after the splash screen and the
 SPI bus is reinitialized before starting the radio.
@@ -69,6 +74,7 @@ Use these values for `RADIO_MODULE`:
 | `RADIO_RA02_SX1278` | `src/RA-02(SX1278)` | RA-02, SX1278 |
 | `RADIO_E28_SX1280` | `src/E28(SX1280)` | E28, SX1280 2.4 GHz |
 | `RADIO_EBYTE` | `src/Ebyte` | Ebyte E32 UART LoRa module |
+| `RADIO_EBYTE_E22_SX1268` | `src/Ebyte E22(SX1268)` | Ebyte E22 SPI LoRa module, SX1268 |
 | `RADIO_XL1276_D01_SX1276` | `src/XL1276-D01 (SX1276)` | XL1276-D01, SX1276 |
 
 ## Firmware variants
@@ -97,6 +103,7 @@ Availability by module:
 | `RADIO_RA02_SX1278` | yes | yes | no | yes | no | no |
 | `RADIO_E28_SX1280` | yes | yes | no | yes | no | no |
 | `RADIO_EBYTE` | yes | no | no | no | no | yes |
+| `RADIO_EBYTE_E22_SX1268` | yes | no | no | no | no | no |
 | `RADIO_XL1276_D01_SX1276` | yes | no | yes | yes | yes | no |
 
 If a module/program combination is not available, compilation stops with a clear
@@ -285,6 +292,41 @@ Applies to `RADIO_RA01_SX1278`, `RADIO_RA02_SX1278`,
 | `AT+LDRO?`, `AT+LDRO=ON\|OFF` | Query/set forced low-data-rate optimization |
 | `AT+SET=<FREQ>,<BW>,<SF>,<CR>,<SYNC>,<PWR>,<CURR>,<PRE>,<GAIN>,<CRC>` | Batch-set LoRa parameters |
 
+### SX1268 Ebyte E22
+
+This is the SPI E22 variant wired as `NSS=GPIO7`, `DIO1=GPIO1`,
+`BUSY=GPIO3`, `RESET=GPIO10`, with SPI on `GPIO4/5/6`. The onboard OLED uses
+the same devboard wiring as the SX1278 tests: `SDA=GPIO5`, `SCL=GPIO6`. Because
+those pins are shared with SPI, the firmware initializes the radio, recovers the
+OLED I2C bus, draws the OLED splash, releases I2C, then reinitializes SPI.
+
+| Command | Meaning |
+| --- | --- |
+| `AT`, `AT?`, `AT+HELP`, `AT+CFG?` | Connectivity, help, and current config/status |
+| `AT+APPLY`, `AT+RESET`, `AT+DEFAULT` | Apply current config, hardware reset/reapply, or restore defaults |
+| `AT+DEBUG`, `AT+DEBUG=ON\|OFF`, `AT+DEBUG?` | Toggle/query debug output |
+| `AT+RX=ON`, `AT+RX=OFF` | Start RX or stop RX into standby |
+| `AT+SLEEP`, `AT+WAKE` | Enter sleep or wake and restore RX state |
+| `AT+RSSI?`, `AT+SNR?`, `AT+FERR?`, `AT+CAD?`, `AT+RANDOM?`, `AT+STATUS?` | Packet/status diagnostics |
+| `AT+FREQ?`, `AT+FREQ=<410..493 MHz>` | Query/set frequency |
+| `AT+BW?`, `AT+BW=<kHz>` | Query/set bandwidth: `7.8`, `10.4`, `15.6`, `20.8`, `31.25`, `41.7`, `62.5`, `125`, `250`, `500` |
+| `AT+SF?`, `AT+SF=<7..12>` | Query/set spreading factor |
+| `AT+CR?`, `AT+CR=<5..8>` | Query/set coding rate denominator |
+| `AT+SYNC?`, `AT+SYNC=<hex>` | Query/set sync word |
+| `AT+PWR?`, `AT+PWR=<-9..18>` | Query/set SX1268 front-stage TX power; E22 manual maps `18` to about `30 dBm` module output |
+| `AT+CURR?`, `AT+CURR=<0..140>` | Query/set current limit |
+| `AT+PREAMBLE?`, `AT+PREAMBLE=<1..65535>` | Query/set preamble length |
+| `AT+GAIN?`, `AT+GAIN=<0..6>` | Stored for command compatibility; no SX126x-style gain control is applied |
+| `AT+CRC?`, `AT+CRC=ON\|OFF` | Query/set CRC |
+| `AT+TCXO?`, `AT+TCXO=<0\|1.6..3.3>` | Query/set TCXO voltage, `0` for XTAL |
+| `AT+REG?`, `AT+REG=LDO\|DCDC` | Query/set regulator mode |
+| `AT+DIO2?`, `AT+DIO2=ON\|OFF` | Query/set DIO2 RF switch control |
+| `AT+RXBOOST?`, `AT+RXBOOST=ON\|OFF` | Query/set boosted RX gain mode |
+| `AT+HEADER?`, `AT+HEADER=EXPLICIT`, `AT+HEADER=IMPLICIT,<1..255>` | Query/set header mode |
+| `AT+IQ?`, `AT+IQ=ON\|OFF` | Query/set IQ inversion |
+| `AT+LDRO?`, `AT+LDRO=ON\|OFF` | Query/set forced low-data-rate optimization |
+| `AT+SET=<FREQ>,<BW>,<SF>,<CR>,<SYNC>,<PWR>,<CURR>,<PRE>,<GAIN>,<CRC>` | Batch-set LoRa parameters |
+
 ### SX1280 E28
 
 | Command | Meaning |
@@ -359,6 +401,18 @@ If payload transmission is attempted while the radio is sleeping, the firmware
 prints `#ERROR: RADIO_SLEEPING (send AT+WAKE)`. If a firmware has bridge mode and
 the bridge is disabled, non-AT payload input prints `#ERROR: BRIDGE_OFF (send
 AT+BRIDGE=ON)`.
+
+## Local test scripts
+
+Reusable PowerShell scripts live under `test/`.
+
+```powershell
+.\test\Upload-AtFirmware.ps1 -Module RADIO_RA02_SX1278 -Port COM4,COM5
+.\test\Test-Sx127xAtPair.ps1 -Label SX1278 -PortA COM4 -PortB COM5
+```
+
+Generated test logs are written under `log/`, which is intentionally ignored by
+git except for its `.gitignore` placeholder.
 
 ## Repository notes
 

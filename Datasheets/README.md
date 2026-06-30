@@ -29,5 +29,6 @@ and remove anything that should be linked instead of committed.
 
 - Optional module-level PDF links for `RA-01`, `RA-02`, `RA-01H`, and `XL1276-D01` if exact mechanical/module documentation is needed later.
 - Official Ai-Thinker PDF link for `RA-01SH`.
+- Official Ebyte PDF/manual link for the `E22-400M22S` / SX1268 SPI module.
 - Direct official Nordic PDF link for `nRF24L01+`.
 - Direct official Semtech PDF links for `SX1262` and `SX128x`.

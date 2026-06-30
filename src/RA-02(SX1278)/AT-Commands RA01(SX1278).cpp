@@ -94,8 +94,6 @@ static void releaseOledI2CBus() {
   delay(10);
   Wire.end();
 
-  digitalWrite(OLED_SDA, LOW);
-  digitalWrite(OLED_SCL, LOW);
   pinMode(OLED_SDA, INPUT);
   pinMode(OLED_SCL, INPUT);
   delay(5);
