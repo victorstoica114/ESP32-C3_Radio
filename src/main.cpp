@@ -27,12 +27,13 @@
 //   BRIDGE
 
 // Change these two defines when switching what you want to test.
+// E79 CC1352P ESP32 bridge: RADIO_EBYTE_E79_CC1352P + BRIDGE.
 #ifndef RADIO_MODULE
 #define RADIO_MODULE  RADIO_EBYTE_E79_CC1352P
 #endif
 
 #ifndef RADIO_PROGRAM
-#define RADIO_PROGRAM AT_COMMANDS
+#define RADIO_PROGRAM BRIDGE
 #endif
 
 // Keep this after RADIO_MODULE/RADIO_PROGRAM; it uses those selections.

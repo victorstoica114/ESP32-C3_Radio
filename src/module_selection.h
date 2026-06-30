@@ -120,8 +120,10 @@
 #elif RADIO_MODULE == RADIO_EBYTE_E79_CC1352P
   #if RADIO_PROGRAM == AT_COMMANDS
     #include "Ebyte E79(CC1352P)/AT-Commands Ebyte E79(CC1352P).cpp"
+  #elif RADIO_PROGRAM == BRIDGE
+    #include "Ebyte E79(CC1352P) ESP32 Bridge/ESP32 Bridge Ebyte E79(CC1352P).cpp"
   #else
-    #error "Selected RADIO_PROGRAM is not available for EBYTE_E79_CC1352P. Available: AT_COMMANDS."
+    #error "Selected RADIO_PROGRAM is not available for EBYTE_E79_CC1352P. Available: AT_COMMANDS, BRIDGE."
   #endif
 #elif RADIO_MODULE == RADIO_XL1276_D01_SX1276
   #if RADIO_PROGRAM == AT_COMMANDS

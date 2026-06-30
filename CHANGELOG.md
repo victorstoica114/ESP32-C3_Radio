@@ -10,6 +10,7 @@ All notable changes to this project will be documented here.
 - Added Ebyte E22 SX1268 SPI module support with AT-command firmware, onboard OLED on GPIO5/GPIO6, and SX1268-safe parameter validation.
 - Added Ebyte E280-2G4T12S UART/TTL module support with raw Ebyte binary configuration, bridge mode, RSSI/ranging/low-power runtime modes, and AT-command wrappers.
 - Added an initial Ebyte E79 CC1352P ESP32-side skeleton for a future UART modem firmware running on the CC1352P itself.
+- Added selectable Ebyte E79 CC1352P ESP32 bridge firmware (`RADIO_EBYTE_E79_CC1352P` + `BRIDGE`) for USB CDC to CC1352P UART operation.
 - Added the Ai-Thinker RA-08 ASR6601 standalone AT modem source under `src/Ai-Thinker-LoRaWAN-Ra-08`, kept separate from the full SDK/toolchain.
 - Added reusable PowerShell test/upload scripts under `test/`; generated logs go under ignored `log/`.
 - Added a temporary `Datasheets/` folder with PDF documentation for supported modules and ESP32-C3 hardware.

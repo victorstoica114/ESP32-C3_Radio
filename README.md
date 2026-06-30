@@ -57,8 +57,8 @@ Defined in `platformio.ini`:
 Edit `src/main.cpp`:
 
 ```cpp
-#define RADIO_MODULE  RADIO_RA02_SX1278
-#define RADIO_PROGRAM AT_COMMANDS
+#define RADIO_MODULE  RADIO_EBYTE_E79_CC1352P
+#define RADIO_PROGRAM BRIDGE
 ```
 
 Keep this include after the two defines:
@@ -84,7 +84,7 @@ Use these values for `RADIO_MODULE` in the ESP32 PlatformIO firmware:
 | `RADIO_EBYTE` | `src/Ebyte` | Ebyte E32 UART LoRa module |
 | `RADIO_EBYTE_E22_SX1268` | `src/Ebyte E22(SX1268)` | Ebyte E22 SPI LoRa module, SX1268 |
 | `RADIO_EBYTE_E280_SX1280` | `src/Ebyte E280(SX1280)` | Ebyte E280-2G4T12S UART/TTL module, SX1280 |
-| `RADIO_EBYTE_E79_CC1352P` | `src/Ebyte E79(CC1352P)` | Ebyte E79-400DM2005S, TI CC1352P wireless MCU |
+| `RADIO_EBYTE_E79_CC1352P` | `src/Ebyte E79(CC1352P)` and `src/Ebyte E79(CC1352P) ESP32 Bridge` | Ebyte E79-400DM2005S, TI CC1352P wireless MCU |
 | `RADIO_XL1276_D01_SX1276` | `src/XL1276-D01 (SX1276)` | XL1276-D01, SX1276 |
 
 Standalone module-side radio firmware:
@@ -121,7 +121,7 @@ Availability by module:
 | `RADIO_EBYTE` | yes | no | no | no | no | yes |
 | `RADIO_EBYTE_E22_SX1268` | yes | no | no | no | no | no |
 | `RADIO_EBYTE_E280_SX1280` | yes | no | no | no | no | no |
-| `RADIO_EBYTE_E79_CC1352P` | yes | no | no | no | no | no |
+| `RADIO_EBYTE_E79_CC1352P` | yes | no | no | no | no | yes |
 | `RADIO_XL1276_D01_SX1276` | yes | no | yes | yes | yes | no |
 | RA08 AT modem | yes | no | no | no | no | no |
 
@@ -135,7 +135,7 @@ support:
 
 | Module | Chipset | Status / expected approach |
 | --- | --- | --- |
-| Ebyte E79-400DM2005S | TI CC1352P wireless MCU | ESP32-side skeleton added; CC1352P UART modem firmware is in development |
+| Ebyte E79-400DM2005S | TI CC1352P wireless MCU | ESP32 USB CDC to CC1352P UART bridge is available; CC1352P radio firmware is maintained separately |
 | Ai-Thinker RA-09 | STM32WLE5CCU6 wireless MCU | Planned; separate module firmware, then UART modem/AT bridge from ESP32 |
 
 ## External Module Firmware
@@ -409,14 +409,20 @@ binary configuration protocol, not through SPI/RadioLib. Current pin assumptions
 | `AT+IOMODE?`, `AT+IOMODE=PP\|OD` | Query/set TXD/AUX/RXD IO drive mode |
 | `AT+SETRADIO=ADDH,ADDL,CHAN,BAUD,PARITY,AIR,POWER,FIXED,RANGE,FHSS,ROLE,LBT,IOMODE` | One-shot E280 configuration |
 
-### Ebyte E79 CC1352P Skeleton
+### Ebyte E79 CC1352P
 
 `E79-400DM2005S` is a TI CC1352P wireless MCU module, not a direct ESP32
-radio peripheral. The current ESP32-side file is intentionally only a skeleton:
-it reserves the module selection, shows an OLED splash, opens the future modem
-UART on GPIO20/GPIO21, and provides local AT commands plus forwarding hooks for
-a CC1352P firmware that still has to be built and flashed separately via
-JTAG/cJTAG.
+radio peripheral. The ESP32 firmware can be built in two modes:
+
+- `RADIO_PROGRAM AT_COMMANDS`: ESP32-side local AT wrapper/skeleton with
+  forwarding hooks for CC1352P modem firmware.
+- `RADIO_PROGRAM BRIDGE`: transparent USB CDC to CC1352P UART bridge. This is
+  the preferred mode when the CC1352P already runs its own AT firmware.
+
+The bridge uses ESP32 `GPIO20` as RX from the CC1352P TX pin and `GPIO21` as TX
+to the CC1352P RX pin. USB CDC stays on the ESP32 virtual COM port. The CC1352P
+UART defaults to `500000` baud and can be changed at runtime with the local
+bridge control command below.
 
 | Command | Meaning |
 | --- | --- |
@@ -431,6 +437,13 @@ JTAG/cJTAG.
 | `AT+FREQ?`, `AT+FREQ=<Hz>`, `AT+CHAN?`, `AT+CHAN=<n>`, `AT+PWR?`, `AT+PWR=<dBm>`, `AT+RX=ON`, `AT+RX=OFF`, `AT+SEND=<data>` | Forwarded placeholders; require CC1352P firmware support |
 | `AT+SENDTO=ADDH,ADDL,CHAN,TEXT` | Send a fixed-address payload with the 3-byte Ebyte prefix |
 | `AT+BROADCAST=CHAN,TEXT` | Send a fixed-address broadcast payload |
+
+ESP32 bridge local commands:
+
+| Command | Meaning |
+| --- | --- |
+| `~CC1352P_BAUD=<9600\|38400\|57600\|115200\|230400\|460800\|500000\|921600\|1000000>` | Change the ESP32 UART baud used for the CC1352P link |
+| `~CC1352P_RESET` | Pulse the ESP32 reset-control pin reserved for the CC1352P reset line |
 
 ### SX1280 E28
 
