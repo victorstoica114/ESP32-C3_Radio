@@ -6,6 +6,7 @@ All notable changes to this project will be documented here.
 
 ### Added
 
+- Added MIT project license and third-party notices for public repository preparation.
 - Added Ebyte E22 SX1268 SPI module support with AT-command firmware, onboard OLED on GPIO5/GPIO6, and SX1268-safe parameter validation.
 - Added Ebyte E280-2G4T12S UART/TTL module support with raw Ebyte binary configuration, bridge mode, RSSI/ranging/low-power runtime modes, and AT-command wrappers.
 - Added an initial Ebyte E79 CC1352P ESP32-side skeleton for a future UART modem firmware running on the CC1352P itself.

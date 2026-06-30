@@ -79,4 +79,4 @@ If an AT command is not recognized, the device responds with `#ERROR`. If a line
 
 Troubleshooting: if you see `setConfiguration: Timeout`, verify that AUX is correctly wired to the configured GPIO and that it transitions HIGH when the module is ready; also verify M0 and M1 wiring and that the module enters PROGRAM mode (M0=1, M1=1). Ensure the module is powered at the correct voltage (typically 3.3V logic) and that Serial1 pins match your board’s routing. If the OLED does not display, verify SDA/SCL pins, I2C wiring, and that the display is the SSD1306 128×64 variant expected by the selected U8g2 constructor. Finally, note that the current heartbeat implementation toggles the LED based on a `millis()` interval; you can adjust the blink behavior by changing the threshold in `led1HzService()`.
 
-License: add the license of your choice (e.g., MIT/Apache-2.0/Proprietary) depending on how you plan to distribute the firmware.
+License: covered by the repository MIT License unless a file says otherwise. Third-party libraries remain under their own licenses.

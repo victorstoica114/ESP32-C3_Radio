@@ -12,6 +12,14 @@ See `CHANGELOG.md` for notable project changes.
 Hardware PDFs are collected temporarily under `Datasheets/`. Review the notes in
 `Datasheets/README.md` before making the repository public.
 
+## License
+
+Project source code is released under the MIT License. See `LICENSE`.
+
+Third-party libraries and vendor/manufacturer datasheets keep their own
+licenses and redistribution terms. See `THIRD_PARTY_NOTICES.md` and
+`Datasheets/README.md`.
+
 ## Hardware target
 
 - MCU: ESP32-C3 DevKitC-02

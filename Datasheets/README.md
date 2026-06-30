@@ -3,6 +3,10 @@
 Temporary PDF collection for the supported radio modules and the ESP32-C3
 development board.
 
+These PDF files are vendor/manufacturer documentation and are not covered by the
+project MIT License. For a public repository, prefer linking to official source
+pages unless redistribution is explicitly allowed or otherwise acceptable.
+
 This repository is currently private, so the PDFs are kept here for convenience.
 Before making the repository public, review each file for redistribution terms
 and remove anything that should be linked instead of committed.
