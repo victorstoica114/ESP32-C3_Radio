@@ -32,6 +32,11 @@ All notable changes to this project will be documented here.
   specific guardrail messages start with `#ERROR:`.
 - Added explicit feedback when payload TX is blocked because the radio is in
   sleep or because bridge mode is disabled.
+- Fixed nRF24L01 transparent payload RX by reading the nRF24 payload directly
+  and ignoring the SPI status byte returned before payload data.
+- Changed nRF24L01 defaults to use dynamic payloads, which matches the
+  variable-length text payload mode used by the serial bridge.
+- Added nRF24L01 payload length guardrails for static payload mode.
 - Tightened SX1276/SX1278/SX1262 parameter validation for frequency, bandwidth,
   output power, current limit, and preamble length before saving to EEPROM.
 - Aligned the OLED I2C release / radio SPI reinitialization workaround across

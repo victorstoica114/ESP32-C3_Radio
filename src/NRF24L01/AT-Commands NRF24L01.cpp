@@ -65,7 +65,7 @@ struct RadioConfig {
   uint8_t retryDelay = 5;
   uint8_t retryCount = 15;
   bool lnaOn = true;
-  bool dynamicPayload = false;
+  bool dynamicPayload = true;
   bool ackPayload = false;
   uint8_t fixedPayloadLen = 32;
 };
@@ -74,7 +74,7 @@ RadioConfig cfg;
 const RadioConfig cfgDefault;
 
 static const uint32_t EEPROM_MAGIC = 0x4E524632UL; // "NRF2"
-static const uint16_t EEPROM_VERSION = 0x0001;
+static const uint16_t EEPROM_VERSION = 0x0002;
 static const size_t EEPROM_SIZE = 512;
 
 // ------------------ RX CALLBACK ------------------
@@ -107,8 +107,6 @@ static void releaseOledI2CBus() {
   delay(10);
   Wire.end();
 
-  digitalWrite(OLED_SDA, LOW);
-  digitalWrite(OLED_SCL, LOW);
   pinMode(OLED_SDA, INPUT);
   pinMode(OLED_SCL, INPUT);
   delay(5);
@@ -155,6 +153,42 @@ static void nrfFlushTx() {
   digitalWrite(NRF_CS, LOW);
   SPI.transfer(0xE1);
   digitalWrite(NRF_CS, HIGH);
+}
+
+static void nrfClearIrq() {
+  // Clear RX_DR, TX_DS and MAX_RT by writing 1 to each bit.
+  nrfWriteReg(0x07, 0x70);
+}
+
+static uint8_t nrfReadRxPayloadWidth() {
+  digitalWrite(NRF_CS, LOW);
+  SPI.transfer(0x60); // R_RX_PL_WID
+  uint8_t len = SPI.transfer(0xFF);
+  digitalWrite(NRF_CS, HIGH);
+  return len;
+}
+
+static int nrfReadReceivedText(String& out) {
+  uint8_t len = cfg.dynamicPayload ? nrfReadRxPayloadWidth() : cfg.fixedPayloadLen;
+  if (len > 32) {
+    nrfFlushRx();
+    nrfClearIrq();
+    return RADIOLIB_ERR_PACKET_TOO_LONG;
+  }
+
+  char buf[33];
+  memset(buf, 0, sizeof(buf));
+
+  digitalWrite(NRF_CS, LOW);
+  SPI.transfer(0x61); // R_RX_PAYLOAD; first returned byte is STATUS, ignore it.
+  for (uint8_t i = 0; i < len; i++) {
+    buf[i] = (char)SPI.transfer(0xFF);
+  }
+  digitalWrite(NRF_CS, HIGH);
+
+  nrfClearIrq();
+  out = String(buf);
+  return RADIOLIB_ERR_NONE;
 }
 
 // ------------------ SERIAL LINE READER (CR/LF) ------------------
@@ -925,6 +959,14 @@ void loop() {
         serialError(F("RADIO_SLEEPING (send AT+WAKE)"));
         return;
       }
+      if (line.length() > 32) {
+        serialError(F("PAYLOAD_TOO_LONG (max 32 bytes)"));
+        return;
+      }
+      if (!cfg.dynamicPayload && line.length() != cfg.fixedPayloadLen) {
+        serialError(F("FIXED_PAYLOAD_LENGTH_MISMATCH (send AT+DYN=ON or adjust AT+PLEN)"));
+        return;
+      }
 
       // Transmit non-AT text as-is.
       // Temporarily remove RX action during TX to avoid false triggers.
@@ -959,7 +1001,7 @@ void loop() {
     receivedFlag = false;
 
     String str;
-    int st = radio.readData(str);
+    int st = nrfReadReceivedText(str);
 
     if (st == RADIOLIB_ERR_NONE) {
       if (debugEnabled) {

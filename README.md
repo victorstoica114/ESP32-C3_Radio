@@ -223,6 +223,11 @@ virtual and is not used as the radio-module baud reference.
 | `AT+ACKPAY?`, `AT+ACKPAY=ON\|OFF` | Query/set ACK payload feature |
 | `AT+PLEN?`, `AT+PLEN=<1..32>` | Query/set fixed payload length |
 
+For transparent text payloads, nRF24L01 defaults to `AT+DYN=ON` so each serial
+line can be sent at its actual length. If `AT+DYN=OFF` is selected, payload
+lines must have exactly the configured `AT+PLEN` length; otherwise the firmware
+returns `#ERROR: FIXED_PAYLOAD_LENGTH_MISMATCH`.
+
 ### SX1276/SX1278 modules
 
 Applies to `RADIO_RA01_SX1278`, `RADIO_RA02_SX1278`,
