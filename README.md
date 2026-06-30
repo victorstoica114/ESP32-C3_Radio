@@ -61,7 +61,7 @@ Keep this include after the two defines:
 
 ## Supported modules
 
-Use these values for `RADIO_MODULE`:
+Use these values for `RADIO_MODULE` in the ESP32 PlatformIO firmware:
 
 | RADIO_MODULE | Folder | Radio/module |
 | --- | --- | --- |
@@ -78,6 +78,12 @@ Use these values for `RADIO_MODULE`:
 | `RADIO_EBYTE_E280_SX1280` | `src/Ebyte E280(SX1280)` | Ebyte E280-2G4T12S UART/TTL module, SX1280 |
 | `RADIO_EBYTE_E79_CC1352P` | `src/Ebyte E79(CC1352P)` | Ebyte E79-400DM2005S, TI CC1352P wireless MCU |
 | `RADIO_XL1276_D01_SX1276` | `src/XL1276-D01 (SX1276)` | XL1276-D01, SX1276 |
+
+Standalone module-side radio firmware:
+
+| Firmware | Primary repository | Local reference | Radio/module | Status |
+| --- | --- | --- | --- | --- |
+| RA08 AT modem | [victorstoica114/RA-08_AT-Commands](https://github.com/victorstoica114/RA-08_AT-Commands) | `src/Ai-Thinker-LoRaWAN-Ra-08` | Ai-Thinker RA-08, ASR6601 LPWAN SoC | Functional and tested with two modules |
 
 ## Firmware variants
 
@@ -109,19 +115,19 @@ Availability by module:
 | `RADIO_EBYTE_E280_SX1280` | yes | no | no | no | no | no |
 | `RADIO_EBYTE_E79_CC1352P` | yes | no | no | no | no | no |
 | `RADIO_XL1276_D01_SX1276` | yes | no | yes | yes | yes | no |
+| RA08 AT modem | yes | no | no | no | no | no |
 
 If a module/program combination is not available, compilation stops with a clear
 `#error` message from `src/module_selection.h`.
 
 ## Planned / In Development Modules
 
-These modules need their own module-side firmware or are planned for future
+These modules still need their own module-side firmware or are planned for future
 support:
 
 | Module | Chipset | Status / expected approach |
 | --- | --- | --- |
 | Ebyte E79-400DM2005S | TI CC1352P wireless MCU | ESP32-side skeleton added; CC1352P UART modem firmware is in development |
-| Ai-Thinker RA-08 | ASR6601 LPWAN SoC | Source-only standalone UART AT modem under `src/Ai-Thinker-LoRaWAN-Ra-08`; hardware-tested with two modules |
 | Ai-Thinker RA-09 | STM32WLE5CCU6 wireless MCU | Planned; separate module firmware, then UART modem/AT bridge from ESP32 |
 
 ## External Module Firmware
@@ -131,11 +137,13 @@ module-side firmware is kept separately from the ESP32 PlatformIO firmware.
 
 ### Ai-Thinker RA-08
 
-The RA-08 ASR6601 source under `src/Ai-Thinker-LoRaWAN-Ra-08` turns the RA-08
-into a standalone UART AT radio modem. This repository keeps only the modem
-source files (`main.c`, `at_modem.c`, IRQ glue, and headers). Build support,
-drivers, startup code, linker scripts, and the ARM GCC toolchain should live in
-the separate RA-08 SDK/firmware repository.
+The RA-08 ASR6601 AT modem firmware lives in its own repository:
+[victorstoica114/RA-08_AT-Commands](https://github.com/victorstoica114/RA-08_AT-Commands).
+That project turns the RA-08 into a standalone UART AT radio modem. This
+repository keeps only a small source reference under
+`src/Ai-Thinker-LoRaWAN-Ra-08` (`main.c`, `at_modem.c`, IRQ glue, and headers).
+Build support, drivers, startup code, linker scripts, and the ARM GCC toolchain
+belong in the separate RA-08 firmware repository.
 
 The RA-08 modem was validated on two modules over USB serial at `115200` baud,
 including AT command parsing, parameter validation, sleep/wake guardrails,
