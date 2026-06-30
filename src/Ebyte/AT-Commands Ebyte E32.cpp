@@ -142,6 +142,8 @@ static Configuration cfgCurrent;
 // Bridge / debug
 static bool bridgeEnabled = true;
 static bool debugEnabled  = false;
+static bool moduleSleeping = false;
+static bool bridgeBeforeSleep = true;
 
 // =============================================================================
 // LED 1Hz (non-blocking)
@@ -196,6 +198,17 @@ static void e32SetModeNormal() {
   digitalWrite(E32_M1_PIN, LOW);
   delay(120);
   waitAUXHigh(800);
+  moduleSleeping = false;
+}
+
+static void e32SetModeSleep() {
+  pinMode(E32_M0_PIN, OUTPUT);
+  pinMode(E32_M1_PIN, OUTPUT);
+  digitalWrite(E32_M0_PIN, HIGH);
+  digitalWrite(E32_M1_PIN, HIGH);
+  delay(120);
+  waitAUXHigh(800);
+  moduleSleeping = true;
 }
 
 // Convert our baud code -> actual baud rate
@@ -436,6 +449,8 @@ static void printHelp() {
   Serial.println(F("  AT+DEFAULT         -> restore firmware defaults (SAVE) + EEPROM"));
   Serial.println(F("  AT+BRIDGE=ON/OFF   -> enable/disable UART bridge"));
   Serial.println(F("  AT+DEBUG=ON/OFF    -> debug prints"));
+  Serial.println(F("  AT+SLEEP           -> sleep/program mode (TX/RX off)"));
+  Serial.println(F("  AT+WAKE            -> normal mode + restore bridge"));
   Serial.println(F(""));
   Serial.println(F("Set all radio params (one shot):"));
   Serial.println(F("  AT+SETRADIO=ADDH,ADDL,CHAN,BAUD,PARITY,AIR,POWER,WOR,FEC,FIXED,IOMODE"));
@@ -479,7 +494,30 @@ static bool handleAT(const String& lineRaw) {
   if (u == "AT+BRIDGE=ON")  { bridgeEnabled = true;  serialOK(); return true; }
   if (u == "AT+BRIDGE=OFF") { bridgeEnabled = false; serialOK(); return true; }
 
+  if (u == "AT+SLEEP") {
+    bridgeBeforeSleep = bridgeEnabled;
+    Serial1.flush();
+    e32SetModeSleep();
+    serialOK();
+    return true;
+  }
+
+  if (u == "AT+WAKE") {
+    e32SetModeNormal();
+    serial1Begin(baudFromCode(cfgCurrent.SPED.uartBaudRate));
+    bridgeEnabled = bridgeBeforeSleep;
+    serialOK();
+    return true;
+  }
+
   if (u == "AT+CFG?") {
+    if (moduleSleeping) {
+      printConfigPretty(cfgCurrent);
+      Serial.println(F("SLEEP=YES"));
+      serialOK();
+      return true;
+    }
+
     Configuration c;
     ModuleInformation mi;
     bool ok = readConfigFromModule(c, &mi);
@@ -823,15 +861,19 @@ void loop() {
     } else {
       // Bridge payload (line-based) - SEND CRLF
       if (bridgeEnabled) {
-        Serial1.write((const uint8_t*)line.c_str(), line.length());
-        Serial1.write('\r');
-        Serial1.write('\n');
+        if (moduleSleeping) {
+          Serial.println(F("ERROR: RADIO_SLEEPING (send AT+WAKE)"));
+        } else {
+          Serial1.write((const uint8_t*)line.c_str(), line.length());
+          Serial1.write('\r');
+          Serial1.write('\n');
+        }
       }
     }
   }
 
   // 2) E32 -> USB raw
-  while (Serial1.available()) {
+  while (!moduleSleeping && Serial1.available()) {
     int c = Serial1.read();
     Serial.write((uint8_t)c);
   }

@@ -7,6 +7,8 @@ The project is organized as a single PlatformIO application. The active radio
 module and firmware variant are selected from `src/main.cpp`, and the matching
 source file is included by `src/module_selection.h`.
 
+See `CHANGELOG.md` for notable project changes.
+
 ## Hardware target
 
 - MCU: ESP32-C3 DevKitC-02
@@ -147,7 +149,9 @@ selected firmware, the device normally returns `ERROR`.
 | `AT+DEBUG=ON` / `AT+DEBUG=OFF` | Enable/disable debug output |
 | `AT+BRIDGE=ON` / `AT+BRIDGE=OFF` | Enable/disable UART bridge mode |
 | `AT+BRIDGE?` | Print bridge state, where implemented |
-| `AT+RX=ON` / `AT+RX=OFF` | Start/stop receive mode |
+| `AT+RX=ON` / `AT+RX=OFF` | Start/stop receive mode (`AT+RX=OFF` = standby) |
+| `AT+SLEEP` | Put radio/module into low-power sleep, where supported |
+| `AT+WAKE` | Wake radio/module and restore RX state, where supported |
 | `AT+RSSI?` | Print last packet RSSI |
 | `AT+SNR?` | Print last packet SNR, where implemented |
 | `AT+LQI?` | Print last packet LQI, mainly CC1101 |
@@ -207,8 +211,6 @@ The exact format depends on the selected module.
 | `AT+POWER?` / `AT+POWER=<1..8>` | Query/set power level |
 | `AT+FU?` / `AT+FU=<1..4>` | Query/set FU mode |
 | `AT+V` | Query module version |
-| `AT+SLEEP` | Put module to sleep |
-| `AT+WAKE` | Wake module |
 
 ### Ebyte E32-specific commands
 
@@ -241,4 +243,3 @@ and the radio module UART.
 - Generated PlatformIO files live under `.pio/` and should not be committed.
 - The selected firmware is controlled only from `src/main.cpp`.
 - Module routing and compile-time validation live in `src/module_selection.h`.
-

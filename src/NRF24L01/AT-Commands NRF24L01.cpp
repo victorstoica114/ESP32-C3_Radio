@@ -38,6 +38,8 @@ static constexpr bool debug_default_state = false;
 
 // ------------------ RUNTIME STATE ------------------
 bool rxEnabled     = true;
+bool radioSleeping = false;
+bool rxEnabledBeforeSleep = true;
 bool debugEnabled  = debug_default_state;
 
 // ------------------ CONFIG ------------------
@@ -153,6 +155,8 @@ static void printConfig() {
   printAddrLine(F("  ADDR=0x"), cfg.addr);
   Serial.print(F("  RX="));
   Serial.println(rxEnabled ? F("ON") : F("OFF"));
+  Serial.print(F("  SLEEP="));
+  Serial.println(radioSleeping ? F("YES") : F("NO"));
   Serial.print(F("  DEBUG="));
   Serial.println(debugEnabled ? F("ON") : F("OFF"));
 }
@@ -169,7 +173,10 @@ static void printHelp() {
   Serial.println(F("  AT+ADDR=<10hex>     -> set TX/RX0 address (5 bytes)"));
   Serial.println(F("  AT+ADDR?            -> print address"));
   Serial.println(F("RX:"));
-  Serial.println(F("  AT+RX=ON|OFF"));
+  Serial.println(F("  AT+RX=ON            -> start RX"));
+  Serial.println(F("  AT+RX=OFF           -> standby"));
+  Serial.println(F("  AT+SLEEP            -> sleep / power-down"));
+  Serial.println(F("  AT+WAKE             -> wake + restore RX"));
   Serial.println(F("Debug:"));
   Serial.println(F("  AT+DEBUG=ON|OFF / AT+DEBUG?"));
   Serial.println(F("Data:"));
@@ -179,6 +186,7 @@ static void printHelp() {
 
 // ------------------ RADIO APPLY/RESET ------------------
 static bool applyConfigToRadio() {
+  radioSleeping = false;
   int st;
 
   // Pipes (same approach as your known-good code)
@@ -197,6 +205,36 @@ static bool applyConfigToRadio() {
     if (st != RADIOLIB_ERR_NONE) return false;
   } else {
     radio.standby();
+  }
+
+  return true;
+}
+
+static bool putRadioToSleep() {
+  rxEnabledBeforeSleep = rxEnabled;
+  rxEnabled = false;
+  receivedFlag = false;
+  radio.clearPacketReceivedAction();
+
+  int st = radio.sleep();
+  if (st != RADIOLIB_ERR_NONE) return false;
+
+  radioSleeping = true;
+  return true;
+}
+
+static bool wakeRadioFromSleep() {
+  int st = radio.standby();
+  if (st != RADIOLIB_ERR_NONE) return false;
+
+  radioSleeping = false;
+  rxEnabled = rxEnabledBeforeSleep;
+
+  if (rxEnabled) {
+    receivedFlag = false;
+    radio.setPacketReceivedAction(onRxDone);
+    st = radio.startReceive();
+    if (st != RADIOLIB_ERR_NONE) return false;
   }
 
   return true;
@@ -331,14 +369,26 @@ static bool handleAT(String lineRaw) {
   // RX control
   if (u == "AT+RX=OFF") {
     rxEnabled = false;
-    radio.standby();
-    serialOK();
+    int st = radio.standby();
+    radioSleeping = false;
+    (st == RADIOLIB_ERR_NONE) ? serialOK() : serialERR();
     return true;
   }
   if (u == "AT+RX=ON") {
     rxEnabled = true;
+    radioSleeping = false;
     int st = radio.startReceive();
     (st == RADIOLIB_ERR_NONE) ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u == "AT+SLEEP") {
+    putRadioToSleep() ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u == "AT+WAKE") {
+    wakeRadioFromSleep() ? serialOK() : serialERR();
     return true;
   }
 
@@ -400,6 +450,11 @@ void loop() {
         serialERR();
       }
     } else {
+      if (radioSleeping) {
+        Serial.println(F("ERROR: RADIO_SLEEPING (send AT+WAKE)"));
+        return;
+      }
+
       // Transmit non-AT text as-is.
       // Temporarily remove RX action during TX to avoid false triggers.
       radio.clearPacketReceivedAction();
@@ -429,7 +484,7 @@ void loop() {
   }
 
   // Radio RX -> Serial
-  if (receivedFlag) {
+  if (receivedFlag && !radioSleeping) {
     receivedFlag = false;
 
     String str;

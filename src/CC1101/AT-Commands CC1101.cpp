@@ -124,6 +124,8 @@ static unsigned long lastSerialTime = 0;
 // Radio RX flag
 static volatile bool radioReceived = false;
 static bool inReceiveMode = true;
+static bool radioSleeping = false;
+static bool receiveModeBeforeSleep = true;
 
 // LED 1Hz
 static uint32_t ledTickMs = 0;
@@ -235,6 +237,7 @@ static void startReceive() {
 static bool applyConfig(const RadioConfig& cfg) {
   // Opreste receptia si pune in standby
   radio.standby();
+  radioSleeping = false;
   delay(10);
   
   int state = radio.begin(
@@ -291,6 +294,8 @@ static bool applyConfig(const RadioConfig& cfg) {
 }
 
 static bool transmitData(const char* data, int length) {
+  if (radioSleeping) return false;
+
   inReceiveMode = false;
   
   // Transmite o singura data, ignora eroarea de timeout
@@ -434,6 +439,7 @@ static void printConfigPretty(const RadioConfig& c) {
   if (c.syncWordL < 0x10) Serial.print("0");
   Serial.println(c.syncWordL, HEX);
   Serial.print(F("CRC:          ")); Serial.println(c.crcEnabled ? F("Enabled") : F("Disabled"));
+  Serial.print(F("Sleep:        ")); Serial.println(radioSleeping ? F("YES") : F("NO"));
   Serial.println(F("=================================="));
 }
 
@@ -484,7 +490,38 @@ static void printHelp() {
   Serial.println(F("Info:"));
   Serial.println(F("  AT+RSSI?         -> Show last RSSI"));
   Serial.println(F("  AT+LQI?          -> Show last LQI"));
+  Serial.println(F("  AT+SLEEP         -> Sleep (low power)"));
+  Serial.println(F("  AT+WAKE          -> Wake + restore RX"));
   Serial.println(F(""));
+}
+
+static bool putRadioToSleep() {
+  receiveModeBeforeSleep = inReceiveMode;
+  inReceiveMode = false;
+  radioReceived = false;
+  radio.clearPacketReceivedAction();
+
+  int state = radio.sleep();
+  if (state != RADIOLIB_ERR_NONE) return false;
+
+  radioSleeping = true;
+  return true;
+}
+
+static bool wakeRadioFromSleep() {
+  int state = radio.standby();
+  if (state != RADIOLIB_ERR_NONE) return false;
+
+  radioSleeping = false;
+  radio.setPacketReceivedAction(radioInterrupt);
+
+  if (receiveModeBeforeSleep) {
+    startReceive();
+  } else {
+    inReceiveMode = false;
+  }
+
+  return true;
 }
 
 // =============================================================================
@@ -551,6 +588,16 @@ static bool handleAT(const String& lineRaw) {
   }
   ok ? serialOK() : serialERR();
   return true;
+  }
+
+  if (u == "AT+SLEEP") {
+    putRadioToSleep() ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u == "AT+WAKE") {
+    wakeRadioFromSleep() ? serialOK() : serialERR();
+    return true;
   }
 
   if (u == "AT+RSSI?") {
@@ -867,7 +914,7 @@ void loop() {
   led1HzService();
 
   // ========== RADIO RX ==========
-  if (radioReceived) {
+  if (radioReceived && !radioSleeping) {
     radioReceived = false;
     
     uint8_t radioBuffer[64];
@@ -902,6 +949,11 @@ void loop() {
         serialERR();
       }
     } else if (bridgeEnabled) {
+      if (radioSleeping) {
+        Serial.println(F("ERROR: RADIO_SLEEPING (send AT+WAKE)"));
+        return;
+      }
+
       // Bridge mode: send via radio with \r\n appended
       String dataWithCRLF = line + "\r\n";
       if (transmitData(dataWithCRLF.c_str(), dataWithCRLF.length())) {
