@@ -76,6 +76,7 @@ Use these values for `RADIO_MODULE`:
 | `RADIO_EBYTE` | `src/Ebyte` | Ebyte E32 UART LoRa module |
 | `RADIO_EBYTE_E22_SX1268` | `src/Ebyte E22(SX1268)` | Ebyte E22 SPI LoRa module, SX1268 |
 | `RADIO_EBYTE_E280_SX1280` | `src/Ebyte E280(SX1280)` | Ebyte E280-2G4T12S UART/TTL module, SX1280 |
+| `RADIO_EBYTE_E79_CC1352P` | `src/Ebyte E79(CC1352P)` | Ebyte E79-400DM2005S, TI CC1352P wireless MCU |
 | `RADIO_XL1276_D01_SX1276` | `src/XL1276-D01 (SX1276)` | XL1276-D01, SX1276 |
 
 ## Firmware variants
@@ -106,10 +107,22 @@ Availability by module:
 | `RADIO_EBYTE` | yes | no | no | no | no | yes |
 | `RADIO_EBYTE_E22_SX1268` | yes | no | no | no | no | no |
 | `RADIO_EBYTE_E280_SX1280` | yes | no | no | no | no | no |
+| `RADIO_EBYTE_E79_CC1352P` | yes | no | no | no | no | no |
 | `RADIO_XL1276_D01_SX1276` | yes | no | yes | yes | yes | no |
 
 If a module/program combination is not available, compilation stops with a clear
 `#error` message from `src/module_selection.h`.
+
+## Planned / In Development Modules
+
+These modules are documented locally and are planned for future support, but are
+not fully supported yet:
+
+| Module | Chipset | Status / expected approach |
+| --- | --- | --- |
+| Ebyte E79-400DM2005S | TI CC1352P wireless MCU | ESP32-side skeleton added; CC1352P UART modem firmware is in development |
+| Ai-Thinker RA-08 | ASR6601 LPWAN SoC | Planned; separate module firmware, then UART modem/AT bridge from ESP32 |
+| Ai-Thinker RA-09 | STM32WLE5CCU6 wireless MCU | Planned; separate module firmware, then UART modem/AT bridge from ESP32 |
 
 ## Build
 
@@ -362,6 +375,27 @@ binary configuration protocol, not through SPI/RadioLib. Current pin assumptions
 | `AT+LBT?`, `AT+LBT=ON\|OFF` | Query/set listen-before-talk |
 | `AT+IOMODE?`, `AT+IOMODE=PP\|OD` | Query/set TXD/AUX/RXD IO drive mode |
 | `AT+SETRADIO=ADDH,ADDL,CHAN,BAUD,PARITY,AIR,POWER,FIXED,RANGE,FHSS,ROLE,LBT,IOMODE` | One-shot E280 configuration |
+
+### Ebyte E79 CC1352P Skeleton
+
+`E79-400DM2005S` is a TI CC1352P wireless MCU module, not a direct ESP32
+radio peripheral. The current ESP32-side file is intentionally only a skeleton:
+it reserves the module selection, shows an OLED splash, opens the future modem
+UART on GPIO20/GPIO21, and provides local AT commands plus forwarding hooks for
+a CC1352P firmware that still has to be built and flashed separately via
+JTAG/cJTAG.
+
+| Command | Meaning |
+| --- | --- |
+| `AT`, `AT?`, `AT+HELP`, `AT+CFG?` | Connectivity, help, and ESP32-side skeleton status |
+| `AT+DEFAULT` | Restore local ESP32-side skeleton defaults |
+| `AT+DEBUG=ON\|OFF`, `AT+DEBUG?` | Control forwarded-command debug output |
+| `AT+BRIDGE=ON\|OFF`, `AT+BRIDGE?` | Control local USB Serial to E79 modem UART bridge mode |
+| `AT+BAUD?`, `AT+BAUD=<1200..921600>` | Query/set the ESP32 UART baud used for the future E79 modem firmware |
+| `AT+RAW=<command>` | Send a raw line to the future CC1352P UART modem firmware |
+| `AT+PING` | Forward `AT` to the future CC1352P UART modem firmware |
+| `AT+SLEEP`, `AT+WAKE` | Forward sleep/wake placeholders to the future CC1352P UART modem firmware |
+| `AT+FREQ?`, `AT+FREQ=<Hz>`, `AT+CHAN?`, `AT+CHAN=<n>`, `AT+PWR?`, `AT+PWR=<dBm>`, `AT+RX=ON`, `AT+RX=OFF`, `AT+SEND=<data>` | Forwarded placeholders; require CC1352P firmware support |
 | `AT+SENDTO=ADDH,ADDL,CHAN,TEXT` | Send a fixed-address payload with the 3-byte Ebyte prefix |
 | `AT+BROADCAST=CHAN,TEXT` | Send a fixed-address broadcast payload |
 

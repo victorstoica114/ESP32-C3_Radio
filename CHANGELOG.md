@@ -8,6 +8,7 @@ All notable changes to this project will be documented here.
 
 - Added Ebyte E22 SX1268 SPI module support with AT-command firmware, onboard OLED on GPIO5/GPIO6, and SX1268-safe parameter validation.
 - Added Ebyte E280-2G4T12S UART/TTL module support with raw Ebyte binary configuration, bridge mode, RSSI/ranging/low-power runtime modes, and AT-command wrappers.
+- Added an initial Ebyte E79 CC1352P ESP32-side skeleton for a future UART modem firmware running on the CC1352P itself.
 - Added reusable PowerShell test/upload scripts under `test/`; generated logs go under ignored `log/`.
 - Added a temporary `Datasheets/` folder with PDF documentation for supported modules and ESP32-C3 hardware.
 - Added per-module AT command documentation to `README.md`, including module-specific command descriptions.
@@ -19,6 +20,7 @@ All notable changes to this project will be documented here.
   - RA-01SH SX1262
   - Ebyte E22 SX1268
   - Ebyte E280 SX1280 UART
+  - Ebyte E79 CC1352P skeleton
   - E28 SX1280
   - Ebyte E32
 - Added runtime sleep-state tracking so transparent payload TX is blocked while a radio is sleeping.
@@ -71,6 +73,7 @@ All notable changes to this project will be documented here.
   - `RADIO_EBYTE`
   - `RADIO_EBYTE_E22_SX1268`
   - `RADIO_EBYTE_E280_SX1280`
+  - `RADIO_EBYTE_E79_CC1352P`
   - `RADIO_XL1276_D01_SX1276`
 
 ## 2026-06-30
