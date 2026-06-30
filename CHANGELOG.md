@@ -9,6 +9,7 @@ All notable changes to this project will be documented here.
 - Added Ebyte E22 SX1268 SPI module support with AT-command firmware, onboard OLED on GPIO5/GPIO6, and SX1268-safe parameter validation.
 - Added Ebyte E280-2G4T12S UART/TTL module support with raw Ebyte binary configuration, bridge mode, RSSI/ranging/low-power runtime modes, and AT-command wrappers.
 - Added an initial Ebyte E79 CC1352P ESP32-side skeleton for a future UART modem firmware running on the CC1352P itself.
+- Added the Ai-Thinker RA-08 ASR6601 standalone AT modem source under `src/Ai-Thinker-LoRaWAN-Ra-08`, kept separate from the full SDK/toolchain.
 - Added reusable PowerShell test/upload scripts under `test/`; generated logs go under ignored `log/`.
 - Added a temporary `Datasheets/` folder with PDF documentation for supported modules and ESP32-C3 hardware.
 - Added per-module AT command documentation to `README.md`, including module-specific command descriptions.
@@ -31,6 +32,7 @@ All notable changes to this project will be documented here.
 - Expanded AT coverage for RA-01SH SX1262 with TCXO voltage, regulator mode, DIO2 RF switch, boosted RX gain, header mode, IQ inversion, LDRO, SNR/frequency-error diagnostics, CAD, random-byte diagnostics, and status commands.
 - Added Ebyte E22 SX1268 AT coverage matching the SX126x command set, with E22 400 MHz frequency limits.
 - Added Ebyte E280 AT coverage for address/channel, baud/parity, air rate, TX power, fixed/broadcast send, ranging mode, frequency hopping, LBT, IO mode, local/remote config windows, and module info/reset commands.
+- Validated RA-08 AT modem firmware on two modules, including manual frequency mode, channel mode, sleep/wake guardrails, error formatting, and bidirectional radio traffic.
 - Expanded AT coverage for E28 SX1280 with LoRa/GFSK/FLRC/BLE mode selection, GFSK/BLE bitrate/deviation, FLRC bitrate/coding rate, shaping, whitening, BLE access address, packet length mode, GFSK/FLRC sync words, high-sensitivity mode, manual gain, header mode, IQ inversion, and diagnostics.
 - Expanded AT coverage for HC-12 with UART format selection, raw command forwarding, module info, bridge state, and safer sleep-state handling.
 - Expanded AT coverage for Ebyte E32 with runtime M0/M1 mode control, sleep/wake aliases, AUX/info diagnostics, temporary apply, fixed-send, and broadcast helpers.

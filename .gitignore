@@ -21,6 +21,15 @@ compile_commands.json
 log/*
 !log/.gitignore
 
+# Copied RA-08 SDK local/heavy artifacts
+src/Ai-Thinker-LoRaWAN-Ra-08/.git/
+src/Ai-Thinker-LoRaWAN-Ra-08/.gitmodules
+src/Ai-Thinker-LoRaWAN-Ra-08/tools/toolchain/
+src/Ai-Thinker-LoRaWAN-Ra-08/tools/toolchain/*.zip
+src/Ai-Thinker-LoRaWAN-Ra-08/**/out/
+src/Ai-Thinker-LoRaWAN-Ra-08/**/*.uvguix.*
+src/Ai-Thinker-LoRaWAN-Ra-08/**/*.uvoptx
+
 # OS/editor noise
 .DS_Store
 Thumbs.db

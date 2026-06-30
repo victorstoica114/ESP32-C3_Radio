@@ -19,3 +19,11 @@ Useful module values are the same as `RADIO_MODULE` in `src/main.cpp`.
 ```
 
 The default parameters match the RA-02 SX1278 AT firmware. For another SX127x module, override the default tokens or the batch `AT+SET` command if its expected defaults differ.
+
+## Run RA08 AT regression
+
+```powershell
+python .\test\ra08_regression.py
+```
+
+The script defaults to `COM20` and `COM21` at `115200` baud.

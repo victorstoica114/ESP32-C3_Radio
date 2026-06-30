@@ -115,14 +115,31 @@ If a module/program combination is not available, compilation stops with a clear
 
 ## Planned / In Development Modules
 
-These modules are documented locally and are planned for future support, but are
-not fully supported yet:
+These modules need their own module-side firmware or are planned for future
+support:
 
 | Module | Chipset | Status / expected approach |
 | --- | --- | --- |
 | Ebyte E79-400DM2005S | TI CC1352P wireless MCU | ESP32-side skeleton added; CC1352P UART modem firmware is in development |
-| Ai-Thinker RA-08 | ASR6601 LPWAN SoC | Planned; separate module firmware, then UART modem/AT bridge from ESP32 |
+| Ai-Thinker RA-08 | ASR6601 LPWAN SoC | Source-only standalone UART AT modem under `src/Ai-Thinker-LoRaWAN-Ra-08`; hardware-tested with two modules |
 | Ai-Thinker RA-09 | STM32WLE5CCU6 wireless MCU | Planned; separate module firmware, then UART modem/AT bridge from ESP32 |
+
+## External Module Firmware
+
+Some modules are wireless MCUs rather than direct ESP32 radio peripherals. Their
+module-side firmware is kept separately from the ESP32 PlatformIO firmware.
+
+### Ai-Thinker RA-08
+
+The RA-08 ASR6601 source under `src/Ai-Thinker-LoRaWAN-Ra-08` turns the RA-08
+into a standalone UART AT radio modem. This repository keeps only the modem
+source files (`main.c`, `at_modem.c`, IRQ glue, and headers). Build support,
+drivers, startup code, linker scripts, and the ARM GCC toolchain should live in
+the separate RA-08 SDK/firmware repository.
+
+The RA-08 modem was validated on two modules over USB serial at `115200` baud,
+including AT command parsing, parameter validation, sleep/wake guardrails,
+manual frequency mode, channel mode, and bidirectional packet exchange.
 
 ## Build
 
