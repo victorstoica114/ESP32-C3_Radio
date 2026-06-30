@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include <SPI.h>
+#include <Wire.h>
 #include <RadioLib.h>
 #include <EEPROM.h>
 #include <math.h>
@@ -20,6 +21,8 @@ static void drawCentered(const char* text, int baselineY, const uint8_t* font) {
   u8g2.drawStr(x, baselineY, text);
 }
 
+static void releaseOledI2CBus();
+
 static void oled_setup() {
   u8g2.begin();
   u8g2.setContrast(255);
@@ -29,6 +32,7 @@ static void oled_setup() {
   drawCentered("RADIO", 42, u8g2_font_logisoso18_tr);
   drawCentered("SX1276", 63, u8g2_font_logisoso18_tr);
   u8g2.sendBuffer();
+  releaseOledI2CBus();
 }
 
 // ------------------ PINOUT (SX1276 / RA-01) ------------------
@@ -44,6 +48,23 @@ static void oled_setup() {
 #define SPI_SS    7
 
 #define LED_GPIO 8
+
+static void beginRadioSpiBus() {
+  SPI.end();
+  delay(2);
+  SPI.begin(SPI_SCK, SPI_MISO, SPI_MOSI, SPI_SS);
+}
+
+static void releaseOledI2CBus() {
+  u8g2.setPowerSave(1);
+  Wire.end();
+  delay(2);
+  digitalWrite(OLED_SDA, LOW);
+  digitalWrite(OLED_SCL, LOW);
+  pinMode(OLED_SDA, INPUT);
+  pinMode(OLED_SCL, INPUT);
+  delay(2);
+}
 
 // SX1276 instead of SX1262
 SX1276 radio = new Module(NSS, DIO0, RESET, DIO1);
@@ -66,6 +87,10 @@ struct RadioConfig {
   uint16_t preamble    = 15;
   uint8_t  gain        = 0;       // 0=AGC, 1..6 manual LNA gain
   bool     crcOn       = true;
+  bool     implicitHdr = false;   // false=explicit, true=implicit header
+  uint8_t  implicitLen = 32;      // payload length for implicit header mode
+  bool     iqInverted  = false;   // LoRa IQ inversion
+  uint8_t  fhssPeriod  = 0;       // 0=FHSS off, >0 hopping period
 };
 
 RadioConfig cfg;
@@ -77,10 +102,11 @@ bool rxEnabledBeforeSleep = true;
 bool debugEnabled = debug_default_state;
 float lastPacketRSSI = NAN;
 float lastPacketSNR = NAN;
+float lastFrequencyError = NAN;
 
 // ------------------ EEPROM PERSISTENCE ------------------
 static const uint32_t EEPROM_MAGIC   = 0x53583736UL; // 'SX76'
-static const uint16_t EEPROM_VERSION = 0x0001;
+static const uint16_t EEPROM_VERSION = 0x0002;
 static const size_t   EEPROM_SIZE    = 512;
 
 static uint32_t crc32_update(uint32_t crc, uint8_t data) {
@@ -98,7 +124,7 @@ static uint32_t crc32_calc(const uint8_t* data, size_t len) {
   return ~crc;
 }
 
-struct __attribute__((packed)) EepromRecord {
+struct EepromRecord {
   uint32_t magic;
   uint16_t version;
   uint16_t length;
@@ -145,7 +171,11 @@ void onRxDone(void) {
 
 // ------------------ SERIAL HELPERS ------------------
 static inline void serialOK()  { Serial.println(F("OK")); }
-static inline void serialERR() { Serial.println(F("ERROR")); }
+static inline void serialERR() { Serial.println(F("#ERROR")); }
+static inline void serialError(const __FlashStringHelper* msg) {
+  Serial.print(F("#ERROR: "));
+  Serial.println(msg);
+}
 
 // ------------------ PARSERS ------------------
 static bool parseFloat(const String& s, float& out) {
@@ -184,6 +214,33 @@ static bool parseBoolOnOff(const String& s, bool& out) {
   return false;
 }
 
+static bool isValidSX1276Frequency(float freq) {
+  return ((freq >= 137.0f && freq <= 175.0f) ||
+          (freq >= 395.0f && freq <= 525.0f) ||
+          (freq >= 862.0f && freq <= 1020.0f));
+}
+
+static bool isValidSX127xBandwidth(float bw) {
+  return fabsf(bw - 7.8f) < 0.01f ||
+         fabsf(bw - 10.4f) < 0.01f ||
+         fabsf(bw - 15.6f) < 0.01f ||
+         fabsf(bw - 20.8f) < 0.01f ||
+         fabsf(bw - 31.25f) < 0.01f ||
+         fabsf(bw - 41.7f) < 0.01f ||
+         fabsf(bw - 62.5f) < 0.01f ||
+         fabsf(bw - 125.0f) < 0.01f ||
+         fabsf(bw - 250.0f) < 0.01f ||
+         fabsf(bw - 500.0f) < 0.01f;
+}
+
+static bool isValidSX127xPower(long pwr) {
+  return (pwr >= -4 && pwr <= 17) || pwr == 20;
+}
+
+static bool isValidSX127xCurrent(float currentMA) {
+  return currentMA == 0.0f || (currentMA >= 45.0f && currentMA <= 240.0f);
+}
+
 // ------------------ PRINT CONFIG/HELP ------------------
 static void printConfig() {
   Serial.println(F("====== SX1276 CONFIGURATION ======"));
@@ -197,6 +254,10 @@ static void printConfig() {
   Serial.print(F("Preamble:     ")); Serial.println(cfg.preamble);
   Serial.print(F("Gain:         ")); Serial.print(cfg.gain); Serial.println(F(" (0=AGC)"));
   Serial.print(F("CRC:          ")); Serial.println(cfg.crcOn ? F("ON") : F("OFF"));
+  Serial.print(F("Header:       ")); Serial.println(cfg.implicitHdr ? F("IMPLICIT") : F("EXPLICIT"));
+  Serial.print(F("Implicit Len: ")); Serial.println(cfg.implicitLen);
+  Serial.print(F("IQ:           ")); Serial.println(cfg.iqInverted ? F("INVERTED") : F("NORMAL"));
+  Serial.print(F("FHSS:         ")); Serial.println(cfg.fhssPeriod);
   Serial.print(F("RX Enabled:   ")); Serial.println(rxEnabled ? F("ON") : F("OFF"));
   Serial.print(F("Sleep:        ")); Serial.println(radioSleeping ? F("YES") : F("NO"));
   Serial.print(F("Debug:        ")); Serial.println(debugEnabled ? F("ON") : F("OFF"));
@@ -216,16 +277,20 @@ static void printHelp() {
   Serial.println(F("  AT+RESET            -> Hardware reset + reinit"));
   Serial.println(F(""));
   Serial.println(F("Parameters (auto save + apply):"));
-  Serial.println(F("  AT+FREQ=<MHz>       / AT+FREQ?"));
-  Serial.println(F("  AT+BW=<kHz>         / AT+BW?"));
+  Serial.println(F("  AT+FREQ=<137..175|395..525|862..1020 MHz> / AT+FREQ?"));
+  Serial.println(F("  AT+BW=<7.8|10.4|15.6|20.8|31.25|41.7|62.5|125|250|500>"));
   Serial.println(F("  AT+SF=<6..12>       / AT+SF?"));
   Serial.println(F("  AT+CR=<5..8>        / AT+CR?"));
   Serial.println(F("  AT+SYNC=<hex>       / AT+SYNC?"));
-  Serial.println(F("  AT+PWR=<dBm>        / AT+PWR?      (-4 to +20)"));
-  Serial.println(F("  AT+CURR=<mA>        / AT+CURR?"));
-  Serial.println(F("  AT+PREAMBLE=<n>     / AT+PREAMBLE?"));
+  Serial.println(F("  AT+PWR=<-4..17|20>  / AT+PWR?"));
+  Serial.println(F("  AT+CURR=<0|45..240> / AT+CURR?"));
+  Serial.println(F("  AT+PREAMBLE=<6..65535> / AT+PREAMBLE?"));
   Serial.println(F("  AT+GAIN=<0..6>      / AT+GAIN?     (0=AGC)"));
   Serial.println(F("  AT+CRC=ON|OFF       / AT+CRC?"));
+  Serial.println(F("  AT+HEADER=EXPLICIT  / AT+HEADER?"));
+  Serial.println(F("  AT+HEADER=IMPLICIT,<1..255>"));
+  Serial.println(F("  AT+IQ=ON|OFF        / AT+IQ?"));
+  Serial.println(F("  AT+FHSS=<0..255>    / AT+FHSS?    (0=OFF)"));
   Serial.println(F(""));
   Serial.println(F("Batch set:"));
   Serial.println(F("  AT+SET=<FREQ>,<BW>,<SF>,<CR>,<SYNC>,<PWR>,<CURR>,<PRE>,<GAIN>,<CRC>"));
@@ -237,6 +302,9 @@ static void printHelp() {
   Serial.println(F("  AT+WAKE             -> wake + restore RX"));
   Serial.println(F("  AT+RSSI?"));
   Serial.println(F("  AT+SNR?"));
+  Serial.println(F("  AT+FERR?"));
+  Serial.println(F("  AT+CAD?"));
+  Serial.println(F("  AT+RANDOM?"));
   Serial.println(F("  AT+DEBUG=ON|OFF"));
   Serial.println(F(""));
 }
@@ -301,7 +369,33 @@ static bool applyConfigToRadio() {
   }
 
   // CRC - SX1276 uses bool
-  radio.setCRC(cfg.crcOn);
+  st = radio.setCRC(cfg.crcOn);
+  if (st != RADIOLIB_ERR_NONE) {
+    if (debugEnabled) { Serial.print(F("[DEBUG] setCRC: ")); Serial.println(st); }
+    return false;
+  }
+
+  if (cfg.implicitHdr) {
+    st = radio.implicitHeader(cfg.implicitLen);
+  } else {
+    st = radio.explicitHeader();
+  }
+  if (st != RADIOLIB_ERR_NONE) {
+    if (debugEnabled) { Serial.print(F("[DEBUG] setHeader: ")); Serial.println(st); }
+    return false;
+  }
+
+  st = radio.invertIQ(cfg.iqInverted);
+  if (st != RADIOLIB_ERR_NONE) {
+    if (debugEnabled) { Serial.print(F("[DEBUG] invertIQ: ")); Serial.println(st); }
+    return false;
+  }
+
+  st = radio.setFHSSHoppingPeriod(cfg.fhssPeriod);
+  if (st != RADIOLIB_ERR_NONE) {
+    if (debugEnabled) { Serial.print(F("[DEBUG] setFHSS: ")); Serial.println(st); }
+    return false;
+  }
 
   // Current limit
   if (cfg.currLimitMA > 0.0f) {
@@ -331,6 +425,7 @@ static bool applyConfigToRadio() {
 }
 
 static bool resetAndReinit() {
+  beginRadioSpiBus();
   resetRadioHardware();
 
   // SX1276 begin() - simple, no TCXO/BUSY like SX1262
@@ -468,6 +563,41 @@ static bool handleAT(String lineRaw) {
     serialOK();
     return true;
   }
+  if (u == "AT+FERR?") {
+    if (isnan(lastFrequencyError)) Serial.println(F("FERR=N/A"));
+    else { Serial.print(F("FERR=")); Serial.print(lastFrequencyError, 2); Serial.println(F(" Hz")); }
+    serialOK();
+    return true;
+  }
+  if (u == "AT+CAD?") {
+    radio.clearPacketReceivedAction();
+    int st = radio.scanChannel();
+    if (rxEnabled && !radioSleeping) {
+      receivedFlag = false;
+      radio.setPacketReceivedAction(onRxDone);
+      radio.startReceive();
+    }
+    if (st == RADIOLIB_CHANNEL_FREE) {
+      Serial.println(F("CAD=FREE"));
+      serialOK();
+    } else if (st == RADIOLIB_PREAMBLE_DETECTED || st == RADIOLIB_LORA_DETECTED) {
+      Serial.println(F("CAD=DETECTED"));
+      serialOK();
+    } else {
+      Serial.print(F("#ERROR: CAD_ERROR="));
+      Serial.println(st);
+      serialERR();
+    }
+    return true;
+  }
+  if (u == "AT+RANDOM?") {
+    uint8_t b = radio.randomByte();
+    Serial.print(F("RANDOM=0x"));
+    if (b < 16) Serial.print('0');
+    Serial.println(b, HEX);
+    serialOK();
+    return true;
+  }
 
   // DEBUG
   if (u == "AT+DEBUG?") {
@@ -495,20 +625,57 @@ static bool handleAT(String lineRaw) {
   if (u == "AT+PREAMBLE?") { Serial.print(F("PREAMBLE=")); Serial.println(cfg.preamble); serialOK(); return true; }
   if (u == "AT+GAIN?")     { Serial.print(F("GAIN=")); Serial.println(cfg.gain); serialOK(); return true; }
   if (u == "AT+CRC?")      { Serial.print(F("CRC=")); Serial.println(cfg.crcOn ? F("ON") : F("OFF")); serialOK(); return true; }
+  if (u == "AT+HEADER?") {
+    Serial.print(F("HEADER="));
+    Serial.println(cfg.implicitHdr ? F("IMPLICIT") : F("EXPLICIT"));
+    Serial.print(F("IMPLEN="));
+    Serial.println(cfg.implicitLen);
+    serialOK();
+    return true;
+  }
+  if (u == "AT+IQ?")       { Serial.print(F("IQ=")); Serial.println(cfg.iqInverted ? F("ON") : F("OFF")); serialOK(); return true; }
+  if (u == "AT+FHSS?")     { Serial.print(F("FHSS=")); Serial.println(cfg.fhssPeriod); serialOK(); return true; }
 
   // Boolean setters
   if (u == "AT+CRC=ON")  { cfg.crcOn = true;  (persistAndReapply() ? serialOK() : serialERR()); return true; }
   if (u == "AT+CRC=OFF") { cfg.crcOn = false; (persistAndReapply() ? serialOK() : serialERR()); return true; }
+  if (u == "AT+HEADER=EXPLICIT") {
+    cfg.implicitHdr = false;
+    (persistAndReapply() ? serialOK() : serialERR());
+    return true;
+  }
+  if (u.startsWith("AT+HEADER=IMPLICIT")) {
+    int comma = line.indexOf(',');
+    if (comma < 0) { serialERR(); return true; }
+    long len;
+    if (!parseInt(line.substring(comma + 1), len) || len < 1 || len > 255) { serialERR(); return true; }
+    cfg.implicitHdr = true;
+    cfg.implicitLen = (uint8_t)len;
+    (persistAndReapply() ? serialOK() : serialERR());
+    return true;
+  }
+  if (u.startsWith("AT+IQ=")) {
+    bool on; if (!parseBoolOnOff(line.substring(6), on)) { serialERR(); return true; }
+    cfg.iqInverted = on;
+    (persistAndReapply() ? serialOK() : serialERR());
+    return true;
+  }
+  if (u.startsWith("AT+FHSS=")) {
+    long v; if (!parseInt(line.substring(8), v) || v < 0 || v > 255) { serialERR(); return true; }
+    cfg.fhssPeriod = (uint8_t)v;
+    (persistAndReapply() ? serialOK() : serialERR());
+    return true;
+  }
 
   // Numeric setters
   if (u.startsWith("AT+FREQ=")) {
-    float v; if (!parseFloat(line.substring(8), v)) { serialERR(); return true; }
+    float v; if (!parseFloat(line.substring(8), v) || !isValidSX1276Frequency(v)) { serialERR(); return true; }
     cfg.freqMHz = v;
     (persistAndReapply() ? serialOK() : serialERR());
     return true;
   }
   if (u.startsWith("AT+BW=")) {
-    float v; if (!parseFloat(line.substring(6), v)) { serialERR(); return true; }
+    float v; if (!parseFloat(line.substring(6), v) || !isValidSX127xBandwidth(v)) { serialERR(); return true; }
     cfg.bwkHz = v;
     (persistAndReapply() ? serialOK() : serialERR());
     return true;
@@ -533,19 +700,19 @@ static bool handleAT(String lineRaw) {
   }
   if (u.startsWith("AT+PWR=")) {
     long v; if (!parseInt(line.substring(7), v)) { serialERR(); return true; }
-    if (v < -4 || v > 20) { serialERR(); return true; }
+    if (!isValidSX127xPower(v)) { serialERR(); return true; }
     cfg.pwrDbm = (int8_t)v;
     (persistAndReapply() ? serialOK() : serialERR());
     return true;
   }
   if (u.startsWith("AT+CURR=")) {
-    float v; if (!parseFloat(line.substring(8), v) || v < 0.0f) { serialERR(); return true; }
+    float v; if (!parseFloat(line.substring(8), v) || !isValidSX127xCurrent(v)) { serialERR(); return true; }
     cfg.currLimitMA = v;
     (persistAndReapply() ? serialOK() : serialERR());
     return true;
   }
   if (u.startsWith("AT+PREAMBLE=")) {
-    long v; if (!parseInt(line.substring(12), v) || v < 1 || v > 65535) { serialERR(); return true; }
+    long v; if (!parseInt(line.substring(12), v) || v < 6 || v > 65535) { serialERR(); return true; }
     cfg.preamble = (uint16_t)v;
     (persistAndReapply() ? serialOK() : serialERR());
     return true;
@@ -578,14 +745,14 @@ static bool handleAT(String lineRaw) {
     uint8_t sync;
     bool crcOn;
 
-    if (!parseFloat(parts[0], f)) { serialERR(); return true; }
-    if (!parseFloat(parts[1], bw)) { serialERR(); return true; }
+    if (!parseFloat(parts[0], f) || !isValidSX1276Frequency(f)) { serialERR(); return true; }
+    if (!parseFloat(parts[1], bw) || !isValidSX127xBandwidth(bw)) { serialERR(); return true; }
     if (!parseInt(parts[2], sf) || sf < 6 || sf > 12) { serialERR(); return true; }
     if (!parseInt(parts[3], cr) || cr < 5 || cr > 8) { serialERR(); return true; }
     if (!parseHexByte(parts[4], sync)) { serialERR(); return true; }
-    if (!parseInt(parts[5], pwr) || pwr < -4 || pwr > 20) { serialERR(); return true; }
-    if (!parseFloat(parts[6], curr) || curr < 0.0f) { serialERR(); return true; }
-    if (!parseInt(parts[7], pre) || pre < 1 || pre > 65535) { serialERR(); return true; }
+    if (!parseInt(parts[5], pwr) || !isValidSX127xPower(pwr)) { serialERR(); return true; }
+    if (!parseFloat(parts[6], curr) || !isValidSX127xCurrent(curr)) { serialERR(); return true; }
+    if (!parseInt(parts[7], pre) || pre < 6 || pre > 65535) { serialERR(); return true; }
     if (!parseInt(parts[8], gain) || gain < 0 || gain > 6) { serialERR(); return true; }
     if (!parseBoolOnOff(parts[9], crcOn)) { serialERR(); return true; }
 
@@ -616,8 +783,7 @@ void setup() {
   pinMode(LED_GPIO, OUTPUT);
   digitalWrite(LED_GPIO, LOW);
 
-  // SPI init
-  SPI.begin(SPI_SCK, SPI_MISO, SPI_MOSI, SPI_SS);
+  beginRadioSpiBus();
 
   Serial.println();
   Serial.println(F("=========================================="));
@@ -693,7 +859,7 @@ void loop() {
         serialERR();
       }
     } else if (radioSleeping) {
-      Serial.println(F("ERROR: RADIO_SLEEPING (send AT+WAKE)"));
+      serialError(F("RADIO_SLEEPING (send AT+WAKE)"));
     } else if (rxEnabled) {
       // TX with \r\n appended
       radio.clearPacketReceivedAction();
@@ -729,6 +895,7 @@ void loop() {
     if (rx == RADIOLIB_ERR_NONE) {
       lastPacketRSSI = radio.getRSSI();
       lastPacketSNR = radio.getSNR();
+      lastFrequencyError = radio.getFrequencyError();
 
       if (debugEnabled) {
         Serial.print(F("[RX] Data: "));

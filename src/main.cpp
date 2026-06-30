@@ -24,8 +24,13 @@
 //   BRIDGE
 
 // Change these two defines when switching what you want to test.
+#ifndef RADIO_MODULE
 #define RADIO_MODULE  RADIO_RA02_SX1278
+#endif
+
+#ifndef RADIO_PROGRAM
 #define RADIO_PROGRAM AT_COMMANDS
+#endif
 
 // Keep this after RADIO_MODULE/RADIO_PROGRAM; it uses those selections.
 #include "module_selection.h"

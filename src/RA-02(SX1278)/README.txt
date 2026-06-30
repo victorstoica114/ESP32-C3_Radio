@@ -142,8 +142,8 @@ This applies to:
 - Commands are terminated by newline ('\n')
 - Recommended Serial Monitor setting: "Newline"
 - Responses:
-  OK      → command executed successfully
-  ERROR   → invalid command or invalid parameter
+  OK       → command executed successfully
+  #ERROR   → invalid command or invalid parameter
 
 IMPORTANT:
 - Configuration setters automatically SAVE and APPLY

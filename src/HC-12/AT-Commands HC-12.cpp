@@ -55,15 +55,17 @@ struct HC12Config {
   uint8_t  fuMode      = 3;       // AT+FU1..4
   uint8_t  powerLevel  = 8;       // AT+P1..P8
   uint16_t channel     = 10;      // AT+Cnnn (0..127) -> 433.4 + 0.4*nnn MHz
+  uint8_t  uartFormat  = 0;       // 0=8N1, 1=8O1, 2=8E1
   bool     bridgeOn    = true;    // USB<->HC12
 };
 HC12Config cfg;
 const HC12Config cfgDefault;
 static bool debugEnabled = debug_default_state;
+static bool hc12Sleeping = false;
 
 // ========= EEPROM =========
 static const uint32_t EEPROM_MAGIC   = 0x48433132UL; // 'HC12'
-static const uint16_t EEPROM_VERSION = 0x0001;
+static const uint16_t EEPROM_VERSION = 0x0002;
 static const size_t   EEPROM_SIZE    = 512;
 
 static uint32_t crc32_update(uint32_t crc, uint8_t data) {
@@ -79,7 +81,7 @@ static uint32_t crc32_calc(const uint8_t* data, size_t len) {
   for (size_t i = 0; i < len; i++) crc = crc32_update(crc, data[i]);
   return ~crc;
 }
-struct __attribute__((packed)) EepromRecord {
+struct EepromRecord {
   uint32_t magic;
   uint16_t version;
   uint16_t length;
@@ -106,7 +108,11 @@ static bool eepromSave(const HC12Config& in) {
 
 // ========= UTILS =========
 static inline void serialOK()  { Serial.println(F("OK")); }
-static inline void serialERR() { Serial.println(F("ERROR")); }
+static inline void serialERR() { Serial.println(F("#ERROR")); }
+static inline void serialError(const __FlashStringHelper* msg) {
+  Serial.print(F("#ERROR: "));
+  Serial.println(msg);
+}
 
 static bool parseUInt(const String& s, uint32_t& out) {
   char* e=nullptr; unsigned long v=strtoul(s.c_str(), &e, 10);
@@ -125,6 +131,40 @@ static bool parseOnOff(const String& s, bool& out) {
   if (t=="ON"||t=="1"||t=="TRUE"){out=true; return true;}
   if (t=="OFF"||t=="0"||t=="FALSE"){out=false; return true;}
   return false;
+}
+static const char* uartFormatName(uint8_t fmt) {
+  switch (fmt) {
+    case 1: return "8O1";
+    case 2: return "8E1";
+    default: return "8N1";
+  }
+}
+static uint32_t uartSerialConfig(uint8_t fmt) {
+  switch (fmt) {
+    case 1: return SERIAL_8O1;
+    case 2: return SERIAL_8E1;
+    default: return SERIAL_8N1;
+  }
+}
+static bool parseUartFormat(String s, uint8_t& out) {
+  s.trim();
+  s.toUpperCase();
+  if (s=="8N1" || s=="N" || s=="0") { out=0; return true; }
+  if (s=="8O1" || s=="O" || s=="1") { out=1; return true; }
+  if (s=="8E1" || s=="E" || s=="2") { out=2; return true; }
+  return false;
+}
+static void hc12Begin(uint32_t baud, uint8_t fmt) {
+#if defined(ESP32)
+  HC12_SERIAL.end();
+  delay(20);
+  HC12_SERIAL.begin(baud, uartSerialConfig(fmt), HC12_RX_PIN, HC12_TX_PIN);
+#else
+  (void)fmt;
+  HC12_SERIAL.end();
+  delay(20);
+  HC12_SERIAL.begin(baud);
+#endif
 }
 static String readSerialLineNonBlocking() {
   static String buf;
@@ -187,11 +227,7 @@ static bool hc12_set_baud_safe(uint32_t newBaud) {
   exitAT();
 
   // 4) Switch MCU UART to NEW baud
-#if defined(ESP32)
-  HC12_SERIAL.updateBaudRate(newBaud);
-#else
-  HC12_SERIAL.end(); delay(20); HC12_SERIAL.begin(newBaud);
-#endif
+  hc12Begin(newBaud, cfg.uartFormat);
 
   // 5) Verify via AT+RB
   enterAT();
@@ -216,11 +252,7 @@ static bool hc12_set_baud_safe(uint32_t newBaud) {
   atCmd(cmd, nullptr, 120);
   exitAT();
 
-#if defined(ESP32)
-  HC12_SERIAL.updateBaudRate(newBaud);
-#else
-  HC12_SERIAL.end(); delay(20); HC12_SERIAL.begin(newBaud);
-#endif
+  hc12Begin(newBaud, cfg.uartFormat);
 
   // Re-verify
   enterAT();
@@ -244,12 +276,7 @@ static bool hc12_force_defaults() {
   delay(60);
 
   // Talk at 9600 (power-on-with-SET-low path guarantees 9600 AT; if not, we still try)
-#if defined(ESP32)
-  HC12_SERIAL.end(); delay(20);
-  HC12_SERIAL.begin(9600, SERIAL_8N1, HC12_RX_PIN, HC12_TX_PIN);
-#else
-  HC12_SERIAL.end(); delay(20); HC12_SERIAL.begin(9600);
-#endif
+  hc12Begin(9600, 0);
 
   // Send DEFAULT
   HC12_SERIAL.print("AT+DEFAULT\r\n");
@@ -260,7 +287,7 @@ static bool hc12_force_defaults() {
   delay(120);
 
   // Keep UART at 9600 (module now on defaults)
-  Serial.println(F("[DEFAULT] Restored (9600/FU3/CH001)."));
+  Serial.println(F("[DEFAULT] Restored (9600/8N1/FU3/CH001)."));
   return true;
 }
 
@@ -280,25 +307,19 @@ static bool applyConfigToHC12() {
   char fcmd[12]; snprintf(fcmd, sizeof(fcmd), "AT+FU%u", (unsigned)cfg.fuMode);
   atCmd(fcmd, nullptr, 150);
 
+  char ucmd[12]; snprintf(ucmd, sizeof(ucmd), "AT+U%s", uartFormatName(cfg.uartFormat));
+  atCmd(ucmd, nullptr, 150);
+
   exitAT();
 
   // Retune MCU UART la baudul curent HC-12
-#if defined(ESP32)
-  HC12_SERIAL.updateBaudRate(cfg.hcBaud);
-#else
-  HC12_SERIAL.end(); delay(20); HC12_SERIAL.begin(cfg.hcBaud);
-#endif
+  hc12Begin(cfg.hcBaud, cfg.uartFormat);
+  hc12Sleeping = false;
   return true;
 }
 
 static bool resetAndApply() {
-#if defined(ESP32)
-  HC12_SERIAL.end(); delay(20);
-  HC12_SERIAL.begin(cfg.hcBaud, SERIAL_8N1, HC12_RX_PIN, HC12_TX_PIN);
-#else
-  HC12_SERIAL.end(); delay(20);
-  HC12_SERIAL.begin(cfg.hcBaud);
-#endif
+  hc12Begin(cfg.hcBaud, cfg.uartFormat);
   return applyConfigToHC12();
 }
 
@@ -315,7 +336,9 @@ static void printConfig() {
   Serial.print(F("  CHANNEL="));    Serial.println(cfg.channel);
   Serial.print(F("  POWER="));      Serial.println(cfg.powerLevel);
   Serial.print(F("  FU="));         Serial.println(cfg.fuMode);
+  Serial.print(F("  UART="));       Serial.println(uartFormatName(cfg.uartFormat));
   Serial.print(F("  BRIDGE="));     Serial.println(cfg.bridgeOn ? F("ON") : F("OFF"));
+  Serial.print(F("  SLEEP="));      Serial.println(hc12Sleeping ? F("YES") : F("NO"));
   float fMHz = 433.4f + 0.4f * (float)cfg.channel;
   Serial.print(F("  FREQ≈ ")); Serial.print(fMHz, 1); Serial.println(F(" MHz"));
 }
@@ -333,10 +356,13 @@ static void printHelp() {
   Serial.println(F("  AT+CHAN=<0..127>       / AT+CHAN?"));
   Serial.println(F("  AT+POWER=<1..8>        / AT+POWER?"));
   Serial.println(F("  AT+FU=<1..4>           / AT+FU?"));
+  Serial.println(F("  AT+UART=8N1|8O1|8E1    / AT+UART?"));
   Serial.println(F("  AT+BRIDGE=ON|OFF       / AT+BRIDGE?"));
   Serial.println(F(""));
   Serial.println(F("Extras:"));
   Serial.println(F("  AT+V           (version)"));
+  Serial.println(F("  AT+INFO?       (raw HC-12 AT+RX dump)"));
+  Serial.println(F("  AT+RAW=<cmd>   (send raw HC-12 command, e.g. AT+RAW=AT+RB)"));
   Serial.println(F("  AT+SLEEP"));
   Serial.println(F("  AT+WAKE"));
   Serial.println(F(""));
@@ -355,7 +381,7 @@ static bool handleAT(String lineRaw) {
   if (u=="AT+APPLY")   { bool ok=applyConfigToHC12(); ok?serialOK():serialERR(); return true; }
   if (u=="AT+DEFAULT") {
     if (hc12_force_defaults()) {
-      cfg.hcBaud = 9600; cfg.fuMode = 3; cfg.channel = 1; cfg.powerLevel = 8;
+      cfg.hcBaud = 9600; cfg.fuMode = 3; cfg.channel = 1; cfg.powerLevel = 8; cfg.uartFormat = 0; hc12Sleeping = false;
       eepromSave(cfg); serialOK();
     } else serialERR();
     return true;
@@ -371,6 +397,7 @@ static bool handleAT(String lineRaw) {
   if (u=="AT+CHAN?")   { Serial.print(F("CHAN="));  Serial.println(cfg.channel); serialOK(); return true; }
   if (u=="AT+POWER?")  { Serial.print(F("POWER=")); Serial.println(cfg.powerLevel); serialOK(); return true; }
   if (u=="AT+FU?")     { Serial.print(F("FU="));    Serial.println(cfg.fuMode); serialOK(); return true; }
+  if (u=="AT+UART?")   { Serial.print(F("UART="));  Serial.println(uartFormatName(cfg.uartFormat)); serialOK(); return true; }
   if (u=="AT+BRIDGE?") { Serial.print(F("BRIDGE="));Serial.println(cfg.bridgeOn?F("ON"):F("OFF")); serialOK(); return true; }
 
   if (u.startsWith("AT+BAUD=")) {
@@ -390,6 +417,10 @@ static bool handleAT(String lineRaw) {
     uint8_t f; if (!parseU8(line.substring(6), f, 1, 4)) { serialERR(); return true; }
     cfg.fuMode=f; (persistAndApply()?serialOK():serialERR()); return true;
   }
+  if (u.startsWith("AT+UART=")) {
+    uint8_t fmt; if (!parseUartFormat(line.substring(8), fmt)) { serialERR(); return true; }
+    cfg.uartFormat=fmt; (persistAndApply()?serialOK():serialERR()); return true;
+  }
   if (u=="AT+BRIDGE=ON")  { cfg.bridgeOn=true;  eepromSave(cfg); serialOK(); return true; }
   if (u=="AT+BRIDGE=OFF") { cfg.bridgeOn=false; eepromSave(cfg); serialOK(); return true; }
 
@@ -401,13 +432,31 @@ static bool handleAT(String lineRaw) {
     serialOK(); return true;
   }
 
+  if (u=="AT+INFO?") {
+    enterAT(); HC12_SERIAL.print("AT+RX\r\n");
+    String r; readUntilTimeout(r, 400); exitAT(); r.trim();
+    if (r.length()) Serial.println(r);
+    serialOK(); return true;
+  }
+
+  if (u.startsWith("AT+RAW=")) {
+    String raw = line.substring(7);
+    raw.trim();
+    if (raw.length() == 0) { serialERR(); return true; }
+    enterAT(); hc12WriteLine(raw.c_str());
+    String r; readUntilTimeout(r, 400); exitAT(); r.trim();
+    if (r.length()) Serial.println(r);
+    serialOK(); return true;
+  }
+
   // Passthrough extras
-  if (u=="AT+SLEEP") { enterAT(); atCmd("AT+SLEEP", nullptr, 150); exitAT(); serialOK(); return true; }
+  if (u=="AT+SLEEP") { enterAT(); atCmd("AT+SLEEP", nullptr, 150); exitAT(); hc12Sleeping = true; serialOK(); return true; }
   if (u=="AT+WAKE")  {
     // simplified wake pulse
     digitalWrite(HC12_SET_PIN, HIGH); delay(50);
     digitalWrite(HC12_SET_PIN, LOW);  delay(50);
     digitalWrite(HC12_SET_PIN, HIGH); delay(120);
+    hc12Sleeping = false;
     bool ok=applyConfigToHC12(); ok?serialOK():serialERR(); return true;
   }
 
@@ -436,11 +485,7 @@ void setup() {
   Serial.print(F("[BOOT] DEBUG default = ")); Serial.println(debug_default_state?F("ON"):F("OFF"));
 
   // HC-12 UART
-#if defined(ESP32)
-  HC12_SERIAL.begin(cfg.hcBaud, SERIAL_8N1, HC12_RX_PIN, HC12_TX_PIN);
-#else
-  HC12_SERIAL.begin(cfg.hcBaud);
-#endif
+  hc12Begin(cfg.hcBaud, cfg.uartFormat);
 
   // Aplică setările actuale (asigurare)
   applyConfigToHC12();
@@ -460,15 +505,21 @@ void loop() {
     if (line.startsWith("AT") || line.startsWith("at")) {
       if (!handleAT(line)) serialERR();
     } else {
-      if (cfg.bridgeOn) {
-        if (debugEnabled) { Serial.print(F("[HC12] TX: ")); Serial.println(line); }
-        hc12WriteLine(line.c_str());
+      if (!cfg.bridgeOn) {
+        serialError(F("BRIDGE_OFF (send AT+BRIDGE=ON)"));
+        return;
       }
+      if (hc12Sleeping) {
+        serialError(F("RADIO_SLEEPING (send AT+WAKE)"));
+        return;
+      }
+      if (debugEnabled) { Serial.print(F("[HC12] TX: ")); Serial.println(line); }
+      hc12WriteLine(line.c_str());
     }
   }
 
   // HC-12 -> USB bridge
-  if (cfg.bridgeOn) {
+  if (cfg.bridgeOn && !hc12Sleeping) {
     while (HC12_SERIAL.available()) {
       int c = HC12_SERIAL.read();
       Serial.write((uint8_t)c);

@@ -4,13 +4,13 @@ The system uses the following hardware connections. For the Ebyte E32 module: **
 
 Software dependencies are: **LoRa_E32** (for Ebyte E32 configuration and module info), **U8g2** (for OLED rendering), and **EEPROM** (from Arduino-ESP32). The firmware maintains two configurations: `cfgDefault` (compiled “firmware defaults”) and `cfgCurrent` (the active “shadow config”). On startup it attempts to load `cfgCurrent` from EEPROM; the EEPROM payload includes a magic value, version, stored length, the `Configuration` struct, and a CRC32. If EEPROM content fails validation, the firmware tries to read the configuration from the E32 module in PROGRAM mode; if that also fails, it falls back to the compiled defaults and stores them.
 
-At runtime, the firmware provides two main behaviors over USB Serial (115200 baud). First, it runs an **AT shell**: any line that starts with “AT” is handled locally and returns `OK` or `ERROR` plus optional output. Second, it runs a **UART bridge**: any line that does not start with “AT” is forwarded to the E32 module over Serial1, terminated with **CRLF (`\r\n`)**, matching serial monitors configured for CRLF end-of-line. Data coming from the E32 module is forwarded back to USB **raw** (byte-for-byte). The bridge can be enabled or disabled via an AT command, and it is enabled by default at boot.
+At runtime, the firmware provides two main behaviors over USB Serial (115200 baud). First, it runs an **AT shell**: any line that starts with “AT” is handled locally and returns `OK` or `#ERROR` plus optional output. Second, it runs a **UART bridge**: any line that does not start with “AT” is forwarded to the E32 module over Serial1, terminated with **CRLF (`\r\n`)**, matching serial monitors configured for CRLF end-of-line. Data coming from the E32 module is forwarded back to USB **raw** (byte-for-byte). The bridge can be enabled or disabled via an AT command, and it is enabled by default at boot.
 
 The E32 module is configured using the standard Ebyte two-mode approach. In **NORMAL mode** (M0=0, M1=0), the module is used for normal radio UART operations and bridging. In **PROGRAM mode** (M0=1, M1=1), the module accepts configuration commands and responds at **9600 baud**, which is why this firmware forces Serial1 to 9600 only during configuration reads/writes. To prevent `setConfiguration()` timeouts, the firmware (1) sets AUX as an input with pull-up, (2) adds generous delays after mode switching, and (3) waits for AUX to be HIGH before/after config operations. After a configuration write, it returns to NORMAL mode and reconfigures Serial1 to the UART baud rate specified by the newly applied config.
 
 The firmware uses “raw code” fields for E32 configuration (stable bitfield codes typically used by E32 tooling). UART baud is stored as a code 0..7 (1200..115200), parity is a code 0..2 (8N1/8O1/8E1), and air data rate is a code 0..5 (0.3..19.2 kbps). WOR timing is a code 0..7 mapped to 250..2000 ms (step 250 ms). TX power is a code 0..3; the firmware prints an explicit dBm value using a configurable mapping array `POWER_DBM_BY_CODE`. The current mapping is the common one for many “T30D”-style modules: code 0..3 corresponds to **30/27/24/21 dBm**. If your exact module variant differs, adjust `POWER_DBM_BY_CODE` accordingly.
 
-AT command interface (USB side) is line-based; it accepts CR, LF, or CRLF line endings. Commands are case-insensitive. If the command is valid, the device prints any requested information and returns `OK`; on errors it returns `ERROR`. The available AT commands are:
+AT command interface (USB side) is line-based; it accepts CR, LF, or CRLF line endings. Commands are case-insensitive. If the command is valid, the device prints any requested information and returns `OK`; on errors it returns `#ERROR`. The available AT commands are:
 
 **Core commands**
 - `AT`  
@@ -18,11 +18,11 @@ AT command interface (USB side) is line-based; it accepts CR, LF, or CRLF line e
 - `AT+HELP` or `AT?`  
   Prints the full help text, including all commands and indexed mappings. Returns `OK`.
 - `AT+CFG?`  
-  Reads the configuration from the E32 module (PROGRAM mode @9600), prints it in a human-readable format, reads and prints module information (if available), then returns to NORMAL mode and re-syncs Serial1 to the module UART baud. Returns `OK` on success, `ERROR` on failure.
+  Reads the configuration from the E32 module (PROGRAM mode @9600), prints it in a human-readable format, reads and prints module information (if available), then returns to NORMAL mode and re-syncs Serial1 to the module UART baud. Returns `OK` on success, `#ERROR` on failure.
 - `AT+APPLY`  
-  Writes the current shadow configuration (`cfgCurrent`) into the E32 module using SAVE mode, then stores it into EEPROM (CRC protected). Returns `OK` on success, `ERROR` on failure.
+  Writes the current shadow configuration (`cfgCurrent`) into the E32 module using SAVE mode, then stores it into EEPROM (CRC protected). Returns `OK` on success, `#ERROR` on failure.
 - `AT+DEFAULT`  
-  Restores compiled firmware defaults into `cfgCurrent`, writes them into the E32 module using SAVE mode, and stores them into EEPROM. Returns `OK` on success, `ERROR` on failure.
+  Restores compiled firmware defaults into `cfgCurrent`, writes them into the E32 module using SAVE mode, and stores them into EEPROM. Returns `OK` on success, `#ERROR` on failure.
 - `AT+BRIDGE=ON` / `AT+BRIDGE=OFF`  
   Enables or disables UART bridging for non-AT lines. Returns `OK`.
 - `AT+DEBUG=ON` / `AT+DEBUG=OFF`  
@@ -30,11 +30,11 @@ AT command interface (USB side) is line-based; it accepts CR, LF, or CRLF line e
 
 **Address and channel setters**
 - `AT+ADDH=<0..255>`  
-  Sets the high byte of the module address in the shadow config, applies to module (SAVE), persists to EEPROM. Returns `OK`/`ERROR`.
+  Sets the high byte of the module address in the shadow config, applies to module (SAVE), persists to EEPROM. Returns `OK`/`#ERROR`.
 - `AT+ADDL=<0..255>`  
-  Sets the low byte of the module address in the shadow config, applies to module (SAVE), persists to EEPROM. Returns `OK`/`ERROR`.
+  Sets the low byte of the module address in the shadow config, applies to module (SAVE), persists to EEPROM. Returns `OK`/`#ERROR`.
 - `AT+CHAN=<0..31>`  
-  Sets the channel (sub-band) in the shadow config, applies to module (SAVE), persists to EEPROM. Returns `OK`/`ERROR`.
+  Sets the channel (sub-band) in the shadow config, applies to module (SAVE), persists to EEPROM. Returns `OK`/`#ERROR`.
 
 **Indexed setters (fast configuration)**
 - `AT+BAUD1..8`  
@@ -75,7 +75,7 @@ AT command interface (USB side) is line-based; it accepts CR, LF, or CRLF line e
   - `IOMODE` `PP` or `OD`  
   Example: `AT+SETRADIO=0,1,23,8,1,6,1,1,1,0,PP`
 
-If an AT command is not recognized, the device responds with `ERROR`. If a line does not start with “AT” and the bridge is enabled, it is forwarded to the E32 as a line ending in CRLF; if the bridge is disabled, the line is ignored (no forwarding).
+If an AT command is not recognized, the device responds with `#ERROR`. If a line does not start with “AT” and the bridge is enabled, it is forwarded to the E32 as a line ending in CRLF; if the bridge is disabled, the device responds with `#ERROR: BRIDGE_OFF (send AT+BRIDGE=ON)`.
 
 Troubleshooting: if you see `setConfiguration: Timeout`, verify that AUX is correctly wired to the configured GPIO and that it transitions HIGH when the module is ready; also verify M0 and M1 wiring and that the module enters PROGRAM mode (M0=1, M1=1). Ensure the module is powered at the correct voltage (typically 3.3V logic) and that Serial1 pins match your board’s routing. If the OLED does not display, verify SDA/SCL pins, I2C wiring, and that the display is the SSD1306 128×64 variant expected by the selected U8g2 constructor. Finally, note that the current heartbeat implementation toggles the LED based on a `millis()` interval; you can adjust the blink behavior by changing the threshold in `led1HzService()`.
 

@@ -1,4 +1,6 @@
 #include <Arduino.h>
+#include <SPI.h>
+#include <Wire.h>
 #include <RadioLib.h>
 #include <EEPROM.h>
 #include <U8g2lib.h>
@@ -41,6 +43,10 @@ static const int CC1101_CS_PIN   = 7;
 static const int CC1101_GDO0_PIN = 10;
 static const int CC1101_GDO2_PIN = 3;
 static const int LED_PIN         = 8;
+static const int SPI_SCK_PIN     = 4;
+static const int SPI_MISO_PIN    = 5;
+static const int SPI_MOSI_PIN    = 6;
+static const int SPI_SS_PIN      = CC1101_CS_PIN;
 
 // =============================================================================
 // UART
@@ -55,7 +61,7 @@ static const float    DEF_BITRATE      = 4.8;      // kbps
 static const float    DEF_FREQ_DEV     = 5.2;      // kHz
 static const float    DEF_RX_BW        = 135.0;    // kHz
 static const int8_t   DEF_TX_POWER     = 10;       // dBm
-static const uint8_t  DEF_PREAMBLE     = 16;       // bytes
+static const uint8_t  DEF_PREAMBLE     = 16;       // bits
 static const uint8_t  DEF_SYNC_WORD_H  = 0xD3;
 static const uint8_t  DEF_SYNC_WORD_L  = 0x91;
 
@@ -80,7 +86,7 @@ static const int NUM_POWERS = 10;
 // EEPROM PERSISTENCE
 // =============================================================================
 static const uint32_t EEPROM_MAGIC   = 0x43433031UL; // "CC01"
-static const uint16_t EEPROM_VERSION = 0x0002;
+static const uint16_t EEPROM_VERSION = 0x0003;
 static const size_t   EEPROM_SIZE    = 512;
 
 struct RadioConfig {
@@ -93,6 +99,17 @@ struct RadioConfig {
   uint8_t  syncWordH;
   uint8_t  syncWordL;
   bool     crcEnabled;
+  uint8_t  modMode;              // 0=2FSK, 1=GFSK, 2=OOK/ASK, 3=4FSK
+  uint8_t  dataShaping;          // RADIOLIB_SHAPING_NONE or RADIOLIB_SHAPING_0_5
+  uint8_t  encoding;             // RADIOLIB_ENCODING_*
+  bool     fixedPacketLen;
+  uint8_t  packetLen;
+  bool     addressFiltering;
+  uint8_t  nodeAddress;
+  uint8_t  broadcastAddrs;       // RadioLib CC1101 accepts 1 or 2 when address filtering is ON
+  bool     promiscuous;
+  bool     requireCarrierSense;
+  uint8_t  syncMaxErrBits;       // 0 or 1
 };
 
 struct EepromBlob {
@@ -131,6 +148,23 @@ static bool receiveModeBeforeSleep = true;
 static uint32_t ledTickMs = 0;
 static bool ledState = false;
 
+static void beginRadioSpiBus() {
+  SPI.end();
+  delay(2);
+  SPI.begin(SPI_SCK_PIN, SPI_MISO_PIN, SPI_MOSI_PIN, SPI_SS_PIN);
+}
+
+static void releaseOledI2CBus() {
+  u8g2.setPowerSave(1);
+  Wire.end();
+  delay(2);
+  digitalWrite(OLED_SDA, LOW);
+  digitalWrite(OLED_SCL, LOW);
+  pinMode(OLED_SDA, INPUT);
+  pinMode(OLED_SCL, INPUT);
+  delay(2);
+}
+
 static void oled_setup() {
   u8g2.begin();
   u8g2.setContrast(255);
@@ -143,6 +177,7 @@ static void oled_setup() {
   drawCentered("CC1101", 63, u8g2_font_logisoso18_tr);  // baseline ~56
 
   u8g2.sendBuffer();
+  releaseOledI2CBus();
 }
 
 // =============================================================================
@@ -235,19 +270,33 @@ static void startReceive() {
 }
 
 static bool applyConfig(const RadioConfig& cfg) {
+  beginRadioSpiBus();
+
   // Opreste receptia si pune in standby
   radio.standby();
   radioSleeping = false;
   delay(10);
   
-  int state = radio.begin(
-    cfg.frequency,
-    cfg.bitRate,
-    cfg.freqDev,
-    cfg.rxBandwidth,
-    cfg.txPower,
-    cfg.preambleLen
-  );
+  int state;
+  if (cfg.modMode == 3) {
+    state = radio.beginFSK4(
+      cfg.frequency,
+      cfg.bitRate,
+      cfg.freqDev,
+      cfg.rxBandwidth,
+      cfg.txPower,
+      cfg.preambleLen
+    );
+  } else {
+    state = radio.begin(
+      cfg.frequency,
+      cfg.bitRate,
+      cfg.freqDev,
+      cfg.rxBandwidth,
+      cfg.txPower,
+      cfg.preambleLen
+    );
+  }
   
   if (state != RADIOLIB_ERR_NONE) {
     if (debugEnabled) {
@@ -257,22 +306,89 @@ static bool applyConfig(const RadioConfig& cfg) {
     return false;
   }
   
-  // Set sync word
-  uint8_t syncWord[] = { cfg.syncWordH, cfg.syncWordL };
-  state = radio.setSyncWord(syncWord, 2, 0, false);
+  if (cfg.modMode != 3) {
+    state = radio.setOOK(cfg.modMode == 2);
+    if (state != RADIOLIB_ERR_NONE) {
+      if (debugEnabled) {
+        Serial.print(F("[DEBUG] setOOK() failed: "));
+        Serial.println(state);
+      }
+      return false;
+    }
+  }
+
+  uint8_t shaping = (cfg.modMode == 1) ? RADIOLIB_SHAPING_0_5 : cfg.dataShaping;
+  state = radio.setDataShaping(shaping);
   if (state != RADIOLIB_ERR_NONE) {
     if (debugEnabled) {
-      Serial.print(F("[DEBUG] setSyncWord() failed: "));
+      Serial.print(F("[DEBUG] setDataShaping() failed: "));
       Serial.println(state);
     }
     return false;
   }
-  
-  // Set CRC
-  state = radio.setCrcFiltering(cfg.crcEnabled);
+
+  state = radio.setEncoding(cfg.encoding);
   if (state != RADIOLIB_ERR_NONE) {
     if (debugEnabled) {
-      Serial.print(F("[DEBUG] setCrcFiltering() failed: "));
+      Serial.print(F("[DEBUG] setEncoding() failed: "));
+      Serial.println(state);
+    }
+    return false;
+  }
+
+  if (cfg.promiscuous) {
+    state = radio.setPromiscuousMode(true, cfg.requireCarrierSense);
+    if (state != RADIOLIB_ERR_NONE) {
+      if (debugEnabled) {
+        Serial.print(F("[DEBUG] setPromiscuousMode() failed: "));
+        Serial.println(state);
+      }
+      return false;
+    }
+  } else {
+    // Set sync word and optional carrier-sense requirement.
+    uint8_t syncWord[] = { cfg.syncWordH, cfg.syncWordL };
+    state = radio.setSyncWord(syncWord, 2, cfg.syncMaxErrBits, cfg.requireCarrierSense);
+    if (state != RADIOLIB_ERR_NONE) {
+      if (debugEnabled) {
+        Serial.print(F("[DEBUG] setSyncWord() failed: "));
+        Serial.println(state);
+      }
+      return false;
+    }
+
+    // Set CRC
+    state = radio.setCrcFiltering(cfg.crcEnabled);
+    if (state != RADIOLIB_ERR_NONE) {
+      if (debugEnabled) {
+        Serial.print(F("[DEBUG] setCrcFiltering() failed: "));
+        Serial.println(state);
+      }
+      return false;
+    }
+
+    if (cfg.addressFiltering) {
+      state = radio.setNodeAddress(cfg.nodeAddress, cfg.broadcastAddrs);
+    } else {
+      state = radio.disableAddressFiltering();
+    }
+    if (state != RADIOLIB_ERR_NONE) {
+      if (debugEnabled) {
+        Serial.print(F("[DEBUG] address filtering failed: "));
+        Serial.println(state);
+      }
+      return false;
+    }
+  }
+
+  if (cfg.fixedPacketLen) {
+    state = radio.fixedPacketLengthMode(cfg.packetLen);
+  } else {
+    state = radio.variablePacketLengthMode(cfg.packetLen);
+  }
+  if (state != RADIOLIB_ERR_NONE) {
+    if (debugEnabled) {
+      Serial.print(F("[DEBUG] packet length mode failed: "));
       Serial.println(state);
     }
     return false;
@@ -330,6 +446,17 @@ static RadioConfig makeDefaultConfig() {
   c.syncWordH   = DEF_SYNC_WORD_H;
   c.syncWordL   = DEF_SYNC_WORD_L;
   c.crcEnabled  = true;
+  c.modMode = 0;
+  c.dataShaping = RADIOLIB_SHAPING_NONE;
+  c.encoding = RADIOLIB_ENCODING_NRZ;
+  c.fixedPacketLen = false;
+  c.packetLen = 64;
+  c.addressFiltering = false;
+  c.nodeAddress = 0x01;
+  c.broadcastAddrs = 1;
+  c.promiscuous = false;
+  c.requireCarrierSense = false;
+  c.syncMaxErrBits = 0;
   return c;
 }
 
@@ -337,7 +464,11 @@ static RadioConfig makeDefaultConfig() {
 // Helpers
 // =============================================================================
 static inline void serialOK()  { Serial.println(F("OK")); }
-static inline void serialERR() { Serial.println(F("ERROR")); }
+static inline void serialERR() { Serial.println(F("#ERROR")); }
+static inline void serialError(const __FlashStringHelper* msg) {
+  Serial.print(F("#ERROR: "));
+  Serial.println(msg);
+}
 
 static String readLineUSB() {
   static String buf;
@@ -409,6 +540,64 @@ static bool parseOnOff(const String& s, bool& out) {
   return false;
 }
 
+static bool isValidPreamble(uint8_t preambleBits) {
+  switch (preambleBits) {
+    case 16: case 24: case 32: case 48:
+    case 64: case 96: case 128: case 192:
+      return true;
+    default:
+      return false;
+  }
+}
+
+static const char* modModeName(uint8_t mode) {
+  switch (mode) {
+    case 1: return "GFSK";
+    case 2: return "OOK";
+    case 3: return "4FSK";
+    default: return "2FSK";
+  }
+}
+
+static bool parseModMode(String s, uint8_t& out) {
+  s.trim();
+  s.toUpperCase();
+  if (s == "2FSK" || s == "FSK" || s == "0") { out = 0; return true; }
+  if (s == "GFSK" || s == "1") { out = 1; return true; }
+  if (s == "OOK" || s == "ASK" || s == "2") { out = 2; return true; }
+  if (s == "4FSK" || s == "4-FSK" || s == "3") { out = 3; return true; }
+  return false;
+}
+
+static const char* encodingName(uint8_t encoding) {
+  switch (encoding) {
+    case RADIOLIB_ENCODING_MANCHESTER: return "MANCHESTER";
+    case RADIOLIB_ENCODING_WHITENING: return "WHITENING";
+    default: return "NRZ";
+  }
+}
+
+static bool parseEncoding(String s, uint8_t& out) {
+  s.trim();
+  s.toUpperCase();
+  if (s == "NRZ" || s == "0") { out = RADIOLIB_ENCODING_NRZ; return true; }
+  if (s == "MANCHESTER" || s == "MAN" || s == "1") { out = RADIOLIB_ENCODING_MANCHESTER; return true; }
+  if (s == "WHITENING" || s == "WHITE" || s == "2") { out = RADIOLIB_ENCODING_WHITENING; return true; }
+  return false;
+}
+
+static const char* shapingName(uint8_t shaping) {
+  return shaping == RADIOLIB_SHAPING_0_5 ? "0.5" : "NONE";
+}
+
+static bool parseShaping(String s, uint8_t& out) {
+  s.trim();
+  s.toUpperCase();
+  if (s == "NONE" || s == "OFF" || s == "0") { out = RADIOLIB_SHAPING_NONE; return true; }
+  if (s == "0.5" || s == "05" || s == "GFSK") { out = RADIOLIB_SHAPING_0_5; return true; }
+  return false;
+}
+
 static int findNearestBandwidth(float bw) {
   int best = 0;
   float bestDiff = abs(bw - VALID_BANDWIDTHS[0]);
@@ -432,13 +621,26 @@ static void printConfigPretty(const RadioConfig& c) {
   Serial.print(F("Freq Dev:     ")); Serial.print(c.freqDev, 1); Serial.println(F(" kHz"));
   Serial.print(F("RX Bandwidth: ")); Serial.print(c.rxBandwidth, 2); Serial.println(F(" kHz"));
   Serial.print(F("TX Power:     ")); Serial.print(c.txPower); Serial.println(F(" dBm"));
-  Serial.print(F("Preamble:     ")); Serial.print(c.preambleLen); Serial.println(F(" bytes"));
+  Serial.print(F("Preamble:     ")); Serial.print(c.preambleLen); Serial.println(F(" bits"));
   Serial.print(F("Sync Word:    0x")); 
   if (c.syncWordH < 0x10) Serial.print("0");
   Serial.print(c.syncWordH, HEX);
   if (c.syncWordL < 0x10) Serial.print("0");
   Serial.println(c.syncWordL, HEX);
   Serial.print(F("CRC:          ")); Serial.println(c.crcEnabled ? F("Enabled") : F("Disabled"));
+  Serial.print(F("Modulation:   ")); Serial.println(modModeName(c.modMode));
+  Serial.print(F("Data shaping: ")); Serial.println(shapingName(c.dataShaping));
+  Serial.print(F("Encoding:     ")); Serial.println(encodingName(c.encoding));
+  Serial.print(F("Packet mode:  ")); Serial.println(c.fixedPacketLen ? F("FIXED") : F("VARIABLE"));
+  Serial.print(F("Packet len:   ")); Serial.println(c.packetLen);
+  Serial.print(F("Address filt: ")); Serial.println(c.addressFiltering ? F("ON") : F("OFF"));
+  Serial.print(F("Node addr:    0x"));
+  if (c.nodeAddress < 0x10) Serial.print('0');
+  Serial.println(c.nodeAddress, HEX);
+  Serial.print(F("Broadcasts:   ")); Serial.println(c.broadcastAddrs);
+  Serial.print(F("Promiscuous:  ")); Serial.println(c.promiscuous ? F("ON") : F("OFF"));
+  Serial.print(F("Carrier sense:")); Serial.println(c.requireCarrierSense ? F("ON") : F("OFF"));
+  Serial.print(F("Sync err bits:")); Serial.println(c.syncMaxErrBits);
   Serial.print(F("Sleep:        ")); Serial.println(radioSleeping ? F("YES") : F("NO"));
   Serial.println(F("=================================="));
 }
@@ -461,14 +663,24 @@ static void printHelp() {
   Serial.println(F("  AT+DEBUG=ON/OFF  -> Enable/disable debug output"));
   Serial.println(F(""));
   Serial.println(F("Radio Parameters:"));
-  Serial.println(F("  AT+FREQ=<MHz>    -> Set frequency (300-928 MHz)"));
-  Serial.println(F("  AT+BR=<kbps>     -> Set bit rate (0.6-500 kbps)"));
-  Serial.println(F("  AT+DEV=<kHz>     -> Set frequency deviation"));
-  Serial.println(F("  AT+BW=<kHz>      -> Set RX bandwidth"));
-  Serial.println(F("  AT+PWR=<dBm>     -> Set TX power (-30 to 12 dBm)"));
-  Serial.println(F("  AT+PRE=<bytes>   -> Set preamble length (2-16)"));
-  Serial.println(F("  AT+SYNC=<XXXX>   -> Set sync word (hex, e.g. D391)"));
-  Serial.println(F("  AT+CRC=ON/OFF    -> Enable/disable CRC"));
+  Serial.println(F("  AT+FREQ=<MHz>    / AT+FREQ?    (300-928 MHz)"));
+  Serial.println(F("  AT+BR=<kbps>     / AT+BR?      (0.6-500 kbps)"));
+  Serial.println(F("  AT+DEV=<kHz>     / AT+DEV?"));
+  Serial.println(F("  AT+BW=<kHz>      / AT+BW?"));
+  Serial.println(F("  AT+PWR=<dBm>     / AT+PWR?     (-30 to 12 dBm)"));
+  Serial.println(F("  AT+PRE=<bits>    / AT+PRE?     (16/24/32/48/64/96/128/192)"));
+  Serial.println(F("  AT+SYNC=<XXXX>   / AT+SYNC?    (hex, e.g. D391)"));
+  Serial.println(F("  AT+SYNCERR=0|1   / AT+SYNCERR?"));
+  Serial.println(F("  AT+CRC=ON/OFF    / AT+CRC?"));
+  Serial.println(F("  AT+MOD=2FSK|GFSK|OOK|4FSK / AT+MOD?"));
+  Serial.println(F("  AT+SHAPE=NONE|0.5 / AT+SHAPE?"));
+  Serial.println(F("  AT+ENC=NRZ|MANCHESTER|WHITENING / AT+ENC?"));
+  Serial.println(F("  AT+PKT=VARIABLE,<1..64> / AT+PKT?"));
+  Serial.println(F("  AT+PKT=FIXED,<1..64>"));
+  Serial.println(F("  AT+ADDR=OFF      / AT+ADDR?"));
+  Serial.println(F("  AT+ADDR=<node>,<broadcasts 1..2>"));
+  Serial.println(F("  AT+PROMISC=ON|OFF / AT+PROMISC?"));
+  Serial.println(F("  AT+CS=ON|OFF     / AT+CS?      (carrier sense with sync/promisc)"));
   Serial.println(F(""));
   Serial.println(F("Indexed Setters:"));
   Serial.println(F("  AT+BW1..16       -> Bandwidth presets:"));
@@ -488,10 +700,13 @@ static void printHelp() {
   Serial.println(F("    Example: AT+SETRADIO=433.0,4.8,5.2,135,10,16,D391,1"));
   Serial.println(F(""));
   Serial.println(F("Info:"));
+  Serial.println(F("  AT+STATUS?       -> Chip/status + current RSSI/LQI"));
   Serial.println(F("  AT+RSSI?         -> Show last RSSI"));
   Serial.println(F("  AT+LQI?          -> Show last LQI"));
+  Serial.println(F("  AT+RX=ON/OFF     -> Start RX / standby"));
   Serial.println(F("  AT+SLEEP         -> Sleep (low power)"));
   Serial.println(F("  AT+WAKE          -> Wake + restore RX"));
+  Serial.println(F("  AT+RANDOM?       -> one RSSI-noise random byte"));
   Serial.println(F(""));
 }
 
@@ -506,6 +721,15 @@ static bool putRadioToSleep() {
 
   radioSleeping = true;
   return true;
+}
+
+static bool applySaveStartReceive() {
+  bool ok = applyConfig(cfgCurrent);
+  if (ok) {
+    eepromSave(cfgCurrent);
+    startReceive();
+  }
+  return ok;
 }
 
 static bool wakeRadioFromSleep() {
@@ -538,9 +762,21 @@ static bool handleAT(const String& lineRaw) {
 
   if (u == "AT+DEBUG=ON")  { debugEnabled = true;  serialOK(); return true; }
   if (u == "AT+DEBUG=OFF") { debugEnabled = false; serialOK(); return true; }
+  if (u == "AT+DEBUG?") {
+    Serial.print(F("DEBUG="));
+    Serial.println(debugEnabled ? F("ON") : F("OFF"));
+    serialOK();
+    return true;
+  }
 
   if (u == "AT+BRIDGE=ON")  { bridgeEnabled = true;  serialOK(); return true; }
   if (u == "AT+BRIDGE=OFF") { bridgeEnabled = false; serialOK(); return true; }
+  if (u == "AT+BRIDGE?") {
+    Serial.print(F("BRIDGE="));
+    Serial.println(bridgeEnabled ? F("ON") : F("OFF"));
+    serialOK();
+    return true;
+  }
 
   if (u == "AT+CFG?") {
     printConfigPretty(cfgCurrent);
@@ -612,6 +848,192 @@ static bool handleAT(const String& lineRaw) {
     Serial.print(F("LQI: "));
     Serial.println(radio.getLQI());
     serialOK();
+    return true;
+  }
+
+  if (u == "AT+STATUS?") {
+    Serial.print(F("CHIP_VERSION=0x"));
+    int16_t chip = radio.getChipVersion();
+    if (chip >= 0 && chip < 16) Serial.print('0');
+    Serial.println(chip, HEX);
+    Serial.print(F("RSSI=")); Serial.println(radio.getRSSI());
+    Serial.print(F("LQI=")); Serial.println(radio.getLQI());
+    Serial.print(F("MODE=")); Serial.println(modModeName(cfgCurrent.modMode));
+    Serial.print(F("RX=")); Serial.println(inReceiveMode ? F("ON") : F("OFF"));
+    Serial.print(F("SLEEP=")); Serial.println(radioSleeping ? F("YES") : F("NO"));
+    Serial.print(F("BRIDGE=")); Serial.println(bridgeEnabled ? F("ON") : F("OFF"));
+    serialOK();
+    return true;
+  }
+
+  if (u == "AT+RANDOM?") {
+    uint8_t b = radio.randomByte();
+    Serial.print(F("RANDOM=0x"));
+    if (b < 16) Serial.print('0');
+    Serial.println(b, HEX);
+    serialOK();
+    return true;
+  }
+
+  if (u == "AT+RX=OFF") {
+    inReceiveMode = false;
+    radioReceived = false;
+    radio.clearPacketReceivedAction();
+    int state = radio.standby();
+    radioSleeping = false;
+    (state == RADIOLIB_ERR_NONE) ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u == "AT+RX=ON") {
+    radioSleeping = false;
+    radio.setPacketReceivedAction(radioInterrupt);
+    startReceive();
+    serialOK();
+    return true;
+  }
+
+  if (u == "AT+FREQ?") { Serial.print(F("FREQ=")); Serial.println(cfgCurrent.frequency, 3); serialOK(); return true; }
+  if (u == "AT+BR?") { Serial.print(F("BR=")); Serial.println(cfgCurrent.bitRate, 3); serialOK(); return true; }
+  if (u == "AT+DEV?") { Serial.print(F("DEV=")); Serial.println(cfgCurrent.freqDev, 3); serialOK(); return true; }
+  if (u == "AT+BW?") { Serial.print(F("BW=")); Serial.println(cfgCurrent.rxBandwidth, 2); serialOK(); return true; }
+  if (u == "AT+PWR?") { Serial.print(F("PWR=")); Serial.println(cfgCurrent.txPower); serialOK(); return true; }
+  if (u == "AT+PRE?") { Serial.print(F("PRE=")); Serial.println(cfgCurrent.preambleLen); serialOK(); return true; }
+  if (u == "AT+SYNC?") {
+    Serial.print(F("SYNC=0x"));
+    if (cfgCurrent.syncWordH < 0x10) Serial.print('0');
+    Serial.print(cfgCurrent.syncWordH, HEX);
+    if (cfgCurrent.syncWordL < 0x10) Serial.print('0');
+    Serial.println(cfgCurrent.syncWordL, HEX);
+    serialOK();
+    return true;
+  }
+  if (u == "AT+SYNCERR?") { Serial.print(F("SYNCERR=")); Serial.println(cfgCurrent.syncMaxErrBits); serialOK(); return true; }
+  if (u == "AT+CRC?") { Serial.print(F("CRC=")); Serial.println(cfgCurrent.crcEnabled ? F("ON") : F("OFF")); serialOK(); return true; }
+  if (u == "AT+MOD?") { Serial.print(F("MOD=")); Serial.println(modModeName(cfgCurrent.modMode)); serialOK(); return true; }
+  if (u == "AT+SHAPE?") { Serial.print(F("SHAPE=")); Serial.println(shapingName(cfgCurrent.dataShaping)); serialOK(); return true; }
+  if (u == "AT+ENC?") { Serial.print(F("ENC=")); Serial.println(encodingName(cfgCurrent.encoding)); serialOK(); return true; }
+  if (u == "AT+PKT?") {
+    Serial.print(F("PKT="));
+    Serial.print(cfgCurrent.fixedPacketLen ? F("FIXED") : F("VARIABLE"));
+    Serial.print(',');
+    Serial.println(cfgCurrent.packetLen);
+    serialOK();
+    return true;
+  }
+  if (u == "AT+ADDR?") {
+    Serial.print(F("ADDR="));
+    if (!cfgCurrent.addressFiltering) {
+      Serial.println(F("OFF"));
+    } else {
+      Serial.print(F("0x"));
+      if (cfgCurrent.nodeAddress < 0x10) Serial.print('0');
+      Serial.print(cfgCurrent.nodeAddress, HEX);
+      Serial.print(',');
+      Serial.println(cfgCurrent.broadcastAddrs);
+    }
+    serialOK();
+    return true;
+  }
+  if (u == "AT+PROMISC?") { Serial.print(F("PROMISC=")); Serial.println(cfgCurrent.promiscuous ? F("ON") : F("OFF")); serialOK(); return true; }
+  if (u == "AT+CS?") { Serial.print(F("CS=")); Serial.println(cfgCurrent.requireCarrierSense ? F("ON") : F("OFF")); serialOK(); return true; }
+
+  if (u.startsWith("AT+MOD=")) {
+    uint8_t mode;
+    if (!parseModMode(line.substring(7), mode)) { serialERR(); return true; }
+    cfgCurrent.modMode = mode;
+    if (mode == 1) cfgCurrent.dataShaping = RADIOLIB_SHAPING_0_5;
+    if (mode == 0 || mode == 2 || mode == 3) cfgCurrent.dataShaping = RADIOLIB_SHAPING_NONE;
+    bool ok = applySaveStartReceive();
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u.startsWith("AT+SHAPE=")) {
+    uint8_t shaping;
+    if (!parseShaping(line.substring(9), shaping)) { serialERR(); return true; }
+    cfgCurrent.dataShaping = shaping;
+    cfgCurrent.modMode = (shaping == RADIOLIB_SHAPING_0_5) ? 1 : 0;
+    bool ok = applySaveStartReceive();
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u.startsWith("AT+ENC=")) {
+    uint8_t encoding;
+    if (!parseEncoding(line.substring(7), encoding)) { serialERR(); return true; }
+    cfgCurrent.encoding = encoding;
+    bool ok = applySaveStartReceive();
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u.startsWith("AT+PKT=")) {
+    String p = line.substring(7);
+    p.trim();
+    String up = p;
+    up.toUpperCase();
+    int comma = p.indexOf(',');
+    if (comma < 0) { serialERR(); return true; }
+    String mode = up.substring(0, comma);
+    uint8_t len;
+    if (!parseUInt8(p.substring(comma + 1), len) || len < 1 || len > 64) { serialERR(); return true; }
+    if (mode == "FIXED") cfgCurrent.fixedPacketLen = true;
+    else if (mode == "VARIABLE" || mode == "VAR") cfgCurrent.fixedPacketLen = false;
+    else { serialERR(); return true; }
+    cfgCurrent.packetLen = len;
+    bool ok = applySaveStartReceive();
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u == "AT+ADDR=OFF") {
+    cfgCurrent.addressFiltering = false;
+    bool ok = applySaveStartReceive();
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u.startsWith("AT+ADDR=")) {
+    String p = line.substring(8);
+    int comma = p.indexOf(',');
+    if (comma < 0) { serialERR(); return true; }
+    uint8_t node;
+    uint8_t broadcasts;
+    if (!parseHex8(p.substring(0, comma), node)) { serialERR(); return true; }
+    if (!parseUInt8(p.substring(comma + 1), broadcasts) || broadcasts < 1 || broadcasts > 2) { serialERR(); return true; }
+    cfgCurrent.addressFiltering = true;
+    cfgCurrent.nodeAddress = node;
+    cfgCurrent.broadcastAddrs = broadcasts;
+    bool ok = applySaveStartReceive();
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u.startsWith("AT+PROMISC=")) {
+    bool on;
+    if (!parseOnOff(line.substring(11), on)) { serialERR(); return true; }
+    cfgCurrent.promiscuous = on;
+    bool ok = applySaveStartReceive();
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u.startsWith("AT+CS=")) {
+    bool on;
+    if (!parseOnOff(line.substring(6), on)) { serialERR(); return true; }
+    cfgCurrent.requireCarrierSense = on;
+    bool ok = applySaveStartReceive();
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u.startsWith("AT+SYNCERR=")) {
+    uint8_t v;
+    if (!parseUInt8(line.substring(11), v) || v > 1) { serialERR(); return true; }
+    cfgCurrent.syncMaxErrBits = v;
+    bool ok = applySaveStartReceive();
+    ok ? serialOK() : serialERR();
     return true;
   }
 
@@ -712,7 +1134,7 @@ static bool handleAT(const String& lineRaw) {
   if (u.startsWith("AT+PRE=")) {
     uint8_t v;
     if (!parseUInt8(line.substring(7), v)) { serialERR(); return true; }
-    if (v < 2 || v > 24) { serialERR(); return true; }
+    if (!isValidPreamble(v)) { serialERR(); return true; }
     cfgCurrent.preambleLen = v;
     bool ok = applyConfig(cfgCurrent);
     if (ok) { eepromSave(cfgCurrent); startReceive(); }
@@ -784,7 +1206,7 @@ static bool handleAT(const String& lineRaw) {
     if (!parseFloat(parts[2], dev) || dev < 1.0 || dev > 380.0) { serialERR(); return true; }
     if (!parseFloat(parts[3], bw)) { serialERR(); return true; }
     if (!parseInt8(parts[4], pwr) || pwr < -30 || pwr > 12) { serialERR(); return true; }
-    if (!parseUInt8(parts[5], pre) || pre < 2 || pre > 24) { serialERR(); return true; }
+    if (!parseUInt8(parts[5], pre) || !isValidPreamble(pre)) { serialERR(); return true; }
     
     // Sync word
     String syncStr = parts[6];
@@ -847,8 +1269,7 @@ void setup() {
 
   
 
-  // Init SPI
-  SPI.begin(4, 5, 6, 7);
+  beginRadioSpiBus();
 
   // EEPROM
   if (!EEPROM.begin(EEPROM_SIZE)) {
@@ -875,7 +1296,7 @@ void setup() {
     Serial.println(F("[WARN] Using defaults"));
     cfgCurrent = cfgDefault;
     if (!applyConfig(cfgCurrent)) {
-      Serial.println(F("[ERROR] Radio init failed!"));
+      serialError(F("Radio init failed"));
       while (true) delay(1000);
     }
   }
@@ -948,9 +1369,13 @@ void loop() {
       if (!handleAT(line)) {
         serialERR();
       }
-    } else if (bridgeEnabled) {
+    } else {
+      if (!bridgeEnabled) {
+        serialError(F("BRIDGE_OFF (send AT+BRIDGE=ON)"));
+        return;
+      }
       if (radioSleeping) {
-        Serial.println(F("ERROR: RADIO_SLEEPING (send AT+WAKE)"));
+        serialError(F("RADIO_SLEEPING (send AT+WAKE)"));
         return;
       }
 
@@ -962,7 +1387,7 @@ void loop() {
           Serial.print(dataWithCRLF.length());
           Serial.println(F(" bytes"));
         }
-      } else {\
+      } else {
         if (debugEnabled) {
           Serial.println(F("[TX] FAILED"));
         }

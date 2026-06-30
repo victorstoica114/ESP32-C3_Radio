@@ -145,6 +145,14 @@ static bool debugEnabled  = false;
 static bool moduleSleeping = false;
 static bool bridgeBeforeSleep = true;
 
+enum E32RuntimeMode {
+  E32_MODE_NORMAL,
+  E32_MODE_WAKE,
+  E32_MODE_POWER_SAVE,
+  E32_MODE_SLEEP
+};
+static E32RuntimeMode currentMode = E32_MODE_NORMAL;
+
 // =============================================================================
 // LED 1Hz (non-blocking)
 // =============================================================================
@@ -164,7 +172,11 @@ static void led1HzService() {
 // Helpers
 // =============================================================================
 static inline void serialOK()  { Serial.println(F("OK")); }
-static inline void serialERR() { Serial.println(F("ERROR")); }
+static inline void serialERR() { Serial.println(F("#ERROR")); }
+static inline void serialError(const __FlashStringHelper* msg) {
+  Serial.print(F("#ERROR: "));
+  Serial.println(msg);
+}
 
 static void serial1Begin(uint32_t baud) {
   Serial1.end();
@@ -182,6 +194,17 @@ static bool waitAUXHigh(uint32_t timeoutMs) {
   return false;
 }
 
+static const char* e32ModeName(E32RuntimeMode mode) {
+  switch (mode) {
+    case E32_MODE_WAKE: return "WAKE";
+    case E32_MODE_POWER_SAVE: return "POWER_SAVE";
+    case E32_MODE_SLEEP: return "SLEEP";
+    default: return "NORMAL";
+  }
+}
+
+static uint32_t baudFromCode(uint8_t code);
+
 static void e32SetModeProgram() {
   pinMode(E32_M0_PIN, OUTPUT);
   pinMode(E32_M1_PIN, OUTPUT);
@@ -189,6 +212,8 @@ static void e32SetModeProgram() {
   digitalWrite(E32_M1_PIN, HIGH);
   delay(120);
   waitAUXHigh(800);
+  currentMode = E32_MODE_SLEEP;
+  moduleSleeping = true;
 }
 
 static void e32SetModeNormal() {
@@ -198,7 +223,30 @@ static void e32SetModeNormal() {
   digitalWrite(E32_M1_PIN, LOW);
   delay(120);
   waitAUXHigh(800);
+  currentMode = E32_MODE_NORMAL;
   moduleSleeping = false;
+}
+
+static void e32SetModeWake() {
+  pinMode(E32_M0_PIN, OUTPUT);
+  pinMode(E32_M1_PIN, OUTPUT);
+  digitalWrite(E32_M0_PIN, HIGH);
+  digitalWrite(E32_M1_PIN, LOW);
+  delay(120);
+  waitAUXHigh(800);
+  currentMode = E32_MODE_WAKE;
+  moduleSleeping = false;
+}
+
+static void e32SetModePowerSave() {
+  pinMode(E32_M0_PIN, OUTPUT);
+  pinMode(E32_M1_PIN, OUTPUT);
+  digitalWrite(E32_M0_PIN, LOW);
+  digitalWrite(E32_M1_PIN, HIGH);
+  delay(120);
+  waitAUXHigh(800);
+  currentMode = E32_MODE_POWER_SAVE;
+  moduleSleeping = true;
 }
 
 static void e32SetModeSleep() {
@@ -208,7 +256,35 @@ static void e32SetModeSleep() {
   digitalWrite(E32_M1_PIN, HIGH);
   delay(120);
   waitAUXHigh(800);
+  currentMode = E32_MODE_SLEEP;
   moduleSleeping = true;
+}
+
+static bool setRuntimeMode(E32RuntimeMode mode) {
+  bool restoreBridge = moduleSleeping || currentMode == E32_MODE_POWER_SAVE || currentMode == E32_MODE_SLEEP;
+  switch (mode) {
+    case E32_MODE_NORMAL:
+      e32SetModeNormal();
+      serial1Begin(baudFromCode(cfgCurrent.SPED.uartBaudRate));
+      if (restoreBridge) bridgeEnabled = bridgeBeforeSleep;
+      return true;
+    case E32_MODE_WAKE:
+      e32SetModeWake();
+      serial1Begin(baudFromCode(cfgCurrent.SPED.uartBaudRate));
+      if (restoreBridge) bridgeEnabled = bridgeBeforeSleep;
+      return true;
+    case E32_MODE_POWER_SAVE:
+      bridgeBeforeSleep = bridgeEnabled;
+      Serial1.flush();
+      e32SetModePowerSave();
+      return true;
+    case E32_MODE_SLEEP:
+      bridgeBeforeSleep = bridgeEnabled;
+      Serial1.flush();
+      e32SetModeSleep();
+      return true;
+  }
+  return false;
 }
 
 // Convert our baud code -> actual baud rate
@@ -289,6 +365,12 @@ static void printConfigPretty(Configuration c) {
   Serial.println(F("ms"));
   Serial.print(F("IO mode: "));
   Serial.println(c.OPTION.ioDriveMode ? F("PushPull") : F("OpenDrain"));
+  Serial.print(F("Runtime mode: "));
+  Serial.println(e32ModeName(currentMode));
+  Serial.print(F("Bridge: "));
+  Serial.println(bridgeEnabled ? F("ON") : F("OFF"));
+  Serial.print(F("AUX: "));
+  Serial.println(digitalRead(E32_AUX_PIN) == HIGH ? F("HIGH") : F("LOW"));
 
   Serial.println(F("================================"));
 }
@@ -336,7 +418,7 @@ static bool readConfigFromModule(Configuration& outCfg, ModuleInformation* outIn
 
   ResponseStructContainer cc = e32.getConfiguration();
   if (cc.status.code != 1) {
-    Serial.print(F("[ERR] getConfiguration: "));
+    Serial.print(F("#ERROR: getConfiguration: "));
     Serial.println(cc.status.getResponseDescription());
     cc.close();
 
@@ -367,7 +449,7 @@ static bool writeConfigToModule(const Configuration& inCfg, PROGRAM_COMMAND save
 
   ResponseStatus rs = e32.setConfiguration(inCfg, saveMode);
   if (rs.code != 1) {
-    Serial.print(F("[ERR] setConfiguration: "));
+    Serial.print(F("#ERROR: setConfiguration: "));
     Serial.println(rs.getResponseDescription());
 
     // Recovery: back to NORMAL and try to re-sync baud to current shadow
@@ -381,6 +463,41 @@ static bool writeConfigToModule(const Configuration& inCfg, PROGRAM_COMMAND save
   e32SetModeNormal();
   serial1Begin(baudFromCode(inCfg.SPED.uartBaudRate));
   delay(30);
+  return true;
+}
+
+static bool resetModuleCommand() {
+  e32SetModeProgram();
+  serial1Begin(E32_PROG_BAUD);
+  delay(120);
+  waitAUXHigh(1500);
+
+  ResponseStatus rs = e32.resetModule();
+  bool ok = (rs.code == 1);
+  if (!ok) {
+    Serial.print(F("#ERROR: resetModule: "));
+    Serial.println(rs.getResponseDescription());
+  }
+
+  waitAUXHigh(1500);
+  e32SetModeNormal();
+  serial1Begin(baudFromCode(cfgCurrent.SPED.uartBaudRate));
+  return ok;
+}
+
+static bool sendFixedText(uint8_t addh, uint8_t addl, uint8_t chan, const String& payload) {
+  if (moduleSleeping || currentMode == E32_MODE_POWER_SAVE) {
+    serialError(F("RADIO_SLEEPING (send AT+WAKE)"));
+    return false;
+  }
+  e32SetModeNormal();
+  serial1Begin(baudFromCode(cfgCurrent.SPED.uartBaudRate));
+  ResponseStatus rs = e32.sendFixedMessage(addh, addl, chan, payload);
+  if (rs.code != 1) {
+    Serial.print(F("#ERROR: sendFixedMessage: "));
+    Serial.println(rs.getResponseDescription());
+    return false;
+  }
   return true;
 }
 
@@ -446,11 +563,19 @@ static void printHelp() {
   Serial.println(F("  AT+HELP            -> help"));
   Serial.println(F("  AT+CFG?            -> read+print module config + module info"));
   Serial.println(F("  AT+APPLY           -> apply current shadow config to module (SAVE) + EEPROM"));
+  Serial.println(F("  AT+APPLY=TEMP      -> apply shadow config until module power-cycle"));
   Serial.println(F("  AT+DEFAULT         -> restore firmware defaults (SAVE) + EEPROM"));
+  Serial.println(F("  AT+RESET           -> reset E32 module, then restore normal mode"));
+  Serial.println(F("  AT+INFO?           -> read module information only"));
+  Serial.println(F("  AT+AUX?            -> read AUX pin state"));
   Serial.println(F("  AT+BRIDGE=ON/OFF   -> enable/disable UART bridge"));
+  Serial.println(F("  AT+BRIDGE?         -> print bridge state"));
   Serial.println(F("  AT+DEBUG=ON/OFF    -> debug prints"));
-  Serial.println(F("  AT+SLEEP           -> sleep/program mode (TX/RX off)"));
-  Serial.println(F("  AT+WAKE            -> normal mode + restore bridge"));
+  Serial.println(F("  AT+DEBUG?          -> print debug state"));
+  Serial.println(F("  AT+MODE?           -> print runtime mode"));
+  Serial.println(F("  AT+MODE=NORMAL|WAKE|POWER_SAVE|SLEEP"));
+  Serial.println(F("  AT+SLEEP           -> alias for AT+MODE=SLEEP"));
+  Serial.println(F("  AT+WAKE            -> alias for AT+MODE=NORMAL"));
   Serial.println(F(""));
   Serial.println(F("Set all radio params (one shot):"));
   Serial.println(F("  AT+SETRADIO=ADDH,ADDL,CHAN,BAUD,PARITY,AIR,POWER,WOR,FEC,FIXED,IOMODE"));
@@ -463,8 +588,11 @@ static void printHelp() {
   Serial.println(F(""));
   Serial.println(F("Address / Channel:"));
   Serial.println(F("  AT+ADDH=<0..255>"));
+  Serial.println(F("  AT+ADDH?"));
   Serial.println(F("  AT+ADDL=<0..255>"));
+  Serial.println(F("  AT+ADDL?"));
   Serial.println(F("  AT+CHAN=<0..31>"));
+  Serial.println(F("  AT+CHAN?"));
   Serial.println(F(""));
   Serial.println(F("Indexed setters:"));
   Serial.println(F("  AT+BAUD1..8      -> 1200,2400,4800,9600,19200,38400,57600,115200"));
@@ -473,8 +601,13 @@ static void printHelp() {
   Serial.println(F("  AT+POWER1..4     -> 1=30dBm, 2=27dBm, 3=24dBm, 4=21dBm"));
   Serial.println(F("  AT+WORT1..8      -> 1=250ms,2=500ms,3=750ms,4=1000ms,5=1250ms,6=1500ms,7=1750ms,8=2000ms"));
   Serial.println(F("  AT+FEC=ON/OFF"));
+  Serial.println(F("  AT+FEC?"));
   Serial.println(F("  AT+FIXED=ON/OFF"));
+  Serial.println(F("  AT+FIXED?"));
   Serial.println(F("  AT+IOMODE=PP/OD"));
+  Serial.println(F("  AT+IOMODE?"));
+  Serial.println(F("  AT+SENDTO=ADDH,ADDL,CHAN,TEXT"));
+  Serial.println(F("  AT+BROADCAST=CHAN,TEXT"));
 }
 
 // =============================================================================
@@ -488,25 +621,58 @@ static bool handleAT(const String& lineRaw) {
   if (u == "AT") { serialOK(); return true; }
   if (u == "AT+HELP" || u == "AT?") { printHelp(); serialOK(); return true; }
 
+  if (u == "AT+DEBUG?") {
+    Serial.print(F("DEBUG="));
+    Serial.println(debugEnabled ? F("ON") : F("OFF"));
+    serialOK();
+    return true;
+  }
   if (u == "AT+DEBUG=ON")  { debugEnabled = true;  serialOK(); return true; }
   if (u == "AT+DEBUG=OFF") { debugEnabled = false; serialOK(); return true; }
 
+  if (u == "AT+BRIDGE?") {
+    Serial.print(F("BRIDGE="));
+    Serial.println(bridgeEnabled ? F("ON") : F("OFF"));
+    serialOK();
+    return true;
+  }
   if (u == "AT+BRIDGE=ON")  { bridgeEnabled = true;  serialOK(); return true; }
   if (u == "AT+BRIDGE=OFF") { bridgeEnabled = false; serialOK(); return true; }
 
-  if (u == "AT+SLEEP") {
-    bridgeBeforeSleep = bridgeEnabled;
-    Serial1.flush();
-    e32SetModeSleep();
+  if (u == "AT+AUX?") {
+    Serial.print(F("AUX="));
+    Serial.println(digitalRead(E32_AUX_PIN) == HIGH ? F("HIGH") : F("LOW"));
     serialOK();
     return true;
   }
 
-  if (u == "AT+WAKE") {
-    e32SetModeNormal();
-    serial1Begin(baudFromCode(cfgCurrent.SPED.uartBaudRate));
-    bridgeEnabled = bridgeBeforeSleep;
+  if (u == "AT+MODE?") {
+    Serial.print(F("MODE="));
+    Serial.println(e32ModeName(currentMode));
     serialOK();
+    return true;
+  }
+
+  if (u.startsWith("AT+MODE=")) {
+    String m = line.substring(8);
+    m.trim(); m.toUpperCase();
+    bool ok = false;
+    if (m == "NORMAL" || m == "0") ok = setRuntimeMode(E32_MODE_NORMAL);
+    else if (m == "WAKE" || m == "WAKE_UP" || m == "1") ok = setRuntimeMode(E32_MODE_WAKE);
+    else if (m == "POWER_SAVE" || m == "POWERSAVE" || m == "POWER-SAVE" || m == "2") ok = setRuntimeMode(E32_MODE_POWER_SAVE);
+    else if (m == "SLEEP" || m == "PROGRAM" || m == "3") ok = setRuntimeMode(E32_MODE_SLEEP);
+    else { serialERR(); return true; }
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u == "AT+SLEEP") {
+    setRuntimeMode(E32_MODE_SLEEP) ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u == "AT+WAKE") {
+    setRuntimeMode(E32_MODE_NORMAL) ? serialOK() : serialERR();
     return true;
   }
 
@@ -535,11 +701,38 @@ static bool handleAT(const String& lineRaw) {
     return true;
   }
 
+  if (u == "AT+APPLY=TEMP") {
+    bool ok = writeConfigToModule(cfgCurrent, WRITE_CFG_PWR_DWN_LOSE);
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
   if (u == "AT+DEFAULT") {
     cfgCurrent = cfgDefault;
     bool ok = writeConfigToModule(cfgCurrent, WRITE_CFG_PWR_DWN_SAVE);
-    if (ok) eepromSave(cfgCurrent);
+    if (ok) {
+      eepromSave(cfgCurrent);
+      bridgeEnabled = true;
+      bridgeBeforeSleep = true;
+      setRuntimeMode(E32_MODE_NORMAL);
+    }
     ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u == "AT+RESET") {
+    bool ok = resetModuleCommand();
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u == "AT+INFO?") {
+    Configuration c;
+    ModuleInformation mi;
+    bool ok = readConfigFromModule(c, &mi);
+    if (!ok) { serialERR(); return true; }
+    printModuleInfo(mi);
+    serialOK();
     return true;
   }
 
@@ -638,6 +831,30 @@ static bool handleAT(const String& lineRaw) {
   }
 
   // --- direct numeric setters ---
+  if (u == "AT+ADDH?") { Serial.print(F("ADDH=")); Serial.println(cfgCurrent.ADDH); serialOK(); return true; }
+  if (u == "AT+ADDL?") { Serial.print(F("ADDL=")); Serial.println(cfgCurrent.ADDL); serialOK(); return true; }
+  if (u == "AT+CHAN?") { Serial.print(F("CHAN=")); Serial.println(cfgCurrent.CHAN); serialOK(); return true; }
+  if (u == "AT+BAUD?") { Serial.print(F("BAUD=")); Serial.println(baudFromCode(cfgCurrent.SPED.uartBaudRate)); serialOK(); return true; }
+  if (u == "AT+PARITY?") { Serial.print(F("PARITY=")); Serial.println(parityFromCode(cfgCurrent.SPED.uartParity)); serialOK(); return true; }
+  if (u == "AT+AIR?") { Serial.print(F("AIR=")); Serial.println(airRateFromCode(cfgCurrent.SPED.airDataRate)); serialOK(); return true; }
+  if (u == "AT+POWER?") {
+    Serial.print(F("POWER="));
+    Serial.print(powerDbmFromCode(cfgCurrent.OPTION.transmissionPower));
+    Serial.println(F(" dBm"));
+    serialOK();
+    return true;
+  }
+  if (u == "AT+WORT?") {
+    Serial.print(F("WORT="));
+    Serial.print(worMsFromCode(cfgCurrent.OPTION.wirelessWakeupTime));
+    Serial.println(F(" ms"));
+    serialOK();
+    return true;
+  }
+  if (u == "AT+FEC?") { Serial.print(F("FEC=")); Serial.println(cfgCurrent.OPTION.fec ? F("ON") : F("OFF")); serialOK(); return true; }
+  if (u == "AT+FIXED?") { Serial.print(F("FIXED=")); Serial.println(cfgCurrent.OPTION.fixedTransmission ? F("ON") : F("OFF")); serialOK(); return true; }
+  if (u == "AT+IOMODE?") { Serial.print(F("IOMODE=")); Serial.println(cfgCurrent.OPTION.ioDriveMode ? F("PP") : F("OD")); serialOK(); return true; }
+
   if (u.startsWith("AT+ADDH=")) {
     uint8_t v; if (!parseUInt8(line.substring(8), v)) { serialERR(); return true; }
     cfgCurrent.ADDH = v;
@@ -777,6 +994,38 @@ static bool handleAT(const String& lineRaw) {
     return true;
   }
 
+  if (u.startsWith("AT+SENDTO=")) {
+    String p = line.substring(10);
+    int c1 = p.indexOf(',');
+    int c2 = (c1 >= 0) ? p.indexOf(',', c1 + 1) : -1;
+    int c3 = (c2 >= 0) ? p.indexOf(',', c2 + 1) : -1;
+    if (c1 < 0 || c2 < 0 || c3 < 0) { serialERR(); return true; }
+
+    uint8_t addh, addl, chan;
+    if (!parseUInt8(p.substring(0, c1), addh)) { serialERR(); return true; }
+    if (!parseUInt8(p.substring(c1 + 1, c2), addl)) { serialERR(); return true; }
+    if (!parseChannel(p.substring(c2 + 1, c3), chan)) { serialERR(); return true; }
+
+    String payload = p.substring(c3 + 1);
+    if (payload.length() == 0) { serialERR(); return true; }
+    sendFixedText(addh, addl, chan, payload) ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u.startsWith("AT+BROADCAST=")) {
+    String p = line.substring(13);
+    int c1 = p.indexOf(',');
+    if (c1 < 0) { serialERR(); return true; }
+
+    uint8_t chan;
+    if (!parseChannel(p.substring(0, c1), chan)) { serialERR(); return true; }
+
+    String payload = p.substring(c1 + 1);
+    if (payload.length() == 0) { serialERR(); return true; }
+    sendFixedText(0xFF, 0xFF, chan, payload) ? serialOK() : serialERR();
+    return true;
+  }
+
   if (startsWithAT(line)) return false;
   return false;
 }
@@ -860,14 +1109,14 @@ void loop() {
       if (!handleAT(line)) serialERR();
     } else {
       // Bridge payload (line-based) - SEND CRLF
-      if (bridgeEnabled) {
-        if (moduleSleeping) {
-          Serial.println(F("ERROR: RADIO_SLEEPING (send AT+WAKE)"));
-        } else {
-          Serial1.write((const uint8_t*)line.c_str(), line.length());
-          Serial1.write('\r');
-          Serial1.write('\n');
-        }
+      if (!bridgeEnabled) {
+        serialError(F("BRIDGE_OFF (send AT+BRIDGE=ON)"));
+      } else if (moduleSleeping) {
+        serialError(F("RADIO_SLEEPING (send AT+WAKE)"));
+      } else {
+        Serial1.write((const uint8_t*)line.c_str(), line.length());
+        Serial1.write('\r');
+        Serial1.write('\n');
       }
     }
   }

@@ -2,6 +2,8 @@
 #include <Wire.h>
 #include <RadioLib.h>
 #include <U8g2lib.h>
+#include <EEPROM.h>
+#include <math.h>
 
 #define OLED_RESET U8X8_PIN_NONE
 #define OLED_SDA   5
@@ -44,12 +46,36 @@ bool debugEnabled  = debug_default_state;
 
 // ------------------ CONFIG ------------------
 struct RadioConfig {
-  // 5-byte address shared by TX + RX pipe0 (like your proven-working sketch)
-  uint8_t addr[5] = { 0x01, 0x23, 0x45, 0x67, 0x89 };
+  float freqMHz = 2400.0f;
+  uint16_t bitRateKbps = 1000;
+  int8_t powerDbm = -12;
+  uint8_t addrWidth = 5;
+  uint8_t txAddr[5] = { 0x01, 0x23, 0x45, 0x67, 0x89 };
+  uint8_t rxAddr[6][5] = {
+    { 0x01, 0x23, 0x45, 0x67, 0x89 },
+    { 0x01, 0x23, 0x45, 0x67, 0x88 },
+    { 0x01, 0x23, 0x45, 0x67, 0x87 },
+    { 0x01, 0x23, 0x45, 0x67, 0x86 },
+    { 0x01, 0x23, 0x45, 0x67, 0x85 },
+    { 0x01, 0x23, 0x45, 0x67, 0x84 }
+  };
+  bool pipeEnabled[6] = { true, false, false, false, false, false };
+  bool crcOn = true;
+  uint8_t autoAckMask = 0x3F;
+  uint8_t retryDelay = 5;
+  uint8_t retryCount = 15;
+  bool lnaOn = true;
+  bool dynamicPayload = false;
+  bool ackPayload = false;
+  uint8_t fixedPayloadLen = 32;
 };
 
 RadioConfig cfg;
 const RadioConfig cfgDefault;
+
+static const uint32_t EEPROM_MAGIC = 0x4E524632UL; // "NRF2"
+static const uint16_t EEPROM_VERSION = 0x0001;
+static const size_t EEPROM_SIZE = 512;
 
 // ------------------ RX CALLBACK ------------------
 #if defined(ESP8266) || defined(ESP32)
@@ -59,9 +85,15 @@ void onRxDone(void) {
   receivedFlag = true;
 }
 
+static void sanitizeConfig(RadioConfig& c);
+
 // ------------------ SERIAL HELPERS ------------------
 static inline void serialOK()  { Serial.println(F("OK")); }
-static inline void serialERR() { Serial.println(F("ERROR")); }
+static inline void serialERR() { Serial.println(F("#ERROR")); }
+static inline void serialError(const __FlashStringHelper* msg) {
+  Serial.print(F("#ERROR: "));
+  Serial.println(msg);
+}
 
 static void beginRadioSpiBus() {
   SPI.end();
@@ -96,6 +128,33 @@ static void oled_setup() {
 
   u8g2.sendBuffer();
   releaseOledI2CBus();
+}
+
+static uint8_t nrfReadReg(uint8_t reg) {
+  digitalWrite(NRF_CS, LOW);
+  SPI.transfer(0x00 | (reg & 0x1F));
+  uint8_t v = SPI.transfer(0xFF);
+  digitalWrite(NRF_CS, HIGH);
+  return v;
+}
+
+static void nrfWriteReg(uint8_t reg, uint8_t value) {
+  digitalWrite(NRF_CS, LOW);
+  SPI.transfer(0x20 | (reg & 0x1F));
+  SPI.transfer(value);
+  digitalWrite(NRF_CS, HIGH);
+}
+
+static void nrfFlushRx() {
+  digitalWrite(NRF_CS, LOW);
+  SPI.transfer(0xE2);
+  digitalWrite(NRF_CS, HIGH);
+}
+
+static void nrfFlushTx() {
+  digitalWrite(NRF_CS, LOW);
+  SPI.transfer(0xE1);
+  digitalWrite(NRF_CS, HIGH);
 }
 
 // ------------------ SERIAL LINE READER (CR/LF) ------------------
@@ -143,7 +202,7 @@ static bool parseHex5Bytes(String s, uint8_t out[5]) {
 // ------------------ PRINT HELP/CFG ------------------
 static void printAddrLine(const __FlashStringHelper* label, const uint8_t a[5]) {
   Serial.print(label);
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < cfg.addrWidth; i++) {
     if (a[i] < 16) Serial.print('0');
     Serial.print(a[i], HEX);
   }
@@ -152,7 +211,25 @@ static void printAddrLine(const __FlashStringHelper* label, const uint8_t a[5]) 
 
 static void printConfig() {
   Serial.println(F("CFG:"));
-  printAddrLine(F("  ADDR=0x"), cfg.addr);
+  Serial.print(F("  FREQ=")); Serial.print(cfg.freqMHz, 1); Serial.println(F(" MHz"));
+  Serial.print(F("  CHAN=")); Serial.println((int)lroundf(cfg.freqMHz - 2400.0f));
+  Serial.print(F("  RATE=")); Serial.print(cfg.bitRateKbps); Serial.println(F(" kbps"));
+  Serial.print(F("  PWR=")); Serial.print(cfg.powerDbm); Serial.println(F(" dBm"));
+  Serial.print(F("  ADDR_WIDTH=")); Serial.println(cfg.addrWidth);
+  printAddrLine(F("  TXADDR=0x"), cfg.txAddr);
+  for (uint8_t i = 0; i < 6; i++) {
+    Serial.print(F("  PIPE")); Serial.print(i); Serial.print('=');
+    Serial.print(cfg.pipeEnabled[i] ? F("ON ") : F("OFF "));
+    printAddrLine(F("RXADDR=0x"), cfg.rxAddr[i]);
+  }
+  Serial.print(F("  CRC=")); Serial.println(cfg.crcOn ? F("ON") : F("OFF"));
+  Serial.print(F("  AUTOACK_MASK=0x")); Serial.println(cfg.autoAckMask, HEX);
+  Serial.print(F("  RETRIES_DELAY=")); Serial.println(cfg.retryDelay);
+  Serial.print(F("  RETRIES_COUNT=")); Serial.println(cfg.retryCount);
+  Serial.print(F("  LNA=")); Serial.println(cfg.lnaOn ? F("ON") : F("OFF"));
+  Serial.print(F("  DYN_PAYLOAD=")); Serial.println(cfg.dynamicPayload ? F("ON") : F("OFF"));
+  Serial.print(F("  ACK_PAYLOAD=")); Serial.println(cfg.ackPayload ? F("ON") : F("OFF"));
+  Serial.print(F("  FIXED_PAYLOAD_LEN=")); Serial.println(cfg.fixedPayloadLen);
   Serial.print(F("  RX="));
   Serial.println(rxEnabled ? F("ON") : F("OFF"));
   Serial.print(F("  SLEEP="));
@@ -169,9 +246,30 @@ static void printHelp() {
   Serial.println(F("  AT+CFG?             -> print config"));
   Serial.println(F("  AT+APPLY            -> apply pipes + (re)start RX"));
   Serial.println(F("  AT+RESET            -> radio.begin() + apply"));
+  Serial.println(F("  AT+DEFAULT          -> restore safe defaults + save EEPROM"));
+  Serial.println(F("RF:"));
+  Serial.println(F("  AT+FREQ=<2400..2525> / AT+FREQ?"));
+  Serial.println(F("  AT+CHAN=<0..125>     / AT+CHAN?"));
+  Serial.println(F("  AT+RATE=250|1000|2000 / AT+RATE?"));
+  Serial.println(F("  AT+PWR=-18|-12|-6|0  / AT+PWR?"));
   Serial.println(F("Address:"));
-  Serial.println(F("  AT+ADDR=<10hex>     -> set TX/RX0 address (5 bytes)"));
-  Serial.println(F("  AT+ADDR?            -> print address"));
+  Serial.println(F("  AT+ADDR=<hex>       -> set TX/RX0 address"));
+  Serial.println(F("  AT+ADDR?            -> print TX/RX0 address"));
+  Serial.println(F("  AT+ADDRWIDTH=3|4|5  / AT+ADDRWIDTH?"));
+  Serial.println(F("  AT+TXADDR=<hex>     / AT+TXADDR?"));
+  Serial.println(F("  AT+RXADDR<n>=<hex>  / AT+RXADDR<n>? (n=0..5)"));
+  Serial.println(F("  AT+PIPE<n>=ON|OFF   / AT+PIPES?"));
+  Serial.println(F("Link layer:"));
+  Serial.println(F("  AT+CRC=ON|OFF       / AT+CRC?"));
+  Serial.println(F("  AT+AUTOACK=ON|OFF   / AT+AUTOACK?"));
+  Serial.println(F("  AT+AUTOACK<n>=ON|OFF"));
+  Serial.println(F("  AT+RETRIES=<0..15>,<0..15> / AT+RETRIES?"));
+  Serial.println(F("  AT+LNA=ON|OFF       / AT+LNA?"));
+  Serial.println(F("  AT+DYN=ON|OFF       / AT+DYN?"));
+  Serial.println(F("  AT+ACKPAY=ON|OFF    / AT+ACKPAY?"));
+  Serial.println(F("  AT+PLEN=<1..32>     / AT+PLEN?"));
+  Serial.println(F("Diagnostics:"));
+  Serial.println(F("  AT+STATUS?          -> STATUS/FIFO/RPD registers"));
   Serial.println(F("RX:"));
   Serial.println(F("  AT+RX=ON            -> start RX"));
   Serial.println(F("  AT+RX=OFF           -> standby"));
@@ -186,15 +284,66 @@ static void printHelp() {
 
 // ------------------ RADIO APPLY/RESET ------------------
 static bool applyConfigToRadio() {
+  sanitizeConfig(cfg);
   radioSleeping = false;
   int st;
 
-  // Pipes (same approach as your known-good code)
-  st = radio.setTransmitPipe(cfg.addr);
+  st = radio.setFrequency(cfg.freqMHz);
   if (st != RADIOLIB_ERR_NONE) return false;
 
-  st = radio.setReceivePipe(0, cfg.addr);
+  st = radio.setBitRate(cfg.bitRateKbps);
   if (st != RADIOLIB_ERR_NONE) return false;
+
+  st = radio.setOutputPower(cfg.powerDbm);
+  if (st != RADIOLIB_ERR_NONE) return false;
+
+  st = radio.setAddressWidth(cfg.addrWidth);
+  if (st != RADIOLIB_ERR_NONE) return false;
+
+  st = radio.setCrcFiltering(cfg.crcOn);
+  if (st != RADIOLIB_ERR_NONE) return false;
+
+  for (uint8_t i = 0; i < 6; i++) {
+    st = radio.setAutoAck(i, (cfg.autoAckMask & (1 << i)) != 0);
+    if (st != RADIOLIB_ERR_NONE) return false;
+  }
+
+  st = radio.setLNA(cfg.lnaOn);
+  if (st != RADIOLIB_ERR_NONE) return false;
+
+  // Pipes
+  st = radio.setTransmitPipe(cfg.txAddr);
+  if (st != RADIOLIB_ERR_NONE) return false;
+
+  for (uint8_t i = 0; i < 6; i++) {
+    if (!cfg.pipeEnabled[i]) {
+      st = radio.disablePipe(i);
+      if (st != RADIOLIB_ERR_NONE) return false;
+      continue;
+    }
+
+    if (i <= 1) {
+      st = radio.setReceivePipe(i, cfg.rxAddr[i]);
+    } else {
+      st = radio.setReceivePipe(i, cfg.rxAddr[i][cfg.addrWidth - 1]);
+    }
+    if (st != RADIOLIB_ERR_NONE) return false;
+  }
+
+  // SETUP_RETR: high nibble = delay code, low nibble = retry count.
+  nrfWriteReg(0x04, (uint8_t)(((cfg.retryDelay & 0x0F) << 4) | (cfg.retryCount & 0x0F)));
+
+  uint8_t feature = 0;
+  if (cfg.dynamicPayload) feature |= 0x04; // EN_DPL
+  if (cfg.ackPayload) feature |= 0x02;     // EN_ACK_PAY
+  nrfWriteReg(0x1D, feature);
+  nrfWriteReg(0x1C, cfg.dynamicPayload ? 0x3F : 0x00); // DYNPD
+  if (!cfg.dynamicPayload) {
+    uint8_t len = constrain(cfg.fixedPayloadLen, (uint8_t)1, (uint8_t)32);
+    for (uint8_t r = 0x11; r <= 0x16; r++) nrfWriteReg(r, len);
+  }
+  nrfFlushRx();
+  nrfFlushTx();
 
   // RX callback
   radio.setPacketReceivedAction(onRxDone);
@@ -208,6 +357,89 @@ static bool applyConfigToRadio() {
   }
 
   return true;
+}
+
+static bool parseOnOff(String s, bool& out) {
+  s.trim();
+  s.toUpperCase();
+  if (s == "ON" || s == "1" || s == "TRUE") { out = true; return true; }
+  if (s == "OFF" || s == "0" || s == "FALSE") { out = false; return true; }
+  return false;
+}
+
+static bool parseLong(String s, long& out) {
+  s.trim();
+  char* endp = nullptr;
+  long v = strtol(s.c_str(), &endp, 10);
+  if (!(endp && *endp == '\0')) return false;
+  out = v;
+  return true;
+}
+
+static bool parseFloatValue(String s, float& out) {
+  s.trim();
+  char* endp = nullptr;
+  float v = strtof(s.c_str(), &endp);
+  if (!(endp && *endp == '\0')) return false;
+  out = v;
+  return true;
+}
+
+static uint32_t crc32_update(uint32_t crc, uint8_t data) {
+  crc ^= data;
+  for (int i = 0; i < 8; i++) {
+    uint32_t mask = -(int32_t)(crc & 1u);
+    crc = (crc >> 1) ^ (0xEDB88320u & mask);
+  }
+  return crc;
+}
+
+static uint32_t crc32_calc(const uint8_t* data, size_t len) {
+  uint32_t crc = 0xFFFFFFFFu;
+  for (size_t i = 0; i < len; i++) crc = crc32_update(crc, data[i]);
+  return ~crc;
+}
+
+struct EepromRecord {
+  uint32_t magic;
+  uint16_t version;
+  uint16_t length;
+  RadioConfig cfg;
+  uint32_t crc;
+};
+
+static bool eepromLoadConfig(RadioConfig& out) {
+  EepromRecord rec;
+  EEPROM.get(0, rec);
+  if (rec.magic != EEPROM_MAGIC) return false;
+  if (rec.version != EEPROM_VERSION) return false;
+  if (rec.length != (uint16_t)sizeof(RadioConfig)) return false;
+  uint32_t c = crc32_calc((const uint8_t*)&rec.cfg, sizeof(RadioConfig));
+  if (c != rec.crc) return false;
+  out = rec.cfg;
+  return true;
+}
+
+static bool eepromSaveConfig(const RadioConfig& in) {
+  EepromRecord rec;
+  rec.magic = EEPROM_MAGIC;
+  rec.version = EEPROM_VERSION;
+  rec.length = (uint16_t)sizeof(RadioConfig);
+  rec.cfg = in;
+  rec.crc = crc32_calc((const uint8_t*)&rec.cfg, sizeof(RadioConfig));
+  EEPROM.put(0, rec);
+  return EEPROM.commit();
+}
+
+static void sanitizeConfig(RadioConfig& c) {
+  if (c.freqMHz < 2400.0f || c.freqMHz > 2525.0f) c.freqMHz = cfgDefault.freqMHz;
+  if (!(c.bitRateKbps == 250 || c.bitRateKbps == 1000 || c.bitRateKbps == 2000)) c.bitRateKbps = cfgDefault.bitRateKbps;
+  if (!(c.powerDbm == -18 || c.powerDbm == -12 || c.powerDbm == -6 || c.powerDbm == 0)) c.powerDbm = cfgDefault.powerDbm;
+  if (c.addrWidth < 3 || c.addrWidth > 5) c.addrWidth = cfgDefault.addrWidth;
+  c.autoAckMask &= 0x3F;
+  c.retryDelay &= 0x0F;
+  c.retryCount &= 0x0F;
+  if (c.fixedPayloadLen < 1 || c.fixedPayloadLen > 32) c.fixedPayloadLen = cfgDefault.fixedPayloadLen;
 }
 
 static bool putRadioToSleep() {
@@ -289,11 +521,11 @@ static bool resetRadioBeginAndApply() {
   // -------------------------------------------------
   // 6) Re-initialize radio (parameterless begin = proven stable)
   // -------------------------------------------------
-  int st = radio.begin();
+  int st = radio.begin((int16_t)lroundf(cfg.freqMHz), cfg.bitRateKbps, cfg.powerDbm, cfg.addrWidth);
   if (st != RADIOLIB_ERR_NONE) {
     // Some clones need a second attempt
     delay(20);
-    st = radio.begin();
+    st = radio.begin((int16_t)lroundf(cfg.freqMHz), cfg.bitRateKbps, cfg.powerDbm, cfg.addrWidth);
     if (st != RADIOLIB_ERR_NONE) return false;
   }
 
@@ -320,6 +552,19 @@ static bool resetRadioBeginAndApply() {
   digitalWrite(NRF_CS, HIGH);
 
   return true;
+}
+
+static void printStatusRegisters() {
+  Serial.print(F("STATUS=0x")); Serial.println(nrfReadReg(0x07), HEX);
+  Serial.print(F("FIFO_STATUS=0x")); Serial.println(nrfReadReg(0x17), HEX);
+  Serial.print(F("RF_CH=")); Serial.println(nrfReadReg(0x05));
+  Serial.print(F("RF_SETUP=0x")); Serial.println(nrfReadReg(0x06), HEX);
+  Serial.print(F("EN_AA=0x")); Serial.println(nrfReadReg(0x01), HEX);
+  Serial.print(F("EN_RXADDR=0x")); Serial.println(nrfReadReg(0x02), HEX);
+  Serial.print(F("SETUP_RETR=0x")); Serial.println(nrfReadReg(0x04), HEX);
+  Serial.print(F("FEATURE=0x")); Serial.println(nrfReadReg(0x1D), HEX);
+  Serial.print(F("DYNPD=0x")); Serial.println(nrfReadReg(0x1C), HEX);
+  Serial.print(F("RPD=")); Serial.println(radio.isCarrierDetected() ? F("YES") : F("NO"));
 }
 
 // ------------------ AT HANDLER (case-insensitive) ------------------
@@ -349,9 +594,59 @@ static bool handleAT(String lineRaw) {
     return true;
   }
 
+  if (u == "AT+DEFAULT") {
+    cfg = cfgDefault;
+    rxEnabled = true;
+    radioSleeping = false;
+    bool ok = resetRadioBeginAndApply();
+    if (ok) eepromSaveConfig(cfg);
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u == "AT+FREQ?") { Serial.print(F("FREQ=")); Serial.println(cfg.freqMHz, 1); serialOK(); return true; }
+  if (u.startsWith("AT+FREQ=")) {
+    float v; if (!parseFloatValue(line.substring(8), v) || v < 2400.0f || v > 2525.0f) { serialERR(); return true; }
+    cfg.freqMHz = v;
+    bool ok = resetRadioBeginAndApply();
+    if (ok) eepromSaveConfig(cfg);
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u == "AT+CHAN?") { Serial.print(F("CHAN=")); Serial.println((int)lroundf(cfg.freqMHz - 2400.0f)); serialOK(); return true; }
+  if (u.startsWith("AT+CHAN=")) {
+    long v; if (!parseLong(line.substring(8), v) || v < 0 || v > 125) { serialERR(); return true; }
+    cfg.freqMHz = 2400.0f + (float)v;
+    bool ok = resetRadioBeginAndApply();
+    if (ok) eepromSaveConfig(cfg);
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u == "AT+RATE?") { Serial.print(F("RATE=")); Serial.println(cfg.bitRateKbps); serialOK(); return true; }
+  if (u.startsWith("AT+RATE=")) {
+    long v; if (!parseLong(line.substring(8), v) || !(v == 250 || v == 1000 || v == 2000)) { serialERR(); return true; }
+    cfg.bitRateKbps = (uint16_t)v;
+    bool ok = resetRadioBeginAndApply();
+    if (ok) eepromSaveConfig(cfg);
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u == "AT+PWR?") { Serial.print(F("PWR=")); Serial.println(cfg.powerDbm); serialOK(); return true; }
+  if (u.startsWith("AT+PWR=")) {
+    long v; if (!parseLong(line.substring(7), v) || !(v == -18 || v == -12 || v == -6 || v == 0)) { serialERR(); return true; }
+    cfg.powerDbm = (int8_t)v;
+    bool ok = resetRadioBeginAndApply();
+    if (ok) eepromSaveConfig(cfg);
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
   // Address query
   if (u == "AT+ADDR?") {
-    printAddrLine(F("ADDR=0x"), cfg.addr);
+    printAddrLine(F("ADDR=0x"), cfg.txAddr);
     serialOK();
     return true;
   }
@@ -360,9 +655,176 @@ static bool handleAT(String lineRaw) {
   if (u.startsWith("AT+ADDR=")) {
     uint8_t tmp[5];
     if (!parseHex5Bytes(line.substring(8), tmp)) { serialERR(); return true; }
-    memcpy(cfg.addr, tmp, 5);
-    bool ok = applyConfigToRadio();
+    memcpy(cfg.txAddr, tmp, 5);
+    memcpy(cfg.rxAddr[0], tmp, 5);
+    cfg.pipeEnabled[0] = true;
+    bool ok = resetRadioBeginAndApply();
+    if (ok) eepromSaveConfig(cfg);
     ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u == "AT+ADDRWIDTH?") { Serial.print(F("ADDRWIDTH=")); Serial.println(cfg.addrWidth); serialOK(); return true; }
+  if (u.startsWith("AT+ADDRWIDTH=")) {
+    long v; if (!parseLong(line.substring(13), v) || v < 3 || v > 5) { serialERR(); return true; }
+    cfg.addrWidth = (uint8_t)v;
+    bool ok = resetRadioBeginAndApply();
+    if (ok) eepromSaveConfig(cfg);
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u == "AT+TXADDR?") { printAddrLine(F("TXADDR=0x"), cfg.txAddr); serialOK(); return true; }
+  if (u.startsWith("AT+TXADDR=")) {
+    uint8_t tmp[5];
+    if (!parseHex5Bytes(line.substring(10), tmp)) { serialERR(); return true; }
+    memcpy(cfg.txAddr, tmp, 5);
+    bool ok = resetRadioBeginAndApply();
+    if (ok) eepromSaveConfig(cfg);
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  for (uint8_t pipe = 0; pipe < 6; pipe++) {
+    String q = String("AT+RXADDR") + pipe + "?";
+    String s = String("AT+RXADDR") + pipe + "=";
+    if (u == q) {
+      Serial.print(F("RXADDR")); Serial.print(pipe); Serial.print(F("=0x"));
+      for (uint8_t i = 0; i < cfg.addrWidth; i++) {
+        if (cfg.rxAddr[pipe][i] < 16) Serial.print('0');
+        Serial.print(cfg.rxAddr[pipe][i], HEX);
+      }
+      Serial.println();
+      serialOK();
+      return true;
+    }
+    if (u.startsWith(s)) {
+      uint8_t tmp[5];
+      if (!parseHex5Bytes(line.substring(s.length()), tmp)) { serialERR(); return true; }
+      memcpy(cfg.rxAddr[pipe], tmp, 5);
+      cfg.pipeEnabled[pipe] = true;
+      bool ok = resetRadioBeginAndApply();
+      if (ok) eepromSaveConfig(cfg);
+      ok ? serialOK() : serialERR();
+      return true;
+    }
+  }
+
+  if (u == "AT+PIPES?") {
+    for (uint8_t pipe = 0; pipe < 6; pipe++) {
+      Serial.print(F("PIPE")); Serial.print(pipe); Serial.print('=');
+      Serial.println(cfg.pipeEnabled[pipe] ? F("ON") : F("OFF"));
+    }
+    serialOK();
+    return true;
+  }
+
+  for (uint8_t pipe = 0; pipe < 6; pipe++) {
+    String s = String("AT+PIPE") + pipe + "=";
+    if (u.startsWith(s)) {
+      bool on; if (!parseOnOff(line.substring(s.length()), on)) { serialERR(); return true; }
+      cfg.pipeEnabled[pipe] = on;
+      bool ok = resetRadioBeginAndApply();
+      if (ok) eepromSaveConfig(cfg);
+      ok ? serialOK() : serialERR();
+      return true;
+    }
+  }
+
+  if (u == "AT+CRC?") { Serial.print(F("CRC=")); Serial.println(cfg.crcOn ? F("ON") : F("OFF")); serialOK(); return true; }
+  if (u.startsWith("AT+CRC=")) {
+    bool on; if (!parseOnOff(line.substring(7), on)) { serialERR(); return true; }
+    cfg.crcOn = on;
+    bool ok = resetRadioBeginAndApply();
+    if (ok) eepromSaveConfig(cfg);
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u == "AT+AUTOACK?") { Serial.print(F("AUTOACK_MASK=0x")); Serial.println(cfg.autoAckMask, HEX); serialOK(); return true; }
+  if (u.startsWith("AT+AUTOACK=")) {
+    bool on; if (!parseOnOff(line.substring(11), on)) { serialERR(); return true; }
+    cfg.autoAckMask = on ? 0x3F : 0x00;
+    bool ok = resetRadioBeginAndApply();
+    if (ok) eepromSaveConfig(cfg);
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+  for (uint8_t pipe = 0; pipe < 6; pipe++) {
+    String s = String("AT+AUTOACK") + pipe + "=";
+    if (u.startsWith(s)) {
+      bool on; if (!parseOnOff(line.substring(s.length()), on)) { serialERR(); return true; }
+      if (on) cfg.autoAckMask |= (1 << pipe);
+      else cfg.autoAckMask &= ~(1 << pipe);
+      bool ok = resetRadioBeginAndApply();
+      if (ok) eepromSaveConfig(cfg);
+      ok ? serialOK() : serialERR();
+      return true;
+    }
+  }
+
+  if (u == "AT+RETRIES?") {
+    Serial.print(F("RETRIES=")); Serial.print(cfg.retryDelay); Serial.print(','); Serial.println(cfg.retryCount);
+    serialOK(); return true;
+  }
+  if (u.startsWith("AT+RETRIES=")) {
+    String p = line.substring(11);
+    int comma = p.indexOf(',');
+    if (comma < 0) { serialERR(); return true; }
+    long d, c;
+    if (!parseLong(p.substring(0, comma), d) || !parseLong(p.substring(comma + 1), c) || d < 0 || d > 15 || c < 0 || c > 15) { serialERR(); return true; }
+    cfg.retryDelay = (uint8_t)d;
+    cfg.retryCount = (uint8_t)c;
+    bool ok = resetRadioBeginAndApply();
+    if (ok) eepromSaveConfig(cfg);
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u == "AT+LNA?") { Serial.print(F("LNA=")); Serial.println(cfg.lnaOn ? F("ON") : F("OFF")); serialOK(); return true; }
+  if (u.startsWith("AT+LNA=")) {
+    bool on; if (!parseOnOff(line.substring(7), on)) { serialERR(); return true; }
+    cfg.lnaOn = on;
+    bool ok = resetRadioBeginAndApply();
+    if (ok) eepromSaveConfig(cfg);
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u == "AT+DYN?") { Serial.print(F("DYN=")); Serial.println(cfg.dynamicPayload ? F("ON") : F("OFF")); serialOK(); return true; }
+  if (u.startsWith("AT+DYN=")) {
+    bool on; if (!parseOnOff(line.substring(7), on)) { serialERR(); return true; }
+    cfg.dynamicPayload = on;
+    bool ok = resetRadioBeginAndApply();
+    if (ok) eepromSaveConfig(cfg);
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u == "AT+ACKPAY?") { Serial.print(F("ACKPAY=")); Serial.println(cfg.ackPayload ? F("ON") : F("OFF")); serialOK(); return true; }
+  if (u.startsWith("AT+ACKPAY=")) {
+    bool on; if (!parseOnOff(line.substring(10), on)) { serialERR(); return true; }
+    cfg.ackPayload = on;
+    if (on) cfg.dynamicPayload = true;
+    bool ok = resetRadioBeginAndApply();
+    if (ok) eepromSaveConfig(cfg);
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u == "AT+PLEN?") { Serial.print(F("PLEN=")); Serial.println(cfg.fixedPayloadLen); serialOK(); return true; }
+  if (u.startsWith("AT+PLEN=")) {
+    long v; if (!parseLong(line.substring(8), v) || v < 1 || v > 32) { serialERR(); return true; }
+    cfg.fixedPayloadLen = (uint8_t)v;
+    bool ok = resetRadioBeginAndApply();
+    if (ok) eepromSaveConfig(cfg);
+    ok ? serialOK() : serialERR();
+    return true;
+  }
+
+  if (u == "AT+STATUS?") {
+    printStatusRegisters();
+    serialOK();
     return true;
   }
 
@@ -416,6 +878,15 @@ void setup() {
   pinMode(LED_GPIO, OUTPUT);
   digitalWrite(LED_GPIO, LOW);
 
+  if (!EEPROM.begin(EEPROM_SIZE)) {
+    Serial.println(F("[EEPROM] begin() failed, using RAM defaults."));
+  }
+  if (!eepromLoadConfig(cfg)) {
+    cfg = cfgDefault;
+    eepromSaveConfig(cfg);
+  }
+  sanitizeConfig(cfg);
+
   Serial.print(F("[nRF24] Initializing ... "));
   bool ok = resetRadioBeginAndApply();
   if (ok) {
@@ -451,7 +922,7 @@ void loop() {
       }
     } else {
       if (radioSleeping) {
-        Serial.println(F("ERROR: RADIO_SLEEPING (send AT+WAKE)"));
+        serialError(F("RADIO_SLEEPING (send AT+WAKE)"));
         return;
       }
 

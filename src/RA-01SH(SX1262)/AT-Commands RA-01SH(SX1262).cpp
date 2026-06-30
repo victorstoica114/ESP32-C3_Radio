@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include <SPI.h>
+#include <Wire.h>
 #include <RadioLib.h>
 #include <EEPROM.h>
 #include <math.h>
@@ -20,6 +21,8 @@ static void drawCentered(const char* text, int baselineY, const uint8_t* font) {
   u8g2.drawStr(x, baselineY, text);
 }
 
+static void releaseOledI2CBus();
+
 static void oled_setup() {
   u8g2.begin();
   u8g2.setContrast(255);
@@ -29,6 +32,7 @@ static void oled_setup() {
   drawCentered("RADIO", 42, u8g2_font_logisoso18_tr);
   drawCentered("SX1262", 63, u8g2_font_logisoso18_tr);
   u8g2.sendBuffer();
+  releaseOledI2CBus();
 }
 
 // ------------------ PINOUT (SX1262) ------------------
@@ -44,6 +48,23 @@ static void oled_setup() {
 #define SPI_SS    7
 
 #define LED_GPIO 8
+
+static void beginRadioSpiBus() {
+  SPI.end();
+  delay(2);
+  SPI.begin(SPI_SCK, SPI_MISO, SPI_MOSI, SPI_SS);
+}
+
+static void releaseOledI2CBus() {
+  u8g2.setPowerSave(1);
+  Wire.end();
+  delay(2);
+  digitalWrite(OLED_SDA, LOW);
+  digitalWrite(OLED_SCL, LOW);
+  pinMode(OLED_SDA, INPUT);
+  pinMode(OLED_SCL, INPUT);
+  delay(2);
+}
 
 SX1262 radio = new Module(NSS, DIO1, RESET, BUSY);
 
@@ -65,6 +86,14 @@ struct RadioConfig {
   uint16_t preamble    = 15;
   uint8_t  gain        = 1;       // 0=AGC, 1..6 manual (SX1262: kept for compatibility, NO-OP)
   bool     crcOn       = true;    // LoRa CRC enable/disable
+  float    tcxoVoltage = 1.8;     // 0=XTAL, otherwise TCXO voltage
+  bool     useRegulatorLDO = false; // false=DCDC, true=LDO
+  bool     dio2RfSwitch = true;   // DIO2 controls RF switch
+  bool     rxBoosted = false;     // boosted RX gain/current mode
+  bool     implicitHdr = false;   // false=explicit, true=implicit header
+  uint8_t  implicitLen = 32;      // payload length for implicit header mode
+  bool     iqInverted = false;    // LoRa IQ inversion
+  bool     forceLdro = false;
 };
 
 RadioConfig cfg;
@@ -80,10 +109,12 @@ bool debugEnabled = debug_defoult_state;
 
 // Last RSSI for AT+RSSI?
 float lastPacketRSSI = NAN;
+float lastPacketSNR = NAN;
+float lastFrequencyError = NAN;
 
 // ------------------ EEPROM PERSISTENCE ------------------
 static const uint32_t EEPROM_MAGIC   = 0x534C4F52UL; // 'SLOR'
-static const uint16_t EEPROM_VERSION = 0x0001;
+static const uint16_t EEPROM_VERSION = 0x0002;
 static const size_t   EEPROM_SIZE    = 512;
 
 // Simple CRC32 (software) over cfg bytes
@@ -101,7 +132,7 @@ static uint32_t crc32_calc(const uint8_t* data, size_t len) {
   return ~crc;
 }
 
-struct __attribute__((packed)) EepromRecord {
+struct EepromRecord {
   uint32_t magic;
   uint16_t version;
   uint16_t length;
@@ -148,7 +179,11 @@ void onRxDone(void) {
 
 // ------------------ SERIAL HELPERS ------------------
 static inline void serialOK()  { Serial.println(F("OK")); }
-static inline void serialERR() { Serial.println(F("ERROR")); }
+static inline void serialERR() { Serial.println(F("#ERROR")); }
+static inline void serialError(const __FlashStringHelper* msg) {
+  Serial.print(F("#ERROR: "));
+  Serial.println(msg);
+}
 
 // ------------------ PARSERS ------------------
 static bool parseFloat(const String& s, float& out) {
@@ -187,6 +222,31 @@ static bool parseBoolOnOff(const String& s, bool& out) {
   return false;
 }
 
+static bool isValidSX1262Frequency(float freq) {
+  return freq >= 150.0f && freq <= 960.0f;
+}
+
+static bool isValidSX126xBandwidth(float bw) {
+  return fabsf(bw - 7.8f) < 0.01f ||
+         fabsf(bw - 10.4f) < 0.01f ||
+         fabsf(bw - 15.6f) < 0.01f ||
+         fabsf(bw - 20.8f) < 0.01f ||
+         fabsf(bw - 31.25f) < 0.01f ||
+         fabsf(bw - 41.7f) < 0.01f ||
+         fabsf(bw - 62.5f) < 0.01f ||
+         fabsf(bw - 125.0f) < 0.01f ||
+         fabsf(bw - 250.0f) < 0.01f ||
+         fabsf(bw - 500.0f) < 0.01f;
+}
+
+static bool isValidSX1262Power(long pwr) {
+  return pwr >= -9 && pwr <= 22;
+}
+
+static bool isValidSX126xCurrent(float currentMA) {
+  return currentMA >= 0.0f && currentMA <= 140.0f;
+}
+
 // ------------------ PRINT CONFIG/HELP ------------------
 static void printConfig() {
   Serial.println(F("CFG:"));
@@ -202,6 +262,14 @@ static void printConfig() {
   Serial.print(F("  RX="));       Serial.println(rxEnabled ? F("ON") : F("OFF"));
   Serial.print(F("  SLEEP="));    Serial.println(radioSleeping ? F("YES") : F("NO"));
   Serial.print(F("  CRC="));      Serial.println(cfg.crcOn ? F("ON") : F("OFF"));
+  Serial.print(F("  TCXO="));     Serial.print(cfg.tcxoVoltage, 1); Serial.println(F(" V (0=XTAL)"));
+  Serial.print(F("  REG="));      Serial.println(cfg.useRegulatorLDO ? F("LDO") : F("DCDC"));
+  Serial.print(F("  DIO2_RF="));  Serial.println(cfg.dio2RfSwitch ? F("ON") : F("OFF"));
+  Serial.print(F("  RXBOOST="));  Serial.println(cfg.rxBoosted ? F("ON") : F("OFF"));
+  Serial.print(F("  HEADER="));   Serial.println(cfg.implicitHdr ? F("IMPLICIT") : F("EXPLICIT"));
+  Serial.print(F("  IMPLEN="));   Serial.println(cfg.implicitLen);
+  Serial.print(F("  IQ="));       Serial.println(cfg.iqInverted ? F("INVERTED") : F("NORMAL"));
+  Serial.print(F("  LDRO="));     Serial.println(cfg.forceLdro ? F("FORCED") : F("AUTO/OFF"));
   Serial.print(F("  DEBUG="));    Serial.println(debugEnabled ? F("ON") : F("OFF"));
 }
 
@@ -215,16 +283,24 @@ static void printHelp() {
   Serial.println(F("  AT+DEFAULT          -> load defaults + auto save + auto apply"));
   Serial.println(F("  AT+RESET            -> hardware reset radio + reinit + apply"));
   Serial.println(F("Parameters (set/query) - each setter auto save + auto reset/apply:"));
-  Serial.println(F("  AT+FREQ=<MHz>       / AT+FREQ?"));
-  Serial.println(F("  AT+BW=<kHz>         / AT+BW?"));
+  Serial.println(F("  AT+FREQ=<150..960 MHz> / AT+FREQ?"));
+  Serial.println(F("  AT+BW=<7.8|10.4|15.6|20.8|31.25|41.7|62.5|125|250|500>"));
   Serial.println(F("  AT+SF=<7..12>       / AT+SF?"));
   Serial.println(F("  AT+CR=<5..8>        / AT+CR?"));
   Serial.println(F("  AT+SYNC=<hex>       / AT+SYNC?     (e.g. 0x14)"));
-  Serial.println(F("  AT+PWR=<dBm>        / AT+PWR?"));
-  Serial.println(F("  AT+CURR=<mA|0>      / AT+CURR?"));
-  Serial.println(F("  AT+PREAMBLE=<n>     / AT+PREAMBLE?"));
+  Serial.println(F("  AT+PWR=<-9..22>     / AT+PWR?"));
+  Serial.println(F("  AT+CURR=<0..140>    / AT+CURR?"));
+  Serial.println(F("  AT+PREAMBLE=<1..65535> / AT+PREAMBLE?"));
   Serial.println(F("  AT+GAIN=<0..6>      / AT+GAIN?     (SX1262: stored for compatibility, NO-OP)"));
   Serial.println(F("  AT+CRC=ON|OFF       / AT+CRC?"));
+  Serial.println(F("  AT+TCXO=<0|1.6..3.3> / AT+TCXO?   (0=XTAL)"));
+  Serial.println(F("  AT+REG=LDO|DCDC     / AT+REG?"));
+  Serial.println(F("  AT+DIO2=ON|OFF      / AT+DIO2?    (RF switch)"));
+  Serial.println(F("  AT+RXBOOST=ON|OFF   / AT+RXBOOST?"));
+  Serial.println(F("  AT+HEADER=EXPLICIT  / AT+HEADER?"));
+  Serial.println(F("  AT+HEADER=IMPLICIT,<1..255>"));
+  Serial.println(F("  AT+IQ=ON|OFF        / AT+IQ?"));
+  Serial.println(F("  AT+LDRO=ON|OFF      / AT+LDRO?"));
   Serial.println(F("Batch set (auto save + auto reset/apply):"));
   Serial.println(F("  AT+SET=<FREQ>,<BW>,<SF>,<CR>,<SYNC>,<PWR>,<CURR>,<PRE>,<GAIN>,<CRC>"));
   Serial.println(F("    Example: AT+SET=433.5,125,11,8,0x14,10,0,8,0,ON"));
@@ -234,6 +310,11 @@ static void printHelp() {
   Serial.println(F("  AT+SLEEP            -> sleep (low power)"));
   Serial.println(F("  AT+WAKE             -> wake + restore RX"));
   Serial.println(F("  AT+RSSI?            -> last RSSI"));
+  Serial.println(F("  AT+SNR?             -> last packet SNR"));
+  Serial.println(F("  AT+FERR?            -> last frequency error"));
+  Serial.println(F("  AT+CAD?             -> channel activity detection"));
+  Serial.println(F("  AT+RANDOM?          -> one RSSI-noise random byte"));
+  Serial.println(F("  AT+STATUS?          -> print runtime status"));
   Serial.println(F("Debug:"));
   Serial.println(F("  AT+DEBUG / AT+DEBUG=ON/OFF / AT+DEBUG?"));
 }
@@ -289,12 +370,32 @@ static bool applyConfigToRadioNoReset() {
   st = radio.setPreambleLength(cfg.preamble);
   if (st != RADIOLIB_ERR_NONE) return false;
 
-  radio.setCRC(cfg.crcOn);
+  st = radio.setCRC(cfg.crcOn);
+  if (st != RADIOLIB_ERR_NONE) return false;
+
+  if (cfg.implicitHdr) {
+    st = radio.implicitHeader(cfg.implicitLen);
+  } else {
+    st = radio.explicitHeader();
+  }
+  if (st != RADIOLIB_ERR_NONE) return false;
+
+  st = radio.invertIQ(cfg.iqInverted);
+  if (st != RADIOLIB_ERR_NONE) return false;
+
+  st = radio.forceLDRO(cfg.forceLdro);
+  if (st != RADIOLIB_ERR_NONE) return false;
 
   if (cfg.currLimitMA > 0.0f) {
-    st = radio.setCurrentLimit((uint16_t)lroundf(cfg.currLimitMA));
+    st = radio.setCurrentLimit(cfg.currLimitMA);
     if (st != RADIOLIB_ERR_NONE) return false;
   }
+
+  st = radio.setDio2AsRfSwitch(cfg.dio2RfSwitch);
+  if (st != RADIOLIB_ERR_NONE) return false;
+
+  st = radio.setRxBoostedGainMode(cfg.rxBoosted);
+  if (st != RADIOLIB_ERR_NONE) return false;
 
   // NOTE: SX1262 has no SX127x-style gain control. Kept for AT compatibility, NO-OP.
 
@@ -308,14 +409,11 @@ static bool applyConfigToRadioNoReset() {
 
 static bool resetRadioByPinAndReinitAndApply() {
   // Full sequence: HW reset -> begin(...) -> attach IRQ -> apply cfg -> RX if enabled
+  beginRadioSpiBus();
   if (!resetRadioHardware()) return false;
 
-  // Re-init LoRa modem with the current cfg. For SX1262, begin() can take parameters.
-  // If your board uses TCXO at 1.8 V, keep it here. If not, set last arg to 0.0.
-  const float tcxoV = 1.8f;
-
   int st = radio.begin(cfg.freqMHz, cfg.bwkHz, cfg.sf, cfg.cr, cfg.syncWord,
-                       cfg.pwrDbm, cfg.preamble, 0 /*LDO*/, tcxoV);
+                       cfg.pwrDbm, cfg.preamble, cfg.tcxoVoltage, cfg.useRegulatorLDO);
   if (st != RADIOLIB_ERR_NONE) return false;
 
   radio.setPacketReceivedAction(onRxDone);
@@ -445,6 +543,61 @@ static bool handleAT(String lineRaw) {
     return true;
   }
 
+  if (u == "AT+SNR?") {
+    if (isnan(lastPacketSNR)) Serial.println(F("SNR=N/A"));
+    else { Serial.print(F("SNR=")); Serial.println(lastPacketSNR, 2); }
+    serialOK();
+    return true;
+  }
+
+  if (u == "AT+FERR?") {
+    if (isnan(lastFrequencyError)) Serial.println(F("FERR=N/A"));
+    else { Serial.print(F("FERR=")); Serial.println(lastFrequencyError, 2); }
+    serialOK();
+    return true;
+  }
+
+  if (u == "AT+CAD?") {
+    radio.clearPacketReceivedAction();
+    int st = radio.scanChannel();
+    if (rxEnabled && !radioSleeping) {
+      receivedFlag = false;
+      radio.setPacketReceivedAction(onRxDone);
+      radio.startReceive();
+    }
+    if (st == RADIOLIB_CHANNEL_FREE) {
+      Serial.println(F("CAD=FREE"));
+      serialOK();
+    } else if (st == RADIOLIB_LORA_DETECTED || st == RADIOLIB_PREAMBLE_DETECTED) {
+      Serial.println(F("CAD=DETECTED"));
+      serialOK();
+    } else {
+      Serial.print(F("#ERROR: CAD_ERROR="));
+      Serial.println(st);
+      serialERR();
+    }
+    return true;
+  }
+
+  if (u == "AT+RANDOM?") {
+    uint8_t b = radio.randomByte();
+    Serial.print(F("RANDOM=0x"));
+    if (b < 16) Serial.print('0');
+    Serial.println(b, HEX);
+    serialOK();
+    return true;
+  }
+
+  if (u == "AT+STATUS?") {
+    Serial.print(F("RX=")); Serial.println(rxEnabled ? F("ON") : F("OFF"));
+    Serial.print(F("SLEEP=")); Serial.println(radioSleeping ? F("YES") : F("NO"));
+    Serial.print(F("RSSI=")); Serial.println(radio.getRSSI(), 2);
+    Serial.print(F("SNR=")); Serial.println(radio.getSNR(), 2);
+    Serial.print(F("FERR=")); Serial.println(radio.getFrequencyError(), 2);
+    serialOK();
+    return true;
+  }
+
   // DEBUG
   if (u == "AT+DEBUG?") {
     Serial.print(F("DEBUG="));
@@ -473,20 +626,88 @@ static bool handleAT(String lineRaw) {
   if (u == "AT+PREAMBLE?") { Serial.print(F("PREAMBLE=")); Serial.println(cfg.preamble); serialOK(); return true; }
   if (u == "AT+GAIN?")     { Serial.print(F("GAIN=")); Serial.println(cfg.gain); serialOK(); return true; }
   if (u == "AT+CRC?")      { Serial.print(F("CRC="));  Serial.println(cfg.crcOn ? F("ON") : F("OFF")); serialOK(); return true; }
+  if (u == "AT+TCXO?")     { Serial.print(F("TCXO=")); Serial.println(cfg.tcxoVoltage, 1); serialOK(); return true; }
+  if (u == "AT+REG?")      { Serial.print(F("REG=")); Serial.println(cfg.useRegulatorLDO ? F("LDO") : F("DCDC")); serialOK(); return true; }
+  if (u == "AT+DIO2?")     { Serial.print(F("DIO2=")); Serial.println(cfg.dio2RfSwitch ? F("ON") : F("OFF")); serialOK(); return true; }
+  if (u == "AT+RXBOOST?")  { Serial.print(F("RXBOOST=")); Serial.println(cfg.rxBoosted ? F("ON") : F("OFF")); serialOK(); return true; }
+  if (u == "AT+HEADER?")   {
+    Serial.print(F("HEADER="));
+    Serial.println(cfg.implicitHdr ? F("IMPLICIT") : F("EXPLICIT"));
+    Serial.print(F("IMPLEN="));
+    Serial.println(cfg.implicitLen);
+    serialOK();
+    return true;
+  }
+  if (u == "AT+IQ?")       { Serial.print(F("IQ=")); Serial.println(cfg.iqInverted ? F("ON") : F("OFF")); serialOK(); return true; }
+  if (u == "AT+LDRO?")     { Serial.print(F("LDRO=")); Serial.println(cfg.forceLdro ? F("ON") : F("OFF")); serialOK(); return true; }
 
   // CRC setters
   if (u == "AT+CRC=ON")  { cfg.crcOn = true;  (persistAndReapply() ? serialOK() : serialERR()); return true; }
   if (u == "AT+CRC=OFF") { cfg.crcOn = false; (persistAndReapply() ? serialOK() : serialERR()); return true; }
+  if (u.startsWith("AT+TCXO=")) {
+    float v; if (!parseFloat(line.substring(8), v) || v < 0.0f || v > 3.3f) { serialERR(); return true; }
+    cfg.tcxoVoltage = v;
+    (persistAndReapply() ? serialOK() : serialERR());
+    return true;
+  }
+  if (u.startsWith("AT+REG=")) {
+    String r = line.substring(7);
+    r.trim(); r.toUpperCase();
+    if (r == "LDO") cfg.useRegulatorLDO = true;
+    else if (r == "DCDC" || r == "DC-DC") cfg.useRegulatorLDO = false;
+    else { serialERR(); return true; }
+    (persistAndReapply() ? serialOK() : serialERR());
+    return true;
+  }
+  if (u.startsWith("AT+DIO2=")) {
+    bool on; if (!parseBoolOnOff(line.substring(8), on)) { serialERR(); return true; }
+    cfg.dio2RfSwitch = on;
+    (persistAndReapply() ? serialOK() : serialERR());
+    return true;
+  }
+  if (u.startsWith("AT+RXBOOST=")) {
+    bool on; if (!parseBoolOnOff(line.substring(11), on)) { serialERR(); return true; }
+    cfg.rxBoosted = on;
+    (persistAndReapply() ? serialOK() : serialERR());
+    return true;
+  }
+  if (u == "AT+HEADER=EXPLICIT") {
+    cfg.implicitHdr = false;
+    (persistAndReapply() ? serialOK() : serialERR());
+    return true;
+  }
+  if (u.startsWith("AT+HEADER=IMPLICIT")) {
+    int comma = line.indexOf(',');
+    if (comma < 0) { serialERR(); return true; }
+    long len;
+    if (!parseInt(line.substring(comma + 1), len) || len < 1 || len > 255) { serialERR(); return true; }
+    cfg.implicitHdr = true;
+    cfg.implicitLen = (uint8_t)len;
+    (persistAndReapply() ? serialOK() : serialERR());
+    return true;
+  }
+  if (u.startsWith("AT+IQ=")) {
+    bool on; if (!parseBoolOnOff(line.substring(6), on)) { serialERR(); return true; }
+    cfg.iqInverted = on;
+    (persistAndReapply() ? serialOK() : serialERR());
+    return true;
+  }
+  if (u.startsWith("AT+LDRO=")) {
+    bool on; if (!parseBoolOnOff(line.substring(8), on)) { serialERR(); return true; }
+    cfg.forceLdro = on;
+    (persistAndReapply() ? serialOK() : serialERR());
+    return true;
+  }
 
   // Parameter setters (auto save + HW reset/apply)
   if (u.startsWith("AT+FREQ=")) {
-    float v; if (!parseFloat(line.substring(8), v)) { serialERR(); return true; }
+    float v; if (!parseFloat(line.substring(8), v) || !isValidSX1262Frequency(v)) { serialERR(); return true; }
     cfg.freqMHz = v;
     (persistAndReapply() ? serialOK() : serialERR());
     return true;
   }
   if (u.startsWith("AT+BW=")) {
-    float v; if (!parseFloat(line.substring(6), v)) { serialERR(); return true; }
+    float v; if (!parseFloat(line.substring(6), v) || !isValidSX126xBandwidth(v)) { serialERR(); return true; }
     cfg.bwkHz = v;
     (persistAndReapply() ? serialOK() : serialERR());
     return true;
@@ -510,13 +731,13 @@ static bool handleAT(String lineRaw) {
     return true;
   }
   if (u.startsWith("AT+PWR=")) {
-    long v; if (!parseInt(line.substring(7), v)) { serialERR(); return true; }
+    long v; if (!parseInt(line.substring(7), v) || !isValidSX1262Power(v)) { serialERR(); return true; }
     cfg.pwrDbm = (int8_t)v;
     (persistAndReapply() ? serialOK() : serialERR());
     return true;
   }
   if (u.startsWith("AT+CURR=")) {
-    float v; if (!parseFloat(line.substring(8), v) || v < 0.0f) { serialERR(); return true; }
+    float v; if (!parseFloat(line.substring(8), v) || !isValidSX126xCurrent(v)) { serialERR(); return true; }
     cfg.currLimitMA = v;
     (persistAndReapply() ? serialOK() : serialERR());
     return true;
@@ -557,13 +778,13 @@ static bool handleAT(String lineRaw) {
     uint8_t sync;
     bool crcOn;
 
-    if (!parseFloat(parts[0], f)) { serialERR(); return true; }
-    if (!parseFloat(parts[1], bw)) { serialERR(); return true; }
+    if (!parseFloat(parts[0], f) || !isValidSX1262Frequency(f)) { serialERR(); return true; }
+    if (!parseFloat(parts[1], bw) || !isValidSX126xBandwidth(bw)) { serialERR(); return true; }
     if (!parseInt(parts[2], sf) || sf < 7 || sf > 12) { serialERR(); return true; }
     if (!parseInt(parts[3], cr) || cr < 5 || cr > 8) { serialERR(); return true; }
     if (!parseHexByte(parts[4], sync)) { serialERR(); return true; }
-    if (!parseInt(parts[5], pwr)) { serialERR(); return true; }
-    if (!parseFloat(parts[6], curr) || curr < 0.0f) { serialERR(); return true; }
+    if (!parseInt(parts[5], pwr) || !isValidSX1262Power(pwr)) { serialERR(); return true; }
+    if (!parseFloat(parts[6], curr) || !isValidSX126xCurrent(curr)) { serialERR(); return true; }
     if (!parseInt(parts[7], pre) || pre < 1 || pre > 65535) { serialERR(); return true; }
     if (!parseInt(parts[8], gain) || gain < 0 || gain > 6) { serialERR(); return true; }
     if (!parseBoolOnOff(parts[9], crcOn)) { serialERR(); return true; }
@@ -596,7 +817,7 @@ void setup() {
   pinMode(LED_GPIO, OUTPUT);
   digitalWrite(LED_GPIO, LOW);
 
-  SPI.begin(SPI_SCK, SPI_MISO, SPI_MOSI, SPI_SS);
+  beginRadioSpiBus();
 
   // EEPROM init
   if (!EEPROM.begin(EEPROM_SIZE)) {
@@ -666,7 +887,7 @@ void loop() {
       }
     } else {
       if (radioSleeping) {
-        Serial.println(F("ERROR: RADIO_SLEEPING (send AT+WAKE)"));
+        serialError(F("RADIO_SLEEPING (send AT+WAKE)"));
         return;
       }
 
@@ -710,21 +931,23 @@ void loop() {
 
     if (rx == RADIOLIB_ERR_NONE) {
       lastPacketRSSI = radio.getRSSI();
+      lastPacketSNR = radio.getSNR();
+      lastFrequencyError = radio.getFrequencyError();
 
       if (debugEnabled) {
         Serial.print(F("[SX1262] Data:\t\t  "));
         Serial.println(str);
 
         Serial.print(F("[SX1262] RSSI:\t\t  "));
-        Serial.print(radio.getRSSI(), 2);
+        Serial.print(lastPacketRSSI, 2);
         Serial.println(F(" dBm"));
 
         Serial.print(F("[SX1262] SNR:\t\t  "));
-        Serial.print(radio.getSNR(), 2);
+        Serial.print(lastPacketSNR, 2);
         Serial.println(F(" dB"));
 
         Serial.print(F("[SX1262] Frequency Error:\t  "));
-        Serial.print(radio.getFrequencyError(), 2);
+        Serial.print(lastFrequencyError, 2);
         Serial.println(F(" Hz"));
 
         Serial.println(F("[SX1262] Packet received!"));
