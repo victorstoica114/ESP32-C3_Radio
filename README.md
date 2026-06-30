@@ -75,6 +75,7 @@ Use these values for `RADIO_MODULE`:
 | `RADIO_E28_SX1280` | `src/E28(SX1280)` | E28, SX1280 2.4 GHz |
 | `RADIO_EBYTE` | `src/Ebyte` | Ebyte E32 UART LoRa module |
 | `RADIO_EBYTE_E22_SX1268` | `src/Ebyte E22(SX1268)` | Ebyte E22 SPI LoRa module, SX1268 |
+| `RADIO_EBYTE_E280_SX1280` | `src/Ebyte E280(SX1280)` | Ebyte E280-2G4T12S UART/TTL module, SX1280 |
 | `RADIO_XL1276_D01_SX1276` | `src/XL1276-D01 (SX1276)` | XL1276-D01, SX1276 |
 
 ## Firmware variants
@@ -104,6 +105,7 @@ Availability by module:
 | `RADIO_E28_SX1280` | yes | yes | no | yes | no | no |
 | `RADIO_EBYTE` | yes | no | no | no | no | yes |
 | `RADIO_EBYTE_E22_SX1268` | yes | no | no | no | no | no |
+| `RADIO_EBYTE_E280_SX1280` | yes | no | no | no | no | no |
 | `RADIO_XL1276_D01_SX1276` | yes | no | yes | yes | yes | no |
 
 If a module/program combination is not available, compilation stops with a clear
@@ -326,6 +328,42 @@ OLED I2C bus, draws the OLED splash, releases I2C, then reinitializes SPI.
 | `AT+IQ?`, `AT+IQ=ON\|OFF` | Query/set IQ inversion |
 | `AT+LDRO?`, `AT+LDRO=ON\|OFF` | Query/set forced low-data-rate optimization |
 | `AT+SET=<FREQ>,<BW>,<SF>,<CR>,<SYNC>,<PWR>,<CURR>,<PRE>,<GAIN>,<CRC>` | Batch-set LoRa parameters |
+
+### Ebyte E280 UART SX1280
+
+This is the `E280-2G4T12S` UART/TTL module from the local manual. It is based
+on SX1280 internally, but the ESP32 talks to the module through UART and Ebyte's
+binary configuration protocol, not through SPI/RadioLib. Current pin assumptions:
+`RX=GPIO20`, `TX=GPIO21`, `M0=GPIO10`, `M1=GPIO3`, `M2=GPIO2`, `AUX=GPIO1`.
+
+| Command | Meaning |
+| --- | --- |
+| `AT`, `AT?`, `AT+HELP`, `AT+CFG?` | Connectivity, help, and current module config/status |
+| `AT+APPLY`, `AT+APPLY=TEMP`, `AT+RESET`, `AT+DEFAULT` | Save/apply, temporary apply, reset, or restore factory-safe defaults |
+| `AT+INFO?`, `AT+AUX?` | Read module version bytes or AUX pin state |
+| `AT+DEBUG=ON\|OFF`, `AT+DEBUG?` | Control debug output |
+| `AT+BRIDGE=ON\|OFF`, `AT+BRIDGE?` | Control transparent USB Serial to E280 UART bridge |
+| `AT+MODE?`, `AT+MODE=TRANSMISSION\|RSSI\|RANGING\|CONFIGURATION\|LOW_POWER` | Query/set M2/M1/M0 runtime mode |
+| `AT+SLEEP`, `AT+WAKE` | Enter low-power mode or restore the previous normal mode |
+| `AT+WINDOW=LOCAL\|REMOTE` | Send Ebyte `E2 E2 E2` or `E3 E3 E3` configuration-window command |
+| `AT+ADDR?`, `AT+ADDR=<0..65535\|0x0000..0xFFFF>` | Query/set 16-bit module address |
+| `AT+ADDH?`, `AT+ADDH=<0..255>` | Query/set high address byte |
+| `AT+ADDL?`, `AT+ADDL=<0..255>` | Query/set low address byte |
+| `AT+CHAN?`, `AT+CHAN=<0..39>` | Query/set channel; fixed-frequency `1M` is limited to `0..33`, fixed-frequency `2M` to `0..20` |
+| `AT+FREQ?` | Print approximate channel frequency based on air-rate/frequency-hop mode |
+| `AT+BAUD?`, `AT+BAUD=<1200\|4800\|9600\|19200\|57600\|115200\|460800\|921600>`, `AT+BAUD1..8` | Query/set module UART baud |
+| `AT+PARITY?`, `AT+PARITY=8N1\|8O1\|8E1`, `AT+PARITY1..3` | Query/set UART format |
+| `AT+AIR?`, `AT+AIR=ADAPTIVE\|1K\|5K\|10K\|50K\|100K\|1M\|2M`, `AT+AIR0..7` | Query/set air rate |
+| `AT+POWER?`, `AT+POWER=<12\|10\|7\|4>`, `AT+POWER1..4` | Query/set transmit power |
+| `AT+FIXED?`, `AT+FIXED=ON\|OFF` | Query/set fixed-point/class-Modbus transmission mode |
+| `AT+RANGE?`, `AT+RANGE=HIGH\|LONG` | Query/set ranging precision/distance mode |
+| `AT+FHSS?`, `AT+FHSS=ON\|OFF` | Query/set frequency hopping |
+| `AT+ROLE?`, `AT+ROLE=SLAVE\|HOST` | Query/set ranging/test role bit |
+| `AT+LBT?`, `AT+LBT=ON\|OFF` | Query/set listen-before-talk |
+| `AT+IOMODE?`, `AT+IOMODE=PP\|OD` | Query/set TXD/AUX/RXD IO drive mode |
+| `AT+SETRADIO=ADDH,ADDL,CHAN,BAUD,PARITY,AIR,POWER,FIXED,RANGE,FHSS,ROLE,LBT,IOMODE` | One-shot E280 configuration |
+| `AT+SENDTO=ADDH,ADDL,CHAN,TEXT` | Send a fixed-address payload with the 3-byte Ebyte prefix |
+| `AT+BROADCAST=CHAN,TEXT` | Send a fixed-address broadcast payload |
 
 ### SX1280 E28
 
