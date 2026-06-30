@@ -21,6 +21,9 @@ compile_commands.json
 log/*
 !log/.gitignore
 
+# Local datasheets are references only; keep public docs as links unless reviewed.
+Datasheets/*.pdf
+
 # Copied RA-08 SDK local/heavy artifacts
 src/Ai-Thinker-LoRaWAN-Ra-08/.git/
 src/Ai-Thinker-LoRaWAN-Ra-08/.gitmodules

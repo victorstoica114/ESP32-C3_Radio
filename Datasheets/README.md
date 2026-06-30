@@ -1,19 +1,18 @@
 # Datasheets
 
-Temporary PDF collection for the supported radio modules and the ESP32-C3
-development board.
+Reference index for the supported radio modules and the ESP32-C3 development
+board.
 
-These PDF files are vendor/manufacturer documentation and are not covered by the
-project MIT License. For a public repository, prefer linking to official source
-pages unless redistribution is explicitly allowed or otherwise acceptable.
+Datasheets and vendor manuals are third-party documentation and are not covered
+by the project MIT License. PDF copies are kept local only and are ignored by
+Git. For the public repository, use official source links or source notes unless
+redistribution is explicitly allowed.
 
-This repository is currently private, so the PDFs are kept here for convenience.
-Before making the repository public, review each file for redistribution terms
-and remove anything that should be linked instead of committed.
+If you download PDFs into this folder for local reference, keep them out of Git.
 
-## Files
+## Reference Files
 
-| File | Covers | Source/status |
+| Local filename | Covers | Source/status |
 | --- | --- | --- |
 | `CC1101_TI_Datasheet.pdf` | CC1101 | Official TI datasheet: https://www.ti.com/lit/ds/symlink/cc1101.pdf |
 | `ESP32-C3_Datasheet_Espressif.pdf` | ESP32-C3 chip | Official Espressif datasheet: https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf |

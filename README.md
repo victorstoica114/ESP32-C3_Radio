@@ -85,6 +85,9 @@ Use these values for `RADIO_MODULE` in the ESP32 PlatformIO firmware:
 | `RADIO_EBYTE_E22_SX1268` | `src/Ebyte E22(SX1268)` | Ebyte E22 SPI LoRa module, SX1268 |
 | `RADIO_EBYTE_E280_SX1280` | `src/Ebyte E280(SX1280)` | Ebyte E280-2G4T12S UART/TTL module, SX1280 |
 | `RADIO_EBYTE_E79_CC1352P` | `src/Ebyte E79(CC1352P)` and `src/Ebyte E79(CC1352P) ESP32 Bridge` | Ebyte E79-400DM2005S, TI CC1352P wireless MCU |
+| `RADIO_EBYTE_E07_400M10S` | `src/CC1101` | Ebyte E07-400M10S, CC1101, 10 dBm nominal |
+| `RADIO_EBYTE_E07_400MM10S` | `src/CC1101` | Ebyte E07-400MM10S, CC1101, 10 dBm nominal |
+| `RADIO_EBYTE_E07_433M20S` | `src/CC1101` | Ebyte E07-433M20S, CC1101 + PA/LNA, 20 dBm nominal |
 | `RADIO_XL1276_D01_SX1276` | `src/XL1276-D01 (SX1276)` | XL1276-D01, SX1276 |
 
 Standalone module-side radio firmware:
@@ -122,6 +125,9 @@ Availability by module:
 | `RADIO_EBYTE_E22_SX1268` | yes | no | no | no | no | no |
 | `RADIO_EBYTE_E280_SX1280` | yes | no | no | no | no | no |
 | `RADIO_EBYTE_E79_CC1352P` | yes | no | no | no | no | yes |
+| `RADIO_EBYTE_E07_400M10S` | yes | no | no | no | no | no |
+| `RADIO_EBYTE_E07_400MM10S` | yes | no | no | no | no | no |
+| `RADIO_EBYTE_E07_433M20S` | yes | no | no | no | no | no |
 | `RADIO_XL1276_D01_SX1276` | yes | no | yes | yes | yes | no |
 | RA08 AT modem | yes | no | no | no | no | no |
 
@@ -205,6 +211,17 @@ virtual and is not used as the radio-module baud reference.
 
 ### CC1101
 
+The Ebyte E07-400M10S, E07-400MM10S, and E07-433M20S variants use the same
+CC1101 AT firmware. Select the exact module with `RADIO_MODULE` so the splash,
+configuration printout, and EEPROM namespace match the hardware.
+
+These E07 selections compile, but have not been hardware-tested yet. Hardware
+validation is planned next.
+
+`E07-433M20S` includes an external PA/LNA and is rated around 20 dBm at module
+level. `AT+PWR` still controls the CC1101 drive/PATABLE preset exposed by
+RadioLib, not a separate PA gain setting.
+
 | Command | Meaning |
 | --- | --- |
 | `AT`, `AT?`, `AT+HELP`, `AT+CFG?` | Connectivity, help, and full configuration/status printout |
@@ -218,7 +235,7 @@ virtual and is not used as the radio-module baud reference.
 | `AT+BR?`, `AT+BR=<kbps>`, `AT+BR1..11` | Query/set bit rate or use a preset |
 | `AT+DEV?`, `AT+DEV=<kHz>` | Query/set frequency deviation |
 | `AT+BW?`, `AT+BW=<kHz>`, `AT+BW1..16` | Query/set receive bandwidth or use a preset |
-| `AT+PWR?`, `AT+PWR=<dBm>`, `AT+PWR1..10` | Query/set TX power or use a preset |
+| `AT+PWR?`, `AT+PWR=<-30\|-20\|-15\|-10\|0\|5\|7\|10>`, `AT+PWR1..8` | Query/set CC1101 drive power or use a preset |
 | `AT+PRE?`, `AT+PRE=<bits>` | Query/set preamble length |
 | `AT+SYNC?`, `AT+SYNC=<hex>` | Query/set 2-byte sync word |
 | `AT+SYNCERR?`, `AT+SYNCERR=0\|1` | Query/set allowed sync-word error bits |

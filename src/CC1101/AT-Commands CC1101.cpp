@@ -5,6 +5,46 @@
 #include <EEPROM.h>
 #include <U8g2lib.h>
 
+#ifndef CC1101_MODULE_NAME
+#define CC1101_MODULE_NAME "CC1101"
+#endif
+
+#ifndef CC1101_DISPLAY_LINE1
+#define CC1101_DISPLAY_LINE1 "RADIO"
+#endif
+
+#ifndef CC1101_DISPLAY_LINE2
+#define CC1101_DISPLAY_LINE2 "CC1101"
+#endif
+
+#ifndef CC1101_HELP_TITLE
+#define CC1101_HELP_TITLE "AT Shell for CC1101 Radio Module"
+#endif
+
+#ifndef CC1101_CONFIG_TITLE
+#define CC1101_CONFIG_TITLE "====== CC1101 CONFIGURATION ======"
+#endif
+
+#ifndef CC1101_BOOT_TITLE
+#define CC1101_BOOT_TITLE "CC1101 AT Bridge"
+#endif
+
+#ifndef CC1101_DEF_FREQUENCY_MHZ
+#define CC1101_DEF_FREQUENCY_MHZ 433.0f
+#endif
+
+#ifndef CC1101_DEF_TX_POWER_DBM
+#define CC1101_DEF_TX_POWER_DBM 10
+#endif
+
+#ifndef CC1101_NOMINAL_TX_POWER_DBM
+#define CC1101_NOMINAL_TX_POWER_DBM 10
+#endif
+
+#ifndef CC1101_EEPROM_MAGIC
+#define CC1101_EEPROM_MAGIC 0x43433031UL
+#endif
+
 /*
   CC1101 AT Bridge - Comunicatie bidirectionala cu comenzi AT
   
@@ -56,11 +96,11 @@ static const uint32_t USB_BAUD = 115200;
 // =============================================================================
 // DEFAULT RADIO CONFIG
 // =============================================================================
-static const float    DEF_FREQUENCY    = 433.0;    // MHz
+static const float    DEF_FREQUENCY    = CC1101_DEF_FREQUENCY_MHZ; // MHz
 static const float    DEF_BITRATE      = 4.8;      // kbps
 static const float    DEF_FREQ_DEV     = 5.2;      // kHz
 static const float    DEF_RX_BW        = 135.0;    // kHz
-static const int8_t   DEF_TX_POWER     = 10;       // dBm
+static const int8_t   DEF_TX_POWER     = CC1101_DEF_TX_POWER_DBM;   // dBm
 static const uint8_t  DEF_PREAMBLE     = 16;       // bits
 static const uint8_t  DEF_SYNC_WORD_H  = 0xD3;
 static const uint8_t  DEF_SYNC_WORD_L  = 0x91;
@@ -78,14 +118,16 @@ static const float VALID_BITRATES[] = {
 };
 static const int NUM_BITRATES = 11;
 
-// TX Power levels (dBm)
-static const int8_t VALID_POWERS[] = { -30, -20, -15, -10, -6, 0, 5, 7, 10, 12 };
-static const int NUM_POWERS = 10;
+// TX Power levels accepted by RadioLib's CC1101 driver (dBm).
+// Some CC1101-based modules, such as E07-433M20S, have an external PA and a
+// higher nominal module output, but still use these CC1101 PATABLE presets here.
+static const int8_t VALID_POWERS[] = { -30, -20, -15, -10, 0, 5, 7, 10 };
+static const int NUM_POWERS = 8;
 
 // =============================================================================
 // EEPROM PERSISTENCE
 // =============================================================================
-static const uint32_t EEPROM_MAGIC   = 0x43433031UL; // "CC01"
+static const uint32_t EEPROM_MAGIC   = CC1101_EEPROM_MAGIC;
 static const uint16_t EEPROM_VERSION = 0x0003;
 static const size_t   EEPROM_SIZE    = 512;
 
@@ -173,8 +215,8 @@ static void oled_setup() {
   u8g2.clearBuffer();
 
   // Safe sizes for 2 lines on 128x64 without clipping
-  drawCentered("RADIO", 42, u8g2_font_logisoso18_tr);   // baseline ~26
-  drawCentered("CC1101", 63, u8g2_font_logisoso18_tr);  // baseline ~56
+  drawCentered(CC1101_DISPLAY_LINE1, 42, u8g2_font_logisoso18_tr);  // baseline ~26
+  drawCentered(CC1101_DISPLAY_LINE2, 63, u8g2_font_logisoso18_tr);  // baseline ~56
 
   u8g2.sendBuffer();
   releaseOledI2CBus();
@@ -550,6 +592,13 @@ static bool isValidPreamble(uint8_t preambleBits) {
   }
 }
 
+static bool isValidTxPower(int8_t power) {
+  for (int i = 0; i < NUM_POWERS; i++) {
+    if (VALID_POWERS[i] == power) return true;
+  }
+  return false;
+}
+
 static const char* modModeName(uint8_t mode) {
   switch (mode) {
     case 1: return "GFSK";
@@ -615,7 +664,9 @@ static int findNearestBandwidth(float bw) {
 // Print Config
 // =============================================================================
 static void printConfigPretty(const RadioConfig& c) {
-  Serial.println(F("====== CC1101 CONFIGURATION ======"));
+  Serial.println(F(CC1101_CONFIG_TITLE));
+  Serial.print(F("Module:       ")); Serial.println(F(CC1101_MODULE_NAME));
+  Serial.print(F("Module max TX:")); Serial.print(CC1101_NOMINAL_TX_POWER_DBM); Serial.println(F(" dBm nominal"));
   Serial.print(F("Frequency:    ")); Serial.print(c.frequency, 2); Serial.println(F(" MHz"));
   Serial.print(F("Bit Rate:     ")); Serial.print(c.bitRate, 1); Serial.println(F(" kbps"));
   Serial.print(F("Freq Dev:     ")); Serial.print(c.freqDev, 1); Serial.println(F(" kHz"));
@@ -650,7 +701,7 @@ static void printConfigPretty(const RadioConfig& c) {
 // =============================================================================
 static void printHelp() {
   Serial.println(F(""));
-  Serial.println(F("AT Shell for CC1101 Radio Module"));
+  Serial.println(F(CC1101_HELP_TITLE));
   Serial.println(F(""));
   Serial.println(F("Core Commands:"));
   Serial.println(F("  AT               -> OK (test)"));
@@ -667,7 +718,7 @@ static void printHelp() {
   Serial.println(F("  AT+BR=<kbps>     / AT+BR?      (0.6-500 kbps)"));
   Serial.println(F("  AT+DEV=<kHz>     / AT+DEV?"));
   Serial.println(F("  AT+BW=<kHz>      / AT+BW?"));
-  Serial.println(F("  AT+PWR=<dBm>     / AT+PWR?     (-30 to 12 dBm)"));
+  Serial.println(F("  AT+PWR=<dBm>     / AT+PWR?     (-30, -20, -15, -10, 0, 5, 7, 10 dBm)"));
   Serial.println(F("  AT+PRE=<bits>    / AT+PRE?     (16/24/32/48/64/96/128/192)"));
   Serial.println(F("  AT+SYNC=<XXXX>   / AT+SYNC?    (hex, e.g. D391)"));
   Serial.println(F("  AT+SYNCERR=0|1   / AT+SYNCERR?"));
@@ -691,9 +742,14 @@ static void printHelp() {
   Serial.println(F("                      1=0.6, 2=1.2, 3=2.4, 4=4.8, 5=9.6,"));
   Serial.println(F("                      6=19.2, 7=38.4, 8=76.8, 9=153.6,"));
   Serial.println(F("                      10=250, 11=500 kbps"));
-  Serial.println(F("  AT+PWR1..10      -> Power presets:"));
-  Serial.println(F("                      1=-30, 2=-20, 3=-15, 4=-10, 5=-6,"));
-  Serial.println(F("                      6=0, 7=5, 8=7, 9=10, 10=12 dBm"));
+  Serial.println(F("  AT+PWR1..8       -> Power presets:"));
+  Serial.println(F("                      1=-30, 2=-20, 3=-15, 4=-10,"));
+  Serial.println(F("                      5=0, 6=5, 7=7, 8=10 dBm"));
+  if (CC1101_NOMINAL_TX_POWER_DBM > 10) {
+    Serial.print(F("  Note: module nominal max TX is "));
+    Serial.print(CC1101_NOMINAL_TX_POWER_DBM);
+    Serial.println(F(" dBm; AT+PWR controls CC1101 drive presets up to 10 dBm."));
+  }
   Serial.println(F(""));
   Serial.println(F("Set All (one command):"));
   Serial.println(F("  AT+SETRADIO=FREQ,BR,DEV,BW,PWR,PRE,SYNC,CRC"));
@@ -1111,7 +1167,7 @@ static bool handleAT(const String& lineRaw) {
   if (u.startsWith("AT+PWR=")) {
     int8_t v;
     if (!parseInt8(line.substring(7), v)) { serialERR(); return true; }
-    if (v < -30 || v > 12) { serialERR(); return true; }
+    if (!isValidTxPower(v)) { serialERR(); return true; }
     cfgCurrent.txPower = v;
     bool ok = applyConfig(cfgCurrent);
     if (ok) { eepromSave(cfgCurrent); startReceive(); }
@@ -1205,7 +1261,7 @@ static bool handleAT(const String& lineRaw) {
     if (!parseFloat(parts[1], br) || br < 0.3 || br > 600.0) { serialERR(); return true; }
     if (!parseFloat(parts[2], dev) || dev < 1.0 || dev > 380.0) { serialERR(); return true; }
     if (!parseFloat(parts[3], bw)) { serialERR(); return true; }
-    if (!parseInt8(parts[4], pwr) || pwr < -30 || pwr > 12) { serialERR(); return true; }
+    if (!parseInt8(parts[4], pwr) || !isValidTxPower(pwr)) { serialERR(); return true; }
     if (!parseUInt8(parts[5], pre) || !isValidPreamble(pre)) { serialERR(); return true; }
     
     // Sync word
@@ -1262,7 +1318,8 @@ void setup() {
 
   Serial.println();
   Serial.println(F("=========================================="));
-  Serial.println(F("   CC1101 AT Bridge"));
+  Serial.print(F("   "));
+  Serial.println(F(CC1101_BOOT_TITLE));
   Serial.println(F("   115200 8N1 <-> 433 MHz Radio"));
   Serial.println(F("=========================================="));
   Serial.println();

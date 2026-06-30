@@ -11,9 +11,10 @@ All notable changes to this project will be documented here.
 - Added Ebyte E280-2G4T12S UART/TTL module support with raw Ebyte binary configuration, bridge mode, RSSI/ranging/low-power runtime modes, and AT-command wrappers.
 - Added an initial Ebyte E79 CC1352P ESP32-side skeleton for a future UART modem firmware running on the CC1352P itself.
 - Added selectable Ebyte E79 CC1352P ESP32 bridge firmware (`RADIO_EBYTE_E79_CC1352P` + `BRIDGE`) for USB CDC to CC1352P UART operation.
+- Added shared CC1101 AT-command support selections for Ebyte E07-400M10S, E07-400MM10S, and E07-433M20S.
 - Added the Ai-Thinker RA-08 ASR6601 standalone AT modem source under `src/Ai-Thinker-LoRaWAN-Ra-08`, kept separate from the full SDK/toolchain.
 - Added reusable PowerShell test/upload scripts under `test/`; generated logs go under ignored `log/`.
-- Added a temporary `Datasheets/` folder with PDF documentation for supported modules and ESP32-C3 hardware.
+- Added a `Datasheets/` reference index for supported modules and ESP32-C3 hardware documentation.
 - Added per-module AT command documentation to `README.md`, including module-specific command descriptions.
 - Added `AT+SLEEP` and `AT+WAKE` support to AT-command firmware variants where the hardware/library supports sleep:
   - CC1101
@@ -62,6 +63,7 @@ All notable changes to this project will be documented here.
 - Used RadioLib `sleep()` / `standby()` for SPI radio modules.
 - Used Ebyte E32 M0/M1 mode control for sleep/wake behavior.
 - Kept `AT+DEFAULT` as the documented recovery path for restoring known-safe settings.
+- Removed datasheet PDFs from Git tracking; local PDF copies are ignored and the public repository keeps only reference notes/links.
 
 ### Verified
 
