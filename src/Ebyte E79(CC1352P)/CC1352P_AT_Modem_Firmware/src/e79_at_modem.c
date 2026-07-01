@@ -32,7 +32,11 @@
 #define FW_VERSION              "0.1.0"
 #define FW_SDK                  "SimpleLink-LPF2-SDK 8.33.00.16"
 
-#define UART_BAUD               115200U
+#ifndef E79_UART_BAUD
+#define E79_UART_BAUD           1000000U
+#endif
+
+#define UART_BAUD               E79_UART_BAUD
 
 #define CMD_BUFFER_LEN          192U
 #define UART_PRINTF_LEN         224U

@@ -12,7 +12,7 @@ static constexpr int CC1352_BOOT_PIN = 3;      // Drives E79 BOOT / CC1352P DIO1
 static constexpr int CC1352_RESET_PIN = 10;    // Drives CC1352P RESET_N
 
 #ifndef CC1352_BRIDGE_HOST_BAUD
-#define CC1352_BRIDGE_HOST_BAUD 115200
+#define CC1352_BRIDGE_HOST_BAUD 1000000
 #endif
 
 #ifndef CC1352_BOOT_ACTIVE_LOW

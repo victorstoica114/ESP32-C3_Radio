@@ -18,8 +18,7 @@ compile_commands.json
 *.factory.bin
 
 # Local test logs
-log/*
-!log/.gitignore
+log/
 
 # Local datasheets are references only; keep public docs as links unless reviewed.
 Datasheets/*.pdf

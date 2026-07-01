@@ -64,12 +64,14 @@ All notable changes to this project will be documented here.
 - Used RadioLib `sleep()` / `standby()` for SPI radio modules.
 - Used Ebyte E32 M0/M1 mode control for sleep/wake behavior.
 - Aligned the E79 ESP32 bridge default CC1352P UART baud with the CC1352P AT
-  firmware default of `115200`.
+  firmware default of `1000000`; `460800` remains the validated fallback.
 - Moved the E79 ESP32 bridge under `src/Ebyte E79(CC1352P)/ESP32 Bridge` so all
   E79 integration files live under one module folder.
 - Reorganized the local E79 CC1352P modem source reference into `inc/` and `src/`
   to mirror the standalone firmware repository layout.
 - Renamed the RA-08 local source reference folder to `src/RA-08(ASR6601)`.
+- Removed the obsolete E79 ESP32-side `AT_COMMANDS` helper; E79 is now exposed
+  only through the validated `BRIDGE` firmware selection.
 - Kept `AT+DEFAULT` as the documented recovery path for restoring known-safe settings.
 - Removed datasheet PDFs from Git tracking; local PDF copies are ignored and the public repository keeps only reference notes/links.
 

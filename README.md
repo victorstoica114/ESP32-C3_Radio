@@ -125,7 +125,7 @@ Availability by module:
 | `RADIO_EBYTE` | yes | no | no | no | no | yes |
 | `RADIO_EBYTE_E22_SX1268` | yes | no | no | no | no | no |
 | `RADIO_EBYTE_E280_SX1280` | yes | no | no | no | no | no |
-| `RADIO_EBYTE_E79_CC1352P` | yes | no | no | no | no | yes |
+| `RADIO_EBYTE_E79_CC1352P` | no | no | no | no | no | yes |
 | `RADIO_EBYTE_E07_400M10S` | yes | no | no | no | no | no |
 | `RADIO_EBYTE_E07_400MM10S` | yes | no | no | no | no | no |
 | `RADIO_EBYTE_E07_433M20S` | yes | no | no | no | no | no |
@@ -437,18 +437,17 @@ The CC1352P modem source is maintained primarily in
 This repository keeps a compact source reference under
 `src/Ebyte E79(CC1352P)/CC1352P_AT_Modem_Firmware`.
 
-The ESP32 firmware can be built in two modes:
+The ESP32 firmware for E79 is built in bridge mode:
 
 - `RADIO_PROGRAM BRIDGE`: transparent USB CDC to CC1352P UART bridge. This is
   the validated mode for using the CC1352P AT modem from a PC serial terminal.
-- `RADIO_PROGRAM AT_COMMANDS`: ESP32-side helper shell with local status,
-  bridge controls, and raw command forwarding hooks.
 
 The bridge uses ESP32 `GPIO20` as RX from the CC1352P TX pin and `GPIO21` as TX
 to the CC1352P RX pin. USB CDC stays on the ESP32 virtual COM port. The CC1352P
-UART defaults to `115200` baud. The PC-side USB CDC baud value is not the
+UART defaults to `1000000` baud. The PC-side USB CDC baud value is not the
 important physical speed; the relevant link is the ESP32-C3 UART between
-`GPIO20/GPIO21` and the CC1352P.
+`GPIO20/GPIO21` and the CC1352P. Use `460800` as the validated fallback
+if stress tests show rare timeout sensitivity at `1000000`.
 
 CC1352P AT modem commands:
 
@@ -567,7 +566,7 @@ Reusable PowerShell scripts live under `test/`.
 ```
 
 Generated test logs are written under `log/`, which is intentionally ignored by
-git except for its `.gitignore` placeholder.
+git.
 
 ## Repository notes
 
