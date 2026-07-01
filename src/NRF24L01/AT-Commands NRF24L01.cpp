@@ -160,12 +160,31 @@ static void nrfClearIrq() {
   nrfWriteReg(0x07, 0x70);
 }
 
+static int startReceiveClean(bool flushRxFifo) {
+  receivedFlag = false;
+  nrfClearIrq();
+  if (flushRxFifo) {
+    nrfFlushRx();
+  }
+
+  radio.setPacketReceivedAction(onRxDone);
+  int st = radio.startReceive();
+  delay(5);
+  return st;
+}
+
 static uint8_t nrfReadRxPayloadWidth() {
   digitalWrite(NRF_CS, LOW);
   SPI.transfer(0x60); // R_RX_PL_WID
   uint8_t len = SPI.transfer(0xFF);
   digitalWrite(NRF_CS, HIGH);
   return len;
+}
+
+static bool nrfHasRxPayload() {
+  uint8_t status = nrfReadReg(0x07);
+  uint8_t fifoStatus = nrfReadReg(0x17);
+  return (status & 0x40) || ((fifoStatus & 0x01) == 0);
 }
 
 static int nrfReadReceivedText(String& out) {
@@ -384,7 +403,7 @@ static bool applyConfigToRadio() {
 
   // RX state
   if (rxEnabled) {
-    st = radio.startReceive();
+    st = startReceiveClean(false);
     if (st != RADIOLIB_ERR_NONE) return false;
   } else {
     radio.standby();
@@ -497,9 +516,7 @@ static bool wakeRadioFromSleep() {
   rxEnabled = rxEnabledBeforeSleep;
 
   if (rxEnabled) {
-    receivedFlag = false;
-    radio.setPacketReceivedAction(onRxDone);
-    st = radio.startReceive();
+    st = startReceiveClean(true);
     if (st != RADIOLIB_ERR_NONE) return false;
   }
 
@@ -580,9 +597,9 @@ static bool resetRadioBeginAndApply() {
   if (!ok) return false;
 
   // -------------------------------------------------
-  // 9) Leave pins in idle state (RadioLib will drive them)
+  // 9) Leave CS idle. Do not force CE low when RX is enabled;
+  // RadioLib drives CE high for receive mode.
   // -------------------------------------------------
-  digitalWrite(NRF_CE, LOW);
   digitalWrite(NRF_CS, HIGH);
 
   return true;
@@ -873,7 +890,7 @@ static bool handleAT(String lineRaw) {
   if (u == "AT+RX=ON") {
     rxEnabled = true;
     radioSleeping = false;
-    int st = radio.startReceive();
+    int st = startReceiveClean(true);
     (st == RADIOLIB_ERR_NONE) ? serialOK() : serialERR();
     return true;
   }
@@ -990,10 +1007,13 @@ void loop() {
 
       // Restore RX mode if enabled
       if (rxEnabled) {
-        radio.setPacketReceivedAction(onRxDone);
-        radio.startReceive();
+        startReceiveClean(false);
       }
     }
+  }
+
+  if (!receivedFlag && rxEnabled && !radioSleeping && nrfHasRxPayload()) {
+    receivedFlag = true;
   }
 
   // Radio RX -> Serial
@@ -1020,7 +1040,7 @@ void loop() {
     }
 
     if (rxEnabled) {
-      radio.startReceive();
+      startReceiveClean(false);
     }
   }
 }

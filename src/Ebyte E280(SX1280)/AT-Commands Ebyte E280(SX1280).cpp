@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <EEPROM.h>
 #include <U8g2lib.h>
+#include <Wire.h>
 
 // ------------------ OLED ------------------
 #define OLED_RESET U8X8_PIN_NONE
@@ -18,12 +19,19 @@ static void drawCentered(const char* text, int baselineY, const uint8_t* font) {
 }
 
 static void oled_setup() {
-  u8g2.begin();
-  u8g2.setContrast(255);
+  Wire.end();
+  delay(5);
+  Wire.begin(OLED_SDA, OLED_SCL);
+  Wire.setClock(400000);
+  delay(10);
+
   u8g2.setBusClock(400000);
+  u8g2.begin();
+  u8g2.setPowerSave(0);
+  u8g2.setContrast(255);
 
   u8g2.clearBuffer();
-  drawCentered("EBYTE", 42, u8g2_font_logisoso18_tr);
+  drawCentered("RADIO", 42, u8g2_font_logisoso18_tr);
   drawCentered("E280", 63, u8g2_font_logisoso18_tr);
   u8g2.sendBuffer();
 }
@@ -63,7 +71,7 @@ struct E280Config {
 };
 
 struct E280Version {
-  uint8_t raw[7];
+  uint8_t raw[8];
   uint8_t length;
 };
 
@@ -338,6 +346,7 @@ static bool setRuntimeMode(E280RuntimeMode mode) {
   currentMode = mode;
   if (mode == E280_MODE_CONFIGURATION) {
     serial1Begin(E280_CONFIG_BAUD);
+    delay(250);
   } else {
     serial1Begin(baudFromCode(baudCode(cfgCurrent)));
   }
@@ -478,6 +487,37 @@ static bool parseIoPushPull(const String& s, bool& pushPull) {
   if (t == "PP" || t == "PUSHPULL" || t == "PUSH_PULL" || t == "1") { pushPull = true; return true; }
   if (t == "OD" || t == "OPENDRAIN" || t == "OPEN_DRAIN" || t == "0") { pushPull = false; return true; }
   return false;
+}
+
+static int hexNibble(char c) {
+  if (c >= '0' && c <= '9') return c - '0';
+  if (c >= 'a' && c <= 'f') return c - 'a' + 10;
+  if (c >= 'A' && c <= 'F') return c - 'A' + 10;
+  return -1;
+}
+
+static bool parseHexBytes(String text, uint8_t* out, size_t maxLen, size_t& outLen) {
+  outLen = 0;
+  text.trim();
+
+  int high = -1;
+  for (uint16_t i = 0; i < text.length(); i++) {
+    char c = text.charAt(i);
+    if (c == ' ' || c == ',' || c == ':' || c == '-') continue;
+
+    int nibble = hexNibble(c);
+    if (nibble < 0) return false;
+
+    if (high < 0) {
+      high = nibble;
+    } else {
+      if (outLen >= maxLen) return false;
+      out[outLen++] = (uint8_t)((high << 4) | nibble);
+      high = -1;
+    }
+  }
+
+  return high < 0 && outLen > 0;
 }
 
 static bool startsWithAT(const String& s) {
@@ -622,6 +662,9 @@ static void printHelp() {
   Serial.println(F("  AT+SENDTO=ADDH,ADDL,CHAN,TEXT"));
   Serial.println(F("  AT+BROADCAST=CHAN,TEXT"));
   Serial.println(F(""));
+  Serial.println(F("Diagnostics:"));
+  Serial.println(F("  AT+RAWHEX=<hex bytes> -> send raw bytes to E280 UART and print response"));
+  Serial.println(F(""));
   Serial.println(F("Non-AT USB lines are forwarded to the module when bridge is ON."));
 }
 
@@ -710,7 +753,7 @@ static bool readVersionFromModule(E280Version& out) {
   Serial1.flush();
 
   out.length = 0;
-  size_t n = readBytesWithTimeout(out.raw, sizeof(out.raw), 800);
+  size_t n = readBytesWithTimeout(out.raw, sizeof(out.raw), 1500);
   out.length = (uint8_t)n;
   bool ok = n >= 4 && out.raw[0] == E280_CMD_VERSION;
 
@@ -1146,6 +1189,30 @@ static bool handleAT(const String& lineRaw) {
     return true;
   }
 
+  if (u.startsWith("AT+RAWHEX=")) {
+    uint8_t tx[64];
+    size_t txLen = 0;
+    if (!parseHexBytes(line.substring(10), tx, sizeof(tx), txLen)) {
+      serialERR();
+      return true;
+    }
+
+    flushSerial1Input();
+    Serial1.write(tx, txLen);
+    Serial1.flush();
+
+    uint8_t rx[64];
+    size_t rxLen = readBytesWithTimeout(rx, sizeof(rx), 800);
+    Serial.print(F("RAWHEX="));
+    for (size_t i = 0; i < rxLen; i++) {
+      if (i) Serial.print(' ');
+      printHex2(rx[i]);
+    }
+    Serial.println();
+    serialOK();
+    return true;
+  }
+
   if (u.startsWith("AT+SENDTO=")) {
     String p = line.substring(10);
     int c1 = p.indexOf(',');
@@ -1184,8 +1251,6 @@ static bool handleAT(const String& lineRaw) {
 
 // ------------------ SETUP / LOOP ------------------
 void setup() {
-  oled_setup();
-
   pinMode(LED_PIN, OUTPUT);
   digitalWrite(LED_PIN, LOW);
 
@@ -1193,12 +1258,15 @@ void setup() {
   pinMode(E280_M0_PIN, OUTPUT);
   pinMode(E280_M1_PIN, OUTPUT);
   pinMode(E280_M2_PIN, OUTPUT);
-
-  cfgDefault = makeDefaultConfig();
-  cfgCurrent = cfgDefault;
+  setModePins(true, false, false);
 
   Serial.begin(USB_BAUD);
   delay(250);
+
+  oled_setup();
+
+  cfgDefault = makeDefaultConfig();
+  cfgCurrent = cfgDefault;
 
   Serial.println();
   Serial.println(F("[BOOT] E280-2G4T12S AT Shell + Bridge"));

@@ -4,7 +4,8 @@
 // Step 2: choose the program/sketch for that module.
 //
 // RADIO_MODULE options:
-//   RADIO_CC1101
+//   RADIO_CC1101_V1_433
+//   RADIO_CC1101_V2_868
 //   RADIO_HC12
 //   RADIO_NRF24L01
 //   RADIO_RA01_SX1278

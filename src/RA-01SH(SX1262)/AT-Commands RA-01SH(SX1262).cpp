@@ -6,6 +6,20 @@
 #include <math.h>
 #include <U8g2lib.h>
 
+// ------------------ PINOUT (SX1262) ------------------
+#define NSS     7
+#define DIO1    1
+#define RESET   10
+#define BUSY    3
+
+// SPI pins (as you used before)
+#define SPI_SCK   4
+#define SPI_MISO  5
+#define SPI_MOSI  6
+#define SPI_SS    7
+
+#define LED_GPIO 8
+
 // ------------------ OLED ------------------
 #define OLED_RESET U8X8_PIN_NONE
 #define OLED_SDA   5
@@ -22,48 +36,124 @@ static void drawCentered(const char* text, int baselineY, const uint8_t* font) {
 }
 
 static void releaseOledI2CBus();
+static void prepareRadioPinsForOled();
+static void recoverOledI2CBus();
+static uint8_t detectOledI2CAddress();
 
-static void oled_setup() {
-  u8g2.begin();
-  u8g2.setContrast(255);
+static void drawOledSplash(uint8_t i2cAddress) {
+  u8g2.setI2CAddress(i2cAddress);
   u8g2.setBusClock(400000);
+  u8g2.begin();
+  u8g2.setPowerSave(0);
+  u8g2.setContrast(255);
 
   u8g2.clearBuffer();
   drawCentered("RADIO", 42, u8g2_font_logisoso18_tr);
   drawCentered("SX1262", 63, u8g2_font_logisoso18_tr);
   u8g2.sendBuffer();
+}
+
+static void oled_setup() {
+  recoverOledI2CBus();
+
+  uint8_t detectedAddress = detectOledI2CAddress();
+  if (detectedAddress != 0) {
+    drawOledSplash(detectedAddress);
+    delay(20);
+    drawOledSplash(detectedAddress);
+  } else {
+    // Fallback for OLEDs that do not ACK during recovery. U8g2 expects 8-bit addresses.
+    drawOledSplash(0x3C << 1);
+    delay(20);
+    drawOledSplash(0x3D << 1);
+  }
+
   releaseOledI2CBus();
 }
 
-// ------------------ PINOUT (SX1262) ------------------
-#define NSS     7
-#define DIO1    1
-#define RESET   10
-#define BUSY    3
-
-// SPI pins (as you used before)
-#define SPI_SCK   4
-#define SPI_MISO  5
-#define SPI_MOSI  6
-#define SPI_SS    7
-
-#define LED_GPIO 8
-
 static void beginRadioSpiBus() {
   SPI.end();
-  delay(2);
+  delay(5);
   SPI.begin(SPI_SCK, SPI_MISO, SPI_MOSI, SPI_SS);
+  SPI.setFrequency(1000000);
+  delay(5);
+}
+
+static void prepareRadioPinsForOled() {
+  SPI.end();
+  delay(5);
+  pinMode(NSS, OUTPUT);
+  digitalWrite(NSS, HIGH);
+  pinMode(RESET, OUTPUT);
+  digitalWrite(RESET, HIGH);
+  pinMode(DIO1, INPUT);
+  pinMode(BUSY, INPUT);
+  delay(5);
+}
+
+static void i2cReleasePin(uint8_t pin) {
+  pinMode(pin, INPUT_PULLUP);
+}
+
+static void i2cDriveLow(uint8_t pin) {
+  digitalWrite(pin, LOW);
+  pinMode(pin, OUTPUT);
+}
+
+static void recoverOledI2CBus() {
+  prepareRadioPinsForOled();
+  Wire.end();
+  delay(5);
+
+  i2cReleasePin(OLED_SDA);
+  i2cReleasePin(OLED_SCL);
+  delay(5);
+
+  for (uint8_t i = 0; i < 18; i++) {
+    i2cDriveLow(OLED_SCL);
+    delayMicroseconds(8);
+    i2cReleasePin(OLED_SCL);
+    delayMicroseconds(8);
+  }
+
+  // I2C STOP condition: SDA low while SCL is high, then release SDA.
+  i2cDriveLow(OLED_SDA);
+  delayMicroseconds(8);
+  i2cReleasePin(OLED_SCL);
+  delayMicroseconds(8);
+  i2cReleasePin(OLED_SDA);
+  delay(5);
+}
+
+static uint8_t detectOledI2CAddress() {
+  Wire.end();
+  delay(2);
+  Wire.begin(OLED_SDA, OLED_SCL);
+  Wire.setClock(400000);
+  delay(5);
+
+  const uint8_t addresses[] = { 0x3C, 0x3D };
+  for (uint8_t i = 0; i < sizeof(addresses); i++) {
+    Wire.beginTransmission(addresses[i]);
+    if (Wire.endTransmission() == 0) {
+      Wire.end();
+      delay(2);
+      return addresses[i] << 1;
+    }
+  }
+
+  Wire.end();
+  delay(2);
+  return 0;
 }
 
 static void releaseOledI2CBus() {
-  u8g2.setPowerSave(1);
+  delay(10);
   Wire.end();
-  delay(2);
-  digitalWrite(OLED_SDA, LOW);
-  digitalWrite(OLED_SCL, LOW);
+
   pinMode(OLED_SDA, INPUT);
   pinMode(OLED_SCL, INPUT);
-  delay(2);
+  delay(5);
 }
 
 SX1262 radio = new Module(NSS, DIO1, RESET, BUSY);
@@ -859,12 +949,16 @@ void setup() {
     Serial.println(F("[SX1262] Defaults applied successfully."));
   }
 
-  oled_setup();
-
   // Keep your original "triple apply" behavior (some boards like it)
   ok = resetRadioByPinAndReinitAndApply();
   delay(150);
   ok = resetRadioByPinAndReinitAndApply();
+
+  // GPIO5/GPIO6 are shared by OLED I2C and radio SPI. Draw the OLED splash only
+  // after the SX1262 boot traffic is finished, then restore SPI without sending
+  // more radio commands that could look like I2C traffic to the display.
+  oled_setup();
+  beginRadioSpiBus();
 }
 
 void loop() {

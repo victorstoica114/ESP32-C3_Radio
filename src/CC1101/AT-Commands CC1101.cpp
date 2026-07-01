@@ -29,8 +29,12 @@
 #define CC1101_BOOT_TITLE "CC1101 AT Bridge"
 #endif
 
+#ifndef CC1101_BOOT_SUBTITLE
+#define CC1101_BOOT_SUBTITLE "115200 8N1 <-> 433 MHz Radio"
+#endif
+
 #ifndef CC1101_DEF_FREQUENCY_MHZ
-#define CC1101_DEF_FREQUENCY_MHZ 433.0f
+#define CC1101_DEF_FREQUENCY_MHZ 433.92f
 #endif
 
 #ifndef CC1101_DEF_TX_POWER_DBM
@@ -165,7 +169,22 @@ struct EepromBlob {
 // =============================================================================
 // GLOBALS
 // =============================================================================
-CC1101 radio = new Module(CC1101_CS_PIN, CC1101_GDO0_PIN, RADIOLIB_NC, CC1101_GDO2_PIN);
+class DebuggableCC1101 : public CC1101 {
+public:
+  explicit DebuggableCC1101(Module* module) : CC1101(module) {}
+
+  uint8_t rxByteCount() {
+    int16_t value = SPIgetRegValue(RADIOLIB_CC1101_REG_RXBYTES, 6, 0);
+    return (value < 0) ? 0 : (uint8_t)value;
+  }
+
+  uint8_t marcState() {
+    int16_t value = SPIgetRegValue(RADIOLIB_CC1101_REG_MARCSTATE, 4, 0);
+    return (value < 0) ? 0xFF : (uint8_t)value;
+  }
+};
+
+DebuggableCC1101 radio(new Module(CC1101_CS_PIN, CC1101_GDO0_PIN, RADIOLIB_NC, CC1101_GDO2_PIN));
 
 static RadioConfig cfgDefault;
 static RadioConfig cfgCurrent;
@@ -185,6 +204,9 @@ static volatile bool radioReceived = false;
 static bool inReceiveMode = true;
 static bool radioSleeping = false;
 static bool receiveModeBeforeSleep = true;
+static bool receiveActionsAttached = false;
+static bool lastGdo0State = false;
+static bool lastGdo2State = false;
 
 // LED 1Hz
 static uint32_t ledTickMs = 0;
@@ -192,33 +214,42 @@ static bool ledState = false;
 
 static void beginRadioSpiBus() {
   SPI.end();
-  delay(2);
+  delay(5);
+  pinMode(CC1101_CS_PIN, OUTPUT);
+  digitalWrite(CC1101_CS_PIN, HIGH);
   SPI.begin(SPI_SCK_PIN, SPI_MISO_PIN, SPI_MOSI_PIN, SPI_SS_PIN);
+  SPI.setFrequency(1000000);
+  delay(5);
 }
 
 static void releaseOledI2CBus() {
-  u8g2.setPowerSave(1);
+  delay(10);
   Wire.end();
-  delay(2);
-  digitalWrite(OLED_SDA, LOW);
-  digitalWrite(OLED_SCL, LOW);
+
   pinMode(OLED_SDA, INPUT);
   pinMode(OLED_SCL, INPUT);
-  delay(2);
+  delay(5);
 }
 
 static void oled_setup() {
-  u8g2.begin();
-  u8g2.setContrast(255);
+  SPI.end();
+  delay(10);
+  Wire.end();
+  delay(2);
+  Wire.begin(OLED_SDA, OLED_SCL);
+  Wire.setClock(400000);
+  delay(10);
+
   u8g2.setBusClock(400000);
+  u8g2.begin();
+  u8g2.setPowerSave(0);
+  u8g2.setContrast(255);
 
   u8g2.clearBuffer();
-
-  // Safe sizes for 2 lines on 128x64 without clipping
-  drawCentered(CC1101_DISPLAY_LINE1, 42, u8g2_font_logisoso18_tr);  // baseline ~26
-  drawCentered(CC1101_DISPLAY_LINE2, 63, u8g2_font_logisoso18_tr);  // baseline ~56
-
+  drawCentered(CC1101_DISPLAY_LINE1, 42, u8g2_font_logisoso18_tr);
+  drawCentered(CC1101_DISPLAY_LINE2, 63, u8g2_font_logisoso18_tr);
   u8g2.sendBuffer();
+
   releaseOledI2CBus();
 }
 
@@ -288,6 +319,36 @@ void radioInterrupt(void) {
   radioReceived = true;
 }
 
+static void detachReceiveActions() {
+  if (!receiveActionsAttached) return;
+  radio.clearPacketReceivedAction();
+  radio.clearGdo2Action();
+  receiveActionsAttached = false;
+}
+
+static void attachReceiveActions() {
+  detachReceiveActions();
+  pinMode(CC1101_GDO0_PIN, INPUT);
+  pinMode(CC1101_GDO2_PIN, INPUT);
+  radio.setPacketReceivedAction(radioInterrupt);
+  lastGdo0State = digitalRead(CC1101_GDO0_PIN) == HIGH;
+  lastGdo2State = digitalRead(CC1101_GDO2_PIN) == HIGH;
+  receiveActionsAttached = true;
+}
+
+static void pollReceivePins() {
+  if (!inReceiveMode || radioSleeping || radioReceived) return;
+  if (digitalRead(CC1101_GDO0_PIN) == HIGH) {
+    radioReceived = true;
+    return;
+  }
+
+  uint8_t rxBytes = radio.rxByteCount();
+  if (rxBytes > 0 && radio.marcState() == RADIOLIB_CC1101_MARC_STATE_IDLE) {
+    radioReceived = true;
+  }
+}
+
 // =============================================================================
 // Radio Functions
 // =============================================================================
@@ -306,6 +367,10 @@ static void startReceive() {
   if (debugEnabled && state != RADIOLIB_ERR_NONE) {
     Serial.print(F("[DEBUG] startReceive() failed: "));
     Serial.println(state);
+  }
+
+  if (state == RADIOLIB_ERR_NONE) {
+    attachReceiveActions();
   }
   
   inReceiveMode = true;
@@ -444,9 +509,7 @@ static bool applyConfig(const RadioConfig& cfg) {
   
   // IMPORTANT: Reset flag-ul inainte de a seta interrupt handler
   radioReceived = false;
-  
-  // IMPORTANT: Re-attach interrupt handler DUPA begin()
-  radio.setPacketReceivedAction(radioInterrupt);
+  detachReceiveActions();
   
   return true;
 }
@@ -770,7 +833,7 @@ static bool putRadioToSleep() {
   receiveModeBeforeSleep = inReceiveMode;
   inReceiveMode = false;
   radioReceived = false;
-  radio.clearPacketReceivedAction();
+  detachReceiveActions();
 
   int state = radio.sleep();
   if (state != RADIOLIB_ERR_NONE) return false;
@@ -793,7 +856,6 @@ static bool wakeRadioFromSleep() {
   if (state != RADIOLIB_ERR_NONE) return false;
 
   radioSleeping = false;
-  radio.setPacketReceivedAction(radioInterrupt);
 
   if (receiveModeBeforeSleep) {
     startReceive();
@@ -934,7 +996,7 @@ static bool handleAT(const String& lineRaw) {
   if (u == "AT+RX=OFF") {
     inReceiveMode = false;
     radioReceived = false;
-    radio.clearPacketReceivedAction();
+    detachReceiveActions();
     int state = radio.standby();
     radioSleeping = false;
     (state == RADIOLIB_ERR_NONE) ? serialOK() : serialERR();
@@ -943,7 +1005,6 @@ static bool handleAT(const String& lineRaw) {
 
   if (u == "AT+RX=ON") {
     radioSleeping = false;
-    radio.setPacketReceivedAction(radioInterrupt);
     startReceive();
     serialOK();
     return true;
@@ -1320,7 +1381,8 @@ void setup() {
   Serial.println(F("=========================================="));
   Serial.print(F("   "));
   Serial.println(F(CC1101_BOOT_TITLE));
-  Serial.println(F("   115200 8N1 <-> 433 MHz Radio"));
+  Serial.print(F("   "));
+  Serial.println(F(CC1101_BOOT_SUBTITLE));
   Serial.println(F("=========================================="));
   Serial.println();
 
@@ -1364,6 +1426,7 @@ void setup() {
   startReceive();
 
   oled_setup();
+  beginRadioSpiBus();
   
   radio.standby();
   delay(10);
@@ -1392,8 +1455,11 @@ void loop() {
   led1HzService();
 
   // ========== RADIO RX ==========
+  pollReceivePins();
+
   if (radioReceived && !radioSleeping) {
     radioReceived = false;
+    delay(2);
     
     uint8_t radioBuffer[64];
     int length = radio.getPacketLength();

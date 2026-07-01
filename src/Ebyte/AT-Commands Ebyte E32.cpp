@@ -56,10 +56,10 @@ static const uint8_t DEF_WOR_CODE     = 0; // 0..7 -> 250..2000ms
 static const uint8_t DEF_IODRIVE_CODE = 1; // 0=open-drain, 1=push-pull
 
 // =============================================================================
-// POWER mapping (EXPLICIT dBm) - adjust here if your exact module differs
-// Common for E32-xxxT30D: code 0..3 => 30/27/24/21 dBm
+// POWER mapping (display only). Actual dBm depends on the exact E32 module.
+// For E32-xxxT20 modules this is typically 20/17/14/10 dBm.
 // =============================================================================
-static const int8_t POWER_DBM_BY_CODE[4] = { 30, 27, 24, 21 };
+static const int8_t POWER_DBM_BY_CODE[4] = { 20, 17, 14, 10 };
 
 // =============================================================================
 // EEPROM persistence
@@ -84,8 +84,8 @@ static void oled_setup() {
   u8g2.clearBuffer();
 
   // Safe sizes for 2 lines on 128x64 without clipping
-  drawCentered("EBYTE", 42, u8g2_font_logisoso18_tr);   // baseline ~26
-  drawCentered("E32T33", 63, u8g2_font_logisoso18_tr);  // baseline ~56
+  drawCentered("RADIO", 42, u8g2_font_logisoso18_tr);
+  drawCentered("E32", 63, u8g2_font_logisoso18_tr);
 
   u8g2.sendBuffer();
 }
@@ -183,6 +183,17 @@ static void serial1Begin(uint32_t baud) {
   delay(10);
   Serial1.begin(baud, SERIAL_8N1, UART1_RX_PIN, UART1_TX_PIN);
   Serial1.setTimeout(200); // more robust for config ops
+}
+
+static void serial1Drain(uint32_t timeoutMs = 80) {
+  uint32_t t0 = millis();
+  while (millis() - t0 < timeoutMs) {
+    while (Serial1.available()) {
+      Serial1.read();
+      t0 = millis();
+    }
+    delay(2);
+  }
 }
 
 static bool waitAUXHigh(uint32_t timeoutMs) {
@@ -460,9 +471,23 @@ static bool writeConfigToModule(const Configuration& inCfg, PROGRAM_COMMAND save
 
   waitAUXHigh(1500);
 
+  if (saveMode == WRITE_CFG_PWR_DWN_SAVE) {
+    ResponseStatus resetRs = e32.resetModule();
+    if (resetRs.code != 1) {
+      Serial.print(F("#ERROR: resetModule after config: "));
+      Serial.println(resetRs.getResponseDescription());
+      e32SetModeNormal();
+      serial1Begin(baudFromCode(inCfg.SPED.uartBaudRate));
+      serial1Drain();
+      return false;
+    }
+    waitAUXHigh(1500);
+  }
+
   e32SetModeNormal();
   serial1Begin(baudFromCode(inCfg.SPED.uartBaudRate));
-  delay(30);
+  delay(200);
+  serial1Drain();
   return true;
 }
 
@@ -582,7 +607,7 @@ static void printHelp() {
   Serial.println(F("    - BAUD: 1..8   (1200..115200)"));
   Serial.println(F("    - PARITY: 1..3 (8N1/8O1/8E1)"));
   Serial.println(F("    - AIR: 1..6    (0.3..19.2 kbps)"));
-  Serial.println(F("    - POWER: 1..4  (30/27/24/21 dBm)"));
+  Serial.println(F("    - POWER: 1..4  (module-dependent TX power levels)"));
   Serial.println(F("    - WOR: 1..8    (250/500/750/1000/1250/1500/1750/2000 ms)"));
   Serial.println(F("    - FEC: 0/1, FIXED: 0/1, IOMODE: PP/OD"));
   Serial.println(F(""));
@@ -598,7 +623,7 @@ static void printHelp() {
   Serial.println(F("  AT+BAUD1..8      -> 1200,2400,4800,9600,19200,38400,57600,115200"));
   Serial.println(F("  AT+PARITY1..3    -> 8N1,8O1,8E1"));
   Serial.println(F("  AT+AIR1..6       -> 0.3,1.2,2.4,4.8,9.6,19.2 kbps"));
-  Serial.println(F("  AT+POWER1..4     -> 1=30dBm, 2=27dBm, 3=24dBm, 4=21dBm"));
+  Serial.println(F("  AT+POWER1..4     -> module-dependent TX power levels"));
   Serial.println(F("  AT+WORT1..8      -> 1=250ms,2=500ms,3=750ms,4=1000ms,5=1250ms,6=1500ms,7=1750ms,8=2000ms"));
   Serial.println(F("  AT+FEC=ON/OFF"));
   Serial.println(F("  AT+FEC?"));

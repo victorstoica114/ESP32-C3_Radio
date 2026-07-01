@@ -34,7 +34,7 @@ static void drawOledSplash(uint8_t i2cAddress) {
   u8g2.setContrast(255);
 
   u8g2.clearBuffer();
-  drawCentered("EBYTE", 42, u8g2_font_logisoso18_tr);
+  drawCentered("RADIO", 42, u8g2_font_logisoso18_tr);
   drawCentered("E22", 63, u8g2_font_logisoso18_tr);
   u8g2.sendBuffer();
 }

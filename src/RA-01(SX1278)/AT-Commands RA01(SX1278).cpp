@@ -28,19 +28,19 @@ static void drawCentered(const char* text, int baselineY, const uint8_t* font) {
 
 static void beginRadioSpiBus() {
   SPI.end();
-  delay(2);
+  delay(5);
   SPI.begin(SPI_SCK, SPI_MISO, SPI_MOSI, SPI_SS);
+  SPI.setFrequency(1000000);
+  delay(5);
 }
 
 static void releaseOledI2CBus() {
-  u8g2.setPowerSave(1);
+  delay(10);
   Wire.end();
-  delay(2);
-  digitalWrite(OLED_SDA, LOW);
-  digitalWrite(OLED_SCL, LOW);
+
   pinMode(OLED_SDA, INPUT);
   pinMode(OLED_SCL, INPUT);
-  delay(2);
+  delay(5);
 }
 
 // ------------------ PINOUT ------------------
@@ -100,9 +100,16 @@ static const uint16_t EEPROM_VERSION = 0x0002;
 static const size_t   EEPROM_SIZE    = 512;
 
 static void oled_setup() {
-  u8g2.begin();
-  u8g2.setContrast(255);
+  SPI.end();
+  delay(10);
+  Wire.begin(OLED_SDA, OLED_SCL);
+  Wire.setClock(400000);
+  delay(10);
+
   u8g2.setBusClock(400000);
+  u8g2.begin();
+  u8g2.setPowerSave(0);
+  u8g2.setContrast(255);
 
   u8g2.clearBuffer();
 

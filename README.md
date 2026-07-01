@@ -73,7 +73,8 @@ Use these values for `RADIO_MODULE` in the ESP32 PlatformIO firmware:
 
 | RADIO_MODULE | Folder | Radio/module |
 | --- | --- | --- |
-| `RADIO_CC1101` | `src/CC1101` | CC1101 |
+| `RADIO_CC1101_V1_433` | `src/CC1101` | CC1101 V1, 433 MHz hardware/front-end |
+| `RADIO_CC1101_V2_868` | `src/CC1101` | CC1101 V2, 868 MHz hardware/front-end |
 | `RADIO_HC12` | `src/HC-12` | HC-12 UART radio |
 | `RADIO_NRF24L01` | `src/NRF24L01` | nRF24L01/nRF24L01+ |
 | `RADIO_RA01_SX1278` | `src/RA-01(SX1278)` | Ai-Thinker RA-01, SX1278 |
@@ -114,7 +115,8 @@ Availability by module:
 
 | Module | AT_COMMANDS | BIDIRECTIONAL_RX_TX | RECEIVE | SETTINGS | TRANSMIT | BRIDGE |
 | --- | --- | --- | --- | --- | --- | --- |
-| `RADIO_CC1101` | yes | yes | yes | yes | yes | no |
+| `RADIO_CC1101_V1_433` | yes | yes | yes | yes | yes | no |
+| `RADIO_CC1101_V2_868` | yes | no | no | no | no | no |
 | `RADIO_HC12` | yes | yes | no | no | no | no |
 | `RADIO_NRF24L01` | yes | yes | no | no | no | no |
 | `RADIO_RA01_SX1278` | yes | yes | no | yes | no | no |
@@ -125,7 +127,7 @@ Availability by module:
 | `RADIO_EBYTE` | yes | no | no | no | no | yes |
 | `RADIO_EBYTE_E22_SX1268` | yes | no | no | no | no | no |
 | `RADIO_EBYTE_E280_SX1280` | yes | no | no | no | no | no |
-| `RADIO_EBYTE_E79_CC1352P` | no | no | no | no | no | yes |
+| `RADIO_EBYTE_E79_CC1352P` | yes | no | no | no | no | yes |
 | `RADIO_EBYTE_E07_400M10S` | yes | no | no | no | no | no |
 | `RADIO_EBYTE_E07_400MM10S` | yes | no | no | no | no | no |
 | `RADIO_EBYTE_E07_433M20S` | yes | no | no | no | no | no |
@@ -215,8 +217,18 @@ The Ebyte E07-400M10S, E07-400MM10S, and E07-433M20S variants use the same
 CC1101 AT firmware. Select the exact module with `RADIO_MODULE` so the splash,
 configuration printout, and EEPROM namespace match the hardware.
 
-These E07 selections compile, but have not been hardware-tested yet. Hardware
-validation is planned next.
+Use `RADIO_CC1101_V1_433` for the local V1 CC1101 boards. Its firmware default
+is `433.920 MHz`, the tested stable center frequency for the local 433 MHz
+pair. Use `RADIO_CC1101_V2_868` for the local V2 CC1101 boards; that selection
+uses the same firmware source, but `AT+DEFAULT` restores `868.000 MHz` and it
+uses a separate EEPROM namespace. CC1101 chips can tune across multiple sub-GHz
+bands, but the RF matching network, antenna, and any external PA/LNA are
+band-specific. In the local test set, the V2 pair on COM39/COM40 was unreliable
+at 433.920 MHz but passed cleanly at 868/869 MHz.
+
+These E07 selections compile, but are still in development and have not been
+hardware-tested because no physical E07 modules are currently available in the
+local test set. Hardware validation is planned when modules are available.
 
 `E07-433M20S` includes an external PA/LNA and is rated around 20 dBm at module
 level. `AT+PWR` still controls the CC1101 drive/PATABLE preset exposed by
@@ -426,6 +438,10 @@ binary configuration protocol, not through SPI/RadioLib. Current pin assumptions
 | `AT+IOMODE?`, `AT+IOMODE=PP\|OD` | Query/set TXD/AUX/RXD IO drive mode |
 | `AT+SETRADIO=ADDH,ADDL,CHAN,BAUD,PARITY,AIR,POWER,FIXED,RANGE,FHSS,ROLE,LBT,IOMODE` | One-shot E280 configuration |
 
+The E280 pair on COM17 and COM18 was re-flashed with the E280 firmware after a
+stale E79 splash was observed. Channel 23/24 isolation, desync blocking, resync
+recovery, and bidirectional transparent payload exchange passed.
+
 ### Ebyte E79 CC1352P
 
 `E79-400DM2005S` is a TI CC1352P wireless MCU module, not a direct ESP32
@@ -437,10 +453,14 @@ The CC1352P modem source is maintained primarily in
 This repository keeps a compact source reference under
 `src/Ebyte E79(CC1352P)/CC1352P_AT_Modem_Firmware`.
 
-The ESP32 firmware for E79 is built in bridge mode:
+The ESP32 firmware for E79 is built as a transparent bridge to the module-side
+AT modem:
 
-- `RADIO_PROGRAM BRIDGE`: transparent USB CDC to CC1352P UART bridge. This is
-  the validated mode for using the CC1352P AT modem from a PC serial terminal.
+- `RADIO_PROGRAM AT_COMMANDS`: recommended selection for using the CC1352P AT
+  modem from a PC serial terminal. It builds the validated ESP32 transparent
+  bridge because the AT parser runs on the CC1352P itself.
+- `RADIO_PROGRAM BRIDGE`: equivalent low-level bridge selection for the same
+  ESP32 USB CDC to CC1352P UART firmware.
 
 The bridge uses ESP32 `GPIO20` as RX from the CC1352P TX pin and `GPIO21` as TX
 to the CC1352P RX pin. USB CDC stays on the ESP32 virtual COM port. The CC1352P
@@ -469,10 +489,11 @@ CC1352P AT modem commands:
 | `AT+RSSI?`, `AT+STATUS?`, `AT+LASTPKT?`, `AT+RANDOM?`, `AT+UPTIME?` | Diagnostics and runtime status |
 | `AT+SETRADIO=FREQ,RATE,PWR,MOD,SYNC` | One-shot radio configuration |
 
-The E79 modem was validated with two modules on COM19 and COM22. The test
+The E79 modem was validated with two modules on COM19 and COM22. COM18 was
+probed during the latest campaign and belongs to the E280 pair. The E79 tests
 covered AT command handling, parameter validation, sleep/wake guardrails, RX/TX
-control, text packets, hex packets, RSSI/LASTPKT diagnostics, and bidirectional
-radio exchange.
+control, text packets, hex packets, RSSI/LASTPKT diagnostics, 433/434 MHz
+frequency isolation, and bidirectional radio exchange.
 
 ESP32 bridge local commands:
 
@@ -480,6 +501,23 @@ ESP32 bridge local commands:
 | --- | --- |
 | `~CC1352P_BAUD=<9600\|38400\|57600\|115200\|230400\|460800\|500000\|921600\|1000000>` | Change the ESP32 UART baud used for the CC1352P link |
 | `~CC1352P_RESET` | Pulse the ESP32 reset-control pin reserved for the CC1352P reset line |
+| `~CC1352P_BOOT=LOW` | Assert the CC1352P boot pin |
+| `~CC1352P_BOOT=HIGH` | Release the CC1352P boot pin |
+| `~CC1352P_ENTER_BOOTLOADER` | Reset the CC1352P into its serial bootloader path |
+
+Do not send these sequences as user payload in transparent mode:
+
+| Sequence at the start of a serial line | Why to avoid it |
+| --- | --- |
+| `~CC1352P_` | Reserved ESP32 bridge control prefix; the line is buffered and interpreted locally instead of being sent as normal payload |
+| `~CC1352P_BAUD=...` | Changes the ESP32 UART baud used for the CC1352P link |
+| `~CC1352P_RESET` | Resets the CC1352P module |
+| `~CC1352P_BOOT=LOW` | Holds the CC1352P boot pin active |
+| `~CC1352P_BOOT=HIGH` | Releases the CC1352P boot pin |
+| `~CC1352P_ENTER_BOOTLOADER` | Forces the CC1352P bootloader entry sequence |
+
+A plain `~` character is safe by itself. The reserved behavior only applies
+when a line starts with the full `~CC1352P_` prefix.
 
 ### SX1280 E28
 
@@ -517,6 +555,11 @@ ESP32 bridge local commands:
 | `AT+SET=<FREQ>,<BW>,<SF>,<CR>,<SYNC>,<PWR>,<PRE>,<CRC>` | Batch-set LoRa parameters and switch mode to `LORA` |
 
 ### Ebyte E32
+
+The E32 AT firmware was validated with E32T20 modules on both 433 MHz and
+868 MHz pairs. Saved configuration changes, including `AT+CHAN`, switch the E32
+through M0/M1 program mode and then reset the module internally before returning
+to normal bridge mode; this avoids corrupted UART/RF state after channel changes.
 
 | Command | Meaning |
 | --- | --- |
@@ -564,6 +607,9 @@ Reusable PowerShell scripts live under `test/`.
 .\test\Upload-AtFirmware.ps1 -Module RADIO_RA02_SX1278 -Port COM4,COM5
 .\test\Test-Sx127xAtPair.ps1 -Label SX1278 -PortA COM4 -PortB COM5
 ```
+
+The current local validation snapshot and stable COM-port assignments are kept
+in `test/README.md` and `test/COM_PORT_MAP.md`.
 
 Generated test logs are written under `log/`, which is intentionally ignored by
 git.

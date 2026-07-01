@@ -7,41 +7,6 @@
 #include <U8g2lib.h>
 
 // ============================================================================
-// OLED (SSD1306 128x64) - HW I2C
-// ============================================================================
-#define OLED_RESET U8X8_PIN_NONE
-#define OLED_SDA   5
-#define OLED_SCL   6
-
-static void releaseOledI2CBus();
-
-// SSD1306 128x64, hardware I2C
-U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, OLED_RESET, OLED_SCL, OLED_SDA);
-
-static void drawCentered(const char* text, int baselineY, const uint8_t* font) {
-  u8g2.setFont(font);
-  int w = u8g2.getStrWidth(text);
-  int x = (128 - w) / 2;
-  if (x < 0) x = 0;
-  u8g2.drawStr(x, baselineY, text);
-}
-
-static void oled_setup() {
-  u8g2.begin();
-  u8g2.setContrast(255);
-  u8g2.setBusClock(400000);
-
-  u8g2.clearBuffer();
-
-  // Safe sizes for 2 lines on 128x64 without clipping
-  drawCentered("RADIO", 42, u8g2_font_logisoso18_tr);
-  drawCentered("SX1280", 63, u8g2_font_logisoso18_tr);
-
-  u8g2.sendBuffer();
-  releaseOledI2CBus();
-}
-
-// ============================================================================
 // SX1280 PINOUT (as requested)
 // ============================================================================
 #define NSS     7
@@ -56,21 +21,144 @@ static void oled_setup() {
 
 #define LED_GPIO 8
 
+// ============================================================================
+// OLED (SSD1306 128x64) - HW I2C
+// ============================================================================
+#define OLED_RESET U8X8_PIN_NONE
+#define OLED_SDA   5
+#define OLED_SCL   6
+
+static void releaseOledI2CBus();
+static void prepareRadioPinsForOled();
+static void recoverOledI2CBus();
+static uint8_t detectOledI2CAddress();
+
+// SSD1306 128x64, hardware I2C
+U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, OLED_RESET, OLED_SCL, OLED_SDA);
+
+static void drawCentered(const char* text, int baselineY, const uint8_t* font) {
+  u8g2.setFont(font);
+  int w = u8g2.getStrWidth(text);
+  int x = (128 - w) / 2;
+  if (x < 0) x = 0;
+  u8g2.drawStr(x, baselineY, text);
+}
+
+static void drawOledSplash(uint8_t i2cAddress) {
+  u8g2.setI2CAddress(i2cAddress);
+  u8g2.setBusClock(400000);
+  u8g2.begin();
+  u8g2.setPowerSave(0);
+  u8g2.setContrast(255);
+
+  u8g2.clearBuffer();
+
+  // Safe sizes for 2 lines on 128x64 without clipping
+  drawCentered("RADIO", 42, u8g2_font_logisoso18_tr);
+  drawCentered("SX1280", 63, u8g2_font_logisoso18_tr);
+
+  u8g2.sendBuffer();
+}
+
+static void oled_setup() {
+  recoverOledI2CBus();
+
+  uint8_t detectedAddress = detectOledI2CAddress();
+  if (detectedAddress != 0) {
+    drawOledSplash(detectedAddress);
+    delay(20);
+    drawOledSplash(detectedAddress);
+  } else {
+    drawOledSplash(0x3C << 1);
+    delay(20);
+    drawOledSplash(0x3D << 1);
+  }
+
+  releaseOledI2CBus();
+}
+
 static void beginRadioSpiBus() {
   SPI.end();
-  delay(2);
+  delay(5);
   SPI.begin(SPI_SCK, SPI_MISO, SPI_MOSI, SPI_SS);
+  SPI.setFrequency(1000000);
+  delay(5);
+}
+
+static void prepareRadioPinsForOled() {
+  SPI.end();
+  delay(5);
+  pinMode(NSS, OUTPUT);
+  digitalWrite(NSS, HIGH);
+  pinMode(NRST, OUTPUT);
+  digitalWrite(NRST, HIGH);
+  pinMode(DIO1, INPUT);
+  pinMode(BUSY, INPUT);
+  delay(5);
+}
+
+static void i2cReleasePin(uint8_t pin) {
+  pinMode(pin, INPUT_PULLUP);
+}
+
+static void i2cDriveLow(uint8_t pin) {
+  digitalWrite(pin, LOW);
+  pinMode(pin, OUTPUT);
+}
+
+static void recoverOledI2CBus() {
+  prepareRadioPinsForOled();
+  Wire.end();
+  delay(5);
+
+  i2cReleasePin(OLED_SDA);
+  i2cReleasePin(OLED_SCL);
+  delay(5);
+
+  for (uint8_t i = 0; i < 18; i++) {
+    i2cDriveLow(OLED_SCL);
+    delayMicroseconds(8);
+    i2cReleasePin(OLED_SCL);
+    delayMicroseconds(8);
+  }
+
+  i2cDriveLow(OLED_SDA);
+  delayMicroseconds(8);
+  i2cReleasePin(OLED_SCL);
+  delayMicroseconds(8);
+  i2cReleasePin(OLED_SDA);
+  delay(5);
+}
+
+static uint8_t detectOledI2CAddress() {
+  Wire.end();
+  delay(2);
+  Wire.begin(OLED_SDA, OLED_SCL);
+  Wire.setClock(400000);
+  delay(5);
+
+  const uint8_t addresses[] = { 0x3C, 0x3D };
+  for (uint8_t i = 0; i < sizeof(addresses); i++) {
+    Wire.beginTransmission(addresses[i]);
+    if (Wire.endTransmission() == 0) {
+      Wire.end();
+      delay(2);
+      return addresses[i] << 1;
+    }
+  }
+
+  Wire.end();
+  delay(2);
+  return 0;
 }
 
 static void releaseOledI2CBus() {
-  u8g2.setPowerSave(1);
+  delay(10);
   Wire.end();
-  delay(2);
-  digitalWrite(OLED_SDA, LOW);
-  digitalWrite(OLED_SCL, LOW);
+
   pinMode(OLED_SDA, INPUT);
   pinMode(OLED_SCL, INPUT);
-  delay(2);
+  delay(5);
 }
 
 SX1280 radio = new Module(NSS, DIO1, NRST, BUSY);

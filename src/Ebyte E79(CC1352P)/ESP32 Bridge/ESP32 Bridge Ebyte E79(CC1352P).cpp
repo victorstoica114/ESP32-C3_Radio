@@ -71,7 +71,7 @@ static void drawCentered(const char *text, int baselineY, const uint8_t *font)
 static void oledDrawSplash()
 {
     u8g2.clearBuffer();
-    drawCentered("EBYTE", 42, u8g2_font_logisoso18_tr);
+    drawCentered("RADIO", 42, u8g2_font_logisoso18_tr);
     drawCentered("E79", 63, u8g2_font_logisoso18_tr);
     u8g2.sendBuffer();
 }
