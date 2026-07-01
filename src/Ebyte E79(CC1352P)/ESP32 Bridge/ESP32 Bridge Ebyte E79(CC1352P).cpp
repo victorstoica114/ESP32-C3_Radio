@@ -8,19 +8,44 @@ static constexpr int LED_PIN = 8;
 
 static constexpr int CC1352_UART_RX_PIN = 20;  // ESP32 RX, connected to CC1352 TX
 static constexpr int CC1352_UART_TX_PIN = 21;  // ESP32 TX, connected to CC1352 RX
-static constexpr int CC1352_RESET_PIN = 10;    // Capacitive reset pulse into CC1352 RESET_N
+static constexpr int CC1352_BOOT_PIN = 3;      // Drives E79 BOOT / CC1352P DIO15
+static constexpr int CC1352_RESET_PIN = 10;    // Drives CC1352P RESET_N
 
 #ifndef CC1352_BRIDGE_HOST_BAUD
 #define CC1352_BRIDGE_HOST_BAUD 115200
 #endif
 
+#ifndef CC1352_BOOT_ACTIVE_LOW
+#define CC1352_BOOT_ACTIVE_LOW 1
+#endif
+
+#ifndef CC1352_RESET_ACTIVE_LOW
+#define CC1352_RESET_ACTIVE_LOW 1
+#endif
+
+#ifndef CC1352_BOOT_OPEN_DRAIN
+#define CC1352_BOOT_OPEN_DRAIN 1
+#endif
+
+#ifndef CC1352_RESET_OPEN_DRAIN
+#define CC1352_RESET_OPEN_DRAIN 1
+#endif
+
 static constexpr uint32_t CC1352_UART_BAUD = CC1352_BRIDGE_HOST_BAUD;
+static constexpr int CC1352_BOOT_ACTIVE_LEVEL = CC1352_BOOT_ACTIVE_LOW ? LOW : HIGH;
+static constexpr int CC1352_BOOT_IDLE_LEVEL = CC1352_BOOT_ACTIVE_LOW ? HIGH : LOW;
+static constexpr int CC1352_RESET_ACTIVE_LEVEL = CC1352_RESET_ACTIVE_LOW ? LOW : HIGH;
+static constexpr int CC1352_RESET_IDLE_LEVEL = CC1352_RESET_ACTIVE_LOW ? HIGH : LOW;
 static constexpr size_t BRIDGE_BUFFER_SIZE = 512;
 static constexpr uint32_t MAGIC_TIMEOUT_MS = 1000;
 static constexpr size_t CONTROL_BUFFER_SIZE = 64;
+static constexpr size_t USB_SAFE_CHUNK_SIZE = 63;
 
 static constexpr char CONTROL_PREFIX[] = "~CC1352P_";
 static constexpr char RESET_COMMAND[] = "~CC1352P_RESET";
+static constexpr char BOOT_LOW_COMMAND[] = "~CC1352P_BOOT=LOW";
+static constexpr char BOOT_HIGH_COMMAND[] = "~CC1352P_BOOT=HIGH";
+static constexpr char ENTER_BOOTLOADER_COMMAND[] = "~CC1352P_ENTER_BOOTLOADER";
 static constexpr char BAUD_COMMAND[] = "~CC1352P_BAUD=";
 
 U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, OLED_RESET_PIN, OLED_SCL_PIN, OLED_SDA_PIN);
@@ -69,14 +94,60 @@ static void led1HzService()
     }
 }
 
+static void driveControlPin(int pin, bool active, int activeLevel, int idleLevel, bool openDrain)
+{
+    if (openDrain && activeLevel == LOW) {
+        if (active) {
+            digitalWrite(pin, LOW);
+            pinMode(pin, OUTPUT);
+        }
+        else {
+            digitalWrite(pin, HIGH);
+            pinMode(pin, INPUT);
+        }
+        return;
+    }
+
+    pinMode(pin, OUTPUT);
+    digitalWrite(pin, active ? activeLevel : idleLevel);
+}
+
+static void setCc1352BootActive(bool active)
+{
+    driveControlPin(CC1352_BOOT_PIN,
+                    active,
+                    CC1352_BOOT_ACTIVE_LEVEL,
+                    CC1352_BOOT_IDLE_LEVEL,
+                    CC1352_BOOT_OPEN_DRAIN != 0);
+}
+
+static void setCc1352ResetActive(bool active)
+{
+    driveControlPin(CC1352_RESET_PIN,
+                    active,
+                    CC1352_RESET_ACTIVE_LEVEL,
+                    CC1352_RESET_IDLE_LEVEL,
+                    CC1352_RESET_OPEN_DRAIN != 0);
+}
+
 static void pulseCc1352Reset()
 {
-    digitalWrite(CC1352_RESET_PIN, HIGH);
+    setCc1352ResetActive(false);
     delay(20);
-    digitalWrite(CC1352_RESET_PIN, LOW);
-    delay(25);
-    digitalWrite(CC1352_RESET_PIN, HIGH);
-    delay(100);
+    setCc1352ResetActive(true);
+    delay(40);
+    setCc1352ResetActive(false);
+    delay(150);
+}
+
+static void enterCc1352Bootloader()
+{
+    setCc1352BootActive(true);
+    delay(20);
+    pulseCc1352Reset();
+    delay(250);
+    setCc1352BootActive(false);
+    delay(50);
 }
 
 static void setCc1352Baud(uint32_t baud)
@@ -181,6 +252,21 @@ static bool handleControlLine()
         return true;
     }
 
+    if (strcmp(line, BOOT_LOW_COMMAND) == 0) {
+        setCc1352BootActive(true);
+        return true;
+    }
+
+    if (strcmp(line, BOOT_HIGH_COMMAND) == 0) {
+        setCc1352BootActive(false);
+        return true;
+    }
+
+    if (strcmp(line, ENTER_BOOTLOADER_COMMAND) == 0) {
+        enterCc1352Bootloader();
+        return true;
+    }
+
     const size_t baudCommandLen = sizeof(BAUD_COMMAND) - 1;
     if (strncmp(line, BAUD_COMMAND, baudCommandLen) == 0) {
         const uint32_t baud = parseBaudValue(line + baudCommandLen);
@@ -240,6 +326,9 @@ static void pumpUsbToCc1352()
     for (size_t i = 0; i < count; ++i) {
         forwardHostByte(buffer[i]);
     }
+    if (count > 0) {
+        Cc1352Serial.flush();
+    }
 }
 
 static void pumpCc1352ToUsb()
@@ -256,8 +345,16 @@ static void pumpCc1352ToUsb()
     }
 
     const size_t count = Cc1352Serial.read(buffer, available);
-    if (count > 0) {
-        Serial.write(buffer, count);
+    size_t offset = 0;
+    while (offset < count) {
+        size_t chunk = count - offset;
+        if (chunk > USB_SAFE_CHUNK_SIZE) {
+            chunk = USB_SAFE_CHUNK_SIZE;
+        }
+
+        Serial.write(buffer + offset, chunk);
+        Serial.flush();
+        offset += chunk;
     }
 }
 
@@ -266,8 +363,8 @@ void setup()
     pinMode(LED_PIN, OUTPUT);
     digitalWrite(LED_PIN, LOW);
 
-    pinMode(CC1352_RESET_PIN, OUTPUT);
-    digitalWrite(CC1352_RESET_PIN, HIGH);
+    setCc1352BootActive(false);
+    setCc1352ResetActive(false);
 
     oledSetup();
 
