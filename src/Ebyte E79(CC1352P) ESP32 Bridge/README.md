@@ -11,7 +11,8 @@ Selectie in `src/main.cpp`:
 
 Functii incluse:
 
-- UART bridge pe ESP32 `GPIO20` RX si `GPIO21` TX.
+- UART bridge pe ESP32 `GPIO20` RX si `GPIO21` TX, implicit la `115200`
+  baud catre firmware-ul AT de pe CC1352P.
 - Comenzi locale ESP32:
   - `~CC1352P_BAUD=<baud>`
   - `~CC1352P_RESET`

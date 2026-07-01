@@ -11,7 +11,7 @@ static constexpr int CC1352_UART_TX_PIN = 21;  // ESP32 TX, connected to CC1352 
 static constexpr int CC1352_RESET_PIN = 10;    // Capacitive reset pulse into CC1352 RESET_N
 
 #ifndef CC1352_BRIDGE_HOST_BAUD
-#define CC1352_BRIDGE_HOST_BAUD 500000
+#define CC1352_BRIDGE_HOST_BAUD 115200
 #endif
 
 static constexpr uint32_t CC1352_UART_BAUD = CC1352_BRIDGE_HOST_BAUD;

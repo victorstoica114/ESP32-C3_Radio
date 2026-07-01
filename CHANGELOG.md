@@ -62,6 +62,8 @@ All notable changes to this project will be documented here.
 - Preserved previous RX state across `AT+SLEEP` / `AT+WAKE` where possible.
 - Used RadioLib `sleep()` / `standby()` for SPI radio modules.
 - Used Ebyte E32 M0/M1 mode control for sleep/wake behavior.
+- Aligned the E79 ESP32 bridge default CC1352P UART baud with the CC1352P AT
+  firmware default of `115200`.
 - Kept `AT+DEFAULT` as the documented recovery path for restoring known-safe settings.
 - Removed datasheet PDFs from Git tracking; local PDF copies are ignored and the public repository keeps only reference notes/links.
 
@@ -81,6 +83,13 @@ All notable changes to this project will be documented here.
   - `RADIO_EBYTE_E280_SX1280`
   - `RADIO_EBYTE_E79_CC1352P`
   - `RADIO_XL1276_D01_SX1276`
+
+- Validated E79 CC1352P AT modem communication on COM19 and COM22:
+  - AT command coverage for identity, config, debug, frequency, power, rate,
+    modulation, sync word, unsupported address/channel guards, diagnostics,
+    `AT+SETRADIO`, sleep/wake, and reset.
+  - Bidirectional RF traffic: text payload from COM22 to COM19 and hex payload
+    from COM19 to COM22.
 
 ## 2026-06-30
 

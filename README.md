@@ -438,7 +438,7 @@ radio peripheral. The ESP32 firmware can be built in two modes:
 
 The bridge uses ESP32 `GPIO20` as RX from the CC1352P TX pin and `GPIO21` as TX
 to the CC1352P RX pin. USB CDC stays on the ESP32 virtual COM port. The CC1352P
-UART defaults to `500000` baud and can be changed at runtime with the local
+UART defaults to `115200` baud and can be changed at runtime with the local
 bridge control command below.
 
 | Command | Meaning |
