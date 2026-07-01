@@ -9,10 +9,11 @@ All notable changes to this project will be documented here.
 - Added MIT project license and third-party notices for public repository preparation.
 - Added Ebyte E22 SX1268 SPI module support with AT-command firmware, onboard OLED on GPIO5/GPIO6, and SX1268-safe parameter validation.
 - Added Ebyte E280-2G4T12S UART/TTL module support with raw Ebyte binary configuration, bridge mode, RSSI/ranging/low-power runtime modes, and AT-command wrappers.
-- Added an initial Ebyte E79 CC1352P ESP32-side skeleton for a future UART modem firmware running on the CC1352P itself.
+- Added a compact source reference for the validated Ebyte E79 CC1352P standalone UART AT modem firmware.
 - Added selectable Ebyte E79 CC1352P ESP32 bridge firmware (`RADIO_EBYTE_E79_CC1352P` + `BRIDGE`) for USB CDC to CC1352P UART operation.
 - Added shared CC1101 AT-command support selections for Ebyte E07-400M10S, E07-400MM10S, and E07-433M20S.
-- Added the Ai-Thinker RA-08 ASR6601 standalone AT modem source under `src/Ai-Thinker-LoRaWAN-Ra-08`, kept separate from the full SDK/toolchain.
+- Added the Ai-Thinker RA-08 ASR6601 standalone AT modem source under `src/RA-08(ASR6601)`, kept separate from the full SDK/toolchain.
+- Added KiCad project source files and local symbol/footprint libraries; generated Gerbers, KiCad cache/history files, and local backups stay ignored.
 - Added reusable PowerShell test/upload scripts under `test/`; generated logs go under ignored `log/`.
 - Added a `Datasheets/` reference index for supported modules and ESP32-C3 hardware documentation.
 - Added per-module AT command documentation to `README.md`, including module-specific command descriptions.
@@ -24,7 +25,7 @@ All notable changes to this project will be documented here.
   - RA-01SH SX1262
   - Ebyte E22 SX1268
   - Ebyte E280 SX1280 UART
-  - Ebyte E79 CC1352P skeleton
+  - Ebyte E79 CC1352P AT modem
   - E28 SX1280
   - Ebyte E32
 - Added runtime sleep-state tracking so transparent payload TX is blocked while a radio is sleeping.
@@ -64,6 +65,11 @@ All notable changes to this project will be documented here.
 - Used Ebyte E32 M0/M1 mode control for sleep/wake behavior.
 - Aligned the E79 ESP32 bridge default CC1352P UART baud with the CC1352P AT
   firmware default of `115200`.
+- Moved the E79 ESP32 bridge under `src/Ebyte E79(CC1352P)/ESP32 Bridge` so all
+  E79 integration files live under one module folder.
+- Reorganized the local E79 CC1352P modem source reference into `inc/` and `src/`
+  to mirror the standalone firmware repository layout.
+- Renamed the RA-08 local source reference folder to `src/RA-08(ASR6601)`.
 - Kept `AT+DEFAULT` as the documented recovery path for restoring known-safe settings.
 - Removed datasheet PDFs from Git tracking; local PDF copies are ignored and the public repository keeps only reference notes/links.
 

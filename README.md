@@ -84,7 +84,7 @@ Use these values for `RADIO_MODULE` in the ESP32 PlatformIO firmware:
 | `RADIO_EBYTE` | `src/Ebyte` | Ebyte E32 UART LoRa module |
 | `RADIO_EBYTE_E22_SX1268` | `src/Ebyte E22(SX1268)` | Ebyte E22 SPI LoRa module, SX1268 |
 | `RADIO_EBYTE_E280_SX1280` | `src/Ebyte E280(SX1280)` | Ebyte E280-2G4T12S UART/TTL module, SX1280 |
-| `RADIO_EBYTE_E79_CC1352P` | `src/Ebyte E79(CC1352P)` and `src/Ebyte E79(CC1352P) ESP32 Bridge` | Ebyte E79-400DM2005S, TI CC1352P wireless MCU |
+| `RADIO_EBYTE_E79_CC1352P` | `src/Ebyte E79(CC1352P)` | Ebyte E79-400DM2005S, TI CC1352P wireless MCU |
 | `RADIO_EBYTE_E07_400M10S` | `src/CC1101` | Ebyte E07-400M10S, CC1101, 10 dBm nominal |
 | `RADIO_EBYTE_E07_400MM10S` | `src/CC1101` | Ebyte E07-400MM10S, CC1101, 10 dBm nominal |
 | `RADIO_EBYTE_E07_433M20S` | `src/CC1101` | Ebyte E07-433M20S, CC1101 + PA/LNA, 20 dBm nominal |
@@ -94,7 +94,8 @@ Standalone module-side radio firmware:
 
 | Firmware | Primary repository | Local reference | Radio/module | Status |
 | --- | --- | --- | --- | --- |
-| RA08 AT modem | [victorstoica114/RA-08_AT-Commands](https://github.com/victorstoica114/RA-08_AT-Commands) | `src/Ai-Thinker-LoRaWAN-Ra-08` | Ai-Thinker RA-08, ASR6601 LPWAN SoC | Functional and tested with two modules |
+| RA08 AT modem | [victorstoica114/RA-08_AT-Commands](https://github.com/victorstoica114/RA-08_AT-Commands) | `src/RA-08(ASR6601)` | Ai-Thinker RA-08, ASR6601 LPWAN SoC | Functional and tested with two modules |
+| E79 AT modem | [victorstoica114/Ebyte-E79-CC1352P-_AT_Modem_Firmware](https://github.com/victorstoica114/Ebyte-E79-CC1352P-_AT_Modem_Firmware) | `src/Ebyte E79(CC1352P)/CC1352P_AT_Modem_Firmware` | Ebyte E79-400DM2005S, TI CC1352P wireless MCU | Functional and tested with two modules |
 
 ## Firmware variants
 
@@ -141,7 +142,6 @@ support:
 
 | Module | Chipset | Status / expected approach |
 | --- | --- | --- |
-| Ebyte E79-400DM2005S | TI CC1352P wireless MCU | ESP32 USB CDC to CC1352P UART bridge is available; CC1352P radio firmware is maintained separately |
 | Ai-Thinker RA-09 | STM32WLE5CCU6 wireless MCU | Planned; separate module firmware, then UART modem/AT bridge from ESP32 |
 
 ## External Module Firmware
@@ -155,7 +155,7 @@ The RA-08 ASR6601 AT modem firmware lives in its own repository:
 [victorstoica114/RA-08_AT-Commands](https://github.com/victorstoica114/RA-08_AT-Commands).
 That project turns the RA-08 into a standalone UART AT radio modem. This
 repository keeps only a small source reference under
-`src/Ai-Thinker-LoRaWAN-Ra-08` (`main.c`, `at_modem.c`, IRQ glue, and headers).
+`src/RA-08(ASR6601)` (`main.c`, `at_modem.c`, IRQ glue, and headers).
 Build support, drivers, startup code, linker scripts, and the ARM GCC toolchain
 belong in the separate RA-08 firmware repository.
 
@@ -429,31 +429,51 @@ binary configuration protocol, not through SPI/RadioLib. Current pin assumptions
 ### Ebyte E79 CC1352P
 
 `E79-400DM2005S` is a TI CC1352P wireless MCU module, not a direct ESP32
-radio peripheral. The ESP32 firmware can be built in two modes:
+radio peripheral. The module runs its own CC1352P AT modem firmware, and the
+ESP32-C3 board is used mainly as the USB CDC to UART bridge.
 
-- `RADIO_PROGRAM AT_COMMANDS`: ESP32-side local AT wrapper/skeleton with
-  forwarding hooks for CC1352P modem firmware.
+The CC1352P modem source is maintained primarily in
+[victorstoica114/Ebyte-E79-CC1352P-_AT_Modem_Firmware](https://github.com/victorstoica114/Ebyte-E79-CC1352P-_AT_Modem_Firmware).
+This repository keeps a compact source reference under
+`src/Ebyte E79(CC1352P)/CC1352P_AT_Modem_Firmware`.
+
+The ESP32 firmware can be built in two modes:
+
 - `RADIO_PROGRAM BRIDGE`: transparent USB CDC to CC1352P UART bridge. This is
-  the preferred mode when the CC1352P already runs its own AT firmware.
+  the validated mode for using the CC1352P AT modem from a PC serial terminal.
+- `RADIO_PROGRAM AT_COMMANDS`: ESP32-side helper shell with local status,
+  bridge controls, and raw command forwarding hooks.
 
 The bridge uses ESP32 `GPIO20` as RX from the CC1352P TX pin and `GPIO21` as TX
 to the CC1352P RX pin. USB CDC stays on the ESP32 virtual COM port. The CC1352P
-UART defaults to `115200` baud and can be changed at runtime with the local
-bridge control command below.
+UART defaults to `115200` baud. The PC-side USB CDC baud value is not the
+important physical speed; the relevant link is the ESP32-C3 UART between
+`GPIO20/GPIO21` and the CC1352P.
+
+CC1352P AT modem commands:
 
 | Command | Meaning |
 | --- | --- |
-| `AT`, `AT?`, `AT+HELP`, `AT+CFG?` | Connectivity, help, and ESP32-side skeleton status |
-| `AT+DEFAULT` | Restore local ESP32-side skeleton defaults |
-| `AT+DEBUG=ON\|OFF`, `AT+DEBUG?` | Control forwarded-command debug output |
-| `AT+BRIDGE=ON\|OFF`, `AT+BRIDGE?` | Control local USB Serial to E79 modem UART bridge mode |
-| `AT+BAUD?`, `AT+BAUD=<1200..921600>` | Query/set the ESP32 UART baud used for the future E79 modem firmware |
-| `AT+RAW=<command>` | Send a raw line to the future CC1352P UART modem firmware |
-| `AT+PING` | Forward `AT` to the future CC1352P UART modem firmware |
-| `AT+SLEEP`, `AT+WAKE` | Forward sleep/wake placeholders to the future CC1352P UART modem firmware |
-| `AT+FREQ?`, `AT+FREQ=<Hz>`, `AT+CHAN?`, `AT+CHAN=<n>`, `AT+PWR?`, `AT+PWR=<dBm>`, `AT+RX=ON`, `AT+RX=OFF`, `AT+SEND=<data>` | Forwarded placeholders; require CC1352P firmware support |
-| `AT+SENDTO=ADDH,ADDL,CHAN,TEXT` | Send a fixed-address payload with the 3-byte Ebyte prefix |
-| `AT+BROADCAST=CHAN,TEXT` | Send a fixed-address broadcast payload |
+| `AT`, `AT?`, `AT+HELP`, `AT+VERSION?`, `AT+CFG?` | Connectivity, identity, help, and current radio configuration |
+| `AT+DEFAULT`, `AT+RESET` | Restore safe defaults or reset the modem |
+| `AT+DEBUG?`, `AT+DEBUG=ON\|OFF` | Query/toggle debug output |
+| `AT+FREQ?`, `AT+FREQ=<431000000..500000000>` | Query/set carrier frequency in Hz |
+| `AT+PWR?`, `AT+PWR=<-20..13>` | Query/set TX power in dBm using supported CC1352P PA table entries |
+| `AT+RATE?`, `AT+RATE=50000` | Query/set air data rate; validated firmware supports 50 kbps 2-GFSK |
+| `AT+MOD?`, `AT+MOD=2GFSK` | Query/set modulation |
+| `AT+SYNC?`, `AT+SYNC=<hex>` | Query/set sync word, 1..8 hex digits |
+| `AT+ADDR?`, `AT+ADDR=<value>` | Address-query/set guard; address filtering is not enabled in the validated PHY |
+| `AT+CHAN?`, `AT+CHAN=<n>` | Channel-query/set guard; use explicit frequency with `AT+FREQ` |
+| `AT+RX=ON`, `AT+RX=OFF` | Enable receive mode or return to standby |
+| `AT+SEND=<text>`, `AT+SENDHEX=<hex>` | Send text or hex payloads |
+| `AT+SLEEP`, `AT+WAKE` | Enter low-power mode or wake and restore usable radio state |
+| `AT+RSSI?`, `AT+STATUS?`, `AT+LASTPKT?`, `AT+RANDOM?`, `AT+UPTIME?` | Diagnostics and runtime status |
+| `AT+SETRADIO=FREQ,RATE,PWR,MOD,SYNC` | One-shot radio configuration |
+
+The E79 modem was validated with two modules on COM19 and COM22. The test
+covered AT command handling, parameter validation, sleep/wake guardrails, RX/TX
+control, text packets, hex packets, RSSI/LASTPKT diagnostics, and bidirectional
+radio exchange.
 
 ESP32 bridge local commands:
 

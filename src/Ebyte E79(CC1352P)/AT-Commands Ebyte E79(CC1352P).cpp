@@ -1,8 +1,8 @@
 #include <Arduino.h>
 #include <U8g2lib.h>
 
-// E79-400DM2005S uses a TI CC1352P wireless MCU. This file is only an ESP32-side
-// skeleton for a future CC1352P UART modem firmware; it is not a direct radio driver.
+// E79-400DM2005S uses a TI CC1352P wireless MCU. This file is an ESP32-side
+// helper shell for the CC1352P UART modem firmware; it is not a direct radio driver.
 
 // ------------------ OLED ------------------
 #define OLED_RESET U8X8_PIN_NONE
@@ -31,7 +31,7 @@ static void oled_setup() {
 }
 
 // ------------------ PINOUT ------------------
-// These are ESP32-side UART pins reserved for the future CC1352P modem firmware.
+// These are ESP32-side UART pins connected to the CC1352P modem firmware.
 // The CC1352P firmware must map its own UART pins to match the board wiring.
 static const int UART1_RX_PIN = 20;  // ESP32 RX  <- E79/CC1352P modem TX
 static const int UART1_TX_PIN = 21;  // ESP32 TX  -> E79/CC1352P modem RX
@@ -131,8 +131,8 @@ static bool forwardModemCommand(const String& command, bool readResponse = true)
 }
 
 static void printHelp() {
-  Serial.println(F("Ebyte E79 CC1352P ESP32-side skeleton"));
-  Serial.println(F("This sketch expects a future CC1352P UART modem firmware."));
+  Serial.println(F("Ebyte E79 CC1352P ESP32-side helper"));
+  Serial.println(F("This sketch expects the CC1352P UART AT modem firmware."));
   Serial.println(F(""));
   Serial.println(F("Local commands:"));
   Serial.println(F("  AT"));
@@ -145,7 +145,7 @@ static void printHelp() {
   Serial.println(F("  AT+RAW=<command>"));
   Serial.println(F("  AT+PING"));
   Serial.println(F(""));
-  Serial.println(F("Forwarded placeholders for the future E79 modem firmware:"));
+  Serial.println(F("Forwarded CC1352P modem commands:"));
   Serial.println(F("  AT+CFG? AT+DEFAULT AT+FREQ? AT+FREQ=<Hz> AT+CHAN? AT+CHAN=<n>"));
   Serial.println(F("  AT+PWR? AT+PWR=<dBm> AT+RX=ON AT+RX=OFF AT+SEND=<data>"));
   Serial.println(F("  AT+SLEEP AT+WAKE"));
@@ -154,7 +154,7 @@ static void printHelp() {
 static void printConfig() {
   Serial.println(F("MODULE=Ebyte E79-400DM2005S"));
   Serial.println(F("CHIPSET=TI CC1352P"));
-  Serial.println(F("ROLE=ESP32_UART_MODEM_SKELETON"));
+  Serial.println(F("ROLE=ESP32_UART_MODEM_HELPER"));
   Serial.println(F("DIRECT_RADIO_DRIVER=NO"));
   Serial.println(F("CC1352P_FIRMWARE=REQUIRED"));
   Serial.print(F("UART_RX_PIN=")); Serial.println(UART1_RX_PIN);
@@ -305,7 +305,7 @@ void setup() {
   oled_setup();
   restoreDefaults();
 
-  Serial.println(F("ESP32-C3 Radio - Ebyte E79 CC1352P skeleton"));
+  Serial.println(F("ESP32-C3 Radio - Ebyte E79 CC1352P helper"));
   Serial.println(F("#INFO: CC1352P firmware must be built and flashed separately."));
   printHelp();
 }

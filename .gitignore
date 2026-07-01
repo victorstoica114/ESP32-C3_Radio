@@ -25,13 +25,22 @@ log/*
 Datasheets/*.pdf
 
 # Copied RA-08 SDK local/heavy artifacts
-src/Ai-Thinker-LoRaWAN-Ra-08/.git/
-src/Ai-Thinker-LoRaWAN-Ra-08/.gitmodules
-src/Ai-Thinker-LoRaWAN-Ra-08/tools/toolchain/
-src/Ai-Thinker-LoRaWAN-Ra-08/tools/toolchain/*.zip
-src/Ai-Thinker-LoRaWAN-Ra-08/**/out/
-src/Ai-Thinker-LoRaWAN-Ra-08/**/*.uvguix.*
-src/Ai-Thinker-LoRaWAN-Ra-08/**/*.uvoptx
+src/RA-08(ASR6601)/.git/
+src/RA-08(ASR6601)/.gitmodules
+src/RA-08(ASR6601)/tools/toolchain/
+src/RA-08(ASR6601)/tools/toolchain/*.zip
+src/RA-08(ASR6601)/**/out/
+src/RA-08(ASR6601)/**/*.uvguix.*
+src/RA-08(ASR6601)/**/*.uvoptx
+
+# KiCad generated/local artifacts
+KiCad/Gerbers/
+KiCad/.history/
+KiCad/**/desktop.ini
+KiCad/**/fp-info-cache
+KiCad/**/*.bak
+KiCad/*.kicad_prl
+KiCad/untitled.kicad_sch
 
 # OS/editor noise
 .DS_Store
