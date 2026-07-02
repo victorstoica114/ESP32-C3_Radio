@@ -14,11 +14,15 @@ All notable changes to this project will be documented here.
 - Added `RADIO_EBYTE_E79_CC1352P` + `AT_COMMANDS` as the recommended selection alias for the validated E79 ESP32 bridge to the CC1352P AT modem.
 - Documented the E79 transparent bridge control sequences that must not be sent as user payload.
 - Added shared CC1101 AT-command support selections for Ebyte E07-400M10S, E07-400MM10S, and E07-433M20S.
+- Added dedicated Ebyte E32 868T30D and E32 433T33D firmware selections
+  with compact OLED labels and module-specific TX power display mappings.
 - Renamed the local CC1101 selections to `RADIO_CC1101_V1_433` and
   `RADIO_CC1101_V2_868` so the tested hardware revision and band are explicit.
 - Added the Ai-Thinker RA-08 ASR6601 standalone AT modem source under `src/RA-08(ASR6601)`, kept separate from the full SDK/toolchain.
 - Added KiCad project source files and local symbol/footprint libraries; generated Gerbers, KiCad cache/history files, and local backups stay ignored.
 - Added reusable PowerShell test/upload scripts under `test/`; generated logs go under ignored `log/`.
+- Added `Invoke-AtProbe.ps1` for single-port AT diagnostics before running full
+  pair tests.
 - Added a focused CC1101 quick sweep script for local RF-band diagnostics.
 - Added a `Datasheets/` reference index for supported modules and ESP32-C3 hardware documentation.
 - Added per-module AT command documentation to `README.md`, including module-specific command descriptions.
@@ -73,6 +77,8 @@ All notable changes to this project will be documented here.
 - Reset Ebyte E32 modules internally after saved configuration writes, then
   return M0/M1 to normal mode and drain the module UART. This prevents corrupted
   UART/RF state after channel changes.
+- Hardened Ebyte E32 config/module-info reads so a failed module response does
+  not try to free an invalid response buffer before returning to normal mode.
 - Aligned the E79 ESP32 bridge default CC1352P UART baud with the CC1352P AT
   firmware default of `1000000`; `460800` remains the validated fallback.
 - Moved the E79 ESP32 bridge under `src/Ebyte E79(CC1352P)/ESP32 Bridge` so all
@@ -109,6 +115,8 @@ All notable changes to this project will be documented here.
   - `RADIO_RA02_SX1278`
   - `RADIO_E28_SX1280`
   - `RADIO_EBYTE`
+  - `RADIO_EBYTE_E32_868T30D`
+  - `RADIO_EBYTE_E32_433T33D`
   - `RADIO_EBYTE_E22_SX1268`
   - `RADIO_EBYTE_E280_SX1280`
   - `RADIO_EBYTE_E79_CC1352P`
@@ -138,6 +146,12 @@ All notable changes to this project will be documented here.
 - Validated Ebyte E32T20 pairs after the automatic post-config reset update:
   433 MHz modules on COM47/COM48 and 868 MHz modules on COM49/COM50 passed
   channel 23/24 isolation and resync recovery (`PASS=12 FAIL=0` for each pair).
+- Re-flashed and tested Ebyte E32 433T33D modules on COM53 and COM54:
+  channel 23/24 isolation and resync recovery passed at `AT+POWER1` / 33 dBm
+  after improving the local power wiring (`PASS=18 FAIL=0`).
+- Re-flashed and tested Ebyte E32 868T30D modules on COM51 and COM52:
+  channel 23/24 isolation and resync recovery passed at `AT+POWER1` / 30 dBm
+  after adding local VCC capacitors (`PASS=18 FAIL=0`).
 - Re-flashed and validated Ebyte E280 on COM17 and COM18 after stale E79 splash
   text was observed: channel 23/24 isolation, bidirectional transparent payload
   exchange, and resync recovery passed (`PASS=18 FAIL=0`).

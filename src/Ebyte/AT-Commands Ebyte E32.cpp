@@ -3,6 +3,10 @@
 #include <EEPROM.h>
 #include <U8g2lib.h>
 
+#ifndef E32_DISPLAY_LINE2
+#define E32_DISPLAY_LINE2 "E32"
+#endif
+
 #define OLED_RESET U8X8_PIN_NONE
 #define OLED_SDA   5
 #define OLED_SCL   6
@@ -59,7 +63,24 @@ static const uint8_t DEF_IODRIVE_CODE = 1; // 0=open-drain, 1=push-pull
 // POWER mapping (display only). Actual dBm depends on the exact E32 module.
 // For E32-xxxT20 modules this is typically 20/17/14/10 dBm.
 // =============================================================================
-static const int8_t POWER_DBM_BY_CODE[4] = { 20, 17, 14, 10 };
+#ifndef E32_POWER_DBM_CODE0
+#define E32_POWER_DBM_CODE0 20
+#endif
+#ifndef E32_POWER_DBM_CODE1
+#define E32_POWER_DBM_CODE1 17
+#endif
+#ifndef E32_POWER_DBM_CODE2
+#define E32_POWER_DBM_CODE2 14
+#endif
+#ifndef E32_POWER_DBM_CODE3
+#define E32_POWER_DBM_CODE3 10
+#endif
+static const int8_t POWER_DBM_BY_CODE[4] = {
+  E32_POWER_DBM_CODE0,
+  E32_POWER_DBM_CODE1,
+  E32_POWER_DBM_CODE2,
+  E32_POWER_DBM_CODE3
+};
 
 // =============================================================================
 // EEPROM persistence
@@ -85,7 +106,7 @@ static void oled_setup() {
 
   // Safe sizes for 2 lines on 128x64 without clipping
   drawCentered("RADIO", 42, u8g2_font_logisoso18_tr);
-  drawCentered("E32", 63, u8g2_font_logisoso18_tr);
+  drawCentered(E32_DISPLAY_LINE2, 63, u8g2_font_logisoso18_tr);
 
   u8g2.sendBuffer();
 }
@@ -431,7 +452,6 @@ static bool readConfigFromModule(Configuration& outCfg, ModuleInformation* outIn
   if (cc.status.code != 1) {
     Serial.print(F("#ERROR: getConfiguration: "));
     Serial.println(cc.status.getResponseDescription());
-    cc.close();
 
     e32SetModeNormal();
     serial1Begin(DEFAULT_E32_UART_BAUD);
@@ -442,8 +462,10 @@ static bool readConfigFromModule(Configuration& outCfg, ModuleInformation* outIn
 
   if (outInfo) {
     ResponseStructContainer ii = e32.getModuleInformation();
-    if (ii.status.code == 1) *outInfo = *(ModuleInformation*)ii.data;
-    ii.close();
+    if (ii.status.code == 1) {
+      *outInfo = *(ModuleInformation*)ii.data;
+      ii.close();
+    }
   }
 
   e32SetModeNormal();

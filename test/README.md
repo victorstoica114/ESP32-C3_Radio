@@ -43,6 +43,8 @@ Each PASS here means:
 | RA-08 (ASR6601) | External module-side firmware | COM45, COM46 | 115200 | `AT+CHAN` | PASS 102/0 | `Test-Ra08ChannelIsolation_RA08_COM45_COM46_REOPEN_COM45_COM46_20260701_160824.txt`; dedicated script reopens serial ports between directions because COM46 does not always echo after TX in long sessions. |
 | Ebyte E32T20, 433 MHz | `RADIO_EBYTE` | COM47, COM48 | 115200 | `AT+CHAN` | PASS 12/0 | `Test-AtPairChannelIsolation_E32_433F_COM47_COM48_20260701_170632.txt`; channel change/resync passed after automatic E32 reset following saved config writes. |
 | Ebyte E32T20, 868 MHz | `RADIO_EBYTE` | COM49, COM50 | 115200 | `AT+CHAN` | PASS 12/0 | `Test-AtPairChannelIsolation_E32_868F_COM49_COM50_20260701_170904.txt`; channel change/resync passed after automatic E32 reset following saved config writes. |
+| Ebyte E32 868T30D | `RADIO_EBYTE_E32_868T30D` | COM51, COM52 | 115200 | `AT+CHAN` | PASS 18/0 at `AT+POWER1` | `Test-AtPairChannelIsolation_E32_868T30D_P1_RETEST_COM51_COM52_COM51_COM52_20260702_100237.txt`; channel 23/24 isolation and resync passed at 30 dBm after adding local VCC capacitors. |
+| Ebyte E32 433T33D | `RADIO_EBYTE_E32_433T33D` | COM53, COM54 | 115200 | `AT+CHAN` | PASS 18/0 at `AT+POWER1` | `Test-AtPairChannelIsolation_E32_433T33D_P1_RETEST_COM53_COM54_COM53_COM54_20260702_094632.txt`; channel 23/24 isolation and resync passed at 33 dBm after improving the local power wiring. |
 
 ### Other validated pairs
 
@@ -105,4 +107,13 @@ RA-08 modules that reset or drop USB CDC after TX can use the dedicated reopen-p
 
 ```powershell
 .\test\Test-Ra08ChannelIsolation.ps1 -PortA COM45 -PortB COM46 -Label RA08_COM45_COM46_REOPEN
+```
+
+## Single-Port AT Probe
+
+Use `Invoke-AtProbe.ps1` for quick diagnostics when one module in a pair looks
+unhealthy and a full RF test would be misleading.
+
+```powershell
+.\test\Invoke-AtProbe.ps1 -Port COM51 -Command @('AT','AT+AUX?','AT+CFG?','AT+POWER?')
 ```

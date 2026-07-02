@@ -1,6 +1,6 @@
 # COM Port Map
 
-Last updated: 2026-07-01.
+Last updated: 2026-07-02.
 
 Stable COM-port assignments used for local radio pair tests.
 
@@ -27,3 +27,5 @@ Stable COM-port assignments used for local radio pair tests.
 | RA-08 (ASR6601) / external AT modem firmware | COM45, COM46 | Tested with dedicated RA-08 script: channel isolation and bidirectional exchange passed. COM46 does not always echo after TX in long sessions, so the script reopens serial ports between directions. |
 | Ebyte E32T20 433 MHz / `RADIO_EBYTE` | COM47, COM48 | Tested: channel isolation passed after automatic module reset on saved config writes. |
 | Ebyte E32T20 868 MHz / `RADIO_EBYTE` | COM49, COM50 | Tested: channel isolation passed after automatic module reset on saved config writes. |
+| Ebyte E32 868T30D / `RADIO_EBYTE_E32_868T30D` | COM51, COM52 | Tested: channel isolation passed at `AT+POWER1` / 30 dBm after adding local VCC capacitors. |
+| Ebyte E32 433T33D / `RADIO_EBYTE_E32_433T33D` | COM53, COM54 | Tested: channel isolation passed at `AT+POWER1` / 33 dBm after improving local power wiring. |

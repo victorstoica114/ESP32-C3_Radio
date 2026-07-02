@@ -83,6 +83,8 @@ Use these values for `RADIO_MODULE` in the ESP32 PlatformIO firmware:
 | `RADIO_RA02_SX1278` | `src/RA-02(SX1278)` | RA-02, SX1278 |
 | `RADIO_E28_SX1280` | `src/E28(SX1280)` | E28, SX1280 2.4 GHz |
 | `RADIO_EBYTE` | `src/Ebyte` | Ebyte E32 UART LoRa module |
+| `RADIO_EBYTE_E32_868T30D` | `src/Ebyte` | Ebyte E32 868T30D UART LoRa module |
+| `RADIO_EBYTE_E32_433T33D` | `src/Ebyte` | Ebyte E32 433T33D UART LoRa module |
 | `RADIO_EBYTE_E22_SX1268` | `src/Ebyte E22(SX1268)` | Ebyte E22 SPI LoRa module, SX1268 |
 | `RADIO_EBYTE_E280_SX1280` | `src/Ebyte E280(SX1280)` | Ebyte E280-2G4T12S UART/TTL module, SX1280 |
 | `RADIO_EBYTE_E79_CC1352P` | `src/Ebyte E79(CC1352P)` | Ebyte E79-400DM2005S, TI CC1352P wireless MCU |
@@ -125,6 +127,8 @@ Availability by module:
 | `RADIO_RA02_SX1278` | yes | yes | no | yes | no | no |
 | `RADIO_E28_SX1280` | yes | yes | no | yes | no | no |
 | `RADIO_EBYTE` | yes | no | no | no | no | yes |
+| `RADIO_EBYTE_E32_868T30D` | yes | no | no | no | no | no |
+| `RADIO_EBYTE_E32_433T33D` | yes | no | no | no | no | no |
 | `RADIO_EBYTE_E22_SX1268` | yes | no | no | no | no | no |
 | `RADIO_EBYTE_E280_SX1280` | yes | no | no | no | no | no |
 | `RADIO_EBYTE_E79_CC1352P` | yes | no | no | no | no | yes |
@@ -556,10 +560,20 @@ when a line starts with the full `~CC1352P_` prefix.
 
 ### Ebyte E32
 
-The E32 AT firmware was validated with E32T20 modules on both 433 MHz and
-868 MHz pairs. Saved configuration changes, including `AT+CHAN`, switch the E32
-through M0/M1 program mode and then reset the module internally before returning
-to normal bridge mode; this avoids corrupted UART/RF state after channel changes.
+The E32 AT firmware is shared by the E32T20, E32T30D, and E32T33D UART LoRa
+modules. The module-specific selections only set the OLED second line and the
+displayed dBm mapping for `AT+POWER?`; the E32 command set and M0/M1 handling are
+the same.
+
+| Selection | OLED line 2 | `AT+POWER1..4` display |
+| --- | --- | --- |
+| `RADIO_EBYTE` | `E32` | 20, 17, 14, 10 dBm |
+| `RADIO_EBYTE_E32_868T30D` | `E32T30` | 30, 27, 24, 21 dBm |
+| `RADIO_EBYTE_E32_433T33D` | `E32T33` | 33, 30, 27, 24 dBm |
+
+Saved configuration changes, including `AT+CHAN`, switch the E32 through M0/M1
+program mode and then reset the module internally before returning to normal
+bridge mode; this avoids corrupted UART/RF state after channel changes.
 
 | Command | Meaning |
 | --- | --- |
