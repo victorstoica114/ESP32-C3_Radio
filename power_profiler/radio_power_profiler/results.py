@@ -19,6 +19,8 @@ FIELDS = [
     "firmware_selection",
     "repetition",
     "payload_bytes",
+    "frame_count",
+    "max_frame_payload_bytes",
     "serial_content_bytes",
     "parameters_json",
     "ppk_mode",
@@ -93,6 +95,8 @@ class ResultWriter:
             key = (
                 row["profile_id"],
                 row["payload_bytes"],
+                row["frame_count"],
+                row["max_frame_payload_bytes"],
                 row["parameters_json"],
                 row["voltage_mv"],
                 row["ppk_mode"],
@@ -112,6 +116,8 @@ class ResultWriter:
         fields = [
             "profile_id",
             "payload_bytes",
+            "frame_count",
+            "max_frame_payload_bytes",
             "parameters_json",
             "voltage_mv",
             "ppk_mode",
@@ -129,9 +135,11 @@ class ResultWriter:
                 aggregate: dict[str, Any] = {
                     "profile_id": key[0],
                     "payload_bytes": key[1],
-                    "parameters_json": key[2],
-                    "voltage_mv": key[3],
-                    "ppk_mode": key[4],
+                    "frame_count": key[2],
+                    "max_frame_payload_bytes": key[3],
+                    "parameters_json": key[4],
+                    "voltage_mv": key[5],
+                    "ppk_mode": key[6],
                     "runs": len(rows),
                     "events_detected": sum(
                         str(row["event_detected"]).lower() == "true" for row in rows

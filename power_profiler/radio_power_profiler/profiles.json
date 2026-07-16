@@ -6,16 +6,16 @@
     "setup_commands": ["AT", "AT+RESET", "AT+DEBUG=OFF", "AT+BRIDGE=ON", "AT+CS=OFF", "AT+RX=OFF"],
     "post_config_commands": ["AT+RX=OFF"],
     "receiver_enable_commands": ["AT+RX=ON"],
-    "payload_sizes": [8, 32, 64],
+    "payload_sizes": [8, 32, 64, 128, 512, 1024],
     "repetitions": 5,
     "cooldown_s": 0.5,
     "axes": [
       {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+PWR={value}", "values": [-30, 0, 10]},
       {"name": "bit_rate_kbps", "label": "Bit rate (kbps)", "command": "AT+BR={value}", "values": [1.2, 38.4, 250]}
     ],
-    "transmit": {"mode": "text_line", "line_overhead_bytes": 2, "max_payload_bytes": 64},
+    "transmit": {"mode": "burst_command", "command": "AT+TXBURST={payload_bytes},{frame_payload_bytes}", "line_overhead_bytes": 2, "max_payload_bytes": 1024, "frame_payload_bytes": 64},
     "airtime": {"kind": "fsk", "rate_axis": "bit_rate_kbps", "rate_multiplier": 1000, "overhead_bytes": 8, "ramp_s": 0.003},
-    "notes": ["Carrier sense is disabled so each requested test produces one immediate transmission."]
+    "notes": ["Carrier sense is disabled so each requested test produces one immediate transmission.", "Logical transfers above 64 bytes are fragmented into 64-byte physical CC1101 frames."]
   },
   "RADIO_CC1101_V2_868": {
     "display_name": "CC1101 V2 868 MHz",
@@ -24,15 +24,17 @@
     "setup_commands": ["AT", "AT+RESET", "AT+DEBUG=OFF", "AT+BRIDGE=ON", "AT+CS=OFF", "AT+RX=OFF"],
     "post_config_commands": ["AT+RX=OFF"],
     "receiver_enable_commands": ["AT+RX=ON"],
-    "payload_sizes": [8, 32, 64],
+    "payload_sizes": [8, 32, 64, 128, 512, 1024],
     "repetitions": 5,
     "cooldown_s": 0.5,
     "axes": [
       {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+PWR={value}", "values": [-30, 0, 10]},
       {"name": "bit_rate_kbps", "label": "Bit rate (kbps)", "command": "AT+BR={value}", "values": [1.2, 38.4, 250]}
     ],
-    "transmit": {"mode": "text_line", "line_overhead_bytes": 2, "max_payload_bytes": 64},
-    "airtime": {"kind": "fsk", "rate_axis": "bit_rate_kbps", "rate_multiplier": 1000, "overhead_bytes": 8, "ramp_s": 0.003}
+    "transmit": {"mode": "burst_command", "command": "AT+TXBURST={payload_bytes},{frame_payload_bytes}", "line_overhead_bytes": 2, "max_payload_bytes": 1024, "frame_payload_bytes": 64},
+    "airtime": {"kind": "fsk", "rate_axis": "bit_rate_kbps", "rate_multiplier": 1000, "overhead_bytes": 8, "ramp_s": 0.003},
+    "capture": {"merge_gap_ms": 20.0},
+    "notes": ["Logical transfers above 64 bytes are fragmented into 64-byte physical CC1101 frames."]
   },
   "RADIO_EBYTE_E07_400M10S": {
     "display_name": "Ebyte E07-400M10S (CC1101)",

@@ -31,6 +31,26 @@ class TransmitSpec:
     command: str | None = None
     line_overhead_bytes: int = 0
     max_payload_bytes: int = 255
+    frame_payload_bytes: int | None = None
+
+    def frame_sizes(self, payload_bytes: int) -> tuple[int, ...]:
+        frame_limit = self.frame_payload_bytes or payload_bytes
+        if frame_limit <= self.line_overhead_bytes:
+            raise ValueError(
+                "Physical frame limit must exceed firmware-added line overhead"
+            )
+        remaining = payload_bytes
+        frames: list[int] = []
+        while remaining > 0:
+            frame_bytes = min(frame_limit, remaining)
+            if frame_bytes <= self.line_overhead_bytes:
+                raise ValueError(
+                    f"Final frame has only {frame_bytes} bytes, not enough for "
+                    f"{self.line_overhead_bytes} bytes of line overhead"
+                )
+            frames.append(frame_bytes)
+            remaining -= frame_bytes
+        return tuple(frames)
 
 
 @dataclass(frozen=True)

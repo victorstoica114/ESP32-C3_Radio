@@ -17,6 +17,7 @@ def _lookup_numeric(mapping: dict[str, Any], value: Any) -> float:
 def estimate_airtime_s(profile: Profile, payload_bytes: int, params: dict[str, Any]) -> float:
     spec = profile.airtime
     kind = spec.get("kind", "fixed")
+    frame_sizes = profile.transmit.frame_sizes(payload_bytes)
 
     if kind == "lora":
         sf = int(params[spec.get("sf_axis", "spreading_factor")])
@@ -45,7 +46,10 @@ def estimate_airtime_s(profile: Profile, payload_bytes: int, params: dict[str, A
             rate_bps = float(rate_value) * float(spec.get("rate_multiplier", 1000.0))
         overhead_bytes = int(spec.get("overhead_bytes", 8))
         ramp_s = float(spec.get("ramp_s", 0.002))
-        return ((payload_bytes + overhead_bytes) * 8 / rate_bps) + ramp_s
+        return sum(
+            ((frame_bytes + overhead_bytes) * 8 / rate_bps) + ramp_s
+            for frame_bytes in frame_sizes
+        )
 
     if kind == "fixed":
         return float(spec.get("seconds", 0.25))
@@ -70,6 +74,7 @@ def build_cases(profile: Profile) -> list[TestCase]:
                 f"Payload {size} exceeds {profile.transmit.max_payload_bytes} bytes for "
                 f"{profile.profile_id}"
             )
+        profile.transmit.frame_sizes(size)
 
     names = [axis.name for axis in profile.axes]
     products = itertools.product(*(axis.values for axis in profile.axes))

@@ -17,6 +17,13 @@ class CommandResult:
     lines: tuple[str, ...]
 
 
+@dataclass(frozen=True)
+class TransmissionResult:
+    content_bytes: int
+    frame_payload_bytes: tuple[int, ...]
+    expected_payloads: tuple[bytes, ...]
+
+
 class SerialRadio:
     def __init__(
         self,
@@ -129,22 +136,47 @@ class SerialRadio:
         alphabet = b"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_"
         return bytes(alphabet[index % len(alphabet)] for index in range(length))
 
-    def send_packet(self, profile: Profile, over_air_bytes: int) -> int:
-        content_length = over_air_bytes - profile.transmit.line_overhead_bytes
-        if content_length < 1:
-            raise ValueError("Packet has no payload after accounting for line overhead")
-        payload = self.make_payload(content_length)
+    def send_packet(self, profile: Profile, over_air_bytes: int) -> TransmissionResult:
+        frame_sizes = profile.transmit.frame_sizes(over_air_bytes)
+        expected_payloads = tuple(
+            self.make_payload(frame_bytes - profile.transmit.line_overhead_bytes)
+            for frame_bytes in frame_sizes
+        )
+        content_bytes = sum(len(payload) for payload in expected_payloads)
 
-        if profile.transmit.mode == "text_line":
-            self.serial.write(payload + b"\r\n")
-            self.serial.flush()
-            return content_length
-
-        if profile.transmit.mode == "hex_command":
-            if not profile.transmit.command:
-                raise ValueError("hex_command transmit mode requires a command template")
-            command = profile.transmit.command.format(payload_hex=payload.hex().upper())
+        if profile.transmit.mode == "burst_command":
+            if not profile.transmit.command or not profile.transmit.frame_payload_bytes:
+                raise ValueError(
+                    "burst_command mode requires a command and frame_payload_bytes"
+                )
+            command = profile.transmit.command.format(
+                payload_bytes=over_air_bytes,
+                frame_payload_bytes=profile.transmit.frame_payload_bytes,
+            )
             self._write_line(command)
-            return content_length
+            return TransmissionResult(
+                content_bytes=content_bytes,
+                frame_payload_bytes=frame_sizes,
+                expected_payloads=expected_payloads,
+            )
 
-        raise ValueError(f"Unsupported transmit mode: {profile.transmit.mode!r}")
+        for payload in expected_payloads:
+            if profile.transmit.mode == "text_line":
+                self.serial.write(payload + b"\r\n")
+                self.serial.flush()
+                continue
+
+            if profile.transmit.mode == "hex_command":
+                if not profile.transmit.command:
+                    raise ValueError("hex_command transmit mode requires a command template")
+                command = profile.transmit.command.format(payload_hex=payload.hex().upper())
+                self._write_line(command)
+                continue
+
+            raise ValueError(f"Unsupported transmit mode: {profile.transmit.mode!r}")
+
+        return TransmissionResult(
+            content_bytes=content_bytes,
+            frame_payload_bytes=frame_sizes,
+            expected_payloads=expected_payloads,
+        )

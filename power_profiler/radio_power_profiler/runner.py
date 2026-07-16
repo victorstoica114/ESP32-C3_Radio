@@ -24,6 +24,17 @@ def _output_directory(root: Path, profile_id: str) -> Path:
     return root / f"{stamp}_{profile_id.lower()}"
 
 
+def _received_all_frames(expected_payloads: tuple[bytes, ...], lines: tuple[str, ...]) -> bool:
+    remaining = list(lines)
+    for payload in expected_payloads:
+        expected = payload.decode("ascii")
+        match = next((index for index, line in enumerate(remaining) if expected in line), None)
+        if match is None:
+            return False
+        remaining.pop(match)
+    return True
+
+
 def run_profile(
     profile: Profile,
     *,
@@ -89,11 +100,11 @@ def run_profile(
             radio.drain(wait_s=0.03)
             if receiver is not None:
                 receiver.drain(wait_s=0.03)
-            content_bytes = 0
+            transmission = None
 
             def trigger() -> None:
-                nonlocal content_bytes
-                content_bytes = radio.send_packet(profile, case.payload_bytes)
+                nonlocal transmission
+                transmission = radio.send_packet(profile, case.payload_bytes)
 
             capture = sampler.capture(
                 pre_s=profile.capture.pre_s,
@@ -104,9 +115,10 @@ def run_profile(
             response = " | ".join(response_lines)
             receiver_lines = receiver.drain(wait_s=0.15) if receiver is not None else ()
             receiver_response = " | ".join(receiver_lines)
-            expected_payload = SerialRadio.make_payload(content_bytes).decode("ascii")
+            if transmission is None:
+                raise RuntimeError("Radio transmission did not return transfer metadata")
             packet_received = (
-                any(expected_payload in line for line in receiver_lines)
+                _received_all_frames(transmission.expected_payloads, receiver_lines)
                 if receiver is not None
                 else None
             )
@@ -138,7 +150,9 @@ def run_profile(
                 "firmware_selection": profile.firmware_selection,
                 "repetition": case.repetition,
                 "payload_bytes": case.payload_bytes,
-                "serial_content_bytes": content_bytes,
+                "frame_count": len(transmission.frame_payload_bytes),
+                "max_frame_payload_bytes": max(transmission.frame_payload_bytes),
+                "serial_content_bytes": transmission.content_bytes,
                 "parameters_json": json.dumps(case.parameters, sort_keys=True),
                 "ppk_mode": "ampere",
                 "voltage_mv": voltage_mv,

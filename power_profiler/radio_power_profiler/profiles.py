@@ -54,6 +54,11 @@ def load_profile(profile_id: str) -> Profile:
             command=tx_raw.get("command"),
             line_overhead_bytes=int(tx_raw.get("line_overhead_bytes", 0)),
             max_payload_bytes=int(tx_raw.get("max_payload_bytes", 255)),
+            frame_payload_bytes=(
+                int(tx_raw["frame_payload_bytes"])
+                if tx_raw.get("frame_payload_bytes") is not None
+                else None
+            ),
         ),
         capture=CaptureSpec(
             pre_s=float(capture_raw.get("pre_s", 0.20)),

@@ -43,6 +43,16 @@ class PlanningTests(unittest.TestCase):
         power_axis = next(axis for axis in profile.axes if axis.name == "tx_power_dbm")
         self.assertEqual(power_axis.command_for(33), "AT+POWER1")
 
+    def test_cc1101_fragmented_transfer_airtime(self):
+        profile = load_profile("RADIO_CC1101_V2_868")
+        self.assertEqual(profile.transmit.frame_sizes(1024), (64,) * 16)
+        airtime = estimate_airtime_s(
+            profile,
+            1024,
+            {"tx_power_dbm": 10, "bit_rate_kbps": 1.2},
+        )
+        self.assertAlmostEqual(airtime, 7.728, places=6)
+
 
 if __name__ == "__main__":
     unittest.main()

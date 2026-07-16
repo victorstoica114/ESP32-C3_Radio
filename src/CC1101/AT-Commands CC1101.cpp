@@ -547,6 +547,44 @@ static bool transmitData(const char* data, int length) {
   return (state == RADIOLIB_ERR_NONE || state == -5);
 }
 
+static bool transmitBurst(size_t totalBytes, size_t frameBytes) {
+  static const char alphabet[] =
+      "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_";
+  static const size_t alphabetLength = sizeof(alphabet) - 1;
+
+  if (radioSleeping || frameBytes < 3 || frameBytes > 64 || totalBytes < 1 ||
+      totalBytes > 1024) {
+    return false;
+  }
+
+  size_t remaining = totalBytes;
+  size_t frames = 0;
+  uint8_t frame[64];
+  while (remaining > 0) {
+    const size_t length = min(frameBytes, remaining);
+    if (length < 3) return false;
+
+    const size_t contentLength = length - 2;
+    for (size_t index = 0; index < contentLength; index++) {
+      frame[index] = alphabet[index % alphabetLength];
+    }
+    frame[contentLength] = '\r';
+    frame[contentLength + 1] = '\n';
+
+    if (!transmitData((const char*)frame, (int)length)) return false;
+    remaining -= length;
+    frames++;
+  }
+
+  Serial.print(F("TXBURST="));
+  Serial.print(totalBytes);
+  Serial.print(F(",FRAMES="));
+  Serial.print(frames);
+  Serial.print(F(",FRAME_MAX="));
+  Serial.println(frameBytes);
+  return true;
+}
+
 // =============================================================================
 // Default Config
 // =============================================================================
@@ -833,6 +871,7 @@ static void printHelp() {
   Serial.println(F("  AT+RSSI?         -> Show last RSSI"));
   Serial.println(F("  AT+LQI?          -> Show last LQI"));
   Serial.println(F("  AT+RX=ON/OFF     -> Start RX / standby"));
+  Serial.println(F("  AT+TXBURST=<total>,<frame> -> TX logical transfer (max 1024/64 B)"));
   Serial.println(F("  AT+SLEEP         -> Sleep (low power)"));
   Serial.println(F("  AT+WAKE          -> Wake + restore RX"));
   Serial.println(F("  AT+RANDOM?       -> one RSSI-noise random byte"));
@@ -1017,6 +1056,28 @@ static bool handleAT(const String& lineRaw) {
     radioSleeping = false;
     startReceive();
     serialOK();
+    return true;
+  }
+
+  if (u.startsWith("AT+TXBURST=")) {
+    String args = line.substring(11);
+    int comma = args.indexOf(',');
+    if (comma <= 0 || comma >= (int)args.length() - 1) {
+      serialError(F("TXBURST_FORMAT (AT+TXBURST=<1..1024>,<3..64>)"));
+      return true;
+    }
+    long totalBytes = args.substring(0, comma).toInt();
+    long frameBytes = args.substring(comma + 1).toInt();
+    if (totalBytes < 1 || totalBytes > 1024 || frameBytes < 3 || frameBytes > 64 ||
+        (totalBytes % frameBytes != 0 && totalBytes % frameBytes < 3)) {
+      serialError(F("TXBURST_RANGE"));
+      return true;
+    }
+    if (transmitBurst((size_t)totalBytes, (size_t)frameBytes)) {
+      serialOK();
+    } else {
+      serialError(F("TXBURST_FAILED"));
+    }
     return true;
   }
 

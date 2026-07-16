@@ -132,6 +132,14 @@ Câmpurile principale sunt:
 
 Dimensiunea cerută este numărul de octeți din payload-ul predat radioului, înainte de framing-ul PHY. Pentru firmware-urile care adaugă `CRLF` în payload, programul generează automat cu doi octeți mai puțin în conținut, astfel încât valorile de 8/32/64 B să rămână comparabile.
 
+Pentru CC1101, transferurile logice mai mari de 64 B sunt fragmentate în cadre
+fizice de câte 64 B. Astfel, 128/512/1024 B sunt măsurate ca rafale de
+2/8/16 cadre. Coloanele `frame_count` și `max_frame_payload_bytes` păstrează
+această distincție explicită în `summary.csv` și `aggregates.csv`; energia este
+integrată pe întreaga rafală, inclusiv overhead-ul și tranzițiile fiecărui cadru.
+Rafala este generată local de firmware prin `AT+TXBURST`, astfel încât bufferul
+USB CDC nu poate pierde cadre la viteze radio mici.
+
 ## Alegeri experimentale
 
 - nRF24 are Auto ACK dezactivat implicit. Fără un receptor, ACK/retry ar transforma un test de „un pachet” într-o serie necunoscută de retransmisii. Un studiu separat ACK/retry trebuie făcut cu receptor controlat.
