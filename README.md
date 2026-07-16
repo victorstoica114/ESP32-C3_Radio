@@ -489,9 +489,22 @@ CC1352P AT modem commands:
 | `AT+CHAN?`, `AT+CHAN=<n>` | Channel-query/set guard; use explicit frequency with `AT+FREQ` |
 | `AT+RX=ON`, `AT+RX=OFF` | Enable receive mode or return to standby |
 | `AT+SEND=<text>`, `AT+SENDHEX=<hex>` | Send text or hex payloads |
+| Non-AT text line | Send the line directly as a radio payload |
 | `AT+SLEEP`, `AT+WAKE` | Enter low-power mode or wake and restore usable radio state |
 | `AT+RSSI?`, `AT+STATUS?`, `AT+LASTPKT?`, `AT+RANDOM?`, `AT+UPTIME?` | Diagnostics and runtime status |
 | `AT+SETRADIO=FREQ,RATE,PWR,MOD,SYNC` | One-shot radio configuration |
+
+The ESP32 bridge does not change the CC1352P radio state at startup; default RX
+behavior belongs in the CC1352P modem firmware. Plain text that does not start
+with `AT` is transmitted directly, so typing `hello` sends `hello` over RF.
+Received E79 text packets are printed as the payload only. Use `AT+SEND=<text>`
+when the payload itself must start with `AT`, or `AT+SENDHEX=<hex>` for binary
+data.
+
+The PlatformIO `e79-esp32-bridge` environment provides this convenience at the
+ESP32 bridge layer by wrapping non-AT text as `AT+SEND=<text>` before forwarding
+it to the CC1352P modem and hiding the modem `OK` replies for those bridge-side
+sends.
 
 The E79 modem was validated with two modules on COM19 and COM22. COM18 was
 probed during the latest campaign and belongs to the E280 pair. The E79 tests

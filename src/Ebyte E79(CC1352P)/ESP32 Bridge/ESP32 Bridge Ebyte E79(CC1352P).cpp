@@ -38,7 +38,10 @@ static constexpr int CC1352_RESET_ACTIVE_LEVEL = CC1352_RESET_ACTIVE_LOW ? LOW :
 static constexpr int CC1352_RESET_IDLE_LEVEL = CC1352_RESET_ACTIVE_LOW ? HIGH : LOW;
 static constexpr size_t BRIDGE_BUFFER_SIZE = 512;
 static constexpr uint32_t MAGIC_TIMEOUT_MS = 1000;
+static constexpr uint32_t HIDDEN_RESPONSE_TIMEOUT_MS = 500;
 static constexpr size_t CONTROL_BUFFER_SIZE = 64;
+static constexpr size_t HOST_LINE_BUFFER_SIZE = 192;
+static constexpr size_t CC1352_LINE_BUFFER_SIZE = 256;
 static constexpr size_t USB_SAFE_CHUNK_SIZE = 63;
 
 static constexpr char CONTROL_PREFIX[] = "~CC1352P_";
@@ -47,16 +50,28 @@ static constexpr char BOOT_LOW_COMMAND[] = "~CC1352P_BOOT=LOW";
 static constexpr char BOOT_HIGH_COMMAND[] = "~CC1352P_BOOT=HIGH";
 static constexpr char ENTER_BOOTLOADER_COMMAND[] = "~CC1352P_ENTER_BOOTLOADER";
 static constexpr char BAUD_COMMAND[] = "~CC1352P_BAUD=";
+static constexpr char AT_SEND_PREFIX[] = "AT+SEND=";
 
 U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, OLED_RESET_PIN, OLED_SCL_PIN, OLED_SDA_PIN);
 HardwareSerial Cc1352Serial(1);
 
 static uint8_t controlBuffer[CONTROL_BUFFER_SIZE];
+static uint8_t hostLineBuffer[HOST_LINE_BUFFER_SIZE];
+static uint8_t cc1352LineBuffer[CC1352_LINE_BUFFER_SIZE];
 static size_t controlIndex = 0;
+static size_t hostLineIndex = 0;
+static size_t cc1352LineIndex = 0;
 static uint32_t controlStartedAtMs = 0;
 static uint32_t currentCc1352Baud = CC1352_UART_BAUD;
 static uint32_t ledTickMs = 0;
+static uint32_t hiddenResponseDeadlineMs = 0;
+static uint8_t hiddenResponseCount = 0;
 static bool ledState = false;
+static bool hostIgnoreNextLf = false;
+static bool cc1352IgnoreNextLf = false;
+static bool hostDroppingLine = false;
+static bool cc1352DroppingLine = false;
+static bool cc1352RawForwardMode = false;
 
 static void drawCentered(const char *text, int baselineY, const uint8_t *font)
 {
@@ -98,11 +113,10 @@ static void driveControlPin(int pin, bool active, int activeLevel, int idleLevel
 {
     if (openDrain && activeLevel == LOW) {
         if (active) {
-            digitalWrite(pin, LOW);
             pinMode(pin, OUTPUT);
+            digitalWrite(pin, LOW);
         }
         else {
-            digitalWrite(pin, HIGH);
             pinMode(pin, INPUT);
         }
         return;
@@ -140,6 +154,14 @@ static void pulseCc1352Reset()
     delay(150);
 }
 
+static void serviceHiddenResponseTimeout()
+{
+    if (hiddenResponseCount > 0 &&
+        (int32_t)(millis() - hiddenResponseDeadlineMs) >= 0) {
+        hiddenResponseCount = 0;
+    }
+}
+
 static void enterCc1352Bootloader()
 {
     setCc1352BootActive(true);
@@ -163,13 +185,111 @@ static void setCc1352Baud(uint32_t baud)
     currentCc1352Baud = baud;
 }
 
+static bool lineStartsWithAt(const uint8_t *line, size_t len)
+{
+    return len >= 2 &&
+           (line[0] == 'A' || line[0] == 'a') &&
+           (line[1] == 'T' || line[1] == 't');
+}
+
+static bool lineEquals(const uint8_t *line, size_t len, const char *text)
+{
+    const size_t textLen = strlen(text);
+
+    return len == textLen && memcmp(line, text, textLen) == 0;
+}
+
+static bool lineStartsWith(const uint8_t *line, size_t len, const char *prefix)
+{
+    const size_t prefixLen = strlen(prefix);
+
+    return len >= prefixLen && memcmp(line, prefix, prefixLen) == 0;
+}
+
+static int hexValue(uint8_t value)
+{
+    if (value >= '0' && value <= '9') {
+        return value - '0';
+    }
+    if (value >= 'a' && value <= 'f') {
+        return value - 'a' + 10;
+    }
+    if (value >= 'A' && value <= 'F') {
+        return value - 'A' + 10;
+    }
+    return -1;
+}
+
+static void forwardHostLineToCc1352(const uint8_t *line, size_t len)
+{
+    if (len == 0) {
+        return;
+    }
+
+    if (lineStartsWithAt(line, len)) {
+        Cc1352Serial.write(line, len);
+    }
+    else {
+        Cc1352Serial.write((const uint8_t *)AT_SEND_PREFIX, sizeof(AT_SEND_PREFIX) - 1);
+        Cc1352Serial.write(line, len);
+        if (hiddenResponseCount < 255) {
+            hiddenResponseCount++;
+            hiddenResponseDeadlineMs = millis() + HIDDEN_RESPONSE_TIMEOUT_MS;
+        }
+    }
+    Cc1352Serial.write("\r\n");
+}
+
+static void forwardHostDataByte(uint8_t byte)
+{
+    if (cc1352RawForwardMode) {
+        Cc1352Serial.write(byte);
+        return;
+    }
+
+    if (byte == '\r' || byte == '\n') {
+        if (byte == '\n' && hostIgnoreNextLf) {
+            hostIgnoreNextLf = false;
+            return;
+        }
+
+        hostIgnoreNextLf = (byte == '\r');
+
+        if (hostDroppingLine) {
+            hostDroppingLine = false;
+        }
+        else if (hostLineIndex > 0) {
+            forwardHostLineToCc1352(hostLineBuffer, hostLineIndex);
+        }
+        hostLineIndex = 0;
+        return;
+    }
+
+    hostIgnoreNextLf = false;
+
+    if (hostDroppingLine) {
+        return;
+    }
+
+    if (hostLineIndex + 1 <= sizeof(hostLineBuffer)) {
+        hostLineBuffer[hostLineIndex++] = byte;
+    }
+    else {
+        hostLineIndex = 0;
+        hostDroppingLine = true;
+        Serial.println(F("#ERROR: LINE_TOO_LONG"));
+    }
+}
+
 static void flushControlPrefix()
 {
     if (controlIndex == 0) {
         return;
     }
 
-    Cc1352Serial.write(controlBuffer, controlIndex);
+    for (size_t i = 0; i < controlIndex; ++i) {
+        forwardHostDataByte(controlBuffer[i]);
+    }
     controlIndex = 0;
 }
 
@@ -248,6 +368,9 @@ static bool handleControlLine()
     controlIndex = 0;
 
     if (strcmp(line, RESET_COMMAND) == 0) {
+        cc1352RawForwardMode = false;
+        hostLineIndex = 0;
+        hostDroppingLine = false;
         pulseCc1352Reset();
         return true;
     }
@@ -264,6 +387,9 @@ static bool handleControlLine()
 
     if (strcmp(line, ENTER_BOOTLOADER_COMMAND) == 0) {
         enterCc1352Bootloader();
+        cc1352RawForwardMode = true;
+        hostLineIndex = 0;
+        hostDroppingLine = false;
         return true;
     }
 
@@ -283,7 +409,7 @@ static bool handleControlLine()
 static void forwardHostByte(uint8_t byte)
 {
     if (controlIndex == 0 && byte != (uint8_t)CONTROL_PREFIX[0]) {
-        Cc1352Serial.write(byte);
+        forwardHostDataByte(byte);
         return;
     }
 
@@ -293,7 +419,7 @@ static void forwardHostByte(uint8_t byte)
 
     if (controlIndex >= sizeof(controlBuffer)) {
         flushControlPrefix();
-        Cc1352Serial.write(byte);
+        forwardHostDataByte(byte);
         return;
     }
 
@@ -331,6 +457,155 @@ static void pumpUsbToCc1352()
     }
 }
 
+static bool emitRxTextLine(const uint8_t *line, size_t len)
+{
+    const uint8_t *firstComma = nullptr;
+    const uint8_t *secondComma = nullptr;
+
+    if (!lineStartsWith(line, len, "+RX:")) {
+        return false;
+    }
+
+    for (size_t i = 4; i < len; ++i) {
+        if (line[i] == ',') {
+            firstComma = line + i;
+            break;
+        }
+    }
+    if (firstComma == nullptr) {
+        return false;
+    }
+
+    for (const uint8_t *p = firstComma + 1; p < line + len; ++p) {
+        if (*p == ',') {
+            secondComma = p;
+            break;
+        }
+    }
+    if (secondComma == nullptr) {
+        return false;
+    }
+
+    const uint8_t *payload = secondComma + 1;
+    Serial.write(payload, (line + len) - payload);
+    Serial.println();
+    return true;
+}
+
+static bool emitRxHexLine(const uint8_t *line, size_t len)
+{
+    const uint8_t *firstComma = nullptr;
+    const uint8_t *secondComma = nullptr;
+
+    if (!lineStartsWith(line, len, "+RXHEX:")) {
+        return false;
+    }
+
+    for (size_t i = 7; i < len; ++i) {
+        if (line[i] == ',') {
+            firstComma = line + i;
+            break;
+        }
+    }
+    if (firstComma == nullptr) {
+        return false;
+    }
+
+    for (const uint8_t *p = firstComma + 1; p < line + len; ++p) {
+        if (*p == ',') {
+            secondComma = p;
+            break;
+        }
+    }
+    if (secondComma == nullptr) {
+        return false;
+    }
+
+    const uint8_t *hex = secondComma + 1;
+    const size_t hexLen = (line + len) - hex;
+    if ((hexLen % 2) != 0) {
+        return false;
+    }
+
+    for (size_t i = 0; i < hexLen; i += 2) {
+        const int high = hexValue(hex[i]);
+        const int low = hexValue(hex[i + 1]);
+        if (high < 0 || low < 0) {
+            return false;
+        }
+        Serial.write((uint8_t)((high << 4) | low));
+    }
+    Serial.println();
+    return true;
+}
+
+static void emitCc1352Line(const uint8_t *line, size_t len)
+{
+    if (len == 0) {
+        return;
+    }
+
+    if (lineEquals(line, len, "OK")) {
+        if (hiddenResponseCount > 0) {
+            hiddenResponseCount--;
+            return;
+        }
+        Serial.println(F("OK"));
+        return;
+    }
+
+    if (lineStartsWith(line, len, "#ERROR:")) {
+        if (hiddenResponseCount > 0) {
+            hiddenResponseCount--;
+        }
+        Serial.write(line, len);
+        Serial.println();
+        return;
+    }
+
+    if (emitRxTextLine(line, len) || emitRxHexLine(line, len)) {
+        return;
+    }
+
+    Serial.write(line, len);
+    Serial.println();
+}
+
+static void forwardCc1352Byte(uint8_t byte)
+{
+    if (byte == '\r' || byte == '\n') {
+        if (byte == '\n' && cc1352IgnoreNextLf) {
+            cc1352IgnoreNextLf = false;
+            return;
+        }
+
+        cc1352IgnoreNextLf = (byte == '\r');
+
+        if (cc1352DroppingLine) {
+            cc1352DroppingLine = false;
+        }
+        else if (cc1352LineIndex > 0) {
+            emitCc1352Line(cc1352LineBuffer, cc1352LineIndex);
+        }
+        cc1352LineIndex = 0;
+        return;
+    }
+
+    cc1352IgnoreNextLf = false;
+
+    if (cc1352DroppingLine) {
+        return;
+    }
+
+    if (cc1352LineIndex + 1 <= sizeof(cc1352LineBuffer)) {
+        cc1352LineBuffer[cc1352LineIndex++] = byte;
+    }
+    else {
+        cc1352LineIndex = 0;
+        cc1352DroppingLine = true;
+    }
+}
+
 static void pumpCc1352ToUsb()
 {
     uint8_t buffer[BRIDGE_BUFFER_SIZE];
@@ -345,6 +620,14 @@ static void pumpCc1352ToUsb()
     }
 
     const size_t count = Cc1352Serial.read(buffer, available);
+    if (!cc1352RawForwardMode) {
+        for (size_t i = 0; i < count; ++i) {
+            forwardCc1352Byte(buffer[i]);
+        }
+        Serial.flush();
+        return;
+    }
+
     size_t offset = 0;
     while (offset < count) {
         size_t chunk = count - offset;
@@ -382,6 +665,7 @@ void loop()
 {
     led1HzService();
     maybeFlushStaleControlPrefix();
+    serviceHiddenResponseTimeout();
     pumpUsbToCc1352();
     pumpCc1352ToUsb();
 }

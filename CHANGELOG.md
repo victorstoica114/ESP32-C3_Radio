@@ -12,6 +12,7 @@ All notable changes to this project will be documented here.
 - Added a compact source reference for the validated Ebyte E79 CC1352P standalone UART AT modem firmware.
 - Added selectable Ebyte E79 CC1352P ESP32 bridge firmware (`RADIO_EBYTE_E79_CC1352P` + `BRIDGE`) for USB CDC to CC1352P UART operation.
 - Added `RADIO_EBYTE_E79_CC1352P` + `AT_COMMANDS` as the recommended selection alias for the validated E79 ESP32 bridge to the CC1352P AT modem.
+- Added direct non-AT text payload transmission to the E79 CC1352P path, including ESP32 bridge-side wrapping, automatic RX enable, and payload-only receive output for the PlatformIO firmware.
 - Documented the E79 transparent bridge control sequences that must not be sent as user payload.
 - Added shared CC1101 AT-command support selections for Ebyte E07-400M10S, E07-400MM10S, and E07-433M20S.
 - Added dedicated Ebyte E32 868T30D and E32 433T33D firmware selections

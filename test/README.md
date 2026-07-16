@@ -91,10 +91,11 @@ Raw text payload modules:
 .\test\Test-AtPairChannelIsolation.ps1 -Label SX1278 -PortA COM4 -PortB COM5 -Baud 9600 -SetCommandTemplate 'AT+FREQ={value}' -SameValue 433.000 -DifferentValueA 433.000 -DifferentValueB 434.000 -SendTemplate '{payload}'
 ```
 
-AT text payload modules, such as E79:
+E79 also supports direct text payloads after its CC1352P modem firmware is
+updated:
 
 ```powershell
-.\test\Test-AtPairChannelIsolation.ps1 -Label E79 -PortA COM19 -PortB COM22 -SetCommandTemplate 'AT+FREQ={value}' -SameValue 433000000 -DifferentValueA 433000000 -DifferentValueB 434000000 -SendTemplate 'AT+SEND={payload}'
+.\test\Test-AtPairChannelIsolation.ps1 -Label E79 -PortA COM19 -PortB COM22 -SetCommandTemplate 'AT+FREQ={value}' -SameValue 433000000 -DifferentValueA 433000000 -DifferentValueB 434000000 -SendTemplate '{payload}' -SkipRxOn
 ```
 
 Hex payload modules, such as RA-08:
