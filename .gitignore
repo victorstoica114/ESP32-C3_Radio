@@ -20,6 +20,13 @@ compile_commands.json
 # Local test logs
 log/
 
+# Python power-profiler environment and generated measurements
+power_profiler/.venv/
+power_profiler/pilot_results/
+power_profiler/results/
+power_profiler/**/__pycache__/
+power_profiler/**/*.pyc
+
 # Local datasheets are references only; keep public docs as links unless reviewed.
 Datasheets/*.pdf
 

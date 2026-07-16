@@ -664,6 +664,13 @@ in `test/README.md` and `test/COM_PORT_MAP.md`.
 Generated test logs are written under `log/`, which is intentionally ignored by
 git.
 
+## Radio-module power profiling
+
+The separate [`power_profiler/`](power_profiler/README.md) project automates
+per-packet current and energy measurements with a Nordic Power Profiler Kit II.
+It provides test matrices for every radio selection in this repository and
+varies packet size, TX power, and the relevant LoRa/FSK air-rate parameter.
+
 ## Repository notes
 
 - Build artifacts are ignored via `.gitignore`.

@@ -517,6 +517,7 @@ static bool applyConfig(const RadioConfig& cfg) {
 static bool transmitData(const char* data, int length) {
   if (radioSleeping) return false;
 
+  const bool restoreReceive = inReceiveMode;
   inReceiveMode = false;
   
   // Transmite o singura data, ignora eroarea de timeout
@@ -529,8 +530,17 @@ static bool transmitData(const char* data, int length) {
     Serial.println(state);
   }
   
-  // Intoarce-te la receptie indiferent de rezultat
-  startReceive();
+  // Restore the state selected by AT+RX. Power measurements use RX=OFF so
+  // the post-TX current returns to standby instead of becoming part of the
+  // measured packet-energy window.
+  if (restoreReceive) {
+    startReceive();
+  } else {
+    detachReceiveActions();
+    radioReceived = false;
+    radio.standby();
+    inReceiveMode = false;
+  }
   
   // Consideram success chiar daca avem TX_TIMEOUT (-5)
   // deoarece transmisia se face efectiv

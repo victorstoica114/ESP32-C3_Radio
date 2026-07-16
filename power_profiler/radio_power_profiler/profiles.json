@@ -1,0 +1,350 @@
+{
+  "RADIO_CC1101_V1_433": {
+    "display_name": "CC1101 V1 433 MHz",
+    "firmware_selection": "RADIO_CC1101_V1_433 + AT_COMMANDS",
+    "baudrate": 115200,
+    "setup_commands": ["AT", "AT+RESET", "AT+DEBUG=OFF", "AT+BRIDGE=ON", "AT+CS=OFF", "AT+RX=OFF"],
+    "post_config_commands": ["AT+RX=OFF"],
+    "receiver_enable_commands": ["AT+RX=ON"],
+    "payload_sizes": [8, 32, 64],
+    "repetitions": 5,
+    "cooldown_s": 0.5,
+    "axes": [
+      {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+PWR={value}", "values": [-30, 0, 10]},
+      {"name": "bit_rate_kbps", "label": "Bit rate (kbps)", "command": "AT+BR={value}", "values": [1.2, 38.4, 250]}
+    ],
+    "transmit": {"mode": "text_line", "line_overhead_bytes": 2, "max_payload_bytes": 64},
+    "airtime": {"kind": "fsk", "rate_axis": "bit_rate_kbps", "rate_multiplier": 1000, "overhead_bytes": 8, "ramp_s": 0.003},
+    "notes": ["Carrier sense is disabled so each requested test produces one immediate transmission."]
+  },
+  "RADIO_CC1101_V2_868": {
+    "display_name": "CC1101 V2 868 MHz",
+    "firmware_selection": "RADIO_CC1101_V2_868 + AT_COMMANDS",
+    "baudrate": 115200,
+    "setup_commands": ["AT", "AT+RESET", "AT+DEBUG=OFF", "AT+BRIDGE=ON", "AT+CS=OFF", "AT+RX=OFF"],
+    "post_config_commands": ["AT+RX=OFF"],
+    "receiver_enable_commands": ["AT+RX=ON"],
+    "payload_sizes": [8, 32, 64],
+    "repetitions": 5,
+    "cooldown_s": 0.5,
+    "axes": [
+      {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+PWR={value}", "values": [-30, 0, 10]},
+      {"name": "bit_rate_kbps", "label": "Bit rate (kbps)", "command": "AT+BR={value}", "values": [1.2, 38.4, 250]}
+    ],
+    "transmit": {"mode": "text_line", "line_overhead_bytes": 2, "max_payload_bytes": 64},
+    "airtime": {"kind": "fsk", "rate_axis": "bit_rate_kbps", "rate_multiplier": 1000, "overhead_bytes": 8, "ramp_s": 0.003}
+  },
+  "RADIO_EBYTE_E07_400M10S": {
+    "display_name": "Ebyte E07-400M10S (CC1101)",
+    "firmware_selection": "RADIO_EBYTE_E07_400M10S + AT_COMMANDS",
+    "baudrate": 115200,
+    "setup_commands": ["AT", "AT+RESET", "AT+DEBUG=OFF", "AT+BRIDGE=ON", "AT+CS=OFF", "AT+RX=OFF"],
+    "post_config_commands": ["AT+RX=OFF"],
+    "receiver_enable_commands": ["AT+RX=ON"],
+    "payload_sizes": [8, 32, 64],
+    "repetitions": 5,
+    "cooldown_s": 0.5,
+    "axes": [
+      {"name": "cc1101_drive_dbm", "label": "CC1101 drive (dBm)", "command": "AT+PWR={value}", "values": [-30, 0, 10]},
+      {"name": "bit_rate_kbps", "label": "Bit rate (kbps)", "command": "AT+BR={value}", "values": [1.2, 38.4, 250]}
+    ],
+    "transmit": {"mode": "text_line", "line_overhead_bytes": 2, "max_payload_bytes": 64},
+    "airtime": {"kind": "fsk", "rate_axis": "bit_rate_kbps", "rate_multiplier": 1000, "overhead_bytes": 8, "ramp_s": 0.003},
+    "notes": ["AT+PWR controls the CC1101 PATABLE drive setting, not a separate external-PA gain."]
+  },
+  "RADIO_EBYTE_E07_400MM10S": {
+    "display_name": "Ebyte E07-400MM10S (CC1101)",
+    "firmware_selection": "RADIO_EBYTE_E07_400MM10S + AT_COMMANDS",
+    "baudrate": 115200,
+    "setup_commands": ["AT", "AT+RESET", "AT+DEBUG=OFF", "AT+BRIDGE=ON", "AT+CS=OFF", "AT+RX=OFF"],
+    "post_config_commands": ["AT+RX=OFF"],
+    "receiver_enable_commands": ["AT+RX=ON"],
+    "payload_sizes": [8, 32, 64],
+    "repetitions": 5,
+    "cooldown_s": 0.5,
+    "axes": [
+      {"name": "cc1101_drive_dbm", "label": "CC1101 drive (dBm)", "command": "AT+PWR={value}", "values": [-30, 0, 10]},
+      {"name": "bit_rate_kbps", "label": "Bit rate (kbps)", "command": "AT+BR={value}", "values": [1.2, 38.4, 250]}
+    ],
+    "transmit": {"mode": "text_line", "line_overhead_bytes": 2, "max_payload_bytes": 64},
+    "airtime": {"kind": "fsk", "rate_axis": "bit_rate_kbps", "rate_multiplier": 1000, "overhead_bytes": 8, "ramp_s": 0.003},
+    "notes": ["AT+PWR controls the CC1101 PATABLE drive setting, not a separate external-PA gain."]
+  },
+  "RADIO_EBYTE_E07_433M20S": {
+    "display_name": "Ebyte E07-433M20S (CC1101 + PA/LNA)",
+    "firmware_selection": "RADIO_EBYTE_E07_433M20S + AT_COMMANDS",
+    "baudrate": 115200,
+    "setup_commands": ["AT", "AT+RESET", "AT+DEBUG=OFF", "AT+BRIDGE=ON", "AT+CS=OFF", "AT+RX=OFF"],
+    "post_config_commands": ["AT+RX=OFF"],
+    "receiver_enable_commands": ["AT+RX=ON"],
+    "payload_sizes": [8, 32, 64],
+    "repetitions": 5,
+    "cooldown_s": 1.0,
+    "axes": [
+      {"name": "cc1101_drive_dbm", "label": "CC1101 drive (dBm)", "command": "AT+PWR={value}", "values": [-30, 0, 10]},
+      {"name": "bit_rate_kbps", "label": "Bit rate (kbps)", "command": "AT+BR={value}", "values": [1.2, 38.4, 250]}
+    ],
+    "transmit": {"mode": "text_line", "line_overhead_bytes": 2, "max_payload_bytes": 64},
+    "airtime": {"kind": "fsk", "rate_axis": "bit_rate_kbps", "rate_multiplier": 1000, "overhead_bytes": 8, "ramp_s": 0.003},
+    "notes": ["The module contains an external PA/LNA; AT+PWR still changes only the exposed CC1101 drive preset."]
+  },
+  "RADIO_HC12": {
+    "display_name": "HC-12 UART radio",
+    "firmware_selection": "RADIO_HC12 + AT_COMMANDS",
+    "baudrate": 115200,
+    "setup_commands": ["AT", "AT+DEBUG=OFF", "AT+WAKE", "AT+BRIDGE=ON"],
+    "post_config_commands": [],
+    "payload_sizes": [8, 32, 64],
+    "repetitions": 5,
+    "cooldown_s": 1.0,
+    "axes": [
+      {"name": "tx_power_level", "label": "HC-12 power level", "command": "AT+POWER={value}", "values": [1, 4, 8]},
+      {"name": "fu_mode", "label": "HC-12 FU mode", "command": "AT+FU={value}", "values": [1, 3, 4]}
+    ],
+    "transmit": {"mode": "text_line", "line_overhead_bytes": 2, "max_payload_bytes": 128},
+    "capture": {"minimum_after_trigger_s": 1.5, "max_after_trigger_s": 4.0, "threshold_margin_uA": 1000},
+    "airtime": {"kind": "fixed", "seconds": 0.8},
+    "notes": ["FU mode changes latency, sensitivity and over-air behavior; it is more meaningful here than UART baud alone."]
+  },
+  "RADIO_NRF24L01": {
+    "display_name": "nRF24L01 / nRF24L01+PA+LNA",
+    "firmware_selection": "RADIO_NRF24L01 + AT_COMMANDS",
+    "baudrate": 9600,
+    "setup_commands": ["AT", "AT+RESET", "AT+DEBUG=OFF", "AT+RX=OFF", "AT+DYN=ON", "AT+AUTOACK=OFF", "AT+CRC=ON"],
+    "post_config_commands": ["AT+RX=OFF"],
+    "payload_sizes": [8, 16, 32],
+    "repetitions": 5,
+    "cooldown_s": 0.25,
+    "axes": [
+      {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+PWR={value}", "values": [-18, -6, 0]},
+      {"name": "data_rate_kbps", "label": "Data rate (kbps)", "command": "AT+RATE={value}", "values": [250, 1000, 2000]}
+    ],
+    "transmit": {"mode": "text_line", "line_overhead_bytes": 0, "max_payload_bytes": 32},
+    "capture": {"minimum_after_trigger_s": 0.35, "threshold_margin_uA": 200},
+    "airtime": {"kind": "fsk", "rate_axis": "data_rate_kbps", "rate_multiplier": 1000, "overhead_bytes": 10, "ramp_s": 0.001},
+    "notes": ["Auto-ack is disabled so a missing receiver cannot add retries to the energy of one packet."]
+  },
+  "RADIO_RA01_SX1278": {
+    "display_name": "Ai-Thinker RA-01 (SX1278)",
+    "firmware_selection": "RADIO_RA01_SX1278 + AT_COMMANDS",
+    "baudrate": 9600,
+    "setup_commands": ["AT", "AT+RESET", "AT+DEBUG=OFF", "AT+RX=OFF", "AT+CRC=ON", "AT+HEADER=EXPLICIT"],
+    "post_config_commands": ["AT+RX=OFF"],
+    "payload_sizes": [8, 32, 128],
+    "repetitions": 5,
+    "cooldown_s": 1.0,
+    "axes": [
+      {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+PWR={value}", "values": [-4, 10, 20]},
+      {"name": "spreading_factor", "label": "LoRa spreading factor", "command": "AT+SF={value}", "values": [7, 9, 12]},
+      {"name": "bandwidth_khz", "label": "LoRa bandwidth (kHz)", "command": "AT+BW={value}", "values": [125]}
+    ],
+    "transmit": {"mode": "text_line", "line_overhead_bytes": 0, "max_payload_bytes": 255},
+    "airtime": {"kind": "lora", "sf_axis": "spreading_factor", "bw_axis": "bandwidth_khz", "bw_multiplier": 1000, "coding_rate_denominator": 5, "preamble_symbols": 8, "crc": true, "implicit_header": false}
+  },
+  "RADIO_RA01H_SX1276": {
+    "display_name": "Ai-Thinker RA-01H (SX1276)",
+    "firmware_selection": "RADIO_RA01H_SX1276 + AT_COMMANDS",
+    "baudrate": 115200,
+    "setup_commands": ["AT", "AT+RESET", "AT+DEBUG=OFF", "AT+RX=ON", "AT+CRC=ON", "AT+HEADER=EXPLICIT"],
+    "post_config_commands": ["AT+RX=ON"],
+    "payload_sizes": [8, 32, 128],
+    "repetitions": 5,
+    "cooldown_s": 1.0,
+    "axes": [
+      {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+PWR={value}", "values": [-4, 10, 20]},
+      {"name": "spreading_factor", "label": "LoRa spreading factor", "command": "AT+SF={value}", "values": [7, 9, 12]},
+      {"name": "bandwidth_khz", "label": "LoRa bandwidth (kHz)", "command": "AT+BW={value}", "values": [125]}
+    ],
+    "transmit": {"mode": "text_line", "line_overhead_bytes": 2, "max_payload_bytes": 255},
+    "airtime": {"kind": "lora", "sf_axis": "spreading_factor", "bw_axis": "bandwidth_khz", "bw_multiplier": 1000, "coding_rate_denominator": 5, "preamble_symbols": 8, "crc": true, "implicit_header": false},
+    "notes": ["This firmware transmits only while RX is enabled and appends CRLF; the profile accounts for both behaviors."]
+  },
+  "RADIO_RA01SH_SX1262": {
+    "display_name": "Ai-Thinker RA-01SH (SX1262)",
+    "firmware_selection": "RADIO_RA01SH_SX1262 + AT_COMMANDS",
+    "baudrate": 9600,
+    "setup_commands": ["AT", "AT+RESET", "AT+DEBUG=OFF", "AT+RX=OFF", "AT+CRC=ON", "AT+HEADER=EXPLICIT"],
+    "post_config_commands": ["AT+RX=OFF"],
+    "payload_sizes": [8, 32, 128],
+    "repetitions": 5,
+    "cooldown_s": 1.0,
+    "axes": [
+      {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+PWR={value}", "values": [-9, 10, 22]},
+      {"name": "spreading_factor", "label": "LoRa spreading factor", "command": "AT+SF={value}", "values": [7, 9, 12]},
+      {"name": "bandwidth_khz", "label": "LoRa bandwidth (kHz)", "command": "AT+BW={value}", "values": [125]}
+    ],
+    "transmit": {"mode": "text_line", "line_overhead_bytes": 0, "max_payload_bytes": 255},
+    "airtime": {"kind": "lora", "sf_axis": "spreading_factor", "bw_axis": "bandwidth_khz", "bw_multiplier": 1000, "coding_rate_denominator": 5, "preamble_symbols": 8, "crc": true, "implicit_header": false}
+  },
+  "RADIO_RA02_SX1278": {
+    "display_name": "Ai-Thinker RA-02 (SX1278)",
+    "firmware_selection": "RADIO_RA02_SX1278 + AT_COMMANDS",
+    "baudrate": 9600,
+    "setup_commands": ["AT", "AT+RESET", "AT+DEBUG=OFF", "AT+RX=OFF", "AT+CRC=ON", "AT+HEADER=EXPLICIT"],
+    "post_config_commands": ["AT+RX=OFF"],
+    "payload_sizes": [8, 32, 128],
+    "repetitions": 5,
+    "cooldown_s": 1.0,
+    "axes": [
+      {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+PWR={value}", "values": [-4, 10, 20]},
+      {"name": "spreading_factor", "label": "LoRa spreading factor", "command": "AT+SF={value}", "values": [7, 9, 12]},
+      {"name": "bandwidth_khz", "label": "LoRa bandwidth (kHz)", "command": "AT+BW={value}", "values": [125]}
+    ],
+    "transmit": {"mode": "text_line", "line_overhead_bytes": 0, "max_payload_bytes": 255},
+    "airtime": {"kind": "lora", "sf_axis": "spreading_factor", "bw_axis": "bandwidth_khz", "bw_multiplier": 1000, "coding_rate_denominator": 5, "preamble_symbols": 8, "crc": true, "implicit_header": false}
+  },
+  "RADIO_E28_SX1280": {
+    "display_name": "E28 direct SPI (SX1280)",
+    "firmware_selection": "RADIO_E28_SX1280 + AT_COMMANDS",
+    "baudrate": 9600,
+    "setup_commands": ["AT", "AT+RESET", "AT+DEBUG=OFF", "AT+MODE=LORA", "AT+RX=OFF", "AT+CRC=ON", "AT+HEADER=EXPLICIT"],
+    "post_config_commands": ["AT+RX=OFF"],
+    "payload_sizes": [8, 32, 128],
+    "repetitions": 5,
+    "cooldown_s": 0.75,
+    "axes": [
+      {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+PWR={value}", "values": [-18, 0, 13]},
+      {"name": "spreading_factor", "label": "LoRa spreading factor", "command": "AT+SF={value}", "values": [5, 8, 12]},
+      {"name": "bandwidth_khz", "label": "LoRa bandwidth (kHz)", "command": "AT+BW={value}", "values": [812.5]}
+    ],
+    "transmit": {"mode": "text_line", "line_overhead_bytes": 0, "max_payload_bytes": 255},
+    "airtime": {"kind": "lora", "sf_axis": "spreading_factor", "bw_axis": "bandwidth_khz", "bw_multiplier": 1000, "coding_rate_denominator": 5, "preamble_symbols": 12, "crc": true, "implicit_header": false}
+  },
+  "RADIO_EBYTE": {
+    "display_name": "Ebyte E32 T20 UART",
+    "firmware_selection": "RADIO_EBYTE + AT_COMMANDS",
+    "baudrate": 115200,
+    "setup_commands": ["AT", "AT+DEBUG=OFF", "AT+WAKE", "AT+BRIDGE=ON", "AT+FIXED=OFF", "AT+FEC=ON"],
+    "post_config_commands": [],
+    "payload_sizes": [8, 32, 58],
+    "repetitions": 5,
+    "cooldown_s": 1.0,
+    "axes": [
+      {"name": "tx_power_dbm", "label": "Nominal TX power (dBm)", "values": [10, 14, 20], "commands": {"10": "AT+POWER4", "14": "AT+POWER3", "20": "AT+POWER1"}},
+      {"name": "air_rate_code", "label": "E32 air-rate preset (1=0.3, 4=4.8, 6=19.2 kbps)", "command": "AT+AIR{value}", "values": [1, 4, 6]}
+    ],
+    "transmit": {"mode": "text_line", "line_overhead_bytes": 2, "max_payload_bytes": 58},
+    "airtime": {"kind": "fsk", "rate_axis": "air_rate_code", "rate_bps_by_value": {"1": 300, "4": 4800, "6": 19200}, "overhead_bytes": 12, "ramp_s": 0.020},
+    "capture": {"minimum_after_trigger_s": 0.75, "max_after_trigger_s": 6.0, "threshold_margin_uA": 1000}
+  },
+  "RADIO_EBYTE_E32_868T30D": {
+    "display_name": "Ebyte E32-868T30D UART",
+    "firmware_selection": "RADIO_EBYTE_E32_868T30D + AT_COMMANDS",
+    "baudrate": 115200,
+    "setup_commands": ["AT", "AT+DEBUG=OFF", "AT+WAKE", "AT+BRIDGE=ON", "AT+FIXED=OFF", "AT+FEC=ON"],
+    "post_config_commands": [],
+    "payload_sizes": [8, 32, 58],
+    "repetitions": 5,
+    "cooldown_s": 1.5,
+    "axes": [
+      {"name": "tx_power_dbm", "label": "Nominal TX power (dBm)", "values": [21, 27, 30], "commands": {"21": "AT+POWER4", "27": "AT+POWER2", "30": "AT+POWER1"}},
+      {"name": "air_rate_code", "label": "E32 air-rate preset (1=0.3, 4=4.8, 6=19.2 kbps)", "command": "AT+AIR{value}", "values": [1, 4, 6]}
+    ],
+    "transmit": {"mode": "text_line", "line_overhead_bytes": 2, "max_payload_bytes": 58},
+    "airtime": {"kind": "fsk", "rate_axis": "air_rate_code", "rate_bps_by_value": {"1": 300, "4": 4800, "6": 19200}, "overhead_bytes": 12, "ramp_s": 0.020},
+    "capture": {"minimum_after_trigger_s": 0.75, "max_after_trigger_s": 6.0, "threshold_margin_uA": 1000}
+  },
+  "RADIO_EBYTE_E32_433T33D": {
+    "display_name": "Ebyte E32-433T33D UART",
+    "firmware_selection": "RADIO_EBYTE_E32_433T33D + AT_COMMANDS",
+    "baudrate": 115200,
+    "setup_commands": ["AT", "AT+DEBUG=OFF", "AT+WAKE", "AT+BRIDGE=ON", "AT+FIXED=OFF", "AT+FEC=ON"],
+    "post_config_commands": [],
+    "payload_sizes": [8, 32, 58],
+    "repetitions": 5,
+    "cooldown_s": 2.0,
+    "axes": [
+      {"name": "tx_power_dbm", "label": "Nominal TX power (dBm)", "values": [24, 30, 33], "commands": {"24": "AT+POWER4", "30": "AT+POWER2", "33": "AT+POWER1"}},
+      {"name": "air_rate_code", "label": "E32 air-rate preset (1=0.3, 4=4.8, 6=19.2 kbps)", "command": "AT+AIR{value}", "values": [1, 4, 6]}
+    ],
+    "transmit": {"mode": "text_line", "line_overhead_bytes": 2, "max_payload_bytes": 58},
+    "airtime": {"kind": "fsk", "rate_axis": "air_rate_code", "rate_bps_by_value": {"1": 300, "4": 4800, "6": 19200}, "overhead_bytes": 12, "ramp_s": 0.020},
+    "capture": {"minimum_after_trigger_s": 0.75, "max_after_trigger_s": 6.0, "threshold_margin_uA": 2000},
+    "notes": ["At maximum power verify the supply peak stays below the PPK2 and wiring limits."]
+  },
+  "RADIO_EBYTE_E22_SX1268": {
+    "display_name": "Ebyte E22 direct SPI (SX1268)",
+    "firmware_selection": "RADIO_EBYTE_E22_SX1268 + AT_COMMANDS",
+    "baudrate": 9600,
+    "setup_commands": ["AT", "AT+RESET", "AT+DEBUG=OFF", "AT+RX=OFF", "AT+CRC=ON", "AT+HEADER=EXPLICIT"],
+    "post_config_commands": ["AT+RX=OFF"],
+    "payload_sizes": [8, 32, 128],
+    "repetitions": 5,
+    "cooldown_s": 1.0,
+    "axes": [
+      {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+PWR={value}", "values": [-9, 10, 22]},
+      {"name": "spreading_factor", "label": "LoRa spreading factor", "command": "AT+SF={value}", "values": [7, 9, 12]},
+      {"name": "bandwidth_khz", "label": "LoRa bandwidth (kHz)", "command": "AT+BW={value}", "values": [125]}
+    ],
+    "transmit": {"mode": "text_line", "line_overhead_bytes": 0, "max_payload_bytes": 255},
+    "airtime": {"kind": "lora", "sf_axis": "spreading_factor", "bw_axis": "bandwidth_khz", "bw_multiplier": 1000, "coding_rate_denominator": 5, "preamble_symbols": 8, "crc": true, "implicit_header": false}
+  },
+  "RADIO_EBYTE_E280_SX1280": {
+    "display_name": "Ebyte E280-2G4T12S UART (SX1280)",
+    "firmware_selection": "RADIO_EBYTE_E280_SX1280 + AT_COMMANDS",
+    "baudrate": 115200,
+    "setup_commands": ["AT", "AT+DEBUG=OFF", "AT+WAKE", "AT+BRIDGE=ON", "AT+FIXED=OFF"],
+    "post_config_commands": [],
+    "payload_sizes": [8, 32, 64],
+    "repetitions": 5,
+    "cooldown_s": 0.75,
+    "axes": [
+      {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+POWER={value}", "values": [4, 7, 12]},
+      {"name": "air_rate", "label": "E280 air rate", "command": "AT+AIR={value}", "values": ["1K", "100K", "2M"]}
+    ],
+    "transmit": {"mode": "text_line", "line_overhead_bytes": 2, "max_payload_bytes": 255},
+    "airtime": {"kind": "fsk", "rate_axis": "air_rate", "rate_bps_by_value": {"1K": 1000, "100K": 100000, "2M": 2000000}, "overhead_bytes": 12, "ramp_s": 0.010},
+    "capture": {"minimum_after_trigger_s": 0.75, "max_after_trigger_s": 4.0, "threshold_margin_uA": 500}
+  },
+  "RADIO_EBYTE_E79_CC1352P": {
+    "display_name": "Ebyte E79-400DM2005S (CC1352P AT modem)",
+    "firmware_selection": "RADIO_EBYTE_E79_CC1352P + AT_COMMANDS; E79 modem firmware required",
+    "baudrate": 115200,
+    "setup_commands": ["AT", "AT+DEFAULT", "AT+DEBUG=OFF", "AT+RX=OFF"],
+    "post_config_commands": ["AT+RX=OFF"],
+    "payload_sizes": [8, 32, 64],
+    "repetitions": 5,
+    "cooldown_s": 0.75,
+    "axes": [
+      {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+PWR={value}", "values": [-20, 0, 13]},
+      {"name": "data_rate_bps", "label": "Data rate (bps)", "command": "AT+RATE={value}", "values": [50000]}
+    ],
+    "transmit": {"mode": "hex_command", "command": "AT+SENDHEX={payload_hex}", "line_overhead_bytes": 0, "max_payload_bytes": 64},
+    "airtime": {"kind": "fsk", "rate_axis": "data_rate_bps", "rate_multiplier": 1, "overhead_bytes": 12, "ramp_s": 0.003},
+    "notes": ["The current E79 modem firmware exposes only 50 kbps, so data rate is held constant."]
+  },
+  "RADIO_XL1276_D01_SX1276": {
+    "display_name": "XL1276-D01 (SX1276)",
+    "firmware_selection": "RADIO_XL1276_D01_SX1276 + AT_COMMANDS",
+    "baudrate": 9600,
+    "setup_commands": ["AT", "AT+RESET", "AT+DEBUG=OFF", "AT+RX=OFF", "AT+CRC=ON", "AT+HEADER=EXPLICIT"],
+    "post_config_commands": ["AT+RX=OFF"],
+    "payload_sizes": [8, 32, 128],
+    "repetitions": 5,
+    "cooldown_s": 1.0,
+    "axes": [
+      {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+PWR={value}", "values": [-4, 10, 20]},
+      {"name": "spreading_factor", "label": "LoRa spreading factor", "command": "AT+SF={value}", "values": [7, 9, 12]},
+      {"name": "bandwidth_khz", "label": "LoRa bandwidth (kHz)", "command": "AT+BW={value}", "values": [125]}
+    ],
+    "transmit": {"mode": "text_line", "line_overhead_bytes": 0, "max_payload_bytes": 255},
+    "airtime": {"kind": "lora", "sf_axis": "spreading_factor", "bw_axis": "bandwidth_khz", "bw_multiplier": 1000, "coding_rate_denominator": 5, "preamble_symbols": 8, "crc": true, "implicit_header": false}
+  },
+  "RA08_ASR6601": {
+    "display_name": "Ai-Thinker RA-08 (ASR6601 AT modem)",
+    "firmware_selection": "Standalone RA-08 AT modem firmware",
+    "baudrate": 115200,
+    "setup_commands": ["AT", "AT+DEFAULT", "AT+DEBUG=OFF", "AT+RX=OFF"],
+    "post_config_commands": ["AT+RX=OFF"],
+    "payload_sizes": [8, 32, 128],
+    "repetitions": 5,
+    "cooldown_s": 1.0,
+    "axes": [
+      {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+PWR={value}", "values": [2, 12, 22]},
+      {"name": "spreading_factor", "label": "LoRa spreading factor", "command": "AT+SF={value}", "values": [7, 9, 12]},
+      {"name": "bandwidth_hz", "label": "LoRa bandwidth (Hz)", "command": "AT+BW={value}", "values": [125000]}
+    ],
+    "transmit": {"mode": "hex_command", "command": "AT+SEND={payload_hex}", "line_overhead_bytes": 0, "max_payload_bytes": 255},
+    "airtime": {"kind": "lora", "sf_axis": "spreading_factor", "bw_axis": "bandwidth_hz", "bw_multiplier": 1, "coding_rate_denominator": 5, "preamble_symbols": 8, "crc": true, "implicit_header": false}
+  }
+}
