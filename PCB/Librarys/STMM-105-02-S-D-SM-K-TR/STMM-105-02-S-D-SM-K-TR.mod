@@ -11,7 +11,7 @@ Cd STMM-105-02-XX-D-SM-K-TR
 Kw Connector
 Sc 0
 At SMD
-AR
+AR 
 Op 0 0 0
 T0 0 0 1.27 1.27 0 0.254 N V 21 N "J**"
 T1 0 0 1.27 1.27 0 0.254 N I 21 N "STMM-105-02-XX-D-SM-K-TR"

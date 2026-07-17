@@ -276,8 +276,8 @@
 		)
 	)
 	(sheet
-		(at 71.12 50.8)
-		(size 38.1 13.97)
+		(at 220.98 93.98)
+		(size 30.48 12.7)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -288,11 +288,11 @@
 			(type solid)
 		)
 		(fill
-			(color 0 0 0 0)
+			(color 157 7 224 1)
 		)
-		(uuid "2bb9e104-9295-4e4d-9131-0be1c16c7cbf")
-		(property "Sheetname" "RA-08"
-			(at 71.12 50.0884 0)
+		(uuid "243ab3ae-c770-4132-a7f2-2763056a5d01")
+		(property "Sheetname" "Ai-Thinker-Ra-9"
+			(at 220.98 93.2684 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -302,8 +302,8 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "RA-08.kicad_sch"
-			(at 71.12 65.3546 0)
+		(property "Sheetfile" "Ai-Thinker-Ra-09.kicad_sch"
+			(at 220.98 107.2646 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -317,6 +317,52 @@
 			(project "module_radio"
 				(path "/9790d703-fd6a-40c9-8b52-2dd780028164"
 					(page "16")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 220.98 114.3)
+		(size 41.91 15.24)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "364f5634-eae3-4cb0-8dbe-2c0adb921bb0")
+		(property "Sheetname" "Ebyte_E80_CH9340C"
+			(at 220.98 113.5884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Ebyte_E79_CH9340C.kicad_sch"
+			(at 220.98 130.1246 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "module_radio"
+				(path "/9790d703-fd6a-40c9-8b52-2dd780028164"
+					(page "22")
 				)
 			)
 		)
