@@ -9,20 +9,32 @@ class Axis:
     name: str
     values: tuple[Any, ...]
     command: str | None = None
-    commands: dict[str, str] = field(default_factory=dict)
+    commands: dict[str, tuple[str, ...]] = field(default_factory=dict)
     label: str = ""
 
     def command_for(self, value: Any) -> str:
+        commands = self.commands_for(value)
+        if len(commands) != 1:
+            raise ValueError(
+                f"Axis {self.name!r} expands to {len(commands)} commands; "
+                "use commands_for()"
+            )
+        return commands[0]
+
+    def commands_for(self, value: Any) -> tuple[str, ...]:
         if self.commands:
+            key = str(value)
+            if isinstance(value, float) and value.is_integer():
+                key = str(int(value))
             try:
-                return self.commands[str(value)]
+                return self.commands[key]
             except KeyError as exc:
                 raise ValueError(
                     f"Axis {self.name!r} has no command for value {value!r}"
                 ) from exc
         if self.command is None:
             raise ValueError(f"Axis {self.name!r} has no command template")
-        return self.command.format(value=value)
+        return (self.command.format(value=value),)
 
 
 @dataclass(frozen=True)
@@ -65,6 +77,12 @@ class CaptureSpec:
 
 
 @dataclass(frozen=True)
+class ReceiveSpec:
+    inter_frame_gap_ms: float = 0.0
+    post_receive_s: float = 0.05
+
+
+@dataclass(frozen=True)
 class Profile:
     profile_id: str
     display_name: str
@@ -78,6 +96,7 @@ class Profile:
     cooldown_s: float
     axes: tuple[Axis, ...]
     transmit: TransmitSpec
+    receive: ReceiveSpec
     capture: CaptureSpec
     airtime: dict[str, Any]
     notes: tuple[str, ...] = ()
@@ -90,6 +109,7 @@ class TestCase:
     payload_bytes: int
     parameters: dict[str, Any]
     estimated_airtime_s: float
+    estimated_event_s: float
     capture_after_trigger_s: float
 
 

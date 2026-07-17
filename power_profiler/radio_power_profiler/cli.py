@@ -16,6 +16,13 @@ def _csv_ints(text: str) -> tuple[int, ...]:
         raise argparse.ArgumentTypeError("Expected comma-separated integers") from exc
 
 
+def _csv_floats(text: str) -> tuple[float, ...]:
+    try:
+        return tuple(float(value.strip()) for value in text.split(",") if value.strip())
+    except ValueError as exc:
+        raise argparse.ArgumentTypeError("Expected comma-separated numbers") from exc
+
+
 def _axis_overrides(items: list[str], profile) -> dict[str, tuple[Any, ...]]:
     axes = {axis.name: axis for axis in profile.axes}
     overrides: dict[str, tuple[Any, ...]] = {}
@@ -70,12 +77,13 @@ def cmd_ports(_args) -> int:
 
 def cmd_plan(args) -> int:
     profile = _selected_profile(args)
-    cases = build_cases(profile)
+    cases = build_cases(profile, args.direction)
     capture_s = sum(
         profile.capture.pre_s + case.capture_after_trigger_s + profile.cooldown_s
         for case in cases
     )
     print(profile.display_name)
+    print(f"Measurement direction: {args.direction.upper()}")
     print(f"Firmware: {profile.firmware_selection}")
     print(f"Serial: {profile.baudrate} baud")
     print(f"Radio payload sizes: {', '.join(map(str, profile.payload_sizes))} bytes")
@@ -109,15 +117,30 @@ def cmd_run(args) -> int:
         raise RuntimeError("Install dependencies first: python -m pip install -r requirements.txt") from exc
 
     profile = _selected_profile(args)
+    if args.direction == "rx":
+        if args.receiver_port:
+            raise ValueError("--receiver-port is only valid with --direction tx")
+        if not args.transmitter_port:
+            raise ValueError("--direction rx requires --transmitter-port")
+    elif args.transmitter_port:
+        raise ValueError("--transmitter-port is only valid with --direction rx")
     ppk_port = _resolve_ppk_port(args.ppk_port)
     print(f"PPK2: {ppk_port}, mode=ampere, input voltage={args.voltage_mv} mV")
-    print(f"Radio controller: {args.radio_port}, {profile.baudrate} baud")
-    if args.receiver_port:
-        print(f"Radio receiver: {args.receiver_port}, {profile.baudrate} baud")
+    measured_role = "transmitter" if args.direction == "tx" else "receiver"
+    print(
+        f"Measured {measured_role}: {args.radio_port}, "
+        f"{profile.baudrate} baud"
+    )
+    peer_port = args.receiver_port if args.direction == "tx" else args.transmitter_port
+    if peer_port:
+        peer_role = "receiver" if args.direction == "tx" else "transmitter"
+        print(f"Peer {peer_role}: {peer_port}, {profile.baudrate} baud")
     output = run_profile(
         profile,
         radio_port=args.radio_port,
         receiver_port=args.receiver_port,
+        measurement_direction=args.direction,
+        transmitter_port=args.transmitter_port,
         ppk_port=ppk_port,
         voltage_mv=args.voltage_mv,
         output_root=args.output,
@@ -129,8 +152,51 @@ def cmd_run(args) -> int:
     return 0
 
 
+def cmd_continuous(args) -> int:
+    try:
+        from .continuous_runner import run_continuous_profile
+    except ImportError as exc:
+        raise RuntimeError("Install dependencies first: python -m pip install -r requirements.txt") from exc
+
+    if args.direction == "rx" and not args.transmitter_port:
+        raise ValueError("continuous --direction rx requires --transmitter-port")
+    if args.direction == "tx" and args.transmitter_port:
+        raise ValueError("--transmitter-port is only valid with continuous RX")
+    profile = load_profile(args.module)
+    ppk_port = _resolve_ppk_port(args.ppk_port)
+    print(f"PPK2: {ppk_port}, mode=ampere, input voltage={args.voltage_mv} mV")
+    print(
+        f"Continuous {args.direction.upper()}: {args.duration_s:g} s per power, "
+        f"{args.bit_rate_kbps:g} kbps, {args.frame_bytes} B frames, "
+        f"{args.gap_ms} ms gap"
+    )
+    output = run_continuous_profile(
+        profile,
+        measurement_direction=args.direction,
+        powers_dbm=args.powers,
+        bit_rate_kbps=args.bit_rate_kbps,
+        duration_s=args.duration_s,
+        frame_bytes=args.frame_bytes,
+        inter_frame_gap_ms=args.gap_ms,
+        radio_port=args.radio_port,
+        transmitter_port=args.transmitter_port,
+        ppk_port=ppk_port,
+        voltage_mv=args.voltage_mv,
+        output_root=args.output,
+        boot_wait_s=args.boot_wait_s,
+    )
+    print(f"Results: {output.resolve()}")
+    return 0
+
+
 def _add_matrix_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--module", required=True, help="profile ID shown by the profiles command")
+    parser.add_argument(
+        "--direction",
+        choices=("tx", "rx"),
+        default="tx",
+        help="measure transmission or reception energy (default: tx)",
+    )
     parser.add_argument("--sizes", type=_csv_ints, help="radio-payload sizes, for example 8,32,64")
     parser.add_argument("--repetitions", type=int, help="repetitions per matrix point")
     parser.add_argument("--cooldown-s", type=float, help="idle time between packets")
@@ -162,8 +228,19 @@ def make_parser() -> argparse.ArgumentParser:
 
     run_parser = subparsers.add_parser("run", help="execute a measurement matrix")
     _add_matrix_arguments(run_parser)
-    run_parser.add_argument("--radio-port", required=True, help="ESP32/module serial port")
-    run_parser.add_argument("--receiver-port", help="optional second radio used to verify packet reception")
+    run_parser.add_argument(
+        "--radio-port",
+        required=True,
+        help="serial port of the measured DUT powered through PPK2",
+    )
+    run_parser.add_argument(
+        "--receiver-port",
+        help="optional peer receiver used to verify a TX measurement",
+    )
+    run_parser.add_argument(
+        "--transmitter-port",
+        help="required peer transmitter for an RX measurement",
+    )
     run_parser.add_argument("--ppk-port", help="PPK2 data port; auto-detected if unique")
     run_parser.add_argument(
         "--voltage-mv",
@@ -176,6 +253,41 @@ def make_parser() -> argparse.ArgumentParser:
     run_parser.add_argument("--keep-power-on", action="store_true", help="leave the PPK2 DUT path enabled after the run")
     run_parser.add_argument("--boot-wait-s", type=float, default=1.5)
     run_parser.set_defaults(func=cmd_run)
+
+    continuous_parser = subparsers.add_parser(
+        "continuous",
+        help="measure average power during a continuous framed data stream",
+    )
+    continuous_parser.add_argument("--module", required=True)
+    continuous_parser.add_argument(
+        "--direction",
+        choices=("tx", "rx"),
+        required=True,
+    )
+    continuous_parser.add_argument(
+        "--powers",
+        type=_csv_floats,
+        default=(-30.0, 0.0, 10.0),
+        help="comma-separated transmitter powers in dBm",
+    )
+    continuous_parser.add_argument("--bit-rate-kbps", type=float, default=38.4)
+    continuous_parser.add_argument("--frame-bytes", type=int, default=32)
+    continuous_parser.add_argument("--gap-ms", type=int, default=15)
+    continuous_parser.add_argument("--duration-s", type=float, default=60.0)
+    continuous_parser.add_argument("--radio-port", required=True)
+    continuous_parser.add_argument(
+        "--transmitter-port",
+        help="peer transmitter required when measuring RX",
+    )
+    continuous_parser.add_argument("--ppk-port")
+    continuous_parser.add_argument("--voltage-mv", type=int, default=3300)
+    continuous_parser.add_argument(
+        "--output",
+        type=Path,
+        default=Path("continuous_results"),
+    )
+    continuous_parser.add_argument("--boot-wait-s", type=float, default=1.5)
+    continuous_parser.set_defaults(func=cmd_continuous)
     return parser
 
 

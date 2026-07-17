@@ -1,0 +1,24 @@
+{
+  "created_utc": "2026-07-17T13:22:49+00:00",
+  "test_type": "continuous_average_power",
+  "profile_id": "RADIO_CC1101_V1_433",
+  "module": "CC1101 V1 433 MHz",
+  "firmware_selection": "RADIO_CC1101_V1_433 + AT_COMMANDS",
+  "measurement_direction": "rx",
+  "measured_port": "COM15",
+  "peer_port": "COM14",
+  "ppk_port": "COM11",
+  "ppk_mode": "ampere",
+  "voltage_mv": 3300,
+  "sample_rate_hz": 100000,
+  "powers_dbm": [
+    -30.0,
+    0.0,
+    10.0
+  ],
+  "bit_rate_kbps": 250.0,
+  "frame_bytes": 32,
+  "content_bytes_per_frame": 30,
+  "inter_frame_gap_ms": 15,
+  "requested_duration_s": 60.0
+}

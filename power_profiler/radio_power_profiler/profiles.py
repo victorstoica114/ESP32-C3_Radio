@@ -4,7 +4,7 @@ import json
 from importlib.resources import files
 from typing import Any
 
-from .models import Axis, CaptureSpec, Profile, TransmitSpec
+from .models import Axis, CaptureSpec, Profile, ReceiveSpec, TransmitSpec
 
 
 def _catalog() -> dict[str, Any]:
@@ -29,12 +29,20 @@ def load_profile(profile_id: str) -> Profile:
             name=item["name"],
             values=tuple(item["values"]),
             command=item.get("command"),
-            commands=item.get("commands", {}),
+            commands={
+                str(value): (
+                    tuple(commands)
+                    if isinstance(commands, list)
+                    else (str(commands),)
+                )
+                for value, commands in item.get("commands", {}).items()
+            },
             label=item.get("label", ""),
         )
         for item in raw.get("axes", [])
     )
     tx_raw = raw["transmit"]
+    rx_raw = raw.get("receive", {})
     capture_raw = raw.get("capture", {})
 
     return Profile(
@@ -59,6 +67,10 @@ def load_profile(profile_id: str) -> Profile:
                 if tx_raw.get("frame_payload_bytes") is not None
                 else None
             ),
+        ),
+        receive=ReceiveSpec(
+            inter_frame_gap_ms=float(rx_raw.get("inter_frame_gap_ms", 0.0)),
+            post_receive_s=float(rx_raw.get("post_receive_s", 0.05)),
         ),
         capture=CaptureSpec(
             pre_s=float(capture_raw.get("pre_s", 0.20)),
@@ -115,6 +127,7 @@ def override_profile(
         cooldown_s=cooldown_s if cooldown_s is not None else profile.cooldown_s,
         axes=axes,
         transmit=profile.transmit,
+        receive=profile.receive,
         capture=profile.capture,
         airtime=profile.airtime,
         notes=profile.notes,

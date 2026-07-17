@@ -17,6 +17,10 @@ FIELDS = [
     "profile_id",
     "module",
     "firmware_selection",
+    "measurement_direction",
+    "measured_port",
+    "peer_port",
+    "transmitter_port",
     "repetition",
     "payload_bytes",
     "frame_count",
@@ -26,6 +30,7 @@ FIELDS = [
     "ppk_mode",
     "voltage_mv",
     "estimated_airtime_ms",
+    "estimated_event_ms",
     "captured_samples",
     "sample_loss_percent",
     "event_detected",
@@ -35,14 +40,20 @@ FIELDS = [
     "event_duration_ms",
     "tx_mean_uA",
     "tx_peak_uA",
+    "rx_mean_uA",
+    "rx_peak_uA",
+    "event_mean_uA",
+    "event_peak_uA",
     "charge_total_uC",
     "charge_excess_uC",
     "energy_total_uJ",
     "energy_excess_uJ",
     "radio_response",
+    "transmitter_response",
     "receiver_port",
     "receiver_response",
     "packet_received",
+    "packet_lost",
     "status",
 ]
 
@@ -94,6 +105,7 @@ class ResultWriter:
         for row in self.rows:
             key = (
                 row["profile_id"],
+                row["measurement_direction"],
                 row["payload_bytes"],
                 row["frame_count"],
                 row["max_frame_payload_bytes"],
@@ -108,6 +120,10 @@ class ResultWriter:
             "event_duration_ms",
             "tx_mean_uA",
             "tx_peak_uA",
+            "rx_mean_uA",
+            "rx_peak_uA",
+            "event_mean_uA",
+            "event_peak_uA",
             "charge_total_uC",
             "charge_excess_uC",
             "energy_total_uJ",
@@ -115,6 +131,7 @@ class ResultWriter:
         ]
         fields = [
             "profile_id",
+            "measurement_direction",
             "payload_bytes",
             "frame_count",
             "max_frame_payload_bytes",
@@ -123,7 +140,10 @@ class ResultWriter:
             "ppk_mode",
             "runs",
             "events_detected",
+            "packets_attempted",
             "packets_received",
+            "packets_lost",
+            "packet_loss_percent",
         ]
         for metric in metric_names:
             fields.extend([f"{metric}_mean", f"{metric}_stdev"])
@@ -132,20 +152,33 @@ class ResultWriter:
             writer = csv.DictWriter(stream, fieldnames=fields)
             writer.writeheader()
             for key, rows in grouped.items():
+                packets_attempted = sum(
+                    row["packet_received"] not in (None, "") for row in rows
+                )
+                packets_received = sum(
+                    str(row["packet_received"]).lower() == "true" for row in rows
+                )
+                packets_lost = packets_attempted - packets_received
                 aggregate: dict[str, Any] = {
                     "profile_id": key[0],
-                    "payload_bytes": key[1],
-                    "frame_count": key[2],
-                    "max_frame_payload_bytes": key[3],
-                    "parameters_json": key[4],
-                    "voltage_mv": key[5],
-                    "ppk_mode": key[6],
+                    "measurement_direction": key[1],
+                    "payload_bytes": key[2],
+                    "frame_count": key[3],
+                    "max_frame_payload_bytes": key[4],
+                    "parameters_json": key[5],
+                    "voltage_mv": key[6],
+                    "ppk_mode": key[7],
                     "runs": len(rows),
                     "events_detected": sum(
                         str(row["event_detected"]).lower() == "true" for row in rows
                     ),
-                    "packets_received": sum(
-                        str(row["packet_received"]).lower() == "true" for row in rows
+                    "packets_attempted": packets_attempted,
+                    "packets_received": packets_received,
+                    "packets_lost": packets_lost,
+                    "packet_loss_percent": (
+                        100.0 * packets_lost / packets_attempted
+                        if packets_attempted
+                        else ""
                     ),
                 }
                 for metric in metric_names:

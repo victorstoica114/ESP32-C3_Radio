@@ -57,7 +57,13 @@ def estimate_airtime_s(profile: Profile, payload_bytes: int, params: dict[str, A
     raise ValueError(f"Unsupported airtime model: {kind!r}")
 
 
-def build_cases(profile: Profile) -> list[TestCase]:
+def build_cases(profile: Profile, measurement_direction: str = "tx") -> list[TestCase]:
+    if measurement_direction not in {"tx", "rx"}:
+        raise ValueError("Measurement direction must be 'tx' or 'rx'")
+    if measurement_direction == "rx" and not profile.receiver_enable_commands:
+        raise ValueError(
+            f"Profile {profile.profile_id} does not support controlled RX measurements"
+        )
     if profile.repetitions < 1:
         raise ValueError("Repetitions must be at least 1")
     if not profile.payload_sizes:
@@ -87,9 +93,17 @@ def build_cases(profile: Profile) -> list[TestCase]:
     for parameters in parameter_sets:
         for payload_bytes in profile.payload_sizes:
             airtime = estimate_airtime_s(profile, payload_bytes, parameters)
+            frame_count = len(profile.transmit.frame_sizes(payload_bytes))
+            event_s = airtime + (
+                max(0, frame_count - 1)
+                * profile.receive.inter_frame_gap_ms
+                / 1000.0
+            )
+            if measurement_direction == "rx":
+                event_s += profile.receive.post_receive_s
             after = max(
                 profile.capture.minimum_after_trigger_s,
-                airtime * 1.35 + profile.capture.post_s + 0.10,
+                event_s * 1.35 + profile.capture.post_s + 0.10,
             )
             after = min(after, profile.capture.max_after_trigger_s)
             for repetition in range(1, profile.repetitions + 1):
@@ -100,6 +114,7 @@ def build_cases(profile: Profile) -> list[TestCase]:
                         payload_bytes=payload_bytes,
                         parameters=dict(parameters),
                         estimated_airtime_s=airtime,
+                        estimated_event_s=event_s,
                         capture_after_trigger_s=after,
                     )
                 )
@@ -108,4 +123,8 @@ def build_cases(profile: Profile) -> list[TestCase]:
 
 
 def parameter_commands(profile: Profile, parameters: dict[str, Any]) -> list[str]:
-    return [axis.command_for(parameters[axis.name]) for axis in profile.axes]
+    return [
+        command
+        for axis in profile.axes
+        for command in axis.commands_for(parameters[axis.name])
+    ]

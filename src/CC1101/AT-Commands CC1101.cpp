@@ -519,9 +519,31 @@ static bool transmitData(const char* data, int length) {
 
   const bool restoreReceive = inReceiveMode;
   inReceiveMode = false;
-  
-  // Transmite o singura data, ignora eroarea de timeout
-  int state = radio.transmit((uint8_t*)data, length);
+
+  // Some CC1101 V1 boards do not route GDO2 to the ESP32. RadioLib's
+  // blocking transmit() waits for that pin and therefore adds a 5x-airtime
+  // timeout after every frame even though the packet was sent correctly.
+  // Start TX normally, then poll the CC1101 MARCSTATE over SPI until the
+  // radio returns to IDLE. This works with both V1 and V2 wiring.
+  int state = radio.startTransmit((uint8_t*)data, length);
+  if (state == RADIOLIB_ERR_NONE) {
+    const float preambleBytes = cfgCurrent.preambleLen / 8.0f;
+    const float estimatedMs =
+        ((length + preambleBytes + 5.0f) * 8.0f) / cfgCurrent.bitRate;
+    const uint32_t timeoutMs = (uint32_t)ceilf(estimatedMs * 2.0f + 20.0f);
+    const uint32_t startedMs = millis();
+    delayMicroseconds(200);
+    while (radio.marcState() != RADIOLIB_CC1101_MARC_STATE_IDLE &&
+           (uint32_t)(millis() - startedMs) < timeoutMs) {
+      delayMicroseconds(100);
+    }
+    if (radio.marcState() == RADIOLIB_CC1101_MARC_STATE_IDLE) {
+      state = radio.finishTransmit();
+    } else {
+      radio.standby();
+      state = RADIOLIB_ERR_TX_TIMEOUT;
+    }
+  }
   
   if (debugEnabled) {
     Serial.print(F("[TX] "));
@@ -542,12 +564,11 @@ static bool transmitData(const char* data, int length) {
     inReceiveMode = false;
   }
   
-  // Consideram success chiar daca avem TX_TIMEOUT (-5)
-  // deoarece transmisia se face efectiv
-  return (state == RADIOLIB_ERR_NONE || state == -5);
+  return state == RADIOLIB_ERR_NONE;
 }
 
-static bool transmitBurst(size_t totalBytes, size_t frameBytes) {
+static bool transmitBurst(size_t totalBytes, size_t frameBytes,
+                          uint32_t interFrameGapMs = 0) {
   static const char alphabet[] =
       "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_";
   static const size_t alphabetLength = sizeof(alphabet) - 1;
@@ -574,6 +595,9 @@ static bool transmitBurst(size_t totalBytes, size_t frameBytes) {
     if (!transmitData((const char*)frame, (int)length)) return false;
     remaining -= length;
     frames++;
+    if (remaining > 0 && interFrameGapMs > 0) {
+      delay(interFrameGapMs);
+    }
   }
 
   Serial.print(F("TXBURST="));
@@ -581,7 +605,55 @@ static bool transmitBurst(size_t totalBytes, size_t frameBytes) {
   Serial.print(F(",FRAMES="));
   Serial.print(frames);
   Serial.print(F(",FRAME_MAX="));
-  Serial.println(frameBytes);
+  Serial.print(frameBytes);
+  Serial.print(F(",GAP_MS="));
+  Serial.println(interFrameGapMs);
+  return true;
+}
+
+static bool transmitContinuous(uint32_t durationMs, size_t frameBytes,
+                               uint32_t interFrameGapMs = 0) {
+  static const char alphabet[] =
+      "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_";
+  static const size_t alphabetLength = sizeof(alphabet) - 1;
+
+  if (radioSleeping || durationMs < 1000 || durationMs > 600000 ||
+      frameBytes < 3 || frameBytes > 64) {
+    return false;
+  }
+
+  uint8_t frame[64];
+  const size_t contentLength = frameBytes - 2;
+  for (size_t index = 0; index < contentLength; index++) {
+    frame[index] = alphabet[index % alphabetLength];
+  }
+  frame[contentLength] = '\r';
+  frame[contentLength + 1] = '\n';
+
+  const uint32_t startMs = millis();
+  uint32_t frames = 0;
+  while ((uint32_t)(millis() - startMs) < durationMs) {
+    if (!transmitData((const char*)frame, (int)frameBytes)) return false;
+    frames++;
+    if (interFrameGapMs > 0 &&
+        (uint32_t)(millis() - startMs) < durationMs) {
+      delay(interFrameGapMs);
+    }
+  }
+
+  const uint32_t elapsedMs = (uint32_t)(millis() - startMs);
+  Serial.print(F("TXCONT="));
+  Serial.print(durationMs);
+  Serial.print(F(",ELAPSED_MS="));
+  Serial.print(elapsedMs);
+  Serial.print(F(",FRAMES="));
+  Serial.print(frames);
+  Serial.print(F(",BYTES="));
+  Serial.print((uint32_t)(frames * frameBytes));
+  Serial.print(F(",FRAME="));
+  Serial.print(frameBytes);
+  Serial.print(F(",GAP_MS="));
+  Serial.println(interFrameGapMs);
   return true;
 }
 
@@ -871,7 +943,8 @@ static void printHelp() {
   Serial.println(F("  AT+RSSI?         -> Show last RSSI"));
   Serial.println(F("  AT+LQI?          -> Show last LQI"));
   Serial.println(F("  AT+RX=ON/OFF     -> Start RX / standby"));
-  Serial.println(F("  AT+TXBURST=<total>,<frame> -> TX logical transfer (max 1024/64 B)"));
+  Serial.println(F("  AT+TXBURST=<total>,<frame>[,<gap_ms>] -> TX transfer (max 1024/64 B)"));
+  Serial.println(F("  AT+TXCONT=<duration_ms>,<frame>[,<gap_ms>] -> Continuous framed TX"));
   Serial.println(F("  AT+SLEEP         -> Sleep (low power)"));
   Serial.println(F("  AT+WAKE          -> Wake + restore RX"));
   Serial.println(F("  AT+RANDOM?       -> one RSSI-noise random byte"));
@@ -1061,22 +1134,62 @@ static bool handleAT(const String& lineRaw) {
 
   if (u.startsWith("AT+TXBURST=")) {
     String args = line.substring(11);
-    int comma = args.indexOf(',');
-    if (comma <= 0 || comma >= (int)args.length() - 1) {
-      serialError(F("TXBURST_FORMAT (AT+TXBURST=<1..1024>,<3..64>)"));
+    int firstComma = args.indexOf(',');
+    if (firstComma <= 0 || firstComma >= (int)args.length() - 1) {
+      serialError(F("TXBURST_FORMAT (AT+TXBURST=<1..1024>,<3..64>[,<0..1000>])"));
       return true;
     }
-    long totalBytes = args.substring(0, comma).toInt();
-    long frameBytes = args.substring(comma + 1).toInt();
+    String remainder = args.substring(firstComma + 1);
+    int secondComma = remainder.indexOf(',');
+    long totalBytes = args.substring(0, firstComma).toInt();
+    long frameBytes = (secondComma >= 0)
+        ? remainder.substring(0, secondComma).toInt()
+        : remainder.toInt();
+    long interFrameGapMs = (secondComma >= 0)
+        ? remainder.substring(secondComma + 1).toInt()
+        : 0;
     if (totalBytes < 1 || totalBytes > 1024 || frameBytes < 3 || frameBytes > 64 ||
+        interFrameGapMs < 0 || interFrameGapMs > 1000 ||
         (totalBytes % frameBytes != 0 && totalBytes % frameBytes < 3)) {
       serialError(F("TXBURST_RANGE"));
       return true;
     }
-    if (transmitBurst((size_t)totalBytes, (size_t)frameBytes)) {
+    if (transmitBurst((size_t)totalBytes, (size_t)frameBytes,
+                      (uint32_t)interFrameGapMs)) {
       serialOK();
     } else {
       serialError(F("TXBURST_FAILED"));
+    }
+    return true;
+  }
+
+  if (u.startsWith("AT+TXCONT=")) {
+    String args = line.substring(10);
+    int firstComma = args.indexOf(',');
+    if (firstComma <= 0 || firstComma >= (int)args.length() - 1) {
+      serialError(F("TXCONT_FORMAT (AT+TXCONT=<1000..600000>,<3..64>[,<0..1000>])"));
+      return true;
+    }
+    String remainder = args.substring(firstComma + 1);
+    int secondComma = remainder.indexOf(',');
+    long durationMs = args.substring(0, firstComma).toInt();
+    long frameBytes = (secondComma >= 0)
+        ? remainder.substring(0, secondComma).toInt()
+        : remainder.toInt();
+    long interFrameGapMs = (secondComma >= 0)
+        ? remainder.substring(secondComma + 1).toInt()
+        : 0;
+    if (durationMs < 1000 || durationMs > 600000 ||
+        frameBytes < 3 || frameBytes > 64 ||
+        interFrameGapMs < 0 || interFrameGapMs > 1000) {
+      serialError(F("TXCONT_RANGE"));
+      return true;
+    }
+    if (transmitContinuous((uint32_t)durationMs, (size_t)frameBytes,
+                           (uint32_t)interFrameGapMs)) {
+      serialOK();
+    } else {
+      serialError(F("TXCONT_FAILED"));
     }
     return true;
   }

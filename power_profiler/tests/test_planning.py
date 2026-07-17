@@ -14,7 +14,7 @@ class PlanningTests(unittest.TestCase):
                 self.assertTrue(cases)
                 self.assertTrue(all(case.capture_after_trigger_s > 0 for case in cases))
                 commands = parameter_commands(profile, cases[0].parameters)
-                self.assertEqual(len(commands), len(profile.axes))
+                self.assertGreaterEqual(len(commands), len(profile.axes))
                 self.assertTrue(all(command.startswith("AT+") for command in commands))
 
     def test_known_lora_airtime(self):
@@ -45,13 +45,59 @@ class PlanningTests(unittest.TestCase):
 
     def test_cc1101_fragmented_transfer_airtime(self):
         profile = load_profile("RADIO_CC1101_V2_868")
-        self.assertEqual(profile.transmit.frame_sizes(1024), (64,) * 16)
+        self.assertEqual(profile.transmit.frame_sizes(1024), (32,) * 32)
         airtime = estimate_airtime_s(
             profile,
             1024,
             {"tx_power_dbm": 10, "bit_rate_kbps": 1.2},
         )
-        self.assertAlmostEqual(airtime, 7.728, places=6)
+        self.assertAlmostEqual(airtime, 11.4026666667, places=6)
+
+    def test_cc1101_rx_plan_includes_rearm_gaps_and_settle_time(self):
+        profile = load_profile("RADIO_CC1101_V2_868")
+        cases = build_cases(profile, "rx")
+        case = next(
+            item
+            for item in cases
+            if item.payload_bytes == 1024
+            and item.parameters == {"tx_power_dbm": -30, "bit_rate_kbps": 1.2}
+        )
+
+        expected_extra_s = 31 * 0.015 + 0.05
+        self.assertAlmostEqual(
+            case.estimated_event_s,
+            case.estimated_airtime_s + expected_extra_s,
+            places=6,
+        )
+        self.assertGreater(case.capture_after_trigger_s, case.estimated_event_s)
+
+    def test_cc1101_rate_expands_to_coherent_phy_commands(self):
+        profile = load_profile("RADIO_CC1101_V2_868")
+        commands = parameter_commands(
+            profile,
+            {"tx_power_dbm": 0, "bit_rate_kbps": 250},
+        )
+
+        self.assertEqual(
+            commands,
+            ["AT+PWR=0", "AT+BR=250", "AT+DEV=127", "AT+BW=541.67"],
+        )
+
+        overridden = override_profile(
+            profile,
+            axis_overrides={"bit_rate_kbps": (250.0,)},
+        )
+        self.assertIn(
+            "AT+BW=541.67",
+            parameter_commands(
+                overridden,
+                {"tx_power_dbm": 0, "bit_rate_kbps": 250.0},
+            ),
+        )
+
+    def test_rx_plan_rejects_profile_without_controlled_receiver(self):
+        with self.assertRaisesRegex(ValueError, "does not support controlled RX"):
+            build_cases(load_profile("RADIO_HC12"), "rx")
 
 
 if __name__ == "__main__":

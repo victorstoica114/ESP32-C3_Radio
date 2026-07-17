@@ -9,7 +9,7 @@ Pentru fiecare combinație sunt variate:
 - parametrul care influențează cel mai mult timpul pe aer: data rate pentru FSK/nRF24/CC1101, SF pentru LoRa și FU/air-rate pentru modulele UART;
 - cinci repetări implicite, pentru medie și abatere standard.
 
-Programul calculează curentul de repaus, curentul mediu și maxim în TX, durata evenimentului, sarcina electrică și energia pentru un pachet. Sunt raportate atât energia totală în fereastra TX, cât și energia suplimentară peste consumul de repaus.
+Programul poate măsura separat TX sau RX. Calculează curentul de repaus, curentul mediu și maxim în eveniment, durata, sarcina electrică și energia pentru un pachet sau transfer fragmentat. Sunt raportate atât energia totală în fereastra măsurată, cât și energia suplimentară peste consumul de repaus.
 
 ## Ce module sunt incluse
 
@@ -97,6 +97,35 @@ python -m radio_power_profiler run `
 
 Dacă este conectat un singur PPK2, `--ppk-port` poate fi omis.
 
+### Test de consum în recepție
+
+În modul RX, `--radio-port` este întotdeauna receptorul măsurat și alimentat prin
+PPK2, iar `--transmitter-port` este al doilea modul, alimentat separat, care
+generează pachetele de stimul. Ambele module trebuie să folosească același profil
+și același firmware AT.
+
+```powershell
+python -m radio_power_profiler plan `
+  --module RADIO_CC1101_V2_868 `
+  --direction rx
+
+python -m radio_power_profiler run `
+  --module RADIO_CC1101_V2_868 `
+  --direction rx `
+  --radio-port COM4 `
+  --transmitter-port COM5 `
+  --ppk-port COM7 `
+  --voltage-mv 3300
+```
+
+Pentru fiecare caz, receptorul măsurat pornește din standby, este trecut în RX,
+primește transferul și revine în standby înainte de terminarea capturii. Energia
+include pornirea receptorului, recepția și procesarea cadrelor. La transferurile
+CC1101 de 128/512/1024 B, emițătorul introduce implicit 15 ms între cadre pentru
+ca receptorul să se poată rearma; această perioadă face parte din fereastra RX.
+Puterea de transmisie din matrice este puterea modulului de stimul, nu o setare
+care ar modifica lanțul RX al dispozitivului măsurat.
+
 Pentru un test scurt, axele și dimensiunile pot fi suprascrise fără editarea catalogului:
 
 ```powershell
@@ -109,6 +138,33 @@ python -m radio_power_profiler run `
   --axis "data_rate_kbps=250,2000"
 ```
 
+### Putere medie în flux continuu
+
+Comanda `continuous` repetă cadre radio pe o fereastră de 60 s și calculează
+curentul mediu, puterea electrică medie la tensiunea declarată, energia ferestrei
+și variația curentului. Implicit sunt testate puterile `-30/0/10 dBm`, cu cadre
+de 32 B la 38,4 kbps și 15 ms între cadre.
+
+```powershell
+python -m radio_power_profiler continuous `
+  --module RADIO_CC1101_V2_868 `
+  --direction tx `
+  --radio-port COM12 `
+  --ppk-port COM11 `
+  --voltage-mv 3300
+
+python -m radio_power_profiler continuous `
+  --module RADIO_CC1101_V2_868 `
+  --direction rx `
+  --radio-port COM12 `
+  --transmitter-port COM16 `
+  --ppk-port COM11 `
+  --voltage-mv 3300
+```
+
+În RX, `--radio-port` este receptorul măsurat, iar `--transmitter-port` generează
+fluxul. Rezultatele incrementale sunt scrise în `continuous_results/*/summary.csv`.
+
 Opțiunea `--save-raw` salvează fiecare formă de undă la 100 kS/s în `raw/*.csv.gz`. Este dezactivată implicit, deoarece o matrice completă poate ocupa mult spațiu.
 
 ## Rezultate
@@ -116,19 +172,21 @@ Opțiunea `--save-raw` salvează fiecare formă de undă la 100 kS/s în `raw/*.
 Fiecare sesiune primește un folder propriu sub `results/`:
 
 - `metadata.json`: profilul complet, porturile, tensiunea și rata de eșantionare;
-- `summary.csv`: câte un rând pentru fiecare pachet transmis; este scris incremental și rămâne utilizabil după o întrerupere;
+- `summary.csv`: câte un rând pentru fiecare transfer TX sau RX; este scris incremental și rămâne utilizabil după o întrerupere;
 - `aggregates.csv`: medii și abateri standard pentru fiecare combinație;
 - `raw/*.csv.gz`: formele de undă, numai cu `--save-raw`.
 
 Câmpurile principale sunt:
 
-- `tx_peak_uA` și `tx_mean_uA`: vârf și medie în evenimentul detectat;
+- `measurement_direction`: `tx` sau `rx`;
+- `event_peak_uA` și `event_mean_uA`: vârf și medie generică în evenimentul detectat;
+- `rx_peak_uA` și `rx_mean_uA`: valorile explicite pentru sesiunile RX; câmpurile istorice `tx_*` sunt păstrate ca aliasuri pentru compatibilitatea rapoartelor;
 - `charge_total_uC`, `energy_total_uJ`: consum total în fereastra evenimentului;
 - `charge_excess_uC`, `energy_excess_uJ`: partea peste baseline;
 - `event_duration_ms`: durata detectată;
 - `sample_loss_percent`: indicator că PC-ul nu a preluat toate eșantioanele;
 - `status`: `ok`, `no_event_detected`, `rx_missing` sau `radio_error`.
-- `packet_received`: confirmarea că al doilea modul a livrat payload-ul așteptat; `status=rx_missing` dacă TX a fost măsurat, dar pachetul nu a ajuns.
+- `packet_received`: confirmarea că receptorul a livrat toate cadrele așteptate; este obligatorie în sesiunile RX și opțională în sesiunile TX cu `--receiver-port`.
 
 Dimensiunea cerută este numărul de octeți din payload-ul predat radioului, înainte de framing-ul PHY. Pentru firmware-urile care adaugă `CRLF` în payload, programul generează automat cu doi octeți mai puțin în conținut, astfel încât valorile de 8/32/64 B să rămână comparabile.
 

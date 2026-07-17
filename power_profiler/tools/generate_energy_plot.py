@@ -90,7 +90,9 @@ def _number(value: float) -> str:
     return f"{value:.9g}"
 
 
-def write_tex(path: Path, rows: list[dict[str, Any]]) -> None:
+def write_tex(
+    path: Path, rows: list[dict[str, Any]], module_title: str, frame_max: int
+) -> None:
     minimum = min(row["energy_total_mJ_mean"] for row in rows)
     maximum = max(row["energy_total_mJ_mean"] for row in rows)
     ymin = 10 ** math.floor(math.log10(minimum * 0.75))
@@ -169,12 +171,12 @@ def write_tex(path: Path, rows: list[dict[str, Any]]) -> None:
         [
             r"\end{groupplot}",
             r"\node[font=\bfseries\large] at ($(group c2r1.north)+(0,0.85cm)$)",
-            r"  {CC1101 V2, 868 MHz: energia în funcție de dimensiune};",
+            rf"  {{{module_title}: energia în funcție de dimensiune}};",
             r"\node[font=\footnotesize, align=center, text width=18.5cm]",
             r"  at ($(group c2r1.south)+(0,-3.15cm)$)",
             r"  {Punctele reprezintă media a 5 repetări; barele indică abaterea standard.\\",
-            r"   8--64 B sunt cadre radio individuale; 128--1024 B sunt transferuri logice\\",
-            r"   fragmentate în 2/8/16 cadre fizice de 64 B. Ambele axe sunt logaritmice.};",
+            rf"   Transferurile care depășesc {frame_max} B sunt fragmentate în cadre fizice de cel mult {frame_max} B.\\",
+            r"   Ambele axe sunt logaritmice.};",
             r"\end{tikzpicture}",
             r"\end{document}",
             "",
@@ -188,16 +190,24 @@ def main() -> int:
     parser.add_argument("old_aggregates", type=Path, help="8/32/64-byte aggregate CSV")
     parser.add_argument("new_aggregates", type=Path, help="128/512/1024-byte aggregate CSV")
     parser.add_argument("output_base", type=Path)
+    parser.add_argument("--module-title", default="CC1101 V2, 868 MHz")
+    parser.add_argument("--frame-max", type=int, default=32)
     args = parser.parse_args()
 
     rows = read_aggregates(args.old_aggregates, args.old_aggregates.parent.name)
     rows.extend(read_aggregates(args.new_aggregates, args.new_aggregates.parent.name))
+    rows = list(
+        {
+            (row["payload_bytes"], row["tx_power_dbm"], row["bit_rate_kbps"]): row
+            for row in rows
+        }.values()
+    )
     validate(rows)
     args.output_base.parent.mkdir(parents=True, exist_ok=True)
     data_path = args.output_base.with_name(args.output_base.name + "_data").with_suffix(".csv")
     tex_path = args.output_base.with_suffix(".tex")
     write_data(data_path, rows)
-    write_tex(tex_path, rows)
+    write_tex(tex_path, rows, args.module_title, args.frame_max)
     print(data_path.resolve())
     print(tex_path.resolve())
     return 0

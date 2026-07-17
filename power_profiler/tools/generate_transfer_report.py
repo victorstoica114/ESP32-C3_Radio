@@ -16,6 +16,7 @@ from openpyxl.utils import get_column_letter
 REPORT_FIELDS = [
     "profile_id",
     "module",
+    "measurement_direction",
     "payload_bytes",
     "frame_count",
     "max_frame_payload_bytes",
@@ -23,11 +24,19 @@ REPORT_FIELDS = [
     "bit_rate_kbps",
     "runs",
     "events_detected",
+    "packets_attempted",
+    "packets_received",
+    "packets_lost",
+    "packet_loss_percent",
     "status_ok_runs",
     "event_duration_ms_mean",
     "event_duration_ms_stdev",
     "tx_mean_uA_mean",
     "tx_peak_uA_mean",
+    "rx_mean_uA_mean",
+    "rx_peak_uA_mean",
+    "event_mean_uA_mean",
+    "event_peak_uA_mean",
     "energy_total_uJ_mean",
     "energy_total_uJ_stdev",
     "energy_total_mJ_mean",
@@ -70,6 +79,9 @@ def build_report(result_dir: Path) -> tuple[list[dict[str, Any]], list[dict[str,
     report: list[dict[str, Any]] = []
     for aggregate in aggregates:
         params = json.loads(aggregate["parameters_json"])
+        direction = aggregate.get("measurement_direction") or metadata.get(
+            "measurement_direction", "tx"
+        )
         payload_bytes = int(aggregate["payload_bytes"])
         duration_ms = _number(aggregate["event_duration_ms_mean"])
         energy_uJ = _number(aggregate["energy_total_uJ_mean"])
@@ -81,6 +93,7 @@ def build_report(result_dir: Path) -> tuple[list[dict[str, Any]], list[dict[str,
             {
                 "profile_id": aggregate["profile_id"],
                 "module": metadata["profile"]["display_name"],
+                "measurement_direction": direction,
                 "payload_bytes": payload_bytes,
                 "frame_count": int(aggregate["frame_count"]),
                 "max_frame_payload_bytes": int(aggregate["max_frame_payload_bytes"]),
@@ -88,11 +101,31 @@ def build_report(result_dir: Path) -> tuple[list[dict[str, Any]], list[dict[str,
                 "bit_rate_kbps": params["bit_rate_kbps"],
                 "runs": int(aggregate["runs"]),
                 "events_detected": int(aggregate["events_detected"]),
-                "status_ok_runs": sum(row["status"] == "ok" for row in runs),
+                "packets_attempted": int(aggregate.get("packets_attempted") or 0),
+                "packets_received": int(aggregate.get("packets_received") or 0),
+                "packets_lost": int(aggregate.get("packets_lost") or 0),
+                "packet_loss_percent": _number(
+                    aggregate.get("packet_loss_percent")
+                ),
+                # Missing data at an optional peer does not invalidate a TX
+                # current capture. Link loss remains reported separately.
+                "status_ok_runs": sum(
+                    row["status"] == "ok"
+                    or (direction == "tx" and row["status"] == "rx_missing")
+                    for row in runs
+                ),
                 "event_duration_ms_mean": duration_ms,
                 "event_duration_ms_stdev": _number(aggregate["event_duration_ms_stdev"]),
                 "tx_mean_uA_mean": _number(aggregate["tx_mean_uA_mean"]),
                 "tx_peak_uA_mean": _number(aggregate["tx_peak_uA_mean"]),
+                "rx_mean_uA_mean": _number(aggregate.get("rx_mean_uA_mean")),
+                "rx_peak_uA_mean": _number(aggregate.get("rx_peak_uA_mean")),
+                "event_mean_uA_mean": _number(
+                    aggregate.get("event_mean_uA_mean", aggregate["tx_mean_uA_mean"])
+                ),
+                "event_peak_uA_mean": _number(
+                    aggregate.get("event_peak_uA_mean", aggregate["tx_peak_uA_mean"])
+                ),
                 "energy_total_uJ_mean": energy_uJ,
                 "energy_total_uJ_stdev": energy_stdev,
                 "energy_total_mJ_mean": energy_uJ / 1000.0,
@@ -169,7 +202,7 @@ def write_xlsx(
         )
     _append_rows(matrix_sheet, matrix_fields, matrix_rows)
 
-    summary_sheet = workbook.create_sheet("summary_135_runs")
+    summary_sheet = workbook.create_sheet("summary_runs")
     summary_fields = list(summary[0]) if summary else []
     _append_rows(summary_sheet, summary_fields, summary)
 
@@ -178,12 +211,30 @@ def write_xlsx(
     metadata_sheet.append(["created_utc", metadata.get("created_utc", "")])
     metadata_sheet.append(["module", metadata["profile"]["display_name"]])
     metadata_sheet.append(["profile_id", metadata["profile"]["profile_id"]])
+    metadata_sheet.append(
+        ["measurement_direction", metadata.get("measurement_direction", "tx")]
+    )
+    metadata_sheet.append(["measured_port", metadata.get("measured_port", "")])
+    metadata_sheet.append(["peer_port", metadata.get("peer_port", "")])
     metadata_sheet.append(["radio_port", metadata.get("radio_port", "")])
     metadata_sheet.append(["ppk_port", metadata.get("ppk_port", "")])
     metadata_sheet.append(["voltage_mv", metadata.get("voltage_mv", "")])
     metadata_sheet.append(["sample_rate_hz", metadata.get("sample_rate_hz", "")])
-    metadata_sheet.append(["fragmentation", "128/512/1024 B logical = 2/8/16 physical frames of 64 B"])
-    metadata_sheet.append(["receiver_validation", "Disabled for final TX power campaign"])
+    frame_limit = metadata["profile"]["transmit"].get("frame_payload_bytes")
+    metadata_sheet.append(
+        [
+            "fragmentation",
+            f"Logical transfers use physical frames of at most {frame_limit} B"
+            if frame_limit
+            else "No explicit fragmentation limit",
+        ]
+    )
+    metadata_sheet.append(
+        [
+            "receiver_validation",
+            "Required" if metadata.get("measurement_direction") == "rx" else "Optional",
+        ]
+    )
     metadata_sheet.append(["profile_json", json.dumps(metadata["profile"], ensure_ascii=False)])
     _style_sheet(metadata_sheet)
 
@@ -195,8 +246,17 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Generate CSV/XLSX for a profiler result directory")
     parser.add_argument("result_dir", type=Path)
     parser.add_argument("output_base", type=Path)
+    parser.add_argument("--sizes", help="optional comma-separated payload sizes")
     args = parser.parse_args()
     report, summary, metadata = build_report(args.result_dir)
+    if args.sizes:
+        selected_sizes = {int(value.strip()) for value in args.sizes.split(",")}
+        report = [row for row in report if row["payload_bytes"] in selected_sizes]
+        summary = [
+            row for row in summary if int(row["payload_bytes"]) in selected_sizes
+        ]
+        if not report:
+            raise ValueError("The selected payload sizes produced an empty report")
     csv_path = args.output_base.with_suffix(".csv")
     xlsx_path = args.output_base.with_suffix(".xlsx")
     write_csv(csv_path, report)
