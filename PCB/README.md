@@ -1,25 +1,25 @@
 # PCB
 
-Acest director contine fisierele KiCad pentru adaptoarele radio folosite in
-proiectul ESP32-C3 Radio.
+This directory contains the KiCad files for the radio adapter boards used by
+the ESP32-C3 Radio project.
 
-## Continut
+## Contents
 
-- `module_radio.kicad_pro`, `module_radio.kicad_sch` si
-  `module_radio.kicad_pcb`: proiectul KiCad principal.
-- `*.kicad_sch`: foi de schema pentru modulele radio individuale.
-- `Librarys/`: simboluri, footprint-uri si modele 3D folosite de proiect.
-- `Pictures/`: randari/poze ale cablajelor, afisate mai jos.
-- `Gerbers/`: exporturi Gerber arhivate local. Acest director este tratat ca
-  artefact generat si este ignorat de Git; pentru distributie publica este mai
-  potrivit sa fie publicat ca release asset.
+- `module_radio.kicad_pro`, `module_radio.kicad_sch`, and
+  `module_radio.kicad_pcb`: the main KiCad project.
+- `*.kicad_sch`: schematic sheets for the individual radio modules.
+- `Librarys/`: project symbols, footprints, and 3D models.
+- `Pictures/`: board renders/images, shown below.
+- `Gerbers/`: locally exported Gerber archives. This directory is treated as a
+  generated artifact and is ignored by Git; public distribution should use
+  release assets instead.
 
-Fisierele locale generate de KiCad, cum ar fi `fp-info-cache`, `*.kicad_prl`,
-`untitled.kicad_sch` si `desktop.ini`, sunt ignorate.
+Local KiCad-generated files such as `fp-info-cache`, `*.kicad_prl`,
+`untitled.kicad_sch`, and `desktop.ini` are ignored.
 
-## Poze cablaje
+## Board Images
 
-| Modul | Poza |
+| Module | Image |
 | --- | --- |
 | Ai-Thinker-Ra-01 | <img src="Pictures/Ai-Thinker-Ra-01.png" width="220" alt="Ai-Thinker-Ra-01"> |
 | Ai-Thinker-Ra-02 | <img src="Pictures/Ai-Thinker-Ra-02.png" width="220" alt="Ai-Thinker-Ra-02"> |
@@ -30,6 +30,7 @@ Fisierele locale generate de KiCad, cum ar fi `fp-info-cache`, `*.kicad_prl`,
 | E22 (SX1262) | <img src="Pictures/E22%20(SX1262).png" width="220" alt="E22 (SX1262)"> |
 | E280 | <img src="Pictures/E280.png" width="220" alt="E280"> |
 | E32-433T20D | <img src="Pictures/E32-433T20D.png" width="220" alt="E32-433T20D"> |
+| E32-433T20D_V2 | <img src="Pictures/E32-433T20D_V2.png" width="220" alt="E32-433T20D_V2"> |
 | E32-433T33D | <img src="Pictures/E32-433T33D.png" width="220" alt="E32-433T33D"> |
 | E79-400DM2005S | <img src="Pictures/E79-400DM2005S.png" width="220" alt="E79-400DM2005S"> |
 | E79-400DM2005S_V2.0 | <img src="Pictures/E79-400DM2005S_V2.0.png" width="220" alt="E79-400DM2005S_V2.0"> |
@@ -46,21 +47,21 @@ Fisierele locale generate de KiCad, cum ar fi `fp-info-cache`, `*.kicad_prl`,
 | TI-CC1101 | <img src="Pictures/TI-CC1101.png" width="220" alt="TI-CC1101"> |
 | XL1276-D01 | <img src="Pictures/XL1276-D01.png" width="220" alt="XL1276-D01"> |
 
-## Acoperire poze vs Gerbers
+## Image Coverage Vs Gerbers
 
-Comparatia de mai jos este facuta pe numele fisierului, fara extensie:
+The comparison below uses the file name without extension:
 `PCB/Gerbers/*.zip` vs `PCB/Pictures/*.png`.
 
-Rezumat local curent:
+Current local summary:
 
-- Gerbere: 25 arhive `.zip`.
-- Poze: 24 fisiere `.png`.
-- Potriviri exacte dupa nume: 24.
+- Gerbers: 25 `.zip` archives.
+- Images: 25 `.png` files.
+- Exact name matches: 25.
 
-Gerbere care nu au poza cu acelasi nume:
+Gerbers without an image using the same name:
 
-- `E32-433T20D_V2`
+None at the moment.
 
-Poze care nu au Gerber cu acelasi nume:
+Images without a Gerber archive using the same name:
 
-Nu exista in acest moment.
+None at the moment.
