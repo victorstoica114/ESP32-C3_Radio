@@ -46,22 +46,3 @@ Local KiCad-generated files such as `fp-info-cache`, `*.kicad_prl`,
 | SX127X | <img src="KiCad/Pictures/SX127X.png" width="220" alt="SX127X"> |
 | TI-CC1101 | <img src="KiCad/Pictures/TI-CC1101.png" width="220" alt="TI-CC1101"> |
 | XL1276-D01 | <img src="KiCad/Pictures/XL1276-D01.png" width="220" alt="XL1276-D01"> |
-
-## Image Coverage Vs Gerbers
-
-The comparison below uses the file name without extension:
-`PCB/KiCad/Gerbers/*.zip` vs `PCB/KiCad/Pictures/*.png`.
-
-Current local summary:
-
-- Gerbers: 25 `.zip` archives.
-- Images: 25 `.png` files.
-- Exact name matches: 25.
-
-Gerbers without an image using the same name:
-
-None at the moment.
-
-Images without a Gerber archive using the same name:
-
-None at the moment.
