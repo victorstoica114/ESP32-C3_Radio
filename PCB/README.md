@@ -10,9 +10,9 @@ the ESP32-C3 Radio project.
 - `*.kicad_sch`: schematic sheets for the individual radio modules.
 - `Librarys/`: project symbols, footprints, and 3D models.
 - `Pictures/`: board renders/images, shown below.
-- `Gerbers/`: locally exported Gerber archives. This directory is treated as a
-  generated artifact and is ignored by Git; public distribution should use
-  release assets instead.
+- `Gerbers/`: exported Gerber archives for the supported adapter boards. These
+  archives are kept in Git because they are useful for quick manufacturing
+  checks and sharing without opening KiCad.
 
 Local KiCad-generated files such as `fp-info-cache`, `*.kicad_prl`,
 `untitled.kicad_sch`, and `desktop.ini` are ignored.
