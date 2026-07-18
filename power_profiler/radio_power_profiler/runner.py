@@ -9,7 +9,7 @@ from typing import Any
 
 from .analysis import analyze_capture
 from .models import Profile, TestCase
-from .planning import build_cases, parameter_commands
+from .planning import build_cases, estimate_airtime_s, parameter_commands
 from .ppk import Ppk2Sampler, SAMPLE_RATE_HZ
 from .results import ResultWriter
 from .serial_radio import RadioCommandError, SerialRadio, TransmissionResult
@@ -28,8 +28,14 @@ def _output_directory(root: Path, profile_id: str, measurement_direction: str) -
 def _received_all_frames(expected_payloads: tuple[bytes, ...], lines: tuple[str, ...]) -> bool:
     remaining = list(lines)
     for payload in expected_payloads:
-        expected = payload.decode("ascii")
-        match = next((index for index, line in enumerate(remaining) if expected in line), None)
+        match = next(
+            (
+                index
+                for index, line in enumerate(remaining)
+                if SerialRadio.line_contains_payload(line, payload)
+            ),
+            None,
+        )
         if match is None:
             return False
         remaining.pop(match)
@@ -42,27 +48,61 @@ def _execute_receive_transfer(
     profile: Profile,
     case: TestCase,
 ) -> tuple[TransmissionResult, tuple[str, ...]]:
-    """Measure one bounded RX window and return all receiver output."""
-    receiver.configure(profile.receiver_enable_commands)
-    try:
-        wait_for_completion = profile.transmit.mode == "burst_command"
-        transmission = transmitter.send_packet(
-            profile,
-            case.payload_bytes,
-            wait_for_completion=wait_for_completion,
-            completion_timeout_s=max(2.0, case.capture_after_trigger_s),
-            inter_frame_gap_ms=profile.receive.inter_frame_gap_ms,
+    """Send one bounded RX stimulus and return all receiver output."""
+    wait_for_completion = (
+        profile.transmit.mode == "burst_command"
+        or profile.transmit.wait_for_ok
+    )
+    frame_count = len(profile.transmit.frame_sizes(case.payload_bytes))
+    pacing_ms = profile.receive.inter_frame_gap_ms
+    if profile.transmit.mode == "text_line" and frame_count > 1:
+        pacing_ms += max(
+            estimate_airtime_s(profile, frame_size, case.parameters)
+            for frame_size in profile.transmit.frame_sizes(case.payload_bytes)
+        ) * 1000.0
+    transmission = transmitter.send_packet(
+        profile,
+        case.payload_bytes,
+        wait_for_completion=wait_for_completion,
+        completion_timeout_s=max(2.0, case.capture_after_trigger_s),
+        inter_frame_gap_ms=pacing_ms,
+    )
+    if not wait_for_completion:
+        host_pacing_s = (
+            (frame_count - 1) * pacing_ms / 1000.0
+            if profile.transmit.mode == "text_line"
+            else 0.0
         )
-        if not wait_for_completion:
-            receive_time_s = max(
-                0.0,
-                case.estimated_event_s - profile.receive.post_receive_s,
-            )
-            time.sleep(receive_time_s)
-        receiver_lines = receiver.drain(wait_s=profile.receive.post_receive_s)
-        return transmission, receiver_lines
-    finally:
-        receiver.configure(profile.post_config_commands)
+        receive_time_s = max(
+            0.0,
+            case.estimated_event_s
+            - profile.receive.post_receive_s
+            - host_pacing_s,
+        )
+        time.sleep(receive_time_s)
+    receiver_lines = receiver.drain(wait_s=profile.receive.post_receive_s)
+    return transmission, receiver_lines
+
+
+def _should_reset_between_runs(profile: Profile, case: TestCase) -> bool:
+    """Return whether this case needs the profile's queue-clearing reset."""
+    if not profile.inter_run_commands:
+        return False
+    if not profile.power_cycle_between_runs:
+        return True
+    return case.estimated_airtime_s >= profile.power_cycle_min_airtime_s
+
+
+def _restore_after_reset(
+    radio: SerialRadio,
+    profile: Profile,
+    parameters: dict[str, Any],
+    role_commands: tuple[str, ...],
+) -> None:
+    """Reapply the complete modem configuration after a reset."""
+    radio.configure(profile.setup_commands)
+    radio.configure(parameter_commands(profile, parameters))
+    radio.configure(role_commands)
 
 
 def run_profile(
@@ -169,7 +209,7 @@ def run_profile(
                         else profile.post_config_commands
                     )
                 previous_parameters = dict(case.parameters)
-                time.sleep(0.10)
+                time.sleep(max(0.10, profile.cooldown_s))
 
             radio.drain(wait_s=0.03)
             if peer is not None:
@@ -180,10 +220,21 @@ def run_profile(
             def trigger() -> None:
                 nonlocal transmission, receiver_lines_during_trigger
                 if measurement_direction == "tx":
+                    frame_count = len(
+                        profile.transmit.frame_sizes(case.payload_bytes)
+                    )
+                    pacing_ms = profile.receive.inter_frame_gap_ms
+                    if profile.transmit.mode == "text_line" and frame_count > 1:
+                        pacing_ms += max(
+                            estimate_airtime_s(profile, frame_size, case.parameters)
+                            for frame_size in profile.transmit.frame_sizes(
+                                case.payload_bytes
+                            )
+                        ) * 1000.0
                     transmission = radio.send_packet(
                         profile,
                         case.payload_bytes,
-                        inter_frame_gap_ms=profile.receive.inter_frame_gap_ms,
+                        inter_frame_gap_ms=pacing_ms,
                     )
                 else:
                     if peer is None:
@@ -195,6 +246,10 @@ def run_profile(
                         case,
                     )
 
+            if measurement_direction == "rx":
+                radio.configure(profile.receiver_enable_commands)
+                time.sleep(0.05)
+
             capture = sampler.capture(
                 pre_s=profile.capture.pre_s,
                 after_trigger_s=case.capture_after_trigger_s,
@@ -202,6 +257,8 @@ def run_profile(
             )
             measured_lines = radio.drain(wait_s=0.08)
             peer_lines = peer.drain(wait_s=0.15) if peer is not None else ()
+            if measurement_direction == "rx" and profile.restore_after_receive:
+                radio.configure(profile.post_config_commands)
             if measurement_direction == "tx":
                 response_lines = measured_lines
                 transmitter_lines = measured_lines
@@ -233,6 +290,19 @@ def run_profile(
                 sample_rate_hz=SAMPLE_RATE_HZ,
                 voltage_mv=voltage_mv,
                 capture_spec=profile.capture,
+                expected_event_count=len(transmission.frame_payload_bytes),
+                search_window_s=min(
+                    case.capture_after_trigger_s,
+                    case.estimated_event_s * 1.5 + 0.15,
+                ),
+                fallback_window_s=(
+                    max(
+                        0.001,
+                        case.estimated_event_s - profile.receive.post_receive_s,
+                    )
+                    if measurement_direction == "rx" and packet_received
+                    else None
+                ),
             )
             run_id = f"run_{case.case_index:05d}"
             if radio_error:
@@ -308,7 +378,36 @@ def run_profile(
                 f"peak={metrics.tx_peak_uA or 0:.1f} uA, "
                 f"energy={metrics.energy_total_uJ or 0:.3f} uJ"
             )
-            time.sleep(profile.cooldown_s)
+            if case.case_index < len(cases):
+                time.sleep(profile.cooldown_s)
+                if _should_reset_between_runs(profile, case):
+                    if profile.power_cycle_between_runs:
+                        sampler.power_off()
+                        time.sleep(profile.power_cycle_off_s)
+                        sampler.power_on()
+                        time.sleep(boot_wait_s)
+                        radio.drain(wait_s=0.25)
+                    else:
+                        radio.configure(profile.inter_run_commands)
+                    _restore_after_reset(
+                        radio,
+                        profile,
+                        case.parameters,
+                        profile.post_config_commands,
+                    )
+                    if peer is not None:
+                        peer.configure(profile.inter_run_commands)
+                        _restore_after_reset(
+                            peer,
+                            profile,
+                            case.parameters,
+                            (
+                                profile.receiver_enable_commands
+                                if measurement_direction == "tx"
+                                else profile.post_config_commands
+                            ),
+                        )
+                    time.sleep(profile.cooldown_s)
 
         writer.write_aggregates()
         return output_dir

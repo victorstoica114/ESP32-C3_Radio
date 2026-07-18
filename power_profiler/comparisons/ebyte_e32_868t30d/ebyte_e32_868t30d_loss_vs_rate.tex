@@ -1,0 +1,30 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[width=12.5cm, height=7.4cm,
+  title={Ebyte E32-868T30D UART: packet loss versus radio rate},
+  xmode=log, log basis x=10,
+  xmin=0.2, xmax=28.8, xtick={0.3,4.8,19.2},
+  xticklabels={0{,}3,4{,}8,19{,}2}, ymin=0, ymax=30,
+  xlabel={Radio rate [kbps]}, ylabel={Lost frames [\%]},
+  grid=both, minor grid style={gray!15}, major grid style={gray!35},
+  every axis plot/.append style={line width=1.25pt, mark size=2.8pt},
+  legend style={draw=none, fill=white, fill opacity=0.85, text opacity=1,
+    at={(0.03,0.97)}, anchor=north west, legend columns=1},
+]
+\addplot+[blue!75!black, solid, mark=*] coordinates {(0.3,7.69230769) (4.8,19.1881919) (19.2,20.5623902)};
+\addlegendentry{30 dBm}
+\addplot+[orange!90!black, dashed, mark=square*] coordinates {(0.3,7.69230769) (4.8,18.0811808) (19.2,20.7381371)};
+\addlegendentry{27 dBm}
+\addplot+[green!50!black, dashdotted, mark=triangle*] coordinates {(0.3,7.69230769) (4.8,19.5571956) (19.2,20.913884)};
+\addlegendentry{21 dBm}
+\end{axis}
+\node[font=\footnotesize, align=center, text width=12cm, anchor=north]
+  at ([yshift=-1.45cm]current axis.south)
+  {60 s per point; 32 B frames; 15 ms inter-frame gap.};
+\end{tikzpicture}
+\end{document}

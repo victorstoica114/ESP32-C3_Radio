@@ -1,0 +1,24 @@
+{
+  "created_utc": "2026-07-17T14:26:03+00:00",
+  "test_type": "continuous_average_power",
+  "profile_id": "RADIO_EBYTE_E79_CC1352P",
+  "module": "Ebyte E79-400DM2005S (CC1352P AT modem)",
+  "firmware_selection": "RADIO_EBYTE_E79_CC1352P + AT_COMMANDS; E79 modem firmware required",
+  "measurement_direction": "tx",
+  "measured_port": "COM5",
+  "peer_port": "",
+  "ppk_port": "COM11",
+  "ppk_mode": "ampere",
+  "voltage_mv": 3300,
+  "sample_rate_hz": 100000,
+  "powers_dbm": [
+    -20.0,
+    0.0,
+    13.0
+  ],
+  "bit_rate_kbps": 50.0,
+  "frame_bytes": 32,
+  "content_bytes_per_frame": 32,
+  "inter_frame_gap_ms": 15,
+  "requested_duration_s": 60.0
+}

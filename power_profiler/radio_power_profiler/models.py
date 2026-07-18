@@ -44,6 +44,7 @@ class TransmitSpec:
     line_overhead_bytes: int = 0
     max_payload_bytes: int = 255
     frame_payload_bytes: int | None = None
+    wait_for_ok: bool = False
 
     def frame_sizes(self, payload_bytes: int) -> tuple[int, ...]:
         frame_limit = self.frame_payload_bytes or payload_bytes
@@ -99,6 +100,11 @@ class Profile:
     receive: ReceiveSpec
     capture: CaptureSpec
     airtime: dict[str, Any]
+    inter_run_commands: tuple[str, ...] = ()
+    power_cycle_between_runs: bool = False
+    power_cycle_min_airtime_s: float = 0.0
+    power_cycle_off_s: float = 1.0
+    restore_after_receive: bool = True
     notes: tuple[str, ...] = ()
 
 

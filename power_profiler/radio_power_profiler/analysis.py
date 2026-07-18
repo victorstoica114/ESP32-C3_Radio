@@ -26,6 +26,9 @@ def analyze_capture(
     sample_rate_hz: int,
     voltage_mv: int,
     capture_spec: CaptureSpec,
+    expected_event_count: int = 1,
+    search_window_s: float | None = None,
+    fallback_window_s: float | None = None,
 ) -> Metrics:
     if len(samples_uA) < 100 or trigger_index < 10:
         raise ValueError("Capture is too short to calculate a baseline")
@@ -40,9 +43,15 @@ def analyze_capture(
     threshold = baseline + max(capture_spec.threshold_margin_uA, 8.0 * robust_noise)
 
     search_start = max(baseline_end, trigger_index - int(0.002 * sample_rate_hz))
+    search_end = len(samples_uA)
+    if search_window_s is not None:
+        search_end = min(
+            search_end,
+            trigger_index + max(1, int(search_window_s * sample_rate_hz)),
+        )
     active = [
         index
-        for index in range(search_start, len(samples_uA))
+        for index in range(search_start, search_end)
         if samples_uA[index] >= threshold
     ]
     max_gap = max(1, int(capture_spec.merge_gap_ms * sample_rate_hz / 1000.0))
@@ -52,6 +61,17 @@ def analyze_capture(
     candidates = [
         group for group in _groups(active, max_gap) if group[1] - group[0] + 1 >= minimum_length
     ]
+
+    using_fallback = False
+    if not candidates and fallback_window_s is not None and fallback_window_s > 0:
+        fallback_start = max(search_start, trigger_index)
+        fallback_end = min(
+            search_end - 1,
+            fallback_start + max(1, int(fallback_window_s * sample_rate_hz)) - 1,
+        )
+        if fallback_end >= fallback_start:
+            candidates = [(fallback_start, fallback_end)]
+            using_fallback = True
 
     if not candidates:
         return Metrics(
@@ -64,11 +84,24 @@ def analyze_capture(
         start, end = group
         return sum(max(0.0, value - baseline) for value in samples_uA[start : end + 1])
 
-    event_start, event_end = max(candidates, key=score)
-    padding = max(1, int(0.0001 * sample_rate_hz))
-    event_start = max(search_start, event_start - padding)
-    event_end = min(len(samples_uA) - 1, event_end + padding)
-    event = samples_uA[event_start : event_end + 1]
+    selected = sorted(
+        sorted(candidates, key=score, reverse=True)[: max(1, expected_event_count)]
+    )
+    padding = 0 if using_fallback else max(1, int(0.0001 * sample_rate_hz))
+    padded: list[tuple[int, int]] = []
+    for start, end in selected:
+        start = max(search_start, start - padding)
+        end = min(search_end - 1, end + padding)
+        if padded and start <= padded[-1][1] + 1:
+            padded[-1] = (padded[-1][0], max(padded[-1][1], end))
+        else:
+            padded.append((start, end))
+    event_start = padded[0][0]
+    event = [
+        value
+        for start, end in padded
+        for value in samples_uA[start : end + 1]
+    ]
     duration_s = len(event) / sample_rate_hz
     charge_total_uC = sum(max(0.0, value) for value in event) / sample_rate_hz
     charge_excess_uC = sum(max(0.0, value - baseline) for value in event) / sample_rate_hz

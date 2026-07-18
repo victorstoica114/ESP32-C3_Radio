@@ -131,7 +131,7 @@ class SerialRadio:
                 while b"\n" in partial:
                     raw, _, remainder = partial.partition(b"\n")
                     partial = bytearray(remainder)
-                    line = raw.decode("utf-8", errors="replace").strip("\r ")
+                    line = raw.decode("utf-8", errors="replace").strip("\x00\r ")
                     if not line:
                         continue
                     lines.append(line)
@@ -144,7 +144,9 @@ class SerialRadio:
                 time.sleep(0.005)
 
         if partial:
-            lines.append(partial.decode("utf-8", errors="replace").strip())
+            lines.append(
+                partial.decode("utf-8", errors="replace").strip("\x00\r ")
+            )
         rendered = " | ".join(lines) if lines else "no response"
         raise RadioCommandError(f"Timeout waiting for OK after {text!r}: {rendered}")
 
@@ -155,6 +157,8 @@ class SerialRadio:
         frame_bytes: int,
         inter_frame_gap_ms: int,
         drain_before: bool = True,
+        profile: Profile | None = None,
+        frame_airtime_s: float = 0.0,
     ) -> ContinuousTransmissionResult:
         if not 1000 <= duration_ms <= 600000:
             raise ValueError("Continuous duration must be between 1000 and 600000 ms")
@@ -162,6 +166,90 @@ class SerialRadio:
             raise ValueError("Continuous frame size must be between 3 and 64 bytes")
         if not 0 <= inter_frame_gap_ms <= 1000:
             raise ValueError("Continuous inter-frame gap must be between 0 and 1000 ms")
+        if frame_airtime_s < 0:
+            raise ValueError("Continuous frame airtime cannot be negative")
+
+        if profile is not None and profile.transmit.mode != "burst_command":
+            if frame_bytes > (
+                profile.transmit.frame_payload_bytes
+                or profile.transmit.max_payload_bytes
+            ):
+                raise ValueError(
+                    f"Continuous frame size exceeds the physical limit for "
+                    f"{profile.profile_id}"
+                )
+            if profile.transmit.mode not in {
+                "hex_command",
+                "text_command",
+                "text_line",
+            }:
+                raise ValueError(
+                    f"Profile {profile.profile_id} does not support host-driven "
+                    "continuous transmission"
+                )
+            content_bytes = frame_bytes - profile.transmit.line_overhead_bytes
+            if content_bytes < 1:
+                raise ValueError("Continuous frame contains no payload bytes")
+            payload = self.make_payload(content_bytes)
+            tx_command = None
+            if profile.transmit.mode != "text_line":
+                if not profile.transmit.command:
+                    raise ValueError(
+                        f"{profile.transmit.mode} requires a command template"
+                    )
+                tx_command = profile.transmit.command.format(
+                    payload_hex=payload.hex().upper(),
+                    payload_text=payload.decode("ascii"),
+                )
+            if drain_before:
+                self.drain(wait_s=0.02)
+            start = time.monotonic()
+            deadline = start + duration_ms / 1000.0
+            frames = 0
+            serial_errors = 0
+            while time.monotonic() < deadline:
+                frames += 1
+                if profile.transmit.mode == "text_line":
+                    self.serial.write(payload + b"\r\n")
+                    self.serial.flush()
+                else:
+                    try:
+                        self.command(
+                            str(tx_command),
+                            timeout_s=0.75,
+                            drain_before=False,
+                        )
+                    except RadioCommandError:
+                        # The validated E79 bridge runs its internal UART at
+                        # 1 Mbaud and can occasionally lose the modem's short
+                        # OK reply during long stress runs. The RF command may
+                        # still have been executed, so keep the attempted frame
+                        # in the offered-traffic count, clear the line, and
+                        # continue.
+                        serial_errors += 1
+                        self.drain(wait_s=0.05)
+                pacing_s = inter_frame_gap_ms / 1000.0
+                if profile.transmit.mode == "text_line":
+                    pacing_s += frame_airtime_s
+                if pacing_s:
+                    remaining_s = deadline - time.monotonic()
+                    if remaining_s > 0:
+                        time.sleep(min(pacing_s, remaining_s))
+            elapsed_ms = int(round((time.monotonic() - start) * 1000.0))
+            summary = (
+                f"TXCONT={duration_ms},ELAPSED_MS={elapsed_ms},FRAMES={frames},"
+                f"BYTES={frames * frame_bytes},FRAME={frame_bytes},"
+                f"GAP_MS={inter_frame_gap_ms}"
+            )
+            return ContinuousTransmissionResult(
+                requested_duration_ms=duration_ms,
+                elapsed_ms=elapsed_ms,
+                frames=frames,
+                payload_bytes=frames * frame_bytes,
+                frame_bytes=frame_bytes,
+                inter_frame_gap_ms=inter_frame_gap_ms,
+                response_lines=(summary, f"SERIAL_ERRORS={serial_errors}"),
+            )
 
         command = f"AT+TXCONT={duration_ms},{frame_bytes},{inter_frame_gap_ms}"
         result = self.command(
@@ -202,6 +290,12 @@ class SerialRadio:
     def make_payload(length: int) -> bytes:
         alphabet = b"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_"
         return bytes(alphabet[index % len(alphabet)] for index in range(length))
+
+    @staticmethod
+    def line_contains_payload(line: str, payload: bytes) -> bool:
+        text = payload.decode("ascii", errors="ignore")
+        upper = line.upper()
+        return (bool(text) and text in line) or payload.hex().upper() in upper
 
     def send_packet(
         self,
@@ -245,23 +339,38 @@ class SerialRadio:
                 response_lines=response_lines,
             )
 
-        for payload in expected_payloads:
+        response_lines: list[str] = []
+        for index, payload in enumerate(expected_payloads):
             if profile.transmit.mode == "text_line":
                 self.serial.write(payload + b"\r\n")
                 self.serial.flush()
-                continue
-
-            if profile.transmit.mode == "hex_command":
+            elif profile.transmit.mode in {"hex_command", "text_command"}:
                 if not profile.transmit.command:
-                    raise ValueError("hex_command transmit mode requires a command template")
-                command = profile.transmit.command.format(payload_hex=payload.hex().upper())
-                self._write_line(command)
-                continue
+                    raise ValueError(
+                        f"{profile.transmit.mode} transmit mode requires a command template"
+                    )
+                command = profile.transmit.command.format(
+                    payload_hex=payload.hex().upper(),
+                    payload_text=payload.decode("ascii"),
+                )
+                if wait_for_completion or profile.transmit.wait_for_ok:
+                    response_lines.extend(
+                        self.command(
+                            command,
+                            timeout_s=completion_timeout_s,
+                        ).lines
+                    )
+                else:
+                    self._write_line(command)
+            else:
+                raise ValueError(f"Unsupported transmit mode: {profile.transmit.mode!r}")
 
-            raise ValueError(f"Unsupported transmit mode: {profile.transmit.mode!r}")
+            if index + 1 < len(expected_payloads) and inter_frame_gap_ms > 0:
+                time.sleep(inter_frame_gap_ms / 1000.0)
 
         return TransmissionResult(
             content_bytes=content_bytes,
             frame_payload_bytes=frame_sizes,
             expected_payloads=expected_payloads,
+            response_lines=tuple(response_lines),
         )

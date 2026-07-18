@@ -69,6 +69,63 @@ Biblioteca `ppk2-api` folosită pentru automatizare este [API-ul Python neoficia
 
 E79 și RA-08 necesită și firmware-ul AT propriu al modulului, conform documentației lor din repository.
 
+## Interfață web pentru teste nesupravegheate
+
+Interfața locală pornește din mediul virtual și nu necesită Flask sau alte
+dependențe web:
+
+```powershell
+.\.venv\Scripts\python.exe .\run_web_ui.py
+```
+
+Se deschide implicit `http://127.0.0.1:8765/`. PC-ul trebuie să rămână pornit,
+fără sleep/hibernare, iar procesul Python trebuie lăsat activ până la terminarea
+jobului.
+
+Cele două fluxuri principale sunt:
+
+- **Check rapid**: TX și RX la viteza maximă plus TX și RX fragmentat la viteza
+  minimă. Salvează automat trace-urile raw și produce un verdict pentru vârful
+  de curent, recepție, sample loss și disponibilitatea campaniei lungi.
+- **Campanie completă**: împarte matricea în loturi independente și recuperabile,
+  rulează TX pentru toate puterile/vitezele/dimensiunile, RX la puterea maximă a
+  emițătorului și testele continue TX/RX de putere medie și loss-vs-viteză.
+  `no_event_detected`, erorile de proces și rezultatele incomplete sunt
+  reîncercate; `rx_missing` rămâne loss măsurat și nu este ascuns prin retry.
+
+Fiecare sesiune este salvată sub `web_sessions/<timestamp>_<tip>_<profil>/`:
+
+- `manifest.json` conține configurația, progresul, toate încercările, verdictul
+  check-ului și directorul acceptat pentru fiecare lot;
+- `session.log` conține jurnalul cronologic complet;
+- `logs/<pas>_attempt_<n>.log` păstrează ieșirea integrală a fiecărui subprocess,
+  inclusiv a încercărilor respinse;
+- directoarele `packet_tx`, `packet_rx`, `packet_results` și `continuous` conțin
+  datele produse de profiler. Încercările eșuate nu sunt șterse.
+
+Dacă serverul este pornit dintr-un thread Codex activ, opțiunea
+`Notify Codex and continue this thread when the test finishes` este activată
+automat. La final, orchestratorul folosește ID-ul explicit al threadului și
+`codex exec resume` pentru a trimite promptul de analiză în aceeași conversație.
+După ce callback-ul se încheie cu succes, serverul deschide ruta locală a
+threadului în extensia Codex pentru VS Code, aducând fereastra și conversația în
+prim-plan.
+Callback-ul are maximum trei încercări, iar ieșirea completă este păstrată în
+`codex_callback.log` în directorul sesiunii. Dacă ID-ul threadului sau Codex CLI
+nu este disponibil, opțiunea este dezactivată în interfață.
+
+Trace-urile PPK2 raw ale campaniei complete sunt activate implicit și pot fi
+dezactivate din interfață. La 100 kS/s pot ocupa zeci de GB; fără ele rămân salvate toate logurile,
+`metadata.json`, `summary.csv` și `aggregates.csv`. Butonul de oprire termină
+subprocesul activ, păstrează loturile finalizate și încearcă să dezactiveze
+alimentarea DUT din PPK2.
+
+Serverul poate fi pornit și prin CLI, fără deschiderea automată a browserului:
+
+```powershell
+python -m radio_power_profiler web --no-browser --port 8765
+```
+
 ## Utilizare
 
 1. Identifică porturile:
@@ -164,6 +221,12 @@ python -m radio_power_profiler continuous `
 
 În RX, `--radio-port` este receptorul măsurat, iar `--transmitter-port` generează
 fluxul. Rezultatele incrementale sunt scrise în `continuous_results/*/summary.csv`.
+
+Profilul `RADIO_EBYTE_E79_CC1352P` folosește o buclă host-driven de comenzi
+`AT+SEND` pentru fluxul continuu și transferuri logice fragmentate în cadre de
+maximum 64 B. Firmware-ul E79 V1 expune numai 50 kbps; pentru acest profil se
+folosesc `--powers=-20,0,13 --bit-rate-kbps 50`. Graficul loss-vs-viteză are,
+în consecință, un singur punct de viteză pentru fiecare putere.
 
 Opțiunea `--save-raw` salvează fiecare formă de undă la 100 kS/s în `raw/*.csv.gz`. Este dezactivată implicit, deoarece o matrice completă poate ocupa mult spațiu.
 

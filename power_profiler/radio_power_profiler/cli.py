@@ -184,8 +184,21 @@ def cmd_continuous(args) -> int:
         voltage_mv=args.voltage_mv,
         output_root=args.output,
         boot_wait_s=args.boot_wait_s,
+        save_raw=args.save_raw,
     )
     print(f"Results: {output.resolve()}")
+    return 0
+
+
+def cmd_web(args) -> int:
+    from .web_app import run_web_server
+
+    run_web_server(
+        bind=args.bind,
+        port=args.port,
+        sessions_root=args.sessions_root,
+        open_browser=not args.no_browser,
+    )
     return 0
 
 
@@ -287,7 +300,30 @@ def make_parser() -> argparse.ArgumentParser:
         default=Path("continuous_results"),
     )
     continuous_parser.add_argument("--boot-wait-s", type=float, default=1.5)
+    continuous_parser.add_argument(
+        "--save-raw",
+        action="store_true",
+        help="save each continuous 100 kS/s trace as gzip CSV",
+    )
     continuous_parser.set_defaults(func=cmd_continuous)
+
+    web_parser = subparsers.add_parser(
+        "web",
+        help="serve local web UI for quick checks and unattended campaigns",
+    )
+    web_parser.add_argument("--bind", default="127.0.0.1")
+    web_parser.add_argument("--port", type=int, default=8765)
+    web_parser.add_argument(
+        "--sessions-root",
+        type=Path,
+        default=Path("web_sessions"),
+    )
+    web_parser.add_argument(
+        "--no-browser",
+        action="store_true",
+        help="do not open the UI in the default browser",
+    )
+    web_parser.set_defaults(func=cmd_web)
     return parser
 
 

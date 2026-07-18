@@ -67,6 +67,7 @@ def load_profile(profile_id: str) -> Profile:
                 if tx_raw.get("frame_payload_bytes") is not None
                 else None
             ),
+            wait_for_ok=bool(tx_raw.get("wait_for_ok", False)),
         ),
         receive=ReceiveSpec(
             inter_frame_gap_ms=float(rx_raw.get("inter_frame_gap_ms", 0.0)),
@@ -86,6 +87,11 @@ def load_profile(profile_id: str) -> Profile:
             minimum_event_ms=float(capture_raw.get("minimum_event_ms", 0.05)),
         ),
         airtime=raw.get("airtime", {"kind": "fixed", "seconds": 0.25}),
+        inter_run_commands=tuple(raw.get("inter_run_commands", [])),
+        power_cycle_between_runs=bool(raw.get("power_cycle_between_runs", False)),
+        power_cycle_min_airtime_s=float(raw.get("power_cycle_min_airtime_s", 0.0)),
+        power_cycle_off_s=float(raw.get("power_cycle_off_s", 1.0)),
+        restore_after_receive=bool(raw.get("restore_after_receive", True)),
         notes=tuple(raw.get("notes", [])),
     )
 
@@ -130,5 +136,10 @@ def override_profile(
         receive=profile.receive,
         capture=profile.capture,
         airtime=profile.airtime,
+        inter_run_commands=profile.inter_run_commands,
+        power_cycle_between_runs=profile.power_cycle_between_runs,
+        power_cycle_min_airtime_s=profile.power_cycle_min_airtime_s,
+        power_cycle_off_s=profile.power_cycle_off_s,
+        restore_after_receive=profile.restore_after_receive,
         notes=profile.notes,
     )

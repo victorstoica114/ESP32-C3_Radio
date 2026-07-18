@@ -24,6 +24,7 @@ log/
 power_profiler/.venv/
 power_profiler/pilot_results/
 power_profiler/results/
+power_profiler/web_sessions/
 power_profiler/**/__pycache__/
 power_profiler/**/*.pyc
 
@@ -62,3 +63,6 @@ PCB/**/untitled.kicad_sch
 Thumbs.db
 *.tmp
 *.log
+
+# Compact campaign provenance copied into reviewed comparison exports
+!power_profiler/comparisons/**/campaign_logs/**/*.log

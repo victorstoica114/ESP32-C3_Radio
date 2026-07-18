@@ -95,6 +95,60 @@ class PlanningTests(unittest.TestCase):
             ),
         )
 
+    def test_e79_profile_supports_fragmented_tx_and_controlled_rx(self):
+        profile = load_profile("RADIO_EBYTE_E79_CC1352P")
+
+        self.assertEqual(profile.transmit.frame_sizes(1024), (64,) * 16)
+        self.assertTrue(profile.transmit.wait_for_ok)
+        self.assertEqual(profile.receiver_enable_commands, ("AT+RX=ON",))
+        self.assertEqual(len(build_cases(profile, "tx")), 90)
+        self.assertEqual(len(build_cases(profile, "rx")), 90)
+        self.assertEqual(
+            parameter_commands(
+                profile,
+                {"tx_power_dbm": 13, "bit_rate_kbps": 50},
+            ),
+            ["AT+PWR=13", "AT+RATE=50000"],
+        )
+
+    def test_e32_t30_profile_supports_large_transfers_and_three_rates(self):
+        profile = load_profile("RADIO_EBYTE_E32_868T30D")
+
+        self.assertEqual(
+            profile.transmit.frame_sizes(1024),
+            (58,) * 17 + (38,),
+        )
+        self.assertEqual(profile.receiver_enable_commands, ("AT+BRIDGE=ON",))
+        self.assertFalse(profile.restore_after_receive)
+        self.assertEqual(
+            profile.inter_run_commands,
+            ("AT+RESET", "AT+BRIDGE=ON"),
+        )
+        self.assertTrue(profile.power_cycle_between_runs)
+        self.assertEqual(profile.power_cycle_min_airtime_s, 10.0)
+        self.assertEqual(profile.power_cycle_off_s, 10.0)
+        overridden = override_profile(
+            profile,
+            sizes=(128,),
+            repetitions=1,
+            axis_overrides={
+                "tx_power_dbm": (21,),
+                "bit_rate_kbps": (0.3,),
+            },
+        )
+        self.assertEqual(overridden.inter_run_commands, profile.inter_run_commands)
+        self.assertTrue(overridden.power_cycle_between_runs)
+        self.assertFalse(overridden.restore_after_receive)
+        self.assertEqual(len(build_cases(profile, "tx")), 270)
+        self.assertEqual(len(build_cases(profile, "rx")), 270)
+        self.assertEqual(
+            parameter_commands(
+                profile,
+                {"tx_power_dbm": 30, "bit_rate_kbps": 4.8},
+            ),
+            ["AT+POWER1", "AT+AIR4"],
+        )
+
     def test_rx_plan_rejects_profile_without_controlled_receiver(self):
         with self.assertRaisesRegex(ValueError, "does not support controlled RX"):
             build_cases(load_profile("RADIO_HC12"), "rx")

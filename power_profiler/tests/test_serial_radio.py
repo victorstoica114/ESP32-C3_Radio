@@ -1,5 +1,5 @@
 import unittest
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 from radio_power_profiler.profiles import load_profile
 from radio_power_profiler.serial_radio import CommandResult, SerialRadio
@@ -83,6 +83,65 @@ class SerialRadioTests(unittest.TestCase):
         self.assertEqual(result.elapsed_ms, 60012)
         self.assertEqual(result.frames, 2143)
         self.assertEqual(result.payload_bytes, 68576)
+
+    def test_e79_fragments_transfer_and_waits_for_each_modem_reply(self):
+        radio = SerialRadio.__new__(SerialRadio)
+        radio.command = Mock(
+            return_value=CommandResult("AT+SEND=payload", ("OK",))
+        )
+        profile = load_profile("RADIO_EBYTE_E79_CC1352P")
+
+        result = radio.send_packet(profile, 128)
+
+        self.assertEqual(result.frame_payload_bytes, (64, 64))
+        self.assertEqual(result.content_bytes, 128)
+        self.assertEqual(radio.command.call_count, 2)
+        self.assertTrue(
+            all(
+                call.kwargs == {"timeout_s": None}
+                for call in radio.command.call_args_list
+            )
+        )
+        self.assertEqual(result.response_lines, ("OK", "OK"))
+
+    def test_matches_plain_and_hex_receiver_output(self):
+        payload = b"E79-TEST"
+
+        self.assertTrue(SerialRadio.line_contains_payload("E79-TEST", payload))
+        self.assertTrue(
+            SerialRadio.line_contains_payload(
+                "+RXHEX:8,-42,4537392D54455354",
+                payload,
+            )
+        )
+
+    def test_host_paces_continuous_e32_text_frames_by_airtime(self):
+        radio = SerialRadio.__new__(SerialRadio)
+        radio.serial = FakeSerial()
+        profile = load_profile("RADIO_EBYTE_E32_868T30D")
+
+        with (
+            patch(
+                "radio_power_profiler.serial_radio.time.monotonic",
+                side_effect=(0.0, 0.0, 0.0, 1.1, 1.1),
+            ),
+            patch("radio_power_profiler.serial_radio.time.sleep") as sleep,
+        ):
+            result = radio.send_continuous(
+                duration_ms=1000,
+                frame_bytes=32,
+                inter_frame_gap_ms=15,
+                drain_before=False,
+                profile=profile,
+                frame_airtime_s=0.5,
+            )
+
+        self.assertEqual(result.frames, 1)
+        self.assertEqual(
+            radio.serial.writes,
+            [SerialRadio.make_payload(30) + b"\r\n"],
+        )
+        sleep.assert_called_once_with(0.515)
 
 
 if __name__ == "__main__":

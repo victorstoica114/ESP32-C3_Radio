@@ -2,7 +2,11 @@ import unittest
 
 from radio_power_profiler.planning import build_cases
 from radio_power_profiler.profiles import load_profile, override_profile
-from radio_power_profiler.runner import _execute_receive_transfer
+from radio_power_profiler.runner import (
+    _execute_receive_transfer,
+    _restore_after_reset,
+    _should_reset_between_runs,
+)
 from radio_power_profiler.serial_radio import SerialRadio, TransmissionResult
 
 
@@ -32,6 +36,48 @@ class FakeTransmitter:
 
 
 class RunnerTests(unittest.TestCase):
+    def test_e32_resets_only_long_runs_and_restores_full_configuration(self):
+        profile = override_profile(
+            load_profile("RADIO_EBYTE_E32_868T30D"),
+            sizes=(8, 1024),
+            repetitions=1,
+            axis_overrides={
+                "tx_power_dbm": (21,),
+                "bit_rate_kbps": (0.3, 19.2),
+            },
+        )
+        cases = build_cases(profile, "tx")
+        short_case = next(
+            case
+            for case in cases
+            if case.payload_bytes == 8 and case.parameters["bit_rate_kbps"] == 19.2
+        )
+        long_case = next(
+            case
+            for case in cases
+            if case.payload_bytes == 1024 and case.parameters["bit_rate_kbps"] == 0.3
+        )
+
+        self.assertFalse(_should_reset_between_runs(profile, short_case))
+        self.assertTrue(_should_reset_between_runs(profile, long_case))
+
+        radio = FakeReceiver(())
+        _restore_after_reset(
+            radio,
+            profile,
+            long_case.parameters,
+            profile.receiver_enable_commands,
+        )
+        self.assertEqual(radio.configure_calls[0], profile.setup_commands)
+        self.assertEqual(
+            radio.configure_calls[1],
+            ("AT+POWER4", "AT+AIR1"),
+        )
+        self.assertEqual(
+            radio.configure_calls[2],
+            profile.receiver_enable_commands,
+        )
+
     def test_receive_transfer_bounds_rx_window_and_waits_for_sender(self):
         profile = override_profile(
             load_profile("RADIO_CC1101_V2_868"),
@@ -63,10 +109,7 @@ class RunnerTests(unittest.TestCase):
 
         self.assertIs(actual_result, result)
         self.assertEqual(actual_lines, lines)
-        self.assertEqual(
-            receiver.configure_calls,
-            [profile.receiver_enable_commands, profile.post_config_commands],
-        )
+        self.assertEqual(receiver.configure_calls, [])
         self.assertEqual(receiver.drain_calls, [profile.receive.post_receive_s])
         _, payload_bytes, kwargs = transmitter.calls[0]
         self.assertEqual(payload_bytes, 128)

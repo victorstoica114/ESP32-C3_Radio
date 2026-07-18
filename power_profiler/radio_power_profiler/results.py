@@ -58,6 +58,25 @@ FIELDS = [
 ]
 
 
+def save_raw_capture(path: Path, capture: Capture) -> Path:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with gzip.open(path, "wt", encoding="utf-8", newline="") as stream:
+        writer = csv.writer(stream)
+        writer.writerow(["sample_index", "time_ms", "current_uA", "logic_bits", "trigger"])
+        for index, current in enumerate(capture.samples_uA):
+            logic = capture.logic_bits[index] if index < len(capture.logic_bits) else ""
+            writer.writerow(
+                [
+                    index,
+                    index * 1000.0 / SAMPLE_RATE_HZ,
+                    current,
+                    logic,
+                    1 if index == capture.trigger_index else 0,
+                ]
+            )
+    return path
+
+
 class ResultWriter:
     def __init__(self, output_dir: Path, metadata: dict[str, Any]):
         self.output_dir = output_dir
@@ -81,23 +100,7 @@ class ResultWriter:
         self.rows.append(normalized)
 
     def save_raw(self, run_id: str, capture: Capture) -> Path:
-        self.raw_dir.mkdir(exist_ok=True)
-        path = self.raw_dir / f"{run_id}.csv.gz"
-        with gzip.open(path, "wt", encoding="utf-8", newline="") as stream:
-            writer = csv.writer(stream)
-            writer.writerow(["sample_index", "time_ms", "current_uA", "logic_bits", "trigger"])
-            for index, current in enumerate(capture.samples_uA):
-                logic = capture.logic_bits[index] if index < len(capture.logic_bits) else ""
-                writer.writerow(
-                    [
-                        index,
-                        index * 1000.0 / SAMPLE_RATE_HZ,
-                        current,
-                        logic,
-                        1 if index == capture.trigger_index else 0,
-                    ]
-                )
-        return path
+        return save_raw_capture(self.raw_dir / f"{run_id}.csv.gz", capture)
 
     def write_aggregates(self) -> Path:
         path = self.output_dir / "aggregates.csv"

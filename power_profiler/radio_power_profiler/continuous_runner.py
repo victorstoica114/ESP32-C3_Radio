@@ -10,8 +10,9 @@ from pathlib import Path
 from typing import Any
 
 from .models import Profile
-from .planning import parameter_commands
+from .planning import estimate_airtime_s, parameter_commands
 from .ppk import Capture, Ppk2Sampler, SAMPLE_RATE_HZ
+from .results import save_raw_capture
 from .serial_radio import ContinuousTransmissionResult, SerialRadio
 
 
@@ -116,12 +117,13 @@ def _measurement_stats(
 def _receive_continuous(
     receiver: SerialRadio,
     transmitter: SerialRadio,
+    profile: Profile,
     *,
     duration_ms: int,
     frame_bytes: int,
     inter_frame_gap_ms: int,
+    frame_airtime_s: float,
 ) -> tuple[ContinuousTransmissionResult, tuple[str, ...]]:
-    receiver.command("AT+RX=ON", drain_before=False)
     result_holder: list[ContinuousTransmissionResult] = []
     errors: list[BaseException] = []
 
@@ -133,6 +135,8 @@ def _receive_continuous(
                     frame_bytes=frame_bytes,
                     inter_frame_gap_ms=inter_frame_gap_ms,
                     drain_before=False,
+                    profile=profile,
+                    frame_airtime_s=frame_airtime_s,
                 )
             )
         except BaseException as exc:
@@ -141,20 +145,17 @@ def _receive_continuous(
     sender = threading.Thread(target=send, daemon=True)
     receiver_lines: list[str] = []
     sender.start()
-    try:
-        while sender.is_alive():
-            receiver_lines.extend(receiver.drain(wait_s=0.02))
-        sender.join(timeout=1.0)
-        receiver_lines.extend(receiver.drain(wait_s=0.15))
-        if sender.is_alive():
-            raise RuntimeError("Continuous transmitter did not stop")
-        if errors:
-            raise errors[0]
-        if not result_holder:
-            raise RuntimeError("Continuous transmitter returned no result")
-        return result_holder[0], tuple(receiver_lines)
-    finally:
-        receiver.command("AT+RX=OFF", drain_before=False)
+    while sender.is_alive():
+        receiver_lines.extend(receiver.drain(wait_s=0.02))
+    sender.join(timeout=1.0)
+    receiver_lines.extend(receiver.drain(wait_s=0.15))
+    if sender.is_alive():
+        raise RuntimeError("Continuous transmitter did not stop")
+    if errors:
+        raise errors[0]
+    if not result_holder:
+        raise RuntimeError("Continuous transmitter returned no result")
+    return result_holder[0], tuple(receiver_lines)
 
 
 def run_continuous_profile(
@@ -172,6 +173,7 @@ def run_continuous_profile(
     voltage_mv: int,
     output_root: Path,
     boot_wait_s: float,
+    save_raw: bool = False,
 ) -> Path:
     if measurement_direction not in {"tx", "rx"}:
         raise ValueError("Continuous measurement direction must be 'tx' or 'rx'")
@@ -181,8 +183,15 @@ def run_continuous_profile(
         raise ValueError("Measured radio and continuous transmitter must be different")
     if not 1.0 <= duration_s <= 600.0:
         raise ValueError("Continuous duration must be between 1 and 600 seconds")
-    if not 3 <= frame_bytes <= 32:
-        raise ValueError("Continuous CC1101 frames must be between 3 and 32 bytes")
+    frame_limit = (
+        profile.transmit.frame_payload_bytes
+        or min(64, profile.transmit.max_payload_bytes)
+    )
+    if not 3 <= frame_bytes <= frame_limit:
+        raise ValueError(
+            f"Continuous frames for {profile.profile_id} must be between "
+            f"3 and {frame_limit} bytes"
+        )
     if not 0 <= inter_frame_gap_ms <= 1000:
         raise ValueError("Continuous inter-frame gap must be between 0 and 1000 ms")
     if not powers_dbm:
@@ -192,7 +201,11 @@ def run_continuous_profile(
     required_axes = {"tx_power_dbm", "bit_rate_kbps"}
     if not required_axes.issubset(axis_names):
         raise ValueError(
-            f"Profile {profile.profile_id} does not expose the CC1101 power/rate axes"
+            f"Profile {profile.profile_id} does not expose compatible power/rate axes"
+        )
+    if measurement_direction == "rx" and not profile.receiver_enable_commands:
+        raise ValueError(
+            f"Profile {profile.profile_id} does not support controlled RX"
         )
 
     duration_ms = int(round(duration_s * 1000.0))
@@ -218,9 +231,12 @@ def run_continuous_profile(
         "powers_dbm": powers_dbm,
         "bit_rate_kbps": bit_rate_kbps,
         "frame_bytes": frame_bytes,
-        "content_bytes_per_frame": frame_bytes - 2,
+        "content_bytes_per_frame": (
+            frame_bytes - profile.transmit.line_overhead_bytes
+        ),
         "inter_frame_gap_ms": inter_frame_gap_ms,
         "requested_duration_s": duration_s,
+        "save_raw": save_raw,
     }
     (output_dir / "metadata.json").write_text(
         json.dumps(metadata, indent=2, ensure_ascii=False, default=str) + "\n",
@@ -256,12 +272,17 @@ def run_continuous_profile(
                 "bit_rate_kbps": bit_rate_kbps,
             }
             commands = parameter_commands(profile, parameters)
+            frame_airtime_s = estimate_airtime_s(
+                profile,
+                frame_bytes,
+                parameters,
+            )
             radio.configure(commands)
             radio.configure(profile.post_config_commands)
             if peer is not None:
                 peer.configure(commands)
                 peer.configure(profile.post_config_commands)
-            time.sleep(0.10)
+            time.sleep(max(0.10, profile.cooldown_s))
             radio.drain(wait_s=0.05)
             if peer is not None:
                 peer.drain(wait_s=0.05)
@@ -277,6 +298,8 @@ def run_continuous_profile(
                         frame_bytes=frame_bytes,
                         inter_frame_gap_ms=inter_frame_gap_ms,
                         drain_before=False,
+                        profile=profile,
+                        frame_airtime_s=frame_airtime_s,
                     )
                 else:
                     if peer is None:
@@ -284,16 +307,24 @@ def run_continuous_profile(
                     transmission, receiver_lines = _receive_continuous(
                         radio,
                         peer,
+                        profile,
                         duration_ms=duration_ms,
                         frame_bytes=frame_bytes,
                         inter_frame_gap_ms=inter_frame_gap_ms,
+                        frame_airtime_s=frame_airtime_s,
                     )
+
+            if measurement_direction == "rx":
+                radio.configure(profile.receiver_enable_commands)
+                time.sleep(0.05)
 
             capture = sampler.capture(
                 pre_s=0.20,
                 after_trigger_s=duration_s + 0.75,
                 trigger=trigger,
             )
+            if measurement_direction == "rx" and profile.restore_after_receive:
+                radio.configure(profile.post_config_commands)
             if transmission is None:
                 raise RuntimeError("Continuous transmission returned no metadata")
             metrics = _measurement_stats(
@@ -301,12 +332,22 @@ def run_continuous_profile(
                 duration_s=duration_s,
                 voltage_mv=voltage_mv,
             )
-            expected_payload = SerialRadio.make_payload(frame_bytes - 2).decode("ascii")
+            if save_raw:
+                save_raw_capture(
+                    output_dir / "raw" / f"continuous_{index:03d}.csv.gz",
+                    capture,
+                )
+            expected_payload = SerialRadio.make_payload(
+                frame_bytes - profile.transmit.line_overhead_bytes
+            )
             frames_received: int | str = ""
             frame_loss_percent: float | str = ""
             status = "ok"
             if measurement_direction == "rx":
-                frames_received = sum(line == expected_payload for line in receiver_lines)
+                frames_received = sum(
+                    SerialRadio.line_contains_payload(line, expected_payload)
+                    for line in receiver_lines
+                )
                 frame_loss_percent = (
                     100.0
                     * max(0, transmission.frames - frames_received)
@@ -330,7 +371,9 @@ def run_continuous_profile(
                 "tx_power_dbm": power_dbm,
                 "bit_rate_kbps": bit_rate_kbps,
                 "frame_bytes": frame_bytes,
-                "content_bytes_per_frame": frame_bytes - 2,
+                "content_bytes_per_frame": (
+                    frame_bytes - profile.transmit.line_overhead_bytes
+                ),
                 "inter_frame_gap_ms": inter_frame_gap_ms,
                 "requested_duration_s": duration_s,
                 "actual_tx_duration_ms": transmission.elapsed_ms,

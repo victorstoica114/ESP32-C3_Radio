@@ -11,9 +11,6 @@ from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
 
-POWERS = (-30.0, 0.0, 10.0)
-
-
 def read_session(result_dir: Path) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     metadata = json.loads((result_dir / "metadata.json").read_text(encoding="utf-8"))
     rows: list[dict[str, Any]] = []
@@ -66,10 +63,14 @@ def validate(
         raise ValueError("First continuous session is not TX")
     if rx_metadata.get("measurement_direction") != "rx":
         raise ValueError("Second continuous session is not RX")
+    tx_powers = tuple(sorted(row["tx_power_dbm"] for row in tx_rows))
+    rx_powers = tuple(sorted(row["tx_power_dbm"] for row in rx_rows))
+    if len(set(tx_powers)) != len(tx_powers) or tx_powers != rx_powers:
+        raise ValueError(
+            f"TX/RX power sweeps are incomplete or different: "
+            f"TX={tx_powers}, RX={rx_powers}"
+        )
     for rows, direction in ((tx_rows, "tx"), (rx_rows, "rx")):
-        powers = tuple(sorted(row["tx_power_dbm"] for row in rows))
-        if powers != POWERS:
-            raise ValueError(f"{direction.upper()} power sweep is incomplete: {powers}")
         if any(row["status"] != "ok" for row in rows):
             raise ValueError(f"{direction.upper()} contains non-OK rows")
         if any(row["requested_duration_s"] != 60.0 for row in rows):
@@ -139,7 +140,7 @@ def write_xlsx(
         "rx_frame_loss_percent",
     ]
     comparison.append(comparison_fields)
-    for power in POWERS:
+    for power in sorted(row["tx_power_dbm"] for row in tx_rows):
         tx = next(row for row in tx_rows if row["tx_power_dbm"] == power)
         rx = next(row for row in rx_rows if row["tx_power_dbm"] == power)
         comparison.append(
@@ -200,6 +201,11 @@ def write_power_tex(
     rx_rows: list[dict[str, Any]],
     module_title: str,
 ) -> None:
+    powers = sorted(row["tx_power_dbm"] for row in tx_rows)
+    ticks = ",".join(_number(power) for power in powers)
+    xmin = min(powers) - max(2.0, (max(powers) - min(powers)) * 0.10)
+    xmax = max(powers) + max(2.0, (max(powers) - min(powers)) * 0.10)
+    rate_label = _number(float(tx_rows[0]["bit_rate_kbps"])).replace(".", "{,}")
     lines = [
         r"\documentclass[tikz,border=6pt]{standalone}",
         r"\usepackage[T1]{fontenc}",
@@ -213,7 +219,7 @@ def write_power_tex(
         r"\begin{groupplot}[/pgf/number format/use comma,",
         r"  group style={group size=2 by 1, horizontal sep=1.7cm},",
         r"  width=8.2cm, height=6.4cm,",
-        r"  xmin=-34, xmax=14, xtick={-30,0,10},",
+        rf"  xmin={_number(xmin)}, xmax={_number(xmax)}, xtick={{{ticks}}},",
         r"  xlabel={Puterea RF configurată [dBm]},",
         r"  grid=both, minor grid style={gray!15}, major grid style={gray!35},",
         r"  every axis plot/.append style={line width=1.2pt, mark size=2.6pt},",
@@ -235,7 +241,7 @@ def write_power_tex(
         rf"  {{{module_title}: putere medie în flux continuu}};",
         r"\node[font=\footnotesize, align=center, text width=16.5cm]",
         r"  at ($(group c1r1.south)!0.5!(group c2r1.south)+(0,-2.55cm)$)",
-        r"  {Fiecare punct este media unei ferestre de 60 s la 3,3 V; cadre de 32 B, 38{,}4 kbps,\\",
+        rf"  {{Fiecare punct este media unei ferestre de 60 s la 3,3 V; cadre de 32 B, {rate_label} kbps,\\",
         r"   pauză de 15 ms între cadre. Puterea RX de pe axa X este puterea emițătorului de stimul.};",
         r"\end{tikzpicture}",
         r"\end{document}",
@@ -251,6 +257,17 @@ def write_delivery_tex(
         {**row, "delivery_percent": 100.0 - float(row["frame_loss_percent"])}
         for row in rx_rows
     ]
+    powers = sorted(row["tx_power_dbm"] for row in rx_rows)
+    ticks = ",".join(_number(power) for power in powers)
+    xmin = min(powers) - max(2.0, (max(powers) - min(powers)) * 0.10)
+    xmax = max(powers) + max(2.0, (max(powers) - min(powers)) * 0.10)
+    rate_label = _number(float(rx_rows[0]["bit_rate_kbps"])).replace(".", "{,}")
+    frame_counts = [int(row["frames_transmitted"]) for row in rx_rows]
+    frame_count_note = (
+        str(frame_counts[0])
+        if min(frame_counts) == max(frame_counts)
+        else f"{min(frame_counts)}--{max(frame_counts)}"
+    )
     lines = [
         r"\documentclass[tikz,border=6pt]{standalone}",
         r"\usepackage[T1]{fontenc}",
@@ -261,7 +278,7 @@ def write_delivery_tex(
         r"\begin{tikzpicture}",
         r"\begin{axis}[width=10.5cm, height=6.4cm,",
         rf"  title={{{module_title}: cadre recepționate în testul continuu}},",
-        r"  xmin=-34, xmax=14, xtick={-30,0,10},",
+        rf"  xmin={_number(xmin)}, xmax={_number(xmax)}, xtick={{{ticks}}},",
         r"  ymin=0, ymax=105, ytick={0,20,40,60,80,100},",
         r"  xlabel={Puterea emițătorului de stimul [dBm]},",
         r"  ylabel={Cadre recepționate [\%]},",
@@ -270,7 +287,7 @@ def write_delivery_tex(
         rf"\addplot+[red!75!black, line width=1.2pt, mark=square*, mark size=2.8pt] coordinates {{{_coordinates(delivery_rows, 'delivery_percent')}}};",
         r"\end{axis}",
         r"\node[font=\footnotesize, align=center, text width=10cm] at (5.25,-1.45)",
-        rf"  {{{int(rx_rows[0]['frames_transmitted'])} cadre transmise la fiecare punct; 32 B/cadru, 38{{,}}4 kbps, 60 s.}};",
+        rf"  {{{frame_count_note} cadre transmise/punct; 32 B/cadru, {rate_label} kbps, 60 s.}};",
         r"\end{tikzpicture}",
         r"\end{document}",
         "",
