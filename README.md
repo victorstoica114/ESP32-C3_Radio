@@ -452,12 +452,9 @@ recovery, and bidirectional transparent payload exchange passed.
 radio peripheral. The module runs its own CC1352P AT modem firmware, and the
 ESP32-C3 board is used mainly as the USB CDC to UART bridge.
 
-Firmware version `0.3.0` is maintained in two repositories:
-
-- [Ebyte-E79-CC1352P-_AT_Modem_Firmware](https://github.com/victorstoica114/Ebyte-E79-CC1352P-_AT_Modem_Firmware)
-  contains the portable source and useful release binaries.
-- [Ebyte-E79-CC1352P-_AT_Modem_Firmware-Full](https://github.com/victorstoica114/Ebyte-E79-CC1352P-_AT_Modem_Firmware-Full)
-  contains the complete build workspace and compiler support files.
+Firmware version `0.3.0` is maintained in the public
+[Ebyte-E79-CC1352P-_AT_Modem_Firmware](https://github.com/victorstoica114/Ebyte-E79-CC1352P-_AT_Modem_Firmware)
+repository, which contains the portable source and useful release binaries.
 
 This repository also keeps a compact source reference under
 `src/Ebyte E79(CC1352P)/CC1352P_AT_Modem_Firmware`.
