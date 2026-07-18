@@ -85,6 +85,11 @@ def validate(
     for field in shared_fields:
         if {row[field] for row in tx_rows} != {row[field] for row in rx_rows}:
             raise ValueError(f"TX/RX mismatch in {field}")
+    if any(row.get("rf_profile") for row in tx_rows + rx_rows):
+        if {row.get("rf_profile", "") for row in tx_rows} != {
+            row.get("rf_profile", "") for row in rx_rows
+        }:
+            raise ValueError("TX/RX mismatch in rf_profile")
 
 
 def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
@@ -195,6 +200,12 @@ def _coordinates(rows: list[dict[str, Any]], field: str) -> str:
     )
 
 
+def _rate_description(row: dict[str, Any]) -> str:
+    rate = _number(float(row["bit_rate_kbps"])).replace(".", "{,}")
+    profile = str(row.get("rf_profile") or "")
+    return f"{profile} ({rate} kbps)" if profile else f"{rate} kbps"
+
+
 def write_power_tex(
     path: Path,
     tx_rows: list[dict[str, Any]],
@@ -205,7 +216,7 @@ def write_power_tex(
     ticks = ",".join(_number(power) for power in powers)
     xmin = min(powers) - max(2.0, (max(powers) - min(powers)) * 0.10)
     xmax = max(powers) + max(2.0, (max(powers) - min(powers)) * 0.10)
-    rate_label = _number(float(tx_rows[0]["bit_rate_kbps"])).replace(".", "{,}")
+    rate_label = _rate_description(tx_rows[0])
     lines = [
         r"\documentclass[tikz,border=6pt]{standalone}",
         r"\usepackage[T1]{fontenc}",
@@ -241,7 +252,7 @@ def write_power_tex(
         rf"  {{{module_title}: putere medie în flux continuu}};",
         r"\node[font=\footnotesize, align=center, text width=16.5cm]",
         r"  at ($(group c1r1.south)!0.5!(group c2r1.south)+(0,-2.55cm)$)",
-        rf"  {{Fiecare punct este media unei ferestre de 60 s la 3,3 V; cadre de 32 B, {rate_label} kbps,\\",
+        rf"  {{Fiecare punct este media unei ferestre de 60 s la 3,3 V; profil {rate_label},\\",
         r"   pauză de 15 ms între cadre. Puterea RX de pe axa X este puterea emițătorului de stimul.};",
         r"\end{tikzpicture}",
         r"\end{document}",
@@ -261,7 +272,7 @@ def write_delivery_tex(
     ticks = ",".join(_number(power) for power in powers)
     xmin = min(powers) - max(2.0, (max(powers) - min(powers)) * 0.10)
     xmax = max(powers) + max(2.0, (max(powers) - min(powers)) * 0.10)
-    rate_label = _number(float(rx_rows[0]["bit_rate_kbps"])).replace(".", "{,}")
+    rate_label = _rate_description(rx_rows[0])
     frame_counts = [int(row["frames_transmitted"]) for row in rx_rows]
     frame_count_note = (
         str(frame_counts[0])
@@ -287,7 +298,7 @@ def write_delivery_tex(
         rf"\addplot+[red!75!black, line width=1.2pt, mark=square*, mark size=2.8pt] coordinates {{{_coordinates(delivery_rows, 'delivery_percent')}}};",
         r"\end{axis}",
         r"\node[font=\footnotesize, align=center, text width=10cm] at (5.25,-1.45)",
-        rf"  {{{frame_count_note} cadre transmise/punct; 32 B/cadru, {rate_label} kbps, 60 s.}};",
+        rf"  {{{frame_count_note} cadre transmise/punct; {int(rx_rows[0]['frame_bytes'])} B/cadru, profil {rate_label}, 60 s.}};",
         r"\end{tikzpicture}",
         r"\end{document}",
         "",

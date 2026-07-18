@@ -1,6 +1,11 @@
 import unittest
 
-from radio_power_profiler.planning import build_cases, estimate_airtime_s, parameter_commands
+from radio_power_profiler.planning import (
+    build_cases,
+    estimate_airtime_s,
+    parameter_commands,
+    resolve_rate_bps,
+)
 from radio_power_profiler.profiles import list_profiles, load_profile, override_profile
 
 
@@ -101,14 +106,22 @@ class PlanningTests(unittest.TestCase):
         self.assertEqual(profile.transmit.frame_sizes(1024), (64,) * 16)
         self.assertTrue(profile.transmit.wait_for_ok)
         self.assertEqual(profile.receiver_enable_commands, ("AT+RX=ON",))
-        self.assertEqual(len(build_cases(profile, "tx")), 90)
-        self.assertEqual(len(build_cases(profile, "rx")), 90)
+        self.assertEqual(len(build_cases(profile, "tx")), 630)
+        self.assertEqual(len(build_cases(profile, "rx")), 630)
         self.assertEqual(
             parameter_commands(
                 profile,
-                {"tx_power_dbm": 13, "bit_rate_kbps": 50},
+                {"rf_profile": "GFSK200", "tx_power_dbm": 13},
             ),
-            ["AT+PWR=13", "AT+RATE=50000"],
+            ["AT+PROFILE=GFSK200", "AT+PWR=13"],
+        )
+        self.assertEqual(
+            resolve_rate_bps(profile, {"rf_profile": "SLR2K5"}),
+            2500.0,
+        )
+        self.assertEqual(
+            resolve_rate_bps(profile, {"rf_profile": "IEEE154G50"}),
+            50000.0,
         )
 
     def test_e32_t30_profile_supports_large_transfers_and_three_rates(self):

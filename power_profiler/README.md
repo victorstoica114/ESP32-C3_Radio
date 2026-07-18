@@ -237,9 +237,11 @@ fluxul. Rezultatele incrementale sunt scrise în `continuous_results/*/summary.c
 
 Profilul `RADIO_EBYTE_E79_CC1352P` folosește o buclă host-driven de comenzi
 `AT+SEND` pentru fluxul continuu și transferuri logice fragmentate în cadre de
-maximum 64 B. Firmware-ul E79 V1 expune numai 50 kbps; pentru acest profil se
-folosesc `--powers=-20,0,13 --bit-rate-kbps 50`. Graficul loss-vs-viteză are,
-în consecință, un singur punct de viteză pentru fiecare putere.
+maximum 64 B. Firmware-ul E79 0.3.0 expune șapte profiluri RF între 2,5 și
+200 kbps: `GFSK4K8`, `GFSK50`, `GFSK200`, `SLR2K5`, `SLR5`, `OOK4K8` și
+`IEEE154G50`. Campania selectează explicit fiecare profil cu `AT+PROFILE`, astfel
+încât variantele cu aceeași viteză, dar modulații diferite, rămân puncte de
+măsurare distincte în CSV, Excel și graficele loss-vs-viteză.
 
 Opțiunea `--save-raw` salvează fiecare formă de undă la 100 kS/s în `raw/*.csv.gz`. Este dezactivată implicit, deoarece o matrice completă poate ocupa mult spațiu.
 

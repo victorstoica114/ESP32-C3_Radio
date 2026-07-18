@@ -370,7 +370,7 @@
   },
   "RADIO_EBYTE_E79_CC1352P": {
     "display_name": "Ebyte E79-400DM2005S (CC1352P AT modem)",
-    "firmware_selection": "RADIO_EBYTE_E79_CC1352P + AT_COMMANDS; E79 modem firmware required",
+    "firmware_selection": "RADIO_EBYTE_E79_CC1352P + AT_COMMANDS; E79 modem firmware 0.3.0 required",
     "baudrate": 115200,
     "setup_commands": ["AT", "AT+DEFAULT", "AT+DEBUG=OFF", "AT+RX=OFF"],
     "post_config_commands": ["AT+RX=OFF"],
@@ -379,14 +379,14 @@
     "repetitions": 5,
     "cooldown_s": 0.75,
     "axes": [
-      {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+PWR={value}", "values": [-20, 0, 13]},
-      {"name": "bit_rate_kbps", "label": "Data rate (kbps)", "commands": {"50": "AT+RATE=50000"}, "values": [50]}
+      {"name": "rf_profile", "label": "RF profile", "command": "AT+PROFILE={value}", "values": ["GFSK4K8", "GFSK50", "GFSK200", "SLR2K5", "SLR5", "OOK4K8", "IEEE154G50"]},
+      {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+PWR={value}", "values": [-20, 0, 13]}
     ],
     "transmit": {"mode": "text_command", "command": "AT+SEND={payload_text}", "line_overhead_bytes": 0, "max_payload_bytes": 1024, "frame_payload_bytes": 64, "wait_for_ok": true},
     "receive": {"inter_frame_gap_ms": 0, "post_receive_s": 0.08},
-    "airtime": {"kind": "fsk", "rate_axis": "bit_rate_kbps", "rate_multiplier": 1000, "overhead_bytes": 12, "ramp_s": 0.003},
+    "airtime": {"kind": "fsk", "rate_axis": "rf_profile", "rate_bps_by_value": {"GFSK4K8": 4800, "GFSK50": 50000, "GFSK200": 200000, "SLR2K5": 2500, "SLR5": 5000, "OOK4K8": 4800, "IEEE154G50": 50000}, "overhead_bytes": 12, "overhead_bytes_by_value": {"IEEE154G50": 14}, "ramp_s": 0.003},
     "capture": {"minimum_after_trigger_s": 0.75, "max_after_trigger_s": 4.0, "threshold_margin_uA": 500},
-    "notes": ["The current E79 modem firmware exposes only 50 kbps, so data rate is held constant.", "Logical transfers above 64 bytes are sent as acknowledged 64-byte physical frames by the host profiler.", "The printable test payload uses AT+SEND rather than long hexadecimal UART lines, which are unreliable at the validated 1 Mbaud bridge setting."]
+    "notes": ["Firmware 0.3.0 exposes seven generated RF profiles spanning 2.5 to 200 kbps, including alternate OOK and IEEE 802.15.4g modulations at shared rates.", "Logical transfers above 64 bytes are sent as acknowledged 64-byte physical frames by the host profiler.", "The printable test payload uses AT+SEND rather than long hexadecimal UART lines, which are unreliable at the validated 1 Mbaud bridge setting."]
   },
   "RADIO_XL1276_D01_SX1276": {
     "display_name": "XL1276-D01 (SX1276)",

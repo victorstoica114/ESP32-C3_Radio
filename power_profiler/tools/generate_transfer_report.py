@@ -22,6 +22,7 @@ REPORT_FIELDS = [
     "max_frame_payload_bytes",
     "tx_power_dbm",
     "bit_rate_kbps",
+    "rf_profile",
     "runs",
     "events_detected",
     "packets_attempted",
@@ -68,6 +69,23 @@ def _group_key(row: dict[str, str]) -> tuple[int, int, int, str]:
     )
 
 
+def _bit_rate_kbps(params: dict[str, Any], metadata: dict[str, Any]) -> float:
+    if params.get("bit_rate_kbps") is not None:
+        return float(params["bit_rate_kbps"])
+    airtime = metadata["profile"].get("airtime", {})
+    rate_axis = airtime.get("rate_axis")
+    if rate_axis not in params:
+        raise ValueError(f"Cannot derive bit rate from parameters: {params}")
+    rate_value = params[rate_axis]
+    mapping = airtime.get("rate_bps_by_value")
+    if mapping is not None:
+        try:
+            return float(mapping[str(rate_value)]) / 1000.0
+        except KeyError as exc:
+            raise ValueError(f"No bit-rate mapping for {rate_value!r}") from exc
+    return float(rate_value) * float(airtime.get("rate_multiplier", 1000.0)) / 1000.0
+
+
 def build_report(result_dir: Path) -> tuple[list[dict[str, Any]], list[dict[str, str]], dict[str, Any]]:
     metadata = json.loads((result_dir / "metadata.json").read_text(encoding="utf-8"))
     summary = _read_csv(result_dir / "summary.csv")
@@ -98,7 +116,8 @@ def build_report(result_dir: Path) -> tuple[list[dict[str, Any]], list[dict[str,
                 "frame_count": int(aggregate["frame_count"]),
                 "max_frame_payload_bytes": int(aggregate["max_frame_payload_bytes"]),
                 "tx_power_dbm": params["tx_power_dbm"],
-                "bit_rate_kbps": params["bit_rate_kbps"],
+                "bit_rate_kbps": _bit_rate_kbps(params, metadata),
+                "rf_profile": params.get("rf_profile", ""),
                 "runs": int(aggregate["runs"]),
                 "events_detected": int(aggregate["events_detected"]),
                 "packets_attempted": int(aggregate.get("packets_attempted") or 0),
@@ -140,7 +159,14 @@ def build_report(result_dir: Path) -> tuple[list[dict[str, Any]], list[dict[str,
                 "sample_loss_percent_max": max(sample_loss),
             }
         )
-    report.sort(key=lambda row: (row["tx_power_dbm"], row["bit_rate_kbps"], row["payload_bytes"]))
+    report.sort(
+        key=lambda row: (
+            row["tx_power_dbm"],
+            row["bit_rate_kbps"],
+            row["rf_profile"],
+            row["payload_bytes"],
+        )
+    )
     return report, summary, metadata
 
 

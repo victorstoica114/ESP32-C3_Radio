@@ -258,11 +258,47 @@ class WebAppTests(unittest.TestCase):
             all("bandwidth_khz=125" in step.command for step in continuous)
         )
 
-    def test_current_web_defaults_target_adafruit_level_shifter_pair(self):
+    def test_current_web_defaults_target_e79_pair(self):
         config = WebConfig()
-        self.assertEqual(config.profile_id, "RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER")
-        self.assertEqual(config.measured_port, "COM23")
-        self.assertEqual(config.peer_port, "COM24")
+        self.assertEqual(config.profile_id, "RADIO_EBYTE_E79_CC1352P")
+        self.assertEqual(config.measured_port, "COM5")
+        self.assertEqual(config.peer_port, "COM13")
+
+    def test_e79_campaign_covers_all_seven_rf_profiles(self):
+        config = WebConfig()
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            campaign = build_campaign_steps(config, root / "campaign")
+            continuous_rx = build_continuous_rx_steps(config, root / "continuous-rx")
+
+        self.assertEqual(len(campaign), 176)
+        self.assertEqual(
+            sum(step.result_kind == "packet" for step in campaign),
+            168,
+        )
+        self.assertEqual(
+            sum(step.result_kind == "continuous" for step in campaign),
+            8,
+        )
+        self.assertEqual(len(continuous_rx), 7)
+        profile_tokens = {
+            item.split("=", 1)[1]
+            for step in continuous_rx
+            for item in step.command
+            if item.startswith("rf_profile=")
+        }
+        self.assertEqual(
+            profile_tokens,
+            {
+                "GFSK4K8",
+                "GFSK50",
+                "GFSK200",
+                "SLR2K5",
+                "SLR5",
+                "OOK4K8",
+                "IEEE154G50",
+            },
+        )
 
     def test_config_rejects_duplicate_ports(self):
         with self.assertRaisesRegex(ValueError, "must be different"):

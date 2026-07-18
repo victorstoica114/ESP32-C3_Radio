@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Any, Mapping
 
 from .models import Profile
-from .planning import estimate_airtime_s, parameter_commands
+from .planning import estimate_airtime_s, parameter_commands, resolve_rate_bps
 from .ppk import Capture, Ppk2Sampler, SAMPLE_RATE_HZ
 from .results import save_raw_capture
 from .serial_radio import ContinuousTransmissionResult, SerialRadio
@@ -32,6 +32,7 @@ CONTINUOUS_FIELDS = [
     "spreading_factor",
     "bandwidth_khz",
     "air_rate",
+    "rf_profile",
     "parameters_json",
     "frame_bytes",
     "content_bytes_per_frame",
@@ -234,6 +235,10 @@ def run_continuous_profile(
             f"Profile {profile.profile_id} does not support controlled RX"
         )
 
+    derived_bit_rate_kbps: float | None = base_parameters.get("bit_rate_kbps")
+    if derived_bit_rate_kbps is None and profile.airtime.get("kind") == "fsk":
+        derived_bit_rate_kbps = resolve_rate_bps(profile, base_parameters) / 1000.0
+
     duration_ms = int(round(duration_s * 1000.0))
     output_dir = _output_directory(
         output_root,
@@ -256,7 +261,7 @@ def run_continuous_profile(
         "sample_rate_hz": SAMPLE_RATE_HZ,
         "powers_dbm": powers_dbm,
         "axis_parameters": base_parameters,
-        "bit_rate_kbps": base_parameters.get("bit_rate_kbps"),
+        "bit_rate_kbps": derived_bit_rate_kbps,
         "frame_bytes": frame_bytes,
         "content_bytes_per_frame": (
             frame_bytes - profile.transmit.line_overhead_bytes
@@ -394,11 +399,12 @@ def run_continuous_profile(
                 "ppk_port": ppk_port,
                 "voltage_mv": voltage_mv,
                 "tx_power_dbm": power_dbm,
-                "bit_rate_kbps": parameters.get("bit_rate_kbps", ""),
+                "bit_rate_kbps": derived_bit_rate_kbps or "",
                 "data_rate_kbps": parameters.get("data_rate_kbps", ""),
                 "spreading_factor": parameters.get("spreading_factor", ""),
                 "bandwidth_khz": parameters.get("bandwidth_khz", ""),
                 "air_rate": parameters.get("air_rate", ""),
+                "rf_profile": parameters.get("rf_profile", ""),
                 "parameters_json": json.dumps(parameters, sort_keys=True),
                 "frame_bytes": frame_bytes,
                 "content_bytes_per_frame": (

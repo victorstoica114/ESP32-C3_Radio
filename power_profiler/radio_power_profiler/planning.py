@@ -14,6 +14,15 @@ def _lookup_numeric(mapping: dict[str, Any], value: Any) -> float:
         raise ValueError(f"No airtime mapping for axis value {value!r}") from exc
 
 
+def resolve_rate_bps(profile: Profile, params: dict[str, Any]) -> float:
+    spec = profile.airtime
+    rate_axis = spec["rate_axis"]
+    rate_value = params[rate_axis]
+    if "rate_bps_by_value" in spec:
+        return _lookup_numeric(spec["rate_bps_by_value"], rate_value)
+    return float(rate_value) * float(spec.get("rate_multiplier", 1000.0))
+
+
 def estimate_airtime_s(profile: Profile, payload_bytes: int, params: dict[str, Any]) -> float:
     spec = profile.airtime
     kind = spec.get("kind", "fixed")
@@ -40,11 +49,12 @@ def estimate_airtime_s(profile: Profile, payload_bytes: int, params: dict[str, A
     if kind == "fsk":
         rate_axis = spec["rate_axis"]
         rate_value = params[rate_axis]
-        if "rate_bps_by_value" in spec:
-            rate_bps = _lookup_numeric(spec["rate_bps_by_value"], rate_value)
-        else:
-            rate_bps = float(rate_value) * float(spec.get("rate_multiplier", 1000.0))
-        overhead_bytes = int(spec.get("overhead_bytes", 8))
+        rate_bps = resolve_rate_bps(profile, params)
+        overhead_bytes = int(
+            spec.get("overhead_bytes_by_value", {}).get(
+                str(rate_value), spec.get("overhead_bytes", 8)
+            )
+        )
         ramp_s = float(spec.get("ramp_s", 0.002))
         return sum(
             ((frame_bytes + overhead_bytes) * 8 / rate_bps) + ramp_s

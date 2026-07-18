@@ -26,7 +26,7 @@ from .profiles import list_profiles, load_profile
 from .planning import estimate_airtime_s
 
 
-DEFAULT_PROFILE = "RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER"
+DEFAULT_PROFILE = "RADIO_EBYTE_E79_CC1352P"
 COM_PATTERN = re.compile(r"^COM\d+$", re.IGNORECASE)
 RESULT_PATTERN = re.compile(r"^Results:\s+(.+?)\s*$")
 
@@ -69,6 +69,7 @@ def _parameter_label(parameters: Mapping[str, Any]) -> str:
         "spreading_factor": lambda value: f"SF{_number(value)}",
         "bandwidth_khz": lambda value: f"BW {_number(value)} kHz",
         "air_rate": lambda value: f"air rate {_number(value)}",
+        "rf_profile": lambda value: f"RF profile {_number(value)}",
     }
     return ", ".join(
         labels.get(name, lambda value, key=name: f"{key}={_number(value)}")(value)
@@ -84,8 +85,8 @@ def _parameter_token(parameters: Mapping[str, Any]) -> str:
 @dataclass(frozen=True)
 class WebConfig:
     profile_id: str = DEFAULT_PROFILE
-    measured_port: str = "COM23"
-    peer_port: str = "COM24"
+    measured_port: str = "COM5"
+    peer_port: str = "COM13"
     ppk_port: str = "COM11"
     voltage_mv: int = 3300
     repetitions: int = 5
@@ -100,8 +101,8 @@ class WebConfig:
     def from_mapping(cls, raw: Mapping[str, Any]) -> "WebConfig":
         config = cls(
             profile_id=str(raw.get("profile_id", DEFAULT_PROFILE)).strip(),
-            measured_port=str(raw.get("measured_port", "COM23")).strip().upper(),
-            peer_port=str(raw.get("peer_port", "COM24")).strip().upper(),
+            measured_port=str(raw.get("measured_port", "COM5")).strip().upper(),
+            peer_port=str(raw.get("peer_port", "COM13")).strip().upper(),
             ppk_port=str(raw.get("ppk_port", "COM11")).strip().upper(),
             voltage_mv=int(raw.get("voltage_mv", 3300)),
             repetitions=int(raw.get("repetitions", 5)),
@@ -1404,8 +1405,8 @@ HTML = r"""<!doctype html>
   <div class="grid">
     <section class="card wide"><h2>Hardware configuration</h2><div class="fields">
       <label>Profile<select id="profile"></select></label>
-      <label>Measured device<input id="measured" value="COM23"></label>
-      <label>Peer device<input id="peer" value="COM24"></label>
+      <label>Measured device<input id="measured" value="COM5"></label>
+      <label>Peer device<input id="peer" value="COM13"></label>
       <label>PPK2<input id="ppk" value="COM11"></label>
       <label>PPK2 voltage (mV)<input id="voltage" type="number" value="3300"></label>
       <label>Repetitions / point<input id="repetitions" type="number" min="1" max="20" value="5"></label>
@@ -1451,8 +1452,8 @@ async function poll(){try{let r=await fetch('/api/status?after='+lastSeq);let s=
  $('session').textContent=s.session_dir||'-';$('quick').disabled=s.running;$('campaign').disabled=s.running;
  $('testCodex').disabled=s.running||s.codex_callback_running||!codexAvailable;$('stop').disabled=!s.running||s.kind==='callback_test';
  if(s.logs?.length){let p=$('log');s.logs.forEach(x=>p.textContent+=`[${x.time}] ${x.level.toUpperCase().padEnd(7)} ${x.message}\n`);p.scrollTop=p.scrollHeight;lastSeq=s.last_log_sequence} verdict(s.quick_verdict)}catch(e){}setTimeout(poll,1000)}
-async function init(){let r=await fetch('/api/profiles');let p=await r.json();codexAvailable=p.codex_callback_available;p.profiles.forEach(x=>{let o=document.createElement('option');o.value=x.id;o.textContent=x.name;o.selected=x.id==='RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER';$('profile').appendChild(o)});
- $('profile').value='RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER';$('measured').value='COM23';$('peer').value='COM24';
+async function init(){let r=await fetch('/api/profiles');let p=await r.json();codexAvailable=p.codex_callback_available;p.profiles.forEach(x=>{let o=document.createElement('option');o.value=x.id;o.textContent=x.name;o.selected=x.id==='RADIO_EBYTE_E79_CC1352P';$('profile').appendChild(o)});
+ $('profile').value='RADIO_EBYTE_E79_CC1352P';$('measured').value='COM5';$('peer').value='COM13';
  $('notifyCodex').disabled=!p.codex_callback_available;$('notifyCodex').checked=p.codex_callback_available;
  $('codexCallbackState').textContent=p.codex_callback_available?'Connected to the current Codex thread.':'Unavailable: restart this server from an active Codex thread.';poll()} init();
 </script></body></html>"""

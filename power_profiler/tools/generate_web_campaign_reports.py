@@ -33,6 +33,7 @@ LINE_STYLES = ("solid", "dashed", "dashdotted", "densely dotted")
 MARKERS = ("*", "square*", "triangle*", "diamond*")
 LOSS_FIELDS = (
     "bit_rate_kbps",
+    "rf_profile",
     "tx_power_dbm",
     "frames_transmitted",
     "frames_received",
@@ -53,6 +54,27 @@ def _number(value: float | int) -> str:
 
 def _latex_number(value: float | int) -> str:
     return _number(value).replace(".", "{,}")
+
+
+def _setting_key(row: dict[str, Any]) -> str:
+    profile = str(row.get("rf_profile") or "")
+    return profile or f"rate:{_number(float(row['bit_rate_kbps']))}"
+
+
+def _radio_settings(rows: list[dict[str, Any]]) -> list[tuple[str, float, str]]:
+    settings: dict[str, tuple[float, str]] = {}
+    for row in rows:
+        key = _setting_key(row)
+        rate = float(row["bit_rate_kbps"])
+        profile = str(row.get("rf_profile") or "")
+        label = f"{profile} ({_number(rate)} kbps)" if profile else f"{_number(rate)} kbps"
+        settings[key] = (rate, label)
+    return [
+        (key, rate, label)
+        for key, (rate, label) in sorted(
+            settings.items(), key=lambda item: (item[1][0], item[0])
+        )
+    ]
 
 
 def _read_manifest(path: Path) -> dict[str, Any]:
@@ -89,7 +111,10 @@ def _collect_packet_results(
         raise ValueError(f"No accepted {direction.upper()} packet results")
     report.sort(
         key=lambda row: (
-            row["tx_power_dbm"], row["bit_rate_kbps"], row["payload_bytes"]
+            row["tx_power_dbm"],
+            row["bit_rate_kbps"],
+            row.get("rf_profile", ""),
+            row["payload_bytes"],
         )
     )
     return report, summary, metadata
@@ -99,26 +124,35 @@ def _validate_energy_matrix(
     tx_rows: list[dict[str, Any]],
     rx_rows: list[dict[str, Any]],
     repetitions: int,
-) -> tuple[list[int], list[float], list[float], float, str, int]:
+) -> tuple[list[int], list[float], list[tuple[str, float, str]], float, str, int]:
     module = str(tx_rows[0]["module"])
     if any(row["module"] != module for row in tx_rows + rx_rows):
         raise ValueError("TX and RX data refer to different modules")
     sizes = sorted({int(row["payload_bytes"]) for row in tx_rows})
     powers = sorted({float(row["tx_power_dbm"]) for row in tx_rows})
-    rates = sorted({float(row["bit_rate_kbps"]) for row in tx_rows})
+    settings = _radio_settings(tx_rows)
+    setting_keys = {item[0] for item in settings}
+    rx_setting_keys = {_setting_key(row) for row in rx_rows}
     rx_powers = sorted({float(row["tx_power_dbm"]) for row in rx_rows})
     if len(rx_powers) != 1 or rx_powers[0] != max(powers):
         raise ValueError("RX must use the maximum tested transmitter power")
+    if rx_setting_keys != setting_keys:
+        raise ValueError("TX and RX cover different radio settings")
     tx_expected = {
-        (size, power, rate) for size in sizes for power in powers for rate in rates
+        (size, power, setting)
+        for size in sizes
+        for power in powers
+        for setting in setting_keys
     }
-    rx_expected = {(size, rx_powers[0], rate) for size in sizes for rate in rates}
+    rx_expected = {
+        (size, rx_powers[0], setting) for size in sizes for setting in setting_keys
+    }
     tx_actual = {
-        (row["payload_bytes"], row["tx_power_dbm"], row["bit_rate_kbps"])
+        (row["payload_bytes"], row["tx_power_dbm"], _setting_key(row))
         for row in tx_rows
     }
     rx_actual = {
-        (row["payload_bytes"], row["tx_power_dbm"], row["bit_rate_kbps"])
+        (row["payload_bytes"], row["tx_power_dbm"], _setting_key(row))
         for row in rx_rows
     }
     if tx_actual != tx_expected or len(tx_rows) != len(tx_expected):
@@ -133,7 +167,7 @@ def _validate_energy_matrix(
     if any(row["packets_received"] != repetitions for row in rx_rows):
         raise ValueError("Every RX point must contain all received transfers")
     frame_limit = max(int(row["max_frame_payload_bytes"]) for row in tx_rows)
-    return sizes, powers, rates, rx_powers[0], module, frame_limit
+    return sizes, powers, settings, rx_powers[0], module, frame_limit
 
 
 def _campaign_metadata(
@@ -141,7 +175,7 @@ def _campaign_metadata(
     direction: str,
     sizes: list[int],
     powers: list[float],
-    rates: list[float],
+    settings: list[tuple[str, float, str]],
 ) -> dict[str, Any]:
     merged = copy.deepcopy(metadata)
     merged["measurement_direction"] = direction
@@ -150,7 +184,9 @@ def _campaign_metadata(
         if axis["name"] == "tx_power_dbm":
             axis["values"] = powers
         elif axis["name"] == "bit_rate_kbps":
-            axis["values"] = rates
+            axis["values"] = sorted({setting[1] for setting in settings})
+        elif axis["name"] == "rf_profile":
+            axis["values"] = [setting[0] for setting in settings if not setting[0].startswith("rate:")]
     return merged
 
 
@@ -161,6 +197,7 @@ def _write_energy_data(path: Path, rows: list[dict[str, Any]]) -> None:
         "payload_bytes",
         "tx_power_dbm",
         "bit_rate_kbps",
+        "rf_profile",
         "runs",
         "status_ok_runs",
         "packets_received",
@@ -250,7 +287,7 @@ def _write_tx_tex(
     tx_rows: list[dict[str, Any]],
     sizes: list[int],
     powers: list[float],
-    rates: list[float],
+    settings: list[tuple[str, float, str]],
     module: str,
     frame_limit: int,
     title: str,
@@ -262,10 +299,10 @@ def _write_tx_tex(
         lines.append(
             rf"\nextgroupplot[title={{\(P_{{\mathrm{{TX}}}}={_latex_number(power)}\,\mathrm{{dBm}}\)}}{ylabel}]"
         )
-        for index, rate in enumerate(rates):
+        for index, (setting, _rate, label) in enumerate(settings):
             points = [
                 row for row in tx_rows
-                if row["tx_power_dbm"] == power and row["bit_rate_kbps"] == rate
+                if row["tx_power_dbm"] == power and _setting_key(row) == setting
             ]
             lines.extend(
                 [
@@ -275,7 +312,7 @@ def _write_tx_tex(
                 ]
             )
             if power == legend_power:
-                lines.append(rf"\addlegendentry{{{_latex_number(rate)} kbps}}")
+                lines.append(rf"\addlegendentry{{{label}}}")
     note = (
         f"Mean of 5 repetitions; error bars show standard deviation. Logical transfers "
         f"above {frame_limit} B are fragmented into physical frames of at most "
@@ -290,28 +327,28 @@ def _write_tx_rx_tex(
     tx_rows: list[dict[str, Any]],
     rx_rows: list[dict[str, Any]],
     sizes: list[int],
-    rates: list[float],
+    settings: list[tuple[str, float, str]],
     power: float,
     module: str,
 ) -> None:
     plotted = [row for row in tx_rows if row["tx_power_dbm"] == power] + rx_rows
-    lines = _energy_document_start(plotted, sizes, len(rates))
-    legend_rate = rates[len(rates) // 2]
-    for index, rate in enumerate(rates):
+    lines = _energy_document_start(plotted, sizes, len(settings))
+    legend_setting = settings[len(settings) // 2][0]
+    for index, (setting, _rate, label) in enumerate(settings):
         ylabel = r", ylabel={Mean total energy [mJ]}" if index == 0 else ""
-        lines.append(rf"\nextgroupplot[title={{{_latex_number(rate)} kbps}}{ylabel}]")
+        lines.append(rf"\nextgroupplot[title={{{label}}}{ylabel}]")
         tx_points = [
             row for row in tx_rows
-            if row["tx_power_dbm"] == power and row["bit_rate_kbps"] == rate
+            if row["tx_power_dbm"] == power and _setting_key(row) == setting
         ]
-        rx_points = [row for row in rx_rows if row["bit_rate_kbps"] == rate]
+        rx_points = [row for row in rx_rows if _setting_key(row) == setting]
         lines.extend(
             [
                 r"\addplot+[color=blue!75!black, solid, mark=*, mark size=2.2pt,",
                 *_energy_coordinates(tx_points),
             ]
         )
-        if rate == legend_rate:
+        if setting == legend_setting:
             lines.append(rf"\addlegendentry{{TX at {_latex_number(power)} dBm}}")
         lines.extend(
             [
@@ -319,19 +356,20 @@ def _write_tx_rx_tex(
                 *_energy_coordinates(rx_points),
             ]
         )
-        if rate == legend_rate:
+        if setting == legend_setting:
             lines.append(rf"\addlegendentry{{RX, stimulus at {_latex_number(power)} dBm}}")
     note = (
         "Mean of 5 repetitions; error bars show standard deviation. RX energy includes "
         "receiver activation, reception, and processing of all physical frames."
     )
-    lines.extend(_energy_document_end(module, "TX--RX comparison", note, len(rates)))
+    lines.extend(_energy_document_end(module, "TX--RX comparison", note, len(settings)))
     path.write_text("\n".join(lines), encoding="utf-8")
 
 
 def _continuous_steps(manifest: dict[str, Any]) -> tuple[Path, Path, list[Path]]:
     tx: Path | None = None
-    rx_by_rate: dict[float, Path] = {}
+    tx_setting = ""
+    rx_by_setting: dict[str, tuple[float, Path]] = {}
     for step in manifest["steps"]:
         if step.get("result_kind") != "continuous":
             continue
@@ -341,21 +379,30 @@ def _continuous_steps(manifest: dict[str, Any]) -> tuple[Path, Path, list[Path]]
         if not rows:
             raise ValueError(f"Empty continuous result: {result}")
         direction = rows[0]["measurement_direction"]
+        settings = {_setting_key(row) for row in rows}
         rates = {float(row["bit_rate_kbps"]) for row in rows}
-        if len(rates) != 1:
+        if len(settings) != 1 or len(rates) != 1:
             raise ValueError(f"Mixed rates in continuous result: {result}")
+        setting = settings.pop()
         rate = rates.pop()
         if direction == "tx":
             tx = result
+            tx_setting = setting
         elif direction == "rx":
-            rx_by_rate[rate] = result
-    if tx is None or not rx_by_rate:
+            if setting in rx_by_setting:
+                raise ValueError(f"Duplicate continuous RX setting: {setting}")
+            rx_by_setting[setting] = (rate, result)
+    if tx is None or not rx_by_setting:
         raise ValueError("Missing accepted continuous TX or RX results")
-    with (tx / "summary.csv").open(encoding="utf-8", newline="") as stream:
-        tx_rate = float(next(csv.DictReader(stream))["bit_rate_kbps"])
-    if tx_rate not in rx_by_rate:
-        raise ValueError("No RX sweep matches the continuous TX rate")
-    return tx, rx_by_rate[tx_rate], [rx_by_rate[rate] for rate in sorted(rx_by_rate)]
+    if tx_setting not in rx_by_setting:
+        raise ValueError("No RX sweep matches the continuous TX radio setting")
+    ordered = [
+        item[1]
+        for _setting, item in sorted(
+            rx_by_setting.items(), key=lambda pair: (pair[1][0], pair[0])
+        )
+    ]
+    return tx, rx_by_setting[tx_setting][1], ordered
 
 
 def _read_loss_rows(result_dirs: list[Path]) -> list[dict[str, Any]]:
@@ -371,6 +418,7 @@ def _read_loss_rows(result_dirs: list[Path]) -> list[dict[str, Any]]:
                 loss = float(raw["frame_loss_percent"])
                 row = {
                     "bit_rate_kbps": float(raw["bit_rate_kbps"]),
+                    "rf_profile": raw.get("rf_profile", ""),
                     "tx_power_dbm": float(raw["tx_power_dbm"]),
                     "frames_transmitted": transmitted,
                     "frames_received": received,
@@ -386,11 +434,15 @@ def _read_loss_rows(result_dirs: list[Path]) -> list[dict[str, Any]]:
                 if row["status"] != "ok" or not 0 <= loss <= 100:
                     raise ValueError(f"Invalid loss result: {row}")
                 rows.append(row)
-    rows.sort(key=lambda row: (row["tx_power_dbm"], row["bit_rate_kbps"]))
+    rows.sort(
+        key=lambda row: (
+            row["tx_power_dbm"], row["bit_rate_kbps"], row["rf_profile"]
+        )
+    )
     powers = {row["tx_power_dbm"] for row in rows}
-    rates = {row["bit_rate_kbps"] for row in rows}
-    expected = {(power, rate) for power in powers for rate in rates}
-    actual = {(row["tx_power_dbm"], row["bit_rate_kbps"]) for row in rows}
+    settings = {_setting_key(row) for row in rows}
+    expected = {(power, setting) for power in powers for setting in settings}
+    actual = {(row["tx_power_dbm"], _setting_key(row)) for row in rows}
     if actual != expected or len(rows) != len(expected):
         raise ValueError("Incomplete or duplicate continuous loss matrix")
     return rows
@@ -418,6 +470,8 @@ def _write_loss_reports(base: Path, rows: list[dict[str, Any]], module: str) -> 
 
     powers = sorted({row["tx_power_dbm"] for row in rows})
     rates = sorted({row["bit_rate_kbps"] for row in rows})
+    settings = _radio_settings(rows)
+    frame_sizes = sorted({int(row["frame_bytes"]) for row in rows})
     workbook = Workbook()
     results = workbook.active
     results.title = "loss_results"
@@ -426,10 +480,15 @@ def _write_loss_reports(base: Path, rows: list[dict[str, Any]], module: str) -> 
         results.append([row[field] for field in LOSS_FIELDS])
     _style_sheet(results)
     matrix = workbook.create_sheet("loss_matrix_percent")
-    matrix.append(["TX power [dBm]", *rates])
-    by_key = {(row["tx_power_dbm"], row["bit_rate_kbps"]): row for row in rows}
+    matrix.append(["TX power [dBm]", *(setting[2] for setting in settings)])
+    by_key = {(row["tx_power_dbm"], _setting_key(row)): row for row in rows}
     for power in powers:
-        matrix.append([power, *(by_key[(power, rate)]["frame_loss_percent"] for rate in rates)])
+        matrix.append(
+            [
+                power,
+                *(by_key[(power, setting[0])]["frame_loss_percent"] for setting in settings),
+            ]
+        )
     _style_sheet(matrix)
     workbook.save(base.with_suffix(".xlsx"))
 
@@ -460,13 +519,17 @@ def _write_loss_reports(base: Path, rows: list[dict[str, Any]], module: str) -> 
         r"]",
     ]
     for index, power in enumerate(reversed(powers)):
-        selected = [row for row in rows if row["tx_power_dbm"] == power]
+        selected = sorted(
+            (row for row in rows if row["tx_power_dbm"] == power),
+            key=lambda row: (row["bit_rate_kbps"], row["rf_profile"]),
+        )
         coordinates = " ".join(
             f"({_number(row['bit_rate_kbps'])},{_number(row['frame_loss_percent'])})"
             for row in selected
         )
+        plot_style = "only marks" if len(rates) < len(settings) else LINE_STYLES[index % len(LINE_STYLES)]
         lines.append(
-            rf"\addplot+[{COLORS[index % len(COLORS)]}, {LINE_STYLES[index % len(LINE_STYLES)]}, mark={MARKERS[index % len(MARKERS)]}] coordinates {{{coordinates}}};"
+            rf"\addplot+[{COLORS[index % len(COLORS)]}, {plot_style}, mark={MARKERS[index % len(MARKERS)]}] coordinates {{{coordinates}}};"
         )
         lines.append(rf"\addlegendentry{{{_latex_number(power)} dBm}}")
     lines.extend(
@@ -474,7 +537,7 @@ def _write_loss_reports(base: Path, rows: list[dict[str, Any]], module: str) -> 
             r"\end{axis}",
             r"\node[font=\footnotesize, align=center, text width=12cm, anchor=north]",
             r"  at ([yshift=-1.45cm]current axis.south)",
-            r"  {60 s per point; 32 B frames; 15 ms inter-frame gap.};",
+            rf"  {{60 s per point; {','.join(map(str, frame_sizes))} B frames; 15 ms inter-frame gap. Shared rates may contain multiple RF profiles.}};",
             r"\end{tikzpicture}",
             r"\end{document}",
             "",
@@ -502,7 +565,7 @@ def generate(manifest_path: Path, output_dir: Path, base_name: str) -> list[Path
     tx_rows, tx_summary, tx_metadata = _collect_packet_results(manifest, "tx")
     rx_rows, rx_summary, rx_metadata = _collect_packet_results(manifest, "rx")
     repetitions = int(manifest["config"]["repetitions"])
-    sizes, powers, rates, rx_power, module, frame_limit = _validate_energy_matrix(
+    sizes, powers, settings, rx_power, module, frame_limit = _validate_energy_matrix(
         tx_rows, rx_rows, repetitions
     )
     base = output_dir / base_name
@@ -510,10 +573,10 @@ def generate(manifest_path: Path, output_dir: Path, base_name: str) -> list[Path
     rx_base = base.with_name(base.name + "_rx")
     large_base = base.with_name(base.name + "_payload_128_512_1024")
     tx_campaign_metadata = _campaign_metadata(
-        tx_metadata, "tx", sizes, powers, rates
+        tx_metadata, "tx", sizes, powers, settings
     )
     rx_campaign_metadata = _campaign_metadata(
-        rx_metadata, "rx", sizes, [rx_power], rates
+        rx_metadata, "rx", sizes, [rx_power], settings
     )
     write_transfer_csv(tx_base.with_suffix(".csv"), tx_rows)
     write_transfer_xlsx(
@@ -540,6 +603,7 @@ def generate(manifest_path: Path, output_dir: Path, base_name: str) -> list[Path
                 row["measurement_direction"],
                 row["tx_power_dbm"],
                 row["bit_rate_kbps"],
+                row.get("rf_profile", ""),
                 row["payload_bytes"],
             ),
         ),
@@ -550,16 +614,16 @@ def generate(manifest_path: Path, output_dir: Path, base_name: str) -> list[Path
     )
     _write_tx_tex(
         base.with_name(base.name + "_tx_energy").with_suffix(".tex"),
-        tx_rows, sizes, powers, rates, module, frame_limit, "TX energy",
+        tx_rows, sizes, powers, settings, module, frame_limit, "TX energy",
     )
     _write_tx_tex(
         base.with_name(base.name + "_energy_vs_payload").with_suffix(".tex"),
-        tx_rows, sizes, powers, rates, module, frame_limit,
+        tx_rows, sizes, powers, settings, module, frame_limit,
         "energy versus logical payload",
     )
     _write_tx_rx_tex(
         base.with_name(base.name + "_tx_rx_energy").with_suffix(".tex"),
-        tx_rows, rx_rows, sizes, rates, rx_power, module,
+        tx_rows, rx_rows, sizes, settings, rx_power, module,
     )
 
     continuous_tx, continuous_rx, loss_dirs = _continuous_steps(manifest)
