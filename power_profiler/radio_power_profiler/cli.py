@@ -163,18 +163,36 @@ def cmd_continuous(args) -> int:
     if args.direction == "tx" and args.transmitter_port:
         raise ValueError("--transmitter-port is only valid with continuous RX")
     profile = load_profile(args.module)
+    parameter_axes = [axis for axis in profile.axes if axis.name != "tx_power_dbm"]
+    if args.axis:
+        overrides = _axis_overrides(args.axis, profile)
+        if "tx_power_dbm" in overrides:
+            raise ValueError("Use --powers, not --axis, for tx_power_dbm")
+        if any(len(values) != 1 for values in overrides.values()):
+            raise ValueError("Each continuous --axis override must select one value")
+        axis_parameters = {axis.name: axis.values[0] for axis in parameter_axes}
+        axis_parameters.update({name: values[0] for name, values in overrides.items()})
+    else:
+        if "bit_rate_kbps" not in {axis.name for axis in parameter_axes}:
+            raise ValueError(
+                f"Profile {profile.profile_id} requires one --axis NAME=VALUE "
+                "for every non-power radio parameter"
+            )
+        axis_parameters = {axis.name: axis.values[0] for axis in parameter_axes}
+        axis_parameters["bit_rate_kbps"] = args.bit_rate_kbps
     ppk_port = _resolve_ppk_port(args.ppk_port)
     print(f"PPK2: {ppk_port}, mode=ampere, input voltage={args.voltage_mv} mV")
     print(
         f"Continuous {args.direction.upper()}: {args.duration_s:g} s per power, "
-        f"{args.bit_rate_kbps:g} kbps, {args.frame_bytes} B frames, "
+        f"parameters={axis_parameters}, {args.frame_bytes} B frames, "
         f"{args.gap_ms} ms gap"
     )
     output = run_continuous_profile(
         profile,
         measurement_direction=args.direction,
         powers_dbm=args.powers,
-        bit_rate_kbps=args.bit_rate_kbps,
+        bit_rate_kbps=axis_parameters.get("bit_rate_kbps"),
+        axis_parameters=axis_parameters,
         duration_s=args.duration_s,
         frame_bytes=args.frame_bytes,
         inter_frame_gap_ms=args.gap_ms,
@@ -185,6 +203,7 @@ def cmd_continuous(args) -> int:
         output_root=args.output,
         boot_wait_s=args.boot_wait_s,
         save_raw=args.save_raw,
+        keep_power_on=args.keep_power_on,
     )
     print(f"Results: {output.resolve()}")
     return 0
@@ -263,7 +282,19 @@ def make_parser() -> argparse.ArgumentParser:
     )
     run_parser.add_argument("--output", type=Path, default=Path("results"))
     run_parser.add_argument("--save-raw", action="store_true", help="save every 100 kS/s trace as gzip CSV")
-    run_parser.add_argument("--keep-power-on", action="store_true", help="leave the PPK2 DUT path enabled after the run")
+    run_parser.add_argument(
+        "--keep-power-on",
+        dest="keep_power_on",
+        action="store_true",
+        default=True,
+        help="leave the PPK2 DUT path enabled after the run (default)",
+    )
+    run_parser.add_argument(
+        "--power-off-after-run",
+        dest="keep_power_on",
+        action="store_false",
+        help="explicitly disable the PPK2 DUT path after the run",
+    )
     run_parser.add_argument("--boot-wait-s", type=float, default=1.5)
     run_parser.set_defaults(func=cmd_run)
 
@@ -284,6 +315,16 @@ def make_parser() -> argparse.ArgumentParser:
         help="comma-separated transmitter powers in dBm",
     )
     continuous_parser.add_argument("--bit-rate-kbps", type=float, default=38.4)
+    continuous_parser.add_argument(
+        "--axis",
+        action="append",
+        default=[],
+        metavar="NAME=VALUE",
+        help=(
+            "select one non-power radio axis for a continuous test; repeat for "
+            "LoRa SF/bandwidth or other multi-axis profiles"
+        ),
+    )
     continuous_parser.add_argument("--frame-bytes", type=int, default=32)
     continuous_parser.add_argument("--gap-ms", type=int, default=15)
     continuous_parser.add_argument("--duration-s", type=float, default=60.0)
@@ -300,6 +341,19 @@ def make_parser() -> argparse.ArgumentParser:
         default=Path("continuous_results"),
     )
     continuous_parser.add_argument("--boot-wait-s", type=float, default=1.5)
+    continuous_parser.add_argument(
+        "--keep-power-on",
+        dest="keep_power_on",
+        action="store_true",
+        default=True,
+        help="leave the PPK2 DUT path enabled after the run (default)",
+    )
+    continuous_parser.add_argument(
+        "--power-off-after-run",
+        dest="keep_power_on",
+        action="store_false",
+        help="explicitly disable the PPK2 DUT path after the run",
+    )
     continuous_parser.add_argument(
         "--save-raw",
         action="store_true",

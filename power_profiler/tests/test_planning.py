@@ -18,7 +18,7 @@ class PlanningTests(unittest.TestCase):
                 self.assertTrue(all(command.startswith("AT+") for command in commands))
 
     def test_known_lora_airtime(self):
-        profile = load_profile("RADIO_RA01_SX1278")
+        profile = load_profile("RADIO_SX1278_NAKED")
         airtime = estimate_airtime_s(
             profile,
             20,

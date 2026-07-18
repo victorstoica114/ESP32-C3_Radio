@@ -1,0 +1,551 @@
+[22:31:18] START   Campaign session: 40 steps - RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER
+[22:31:18] STEP    TX 8 B - -4 dBm - SF7, BW 125 kHz - attempt 1
+[22:31:18] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-4 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:31:18] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:31:18] INFO    Measured transmitter: COM23, 9600 baud
+[22:31:18] INFO    Peer receiver: COM24, 9600 baud
+[22:31:22] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:31:24] INFO    Configuring peer receiver on COM24 ...
+[22:31:29] INFO    [   1/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: rx_missing, peak=16947.3 uA, energy=1826.062 uJ
+[22:31:32] INFO    [   2/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: rx_missing, peak=17944.1 uA, energy=1822.822 uJ
+[22:31:36] INFO    [   3/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: rx_missing, peak=18039.0 uA, energy=1823.835 uJ
+[22:31:39] INFO    [   4/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: rx_missing, peak=17896.7 uA, energy=1824.741 uJ
+[22:31:42] INFO    [   5/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: rx_missing, peak=18895.0 uA, energy=1825.790 uJ
+[22:31:42] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_223118_radio_sx1278_adafruit_level_shifter
+[22:31:43] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:31:43] WARNING TX 8 B - -4 dBm - SF7, BW 125 kHz: 5 transfers have missing packets or fragments
+[22:31:43] STEP    TX 32 B - -4 dBm - SF7, BW 125 kHz - attempt 1
+[22:31:43] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-4 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:31:43] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:31:43] INFO    Measured transmitter: COM23, 9600 baud
+[22:31:43] INFO    Peer receiver: COM24, 9600 baud
+[22:31:47] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:31:49] INFO    Configuring peer receiver on COM24 ...
+[22:31:54] INFO    [   1/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: rx_missing, peak=17754.5 uA, energy=3522.184 uJ
+[22:31:57] INFO    [   2/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: rx_missing, peak=18276.5 uA, energy=3509.873 uJ
+[22:32:01] INFO    [   3/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: rx_missing, peak=18229.0 uA, energy=3506.758 uJ
+[22:32:04] INFO    [   4/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: rx_missing, peak=18324.0 uA, energy=3511.506 uJ
+[22:32:08] INFO    [   5/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: rx_missing, peak=20089.3 uA, energy=3518.650 uJ
+[22:32:08] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_223143_radio_sx1278_adafruit_level_shifter
+[22:32:08] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:32:08] WARNING TX 32 B - -4 dBm - SF7, BW 125 kHz: 5 transfers have missing packets or fragments
+[22:32:08] STEP    TX 128 B - -4 dBm - SF7, BW 125 kHz - attempt 1
+[22:32:08] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-4 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:32:09] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:32:09] INFO    Measured transmitter: COM23, 9600 baud
+[22:32:09] INFO    Peer receiver: COM24, 9600 baud
+[22:32:12] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:32:14] INFO    Configuring peer receiver on COM24 ...
+[22:32:19] INFO    [   1/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: rx_missing, peak=18229.0 uA, energy=10267.818 uJ
+[22:32:23] INFO    [   2/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: rx_missing, peak=17470.3 uA, energy=10255.011 uJ
+[22:32:27] INFO    [   3/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: rx_missing, peak=19897.8 uA, energy=10263.734 uJ
+[22:32:31] INFO    [   4/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: rx_missing, peak=18039.0 uA, energy=10243.323 uJ
+[22:32:34] INFO    [   5/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: rx_missing, peak=18181.5 uA, energy=10250.216 uJ
+[22:32:34] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_223209_radio_sx1278_adafruit_level_shifter
+[22:32:35] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:32:35] WARNING TX 128 B - -4 dBm - SF7, BW 125 kHz: 5 transfers have missing packets or fragments
+[22:32:35] STEP    TX 8 B - -4 dBm - SF9, BW 125 kHz - attempt 1
+[22:32:35] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-4 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:32:35] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:32:35] INFO    Measured transmitter: COM23, 9600 baud
+[22:32:35] INFO    Peer receiver: COM24, 9600 baud
+[22:32:39] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:32:41] INFO    Configuring peer receiver on COM24 ...
+[22:32:46] INFO    [   1/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=17849.3 uA, energy=6325.423 uJ
+[22:32:49] INFO    [   2/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=18371.5 uA, energy=6302.022 uJ
+[22:32:53] INFO    [   3/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=17849.3 uA, energy=6306.709 uJ
+[22:32:56] INFO    [   4/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: rx_missing, peak=18086.5 uA, energy=6311.278 uJ
+[22:33:00] INFO    [   5/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=18324.0 uA, energy=6305.892 uJ
+[22:33:00] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_223235_radio_sx1278_adafruit_level_shifter
+[22:33:00] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:33:00] WARNING TX 8 B - -4 dBm - SF9, BW 125 kHz: 1 transfers have missing packets or fragments
+[22:33:00] STEP    TX 32 B - -4 dBm - SF9, BW 125 kHz - attempt 1
+[22:33:00] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-4 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:33:01] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:33:01] INFO    Measured transmitter: COM23, 9600 baud
+[22:33:01] INFO    Peer receiver: COM24, 9600 baud
+[22:33:04] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:33:06] INFO    Configuring peer receiver on COM24 ...
+[22:33:12] INFO    [   1/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=17896.7 uA, energy=12084.635 uJ
+[22:33:15] INFO    [   2/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=17849.3 uA, energy=12066.794 uJ
+[22:33:19] INFO    [   3/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=17659.7 uA, energy=12064.891 uJ
+[22:33:23] INFO    [   4/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=17849.3 uA, energy=12038.140 uJ
+[22:33:27] INFO    [   5/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=18419.0 uA, energy=12064.384 uJ
+[22:33:27] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_223301_radio_sx1278_adafruit_level_shifter
+[22:33:27] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:33:27] STEP    TX 128 B - -4 dBm - SF9, BW 125 kHz - attempt 1
+[22:33:27] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-4 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:33:27] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:33:27] INFO    Measured transmitter: COM23, 9600 baud
+[22:33:27] INFO    Peer receiver: COM24, 9600 baud
+[22:33:31] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:33:33] INFO    Configuring peer receiver on COM24 ...
+[22:33:39] INFO    [   1/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=17991.6 uA, energy=32304.366 uJ
+[22:33:44] INFO    [   2/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=20857.0 uA, energy=32230.989 uJ
+[22:33:49] INFO    [   3/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: rx_missing, peak=19324.2 uA, energy=32241.591 uJ
+[22:33:54] INFO    [   4/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=17991.6 uA, energy=32227.714 uJ
+[22:33:58] INFO    [   5/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: rx_missing, peak=17422.9 uA, energy=32262.455 uJ
+[22:33:59] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_223327_radio_sx1278_adafruit_level_shifter
+[22:33:59] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:33:59] WARNING TX 128 B - -4 dBm - SF9, BW 125 kHz: 2 transfers have missing packets or fragments
+[22:33:59] STEP    TX 8 B - -4 dBm - SF12, BW 125 kHz - attempt 1
+[22:33:59] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-4 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:33:59] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:33:59] INFO    Measured transmitter: COM23, 9600 baud
+[22:33:59] INFO    Peer receiver: COM24, 9600 baud
+[22:34:03] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:34:05] INFO    Configuring peer receiver on COM24 ...
+[22:34:12] INFO    [   1/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=18084.4 uA, energy=50507.901 uJ
+[22:34:18] INFO    [   2/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=17707.1 uA, energy=50368.776 uJ
+[22:34:23] INFO    [   3/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=18561.7 uA, energy=50418.605 uJ
+[22:34:29] INFO    [   4/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=18609.3 uA, energy=50372.841 uJ
+[22:34:35] INFO    [   5/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=18371.5 uA, energy=50405.411 uJ
+[22:34:35] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_223359_radio_sx1278_adafruit_level_shifter
+[22:34:35] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:34:35] STEP    TX 32 B - -4 dBm - SF12, BW 125 kHz - attempt 1
+[22:34:35] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-4 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:34:35] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:34:35] INFO    Measured transmitter: COM23, 9600 baud
+[22:34:35] INFO    Peer receiver: COM24, 9600 baud
+[22:34:39] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:34:41] INFO    Configuring peer receiver on COM24 ...
+[22:34:50] INFO    [   1/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=17470.3 uA, energy=88762.382 uJ
+[22:34:58] INFO    [   2/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=17801.9 uA, energy=88817.993 uJ
+[22:35:05] INFO    [   3/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=17991.6 uA, energy=88784.730 uJ
+[22:35:14] INFO    [   4/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=18086.5 uA, energy=88857.574 uJ
+[22:35:21] INFO    [   5/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=18229.0 uA, energy=88902.864 uJ
+[22:35:21] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_223435_radio_sx1278_adafruit_level_shifter
+[22:35:22] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:35:22] STEP    TX 128 B - -4 dBm - SF12, BW 125 kHz - attempt 1
+[22:35:22] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-4 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:35:22] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:35:22] INFO    Measured transmitter: COM23, 9600 baud
+[22:35:22] INFO    Peer receiver: COM24, 9600 baud
+[22:35:26] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:35:28] INFO    Configuring peer receiver on COM24 ...
+[22:35:44] INFO    [   1/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=17427.8 uA, energy=235437.637 uJ
+[22:35:59] INFO    [   2/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=18990.3 uA, energy=235308.274 uJ
+[22:36:14] INFO    [   3/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=20568.8 uA, energy=235059.296 uJ
+[22:36:29] INFO    [   4/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=18276.5 uA, energy=235042.797 uJ
+[22:36:45] INFO    [   5/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=17849.3 uA, energy=234878.249 uJ
+[22:36:45] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_223522_radio_sx1278_adafruit_level_shifter
+[22:36:45] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:36:45] STEP    TX 8 B - 10 dBm - SF7, BW 125 kHz - attempt 1
+[22:36:45] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:36:45] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:36:45] INFO    Measured transmitter: COM23, 9600 baud
+[22:36:45] INFO    Peer receiver: COM24, 9600 baud
+[22:36:49] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:36:51] INFO    Configuring peer receiver on COM24 ...
+[22:36:56] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=34362.2 uA, energy=4715.956 uJ
+[22:37:00] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=34362.2 uA, energy=4717.615 uJ
+[22:37:03] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=34718.6 uA, energy=4712.184 uJ
+[22:37:06] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=34565.8 uA, energy=4720.762 uJ
+[22:37:10] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=34413.1 uA, energy=4716.596 uJ
+[22:37:10] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_223645_radio_sx1278_adafruit_level_shifter
+[22:37:11] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:37:11] STEP    TX 32 B - 10 dBm - SF7, BW 125 kHz - attempt 1
+[22:37:11] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:37:11] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:37:11] INFO    Measured transmitter: COM23, 9600 baud
+[22:37:11] INFO    Peer receiver: COM24, 9600 baud
+[22:37:14] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:37:17] INFO    Configuring peer receiver on COM24 ...
+[22:37:21] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=34667.6 uA, energy=9081.936 uJ
+[22:37:25] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=34464.0 uA, energy=9082.367 uJ
+[22:37:28] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=34514.9 uA, energy=9077.672 uJ
+[22:37:32] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=34514.9 uA, energy=9075.730 uJ
+[22:37:35] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=34362.2 uA, energy=9078.670 uJ
+[22:37:35] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_223711_radio_sx1278_adafruit_level_shifter
+[22:37:36] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:37:36] STEP    TX 128 B - 10 dBm - SF7, BW 125 kHz - attempt 1
+[22:37:36] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:37:36] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:37:36] INFO    Measured transmitter: COM23, 9600 baud
+[22:37:36] INFO    Peer receiver: COM24, 9600 baud
+[22:37:40] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:37:42] INFO    Configuring peer receiver on COM24 ...
+[22:37:47] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=34769.5 uA, energy=26583.943 uJ
+[22:37:51] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=34769.5 uA, energy=26562.212 uJ
+[22:37:54] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=34616.7 uA, energy=26556.276 uJ
+[22:37:58] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=35075.4 uA, energy=26555.003 uJ
+[22:38:02] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=34718.6 uA, energy=26554.046 uJ
+[22:38:02] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_223736_radio_sx1278_adafruit_level_shifter
+[22:38:02] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:38:02] STEP    TX 8 B - 10 dBm - SF9, BW 125 kHz - attempt 1
+[22:38:02] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:38:02] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:38:02] INFO    Measured transmitter: COM23, 9600 baud
+[22:38:02] INFO    Peer receiver: COM24, 9600 baud
+[22:38:06] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:38:08] INFO    Configuring peer receiver on COM24 ...
+[22:38:13] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=34616.7 uA, energy=16358.841 uJ
+[22:38:17] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=35381.7 uA, energy=16333.977 uJ
+[22:38:20] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=34667.6 uA, energy=16344.748 uJ
+[22:38:24] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=34362.2 uA, energy=16341.223 uJ
+[22:38:27] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=34616.7 uA, energy=16327.156 uJ
+[22:38:27] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_223802_radio_sx1278_adafruit_level_shifter
+[22:38:28] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:38:28] STEP    TX 32 B - 10 dBm - SF9, BW 125 kHz - attempt 1
+[22:38:28] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:38:28] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:38:28] INFO    Measured transmitter: COM23, 9600 baud
+[22:38:28] INFO    Peer receiver: COM24, 9600 baud
+[22:38:32] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:38:34] INFO    Configuring peer receiver on COM24 ...
+[22:38:39] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=34718.6 uA, energy=31346.963 uJ
+[22:38:43] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=34565.8 uA, energy=31293.488 uJ
+[22:38:46] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=34769.5 uA, energy=31309.799 uJ
+[22:38:50] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=34616.7 uA, energy=31327.249 uJ
+[22:38:54] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=34718.6 uA, energy=31305.628 uJ
+[22:38:54] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_223828_radio_sx1278_adafruit_level_shifter
+[22:38:55] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:38:55] STEP    TX 128 B - 10 dBm - SF9, BW 125 kHz - attempt 1
+[22:38:55] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:38:55] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:38:55] INFO    Measured transmitter: COM23, 9600 baud
+[22:38:55] INFO    Peer receiver: COM24, 9600 baud
+[22:38:58] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:39:01] INFO    Configuring peer receiver on COM24 ...
+[22:39:07] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=34769.5 uA, energy=83676.505 uJ
+[22:39:12] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=34718.6 uA, energy=83705.688 uJ
+[22:39:16] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: rx_missing, peak=35177.5 uA, energy=83672.778 uJ
+[22:39:21] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=34871.4 uA, energy=83654.786 uJ
+[22:39:26] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=34769.5 uA, energy=83658.980 uJ
+[22:39:26] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_223855_radio_sx1278_adafruit_level_shifter
+[22:39:27] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:39:27] WARNING TX 128 B - 10 dBm - SF9, BW 125 kHz: 1 transfers have missing packets or fragments
+[22:39:27] STEP    TX 8 B - 10 dBm - SF12, BW 125 kHz - attempt 1
+[22:39:27] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:39:27] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:39:27] INFO    Measured transmitter: COM23, 9600 baud
+[22:39:27] INFO    Peer receiver: COM24, 9600 baud
+[22:39:31] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:39:33] INFO    Configuring peer receiver on COM24 ...
+[22:39:40] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=34718.6 uA, energy=130738.368 uJ
+[22:39:45] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=34667.6 uA, energy=130662.765 uJ
+[22:39:51] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=34922.4 uA, energy=130679.944 uJ
+[22:39:56] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=35126.5 uA, energy=130680.071 uJ
+[22:40:02] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=34769.5 uA, energy=130643.910 uJ
+[22:40:02] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_223927_radio_sx1278_adafruit_level_shifter
+[22:40:03] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:40:03] STEP    TX 32 B - 10 dBm - SF12, BW 125 kHz - attempt 1
+[22:40:03] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:40:03] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:40:03] INFO    Measured transmitter: COM23, 9600 baud
+[22:40:03] INFO    Peer receiver: COM24, 9600 baud
+[22:40:06] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:40:09] INFO    Configuring peer receiver on COM24 ...
+[22:40:17] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=35330.6 uA, energy=230581.676 uJ
+[22:40:25] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=34973.4 uA, energy=230330.536 uJ
+[22:40:32] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=34973.4 uA, energy=230576.884 uJ
+[22:40:40] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=34871.4 uA, energy=230592.406 uJ
+[22:40:48] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=35535.0 uA, energy=230650.276 uJ
+[22:40:48] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_224003_radio_sx1278_adafruit_level_shifter
+[22:40:48] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:40:48] STEP    TX 128 B - 10 dBm - SF12, BW 125 kHz - attempt 1
+[22:40:48] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:40:48] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:40:48] INFO    Measured transmitter: COM23, 9600 baud
+[22:40:48] INFO    Peer receiver: COM24, 9600 baud
+[22:40:52] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:40:54] INFO    Configuring peer receiver on COM24 ...
+[22:41:11] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=35126.5 uA, energy=610375.234 uJ
+[22:41:26] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=35228.5 uA, energy=610000.028 uJ
+[22:41:41] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=35177.5 uA, energy=610635.121 uJ
+[22:41:57] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=35177.5 uA, energy=610682.363 uJ
+[22:42:12] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=34973.4 uA, energy=610849.007 uJ
+[22:42:12] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_224048_radio_sx1278_adafruit_level_shifter
+[22:42:13] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:42:13] STEP    TX 8 B - 20 dBm - SF7, BW 125 kHz - attempt 1
+[22:42:13] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:42:13] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:42:13] INFO    Measured transmitter: COM23, 9600 baud
+[22:42:13] INFO    Peer receiver: COM24, 9600 baud
+[22:42:16] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:42:19] INFO    Configuring peer receiver on COM24 ...
+[22:42:23] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=91490.2 uA, energy=12122.283 uJ
+[22:42:27] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=91490.2 uA, energy=12097.069 uJ
+[22:42:30] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=90736.6 uA, energy=12049.679 uJ
+[22:42:34] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=89983.1 uA, energy=12061.168 uJ
+[22:42:37] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=90736.6 uA, energy=12086.528 uJ
+[22:42:37] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_224213_radio_sx1278_adafruit_level_shifter
+[22:42:38] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:42:38] STEP    TX 32 B - 20 dBm - SF7, BW 125 kHz - attempt 1
+[22:42:38] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:42:38] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:42:38] INFO    Measured transmitter: COM23, 9600 baud
+[22:42:38] INFO    Peer receiver: COM24, 9600 baud
+[22:42:42] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:42:44] INFO    Configuring peer receiver on COM24 ...
+[22:42:49] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=91490.2 uA, energy=23399.767 uJ
+[22:42:52] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=90736.6 uA, energy=23262.330 uJ
+[22:42:55] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=91490.2 uA, energy=23217.259 uJ
+[22:42:59] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=89983.1 uA, energy=23224.837 uJ
+[22:43:02] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=89983.1 uA, energy=23220.997 uJ
+[22:43:02] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_224238_radio_sx1278_adafruit_level_shifter
+[22:43:03] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:43:03] STEP    TX 128 B - 20 dBm - SF7, BW 125 kHz - attempt 1
+[22:43:03] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:43:03] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:43:03] INFO    Measured transmitter: COM23, 9600 baud
+[22:43:03] INFO    Peer receiver: COM24, 9600 baud
+[22:43:07] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:43:09] INFO    Configuring peer receiver on COM24 ...
+[22:43:14] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=91490.2 uA, energy=68306.854 uJ
+[22:43:18] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=91490.2 uA, energy=67963.960 uJ
+[22:43:21] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=90736.6 uA, energy=67973.041 uJ
+[22:43:25] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=90736.6 uA, energy=68065.571 uJ
+[22:43:29] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=91490.2 uA, energy=68116.389 uJ
+[22:43:29] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_224303_radio_sx1278_adafruit_level_shifter
+[22:43:29] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:43:29] STEP    TX 8 B - 20 dBm - SF9, BW 125 kHz - attempt 1
+[22:43:29] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:43:29] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:43:29] INFO    Measured transmitter: COM23, 9600 baud
+[22:43:30] INFO    Peer receiver: COM24, 9600 baud
+[22:43:33] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:43:35] INFO    Configuring peer receiver on COM24 ...
+[22:43:40] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=91490.2 uA, energy=42020.660 uJ
+[22:43:44] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=90736.6 uA, energy=41952.523 uJ
+[22:43:47] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=90736.6 uA, energy=41918.427 uJ
+[22:43:51] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=91490.2 uA, energy=41821.296 uJ
+[22:43:54] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=90736.6 uA, energy=41811.995 uJ
+[22:43:54] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_224329_radio_sx1278_adafruit_level_shifter
+[22:43:55] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:43:55] STEP    TX 32 B - 20 dBm - SF9, BW 125 kHz - attempt 1
+[22:43:55] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:43:55] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:43:55] INFO    Measured transmitter: COM23, 9600 baud
+[22:43:55] INFO    Peer receiver: COM24, 9600 baud
+[22:43:59] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:44:01] INFO    Configuring peer receiver on COM24 ...
+[22:44:06] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=91490.2 uA, energy=80616.528 uJ
+[22:44:09] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=92997.6 uA, energy=80195.049 uJ
+[22:44:13] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=92243.9 uA, energy=80194.664 uJ
+[22:44:17] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=92243.9 uA, energy=80012.947 uJ
+[22:44:21] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=90736.6 uA, energy=80031.118 uJ
+[22:44:21] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_224355_radio_sx1278_adafruit_level_shifter
+[22:44:21] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:44:21] STEP    TX 128 B - 20 dBm - SF9, BW 125 kHz - attempt 1
+[22:44:21] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:44:21] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:44:21] INFO    Measured transmitter: COM23, 9600 baud
+[22:44:22] INFO    Peer receiver: COM24, 9600 baud
+[22:44:25] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:44:27] INFO    Configuring peer receiver on COM24 ...
+[22:44:33] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=92997.6 uA, energy=214456.130 uJ
+[22:44:38] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=91490.2 uA, energy=212818.138 uJ
+[22:44:43] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=91490.2 uA, energy=212850.966 uJ
+[22:44:48] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=91490.2 uA, energy=213225.573 uJ
+[22:44:52] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=91490.2 uA, energy=213334.163 uJ
+[22:44:52] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_224421_radio_sx1278_adafruit_level_shifter
+[22:44:53] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:44:53] STEP    TX 8 B - 20 dBm - SF12, BW 125 kHz - attempt 1
+[22:44:53] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:44:53] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:44:53] INFO    Measured transmitter: COM23, 9600 baud
+[22:44:53] INFO    Peer receiver: COM24, 9600 baud
+[22:44:57] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:44:59] INFO    Configuring peer receiver on COM24 ...
+[22:45:06] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=91490.2 uA, energy=332529.264 uJ
+[22:45:11] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=91490.2 uA, energy=331840.437 uJ
+[22:45:17] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=91490.2 uA, energy=332299.269 uJ
+[22:45:22] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=92243.9 uA, energy=331910.538 uJ
+[22:45:28] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=91490.2 uA, energy=331804.130 uJ
+[22:45:28] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_224453_radio_sx1278_adafruit_level_shifter
+[22:45:28] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:45:28] STEP    TX 32 B - 20 dBm - SF12, BW 125 kHz - attempt 1
+[22:45:28] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:45:29] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:45:29] INFO    Measured transmitter: COM23, 9600 baud
+[22:45:29] INFO    Peer receiver: COM24, 9600 baud
+[22:45:32] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:45:35] INFO    Configuring peer receiver on COM24 ...
+[22:45:43] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=92997.6 uA, energy=585025.043 uJ
+[22:45:50] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=91490.2 uA, energy=585548.794 uJ
+[22:45:58] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=91490.2 uA, energy=584770.410 uJ
+[22:46:05] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=91490.2 uA, energy=584325.352 uJ
+[22:46:13] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=91490.2 uA, energy=585038.332 uJ
+[22:46:13] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_224529_radio_sx1278_adafruit_level_shifter
+[22:46:13] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:46:13] STEP    TX 128 B - 20 dBm - SF12, BW 125 kHz - attempt 1
+[22:46:13] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx" --receiver-port COM24 --save-raw
+[22:46:14] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:46:14] INFO    Measured transmitter: COM23, 9600 baud
+[22:46:14] INFO    Peer receiver: COM24, 9600 baud
+[22:46:17] INFO    Configuring measured transmitter (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:46:19] INFO    Configuring peer receiver on COM24 ...
+[22:46:35] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=91490.2 uA, energy=1544782.065 uJ
+[22:46:50] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=92997.6 uA, energy=1546696.262 uJ
+[22:47:04] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=92243.9 uA, energy=1546802.890 uJ
+[22:47:19] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=92997.6 uA, energy=1546986.067 uJ
+[22:47:33] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=92997.6 uA, energy=1546486.127 uJ
+[22:47:33] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_tx\20260718_224614_radio_sx1278_adafruit_level_shifter
+[22:47:34] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:47:34] STEP    RX 8 B - TX 20 dBm - SF7, BW 125 kHz - attempt 1
+[22:47:34] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction rx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_rx" --transmitter-port COM24 --save-raw
+[22:47:34] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:47:34] INFO    Measured receiver: COM23, 9600 baud
+[22:47:34] INFO    Peer transmitter: COM24, 9600 baud
+[22:47:38] INFO    Configuring measured receiver (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:47:40] INFO    Configuring peer transmitter on COM24 ...
+[22:47:45] INFO    [   1/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=17044.7 uA, energy=1452.473 uJ
+[22:47:48] INFO    [   2/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=16903.0 uA, energy=1451.769 uJ
+[22:47:52] INFO    [   3/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=17044.7 uA, energy=1453.783 uJ
+[22:47:56] INFO    [   4/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=17375.6 uA, energy=1453.179 uJ
+[22:47:59] INFO    [   5/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=16667.0 uA, energy=1457.701 uJ
+[22:47:59] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_rx\20260718_224734_radio_sx1278_adafruit_level_shifter_rx
+[22:48:00] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:48:00] STEP    RX 32 B - TX 20 dBm - SF7, BW 125 kHz - attempt 1
+[22:48:00] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction rx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_rx" --transmitter-port COM24 --save-raw
+[22:48:00] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:48:00] INFO    Measured receiver: COM23, 9600 baud
+[22:48:00] INFO    Peer transmitter: COM24, 9600 baud
+[22:48:04] INFO    Configuring measured receiver (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:48:06] INFO    Configuring peer transmitter on COM24 ...
+[22:48:11] INFO    [   1/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=17186.4 uA, energy=2912.524 uJ
+[22:48:14] INFO    [   2/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=17233.7 uA, energy=2919.466 uJ
+[22:48:18] INFO    [   3/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=17517.9 uA, energy=2912.854 uJ
+[22:48:22] INFO    [   4/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=17281.0 uA, energy=2919.275 uJ
+[22:48:25] INFO    [   5/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=16997.4 uA, energy=2921.169 uJ
+[22:48:25] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_rx\20260718_224800_radio_sx1278_adafruit_level_shifter_rx
+[22:48:26] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:48:26] STEP    RX 128 B - TX 20 dBm - SF7, BW 125 kHz - attempt 1
+[22:48:26] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction rx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_rx" --transmitter-port COM24 --save-raw
+[22:48:26] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:48:26] INFO    Measured receiver: COM23, 9600 baud
+[22:48:26] INFO    Peer transmitter: COM24, 9600 baud
+[22:48:30] INFO    Configuring measured receiver (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:48:32] INFO    Configuring peer transmitter on COM24 ...
+[22:48:37] INFO    [   1/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=18181.5 uA, energy=8790.152 uJ
+[22:48:41] INFO    [   2/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=17659.7 uA, energy=8776.047 uJ
+[22:48:45] INFO    [   3/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=17233.7 uA, energy=8764.581 uJ
+[22:48:49] INFO    [   4/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=17754.5 uA, energy=8769.436 uJ
+[22:48:53] INFO    [   5/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=17470.3 uA, energy=8784.961 uJ
+[22:48:53] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_rx\20260718_224826_radio_sx1278_adafruit_level_shifter_rx
+[22:48:53] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:48:54] STEP    RX 8 B - TX 20 dBm - SF9, BW 125 kHz - attempt 1
+[22:48:54] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction rx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_rx" --transmitter-port COM24 --save-raw
+[22:48:54] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:48:54] INFO    Measured receiver: COM23, 9600 baud
+[22:48:54] INFO    Peer transmitter: COM24, 9600 baud
+[22:48:57] INFO    Configuring measured receiver (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:49:00] INFO    Configuring peer transmitter on COM24 ...
+[22:49:05] INFO    [   1/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=17422.9 uA, energy=5041.623 uJ
+[22:49:08] INFO    [   2/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=17565.0 uA, energy=5030.425 uJ
+[22:49:12] INFO    [   3/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=17659.7 uA, energy=5037.368 uJ
+[22:49:16] INFO    [   4/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=17612.3 uA, energy=5042.807 uJ
+[22:49:20] INFO    [   5/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=17565.0 uA, energy=5039.266 uJ
+[22:49:20] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_rx\20260718_224854_radio_sx1278_adafruit_level_shifter_rx
+[22:49:20] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:49:20] STEP    RX 32 B - TX 20 dBm - SF9, BW 125 kHz - attempt 1
+[22:49:20] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction rx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_rx" --transmitter-port COM24 --save-raw
+[22:49:20] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:49:20] INFO    Measured receiver: COM23, 9600 baud
+[22:49:20] INFO    Peer transmitter: COM24, 9600 baud
+[22:49:24] INFO    Configuring measured receiver (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:49:26] INFO    Configuring peer transmitter on COM24 ...
+[22:49:32] INFO    [   1/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=17849.3 uA, energy=10058.325 uJ
+[22:49:36] INFO    [   2/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=17281.0 uA, energy=10058.923 uJ
+[22:49:40] INFO    [   3/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=17754.5 uA, energy=10055.256 uJ
+[22:49:44] INFO    [   4/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=17139.2 uA, energy=10050.143 uJ
+[22:49:48] INFO    [   5/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=17801.9 uA, energy=10051.084 uJ
+[22:49:48] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_rx\20260718_224920_radio_sx1278_adafruit_level_shifter_rx
+[22:49:48] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:49:48] STEP    RX 128 B - TX 20 dBm - SF9, BW 125 kHz - attempt 1
+[22:49:48] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction rx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_rx" --transmitter-port COM24 --save-raw
+[22:49:48] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:49:48] INFO    Measured receiver: COM23, 9600 baud
+[22:49:48] INFO    Peer transmitter: COM24, 9600 baud
+[22:49:52] INFO    Configuring measured receiver (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:49:54] INFO    Configuring peer transmitter on COM24 ...
+[22:50:01] INFO    [   1/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=17944.1 uA, energy=27578.150 uJ
+[22:50:06] INFO    [   2/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=17659.7 uA, energy=27576.206 uJ
+[22:50:11] INFO    [   3/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: rx_missing, peak=17517.6 uA, energy=27584.698 uJ
+[22:50:16] INFO    [   4/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=17612.3 uA, energy=27586.224 uJ
+[22:50:21] INFO    [   5/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=17659.7 uA, energy=27572.855 uJ
+[22:50:21] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_rx\20260718_224948_radio_sx1278_adafruit_level_shifter_rx
+[22:50:22] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:50:22] WARNING RX 128 B - TX 20 dBm - SF9, BW 125 kHz: 1 transfers have missing packets or fragments
+[22:50:22] STEP    RX 8 B - TX 20 dBm - SF12, BW 125 kHz - attempt 1
+[22:50:22] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction rx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_rx" --transmitter-port COM24 --save-raw
+[22:50:22] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:50:22] INFO    Measured receiver: COM23, 9600 baud
+[22:50:22] INFO    Peer transmitter: COM24, 9600 baud
+[22:50:26] INFO    Configuring measured receiver (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:50:28] INFO    Configuring peer transmitter on COM24 ...
+[22:50:35] INFO    [   1/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=17896.7 uA, energy=40399.207 uJ
+[22:50:41] INFO    [   2/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=17754.5 uA, energy=40291.126 uJ
+[22:50:47] INFO    [   3/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=17659.7 uA, energy=40243.801 uJ
+[22:50:53] INFO    [   4/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=17944.1 uA, energy=40277.226 uJ
+[22:50:59] INFO    [   5/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=17517.6 uA, energy=40260.441 uJ
+[22:50:59] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_rx\20260718_225022_radio_sx1278_adafruit_level_shifter_rx
+[22:50:59] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:50:59] STEP    RX 32 B - TX 20 dBm - SF12, BW 125 kHz - attempt 1
+[22:50:59] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction rx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_rx" --transmitter-port COM24 --save-raw
+[22:50:59] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:50:59] INFO    Measured receiver: COM23, 9600 baud
+[22:50:59] INFO    Peer transmitter: COM24, 9600 baud
+[22:51:03] INFO    Configuring measured receiver (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:51:05] INFO    Configuring peer transmitter on COM24 ...
+[22:51:14] INFO    [   1/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=17896.7 uA, energy=73790.006 uJ
+[22:51:22] INFO    [   2/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=17801.9 uA, energy=73646.358 uJ
+[22:51:30] INFO    [   3/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=17612.3 uA, energy=73582.031 uJ
+[22:51:38] INFO    [   4/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=17944.1 uA, energy=73624.294 uJ
+[22:51:46] INFO    [   5/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=18324.0 uA, energy=73655.562 uJ
+[22:51:46] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_rx\20260718_225059_radio_sx1278_adafruit_level_shifter_rx
+[22:51:47] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:51:47] STEP    RX 128 B - TX 20 dBm - SF12, BW 125 kHz - attempt 1
+[22:51:47] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction rx --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_rx" --transmitter-port COM24 --save-raw
+[22:51:47] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:51:47] INFO    Measured receiver: COM23, 9600 baud
+[22:51:47] INFO    Peer transmitter: COM24, 9600 baud
+[22:51:50] INFO    Configuring measured receiver (SX1278-Adafruit-LevelShifter) on COM23 ...
+[22:51:53] INFO    Configuring peer transmitter on COM24 ...
+[22:52:09] INFO    [   1/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=17991.6 uA, energy=200417.239 uJ
+[22:52:25] INFO    [   2/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=17991.6 uA, energy=200768.977 uJ
+[22:52:40] INFO    [   3/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=17991.6 uA, energy=200347.429 uJ
+[22:52:55] INFO    [   4/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=17991.6 uA, energy=200213.554 uJ
+[22:53:11] INFO    [   5/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=18181.5 uA, energy=200361.556 uJ
+[22:53:11] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\packet_rx\20260718_225147_radio_sx1278_adafruit_level_shifter_rx
+[22:53:11] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:53:11] STEP    Average TX power - SF9, BW 125 kHz - 60 s/power level - attempt 1
+[22:53:11] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction tx --powers=-4,10,20 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\continuous" --keep-power-on --axis spreading_factor=9 --axis bandwidth_khz=125 --save-raw
+[22:53:12] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:53:12] INFO    Continuous TX: 60 s per power, parameters={'spreading_factor': 9, 'bandwidth_khz': 125}, 64 B frames, 15 ms gap
+[22:55:08] INFO    [1/3] TX -4 dBm: mean=11.760 mA, power=38.807 mW, status=ok
+[22:57:01] INFO    [2/3] TX 10 dBm: mean=30.609 mA, power=101.008 mW, status=ok
+[22:58:48] INFO    [3/3] TX 20 dBm: mean=77.373 mA, power=255.332 mW, status=ok
+[22:58:49] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\continuous\20260718_225312_radio_sx1278_adafruit_level_shifter_continuous_tx
+[22:58:49] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[22:58:49] STEP    Average RX power and loss - SF7, BW 125 kHz - 60 s/power level - attempt 1
+[22:58:49] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction rx --powers=-4,10,20 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\continuous" --keep-power-on --axis spreading_factor=7 --axis bandwidth_khz=125 --transmitter-port COM24 --save-raw
+[22:58:49] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[22:58:49] INFO    Continuous RX: 60 s per power, parameters={'spreading_factor': 7, 'bandwidth_khz': 125}, 64 B frames, 15 ms gap
+[23:00:48] INFO    [1/3] RX -4 dBm: mean=11.586 mA, power=38.235 mW, status=ok
+[23:02:41] INFO    [2/3] RX 10 dBm: mean=11.742 mA, power=38.747 mW, status=ok
+[23:04:35] INFO    [3/3] RX 20 dBm: mean=12.260 mA, power=40.458 mW, status=ok
+[23:04:36] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\continuous\20260718_225849_radio_sx1278_adafruit_level_shifter_continuous_rx
+[23:04:36] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:04:36] STEP    Average RX power and loss - SF9, BW 125 kHz - 60 s/power level - attempt 1
+[23:04:36] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction rx --powers=-4,10,20 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\continuous" --keep-power-on --axis spreading_factor=9 --axis bandwidth_khz=125 --transmitter-port COM24 --save-raw
+[23:04:37] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:04:37] INFO    Continuous RX: 60 s per power, parameters={'spreading_factor': 9, 'bandwidth_khz': 125}, 64 B frames, 15 ms gap
+[23:06:35] INFO    [1/3] RX -4 dBm: mean=11.619 mA, power=38.344 mW, status=ok
+[23:08:28] INFO    [2/3] RX 10 dBm: mean=11.791 mA, power=38.909 mW, status=ok
+[23:10:22] INFO    [3/3] RX 20 dBm: mean=12.312 mA, power=40.631 mW, status=ok
+[23:10:22] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\continuous\20260718_230437_radio_sx1278_adafruit_level_shifter_continuous_rx
+[23:10:23] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:10:23] STEP    Average RX power and loss - SF12, BW 125 kHz - 60 s/power level - attempt 1
+[23:10:23] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction rx --powers=-4,10,20 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\continuous" --keep-power-on --axis spreading_factor=12 --axis bandwidth_khz=125 --transmitter-port COM24 --save-raw
+[23:10:23] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:10:23] INFO    Continuous RX: 60 s per power, parameters={'spreading_factor': 12, 'bandwidth_khz': 125}, 64 B frames, 15 ms gap
+[23:12:22] INFO    [1/3] RX -4 dBm: mean=11.656 mA, power=38.464 mW, status=ok
+[23:14:15] INFO    [2/3] RX 10 dBm: mean=11.803 mA, power=38.950 mW, status=ok
+[23:16:09] INFO    [3/3] RX 20 dBm: mean=12.330 mA, power=40.688 mW, status=ok
+[23:16:10] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\continuous\20260718_231023_radio_sx1278_adafruit_level_shifter_continuous_rx
+[23:16:10] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:16:10] FINISH  Test completed successfully
+[23:16:10] CALLBACK Codex completion callback started
+[23:19:07] CALLBACK Codex conversation foreground requested

@@ -1,0 +1,7 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER --direction rx --powers=-4,10,20 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM23 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\continuous" --keep-power-on --axis spreading_factor=7 --axis bandwidth_khz=125 --transmitter-port COM24 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Continuous RX: 60 s per power, parameters={'spreading_factor': 7, 'bandwidth_khz': 125}, 64 B frames, 15 ms gap
+[1/3] RX -4 dBm: mean=11.586 mA, power=38.235 mW, status=ok
+[2/3] RX 10 dBm: mean=11.742 mA, power=38.747 mW, status=ok
+[3/3] RX 20 dBm: mean=12.260 mA, power=40.458 mW, status=ok
+Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260718_223118_campaign_radio_sx1278_adafruit_level_shifter\continuous\20260718_225849_radio_sx1278_adafruit_level_shifter_continuous_rx

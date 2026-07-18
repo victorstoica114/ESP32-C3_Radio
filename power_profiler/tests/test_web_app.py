@@ -5,7 +5,7 @@ import threading
 import unittest
 import urllib.request
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import call, patch
 
 from radio_power_profiler.web_app import (
     AppServer,
@@ -13,6 +13,7 @@ from radio_power_profiler.web_app import (
     JobManager,
     WebConfig,
     build_campaign_steps,
+    build_continuous_rx_steps,
     build_quick_steps,
     validate_result,
 )
@@ -27,12 +28,13 @@ class WebAppTests(unittest.TestCase):
             session.mkdir()
             manager = JobManager(root, codex_thread_id=thread_id)
             manager.codex_executable = "codex.exe"
+            manager.vscode_process_id = ""
             manager._session_dir = session
             manager._log_path = session / "session.log"
 
             with (
                 patch("radio_power_profiler.web_app.subprocess.run") as run,
-                patch("radio_power_profiler.web_app.os.startfile") as startfile,
+                patch.object(manager, "_open_vscode_uri") as open_uri,
             ):
                 run.return_value.returncode = 0
                 manager._schedule_codex_callback("campaign")
@@ -45,7 +47,7 @@ class WebAppTests(unittest.TestCase):
                 ["codex.exe", "exec", "resume", "--json", thread_id],
             )
             self.assertIn(str(session), command[5])
-            startfile.assert_called_once_with(
+            open_uri.assert_called_once_with(
                 f"vscode://openai.chatgpt/local/{thread_id}"
             )
             callback_log = (session / "codex_callback.log").read_text(
@@ -54,15 +56,133 @@ class WebAppTests(unittest.TestCase):
             self.assertIn("exited with code 0", callback_log)
             self.assertIn("conversation foreground", callback_log)
 
+    def test_codex_callback_test_is_hardware_free_and_uses_a_dedicated_session(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            manager = JobManager(Path(temporary), codex_thread_id="thread-id")
+            manager.codex_executable = "codex.exe"
+
+            with patch.object(
+                manager,
+                "_schedule_codex_callback",
+                return_value=True,
+            ) as schedule:
+                status = manager.start_codex_callback_test()
+
+            self.assertEqual(status["state"], "running")
+            self.assertEqual(status["kind"], "callback_test")
+            self.assertEqual(status["config"], {"hardware_access": False})
+            self.assertTrue(status["session_dir"].endswith("_codex_callback_test"))
+            _, call_kwargs = schedule.call_args
+            self.assertTrue(call_kwargs["update_test_state"])
+            self.assertIn("Do not access hardware", call_kwargs["prompt"])
+
+    def test_codex_focus_reloads_webviews_before_reopening_the_thread(self):
+        thread_id = "12345678-1234-1234-1234-123456789abc"
+        with tempfile.TemporaryDirectory() as temporary:
+            manager = JobManager(Path(temporary), codex_thread_id=thread_id)
+            manager.vscode_process_id = "18572"
+
+            with (
+                patch("radio_power_profiler.web_app.subprocess.run") as run,
+                patch.object(manager, "_open_vscode_uri") as open_uri,
+                patch("radio_power_profiler.web_app.time.sleep"),
+            ):
+                run.return_value.returncode = 0
+                manager._focus_codex_thread()
+
+            uri = f"vscode://openai.chatgpt/local/{thread_id}"
+            self.assertEqual(
+                open_uri.call_args_list,
+                [call(uri), call(uri), call(uri)],
+            )
+            self.assertEqual(run.call_count, 2)
+            reload_command = run.call_args_list[0].args[0]
+            self.assertIn("Developer: Reload Webviews", reload_command[-1])
+            self.assertIn("Get-Process -Id 18572", reload_command[-1])
+            self.assertIn("Get-Process -Name Code", reload_command[-1])
+            activate_command = run.call_args_list[1].args[0]
+            self.assertIn("AppActivate($target.Id)", activate_command[-1])
+
+    def test_vscode_uri_uses_internal_cli_with_electron_node_mode(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            install_root = Path(temporary) / "Microsoft VS Code"
+            executable = install_root / "Code.exe"
+            cli = install_root / "version" / "resources" / "app" / "out" / "cli.js"
+            cli.parent.mkdir(parents=True)
+            executable.touch()
+            cli.touch()
+            manager = JobManager(Path(temporary) / "sessions")
+
+            with (
+                patch.dict(
+                    "radio_power_profiler.web_app.os.environ",
+                    {"VSCODE_CWD": str(install_root)},
+                    clear=False,
+                ),
+                patch("radio_power_profiler.web_app.shutil.which", return_value=None),
+                patch("radio_power_profiler.web_app.subprocess.run") as run,
+            ):
+                run.return_value.returncode = 0
+                manager._open_vscode_uri("vscode://openai.chatgpt/local/thread-id")
+
+            command = run.call_args.args[0]
+            self.assertEqual(
+                command,
+                [
+                    str(executable),
+                    str(cli),
+                    "--open-url",
+                    "--",
+                    "vscode://openai.chatgpt/local/thread-id",
+                ],
+            )
+            self.assertEqual(
+                run.call_args.kwargs["env"]["ELECTRON_RUN_AS_NODE"],
+                "1",
+            )
+
+    def test_codex_executable_is_rediscovered_after_extension_update(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            home = Path(temporary)
+            executable = (
+                home
+                / ".vscode"
+                / "extensions"
+                / "openai.chatgpt-99.1.2-win32-x64"
+                / "bin"
+                / "windows-x86_64"
+                / "codex.exe"
+            )
+            executable.parent.mkdir(parents=True)
+            executable.touch()
+            manager = JobManager(home, codex_thread_id="thread-id")
+            manager.codex_executable = str(home / "removed-extension" / "codex.exe")
+
+            with (
+                patch("radio_power_profiler.web_app.shutil.which", return_value=None),
+                patch("radio_power_profiler.web_app.Path.home", return_value=home),
+                patch("radio_power_profiler.web_app.os.name", "nt"),
+            ):
+                resolved = manager._resolve_codex_executable()
+
+            self.assertEqual(resolved, str(executable))
+
     def test_quick_and_campaign_plans_cover_expected_work(self):
-        config = WebConfig(save_raw_campaign=True)
+        config = WebConfig(
+            profile_id="RADIO_EBYTE_E32_868T30D",
+            measured_port="COM18",
+            peer_port="COM17",
+            save_raw_campaign=True,
+        )
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             quick = build_quick_steps(config, root / "quick")
             campaign = build_campaign_steps(config, root / "campaign")
+            continuous_rx = build_continuous_rx_steps(config, root / "continuous-rx")
 
         self.assertEqual(len(quick), 4)
         self.assertTrue(all("--save-raw" in step.command for step in quick))
+        self.assertTrue(all("--keep-power-on" in step.command for step in quick))
         self.assertTrue(all(step.expected_rows == 2 for step in quick))
         self.assertTrue(
             all(
@@ -79,7 +199,70 @@ class WebAppTests(unittest.TestCase):
             sum(step.result_kind == "continuous" for step in campaign),
             4,
         )
+        self.assertEqual(len(continuous_rx), 3)
+        self.assertTrue(
+            all(step.step_id.startswith("continuous_rx_") for step in continuous_rx)
+        )
+        self.assertTrue(
+            all("--keep-power-on" in step.command for step in continuous_rx)
+        )
         self.assertTrue(all("--save-raw" in step.command for step in campaign))
+        self.assertTrue(all("--keep-power-on" in step.command for step in campaign))
+
+    def test_power_guard_holds_ppk2_open_and_reasserts_on_when_released(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            manager = JobManager(Path(temporary))
+            with patch("radio_power_profiler.ppk.Ppk2Sampler") as sampler_type:
+                sampler = sampler_type.return_value
+
+                manager._ensure_current_path_on("COM11", 3300)
+                manager._release_current_path_guard()
+
+            sampler_type.assert_called_once_with("COM11", voltage_mv=3300)
+            sampler.power_on.assert_called_once_with()
+            sampler.close.assert_called_once_with(keep_power_on=True)
+
+    def test_lora_profile_uses_sf_and_bandwidth_in_web_campaign(self):
+        config = WebConfig(
+            profile_id="RADIO_SX1278_SHIELDED",
+            measured_port="COM22",
+            peer_port="COM21",
+            ppk_port="COM11",
+            save_raw_campaign=True,
+        )
+        config.validate()
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            quick = build_quick_steps(config, root / "quick")
+            campaign = build_campaign_steps(config, root / "campaign")
+
+        self.assertEqual(len(quick), 4)
+        self.assertIn("spreading_factor=7", quick[0].command)
+        self.assertIn("spreading_factor=12", quick[2].command)
+        self.assertEqual(
+            sum(step.result_kind == "packet" for step in campaign),
+            36,
+        )
+        self.assertEqual(
+            sum(step.result_kind == "continuous" for step in campaign),
+            4,
+        )
+        continuous = [step for step in campaign if step.result_kind == "continuous"]
+        self.assertTrue(
+            all("--powers=-4,10,20" in step.command for step in continuous)
+        )
+        self.assertTrue(
+            all(any(item.startswith("spreading_factor=") for item in step.command) for step in continuous)
+        )
+        self.assertTrue(
+            all("bandwidth_khz=125" in step.command for step in continuous)
+        )
+
+    def test_current_web_defaults_target_adafruit_level_shifter_pair(self):
+        config = WebConfig()
+        self.assertEqual(config.profile_id, "RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER")
+        self.assertEqual(config.measured_port, "COM23")
+        self.assertEqual(config.peer_port, "COM24")
 
     def test_config_rejects_duplicate_ports(self):
         with self.assertRaisesRegex(ValueError, "must be different"):
@@ -123,6 +306,25 @@ class WebAppTests(unittest.TestCase):
             invalid = validate_result(step, result_dir)
             self.assertFalse(invalid["valid"])
 
+            continuous_step = CommandStep(
+                step_id="continuous",
+                label="continuous",
+                command=[],
+                result_kind="continuous",
+                expected_rows=1,
+            )
+            with (result_dir / "summary.csv").open(
+                "w", encoding="utf-8", newline=""
+            ) as stream:
+                writer = csv.DictWriter(stream, fieldnames=fields)
+                writer.writeheader()
+                writer.writerow(
+                    {"status": "no_rx_data", "sample_loss_percent": 0}
+                )
+            continuous_loss = validate_result(continuous_step, result_dir)
+            self.assertTrue(continuous_loss["valid"])
+            self.assertTrue(continuous_loss["warnings"])
+
     def test_http_ui_and_status_are_available_without_hardware(self):
         with tempfile.TemporaryDirectory() as temporary:
             manager = JobManager(Path(temporary))
@@ -136,6 +338,7 @@ class WebAppTests(unittest.TestCase):
                 ) as response:
                     html = response.read().decode("utf-8")
                 self.assertIn("Run quick check", html)
+                self.assertIn("Test Codex callback", html)
                 with urllib.request.urlopen(
                     f"http://{host}:{port}/api/status", timeout=3
                 ) as response:
@@ -182,7 +385,7 @@ class WebAppTests(unittest.TestCase):
                 return 0, str(result_dir)
 
             manager._run_process = fake_process
-            manager._force_power_off = lambda *_args: None
+            manager._ensure_current_path_on = lambda *_args: None
             manager.start("quick", WebConfig())
             manager._thread.join(timeout=5)
             status = manager.status()

@@ -41,7 +41,7 @@ PPK2 VOUT                -> VCC modul radio
 GND placă                -> PPK2 GND -> GND modul radio
 ```
 
-Jumperul/legătura originală dintre alimentarea plăcii și VCC-ul modulului trebuie eliminată, altfel curentul ocolește PPK2. Valoarea dată prin `--voltage-mv` este tensiunea reală prezentă la VIN și este folosită pentru calibrare și calculul energiei; PPK2 nu generează tensiunea. Programul activează traseul DUT pentru a închide circuitul VIN→VOUT înainte de configurare și îl dezactivează la final. `--keep-power-on` îl lasă activ explicit.
+Jumperul/legătura originală dintre alimentarea plăcii și VCC-ul modulului trebuie eliminată, altfel curentul ocolește PPK2. Valoarea dată prin `--voltage-mv` este tensiunea reală prezentă la VIN și este folosită pentru calibrare și calculul energiei; PPK2 nu generează tensiunea. Programul activează traseul DUT pentru a închide circuitul VIN→VOUT înainte de configurare și îl menține activ între pași și după terminarea testului, evitând resetările modulului. Numai opțiunea explicită `--power-off-after-run` dezactivează traseul la final.
 
 Pentru ambele variante, verifică să nu existe alimentare parazită prin GPIO atunci când modulul este oprit. Dacă apare, corectează montajul înainte de a considera consumul de repaus valid.
 
@@ -66,6 +66,19 @@ Biblioteca `ppk2-api` folosită pentru automatizare este [API-ul Python neoficia
 #define RADIO_MODULE  RADIO_RA01_SX1278
 #define RADIO_PROGRAM AT_COMMANDS
 ```
+
+Pentru varianta fizică fără shield, firmware-ul compatibil rămâne
+`RADIO_RA01_SX1278`, iar profilul de măsurare este `RADIO_SX1278_NAKED`
+(`SX1278-Naked`).
+
+Varianta cu shield folosește același firmware și profilul separat
+`RADIO_SX1278_SHIELDED` (`SX1278-Shielded`), pentru comparații directe cu
+varianta Naked.
+
+Plăcile Adafruit bazate pe același SX1278, dar care includ și un level shifter,
+folosesc profilul separat `RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER`
+(`SX1278-Adafruit-LevelShifter`). Parametrii radio rămân identici, iar separarea
+profilului permite compararea influenței layout-ului și a level shifter-ului.
 
 E79 și RA-08 necesită și firmware-ul AT propriu al modulului, conform documentației lor din repository.
 
@@ -138,14 +151,14 @@ python -m radio_power_profiler profiles
 2. Inspectează matricea înainte de test:
 
 ```powershell
-python -m radio_power_profiler plan --module RADIO_RA01_SX1278
+python -m radio_power_profiler plan --module RADIO_SX1278_NAKED
 ```
 
 3. Rulează testul în montaj Ampere Meter:
 
 ```powershell
 python -m radio_power_profiler run `
-  --module RADIO_RA01_SX1278 `
+  --module RADIO_SX1278_NAKED `
   --radio-port COM4 `
   --receiver-port COM5 `
   --ppk-port COM7 `

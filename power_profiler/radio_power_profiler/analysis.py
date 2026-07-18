@@ -29,6 +29,7 @@ def analyze_capture(
     expected_event_count: int = 1,
     search_window_s: float | None = None,
     fallback_window_s: float | None = None,
+    integration_window_s: float | None = None,
 ) -> Metrics:
     if len(samples_uA) < 100 or trigger_index < 10:
         raise ValueError("Capture is too short to calculate a baseline")
@@ -49,20 +50,31 @@ def analyze_capture(
             search_end,
             trigger_index + max(1, int(search_window_s * sample_rate_hz)),
         )
-    active = [
-        index
-        for index in range(search_start, search_end)
-        if samples_uA[index] >= threshold
-    ]
-    max_gap = max(1, int(capture_spec.merge_gap_ms * sample_rate_hz / 1000.0))
-    minimum_length = max(
-        1, int(capture_spec.minimum_event_ms * sample_rate_hz / 1000.0)
-    )
-    candidates = [
-        group for group in _groups(active, max_gap) if group[1] - group[0] + 1 >= minimum_length
-    ]
+    using_fixed_window = integration_window_s is not None and integration_window_s > 0
+    if using_fixed_window:
+        fixed_start = max(search_start, trigger_index)
+        fixed_end = min(
+            search_end - 1,
+            fixed_start + max(1, int(integration_window_s * sample_rate_hz)) - 1,
+        )
+        candidates = [(fixed_start, fixed_end)] if fixed_end >= fixed_start else []
+    else:
+        active = [
+            index
+            for index in range(search_start, search_end)
+            if samples_uA[index] >= threshold
+        ]
+        max_gap = max(1, int(capture_spec.merge_gap_ms * sample_rate_hz / 1000.0))
+        minimum_length = max(
+            1, int(capture_spec.minimum_event_ms * sample_rate_hz / 1000.0)
+        )
+        candidates = [
+            group
+            for group in _groups(active, max_gap)
+            if group[1] - group[0] + 1 >= minimum_length
+        ]
 
-    using_fallback = False
+    using_bounded_window = using_fixed_window
     if not candidates and fallback_window_s is not None and fallback_window_s > 0:
         fallback_start = max(search_start, trigger_index)
         fallback_end = min(
@@ -71,7 +83,7 @@ def analyze_capture(
         )
         if fallback_end >= fallback_start:
             candidates = [(fallback_start, fallback_end)]
-            using_fallback = True
+            using_bounded_window = True
 
     if not candidates:
         return Metrics(
@@ -87,7 +99,7 @@ def analyze_capture(
     selected = sorted(
         sorted(candidates, key=score, reverse=True)[: max(1, expected_event_count)]
     )
-    padding = 0 if using_fallback else max(1, int(0.0001 * sample_rate_hz))
+    padding = 0 if using_bounded_window else max(1, int(0.0001 * sample_rate_hz))
     padded: list[tuple[int, int]] = []
     for start, end in selected:
         start = max(search_start, start - padding)

@@ -7,7 +7,7 @@ import threading
 import time
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
+from typing import Any, Mapping
 
 from .models import Profile
 from .planning import estimate_airtime_s, parameter_commands
@@ -28,6 +28,11 @@ CONTINUOUS_FIELDS = [
     "voltage_mv",
     "tx_power_dbm",
     "bit_rate_kbps",
+    "data_rate_kbps",
+    "spreading_factor",
+    "bandwidth_khz",
+    "air_rate",
+    "parameters_json",
     "frame_bytes",
     "content_bytes_per_frame",
     "inter_frame_gap_ms",
@@ -163,7 +168,8 @@ def run_continuous_profile(
     *,
     measurement_direction: str,
     powers_dbm: tuple[float, ...],
-    bit_rate_kbps: float,
+    bit_rate_kbps: float | None,
+    axis_parameters: Mapping[str, Any] | None = None,
     duration_s: float,
     frame_bytes: int,
     inter_frame_gap_ms: int,
@@ -174,6 +180,7 @@ def run_continuous_profile(
     output_root: Path,
     boot_wait_s: float,
     save_raw: bool = False,
+    keep_power_on: bool = True,
 ) -> Path:
     if measurement_direction not in {"tx", "rx"}:
         raise ValueError("Continuous measurement direction must be 'tx' or 'rx'")
@@ -197,11 +204,30 @@ def run_continuous_profile(
     if not powers_dbm:
         raise ValueError("At least one TX power is required")
 
-    axis_names = {axis.name for axis in profile.axes}
-    required_axes = {"tx_power_dbm", "bit_rate_kbps"}
-    if not required_axes.issubset(axis_names):
+    axes = {axis.name: axis for axis in profile.axes}
+    if "tx_power_dbm" not in axes:
         raise ValueError(
-            f"Profile {profile.profile_id} does not expose compatible power/rate axes"
+            f"Profile {profile.profile_id} does not expose a tx_power_dbm axis"
+        )
+    expected_parameter_names = set(axes) - {"tx_power_dbm"}
+    if axis_parameters is None:
+        if bit_rate_kbps is None or "bit_rate_kbps" not in expected_parameter_names:
+            raise ValueError(
+                f"Profile {profile.profile_id} requires explicit continuous-test axes"
+            )
+        base_parameters: dict[str, Any] = {"bit_rate_kbps": bit_rate_kbps}
+    else:
+        base_parameters = dict(axis_parameters)
+    unknown = set(base_parameters) - expected_parameter_names
+    missing = expected_parameter_names - set(base_parameters)
+    if unknown or missing:
+        details: list[str] = []
+        if unknown:
+            details.append("unknown: " + ", ".join(sorted(unknown)))
+        if missing:
+            details.append("missing: " + ", ".join(sorted(missing)))
+        raise ValueError(
+            f"Invalid continuous-test axes for {profile.profile_id} ({'; '.join(details)})"
         )
     if measurement_direction == "rx" and not profile.receiver_enable_commands:
         raise ValueError(
@@ -229,7 +255,8 @@ def run_continuous_profile(
         "voltage_mv": voltage_mv,
         "sample_rate_hz": SAMPLE_RATE_HZ,
         "powers_dbm": powers_dbm,
-        "bit_rate_kbps": bit_rate_kbps,
+        "axis_parameters": base_parameters,
+        "bit_rate_kbps": base_parameters.get("bit_rate_kbps"),
         "frame_bytes": frame_bytes,
         "content_bytes_per_frame": (
             frame_bytes - profile.transmit.line_overhead_bytes
@@ -267,10 +294,8 @@ def run_continuous_profile(
             power_value: float | int = (
                 int(power_dbm) if float(power_dbm).is_integer() else power_dbm
             )
-            parameters = {
-                "tx_power_dbm": power_value,
-                "bit_rate_kbps": bit_rate_kbps,
-            }
+            parameters = dict(base_parameters)
+            parameters["tx_power_dbm"] = power_value
             commands = parameter_commands(profile, parameters)
             frame_airtime_s = estimate_airtime_s(
                 profile,
@@ -369,7 +394,12 @@ def run_continuous_profile(
                 "ppk_port": ppk_port,
                 "voltage_mv": voltage_mv,
                 "tx_power_dbm": power_dbm,
-                "bit_rate_kbps": bit_rate_kbps,
+                "bit_rate_kbps": parameters.get("bit_rate_kbps", ""),
+                "data_rate_kbps": parameters.get("data_rate_kbps", ""),
+                "spreading_factor": parameters.get("spreading_factor", ""),
+                "bandwidth_khz": parameters.get("bandwidth_khz", ""),
+                "air_rate": parameters.get("air_rate", ""),
+                "parameters_json": json.dumps(parameters, sort_keys=True),
                 "frame_bytes": frame_bytes,
                 "content_bytes_per_frame": (
                     frame_bytes - profile.transmit.line_overhead_bytes
@@ -400,5 +430,5 @@ def run_continuous_profile(
         if radio is not None:
             radio.close()
         if sampler is not None:
-            sampler.close()
+            sampler.close(keep_power_on=keep_power_on)
     return output_dir

@@ -41,8 +41,9 @@ class Ppk2Sampler:
         # The third-party API uses this value for voltage-dependent calibration.
         # Ampere mode does not expose a public setter, so set its internal state.
         self.api.current_vdd = voltage_mv
-        # DEVICE_RUNNING_SET closes/opens the measured VIN -> VOUT DUT path.
-        self.api.toggle_DUT_power("OFF")
+        # Do not change DEVICE_RUNNING_SET during initialization. The PPK2 sits
+        # in the DUT supply path, so an implicit OFF here would brown out the
+        # measured module every time a new batch opens the measurement port.
 
     def _stop_and_drain(self) -> None:
         """Stop a stale capture and discard binary samples before metadata."""
@@ -83,16 +84,27 @@ class Ppk2Sampler:
 
     def power_on(self) -> None:
         self.api.toggle_DUT_power("ON")
+        # The API command is write-only. Flush it before releasing COM11 so the
+        # final VIN -> VOUT switch state cannot be lost with buffered USB data.
+        self.api.ser.flush()
+        time.sleep(0.02)
 
     def power_off(self) -> None:
         self.api.toggle_DUT_power("OFF")
+        self.api.ser.flush()
+        time.sleep(0.02)
 
-    def close(self, *, keep_power_on: bool = False) -> None:
+    def close(self, *, keep_power_on: bool = True) -> None:
         try:
             self.api.stop_measuring()
         except Exception:
             pass
-        if not keep_power_on:
+        # Reassert the desired switch state as the final PPK2 command. Merely
+        # avoiding OFF is insufficient if a run was interrupted during an
+        # intentional profile power cycle or a previous ON write was buffered.
+        if keep_power_on:
+            self.power_on()
+        else:
             self.power_off()
         if getattr(self.api, "ser", None) is not None and self.api.ser.is_open:
             self.api.ser.close()

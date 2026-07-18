@@ -303,6 +303,15 @@ def run_profile(
                     if measurement_direction == "rx" and packet_received
                     else None
                 ),
+                # RX current is nearly flat while the radio listens, so tiny
+                # noise spikes can otherwise win threshold-based event
+                # selection. Integrate one deterministic on-air window for RX;
+                # TX continues to use measured event boundaries.
+                integration_window_s=(
+                    case.estimated_airtime_s
+                    if measurement_direction == "rx"
+                    else None
+                ),
             )
             run_id = f"run_{case.case_index:05d}"
             if radio_error:

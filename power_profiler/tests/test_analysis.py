@@ -21,6 +21,27 @@ class AnalysisTests(unittest.TestCase):
         self.assertAlmostEqual(metrics.event_duration_ms, 100.0)
         self.assertAlmostEqual(metrics.energy_total_uJ, 6_600.0)
 
+    def test_fixed_rx_window_wins_over_short_noise_spikes(self):
+        samples = [20_000.0] * 2_000
+        samples[550:560] = [50_000.0] * 10
+
+        metrics = analyze_capture(
+            samples,
+            trigger_index=500,
+            sample_rate_hz=1_000,
+            voltage_mv=3_300,
+            capture_spec=CaptureSpec(
+                threshold_margin_uA=1_000.0,
+                minimum_event_ms=1.0,
+            ),
+            integration_window_s=0.1,
+        )
+
+        self.assertTrue(metrics.event_detected)
+        self.assertAlmostEqual(metrics.event_start_ms, 0.0)
+        self.assertAlmostEqual(metrics.event_duration_ms, 100.0)
+        self.assertAlmostEqual(metrics.energy_total_uJ, 7_590.0)
+
     def test_detects_tx_event_and_integrates_energy(self):
         sample_rate = 100_000
         samples = [1000.0] * 60_000
