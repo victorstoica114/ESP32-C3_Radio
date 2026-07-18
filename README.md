@@ -98,7 +98,7 @@ Standalone module-side radio firmware:
 | Firmware | Primary repository | Local reference | Radio/module | Status |
 | --- | --- | --- | --- | --- |
 | RA08 AT modem | [victorstoica114/RA-08_AT-Commands](https://github.com/victorstoica114/RA-08_AT-Commands) | `src/RA-08(ASR6601)` | Ai-Thinker RA-08, ASR6601 LPWAN SoC | Functional and tested with two modules |
-| E79 AT modem | [victorstoica114/Ebyte-E79-CC1352P-_AT_Modem_Firmware](https://github.com/victorstoica114/Ebyte-E79-CC1352P-_AT_Modem_Firmware) | `src/Ebyte E79(CC1352P)/CC1352P_AT_Modem_Firmware` | Ebyte E79-400DM2005S, TI CC1352P wireless MCU | Functional and tested with two modules |
+| E79 AT modem | [victorstoica114/Ebyte-E79-CC1352P-_AT_Modem_Firmware](https://github.com/victorstoica114/Ebyte-E79-CC1352P-_AT_Modem_Firmware) | `src/Ebyte E79(CC1352P)/CC1352P_AT_Modem_Firmware` | Ebyte E79-400DM2005S, TI CC1352P wireless MCU | Firmware 0.3.0; seven RF profiles; 343/0 hardware tests |
 
 ## Firmware variants
 
@@ -452,9 +452,14 @@ recovery, and bidirectional transparent payload exchange passed.
 radio peripheral. The module runs its own CC1352P AT modem firmware, and the
 ESP32-C3 board is used mainly as the USB CDC to UART bridge.
 
-The CC1352P modem source is maintained primarily in
-[victorstoica114/Ebyte-E79-CC1352P-_AT_Modem_Firmware](https://github.com/victorstoica114/Ebyte-E79-CC1352P-_AT_Modem_Firmware).
-This repository keeps a compact source reference under
+Firmware version `0.3.0` is maintained in two repositories:
+
+- [Ebyte-E79-CC1352P-_AT_Modem_Firmware](https://github.com/victorstoica114/Ebyte-E79-CC1352P-_AT_Modem_Firmware)
+  contains the portable source and useful release binaries.
+- [Ebyte-E79-CC1352P-_AT_Modem_Firmware-Full](https://github.com/victorstoica114/Ebyte-E79-CC1352P-_AT_Modem_Firmware-Full)
+  contains the complete build workspace and compiler support files.
+
+This repository also keeps a compact source reference under
 `src/Ebyte E79(CC1352P)/CC1352P_AT_Modem_Firmware`.
 
 The ESP32 firmware for E79 is built as a transparent bridge to the module-side
@@ -480,37 +485,58 @@ CC1352P AT modem commands:
 | `AT`, `AT?`, `AT+HELP`, `AT+VERSION?`, `AT+CFG?` | Connectivity, identity, help, and current radio configuration |
 | `AT+DEFAULT`, `AT+RESET` | Restore safe defaults or reset the modem |
 | `AT+DEBUG?`, `AT+DEBUG=ON\|OFF` | Query/toggle debug output |
+| `AT+PROFILE?`, `AT+PROFILE=<name>`, `AT+PROFILES?` | Query/select a profile or list all available RF profiles |
 | `AT+FREQ?`, `AT+FREQ=<431000000..500000000>` | Query/set carrier frequency in Hz |
 | `AT+PWR?`, `AT+PWR=<-20..13>` | Query/set TX power in dBm using supported CC1352P PA table entries |
-| `AT+RATE?`, `AT+RATE=50000` | Query/set air data rate; validated firmware supports 50 kbps 2-GFSK |
-| `AT+MOD?`, `AT+MOD=2GFSK` | Query/set modulation |
-| `AT+SYNC?`, `AT+SYNC=<hex>` | Query/set sync word, 1..8 hex digits |
+| `AT+RATE?`, `AT+RATE=<2500\|4800\|5000\|50000\|200000>` | Query/set the air data rate in bps |
+| `AT+MOD?`, `AT+MOD=2GFSK\|OOK\|MRFSK` | Query/set modulation and select a compatible profile |
+| `AT+SYNC?`, `AT+SYNC=<hex>` | Query/set the sync word; up to 32 bits for proprietary profiles or 24 bits for `IEEE154G50` |
 | `AT+ADDR?`, `AT+ADDR=<value>` | Address-query/set guard; address filtering is not enabled in the validated PHY |
 | `AT+CHAN?`, `AT+CHAN=<n>` | Channel-query/set guard; use explicit frequency with `AT+FREQ` |
-| `AT+RX=ON`, `AT+RX=OFF` | Enable receive mode or return to standby |
+| `AT+RX=ON`, `AT+RX=OFF` | Enable receive mode or return to standby; RX is enabled automatically at boot |
 | `AT+SEND=<text>`, `AT+SENDHEX=<hex>` | Send text or hex payloads |
 | Non-AT text line | Send the line directly as a radio payload |
 | `AT+SLEEP`, `AT+WAKE` | Enter low-power mode or wake and restore usable radio state |
 | `AT+RSSI?`, `AT+STATUS?`, `AT+LASTPKT?`, `AT+RANDOM?`, `AT+UPTIME?` | Diagnostics and runtime status |
 | `AT+SETRADIO=FREQ,RATE,PWR,MOD,SYNC` | One-shot radio configuration |
 
-The ESP32 bridge does not change the CC1352P radio state at startup; default RX
-behavior belongs in the CC1352P modem firmware. Plain text that does not start
-with `AT` is transmitted directly, so typing `hello` sends `hello` over RF.
-Received E79 text packets are printed as the payload only. Use `AT+SEND=<text>`
-when the payload itself must start with `AT`, or `AT+SENDHEX=<hex>` for binary
-data.
+Seven generated and hardware-tested 433 MHz profiles are available:
 
-The PlatformIO `e79-esp32-bridge` environment provides this convenience at the
-ESP32 bridge layer by wrapping non-AT text as `AT+SEND=<text>` before forwarding
-it to the CC1352P modem and hiding the modem `OK` replies for those bridge-side
-sends.
+| Profile | Modulation | Data rate | Main settings |
+| --- | --- | ---: | --- |
+| `GFSK4K8` | `2GFSK` | 4.8 kbps | 2 kHz deviation, 10.1 kHz RX bandwidth |
+| `GFSK50` | `2GFSK` | 50 kbps | 25 kHz deviation, 78 kHz RX bandwidth; default profile |
+| `GFSK200` | `2GFSK` | 200 kbps | 50 kHz deviation, 273 kHz RX bandwidth |
+| `SLR2K5` | `2GFSK` | 2.5 kbps | SimpleLink LR, FEC 1:2, DSSS 1:4 |
+| `SLR5` | `2GFSK` | 5 kbps | SimpleLink LR, FEC 1:2, DSSS 1:2 |
+| `OOK4K8` | `OOK` | 4.8 kbps | OOK, 34.1 kHz RX bandwidth |
+| `IEEE154G50` | `MRFSK` | 50 kbps | IEEE 802.15.4g MR-FSK framing |
 
-The E79 modem was validated with two modules on COM19 and COM22. COM18 was
-probed during the latest campaign and belongs to the E280 pair. The E79 tests
-covered AT command handling, parameter validation, sleep/wake guardrails, RX/TX
-control, text packets, hex packets, RSSI/LASTPKT diagnostics, 433/434 MHz
-frequency isolation, and bidirectional radio exchange.
+`IEEE154G50` is a separate IEEE 802.15.4g PHY with a 7-byte preamble, 24-bit
+SFD `0x55904E`, 16-bit PHR, whitening, CRC-16, and LSB-first payload encoding.
+At rates shared by multiple profiles, `AT+RATE` preserves the current
+modulation when possible. Use `AT+PROFILE=<name>` for an unambiguous selection;
+at 50 kbps, `AT+MOD=2GFSK` selects `GFSK50` and `AT+MOD=MRFSK` selects
+`IEEE154G50`.
+
+The ESP32 `e79-esp32-bridge` firmware is byte-transparent except for lines that
+start with its reserved `~CC1352P_` control prefix. It does not parse AT
+commands, wrap payloads in `AT+SEND`, or hide modem responses. Transparent line
+handling belongs to the CC1352P firmware: from the first line after boot, a
+non-empty line that does not start with `AT` is transmitted directly. CR, LF,
+and CRLF line endings are accepted, and the maximum payload is 64 bytes.
+
+RX starts automatically at boot and after `AT+DEFAULT` or `AT+RESET`. TX is
+enabled only while a packet is being sent, then the modem returns to RX. With
+debug disabled, received text is printed as the raw payload without `OK` or
+`RECEIVED` messages. Use `AT+SEND=<text>` when the payload itself must start
+with `AT`, or `AT+SENDHEX=<hex>` for binary data.
+
+Firmware `0.3.0` was written and CRC-verified on the COM19 and COM22 modules
+(`0xC3EB2AAF`). The two-module validation passed all 343 checks with no
+failures, including automatic RX, transparent and explicit TX, all seven RF
+profiles in both directions, IEEE 802.15.4g framing, diagnostics, sleep/wake,
+reset behavior, and frequency isolation.
 
 ESP32 bridge local commands:
 
