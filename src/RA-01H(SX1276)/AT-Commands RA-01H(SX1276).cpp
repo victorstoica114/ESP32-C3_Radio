@@ -84,12 +84,12 @@ volatile bool receivedFlag = false;
 
 // ------------------ CONFIG ------------------
 struct RadioConfig {
-  float    freqMHz     = 433.0;   // MHz (RA-01 is 433MHz)
+  float    freqMHz     = 868.0;   // MHz (RA-01H front end supports 803..930 MHz)
   float    bwkHz       = 125.0;   // kHz
   uint8_t  sf          = 10;      // 6..12
   uint8_t  cr          = 6;       // 5..8
   uint8_t  syncWord    = 0x14;    // LoRa sync word
-  int8_t   pwrDbm      = 10;      // dBm (-4 to +20 for SX1276)
+  int8_t   pwrDbm      = 10;      // dBm (2..17 or 20 via RA-01H PA_BOOST)
   float    currLimitMA = 100.0;   // mA (0 = skip)
   uint16_t preamble    = 15;
   uint8_t  gain        = 0;       // 0=AGC, 1..6 manual LNA gain
@@ -113,7 +113,7 @@ float lastFrequencyError = NAN;
 
 // ------------------ EEPROM PERSISTENCE ------------------
 static const uint32_t EEPROM_MAGIC   = 0x53583736UL; // 'SX76'
-static const uint16_t EEPROM_VERSION = 0x0002;
+static const uint16_t EEPROM_VERSION = 0x0003;
 static const size_t   EEPROM_SIZE    = 512;
 
 static uint32_t crc32_update(uint32_t crc, uint8_t data) {
@@ -241,7 +241,9 @@ static bool isValidSX127xBandwidth(float bw) {
 }
 
 static bool isValidSX127xPower(long pwr) {
-  return (pwr >= -4 && pwr <= 17) || pwr == 20;
+  // RadioLib selects RFO below +2 dBm, but RA-01H routes its antenna through
+  // PA_BOOST. Accept only settings that reach the module's RF output.
+  return (pwr >= 2 && pwr <= 17) || pwr == 20;
 }
 
 static bool isValidSX127xCurrent(float currentMA) {
@@ -289,7 +291,7 @@ static void printHelp() {
   Serial.println(F("  AT+SF=<6..12>       / AT+SF?"));
   Serial.println(F("  AT+CR=<5..8>        / AT+CR?"));
   Serial.println(F("  AT+SYNC=<hex>       / AT+SYNC?"));
-  Serial.println(F("  AT+PWR=<-4..17|20>  / AT+PWR?"));
+  Serial.println(F("  AT+PWR=<2..17|20>   / AT+PWR?"));
   Serial.println(F("  AT+CURR=<0|45..240> / AT+CURR?"));
   Serial.println(F("  AT+PREAMBLE=<6..65535> / AT+PREAMBLE?"));
   Serial.println(F("  AT+GAIN=<0..6>      / AT+GAIN?     (0=AGC)"));
@@ -795,7 +797,7 @@ void setup() {
   Serial.println();
   Serial.println(F("=========================================="));
   Serial.println(F("   SX1276 / RA-01 AT Bridge"));
-  Serial.println(F("   115200 8N1 <-> LoRa 433 MHz"));
+  Serial.println(F("   115200 8N1 <-> LoRa 868 MHz"));
   Serial.println(F("=========================================="));
   Serial.println();
 
@@ -914,6 +916,15 @@ void loop() {
         Serial.println(F(" dB"));
       } else {
         Serial.print(str);
+        // Hardware USB Serial/JTAG can retain a transfer whose length exactly
+        // fills its endpoint (126 payload bytes plus CRLF). First let that
+        // aligned transfer leave the software queue, then trigger a separate
+        // short transfer. Host line parsers ignore the empty delimiter, while
+        // every received LoRa frame becomes visible immediately.
+        Serial.flush();
+        delay(5);
+        Serial.println();
+        Serial.flush();
       }
 
     } else if (rx == RADIOLIB_ERR_CRC_MISMATCH) {

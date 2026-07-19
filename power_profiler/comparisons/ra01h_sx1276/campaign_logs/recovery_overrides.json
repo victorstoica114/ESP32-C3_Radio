@@ -1,0 +1,8 @@
+{
+  "reason": "Continuous RX receiver-tail correction: wait for the final LoRa frame and keep PPK2 capture alive through that tail. Packet-loss diagnostics are preserved separately and do not override the five-run campaign matrix.",
+  "steps": {
+    "continuous_rx_spreading_factor-7_bandwidth_khz-125": "recovery/continuous_rx_sf7",
+    "continuous_rx_spreading_factor-9_bandwidth_khz-125": "recovery/continuous_rx_sf9",
+    "continuous_rx_spreading_factor-12_bandwidth_khz-125": "recovery/continuous_rx_sf12"
+  }
+}

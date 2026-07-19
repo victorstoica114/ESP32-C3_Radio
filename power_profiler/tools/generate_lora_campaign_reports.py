@@ -296,7 +296,11 @@ def _loss_rows(continuous: list[dict[str, Any]]) -> list[dict[str, Any]]:
             }
         )
     rows.sort(key=lambda row: (row["tx_power_dbm"], -row["effective_payload_rate_kbps"]))
-    expected = {(power, sf) for power in (-4.0, 10.0, 20.0) for sf in (7, 9, 12)}
+    powers = sorted({row["tx_power_dbm"] for row in rows})
+    spreading_factors = sorted({row["spreading_factor"] for row in rows})
+    if len(powers) != 3 or len(spreading_factors) != 3:
+        raise ValueError("Expected three TX powers and three spreading factors")
+    expected = {(power, sf) for power in powers for sf in spreading_factors}
     actual = {(row["tx_power_dbm"], row["spreading_factor"]) for row in rows}
     if actual != expected:
         raise ValueError("Incomplete LoRa loss matrix")
@@ -356,10 +360,16 @@ def _write_continuous_xlsx(path: Path, rows: list[dict[str, Any]], loss: list[di
     _sheet(workbook, "continuous_results", fields, rows)
     _sheet(workbook, "loss_results", LOSS_FIELDS, loss)
     matrix = workbook.create_sheet("loss_matrix_percent")
-    matrix.append(["TX power [dBm]", "SF7", "SF9", "SF12"])
+    spreading_factors = sorted({int(row["spreading_factor"]) for row in loss})
+    matrix.append(["TX power [dBm]", *(f"SF{sf}" for sf in spreading_factors)])
     by_key = {(row["tx_power_dbm"], row["spreading_factor"]): row for row in loss}
-    for power in (-4.0, 10.0, 20.0):
-        matrix.append([power, *(by_key[(power, sf)]["frame_loss_percent"] for sf in (7, 9, 12))])
+    for power in sorted({row["tx_power_dbm"] for row in loss}):
+        matrix.append(
+            [
+                power,
+                *(by_key[(power, sf)]["frame_loss_percent"] for sf in spreading_factors),
+            ]
+        )
     _style(matrix)
     workbook.save(path)
 
@@ -403,14 +413,16 @@ def _tex_footer(module: str, title: str, panels: int, note: str) -> list[str]:
 def _write_tx_energy_tex(path: Path, tx: list[dict[str, Any]], module: str) -> None:
     ymin, ymax = _energy_limits(tx)
     powers = sorted({row["tx_power_dbm"] for row in tx})
+    spreading_factors = sorted({int(row["spreading_factor"]) for row in tx})
     lines = _tex_header("TX energy", len(powers), ymin, ymax)
     for power in powers:
         ylabel = r",ylabel={Mean total energy [mJ]}" if power == powers[0] else ""
         lines.append(rf"\nextgroupplot[title={{{_latex_n(power)} dBm}}{ylabel}]")
-        for index, sf in enumerate((7, 9, 12)):
+        for index, sf in enumerate(spreading_factors):
             selected = [row for row in tx if row["tx_power_dbm"] == power and row["spreading_factor"] == sf]
-            lines.append(rf"\addplot+[{COLORS[index]},{STYLES[index]},mark={MARKERS[index]},error bars/.cd,y dir=both,y explicit] coordinates {{{_energy_coordinates(selected)}}};")
-            if power == powers[1]:
+            style = index % len(COLORS)
+            lines.append(rf"\addplot+[{COLORS[style]},{STYLES[style]},mark={MARKERS[style]},error bars/.cd,y dir=both,y explicit] coordinates {{{_energy_coordinates(selected)}}};")
+            if power == powers[len(powers) // 2]:
                 lines.append(rf"\addlegendentry{{SF{sf}}}")
     lines.extend(_tex_footer(module, "TX energy", len(powers), "Five repetitions per point; error bars show standard deviation. Both axes are logarithmic."))
     path.write_text("\n".join(lines), encoding="utf-8")
@@ -419,19 +431,20 @@ def _write_tx_energy_tex(path: Path, tx: list[dict[str, Any]], module: str) -> N
 def _write_tx_rx_tex(path: Path, packet: list[dict[str, Any]], module: str) -> None:
     power = max(row["tx_power_dbm"] for row in packet)
     selected_all = [row for row in packet if row["tx_power_dbm"] == power]
+    spreading_factors = sorted({int(row["spreading_factor"]) for row in selected_all})
     ymin, ymax = _energy_limits(selected_all)
-    lines = _tex_header("TX--RX energy", 3, ymin, ymax)
-    for index, sf in enumerate((7, 9, 12)):
+    lines = _tex_header("TX--RX energy", len(spreading_factors), ymin, ymax)
+    for index, sf in enumerate(spreading_factors):
         lines.append(rf"\nextgroupplot[title={{SF{sf}}}{',ylabel={Mean total energy [mJ]}' if index == 0 else ''}]")
         tx = [row for row in selected_all if row["measurement_direction"] == "tx" and row["spreading_factor"] == sf]
         rx = [row for row in selected_all if row["measurement_direction"] == "rx" and row["spreading_factor"] == sf]
         lines.append(rf"\addplot+[blue!75!black,solid,mark=*,error bars/.cd,y dir=both,y explicit] coordinates {{{_energy_coordinates(tx)}}};")
-        if index == 1:
+        if index == len(spreading_factors) // 2:
             lines.append(r"\addlegendentry{TX}")
         lines.append(rf"\addplot+[red!75!black,dashed,mark=square*,error bars/.cd,y dir=both,y explicit] coordinates {{{_energy_coordinates(rx)}}};")
-        if index == 1:
+        if index == len(spreading_factors) // 2:
             lines.append(r"\addlegendentry{RX}")
-    lines.extend(_tex_footer(module, "TX--RX energy at 20 dBm", 3, "RX integrates one deterministic LoRa airtime window; five repetitions per point."))
+    lines.extend(_tex_footer(module, f"TX--RX energy at {_latex_n(power)} dBm", len(spreading_factors), "RX integrates one deterministic LoRa airtime window; five repetitions per point."))
     path.write_text("\n".join(lines), encoding="utf-8")
 
 
@@ -467,15 +480,16 @@ def _write_continuous_power_tex(path: Path, rows: list[dict[str, Any]], module: 
 
 def _write_loss_tex(path: Path, rows: list[dict[str, Any]], module: str) -> None:
     rates = [row["effective_payload_rate_kbps"] for row in rows]
+    spreading_factors = sorted({int(row["spreading_factor"]) for row in rows})
     rates_by_sf = {
         sf: statistics.fmean(
             row["effective_payload_rate_kbps"]
             for row in rows
             if row["spreading_factor"] == sf
         )
-        for sf in (7, 9, 12)
+        for sf in spreading_factors
     }
-    tick_rates = [rates_by_sf[sf] for sf in (12, 9, 7)]
+    tick_rates = [rates_by_sf[sf] for sf in reversed(spreading_factors)]
     ticks = ",".join(_n(rate) for rate in tick_rates)
     tick_labels = ",".join(f"{rate:.3g}" for rate in tick_rates)
     xmin, xmax = min(rates) * 0.75, max(rates) * 1.25
@@ -487,13 +501,15 @@ def _write_loss_tex(path: Path, rows: list[dict[str, Any]], module: str) -> None
         rf" xtick={{{ticks}}},xticklabels={{{tick_labels}}},",
         r" xlabel={Effective payload speed [kbps]},ylabel={Lost frames [\%]},grid=both,legend style={draw=none,at={(0.03,0.97)},anchor=north west}]",
     ]
-    for index, power in enumerate((20.0, 10.0, -4.0)):
+    powers = sorted({row["tx_power_dbm"] for row in rows}, reverse=True)
+    for index, power in enumerate(powers):
         selected = sorted((row for row in rows if row["tx_power_dbm"] == power), key=lambda row: row["effective_payload_rate_kbps"])
-        lines.append(rf"\addplot+[{COLORS[index]},{STYLES[index]},mark={MARKERS[index]}] coordinates {{{_coordinates(selected, 'effective_payload_rate_kbps', 'frame_loss_percent')}}};")
+        style = index % len(COLORS)
+        lines.append(rf"\addplot+[{COLORS[style]},{STYLES[style]},mark={MARKERS[style]}] coordinates {{{_coordinates(selected, 'effective_payload_rate_kbps', 'frame_loss_percent')}}};")
         lines.append(rf"\addlegendentry{{{_latex_n(power)} dBm}}")
     mapping = ", ".join(
         f"SF{sf}: {rates_by_sf[sf]:.3g} kbps"
-        for sf in (7, 9, 12)
+        for sf in spreading_factors
     )
     lines.extend([r"\end{axis}", rf"\node[font=\footnotesize,align=center,text width=12cm] at (6.25,-1.45) {{60 s per point, 64 B frames, 15 ms gap; {mapping}.}};", r"\end{tikzpicture}", r"\end{document}", ""])
     path.write_text("\n".join(lines), encoding="utf-8")
@@ -517,7 +533,11 @@ def _copy_provenance(manifest_path: Path, output: Path) -> None:
     recovery = session / "recovery"
     if recovery.exists():
         for source in recovery.rglob("*"):
-            if source.is_file() and source.name in {"metadata.json", "summary.csv"}:
+            if source.is_file() and source.name in {
+                "metadata.json",
+                "summary.csv",
+                "aggregates.csv",
+            }:
                 target = destination / "recovery" / source.relative_to(recovery)
                 target.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(source, target)

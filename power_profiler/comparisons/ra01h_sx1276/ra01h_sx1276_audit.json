@@ -1,0 +1,31 @@
+{
+  "authoritative_session": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_155432_campaign_radio_ra01h_sx1276",
+  "packet_points": 36,
+  "packet_runs": 180,
+  "continuous_points": 12,
+  "maximum_energy_cv_percent": 0.5697914816607572,
+  "maximum_ppk_sample_loss_percent": 0.5257142857142857,
+  "packet_losses": 3,
+  "recovery_overrides": {
+    "file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_155432_campaign_radio_ra01h_sx1276\\recovery_overrides.json",
+    "reason": "Continuous RX receiver-tail correction: wait for the final LoRa frame and keep PPK2 capture alive through that tail. Packet-loss diagnostics are preserved separately and do not override the five-run campaign matrix.",
+    "steps": {
+      "continuous_rx_spreading_factor-7_bandwidth_khz-125": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_155432_campaign_radio_ra01h_sx1276\\recovery\\continuous_rx_sf7",
+      "continuous_rx_spreading_factor-9_bandwidth_khz-125": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_155432_campaign_radio_ra01h_sx1276\\recovery\\continuous_rx_sf9",
+      "continuous_rx_spreading_factor-12_bandwidth_khz-125": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_155432_campaign_radio_ra01h_sx1276\\recovery\\continuous_rx_sf12"
+    }
+  },
+  "diagnostic_recovery_summaries": [
+    "recovery\\continuous_rx_sf12\\summary.csv",
+    "recovery\\continuous_rx_sf7\\summary.csv",
+    "recovery\\continuous_rx_sf9\\summary.csv",
+    "recovery\\packet_diagnostics\\tx_128b_p2_sf9\\summary.csv",
+    "recovery\\packet_diagnostics\\tx_32b_p10_sf9\\summary.csv",
+    "recovery\\packet_diagnostics\\tx_8b_p10_sf7\\summary.csv"
+  ],
+  "notes": [
+    "RX energy uses a deterministic integration window equal to calculated LoRa airtime.",
+    "Verified total radio loss is retained when the transmitter completed with zero serial errors.",
+    "Loss results are preserved as measured; isolated packet losses were not cherry-picked away."
+  ]
+}

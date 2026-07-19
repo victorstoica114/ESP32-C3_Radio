@@ -1,0 +1,265 @@
+{
+  "state": "stopped",
+  "kind": "continuous_rx",
+  "message": "Test stopped; completed results were preserved",
+  "started_utc": "2026-07-19T13:47:07+00:00",
+  "finished_utc": "2026-07-19T14:01:35+00:00",
+  "session_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_164707_continuous_rx_radio_ra01h_sx1276",
+  "current_step": 3,
+  "total_steps": 3,
+  "current_label": "",
+  "completed_steps": 2,
+  "failed_steps": 0,
+  "quick_verdict": null,
+  "config": {
+    "profile_id": "RADIO_RA01H_SX1276",
+    "measured_port": "COM29",
+    "peer_port": "COM30",
+    "ppk_port": "COM11",
+    "voltage_mv": 3300,
+    "repetitions": 5,
+    "cooldown_s": 2.0,
+    "continuous_duration_s": 60.0,
+    "max_retries": 2,
+    "retry_cooling_s": 10.0,
+    "save_raw_campaign": true,
+    "notify_codex": false
+  },
+  "steps": [
+    {
+      "step_id": "continuous_rx_spreading_factor-7_bandwidth_khz-125",
+      "label": "Average RX power and loss - SF7, BW 125 kHz - 60 s/power level",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "continuous",
+        "--module",
+        "RADIO_RA01H_SX1276",
+        "--direction",
+        "rx",
+        "--powers=2,10,20",
+        "--frame-bytes",
+        "64",
+        "--gap-ms",
+        "15",
+        "--duration-s",
+        "60",
+        "--radio-port",
+        "COM29",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_164707_continuous_rx_radio_ra01h_sx1276\\continuous",
+        "--keep-power-on",
+        "--axis",
+        "spreading_factor=7",
+        "--axis",
+        "bandwidth_khz=125",
+        "--transmitter-port",
+        "COM30",
+        "--save-raw"
+      ],
+      "result_kind": "continuous",
+      "expected_rows": 3,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_164707_continuous_rx_radio_ra01h_sx1276\\continuous\\20260719_164707_radio_ra01h_sx1276_continuous_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_164707_continuous_rx_radio_ra01h_sx1276\\continuous\\20260719_164707_radio_ra01h_sx1276_continuous_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_164707_continuous_rx_radio_ra01h_sx1276\\logs\\continuous_rx_spreading_factor-7_bandwidth_khz-125_attempt_01.log",
+          "finished_utc": "2026-07-19T13:53:07+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 3,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_164707_continuous_rx_radio_ra01h_sx1276\\continuous\\20260719_164707_radio_ra01h_sx1276_continuous_rx",
+      "validation": {
+        "valid": true,
+        "rows": 3,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "continuous_rx_spreading_factor-9_bandwidth_khz-125",
+      "label": "Average RX power and loss - SF9, BW 125 kHz - 60 s/power level",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "continuous",
+        "--module",
+        "RADIO_RA01H_SX1276",
+        "--direction",
+        "rx",
+        "--powers=2,10,20",
+        "--frame-bytes",
+        "64",
+        "--gap-ms",
+        "15",
+        "--duration-s",
+        "60",
+        "--radio-port",
+        "COM29",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_164707_continuous_rx_radio_ra01h_sx1276\\continuous",
+        "--keep-power-on",
+        "--axis",
+        "spreading_factor=9",
+        "--axis",
+        "bandwidth_khz=125",
+        "--transmitter-port",
+        "COM30",
+        "--save-raw"
+      ],
+      "result_kind": "continuous",
+      "expected_rows": 3,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_164707_continuous_rx_radio_ra01h_sx1276\\continuous\\20260719_165307_radio_ra01h_sx1276_continuous_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_164707_continuous_rx_radio_ra01h_sx1276\\continuous\\20260719_165307_radio_ra01h_sx1276_continuous_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_164707_continuous_rx_radio_ra01h_sx1276\\logs\\continuous_rx_spreading_factor-9_bandwidth_khz-125_attempt_01.log",
+          "finished_utc": "2026-07-19T13:59:08+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 3,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_164707_continuous_rx_radio_ra01h_sx1276\\continuous\\20260719_165307_radio_ra01h_sx1276_continuous_rx",
+      "validation": {
+        "valid": true,
+        "rows": 3,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "continuous_rx_spreading_factor-12_bandwidth_khz-125",
+      "label": "Average RX power and loss - SF12, BW 125 kHz - 60 s/power level",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "continuous",
+        "--module",
+        "RADIO_RA01H_SX1276",
+        "--direction",
+        "rx",
+        "--powers=2,10,20",
+        "--frame-bytes",
+        "64",
+        "--gap-ms",
+        "15",
+        "--duration-s",
+        "60",
+        "--radio-port",
+        "COM29",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_164707_continuous_rx_radio_ra01h_sx1276\\continuous",
+        "--keep-power-on",
+        "--axis",
+        "spreading_factor=12",
+        "--axis",
+        "bandwidth_khz=125",
+        "--transmitter-port",
+        "COM30",
+        "--save-raw"
+      ],
+      "result_kind": "continuous",
+      "expected_rows": 3,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 2,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_164707_continuous_rx_radio_ra01h_sx1276\\continuous\\20260719_165908_radio_ra01h_sx1276_continuous_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_164707_continuous_rx_radio_ra01h_sx1276\\continuous\\20260719_165908_radio_ra01h_sx1276_continuous_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_164707_continuous_rx_radio_ra01h_sx1276\\logs\\continuous_rx_spreading_factor-12_bandwidth_khz-125_attempt_01.log",
+          "finished_utc": "2026-07-19T14:00:26+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "attempt": 2,
+          "return_code": 1,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_164707_continuous_rx_radio_ra01h_sx1276\\continuous\\20260719_170037_radio_ra01h_sx1276_continuous_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_164707_continuous_rx_radio_ra01h_sx1276\\continuous\\20260719_170037_radio_ra01h_sx1276_continuous_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_164707_continuous_rx_radio_ra01h_sx1276\\logs\\continuous_rx_spreading_factor-12_bandwidth_khz-125_attempt_02.log",
+          "finished_utc": "2026-07-19T14:01:35+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "stopped",
+      "accepted_result": "",
+      "validation": {
+        "valid": false,
+        "errors": [
+          "Process exited with code 2"
+        ],
+        "warnings": []
+      }
+    }
+  ]
+}

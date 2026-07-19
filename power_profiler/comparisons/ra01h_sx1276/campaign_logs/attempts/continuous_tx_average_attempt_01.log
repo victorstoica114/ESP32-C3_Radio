@@ -1,0 +1,7 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_RA01H_SX1276 --direction tx --powers=2,10,20 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM29 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_155432_campaign_radio_ra01h_sx1276\continuous" --keep-power-on --axis spreading_factor=9 --axis bandwidth_khz=125 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Continuous TX: 60 s per power, parameters={'spreading_factor': 9, 'bandwidth_khz': 125}, 64 B frames, 15 ms gap
+[1/3] TX 2 dBm: mean=48.428 mA, power=159.812 mW, status=ok
+[2/3] TX 10 dBm: mean=66.928 mA, power=220.862 mW, status=ok
+[3/3] TX 20 dBm: mean=111.322 mA, power=367.363 mW, status=ok
+Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_155432_campaign_radio_ra01h_sx1276\continuous\20260719_162142_radio_ra01h_sx1276_continuous_tx

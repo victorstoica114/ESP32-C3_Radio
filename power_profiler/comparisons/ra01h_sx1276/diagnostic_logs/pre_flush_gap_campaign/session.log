@@ -1,0 +1,107 @@
+[15:45:55] START   Campaign session: 40 steps - RADIO_RA01H_SX1276
+[15:45:55] STEP    TX 8 B - 2 dBm - SF7, BW 125 kHz - attempt 1
+[15:45:55] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_RA01H_SX1276 --direction tx --radio-port COM29 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=2 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_154555_campaign_radio_ra01h_sx1276\packet_tx" --receiver-port COM30 --save-raw
+[15:45:56] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:45:56] INFO    Measured transmitter: COM29, 115200 baud
+[15:45:56] INFO    Peer receiver: COM30, 115200 baud
+[15:46:03] INFO    Configuring measured transmitter (Ai-Thinker RA-01H (SX1276)) on COM29 ...
+[15:46:09] INFO    Configuring peer receiver on COM30 ...
+[15:46:14] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 2, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=51493.2 uA, energy=7128.808 uJ
+[15:46:18] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 2, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=51547.4 uA, energy=7126.690 uJ
+[15:46:22] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 2, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=51438.9 uA, energy=7128.163 uJ
+[15:46:27] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 2, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=51438.9 uA, energy=7127.003 uJ
+[15:46:31] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 2, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=51384.7 uA, energy=7122.789 uJ
+[15:46:31] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_154555_campaign_radio_ra01h_sx1276\packet_tx\20260719_154556_radio_ra01h_sx1276
+[15:46:31] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:46:31] STEP    TX 32 B - 2 dBm - SF7, BW 125 kHz - attempt 1
+[15:46:31] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_RA01H_SX1276 --direction tx --radio-port COM29 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=2 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_154555_campaign_radio_ra01h_sx1276\packet_tx" --receiver-port COM30 --save-raw
+[15:46:31] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:46:31] INFO    Measured transmitter: COM29, 115200 baud
+[15:46:31] INFO    Peer receiver: COM30, 115200 baud
+[15:46:39] INFO    Configuring measured transmitter (Ai-Thinker RA-01H (SX1276)) on COM29 ...
+[15:46:45] INFO    Configuring peer receiver on COM30 ...
+[15:46:50] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 2, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=51547.4 uA, energy=13041.083 uJ
+[15:46:53] CALLBACK Codex conversation foreground requested
+[15:46:54] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 2, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=51547.4 uA, energy=13020.845 uJ
+[15:46:58] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 2, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=51384.7 uA, energy=13022.850 uJ
+[15:47:02] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 2, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=51601.6 uA, energy=13030.994 uJ
+[15:47:07] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 2, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=51493.2 uA, energy=13028.192 uJ
+[15:47:07] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_154555_campaign_radio_ra01h_sx1276\packet_tx\20260719_154631_radio_ra01h_sx1276
+[15:47:07] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:47:07] STEP    TX 128 B - 2 dBm - SF7, BW 125 kHz - attempt 1
+[15:47:07] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_RA01H_SX1276 --direction tx --radio-port COM29 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=2 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_154555_campaign_radio_ra01h_sx1276\packet_tx" --receiver-port COM30 --save-raw
+[15:47:07] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:47:07] INFO    Measured transmitter: COM29, 115200 baud
+[15:47:07] INFO    Peer receiver: COM30, 115200 baud
+[15:47:15] INFO    Configuring measured transmitter (Ai-Thinker RA-01H (SX1276)) on COM29 ...
+[15:47:21] INFO    Configuring peer receiver on COM30 ...
+[15:47:26] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 2, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=51655.9 uA, energy=36643.610 uJ
+[15:47:31] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 2, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: rx_missing, peak=51601.6 uA, energy=36631.729 uJ
+[15:47:35] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 2, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=51601.6 uA, energy=36626.571 uJ
+[15:47:39] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 2, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=51601.6 uA, energy=36613.985 uJ
+[15:47:44] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 2, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=51601.6 uA, energy=36638.375 uJ
+[15:47:44] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_154555_campaign_radio_ra01h_sx1276\packet_tx\20260719_154707_radio_ra01h_sx1276
+[15:47:44] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:47:44] WARNING TX 128 B - 2 dBm - SF7, BW 125 kHz: 1 transfers have missing packets or fragments
+[15:47:44] STEP    TX 8 B - 2 dBm - SF9, BW 125 kHz - attempt 1
+[15:47:44] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_RA01H_SX1276 --direction tx --radio-port COM29 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=2 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_154555_campaign_radio_ra01h_sx1276\packet_tx" --receiver-port COM30 --save-raw
+[15:47:45] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:47:45] INFO    Measured transmitter: COM29, 115200 baud
+[15:47:45] INFO    Peer receiver: COM30, 115200 baud
+[15:47:52] INFO    Configuring measured transmitter (Ai-Thinker RA-01H (SX1276)) on COM29 ...
+[15:47:58] INFO    Configuring peer receiver on COM30 ...
+[15:48:03] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 2, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=51601.6 uA, energy=25137.857 uJ
+[15:48:07] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 2, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=51601.6 uA, energy=25138.266 uJ
+[15:48:12] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 2, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=51547.4 uA, energy=25109.261 uJ
+[15:48:16] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 2, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=51547.4 uA, energy=25109.114 uJ
+[15:48:20] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 2, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=51547.4 uA, energy=25105.015 uJ
+[15:48:20] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_154555_campaign_radio_ra01h_sx1276\packet_tx\20260719_154745_radio_ra01h_sx1276
+[15:48:21] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:48:21] STEP    TX 32 B - 2 dBm - SF9, BW 125 kHz - attempt 1
+[15:48:21] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_RA01H_SX1276 --direction tx --radio-port COM29 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=2 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_154555_campaign_radio_ra01h_sx1276\packet_tx" --receiver-port COM30 --save-raw
+[15:48:21] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:48:21] INFO    Measured transmitter: COM29, 115200 baud
+[15:48:21] INFO    Peer receiver: COM30, 115200 baud
+[15:48:28] INFO    Configuring measured transmitter (Ai-Thinker RA-01H (SX1276)) on COM29 ...
+[15:48:34] INFO    Configuring peer receiver on COM30 ...
+[15:48:40] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 2, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=51710.1 uA, energy=45376.525 uJ
+[15:48:44] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 2, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=51655.9 uA, energy=45388.297 uJ
+[15:48:49] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 2, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=51601.6 uA, energy=45368.330 uJ
+[15:48:53] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 2, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=51710.1 uA, energy=45373.989 uJ
+[15:48:58] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 2, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: rx_missing, peak=51601.6 uA, energy=45369.535 uJ
+[15:48:58] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_154555_campaign_radio_ra01h_sx1276\packet_tx\20260719_154821_radio_ra01h_sx1276
+[15:48:58] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:48:58] WARNING TX 32 B - 2 dBm - SF9, BW 125 kHz: 1 transfers have missing packets or fragments
+[15:48:58] STEP    TX 128 B - 2 dBm - SF9, BW 125 kHz - attempt 1
+[15:48:58] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_RA01H_SX1276 --direction tx --radio-port COM29 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=2 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_154555_campaign_radio_ra01h_sx1276\packet_tx" --receiver-port COM30 --save-raw
+[15:48:59] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:48:59] INFO    Measured transmitter: COM29, 115200 baud
+[15:48:59] INFO    Peer receiver: COM30, 115200 baud
+[15:49:06] INFO    Configuring measured transmitter (Ai-Thinker RA-01H (SX1276)) on COM29 ...
+[15:49:12] INFO    Configuring peer receiver on COM30 ...
+[15:49:19] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 2, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=51710.1 uA, energy=116262.098 uJ
+[15:49:24] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 2, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: rx_missing, peak=51710.1 uA, energy=116211.546 uJ
+[15:49:30] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 2, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=51710.1 uA, energy=116229.775 uJ
+[15:49:36] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 2, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=51655.9 uA, energy=116201.052 uJ
+[15:49:41] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 2, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=51601.6 uA, energy=116156.645 uJ
+[15:49:41] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_154555_campaign_radio_ra01h_sx1276\packet_tx\20260719_154859_radio_ra01h_sx1276
+[15:49:42] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:49:42] WARNING TX 128 B - 2 dBm - SF9, BW 125 kHz: 1 transfers have missing packets or fragments
+[15:49:42] STEP    TX 8 B - 2 dBm - SF12, BW 125 kHz - attempt 1
+[15:49:42] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_RA01H_SX1276 --direction tx --radio-port COM29 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=2 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_154555_campaign_radio_ra01h_sx1276\packet_tx" --receiver-port COM30 --save-raw
+[15:49:42] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:49:42] INFO    Measured transmitter: COM29, 115200 baud
+[15:49:42] INFO    Peer receiver: COM30, 115200 baud
+[15:49:50] INFO    Configuring measured transmitter (Ai-Thinker RA-01H (SX1276)) on COM29 ...
+[15:49:56] INFO    Configuring peer receiver on COM30 ...
+[15:50:03] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 2, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=51818.7 uA, energy=201214.394 uJ
+[15:50:10] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 2, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=51710.1 uA, energy=201055.313 uJ
+[15:50:11] WARNING Stop requested by user
+[15:50:12] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:50:12] FINISH  Test stopped; completed results were preserved
+[15:50:12] CALLBACK Codex completion callback started
+[15:51:11] WARNING PPK2 current-path guard released for an external diagnostic; VIN -> VOUT remains enabled
+[15:51:12] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:51:23] WARNING PPK2 current-path guard released for an external diagnostic; VIN -> VOUT remains enabled
+[15:52:05] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:52:47] WARNING PPK2 current-path guard released for an external diagnostic; VIN -> VOUT remains enabled

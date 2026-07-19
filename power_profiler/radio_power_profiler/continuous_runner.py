@@ -120,6 +120,31 @@ def _measurement_stats(
     }
 
 
+def _continuous_receiver_tail_s(
+    profile: Profile,
+    *,
+    frame_airtime_s: float,
+) -> float:
+    """Wait long enough for a frame started at the duration boundary to land."""
+    return max(0.15, frame_airtime_s + profile.receive.post_receive_s)
+
+
+def _continuous_capture_after_trigger_s(
+    profile: Profile,
+    *,
+    measurement_direction: str,
+    duration_s: float,
+    frame_airtime_s: float,
+) -> float:
+    """Keep PPK2 draining until the continuous trigger thread can finish."""
+    if measurement_direction != "rx":
+        return duration_s + 0.75
+    return duration_s + _continuous_receiver_tail_s(
+        profile,
+        frame_airtime_s=frame_airtime_s,
+    ) + 0.50
+
+
 def _receive_continuous(
     receiver: SerialRadio,
     transmitter: SerialRadio,
@@ -154,7 +179,14 @@ def _receive_continuous(
     while sender.is_alive():
         receiver_lines.extend(receiver.drain(wait_s=0.02))
     sender.join(timeout=1.0)
-    receiver_lines.extend(receiver.drain(wait_s=0.15))
+    receiver_lines.extend(
+        receiver.drain(
+            wait_s=_continuous_receiver_tail_s(
+                profile,
+                frame_airtime_s=frame_airtime_s,
+            )
+        )
+    )
     if sender.is_alive():
         raise RuntimeError("Continuous transmitter did not stop")
     if errors:
@@ -385,7 +417,12 @@ def run_continuous_profile(
 
             capture = sampler.capture(
                 pre_s=0.20,
-                after_trigger_s=duration_s + 0.75,
+                after_trigger_s=_continuous_capture_after_trigger_s(
+                    profile,
+                    measurement_direction=measurement_direction,
+                    duration_s=duration_s,
+                    frame_airtime_s=frame_airtime_s,
+                ),
                 trigger=trigger,
             )
             if measurement_direction == "rx" and profile.restore_after_receive:

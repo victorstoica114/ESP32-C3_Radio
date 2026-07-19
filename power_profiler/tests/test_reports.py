@@ -34,6 +34,37 @@ def _continuous_row(profile: str, power: float) -> dict[str, object]:
 
 
 class ReportTests(unittest.TestCase):
+    def test_lora_loss_matrix_accepts_positive_minimum_tx_power(self) -> None:
+        continuous = []
+        for power in (2.0, 10.0, 20.0):
+            for spreading_factor, transmitted in ((7, 427), (9, 139), (12, 20)):
+                continuous.append(
+                    {
+                        "measurement_direction": "rx",
+                        "frames_transmitted": transmitted,
+                        "frames_received": transmitted,
+                        "requested_duration_s": 60.0,
+                        "frame_bytes": 64,
+                        "frame_loss_percent": 0.0,
+                        "spreading_factor": spreading_factor,
+                        "bandwidth_khz": 125.0,
+                        "tx_power_dbm": power,
+                        "inter_frame_gap_ms": 15,
+                        "status": "ok",
+                        "source_directory": "recovery",
+                    }
+                )
+
+        loss = lora_reports._loss_rows(continuous)
+
+        self.assertEqual(len(loss), 9)
+        self.assertEqual({row["tx_power_dbm"] for row in loss}, {2.0, 10.0, 20.0})
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "loss.tex"
+            lora_reports._write_loss_tex(path, loss, "RA-01H")
+            latex = path.read_text(encoding="utf-8")
+            self.assertIn(r"\addlegendentry{2 dBm}", latex)
+
     def test_dependency_free_pdf_renderer_writes_a_valid_document(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             path = Path(temporary) / "plot.pdf"

@@ -25,8 +25,12 @@ power_profiler/.venv/
 power_profiler/pilot_results/
 power_profiler/results/
 power_profiler/web_sessions/
+power_profiler/diagnostics/
 power_profiler/**/__pycache__/
 power_profiler/**/*.pyc
+
+# Local alternate PlatformIO core used for callback-safe firmware builds
+.pio-callback-core/
 
 # Local datasheets are references only; keep public docs as links unless reviewed.
 Datasheets/*.pdf
@@ -66,3 +70,5 @@ Thumbs.db
 
 # Compact campaign provenance copied into reviewed comparison exports
 !power_profiler/comparisons/**/campaign_logs/**/*.log
+!power_profiler/comparisons/**/diagnostic_logs/**/*.log
+power_profiler/comparisons/**/codex_callback.log

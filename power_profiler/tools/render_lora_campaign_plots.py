@@ -421,7 +421,9 @@ def _plot_series(
 
 def _three_panel_canvas(title: str) -> tuple[PdfCanvas, list[tuple[float, float, float, float]]]:
     canvas = PdfCanvas()
-    canvas.text(390, 510, title, size=16, bold=True)
+    title_size = 16
+    title_x = max(20.0, (canvas.width - len(title) * title_size * 0.6) / 2.0)
+    canvas.text(title_x, 510, title, size=title_size, bold=True)
     boxes = [(75 + index * 345, 95, 285, 340) for index in range(3)]
     return canvas, boxes
 
@@ -433,8 +435,8 @@ def _tx_energy(
     rows: list[dict[str, str]],
 ) -> Path:
     canvas, boxes = _three_panel_canvas(f"{module}: TX energy")
-    powers = (-4.0, 10.0, 20.0)
-    sfs = (7, 9, 12)
+    powers = tuple(sorted({_f(row["tx_power_dbm"]) for row in rows}))
+    sfs = tuple(sorted({int(float(row["spreading_factor"])) for row in rows}))
     colors = (BLUE, ORANGE, GREEN)
     for box, power in zip(boxes, powers):
         _axes(canvas, box, y_ticks=(1, 10, 100, 1000, 10000), y_range=(1, 10000), x_ticks=((8, "8"), (32, "32"), (128, "128")), x_range=(8, 128), log_x=True, log_y=True, y_label="Energy [mJ]")
@@ -456,12 +458,18 @@ def _tx_rx_energy(
     tx: list[dict[str, str]],
     rx: list[dict[str, str]],
 ) -> Path:
-    canvas, boxes = _three_panel_canvas(f"{module}: TX--RX energy at 20 dBm")
-    for box, sf in zip(boxes, (7, 9, 12)):
+    power = max(_f(row["tx_power_dbm"]) for row in tx + rx)
+    canvas, boxes = _three_panel_canvas(
+        f"{module}: TX--RX energy at {power:g} dBm"
+    )
+    spreading_factors = tuple(
+        sorted({int(float(row["spreading_factor"])) for row in tx + rx})
+    )
+    for box, sf in zip(boxes, spreading_factors):
         _axes(canvas, box, y_ticks=(1, 10, 100, 1000, 10000), y_range=(1, 10000), x_ticks=((8, "8"), (32, "32"), (128, "128")), x_range=(8, 128), log_x=True, log_y=True, y_label="Energy [mJ]")
         canvas.text(box[0] + 125, 455, f"SF{sf}", size=11, bold=True)
         for index, (source, color, label) in enumerate(((tx, BLUE, "TX"), (rx, RED, "RX"))):
-            selected = sorted((row for row in source if int(float(row["spreading_factor"])) == sf and _f(row["tx_power_dbm"]) == 20), key=lambda row: _f(row["payload_bytes"]))
+            selected = sorted((row for row in source if int(float(row["spreading_factor"])) == sf and _f(row["tx_power_dbm"]) == power), key=lambda row: _f(row["payload_bytes"]))
             _plot_series(canvas, box, [(_f(row["payload_bytes"]), _f(row["energy_total_mJ_mean"])) for row in selected], x_range=(8, 128), y_range=(1, 10000), color=color, marker=index, log_x=True, log_y=True, dash=("[] 0", "[7 3] 0")[index])
     _legend(canvas, [("TX", BLUE, 0), ("RX", RED, 1)], 455, 55)
     canvas.text(350, 25, "Payload [B]; RX uses one deterministic LoRa airtime window", size=9)
@@ -477,19 +485,30 @@ def _continuous(
     rows: list[dict[str, str]],
 ) -> Path:
     canvas = PdfCanvas()
-    canvas.text(350, 510, f"{module}: continuous average power (SF9)", size=16, bold=True)
+    tx_rows = [row for row in rows if row["measurement_direction"] == "tx"]
+    sf = int(float(tx_rows[0]["spreading_factor"]))
+    canvas.text(350, 510, f"{module}: continuous average power (SF{sf})", size=16, bold=True)
     boxes = [(100, 100, 380, 340), (600, 100, 380, 340)]
-    sf9 = [row for row in rows if int(float(row["spreading_factor"])) == 9]
-    specs = (("mean_power_mW", "Mean power [mW]", (0, 270), (0, 50, 100, 150, 200, 250)), ("mean_current_uA", "Mean current [mA]", (0, 85), (0, 20, 40, 60, 80)))
-    for box, (field, label, yrange, ticks) in zip(boxes, specs):
-        _axes(canvas, box, y_ticks=ticks, y_range=yrange, x_ticks=((-4, "-4"), (10, "10"), (20, "20")), x_range=(-4, 20), y_label=label)
+    selected_sf = [row for row in rows if int(float(row["spreading_factor"])) == sf]
+    powers = sorted({_f(row["tx_power_dbm"]) for row in selected_sf})
+    x_pad = max(1.0, (max(powers) - min(powers)) * 0.06)
+    x_range = (min(powers) - x_pad, max(powers) + x_pad)
+    x_ticks = tuple((power, f"{power:g}") for power in powers)
+    specs = (("mean_power_mW", "Mean power [mW]", 1.0), ("mean_current_uA", "Mean current [mA]", 1000.0))
+    for box, (field, label, divisor) in zip(boxes, specs):
+        maximum = max(_f(row[field]) / divisor for row in selected_sf)
+        tick_step = max(1.0, math.ceil(maximum * 1.15 / 5.0 / 5.0) * 5.0)
+        y_max = tick_step * 5.0
+        y_range = (0.0, y_max)
+        ticks = tuple(tick_step * index for index in range(6))
+        _axes(canvas, box, y_ticks=ticks, y_range=y_range, x_ticks=x_ticks, x_range=x_range, y_label=label)
         for index, (direction, color) in enumerate((("tx", BLUE), ("rx", RED))):
-            selected = sorted((row for row in sf9 if row["measurement_direction"] == direction), key=lambda row: _f(row["tx_power_dbm"]))
+            selected = sorted((row for row in selected_sf if row["measurement_direction"] == direction), key=lambda row: _f(row["tx_power_dbm"]))
             values = []
             for row in selected:
-                value = _f(row[field]) / (1000 if field == "mean_current_uA" else 1)
+                value = _f(row[field]) / divisor
                 values.append((_f(row["tx_power_dbm"]), value))
-            _plot_series(canvas, box, values, x_range=(-4, 20), y_range=yrange, color=color, marker=index, dash=("[] 0", "[7 3] 0")[index])
+            _plot_series(canvas, box, values, x_range=x_range, y_range=y_range, color=color, marker=index, dash=("[] 0", "[7 3] 0")[index])
     _legend(canvas, [("TX", BLUE, 0), ("RX", RED, 1)], 455, 55)
     canvas.text(450, 25, "Configured TX power [dBm]", size=9)
     path = output / f"{base}_continuous_average_power.pdf"
@@ -504,7 +523,7 @@ def _loss(
     rows: list[dict[str, str]],
 ) -> Path:
     canvas = PdfCanvas()
-    canvas.text(330, 510, f"{module}: loss versus effective payload speed", size=16, bold=True)
+    canvas.text(100, 510, f"{module}: loss versus effective payload speed", size=12, bold=True)
     box = (130, 105, 820, 345)
     rates = sorted({_f(row["effective_payload_rate_kbps"]) for row in rows})
     clustered: list[float] = []
@@ -513,11 +532,16 @@ def _loss(
             clustered.append(rate)
     ticks = tuple((rate, f"{rate:.3g}") for rate in clustered)
     x_range = (min(rates) * 0.75, max(rates) * 1.25)
-    _axes(canvas, box, y_ticks=(0, 20, 40, 60, 80, 100), y_range=(0, 100), x_ticks=ticks, x_range=x_range, log_x=True, y_label="Lost frames [%]")
+    max_loss = max(_f(row["frame_loss_percent"]) for row in rows)
+    y_max = min(100.0, max(10.0, math.ceil(max_loss * 1.25 / 5.0) * 5.0))
+    y_ticks = tuple(y_max * index / 5.0 for index in range(6))
+    y_range = (0.0, y_max)
+    _axes(canvas, box, y_ticks=y_ticks, y_range=y_range, x_ticks=ticks, x_range=x_range, log_x=True, y_label="Lost frames [%]")
     entries = []
-    for index, (power, color) in enumerate(((20.0, BLUE), (10.0, ORANGE), (-4.0, GREEN))):
+    powers = sorted({_f(row["tx_power_dbm"]) for row in rows}, reverse=True)
+    for index, (power, color) in enumerate(zip(powers, (BLUE, ORANGE, GREEN))):
         selected = sorted((row for row in rows if _f(row["tx_power_dbm"]) == power), key=lambda row: _f(row["effective_payload_rate_kbps"]))
-        _plot_series(canvas, box, [(_f(row["effective_payload_rate_kbps"]), _f(row["frame_loss_percent"])) for row in selected], x_range=x_range, y_range=(0, 100), color=color, marker=index, log_x=True, dash=("[] 0", "[7 3] 0", "[8 3 2 3] 0")[index])
+        _plot_series(canvas, box, [(_f(row["effective_payload_rate_kbps"]), _f(row["frame_loss_percent"])) for row in selected], x_range=x_range, y_range=y_range, color=color, marker=index, log_x=True, dash=("[] 0", "[7 3] 0", "[8 3 2 3] 0")[index])
         entries.append((f"{power:g} dBm", color, index))
     _legend(canvas, entries, 160, 475)
     canvas.text(420, 65, "Effective payload speed [kbps]", size=10, bold=True)

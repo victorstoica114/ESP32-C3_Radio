@@ -1,0 +1,18 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{calc}
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 1,horizontal sep=1.5cm},width=8cm,height=6.2cm,xtick={2,10,20},xlabel={Configured TX power [dBm]},grid=both,legend style={draw=none,at={(0.5,-0.23)},anchor=north,legend columns=2}]
+\nextgroupplot[title={Total power},ylabel={Mean electrical power [mW]}]
+\addplot+[blue!75!black,mark=*] coordinates {(2,159.81225) (10,220.861631) (20,367.362672)};\addlegendentry{TX}
+\addplot+[red!75!black,dashed,mark=square*] coordinates {(2,35.8746932) (10,35.8574796) (20,35.8741708)};\addlegendentry{RX}
+\nextgroupplot[title={Mean current},ylabel={Mean current [mA]}]
+\addplot+[blue!75!black,mark=*] coordinates {(2,48.4279546) (10,66.9277669) (20,111.322022)};\addlegendentry{TX}
+\addplot+[red!75!black,dashed,mark=square*] coordinates {(2,10.8711192) (10,10.8659029) (20,10.8709608)};\addlegendentry{RX}
+\end{groupplot}
+\node[font=\bfseries\large] at ($(group c1r1.north)!0.5!(group c2r1.north)+(0,0.9cm)$) {Ai-Thinker RA-01H (SX1276): continuous average power (SF9)};
+\end{tikzpicture}
+\end{document}
