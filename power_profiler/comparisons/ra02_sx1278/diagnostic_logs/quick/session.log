@@ -1,0 +1,46 @@
+[19:03:57] START   Quick session: 4 steps - RADIO_RA02_SX1278
+[19:03:57] STEP    Fast TX, physical frame - attempt 1
+[19:03:57] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_RA02_SX1278 --direction tx --radio-port COM33 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 2 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_190357_quick_radio_ra02_sx1278\packet_results" --receiver-port COM34 --save-raw
+[19:03:57] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[19:03:57] INFO    Measured transmitter: COM33, 9600 baud
+[19:03:57] INFO    Peer receiver: COM34, 9600 baud
+[19:04:01] INFO    Configuring measured transmitter (Ai-Thinker RA-02 (SX1278)) on COM33 ...
+[19:04:03] INFO    Configuring peer receiver on COM34 ...
+[19:04:08] INFO    [   1/2] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=69671.6 uA, energy=9215.530 uJ
+[19:04:10] INFO    [   2/2] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=68920.6 uA, energy=9142.850 uJ
+[19:04:10] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_190357_quick_radio_ra02_sx1278\packet_results\20260719_190357_radio_ra02_sx1278
+[19:04:11] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[19:04:11] STEP    Fast RX, physical frame - attempt 1
+[19:04:11] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_RA02_SX1278 --direction rx --radio-port COM33 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 2 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_190357_quick_radio_ra02_sx1278\packet_results" --transmitter-port COM34 --save-raw
+[19:04:11] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[19:04:11] INFO    Measured receiver: COM33, 9600 baud
+[19:04:11] INFO    Peer transmitter: COM34, 9600 baud
+[19:04:15] INFO    Configuring measured receiver (Ai-Thinker RA-02 (SX1278)) on COM33 ...
+[19:04:17] INFO    Configuring peer transmitter on COM34 ...
+[19:04:21] INFO    [   1/2] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=14135.3 uA, energy=1753.802 uJ
+[19:04:24] INFO    [   2/2] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=14088.7 uA, energy=1755.789 uJ
+[19:04:24] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_190357_quick_radio_ra02_sx1278\packet_results\20260719_190411_radio_ra02_sx1278_rx
+[19:04:25] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[19:04:25] STEP    Slow TX, fragmented transfer - attempt 1
+[19:04:25] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_RA02_SX1278 --direction tx --radio-port COM33 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 2 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=-4 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_190357_quick_radio_ra02_sx1278\packet_results" --receiver-port COM34 --save-raw
+[19:04:25] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[19:04:25] INFO    Measured transmitter: COM33, 9600 baud
+[19:04:25] INFO    Peer receiver: COM34, 9600 baud
+[19:04:29] INFO    Configuring measured transmitter (Ai-Thinker RA-02 (SX1278)) on COM33 ...
+[19:04:31] INFO    Configuring peer receiver on COM34 ...
+[19:04:40] INFO    [   1/2] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=13158.9 uA, energy=77345.477 uJ
+[19:04:48] INFO    [   2/2] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=13158.9 uA, energy=77285.738 uJ
+[19:04:48] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_190357_quick_radio_ra02_sx1278\packet_results\20260719_190425_radio_ra02_sx1278
+[19:04:48] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[19:04:48] STEP    Slow RX, fragmented transfer - attempt 1
+[19:04:48] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_RA02_SX1278 --direction rx --radio-port COM33 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 2 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=-4 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_190357_quick_radio_ra02_sx1278\packet_results" --transmitter-port COM34 --save-raw
+[19:04:48] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[19:04:49] INFO    Measured receiver: COM33, 9600 baud
+[19:04:49] INFO    Peer transmitter: COM34, 9600 baud
+[19:04:52] INFO    Configuring measured receiver (Ai-Thinker RA-02 (SX1278)) on COM33 ...
+[19:04:55] INFO    Configuring peer transmitter on COM34 ...
+[19:05:04] INFO    [   1/2] RX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=13019.7 uA, energy=76455.440 uJ
+[19:05:12] INFO    [   2/2] RX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=13112.5 uA, energy=76484.473 uJ
+[19:05:12] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_190357_quick_radio_ra02_sx1278\packet_results\20260719_190448_radio_ra02_sx1278_rx
+[19:05:13] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[19:05:13] FINISH  Test completed successfully

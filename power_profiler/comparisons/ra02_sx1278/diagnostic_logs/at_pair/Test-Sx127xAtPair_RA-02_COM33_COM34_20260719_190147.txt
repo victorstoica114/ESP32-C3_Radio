@@ -1,0 +1,410 @@
+Test: RA-02
+Ports: COM33 / COM34
+Baud: 9600
+Log: log\Test-Sx127xAtPair_RA-02_COM33_COM34_20260719_190147.txt
+
+--- COM33 boot ---
+[BOOT] DEBUG default = OFF
+[EEPROM] Loaded config = YES
+[SX1278] Initializing + applying last valid config ... success!
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0xc (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40384bd4
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0xf4
+load:0x403cc710,len:0x76c
+load:0x403ce710,len:0x2370
+SHA-256 comparison failed:
+Calculated: 0c24681e98cad2eb628a1eaf600039caa2aca0e967e2090cb3a82117968cf823
+Expected: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+Attempting to boot anyway...
+entry 0x403cc710
+[BOOT] DEBUG default = OFF
+[EEPROM] Loaded config = YES
+[SX1278] Initializing + applying last valid config ... success!
+--- COM34 boot ---
+[BOOT] DEBUG default = OFF
+[EEPROM] Loaded config = YES
+[SX1278] Initializing + applying last valid config ... success!
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0xc (SPI_FAST_FLASH_BOOT)
+Saved PC:0x42008154
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0xf4
+load:0x403cc710,len:0x76c
+load:0x403ce710,len:0x2370
+SHA-256 comparison failed:
+Calculated: 0c24681e98cad2eb628a1eaf600039caa2aca0e967e2090cb3a82117968cf823
+Expected: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+Attempting to boot anyway...
+entry 0x403cc710
+[BOOT] DEBUG default = OFF
+[EEPROM] Loaded config = YES
+[SX1278] Initializing + applying last valid config ... success!
+--- COM33 >> AT ---
+OK
+--- COM33 >> AT+DEFAULT ---
+OK
+--- COM33 >> AT+DEBUG=OFF ---
+OK
+--- COM33 >> AT+RX=ON ---
+OK
+--- COM34 >> AT ---
+OK
+--- COM34 >> AT+DEFAULT ---
+OK
+--- COM34 >> AT+DEBUG=OFF ---
+OK
+--- COM34 >> AT+RX=ON ---
+OK
+--- COM33 >> AT+CFG? ---
+CFG:
+  FREQ=433.000 MHz
+  BW=250.0 kHz
+  SF=10
+  CR=6
+  SYNC=0x14
+  PWR=10 dBm
+  CURR=0.0 mA (0=skip)
+  PREAMBLE=15
+  GAIN=1
+  RX=ON
+  SLEEP=NO
+  CRC=ON
+  HEADER=EXPLICIT
+  IMPLEN=32
+  IQ=NORMAL
+  FHSS=0
+  DEBUG=OFF
+OK
+--- COM34 >> AT+CFG? ---
+CFG:
+  FREQ=433.000 MHz
+  BW=250.0 kHz
+  SF=10
+  CR=6
+  SYNC=0x14
+  PWR=10 dBm
+  CURR=0.0 mA (0=skip)
+  PREAMBLE=15
+  GAIN=1
+  RX=ON
+  SLEEP=NO
+  CRC=ON
+  HEADER=EXPLICIT
+  IMPLEN=32
+  IQ=NORMAL
+  FHSS=0
+  DEBUG=OFF
+OK
+--- COM33 payload -> COM34: RA-02_BASE_COM33_TO_COM34 ---
+COM34: RA-02_BASE_COM33_TO_COM34
+--- COM34 payload -> COM33: RA-02_BASE_COM34_TO_COM33 ---
+COM33: RA-02_BASE_COM34_TO_COM33
+--- COM33 >> AT+RSSI? ---
+RSSI=-50.00
+OK
+--- COM33 >> AT+SNR? ---
+SNR=10.75
+OK
+--- COM33 >> AT+FERR? ---
+FERR=2065.69
+OK
+--- COM33 >> AT+CAD? ---
+CAD=FREE
+OK
+--- COM33 >> AT+RANDOM? ---
+RANDOM=0x88
+OK
+--- COM34 >> AT+RX=OFF ---
+OK
+--- COM33 payload -> COM34: RA-02_SHOULD_NOT_APPEAR_RX_OFF ---
+COM34: <no output>
+--- COM34 >> AT+RX=ON ---
+OK
+--- COM33 payload -> COM34: RA-02_RX_RESTORED ---
+COM34: RA-02_RX_RESTORED
+--- COM33 >> AT+SLEEP ---
+OK
+--- COM33 payload while sleeping ---
+#ERROR: RADIO_SLEEPING (send AT+WAKE)
+--- COM33 >> AT+WAKE ---
+OK
+--- COM33 >> AT+SF=13 ---
+#ERROR
+--- COM33 >> AT+FREQ=300 ---
+#ERROR
+--- COM33 >> AT+PWR=18 ---
+#ERROR
+--- COM33 >> AT+SET=433.500,125,9,6,0x14,10,0,8,0,ON ---
+OK
+--- COM33 >> AT+RX=ON ---
+OK
+--- COM34 >> AT+SET=433.500,125,9,6,0x14,10,0,8,0,ON ---
+OK
+--- COM34 >> AT+RX=ON ---
+OK
+--- COM33 >> AT+CFG? ---
+CFG:
+  FREQ=433.500 MHz
+  BW=125.0 kHz
+  SF=9
+  CR=6
+  SYNC=0x14
+  PWR=10 dBm
+  CURR=0.0 mA (0=skip)
+  PREAMBLE=8
+  GAIN=0
+  RX=ON
+  SLEEP=NO
+  CRC=ON
+  HEADER=EXPLICIT
+  IMPLEN=32
+  IQ=NORMAL
+  FHSS=0
+  DEBUG=OFF
+OK
+--- COM34 >> AT+CFG? ---
+CFG:
+  FREQ=433.500 MHz
+  BW=125.0 kHz
+  SF=9
+  CR=6
+  SYNC=0x14
+  PWR=10 dBm
+  CURR=0.0 mA (0=skip)
+  PREAMBLE=8
+  GAIN=0
+  RX=ON
+  SLEEP=NO
+  CRC=ON
+  HEADER=EXPLICIT
+  IMPLEN=32
+  IQ=NORMAL
+  FHSS=0
+  DEBUG=OFF
+OK
+--- COM33 payload -> COM34: RA-02_SET_COM33_TO_COM34 ---
+COM34: RA-02_SET_COM33_TO_COM34
+--- COM34 payload -> COM33: RA-02_SET_COM34_TO_COM33 ---
+COM33: RA-02_SET_COM34_TO_COM33
+--- COM33 boot after persistence reset ---
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0xc (SPI_FAST_FLASH_BOOT)
+Saved PC:0x420163de
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0xf4
+load:0x403cc710,len:0x76c
+load:0x403ce710,len:0x2370
+SHA-256 comparison failed:
+Calculated: 0c24681e98cad2eb628a1eaf600039caa2aca0e967e2090cb3a82117968cf823
+Expected: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+Attempting to boot anyway...
+entry 0x403cc710
+[BOOT] DEBUG default = OFF
+[EEPROM] Loaded config = YES
+[SX1278] Initializing + applying last valid config ... success!
+--- COM34 boot after persistence reset ---
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0xc (SPI_FAST_FLASH_BOOT)
+Saved PC:0x420163d4
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0xf4
+load:0x403cc710,len:0x76c
+load:0x403ce710,len:0x2370
+SHA-256 comparison failed:
+Calculated: 0c24681e98cad2eb628a1eaf600039caa2aca0e967e2090cb3a82117968cf823
+Expected: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+Attempting to boot anyway...
+entry 0x403cc710
+[BOOT] DEBUG default = OFF
+[EEPROM] Loaded config = YES
+[SX1278] Initializing + applying last valid config ... success!
+--- COM33 >> AT+CFG? ---
+CFG:
+  FREQ=433.500 MHz
+  BW=125.0 kHz
+  SF=9
+  CR=6
+  SYNC=0x14
+  PWR=10 dBm
+  CURR=0.0 mA (0=skip)
+  PREAMBLE=8
+  GAIN=0
+  RX=ON
+  SLEEP=NO
+  CRC=ON
+  HEADER=EXPLICIT
+  IMPLEN=32
+  IQ=NORMAL
+  FHSS=0
+  DEBUG=OFF
+OK
+--- COM34 >> AT+CFG? ---
+CFG:
+  FREQ=433.500 MHz
+  BW=125.0 kHz
+  SF=9
+  CR=6
+  SYNC=0x14
+  PWR=10 dBm
+  CURR=0.0 mA (0=skip)
+  PREAMBLE=8
+  GAIN=0
+  RX=ON
+  SLEEP=NO
+  CRC=ON
+  HEADER=EXPLICIT
+  IMPLEN=32
+  IQ=NORMAL
+  FHSS=0
+  DEBUG=OFF
+OK
+--- A >> AT+WAKE ---
+OK
+--- A >> AT+DEFAULT ---
+OK
+--- A >> AT+RX=ON ---
+OK
+--- B >> AT+WAKE ---
+OK
+--- B >> AT+DEFAULT ---
+OK
+--- B >> AT+RX=ON ---
+OK
+--- COM33 >> AT+CFG? ---
+CFG:
+  FREQ=433.000 MHz
+  BW=250.0 kHz
+  SF=10
+  CR=6
+  SYNC=0x14
+  PWR=10 dBm
+  CURR=0.0 mA (0=skip)
+  PREAMBLE=15
+  GAIN=1
+  RX=ON
+  SLEEP=NO
+  CRC=ON
+  HEADER=EXPLICIT
+  IMPLEN=32
+  IQ=NORMAL
+  FHSS=0
+  DEBUG=OFF
+OK
+--- COM34 >> AT+CFG? ---
+CFG:
+  FREQ=433.000 MHz
+  BW=250.0 kHz
+  SF=10
+  CR=6
+  SYNC=0x14
+  PWR=10 dBm
+  CURR=0.0 mA (0=skip)
+  PREAMBLE=15
+  GAIN=1
+  RX=ON
+  SLEEP=NO
+  CRC=ON
+  HEADER=EXPLICIT
+  IMPLEN=32
+  IQ=NORMAL
+  FHSS=0
+  DEBUG=OFF
+OK
+--- COM33 payload -> COM34: RA-02_FINAL_COM33_TO_COM34 ---
+COM34: RA-02_FINAL_COM33_TO_COM34
+=== RESULTS ===
+PASS	COM33 boot init	expected 'success!'
+PASS	COM34 boot init	expected 'success!'
+PASS	COM33 AT	expected 'OK'
+PASS	COM33 AT+DEFAULT	expected 'OK'
+PASS	COM33 AT+DEBUG=OFF	expected 'OK'
+PASS	COM33 AT+RX=ON	expected 'OK'
+PASS	COM34 AT	expected 'OK'
+PASS	COM34 AT+DEFAULT	expected 'OK'
+PASS	COM34 AT+DEBUG=OFF	expected 'OK'
+PASS	COM34 AT+RX=ON	expected 'OK'
+PASS	COM33 default cfg FREQ=433.000	expected 'FREQ=433.000'
+PASS	COM34 default cfg FREQ=433.000	expected 'FREQ=433.000'
+PASS	COM33 default cfg BW=250.0	expected 'BW=250.0'
+PASS	COM34 default cfg BW=250.0	expected 'BW=250.0'
+PASS	COM33 default cfg SF=10	expected 'SF=10'
+PASS	COM34 default cfg SF=10	expected 'SF=10'
+PASS	COM33 default cfg CR=6	expected 'CR=6'
+PASS	COM34 default cfg CR=6	expected 'CR=6'
+PASS	COM33 default cfg SYNC=0x14	expected 'SYNC=0x14'
+PASS	COM34 default cfg SYNC=0x14	expected 'SYNC=0x14'
+PASS	COM33 default cfg PWR=10	expected 'PWR=10'
+PASS	COM34 default cfg PWR=10	expected 'PWR=10'
+PASS	COM33 default cfg RX=ON	expected 'RX=ON'
+PASS	COM34 default cfg RX=ON	expected 'RX=ON'
+PASS	COM33 default cfg SLEEP=NO	expected 'SLEEP=NO'
+PASS	COM34 default cfg SLEEP=NO	expected 'SLEEP=NO'
+PASS	Default payload COM33 to COM34	expected 'RA-02_BASE_COM33_TO_COM34'
+PASS	Default payload COM34 to COM33	expected 'RA-02_BASE_COM34_TO_COM33'
+PASS	RSSI after packet	expected 'RSSI='
+PASS	SNR after packet	expected 'SNR='
+PASS	FERR after packet	expected 'FERR='
+PASS	CAD command returns usable status	CAD=FREE
+OK
+PASS	Random byte command	expected 'RANDOM=0x'
+PASS	COM34 RX off command	expected 'OK'
+PASS	COM34 does not receive while RX off	not expected 'RA-02_SHOULD_NOT_APPEAR_RX_OFF'
+PASS	COM34 RX on after standby	expected 'OK'
+PASS	Payload after RX restore	expected 'RA-02_RX_RESTORED'
+PASS	COM33 sleep command	expected 'OK'
+PASS	TX blocked while sleeping	expected '#ERROR: RADIO_SLEEPING'
+PASS	COM33 wake command	expected 'OK'
+PASS	Invalid SF rejected	expected '#ERROR'
+PASS	Invalid FREQ rejected	expected '#ERROR'
+PASS	Invalid PWR rejected	expected '#ERROR'
+PASS	COM33 AT+SET batch	expected 'OK'
+PASS	COM33 RX on after AT+SET	expected 'OK'
+PASS	COM34 AT+SET batch	expected 'OK'
+PASS	COM34 RX on after AT+SET	expected 'OK'
+PASS	COM33 changed cfg FREQ=433.500	expected 'FREQ=433.500'
+PASS	COM34 changed cfg FREQ=433.500	expected 'FREQ=433.500'
+PASS	COM33 changed cfg BW=125.0	expected 'BW=125.0'
+PASS	COM34 changed cfg BW=125.0	expected 'BW=125.0'
+PASS	COM33 changed cfg SF=9	expected 'SF=9'
+PASS	COM34 changed cfg SF=9	expected 'SF=9'
+PASS	COM33 changed cfg PREAMBLE=8	expected 'PREAMBLE=8'
+PASS	COM34 changed cfg PREAMBLE=8	expected 'PREAMBLE=8'
+PASS	COM33 changed cfg GAIN=0	expected 'GAIN=0'
+PASS	COM34 changed cfg GAIN=0	expected 'GAIN=0'
+PASS	COM33 changed cfg CRC=ON	expected 'CRC=ON'
+PASS	COM34 changed cfg CRC=ON	expected 'CRC=ON'
+PASS	Batch config payload COM33 to COM34	expected 'RA-02_SET_COM33_TO_COM34'
+PASS	Batch config payload COM34 to COM33	expected 'RA-02_SET_COM34_TO_COM33'
+PASS	COM33 EEPROM loaded after changed cfg reset	expected 'Loaded config = YES'
+PASS	COM34 EEPROM loaded after changed cfg reset	expected 'Loaded config = YES'
+PASS	COM33 persisted cfg FREQ=433.500	expected 'FREQ=433.500'
+PASS	COM34 persisted cfg FREQ=433.500	expected 'FREQ=433.500'
+PASS	COM33 persisted cfg BW=125.0	expected 'BW=125.0'
+PASS	COM34 persisted cfg BW=125.0	expected 'BW=125.0'
+PASS	COM33 persisted cfg SF=9	expected 'SF=9'
+PASS	COM34 persisted cfg SF=9	expected 'SF=9'
+PASS	COM33 restored cfg FREQ=433.000	expected 'FREQ=433.000'
+PASS	COM34 restored cfg FREQ=433.000	expected 'FREQ=433.000'
+PASS	COM33 restored cfg BW=250.0	expected 'BW=250.0'
+PASS	COM34 restored cfg BW=250.0	expected 'BW=250.0'
+PASS	COM33 restored cfg SF=10	expected 'SF=10'
+PASS	COM34 restored cfg SF=10	expected 'SF=10'
+PASS	COM33 restored cfg PREAMBLE=15	expected 'PREAMBLE=15'
+PASS	COM34 restored cfg PREAMBLE=15	expected 'PREAMBLE=15'
+PASS	COM33 restored cfg GAIN=1	expected 'GAIN=1'
+PASS	COM34 restored cfg GAIN=1	expected 'GAIN=1'
+PASS	COM33 restored cfg CRC=ON	expected 'CRC=ON'
+PASS	COM34 restored cfg CRC=ON	expected 'CRC=ON'
+PASS	Final default payload COM33 to COM34	expected 'RA-02_FINAL_COM33_TO_COM34'
+=== SUMMARY ===
+PASS=82 FAIL=0
