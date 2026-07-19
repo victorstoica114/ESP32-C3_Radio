@@ -1,0 +1,361 @@
+{
+  "state": "completed",
+  "kind": "quick",
+  "message": "Test completed successfully",
+  "started_utc": "2026-07-19T14:51:32+00:00",
+  "finished_utc": "2026-07-19T14:52:50+00:00",
+  "session_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_175132_quick_radio_ra01sh_sx1262",
+  "current_step": 4,
+  "total_steps": 4,
+  "current_label": "",
+  "completed_steps": 4,
+  "failed_steps": 0,
+  "quick_verdict": {
+    "ready_for_campaign": true,
+    "headline": "The configuration is ready for the full campaign",
+    "peak_current_mA": 74.93141737772012,
+    "checks": [
+      {
+        "name": "Fast TX, physical frame",
+        "passed": true,
+        "detail": "OK"
+      },
+      {
+        "name": "Fast RX, physical frame",
+        "passed": true,
+        "detail": "OK"
+      },
+      {
+        "name": "Slow TX, fragmented transfer",
+        "passed": true,
+        "detail": "OK"
+      },
+      {
+        "name": "Slow RX, fragmented transfer",
+        "passed": true,
+        "detail": "OK"
+      },
+      {
+        "name": "PPK2 peak current",
+        "passed": true,
+        "detail": "74.9 mA (check limit 850 mA)"
+      }
+    ]
+  },
+  "config": {
+    "profile_id": "RADIO_RA01SH_SX1262",
+    "measured_port": "COM31",
+    "peer_port": "COM32",
+    "ppk_port": "COM11",
+    "voltage_mv": 3300,
+    "repetitions": 5,
+    "cooldown_s": 1.0,
+    "continuous_duration_s": 60.0,
+    "max_retries": 2,
+    "retry_cooling_s": 10.0,
+    "save_raw_campaign": true,
+    "notify_codex": false
+  },
+  "steps": [
+    {
+      "step_id": "tx_fast",
+      "label": "Fast TX, physical frame",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA01SH_SX1262",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM31",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "2",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=22",
+        "--axis",
+        "spreading_factor=7",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_175132_quick_radio_ra01sh_sx1262\\packet_results",
+        "--receiver-port",
+        "COM32",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 2,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_175132_quick_radio_ra01sh_sx1262\\packet_results\\20260719_175132_radio_ra01sh_sx1262",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_175132_quick_radio_ra01sh_sx1262\\packet_results\\20260719_175132_radio_ra01sh_sx1262"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_175132_quick_radio_ra01sh_sx1262\\logs\\tx_fast_attempt_01.log",
+          "finished_utc": "2026-07-19T14:51:47+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 2,
+            "statuses": [
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_175132_quick_radio_ra01sh_sx1262\\packet_results\\20260719_175132_radio_ra01sh_sx1262",
+      "validation": {
+        "valid": true,
+        "rows": 2,
+        "statuses": [
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_fast",
+      "label": "Fast RX, physical frame",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA01SH_SX1262",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM31",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "2",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=22",
+        "--axis",
+        "spreading_factor=7",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_175132_quick_radio_ra01sh_sx1262\\packet_results",
+        "--transmitter-port",
+        "COM32",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 2,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_175132_quick_radio_ra01sh_sx1262\\packet_results\\20260719_175147_radio_ra01sh_sx1262_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_175132_quick_radio_ra01sh_sx1262\\packet_results\\20260719_175147_radio_ra01sh_sx1262_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_175132_quick_radio_ra01sh_sx1262\\logs\\rx_fast_attempt_01.log",
+          "finished_utc": "2026-07-19T14:52:01+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 2,
+            "statuses": [
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_175132_quick_radio_ra01sh_sx1262\\packet_results\\20260719_175147_radio_ra01sh_sx1262_rx",
+      "validation": {
+        "valid": true,
+        "rows": 2,
+        "statuses": [
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_slow_fragmented",
+      "label": "Slow TX, fragmented transfer",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA01SH_SX1262",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM31",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "2",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-9",
+        "--axis",
+        "spreading_factor=12",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_175132_quick_radio_ra01sh_sx1262\\packet_results",
+        "--receiver-port",
+        "COM32",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 2,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_175132_quick_radio_ra01sh_sx1262\\packet_results\\20260719_175202_radio_ra01sh_sx1262",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_175132_quick_radio_ra01sh_sx1262\\packet_results\\20260719_175202_radio_ra01sh_sx1262"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_175132_quick_radio_ra01sh_sx1262\\logs\\tx_slow_fragmented_attempt_01.log",
+          "finished_utc": "2026-07-19T14:52:26+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 2,
+            "statuses": [
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_175132_quick_radio_ra01sh_sx1262\\packet_results\\20260719_175202_radio_ra01sh_sx1262",
+      "validation": {
+        "valid": true,
+        "rows": 2,
+        "statuses": [
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_slow_fragmented",
+      "label": "Slow RX, fragmented transfer",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA01SH_SX1262",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM31",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "2",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-9",
+        "--axis",
+        "spreading_factor=12",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_175132_quick_radio_ra01sh_sx1262\\packet_results",
+        "--transmitter-port",
+        "COM32",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 2,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_175132_quick_radio_ra01sh_sx1262\\packet_results\\20260719_175226_radio_ra01sh_sx1262_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_175132_quick_radio_ra01sh_sx1262\\packet_results\\20260719_175226_radio_ra01sh_sx1262_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_175132_quick_radio_ra01sh_sx1262\\logs\\rx_slow_fragmented_attempt_01.log",
+          "finished_utc": "2026-07-19T14:52:50+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 2,
+            "statuses": [
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_175132_quick_radio_ra01sh_sx1262\\packet_results\\20260719_175226_radio_ra01sh_sx1262_rx",
+      "validation": {
+        "valid": true,
+        "rows": 2,
+        "statuses": [
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    }
+  ]
+}

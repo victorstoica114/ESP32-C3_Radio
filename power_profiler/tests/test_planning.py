@@ -57,6 +57,18 @@ class PlanningTests(unittest.TestCase):
         self.assertEqual(power_axis.values, (2, 10, 20))
         self.assertEqual(len(build_cases(profile, "rx")), 135)
 
+    def test_ra01sh_profile_matches_sx1262_front_end_and_receiver_control(self):
+        profile = load_profile("RADIO_RA01SH_SX1262")
+        self.assertIn("AT+FREQ=868", profile.setup_commands)
+        self.assertIn("AT+CR=5", profile.setup_commands)
+        self.assertIn("AT+LDRO=OFF", profile.setup_commands)
+        self.assertEqual(profile.receiver_enable_commands, ("AT+RX=ON",))
+        self.assertEqual(profile.post_config_commands, ("AT+RX=OFF",))
+        self.assertEqual(profile.airtime["preamble_symbols"], 15)
+        power_axis = next(axis for axis in profile.axes if axis.name == "tx_power_dbm")
+        self.assertEqual(power_axis.values, (-9, 10, 22))
+        self.assertEqual(len(build_cases(profile, "rx")), 135)
+
     def test_axis_override_preserves_command_mapping(self):
         profile = load_profile("RADIO_EBYTE_E32_433T33D")
         profile = override_profile(

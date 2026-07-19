@@ -166,10 +166,10 @@ volatile bool receivedFlag = false;
 
 // ------------------ CONFIG (DEFAULTS MUST REMAIN AS REQUESTED) ------------------
 struct RadioConfig {
-  float    freqMHz     = 433.0;   // MHz
-  float    bwkHz       = 250.0;   // kHz
+  float    freqMHz     = 868.0;   // MHz (RA-01SH front end supports 803..930 MHz)
+  float    bwkHz       = 125.0;   // kHz
   uint8_t  sf          = 10;      // 7..12
-  uint8_t  cr          = 6;       // 5..8 (RadioLib)
+  uint8_t  cr          = 5;       // 5..8 (RadioLib)
   uint8_t  syncWord    = 0x14;    // e.g. 0x14
   int8_t   pwrDbm      = 10;      // dBm
   float    currLimitMA = 0;       // 0 = do not set / keep default
@@ -204,7 +204,7 @@ float lastFrequencyError = NAN;
 
 // ------------------ EEPROM PERSISTENCE ------------------
 static const uint32_t EEPROM_MAGIC   = 0x534C4F52UL; // 'SLOR'
-static const uint16_t EEPROM_VERSION = 0x0002;
+static const uint16_t EEPROM_VERSION = 0x0003;
 static const size_t   EEPROM_SIZE    = 512;
 
 // Simple CRC32 (software) over cfg bytes
@@ -313,7 +313,7 @@ static bool parseBoolOnOff(const String& s, bool& out) {
 }
 
 static bool isValidSX1262Frequency(float freq) {
-  return freq >= 150.0f && freq <= 960.0f;
+  return freq >= 803.0f && freq <= 930.0f;
 }
 
 static bool isValidSX126xBandwidth(float bw) {
@@ -359,7 +359,7 @@ static void printConfig() {
   Serial.print(F("  HEADER="));   Serial.println(cfg.implicitHdr ? F("IMPLICIT") : F("EXPLICIT"));
   Serial.print(F("  IMPLEN="));   Serial.println(cfg.implicitLen);
   Serial.print(F("  IQ="));       Serial.println(cfg.iqInverted ? F("INVERTED") : F("NORMAL"));
-  Serial.print(F("  LDRO="));     Serial.println(cfg.forceLdro ? F("FORCED") : F("AUTO/OFF"));
+  Serial.print(F("  LDRO="));     Serial.println(cfg.forceLdro ? F("FORCED") : F("AUTO"));
   Serial.print(F("  DEBUG="));    Serial.println(debugEnabled ? F("ON") : F("OFF"));
 }
 
@@ -373,7 +373,7 @@ static void printHelp() {
   Serial.println(F("  AT+DEFAULT          -> load defaults + auto save + auto apply"));
   Serial.println(F("  AT+RESET            -> hardware reset radio + reinit + apply"));
   Serial.println(F("Parameters (set/query) - each setter auto save + auto reset/apply:"));
-  Serial.println(F("  AT+FREQ=<150..960 MHz> / AT+FREQ?"));
+  Serial.println(F("  AT+FREQ=<803..930 MHz> / AT+FREQ?"));
   Serial.println(F("  AT+BW=<7.8|10.4|15.6|20.8|31.25|41.7|62.5|125|250|500>"));
   Serial.println(F("  AT+SF=<7..12>       / AT+SF?"));
   Serial.println(F("  AT+CR=<5..8>        / AT+CR?"));
@@ -390,10 +390,10 @@ static void printHelp() {
   Serial.println(F("  AT+HEADER=EXPLICIT  / AT+HEADER?"));
   Serial.println(F("  AT+HEADER=IMPLICIT,<1..255>"));
   Serial.println(F("  AT+IQ=ON|OFF        / AT+IQ?"));
-  Serial.println(F("  AT+LDRO=ON|OFF      / AT+LDRO?"));
+  Serial.println(F("  AT+LDRO=ON|OFF      / AT+LDRO?    (ON=forced, OFF=automatic)"));
   Serial.println(F("Batch set (auto save + auto reset/apply):"));
   Serial.println(F("  AT+SET=<FREQ>,<BW>,<SF>,<CR>,<SYNC>,<PWR>,<CURR>,<PRE>,<GAIN>,<CRC>"));
-  Serial.println(F("    Example: AT+SET=433.5,125,11,8,0x14,10,0,8,0,ON"));
+  Serial.println(F("    Example: AT+SET=868,125,11,8,0x14,10,0,15,0,ON"));
   Serial.println(F("Quick:"));
   Serial.println(F("  AT+RX=OFF           -> standby"));
   Serial.println(F("  AT+RX=ON            -> start receive"));
@@ -473,7 +473,7 @@ static bool applyConfigToRadioNoReset() {
   st = radio.invertIQ(cfg.iqInverted);
   if (st != RADIOLIB_ERR_NONE) return false;
 
-  st = radio.forceLDRO(cfg.forceLdro);
+  st = cfg.forceLdro ? radio.forceLDRO(true) : radio.autoLDRO();
   if (st != RADIOLIB_ERR_NONE) return false;
 
   if (cfg.currLimitMA > 0.0f) {

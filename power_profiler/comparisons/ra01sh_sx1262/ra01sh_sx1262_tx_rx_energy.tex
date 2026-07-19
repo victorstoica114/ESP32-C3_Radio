@@ -1,0 +1,30 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{calc}
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{tikzpicture}
+\begin{groupplot}[/pgf/number format/use comma, group style={group size=3 by 1, horizontal sep=1.25cm},
+  width=5.8cm,height=6.2cm,xmode=log,log basis x=2,ymode=log,log basis y=10,ymin=0.1,ymax=10000,
+  xtick={8,32,128},xticklabels={8,32,128},grid=both,xlabel={Payload [B]},
+  legend style={draw=none,fill=none,font=\small,at={(0.5,-0.27)},anchor=north,legend columns=-1}]
+% TX--RX energy
+\nextgroupplot[title={SF7},ylabel={Mean total energy [mJ]}]
+\addplot+[blue!75!black,solid,mark=*,error bars/.cd,y dir=both,y explicit] coordinates {(8,9.89700879) +- (0,0.0426765246) (32,18.0320918) +- (0,0.104832839) (128,50.5950462) +- (0,0.243137607)};
+\addplot+[red!75!black,dashed,mark=square*,error bars/.cd,y dir=both,y explicit] coordinates {(8,0.65424818) +- (0,0.00206156923) (32,1.18504133) +- (0,0.00253545767) (128,3.31593993) +- (0,0.00259777905)};
+\nextgroupplot[title={SF9}]
+\addplot+[blue!75!black,solid,mark=*,error bars/.cd,y dir=both,y explicit] coordinates {(8,34.6842652) +- (0,0.178394176) (32,62.3938419) +- (0,0.384677416) (128,158.66023) +- (0,0.853439053)};
+\addlegendentry{TX}
+\addplot+[red!75!black,dashed,mark=square*,error bars/.cd,y dir=both,y explicit] coordinates {(8,2.26308864) +- (0,0.00264513577) (32,4.08266186) +- (0,0.00374063528) (128,10.4531715) +- (0,0.0165101664)};
+\addlegendentry{RX}
+\nextgroupplot[title={SF12}]
+\addplot+[blue!75!black,solid,mark=*,error bars/.cd,y dir=both,y explicit] coordinates {(8,273.830385) +- (0,0.390850427) (32,458.142183) +- (0,1.07677951) (128,1156.00195) +- (0,1.48480862)};
+\addplot+[red!75!black,dashed,mark=square*,error bars/.cd,y dir=both,y explicit] coordinates {(8,17.9647283) +- (0,0.00534977881) (32,30.0938918) +- (0,0.0089857661) (128,76.1544506) +- (0,0.0294490437)};
+\end{groupplot}
+\node[font=\bfseries\large] at ($(group c2r1.north)+(0,0.85cm)$) {Ai-Thinker RA-01SH (SX1262): TX--RX energy at 22 dBm};
+\node[font=\footnotesize,align=center,text width=18cm] at ($(group c2r1.south)+(0,-2.75cm)$) {RX integrates one deterministic LoRa airtime window; five repetitions per point.};
+\end{tikzpicture}
+\end{document}

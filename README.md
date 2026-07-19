@@ -354,7 +354,7 @@ Applies to `RADIO_RA01_SX1278`, `RADIO_RA02_SX1278`,
 | `AT+RX=ON`, `AT+RX=OFF` | Start RX or stop RX into standby |
 | `AT+SLEEP`, `AT+WAKE` | Enter sleep or wake and restore RX state |
 | `AT+RSSI?`, `AT+SNR?`, `AT+FERR?`, `AT+CAD?`, `AT+RANDOM?`, `AT+STATUS?` | Packet/status diagnostics |
-| `AT+FREQ?`, `AT+FREQ=<150..960 MHz>` | Query/set frequency |
+| `AT+FREQ?`, `AT+FREQ=<803..930 MHz>` | Query/set the RA-01SH front-end frequency |
 | `AT+BW?`, `AT+BW=<kHz>` | Query/set bandwidth: `7.8`, `10.4`, `15.6`, `20.8`, `31.25`, `41.7`, `62.5`, `125`, `250`, `500` |
 | `AT+SF?`, `AT+SF=<value>` | Query/set spreading factor |
 | `AT+CR?`, `AT+CR=<5..8>` | Query/set coding rate denominator |
@@ -370,7 +370,7 @@ Applies to `RADIO_RA01_SX1278`, `RADIO_RA02_SX1278`,
 | `AT+RXBOOST?`, `AT+RXBOOST=ON\|OFF` | Query/set boosted RX gain mode |
 | `AT+HEADER?`, `AT+HEADER=EXPLICIT`, `AT+HEADER=IMPLICIT,<1..255>` | Query/set header mode |
 | `AT+IQ?`, `AT+IQ=ON\|OFF` | Query/set IQ inversion |
-| `AT+LDRO?`, `AT+LDRO=ON\|OFF` | Query/set forced low-data-rate optimization |
+| `AT+LDRO?`, `AT+LDRO=ON\|OFF` | Force low-data-rate optimization (`ON`) or restore automatic selection (`OFF`) |
 | `AT+SET=<FREQ>,<BW>,<SF>,<CR>,<SYNC>,<PWR>,<CURR>,<PRE>,<GAIN>,<CRC>` | Batch-set LoRa parameters |
 
 ### SX1268 Ebyte E22
