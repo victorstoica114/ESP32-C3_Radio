@@ -13,6 +13,7 @@ if str(TOOLS_DIR) not in sys.path:
     sys.path.insert(0, str(TOOLS_DIR))
 
 import generate_continuous_report as continuous_report  # noqa: E402
+import generate_lora_campaign_reports as lora_reports  # noqa: E402
 import generate_web_campaign_reports as campaign_reports  # noqa: E402
 
 
@@ -32,6 +33,38 @@ def _continuous_row(profile: str, power: float) -> dict[str, object]:
 
 
 class ReportTests(unittest.TestCase):
+    def test_lora_manifest_accepts_valid_targeted_recovery(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            session = Path(temporary)
+            result = session / "recovery" / "continuous_tx"
+            result.mkdir(parents=True)
+            (result / "summary.csv").write_text("status\nok\n", encoding="utf-8")
+            (result / "metadata.json").write_text("{}\n", encoding="utf-8")
+            manifest_path = session / "manifest.json"
+            manifest_path.write_text(
+                '{"kind":"campaign","state":"completed_with_errors",'
+                '"completed_steps":0,"failed_steps":1,"steps":['
+                '{"step_id":"continuous_tx_average","status":"failed"}]}',
+                encoding="utf-8",
+            )
+            (session / "recovery_overrides.json").write_text(
+                '{"reason":"targeted retry","steps":{'
+                '"continuous_tx_average":"recovery/continuous_tx"}}',
+                encoding="utf-8",
+            )
+
+            manifest = lora_reports._manifest(manifest_path)
+
+            self.assertEqual(manifest["state"], "completed")
+            self.assertEqual(manifest["completed_steps"], 1)
+            self.assertEqual(manifest["failed_steps"], 0)
+            self.assertEqual(
+                Path(manifest["steps"][0]["accepted_result"]), result.resolve()
+            )
+            self.assertEqual(
+                manifest["recovery_overrides"]["reason"], "targeted retry"
+            )
+
     def test_continuous_workbook_exports_all_rx_profiles(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             path = Path(temporary) / "continuous.xlsx"

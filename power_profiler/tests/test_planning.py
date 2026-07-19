@@ -24,6 +24,8 @@ class PlanningTests(unittest.TestCase):
 
     def test_known_lora_airtime(self):
         profile = load_profile("RADIO_SX1278_NAKED")
+        self.assertTrue(profile.reopen_continuous_between_powers)
+        self.assertIn("AT+CR=5", profile.setup_commands)
         airtime = estimate_airtime_s(
             profile,
             20,

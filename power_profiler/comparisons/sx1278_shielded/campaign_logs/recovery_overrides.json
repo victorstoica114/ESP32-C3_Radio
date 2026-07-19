@@ -1,0 +1,8 @@
+{
+  "created_utc": "2026-07-19T05:28:00+00:00",
+  "reason": "The original multi-power SF9 continuous steps completed individual points but the SX1278 AT session stopped acknowledging the next AT+PWR command. Both steps were rerun successfully after reopening and restoring the radio sessions between power levels.",
+  "steps": {
+    "continuous_tx_average": "recovery/continuous_tx_sf9_bw125_retry2/20260719_081458_radio_sx1278_shielded_continuous_tx",
+    "continuous_rx_spreading_factor-9_bandwidth_khz-125": "recovery/continuous_rx_sf9_bw125/20260719_082122_radio_sx1278_shielded_continuous_rx"
+  }
+}

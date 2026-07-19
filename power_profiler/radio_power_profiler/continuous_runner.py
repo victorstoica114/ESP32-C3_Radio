@@ -164,6 +164,31 @@ def _receive_continuous(
     return result_holder[0], tuple(receiver_lines)
 
 
+def _reopen_continuous_radios(
+    radio: SerialRadio,
+    peer: SerialRadio | None,
+    profile: Profile,
+    *,
+    radio_port: str,
+    transmitter_port: str | None,
+) -> tuple[SerialRadio, SerialRadio | None]:
+    """Reset the USB-CDC AT session after a long host-driven LoRa stream."""
+    radio.close()
+    if peer is not None:
+        peer.close()
+    time.sleep(max(0.50, profile.cooldown_s))
+
+    reopened_radio = SerialRadio(radio_port, profile.baudrate)
+    reopened_radio.configure(profile.setup_commands)
+    reopened_radio.configure(profile.post_config_commands)
+    reopened_peer: SerialRadio | None = None
+    if transmitter_port is not None:
+        reopened_peer = SerialRadio(transmitter_port, profile.baudrate)
+        reopened_peer.configure(profile.setup_commands)
+        reopened_peer.configure(profile.post_config_commands)
+    return reopened_radio, reopened_peer
+
+
 def run_continuous_profile(
     profile: Profile,
     *,
@@ -296,6 +321,16 @@ def run_continuous_profile(
             peer.configure(profile.post_config_commands)
 
         for index, power_dbm in enumerate(powers_dbm, start=1):
+            if index > 1 and profile.reopen_continuous_between_powers:
+                radio, peer = _reopen_continuous_radios(
+                    radio,
+                    peer,
+                    profile,
+                    radio_port=radio_port,
+                    transmitter_port=(
+                        transmitter_port if measurement_direction == "rx" else None
+                    ),
+                )
             power_value: float | int = (
                 int(power_dbm) if float(power_dbm).is_integer() else power_dbm
             )

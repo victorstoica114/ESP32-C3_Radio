@@ -107,6 +107,7 @@ class Profile:
     power_cycle_off_s: float = 1.0
     restore_after_receive: bool = True
     warmup_transfers: int = 0
+    reopen_continuous_between_powers: bool = False
     notes: tuple[str, ...] = ()
 
 

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import csv
 import json
 import math
@@ -79,8 +80,53 @@ def _read_csv(path: Path) -> list[dict[str, str]]:
 
 
 def _manifest(path: Path) -> dict[str, Any]:
-    value = json.loads(path.read_text(encoding="utf-8"))
-    if value.get("kind") != "campaign" or value.get("state") != "completed":
+    value = copy.deepcopy(json.loads(path.read_text(encoding="utf-8")))
+    if value.get("kind") != "campaign":
+        raise ValueError("Expected a campaign manifest")
+
+    recovery_path = path.parent / "recovery_overrides.json"
+    if recovery_path.exists():
+        recovery = json.loads(recovery_path.read_text(encoding="utf-8"))
+        overrides = recovery.get("steps", {})
+        if not isinstance(overrides, dict) or not overrides:
+            raise ValueError("Recovery overrides do not define any steps")
+        session_root = path.parent.resolve()
+        by_id = {step.get("step_id"): step for step in value.get("steps", [])}
+        resolved: dict[str, str] = {}
+        for step_id, relative_result in overrides.items():
+            if step_id not in by_id:
+                raise ValueError(f"Recovery override references unknown step {step_id}")
+            result = (session_root / str(relative_result)).resolve()
+            if not result.is_relative_to(session_root):
+                raise ValueError(f"Recovery result escapes the session: {result}")
+            if not (result / "summary.csv").is_file() or not (
+                result / "metadata.json"
+            ).is_file():
+                raise ValueError(f"Recovery result is incomplete: {result}")
+            step = by_id[step_id]
+            step["accepted_result"] = str(result)
+            step["status"] = "completed"
+            step["validation"] = {
+                "valid": True,
+                "errors": [],
+                "warnings": ["Accepted from targeted recovery override"],
+            }
+            resolved[step_id] = str(result)
+        incomplete = [
+            step for step in value.get("steps", []) if step.get("status") != "completed"
+        ]
+        value["completed_steps"] = len(value.get("steps", [])) - len(incomplete)
+        value["failed_steps"] = len(incomplete)
+        if not incomplete:
+            value["state"] = "completed"
+            value["message"] = "Campaign completed after targeted recovery"
+        value["recovery_overrides"] = {
+            "file": str(recovery_path.resolve()),
+            "reason": recovery.get("reason", ""),
+            "steps": resolved,
+        }
+
+    if value.get("state") != "completed":
         raise ValueError("Expected a completed campaign manifest")
     if value.get("failed_steps") or value.get("completed_steps") != len(value["steps"]):
         raise ValueError("Campaign contains failed or incomplete steps")
@@ -408,12 +454,24 @@ def _write_continuous_power_tex(path: Path, rows: list[dict[str, Any]], module: 
 
 def _write_loss_tex(path: Path, rows: list[dict[str, Any]], module: str) -> None:
     rates = [row["effective_payload_rate_kbps"] for row in rows]
+    rates_by_sf = {
+        sf: statistics.fmean(
+            row["effective_payload_rate_kbps"]
+            for row in rows
+            if row["spreading_factor"] == sf
+        )
+        for sf in (7, 9, 12)
+    }
+    tick_rates = [rates_by_sf[sf] for sf in (12, 9, 7)]
+    ticks = ",".join(_n(rate) for rate in tick_rates)
+    tick_labels = ",".join(f"{rate:.3g}" for rate in tick_rates)
     xmin, xmax = min(rates) * 0.75, max(rates) * 1.25
     ymax = min(100, max(10, math.ceil(max(row["frame_loss_percent"] for row in rows) * 1.25 / 5) * 5))
     lines = [
         r"\documentclass[tikz,border=6pt]{standalone}", r"\usepackage{pgfplots}", r"\pgfplotsset{compat=1.18}",
         r"\begin{document}", r"\begin{tikzpicture}", r"\begin{axis}[width=12.5cm,height=7.4cm,",
         rf" title={{{module}: loss versus effective payload speed}},xmode=log,xmin={_n(xmin)},xmax={_n(xmax)},ymin=0,ymax={_n(ymax)},",
+        rf" xtick={{{ticks}}},xticklabels={{{tick_labels}}},",
         r" xlabel={Effective payload speed [kbps]},ylabel={Lost frames [\%]},grid=both,legend style={draw=none,at={(0.03,0.97)},anchor=north west}]",
     ]
     for index, power in enumerate((20.0, 10.0, -4.0)):
@@ -421,7 +479,7 @@ def _write_loss_tex(path: Path, rows: list[dict[str, Any]], module: str) -> None
         lines.append(rf"\addplot+[{COLORS[index]},{STYLES[index]},mark={MARKERS[index]}] coordinates {{{_coordinates(selected, 'effective_payload_rate_kbps', 'frame_loss_percent')}}};")
         lines.append(rf"\addlegendentry{{{_latex_n(power)} dBm}}")
     mapping = ", ".join(
-        f"SF{sf}: {_n(statistics.fmean(row['effective_payload_rate_kbps'] for row in rows if row['spreading_factor'] == sf))} kbps"
+        f"SF{sf}: {rates_by_sf[sf]:.3g} kbps"
         for sf in (7, 9, 12)
     )
     lines.extend([r"\end{axis}", rf"\node[font=\footnotesize,align=center,text width=12cm] at (6.25,-1.45) {{60 s per point, 64 B frames, 15 ms gap; {mapping}.}};", r"\end{tikzpicture}", r"\end{document}", ""])
@@ -432,12 +490,24 @@ def _copy_provenance(manifest_path: Path, output: Path) -> None:
     destination = output / "campaign_logs"
     destination.mkdir(parents=True, exist_ok=True)
     session = manifest_path.parent
-    for name in ("manifest.json", "session.log", "codex_callback.log"):
+    for name in (
+        "manifest.json",
+        "session.log",
+        "codex_callback.log",
+        "recovery_overrides.json",
+    ):
         source = session / name
         if source.exists():
             shutil.copy2(source, destination / name)
     if (session / "logs").exists():
         shutil.copytree(session / "logs", destination / "attempts", dirs_exist_ok=True)
+    recovery = session / "recovery"
+    if recovery.exists():
+        for source in recovery.rglob("*"):
+            if source.is_file() and source.name in {"metadata.json", "summary.csv"}:
+                target = destination / "recovery" / source.relative_to(recovery)
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(source, target)
 
 
 def generate(manifest_path: Path, output: Path, base_name: str) -> list[Path]:
@@ -475,6 +545,7 @@ def generate(manifest_path: Path, output: Path, base_name: str) -> list[Path]:
         "maximum_energy_cv_percent": max(row["energy_cv_percent"] for row in packet),
         "maximum_ppk_sample_loss_percent": max(row["sample_loss_percent_max"] for row in packet),
         "packet_losses": sum(row["packets_lost"] for row in packet),
+        "recovery_overrides": manifest.get("recovery_overrides", {}),
         "notes": [
             "RX energy uses a deterministic integration window equal to calculated LoRa airtime.",
             "The earlier threshold-selected RX campaign is diagnostic only and is excluded.",

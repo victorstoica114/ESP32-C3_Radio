@@ -96,6 +96,9 @@ def load_profile(profile_id: str) -> Profile:
         power_cycle_off_s=float(raw.get("power_cycle_off_s", 1.0)),
         restore_after_receive=bool(raw.get("restore_after_receive", True)),
         warmup_transfers=int(raw.get("warmup_transfers", 0)),
+        reopen_continuous_between_powers=bool(
+            raw.get("reopen_continuous_between_powers", False)
+        ),
         notes=tuple(raw.get("notes", [])),
     )
 
@@ -146,5 +149,6 @@ def override_profile(
         power_cycle_off_s=profile.power_cycle_off_s,
         restore_after_receive=profile.restore_after_receive,
         warmup_transfers=profile.warmup_transfers,
+        reopen_continuous_between_powers=profile.reopen_continuous_between_powers,
         notes=profile.notes,
     )

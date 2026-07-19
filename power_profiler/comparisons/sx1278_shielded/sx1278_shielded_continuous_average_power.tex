@@ -1,0 +1,18 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{calc}
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 1,horizontal sep=1.5cm},width=8cm,height=6.2cm,xtick={-4,10,20},xlabel={Configured TX power [dBm]},grid=both,legend style={draw=none,at={(0.5,-0.23)},anchor=north,legend columns=2}]
+\nextgroupplot[title={Total power},ylabel={Mean electrical power [mW]}]
+\addplot+[blue!75!black,mark=*] coordinates {(-4,38.3957879) (10,183.06918) (20,244.132439)};\addlegendentry{TX}
+\addplot+[red!75!black,dashed,mark=square*] coordinates {(-4,38.4761571) (10,41.6519442) (20,41.3687576)};\addlegendentry{RX}
+\nextgroupplot[title={Mean current},ylabel={Mean current [mA]}]
+\addplot+[blue!75!black,mark=*] coordinates {(-4,11.6350872) (10,55.4755092) (20,73.979527)};\addlegendentry{TX}
+\addplot+[red!75!black,dashed,mark=square*] coordinates {(-4,11.6594415) (10,12.6218013) (20,12.5359871)};\addlegendentry{RX}
+\end{groupplot}
+\node[font=\bfseries\large] at ($(group c1r1.north)!0.5!(group c2r1.north)+(0,0.9cm)$) {SX1278-Shielded: continuous average power (SF9)};
+\end{tikzpicture}
+\end{document}

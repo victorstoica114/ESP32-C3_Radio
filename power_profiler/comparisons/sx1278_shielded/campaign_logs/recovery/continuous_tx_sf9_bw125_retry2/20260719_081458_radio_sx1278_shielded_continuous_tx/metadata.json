@@ -1,0 +1,29 @@
+{
+  "created_utc": "2026-07-19T05:14:58+00:00",
+  "test_type": "continuous_average_power",
+  "profile_id": "RADIO_SX1278_SHIELDED",
+  "module": "SX1278-Shielded",
+  "firmware_selection": "RADIO_RA01_SX1278 + AT_COMMANDS",
+  "measurement_direction": "tx",
+  "measured_port": "COM22",
+  "peer_port": "",
+  "ppk_port": "COM11",
+  "ppk_mode": "ampere",
+  "voltage_mv": 3300,
+  "sample_rate_hz": 100000,
+  "powers_dbm": [
+    -4.0,
+    10.0,
+    20.0
+  ],
+  "axis_parameters": {
+    "spreading_factor": 9,
+    "bandwidth_khz": 125
+  },
+  "bit_rate_kbps": null,
+  "frame_bytes": 64,
+  "content_bytes_per_frame": 64,
+  "inter_frame_gap_ms": 15,
+  "requested_duration_s": 60.0,
+  "save_raw": true
+}
