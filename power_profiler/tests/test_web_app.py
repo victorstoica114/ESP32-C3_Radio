@@ -110,6 +110,8 @@ class WebAppTests(unittest.TestCase):
             self.assertIn("Developer: Reload Webviews", reload_command[-1])
             self.assertIn("Get-Process -Id 18572", reload_command[-1])
             self.assertIn("Get-Process -Name Code", reload_command[-1])
+            self.assertIn("MainWindowTitle -like '*ESP32-C3_Radio*'", reload_command[-1])
+            self.assertNotIn("Sort-Object StartTime", reload_command[-1])
             activate_command = run.call_args_list[1].args[0]
             self.assertIn("AppActivate($target.Id)", activate_command[-1])
 
@@ -450,6 +452,8 @@ class WebAppTests(unittest.TestCase):
                     html = response.read().decode("utf-8")
                 self.assertIn("Run quick check", html)
                 self.assertIn("Test Codex callback", html)
+                self.assertIn("currentSession!==s.session_dir", html)
+                self.assertIn("/api/status?after=0", html)
                 with urllib.request.urlopen(
                     f"http://{host}:{port}/api/status", timeout=3
                 ) as response:

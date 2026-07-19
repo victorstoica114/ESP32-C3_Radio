@@ -658,11 +658,13 @@ class JobManager:
                 "($target.ProcessName -ne 'Code' -or "
                 "$target.MainWindowHandle -eq 0)){ $target=$null }; "
             )
+        workspace_hint = Path(__file__).resolve().parents[2].name.replace("'", "''")
         script += (
             "if($null -eq $target){ "
-            "$target=Get-Process -Name Code -ErrorAction SilentlyContinue | "
-            "Where-Object { $_.MainWindowHandle -ne 0 } | "
-            "Sort-Object StartTime -Descending | Select-Object -First 1 }; "
+            "$matches=@(Get-Process -Name Code -ErrorAction SilentlyContinue | "
+            "Where-Object { $_.MainWindowHandle -ne 0 -and "
+            f"$_.MainWindowTitle -like '*{workspace_hint}*' }}); "
+            "if($matches.Count -eq 1){ $target=$matches[0] } }; "
             "if($null -eq $target){ exit 1 }; "
             "if(-not $shell.AppActivate($target.Id)){ exit 1 }; "
         )
@@ -1513,7 +1515,7 @@ HTML = r"""<!doctype html>
   </div>
 </main>
 <script>
-const $=id=>document.getElementById(id); let lastSeq=0,codexAvailable=false;
+const $=id=>document.getElementById(id); let lastSeq=0,codexAvailable=false,currentSession=null;
 function config(){return {profile_id:$('profile').value,measured_port:$('measured').value,peer_port:$('peer').value,
  ppk_port:$('ppk').value,voltage_mv:+$('voltage').value,repetitions:+$('repetitions').value,
  cooldown_s:+$('cooldown').value,continuous_duration_s:+$('duration').value,max_retries:+$('retries').value,
@@ -1528,7 +1530,10 @@ function verdict(v){if(!v){$('verdict').className='verdict';$('verdict').innerHT
  $('verdict').className='verdict '+(v.ready_for_campaign?'ok':'bad'); let h=document.createElement('strong');h.textContent=v.headline;
  let ul=document.createElement('ul');ul.className='checks';v.checks.forEach(c=>{let li=document.createElement('li');li.className=c.passed?'oktxt':'badtxt';li.textContent=(c.passed?'PASS ':'FAIL ')+c.name+' - '+c.detail;ul.appendChild(li)});
  $('verdict').replaceChildren(h,ul)}
-async function poll(){try{let r=await fetch('/api/status?after='+lastSeq);let s=await r.json();$('message').textContent=s.message;$('state').textContent=s.state;
+async function poll(){try{let requestedAfter=lastSeq;let r=await fetch('/api/status?after='+requestedAfter);let s=await r.json();
+ if(currentSession!==s.session_dir){currentSession=s.session_dir;lastSeq=0;$('log').textContent='';
+  if(requestedAfter!==0){r=await fetch('/api/status?after=0');s=await r.json()}}
+ $('message').textContent=s.message;$('state').textContent=s.state;
  $('progress').max=Math.max(1,s.total_steps);$('progress').value=s.completed_steps+s.failed_steps;$('current').textContent=s.current_label?`${s.current_step}/${s.total_steps} - ${s.current_label}`:'No active step';
  $('session').textContent=s.session_dir||'-';$('quick').disabled=s.running;$('campaign').disabled=s.running;
  $('testCodex').disabled=s.running||s.codex_callback_running||!codexAvailable;$('stop').disabled=!s.running||s.kind==='callback_test';
