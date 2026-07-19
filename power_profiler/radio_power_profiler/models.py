@@ -75,6 +75,7 @@ class CaptureSpec:
     threshold_margin_uA: float = 500.0
     merge_gap_ms: float = 0.50
     minimum_event_ms: float = 0.05
+    align_tx_airtime_window: bool = False
 
 
 @dataclass(frozen=True)
@@ -105,6 +106,7 @@ class Profile:
     power_cycle_min_airtime_s: float = 0.0
     power_cycle_off_s: float = 1.0
     restore_after_receive: bool = True
+    warmup_transfers: int = 0
     notes: tuple[str, ...] = ()
 
 

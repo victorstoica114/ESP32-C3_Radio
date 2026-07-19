@@ -1,0 +1,7 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E79_CC1352P --direction rx --powers=-20,0,13 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM5 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_003026_campaign_radio_ebyte_e79_cc1352p\continuous" --keep-power-on --axis rf_profile=GFSK4K8 --transmitter-port COM13 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Continuous RX: 60 s per power, parameters={'rf_profile': 'GFSK4K8'}, 64 B frames, 15 ms gap
+[1/3] RX -20 dBm: mean=7.382 mA, power=24.361 mW, status=ok
+[2/3] RX 0 dBm: mean=7.375 mA, power=24.338 mW, status=ok
+[3/3] RX 13 dBm: mean=7.371 mA, power=24.325 mW, status=ok
+Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_003026_campaign_radio_ebyte_e79_cc1352p\continuous\20260719_020820_radio_ebyte_e79_cc1352p_continuous_rx

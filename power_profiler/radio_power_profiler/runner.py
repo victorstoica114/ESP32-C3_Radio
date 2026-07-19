@@ -84,6 +84,68 @@ def _execute_receive_transfer(
     return transmission, receiver_lines
 
 
+def _warm_up_radio_path(
+    radio: SerialRadio,
+    peer: SerialRadio | None,
+    profile: Profile,
+    case: TestCase,
+    measurement_direction: str,
+) -> None:
+    """Prime stateful RF firmware without including initialization in captures."""
+    if profile.warmup_transfers <= 0:
+        return
+    if measurement_direction == "rx" and peer is None:
+        raise ValueError("RX warm-up requires a peer transmitter")
+
+    print(
+        f"Warming up RF path with {profile.warmup_transfers} "
+        "unmeasured verified transfer(s) ..."
+    )
+    for warmup_index in range(profile.warmup_transfers):
+        radio.drain(wait_s=0.03)
+        if peer is not None:
+            peer.drain(wait_s=0.03)
+
+        if measurement_direction == "tx":
+            frame_count = len(profile.transmit.frame_sizes(case.payload_bytes))
+            pacing_ms = profile.receive.inter_frame_gap_ms
+            if profile.transmit.mode == "text_line" and frame_count > 1:
+                pacing_ms += max(
+                    estimate_airtime_s(profile, frame_size, case.parameters)
+                    for frame_size in profile.transmit.frame_sizes(case.payload_bytes)
+                ) * 1000.0
+            transmission = radio.send_packet(
+                profile,
+                case.payload_bytes,
+                inter_frame_gap_ms=pacing_ms,
+                completion_timeout_s=max(2.0, case.capture_after_trigger_s),
+            )
+            receiver_lines = (
+                peer.drain(wait_s=profile.receive.post_receive_s)
+                if peer is not None
+                else ()
+            )
+        else:
+            assert peer is not None
+            radio.configure(profile.receiver_enable_commands)
+            transmission, receiver_lines = _execute_receive_transfer(
+                radio,
+                peer,
+                profile,
+                case,
+            )
+
+        if peer is not None and not _received_all_frames(
+            transmission.expected_payloads,
+            receiver_lines,
+        ):
+            raise RadioCommandError(
+                f"RF warm-up {warmup_index + 1}/{profile.warmup_transfers} "
+                "was not received by the peer"
+            )
+        time.sleep(0.05)
+
+
 def _should_reset_between_runs(profile: Profile, case: TestCase) -> bool:
     """Return whether this case needs the profile's queue-clearing reset."""
     if not profile.inter_run_commands:
@@ -210,6 +272,13 @@ def run_profile(
                     )
                 previous_parameters = dict(case.parameters)
                 time.sleep(max(0.10, profile.cooldown_s))
+                _warm_up_radio_path(
+                    radio,
+                    peer,
+                    profile,
+                    case,
+                    measurement_direction,
+                )
 
             radio.drain(wait_s=0.03)
             if peer is not None:
@@ -309,8 +378,15 @@ def run_profile(
                 # TX continues to use measured event boundaries.
                 integration_window_s=(
                     case.estimated_airtime_s
-                    if measurement_direction == "rx"
+                    if (
+                        measurement_direction == "rx"
+                        or profile.capture.align_tx_airtime_window
+                    )
                     else None
+                ),
+                align_integration_window=(
+                    measurement_direction == "tx"
+                    and profile.capture.align_tx_airtime_window
                 ),
             )
             run_id = f"run_{case.case_index:05d}"

@@ -105,6 +105,7 @@ class PlanningTests(unittest.TestCase):
 
         self.assertEqual(profile.transmit.frame_sizes(1024), (64,) * 16)
         self.assertTrue(profile.transmit.wait_for_ok)
+        self.assertTrue(profile.capture.align_tx_airtime_window)
         self.assertEqual(profile.receiver_enable_commands, ("AT+RX=ON",))
         self.assertEqual(len(build_cases(profile, "tx")), 630)
         self.assertEqual(len(build_cases(profile, "rx")), 630)
@@ -122,6 +123,20 @@ class PlanningTests(unittest.TestCase):
         self.assertEqual(
             resolve_rate_bps(profile, {"rf_profile": "IEEE154G50"}),
             50000.0,
+        )
+        slow = override_profile(
+            profile,
+            sizes=(1024,),
+            repetitions=1,
+            axis_overrides={
+                "rf_profile": ("SLR2K5",),
+                "tx_power_dbm": (-20,),
+            },
+        )
+        slow_rx = build_cases(slow, "rx")[0]
+        self.assertGreater(
+            slow_rx.capture_after_trigger_s,
+            slow_rx.estimated_event_s,
         )
 
     def test_e32_t30_profile_supports_large_transfers_and_three_rates(self):

@@ -492,8 +492,24 @@ def _write_loss_reports(base: Path, rows: list[dict[str, Any]], module: str) -> 
     _style_sheet(matrix)
     workbook.save(base.with_suffix(".xlsx"))
 
-    ticks = ",".join(_number(rate) for rate in rates)
-    labels = ",".join(_latex_number(rate) for rate in rates)
+    # Logarithmic rates such as 4.8 and 5 kbps are physically almost
+    # coincident on the axis.  Put neighbouring labels on alternating rows so
+    # both modem profiles remain legible without changing their data position.
+    regular_rates: list[float] = []
+    staggered_rates: list[float] = []
+    previous_rate: float | None = None
+    previous_was_staggered = False
+    for rate in rates:
+        is_close = previous_rate is not None and rate / previous_rate < 1.15
+        use_staggered_row = is_close and not previous_was_staggered
+        (staggered_rates if use_staggered_row else regular_rates).append(rate)
+        previous_rate = rate
+        previous_was_staggered = use_staggered_row
+
+    ticks = ",".join(_number(rate) for rate in regular_rates)
+    labels = ",".join(_latex_number(rate) for rate in regular_rates)
+    staggered_ticks = ",".join(_number(rate) for rate in staggered_rates)
+    staggered_labels = ",".join(_latex_number(rate) for rate in staggered_rates)
     maximum = max(row["frame_loss_percent"] for row in rows)
     ymax = min(100, max(10, math.ceil(maximum * 1.25 / 5) * 5))
     xmin = min(rates) / 1.5
@@ -511,6 +527,14 @@ def _write_loss_reports(base: Path, rows: list[dict[str, Any]], module: str) -> 
         r"  xmode=log, log basis x=10,",
         rf"  xmin={_number(xmin)}, xmax={_number(xmax)}, xtick={{{ticks}}},",
         rf"  xticklabels={{{labels}}}, ymin=0, ymax={_number(ymax)},",
+        *(
+            [
+                rf"  extra x ticks={{{staggered_ticks}}}, extra x tick labels={{{staggered_labels}}},",
+                r"  extra x tick style={grid=none, xticklabel style={yshift=-0.35cm}},",
+            ]
+            if staggered_rates
+            else []
+        ),
         r"  xlabel={Radio rate [kbps]}, ylabel={Lost frames [\%]},",
         r"  grid=both, minor grid style={gray!15}, major grid style={gray!35},",
         r"  every axis plot/.append style={line width=1.25pt, mark size=2.8pt},",
@@ -639,10 +663,18 @@ def generate(manifest_path: Path, output_dir: Path, base_name: str) -> list[Path
         rx_continuous_rows,
         rx_continuous_metadata,
     )
+    all_rx_continuous_rows: list[dict[str, Any]] = []
+    for result_dir in loss_dirs:
+        rows, _metadata = continuous_report.read_session(result_dir)
+        all_rx_continuous_rows.extend(rows)
     continuous_base = base.with_name(base.name + "_continuous")
     continuous_rows = sorted(
-        tx_continuous_rows + rx_continuous_rows,
-        key=lambda row: (row["measurement_direction"], row["tx_power_dbm"]),
+        tx_continuous_rows + all_rx_continuous_rows,
+        key=lambda row: (
+            row["measurement_direction"],
+            row.get("rf_profile", ""),
+            row["tx_power_dbm"],
+        ),
     )
     continuous_report.write_csv(continuous_base.with_suffix(".csv"), continuous_rows)
     continuous_report.write_xlsx(
@@ -651,6 +683,7 @@ def generate(manifest_path: Path, output_dir: Path, base_name: str) -> list[Path
         rx_continuous_rows,
         tx_continuous_metadata,
         rx_continuous_metadata,
+        all_rx_rows=all_rx_continuous_rows,
     )
     continuous_report.write_power_tex(
         continuous_base.with_name(continuous_base.name + "_average_power").with_suffix(".tex"),

@@ -85,6 +85,9 @@ def load_profile(profile_id: str) -> Profile:
             ),
             merge_gap_ms=float(capture_raw.get("merge_gap_ms", 0.50)),
             minimum_event_ms=float(capture_raw.get("minimum_event_ms", 0.05)),
+            align_tx_airtime_window=bool(
+                capture_raw.get("align_tx_airtime_window", False)
+            ),
         ),
         airtime=raw.get("airtime", {"kind": "fixed", "seconds": 0.25}),
         inter_run_commands=tuple(raw.get("inter_run_commands", [])),
@@ -92,6 +95,7 @@ def load_profile(profile_id: str) -> Profile:
         power_cycle_min_airtime_s=float(raw.get("power_cycle_min_airtime_s", 0.0)),
         power_cycle_off_s=float(raw.get("power_cycle_off_s", 1.0)),
         restore_after_receive=bool(raw.get("restore_after_receive", True)),
+        warmup_transfers=int(raw.get("warmup_transfers", 0)),
         notes=tuple(raw.get("notes", [])),
     )
 
@@ -141,5 +145,6 @@ def override_profile(
         power_cycle_min_airtime_s=profile.power_cycle_min_airtime_s,
         power_cycle_off_s=profile.power_cycle_off_s,
         restore_after_receive=profile.restore_after_receive,
+        warmup_transfers=profile.warmup_transfers,
         notes=profile.notes,
     )

@@ -1,0 +1,109 @@
+{
+  "created_utc": "2026-07-19T03:41:19+00:00",
+  "profile": {
+    "profile_id": "RADIO_EBYTE_E79_CC1352P",
+    "display_name": "Ebyte E79-400DM2005S (CC1352P AT modem)",
+    "firmware_selection": "RADIO_EBYTE_E79_CC1352P + AT_COMMANDS; E79 modem firmware 0.3.0 required",
+    "baudrate": 115200,
+    "setup_commands": [
+      "AT",
+      "AT+DEFAULT",
+      "AT+DEBUG=OFF",
+      "AT+RX=OFF"
+    ],
+    "post_config_commands": [
+      "AT+RX=OFF"
+    ],
+    "receiver_enable_commands": [
+      "AT+RX=ON"
+    ],
+    "payload_sizes": [
+      64
+    ],
+    "repetitions": 20,
+    "cooldown_s": 2.0,
+    "axes": [
+      {
+        "name": "rf_profile",
+        "values": [
+          "IEEE154G50"
+        ],
+        "command": "AT+PROFILE={value}",
+        "commands": {},
+        "label": "RF profile"
+      },
+      {
+        "name": "tx_power_dbm",
+        "values": [
+          -20
+        ],
+        "command": "AT+PWR={value}",
+        "commands": {},
+        "label": "TX power (dBm)"
+      }
+    ],
+    "transmit": {
+      "mode": "text_command",
+      "command": "AT+SEND={payload_text}",
+      "line_overhead_bytes": 0,
+      "max_payload_bytes": 1024,
+      "frame_payload_bytes": 64,
+      "wait_for_ok": true
+    },
+    "receive": {
+      "inter_frame_gap_ms": 0.0,
+      "post_receive_s": 0.08
+    },
+    "capture": {
+      "pre_s": 0.2,
+      "post_s": 0.25,
+      "minimum_after_trigger_s": 0.75,
+      "max_after_trigger_s": 6.0,
+      "threshold_margin_uA": 500.0,
+      "merge_gap_ms": 0.5,
+      "minimum_event_ms": 0.05,
+      "align_tx_airtime_window": true
+    },
+    "airtime": {
+      "kind": "fsk",
+      "rate_axis": "rf_profile",
+      "rate_bps_by_value": {
+        "GFSK4K8": 4800,
+        "GFSK50": 50000,
+        "GFSK200": 200000,
+        "SLR2K5": 2500,
+        "SLR5": 5000,
+        "OOK4K8": 4800,
+        "IEEE154G50": 50000
+      },
+      "overhead_bytes": 12,
+      "overhead_bytes_by_value": {
+        "IEEE154G50": 14
+      },
+      "ramp_s": 0.003
+    },
+    "inter_run_commands": [],
+    "power_cycle_between_runs": false,
+    "power_cycle_min_airtime_s": 0.0,
+    "power_cycle_off_s": 1.0,
+    "restore_after_receive": true,
+    "warmup_transfers": 1,
+    "notes": [
+      "Firmware 0.3.0 exposes seven generated RF profiles spanning 2.5 to 200 kbps, including alternate OOK and IEEE 802.15.4g modulations at shared rates.",
+      "Logical transfers above 64 bytes are sent as acknowledged 64-byte physical frames by the host profiler.",
+      "The printable test payload uses AT+SEND rather than long hexadecimal UART lines, which are unreliable at the validated 1 Mbaud bridge setting."
+    ]
+  },
+  "measurement_direction": "tx",
+  "measured_port": "COM5",
+  "radio_port": "COM5",
+  "transmitter_port": "COM5",
+  "receiver_port": "COM13",
+  "peer_port": "COM13",
+  "ppk_port": "COM11",
+  "ppk_mode": "ampere",
+  "voltage_mv": 3300,
+  "sample_rate_hz": 100000,
+  "save_raw": true,
+  "test_count": 20
+}

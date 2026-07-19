@@ -6,6 +6,7 @@ from radio_power_profiler.runner import (
     _execute_receive_transfer,
     _restore_after_reset,
     _should_reset_between_runs,
+    _warm_up_radio_path,
 )
 from radio_power_profiler.serial_radio import SerialRadio, TransmissionResult
 
@@ -29,6 +30,11 @@ class FakeTransmitter:
     def __init__(self, result):
         self.result = result
         self.calls = []
+        self.drain_calls = []
+
+    def drain(self, *, wait_s):
+        self.drain_calls.append(wait_s)
+        return ()
 
     def send_packet(self, profile, payload_bytes, **kwargs):
         self.calls.append((profile, payload_bytes, kwargs))
@@ -36,6 +42,33 @@ class FakeTransmitter:
 
 
 class RunnerTests(unittest.TestCase):
+    def test_e79_warmup_transfer_is_verified_and_unmeasured(self):
+        profile = override_profile(
+            load_profile("RADIO_EBYTE_E79_CC1352P"),
+            sizes=(64,),
+            repetitions=1,
+            axis_overrides={
+                "rf_profile": ("GFSK200",),
+                "tx_power_dbm": (13,),
+            },
+        )
+        case = build_cases(profile, "tx")[0]
+        payload = SerialRadio.make_payload(64)
+        result = TransmissionResult(
+            content_bytes=64,
+            frame_payload_bytes=(64,),
+            expected_payloads=(payload,),
+            response_lines=("OK",),
+        )
+        transmitter = FakeTransmitter(result)
+        receiver = FakeReceiver((payload.decode("ascii"),))
+
+        _warm_up_radio_path(transmitter, receiver, profile, case, "tx")
+
+        self.assertEqual(len(transmitter.calls), 1)
+        self.assertEqual(transmitter.drain_calls, [0.03])
+        self.assertEqual(receiver.drain_calls, [0.03, profile.receive.post_receive_s])
+
     def test_e32_resets_only_long_runs_and_restores_full_configuration(self):
         profile = override_profile(
             load_profile("RADIO_EBYTE_E32_868T30D"),

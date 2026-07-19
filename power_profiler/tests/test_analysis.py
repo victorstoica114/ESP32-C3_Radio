@@ -42,6 +42,30 @@ class AnalysisTests(unittest.TestCase):
         self.assertAlmostEqual(metrics.event_duration_ms, 100.0)
         self.assertAlmostEqual(metrics.energy_total_uJ, 7_590.0)
 
+    def test_aligned_fixed_window_integrates_a_low_power_tx_plateau(self):
+        samples = [5_000.0] * 2_000
+        samples[800:930] = [6_000.0] * 130
+        samples[650:660] = [8_000.0] * 10
+
+        metrics = analyze_capture(
+            samples,
+            trigger_index=500,
+            sample_rate_hz=1_000,
+            voltage_mv=3_300,
+            capture_spec=CaptureSpec(
+                threshold_margin_uA=1_500.0,
+                minimum_event_ms=1.0,
+            ),
+            search_window_s=0.6,
+            integration_window_s=0.13,
+            align_integration_window=True,
+        )
+
+        self.assertTrue(metrics.event_detected)
+        self.assertAlmostEqual(metrics.event_start_ms, 300.0)
+        self.assertAlmostEqual(metrics.event_duration_ms, 130.0)
+        self.assertAlmostEqual(metrics.energy_total_uJ, 2_574.0)
+
     def test_detects_tx_event_and_integrates_energy(self):
         sample_rate = 100_000
         samples = [1000.0] * 60_000

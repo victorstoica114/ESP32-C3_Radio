@@ -30,6 +30,7 @@ def analyze_capture(
     search_window_s: float | None = None,
     fallback_window_s: float | None = None,
     integration_window_s: float | None = None,
+    align_integration_window: bool = False,
 ) -> Metrics:
     if len(samples_uA) < 100 or trigger_index < 10:
         raise ValueError("Capture is too short to calculate a baseline")
@@ -52,11 +53,32 @@ def analyze_capture(
         )
     using_fixed_window = integration_window_s is not None and integration_window_s > 0
     if using_fixed_window:
-        fixed_start = max(search_start, trigger_index)
-        fixed_end = min(
-            search_end - 1,
-            fixed_start + max(1, int(integration_window_s * sample_rate_hz)) - 1,
-        )
+        fixed_length = max(1, int(integration_window_s * sample_rate_hz))
+        first_start = max(search_start, trigger_index)
+        last_start = search_end - fixed_length
+        if align_integration_window and last_start >= first_start:
+            # Low-power radios can draw a broad, repeatable plateau that sits
+            # below a noise-derived point threshold. Align the physical-airtime
+            # window by maximizing baseline-subtracted charge instead of
+            # fragmenting that plateau into arbitrary threshold crossings.
+            excess = [
+                max(0.0, samples_uA[index] - baseline)
+                for index in range(first_start, search_end)
+            ]
+            fixed_length = min(fixed_length, len(excess))
+            rolling_score = sum(excess[:fixed_length])
+            best_score = rolling_score
+            fixed_start = first_start
+            for offset in range(1, len(excess) - fixed_length + 1):
+                rolling_score += (
+                    excess[offset + fixed_length - 1] - excess[offset - 1]
+                )
+                if rolling_score > best_score:
+                    best_score = rolling_score
+                    fixed_start = first_start + offset
+        else:
+            fixed_start = first_start
+        fixed_end = min(search_end - 1, fixed_start + fixed_length - 1)
         candidates = [(fixed_start, fixed_end)] if fixed_end >= fixed_start else []
     else:
         active = [

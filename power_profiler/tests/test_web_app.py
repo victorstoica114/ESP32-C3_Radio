@@ -43,10 +43,18 @@ class WebAppTests(unittest.TestCase):
             self.assertFalse(manager._callback_thread.is_alive())
             command = run.call_args.args[0]
             self.assertEqual(
-                command[:5],
-                ["codex.exe", "exec", "resume", "--json", thread_id],
+                command[:7],
+                [
+                    "codex.exe",
+                    "exec",
+                    "--sandbox",
+                    "workspace-write",
+                    "resume",
+                    "--json",
+                    thread_id,
+                ],
             )
-            self.assertIn(str(session), command[5])
+            self.assertIn(str(session), command[7])
             open_uri.assert_called_once_with(
                 f"vscode://openai.chatgpt/local/{thread_id}"
             )
@@ -264,6 +272,22 @@ class WebAppTests(unittest.TestCase):
         self.assertEqual(config.measured_port, "COM5")
         self.assertEqual(config.peer_port, "COM13")
 
+    def test_e79_quick_check_includes_low_power_metrology_guard(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            quick = build_quick_steps(WebConfig(), Path(temporary) / "quick")
+
+        self.assertEqual(len(quick), 5)
+        metrology = next(
+            step for step in quick if step.step_id == "tx_low_power_metrology"
+        )
+        self.assertEqual(metrology.expected_rows, 5)
+        self.assertIn("tx_power_dbm=-20", metrology.command)
+        self.assertIn("rf_profile=GFSK4K8", metrology.command)
+        self.assertEqual(
+            metrology.command[metrology.command.index("--repetitions") + 1],
+            "5",
+        )
+
     def test_e79_campaign_covers_all_seven_rf_profiles(self):
         config = WebConfig()
         with tempfile.TemporaryDirectory() as temporary:
@@ -391,7 +415,7 @@ class WebAppTests(unittest.TestCase):
             manager = JobManager(root)
             counter = 0
 
-            def fake_process(_command, attempt_log):
+            def fake_process(command, attempt_log):
                 nonlocal counter
                 counter += 1
                 attempt_log.parent.mkdir(parents=True, exist_ok=True)
@@ -409,7 +433,10 @@ class WebAppTests(unittest.TestCase):
                 ) as stream:
                     writer = csv.DictWriter(stream, fieldnames=fields)
                     writer.writeheader()
-                    for _ in range(2):
+                    repetitions = int(
+                        command[command.index("--repetitions") + 1]
+                    )
+                    for _ in range(repetitions):
                         writer.writerow(
                             {
                                 "status": "ok",
@@ -432,7 +459,7 @@ class WebAppTests(unittest.TestCase):
             manifest = json.loads(
                 (session / "manifest.json").read_text(encoding="utf-8")
             )
-            self.assertEqual(manifest["completed_steps"], 4)
+            self.assertEqual(manifest["completed_steps"], 5)
             self.assertTrue(all(step["attempts"] for step in manifest["steps"]))
             self.assertTrue(
                 all(

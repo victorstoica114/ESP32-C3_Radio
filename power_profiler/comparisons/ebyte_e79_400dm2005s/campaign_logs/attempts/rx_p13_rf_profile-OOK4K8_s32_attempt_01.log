@@ -1,0 +1,13 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E79_CC1352P --direction rx --radio-port COM5 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=13 --axis rf_profile=OOK4K8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_003026_campaign_radio_ebyte_e79_cc1352p\packet_rx" --transmitter-port COM13 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Measured receiver: COM5, 115200 baud
+Peer transmitter: COM13, 115200 baud
+Configuring measured receiver (Ebyte E79-400DM2005S (CC1352P AT modem)) on COM5 ...
+Configuring peer transmitter on COM13 ...
+Warming up RF path with 1 unmeasured verified transfer(s) ...
+[   1/5] RX   32 B, {'rf_profile': 'OOK4K8', 'tx_power_dbm': 13}, rep 1: ok, peak=14806.4 uA, energy=1803.002 uJ
+[   2/5] RX   32 B, {'rf_profile': 'OOK4K8', 'tx_power_dbm': 13}, rep 2: ok, peak=13914.9 uA, energy=1785.986 uJ
+[   3/5] RX   32 B, {'rf_profile': 'OOK4K8', 'tx_power_dbm': 13}, rep 3: ok, peak=14004.4 uA, energy=1791.301 uJ
+[   4/5] RX   32 B, {'rf_profile': 'OOK4K8', 'tx_power_dbm': 13}, rep 4: ok, peak=14908.6 uA, energy=1790.698 uJ
+[   5/5] RX   32 B, {'rf_profile': 'OOK4K8', 'tx_power_dbm': 13}, rep 5: ok, peak=13793.6 uA, energy=1790.554 uJ
+Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_003026_campaign_radio_ebyte_e79_cc1352p\packet_rx\20260719_015553_radio_ebyte_e79_cc1352p_rx

@@ -119,13 +119,16 @@ def write_xlsx(
     rx_rows: list[dict[str, Any]],
     tx_metadata: dict[str, Any],
     rx_metadata: dict[str, Any],
+    *,
+    all_rx_rows: list[dict[str, Any]] | None = None,
 ) -> None:
     workbook = Workbook()
     results = workbook.active
     results.title = "continuous_results"
     fields = list(tx_rows[0])
     results.append(fields)
-    for row in tx_rows + rx_rows:
+    exported_rx_rows = all_rx_rows if all_rx_rows is not None else rx_rows
+    for row in tx_rows + exported_rx_rows:
         results.append([row.get(field, "") for field in fields])
     _style_sheet(results)
 

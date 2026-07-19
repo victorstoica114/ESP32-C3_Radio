@@ -296,8 +296,8 @@ def build_quick_steps(config: WebConfig, session_dir: Path) -> list[CommandStep]
         ),
     )
     definitions = [
-        ("tx_fast", "Fast TX, physical frame", "tx", max_frame, max(powers), fast_parameters),
-        ("rx_fast", "Fast RX, physical frame", "rx", max_frame, max(powers), fast_parameters),
+        ("tx_fast", "Fast TX, physical frame", "tx", max_frame, max(powers), fast_parameters, quick_repetitions),
+        ("rx_fast", "Fast RX, physical frame", "rx", max_frame, max(powers), fast_parameters, quick_repetitions),
         (
             "tx_slow_fragmented",
             "Slow TX, fragmented transfer",
@@ -305,6 +305,7 @@ def build_quick_steps(config: WebConfig, session_dir: Path) -> list[CommandStep]
             fragmented,
             min(powers),
             slow_parameters,
+            quick_repetitions,
         ),
         (
             "rx_slow_fragmented",
@@ -313,8 +314,27 @@ def build_quick_steps(config: WebConfig, session_dir: Path) -> list[CommandStep]
             fragmented,
             min(powers),
             slow_parameters,
+            quick_repetitions,
         ),
     ]
+    if config.profile_id == "RADIO_EBYTE_E79_CC1352P":
+        metrology_parameters = next(
+            parameters
+            for parameters in parameter_sets
+            if parameters.get("rf_profile") == "GFSK4K8"
+        )
+        definitions.insert(
+            2,
+            (
+                "tx_low_power_metrology",
+                "Low-power TX metrology window",
+                "tx",
+                max_frame,
+                min(powers),
+                metrology_parameters,
+                5,
+            ),
+        )
     return [
         CommandStep(
             step_id=step_id,
@@ -323,16 +343,16 @@ def build_quick_steps(config: WebConfig, session_dir: Path) -> list[CommandStep]
                 config,
                 direction=direction,
                 size=size,
-                repetitions=quick_repetitions,
+                repetitions=repetitions,
                 power=power,
                 parameters=parameters,
                 output=output,
                 save_raw=True,
             ),
             result_kind="packet",
-            expected_rows=quick_repetitions,
+            expected_rows=repetitions,
         )
-        for step_id, label, direction, size, power, parameters in definitions
+        for step_id, label, direction, size, power, parameters, repetitions in definitions
     ]
 
 
@@ -1285,6 +1305,8 @@ class JobManager:
                             [
                                 executable,
                                 "exec",
+                                "--sandbox",
+                                "workspace-write",
                                 "resume",
                                 "--json",
                                 thread_id,
