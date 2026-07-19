@@ -97,19 +97,21 @@
     "display_name": "HC-12 UART radio",
     "firmware_selection": "RADIO_HC12 + AT_COMMANDS",
     "baudrate": 115200,
-    "setup_commands": ["AT", "AT+DEBUG=OFF", "AT+WAKE", "AT+BRIDGE=ON"],
+    "setup_commands": ["AT", "AT+DEBUG=OFF", "AT+BRIDGE=ON", "AT+WAKE", "AT+FU=3", "AT+BAUD=9600", "AT+CHAN=10", "AT+UART=8N1"],
     "post_config_commands": [],
-    "payload_sizes": [8, 32, 64],
+    "receiver_enable_commands": ["AT+BRIDGE=ON"],
+    "receive": {"inter_frame_gap_ms": 0, "post_receive_s": 1.5},
+    "payload_sizes": [8, 32, 60],
     "repetitions": 5,
-    "cooldown_s": 1.0,
+    "cooldown_s": 2.5,
     "axes": [
-      {"name": "tx_power_level", "label": "HC-12 power level", "command": "AT+POWER={value}", "values": [1, 4, 8]},
-      {"name": "fu_mode", "label": "HC-12 FU mode", "command": "AT+FU={value}", "values": [1, 3, 4]}
+      {"name": "tx_power_dbm", "label": "TX power (dBm)", "commands": {"-1": ["AT+POWER=1"], "8": ["AT+POWER=4"], "20": ["AT+POWER=8"]}, "values": [-1, 8, 20]},
+      {"name": "bit_rate_kbps", "label": "HC-12 air rate (kbps)", "commands": {"0.5": ["AT+BAUD=1200", "AT+FU=4"], "15": ["AT+FU=3", "AT+BAUD=9600"], "250": ["AT+FU=1", "AT+BAUD=9600"]}, "values": [0.5, 15, 250]}
     ],
-    "transmit": {"mode": "text_line", "line_overhead_bytes": 2, "max_payload_bytes": 128},
-    "capture": {"minimum_after_trigger_s": 1.5, "max_after_trigger_s": 4.0, "threshold_margin_uA": 1000},
-    "airtime": {"kind": "fixed", "seconds": 0.8},
-    "notes": ["FU mode changes latency, sensitivity and over-air behavior; it is more meaningful here than UART baud alone."]
+    "transmit": {"mode": "text_line", "line_overhead_bytes": 2, "max_payload_bytes": 60},
+    "capture": {"minimum_after_trigger_s": 0.75, "max_after_trigger_s": 4.0, "threshold_margin_uA": 1000},
+    "airtime": {"kind": "fsk", "rate_axis": "bit_rate_kbps", "rate_multiplier": 1000, "overhead_bytes": 0, "ramp_s": 0.02, "continuous_gap_ms_by_value": {"0.5": 2100, "15": 100, "250": 100}},
+    "notes": ["FU4 uses 1200-baud UART and 500-bps air rate; FU3 uses 9600-baud UART and 15-kbps air rate; FU1 uses 9600-baud UART and 250-kbps air rate. FU4 uses the HC-12 V2.6 recommended gap; FU1/FU3 use 100 ms so a 60-byte line clears the 9600-baud module UART before the next host frame. RX collection allows 1.5 s after the modeled airtime because this pair showed a repeatable 1.66 s end-to-end FU4 delay for a 30-byte line."]
   },
   "RADIO_NRF24L01": {
     "display_name": "nRF24L01 / nRF24L01+PA+LNA",

@@ -325,7 +325,11 @@ def run_profile(
                 trigger=trigger,
             )
             measured_lines = radio.drain(wait_s=0.08)
-            peer_lines = peer.drain(wait_s=0.15) if peer is not None else ()
+            peer_lines = (
+                peer.drain(wait_s=profile.receive.post_receive_s)
+                if peer is not None
+                else ()
+            )
             if measurement_direction == "rx" and profile.restore_after_receive:
                 radio.configure(profile.post_config_commands)
             if measurement_direction == "tx":

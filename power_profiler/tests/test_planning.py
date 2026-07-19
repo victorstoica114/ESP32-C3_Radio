@@ -251,9 +251,51 @@ class PlanningTests(unittest.TestCase):
             ["AT+POWER1", "AT+AIR4"],
         )
 
+    def test_hc12_profile_maps_real_power_air_rates_and_fu4_uart(self):
+        profile = load_profile("RADIO_HC12")
+        self.assertEqual(profile.payload_sizes, (8, 32, 60))
+        self.assertEqual(profile.receiver_enable_commands, ("AT+BRIDGE=ON",))
+        self.assertEqual(profile.receive.post_receive_s, 1.5)
+        self.assertLess(profile.setup_commands.index("AT+FU=3"), profile.setup_commands.index("AT+BAUD=9600"))
+        self.assertEqual(len(build_cases(profile, "tx")), 135)
+        self.assertEqual(len(build_cases(profile, "rx")), 135)
+        self.assertEqual(
+            parameter_commands(
+                profile,
+                {"tx_power_dbm": -1, "bit_rate_kbps": 0.5},
+            ),
+            ["AT+POWER=1", "AT+BAUD=1200", "AT+FU=4"],
+        )
+        self.assertEqual(
+            parameter_commands(
+                profile,
+                {"tx_power_dbm": 8, "bit_rate_kbps": 15},
+            ),
+            ["AT+POWER=4", "AT+FU=3", "AT+BAUD=9600"],
+        )
+        self.assertEqual(
+            parameter_commands(
+                profile,
+                {"tx_power_dbm": 8, "bit_rate_kbps": 0.5},
+                previous_parameters={
+                    "tx_power_dbm": -1,
+                    "bit_rate_kbps": 0.5,
+                },
+            ),
+            ["AT+POWER=4"],
+        )
+        self.assertAlmostEqual(
+            estimate_airtime_s(
+                profile,
+                60,
+                {"tx_power_dbm": 20, "bit_rate_kbps": 0.5},
+            ),
+            0.98,
+        )
+
     def test_rx_plan_rejects_profile_without_controlled_receiver(self):
         with self.assertRaisesRegex(ValueError, "does not support controlled RX"):
-            build_cases(load_profile("RADIO_HC12"), "rx")
+            build_cases(load_profile("RA08_ASR6601"), "rx")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,3100 @@
+{
+  "state": "stopped",
+  "kind": "campaign",
+  "message": "Test stopped; completed results were preserved",
+  "started_utc": "2026-07-19T20:33:46+00:00",
+  "finished_utc": "2026-07-19T21:07:39+00:00",
+  "session_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12",
+  "current_step": 38,
+  "total_steps": 40,
+  "current_label": "",
+  "completed_steps": 37,
+  "failed_steps": 0,
+  "quick_verdict": null,
+  "config": {
+    "profile_id": "RADIO_HC12",
+    "measured_port": "COM39",
+    "peer_port": "COM40",
+    "ppk_port": "COM11",
+    "voltage_mv": 3300,
+    "repetitions": 5,
+    "cooldown_s": 2.5,
+    "continuous_duration_s": 60.0,
+    "max_retries": 2,
+    "retry_cooling_s": 10.0,
+    "save_raw_campaign": true,
+    "notify_codex": true
+  },
+  "steps": [
+    {
+      "step_id": "tx_p-1_bit_rate_kbps-0.5_s8",
+      "label": "TX 8 B - -1 dBm - 0.5 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-1",
+        "--axis",
+        "bit_rate_kbps=0.5",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233346_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233346_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p-1_bit_rate_kbps-0.5_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T20:34:27+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "rx_missing",
+              "rx_missing",
+              "rx_missing",
+              "rx_missing",
+              "rx_missing"
+            ],
+            "errors": [],
+            "warnings": [
+              "5 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233346_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "rx_missing",
+          "rx_missing",
+          "rx_missing",
+          "rx_missing",
+          "rx_missing"
+        ],
+        "errors": [],
+        "warnings": [
+          "5 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "tx_p-1_bit_rate_kbps-0.5_s32",
+      "label": "TX 32 B - -1 dBm - 0.5 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-1",
+        "--axis",
+        "bit_rate_kbps=0.5",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233427_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233427_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p-1_bit_rate_kbps-0.5_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T20:35:12+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233427_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-1_bit_rate_kbps-0.5_s60",
+      "label": "TX 60 B - -1 dBm - 0.5 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "60",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-1",
+        "--axis",
+        "bit_rate_kbps=0.5",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233513_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233513_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p-1_bit_rate_kbps-0.5_s60_attempt_01.log",
+          "finished_utc": "2026-07-19T20:36:02+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233513_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-1_bit_rate_kbps-15_s8",
+      "label": "TX 8 B - -1 dBm - 15 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-1",
+        "--axis",
+        "bit_rate_kbps=15",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233603_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233603_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p-1_bit_rate_kbps-15_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T20:36:42+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233603_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-1_bit_rate_kbps-15_s32",
+      "label": "TX 32 B - -1 dBm - 15 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-1",
+        "--axis",
+        "bit_rate_kbps=15",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233642_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233642_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p-1_bit_rate_kbps-15_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T20:37:21+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233642_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-1_bit_rate_kbps-15_s60",
+      "label": "TX 60 B - -1 dBm - 15 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "60",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-1",
+        "--axis",
+        "bit_rate_kbps=15",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233721_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233721_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p-1_bit_rate_kbps-15_s60_attempt_01.log",
+          "finished_utc": "2026-07-19T20:38:00+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233721_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-1_bit_rate_kbps-250_s8",
+      "label": "TX 8 B - -1 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-1",
+        "--axis",
+        "bit_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233800_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233800_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p-1_bit_rate_kbps-250_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T20:38:38+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233800_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-1_bit_rate_kbps-250_s32",
+      "label": "TX 32 B - -1 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-1",
+        "--axis",
+        "bit_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233838_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233838_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p-1_bit_rate_kbps-250_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T20:39:17+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233838_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-1_bit_rate_kbps-250_s60",
+      "label": "TX 60 B - -1 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "60",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-1",
+        "--axis",
+        "bit_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233917_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233917_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p-1_bit_rate_kbps-250_s60_attempt_01.log",
+          "finished_utc": "2026-07-19T20:39:56+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233917_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p8_bit_rate_kbps-0.5_s8",
+      "label": "TX 8 B - 8 dBm - 0.5 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=8",
+        "--axis",
+        "bit_rate_kbps=0.5",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233956_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233956_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p8_bit_rate_kbps-0.5_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T20:40:35+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "rx_missing",
+              "rx_missing",
+              "rx_missing",
+              "rx_missing",
+              "rx_missing"
+            ],
+            "errors": [],
+            "warnings": [
+              "5 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_233956_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "rx_missing",
+          "rx_missing",
+          "rx_missing",
+          "rx_missing",
+          "rx_missing"
+        ],
+        "errors": [],
+        "warnings": [
+          "5 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "tx_p8_bit_rate_kbps-0.5_s32",
+      "label": "TX 32 B - 8 dBm - 0.5 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=8",
+        "--axis",
+        "bit_rate_kbps=0.5",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234035_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234035_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p8_bit_rate_kbps-0.5_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T20:41:21+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234035_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p8_bit_rate_kbps-0.5_s60",
+      "label": "TX 60 B - 8 dBm - 0.5 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "60",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=8",
+        "--axis",
+        "bit_rate_kbps=0.5",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234121_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234121_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p8_bit_rate_kbps-0.5_s60_attempt_01.log",
+          "finished_utc": "2026-07-19T20:42:11+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234121_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p8_bit_rate_kbps-15_s8",
+      "label": "TX 8 B - 8 dBm - 15 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=8",
+        "--axis",
+        "bit_rate_kbps=15",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234211_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234211_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p8_bit_rate_kbps-15_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T20:42:50+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234211_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p8_bit_rate_kbps-15_s32",
+      "label": "TX 32 B - 8 dBm - 15 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=8",
+        "--axis",
+        "bit_rate_kbps=15",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234251_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234251_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p8_bit_rate_kbps-15_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T20:43:29+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234251_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p8_bit_rate_kbps-15_s60",
+      "label": "TX 60 B - 8 dBm - 15 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "60",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=8",
+        "--axis",
+        "bit_rate_kbps=15",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234329_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234329_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p8_bit_rate_kbps-15_s60_attempt_01.log",
+          "finished_utc": "2026-07-19T20:44:08+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234329_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p8_bit_rate_kbps-250_s8",
+      "label": "TX 8 B - 8 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=8",
+        "--axis",
+        "bit_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234408_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234408_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p8_bit_rate_kbps-250_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T20:44:46+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234408_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p8_bit_rate_kbps-250_s32",
+      "label": "TX 32 B - 8 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=8",
+        "--axis",
+        "bit_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234446_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234446_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p8_bit_rate_kbps-250_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T20:45:25+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234446_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p8_bit_rate_kbps-250_s60",
+      "label": "TX 60 B - 8 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "60",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=8",
+        "--axis",
+        "bit_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234525_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234525_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p8_bit_rate_kbps-250_s60_attempt_01.log",
+          "finished_utc": "2026-07-19T20:46:03+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234525_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p20_bit_rate_kbps-0.5_s8",
+      "label": "TX 8 B - 20 dBm - 0.5 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "bit_rate_kbps=0.5",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234604_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234604_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p20_bit_rate_kbps-0.5_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T20:46:43+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "rx_missing",
+              "rx_missing",
+              "rx_missing",
+              "rx_missing",
+              "rx_missing"
+            ],
+            "errors": [],
+            "warnings": [
+              "5 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234604_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "rx_missing",
+          "rx_missing",
+          "rx_missing",
+          "rx_missing",
+          "rx_missing"
+        ],
+        "errors": [],
+        "warnings": [
+          "5 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "tx_p20_bit_rate_kbps-0.5_s32",
+      "label": "TX 32 B - 20 dBm - 0.5 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "bit_rate_kbps=0.5",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234643_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234643_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p20_bit_rate_kbps-0.5_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T20:47:29+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234643_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p20_bit_rate_kbps-0.5_s60",
+      "label": "TX 60 B - 20 dBm - 0.5 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "60",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "bit_rate_kbps=0.5",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234729_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234729_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p20_bit_rate_kbps-0.5_s60_attempt_01.log",
+          "finished_utc": "2026-07-19T20:48:19+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234729_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p20_bit_rate_kbps-15_s8",
+      "label": "TX 8 B - 20 dBm - 15 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "bit_rate_kbps=15",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234819_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234819_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p20_bit_rate_kbps-15_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T20:48:59+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234819_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p20_bit_rate_kbps-15_s32",
+      "label": "TX 32 B - 20 dBm - 15 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "bit_rate_kbps=15",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234859_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234859_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p20_bit_rate_kbps-15_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T20:49:37+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234859_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p20_bit_rate_kbps-15_s60",
+      "label": "TX 60 B - 20 dBm - 15 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "60",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "bit_rate_kbps=15",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234937_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234937_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p20_bit_rate_kbps-15_s60_attempt_01.log",
+          "finished_utc": "2026-07-19T20:50:16+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_234937_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p20_bit_rate_kbps-250_s8",
+      "label": "TX 8 B - 20 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "bit_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_235016_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_235016_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p20_bit_rate_kbps-250_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T20:50:55+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_235016_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p20_bit_rate_kbps-250_s32",
+      "label": "TX 32 B - 20 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "bit_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_235055_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_235055_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p20_bit_rate_kbps-250_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T20:51:33+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_235055_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p20_bit_rate_kbps-250_s60",
+      "label": "TX 60 B - 20 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "60",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "bit_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx",
+        "--receiver-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_235133_radio_hc12",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_235133_radio_hc12"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\tx_p20_bit_rate_kbps-250_s60_attempt_01.log",
+          "finished_utc": "2026-07-19T20:52:12+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_tx\\20260719_235133_radio_hc12",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p20_bit_rate_kbps-0.5_s8",
+      "label": "RX 8 B - TX 20 dBm - 0.5 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "bit_rate_kbps=0.5",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx",
+        "--transmitter-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235212_radio_hc12_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235212_radio_hc12_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\rx_p20_bit_rate_kbps-0.5_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T20:53:10+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235212_radio_hc12_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p20_bit_rate_kbps-0.5_s32",
+      "label": "RX 32 B - TX 20 dBm - 0.5 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "bit_rate_kbps=0.5",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx",
+        "--transmitter-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235311_radio_hc12_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235311_radio_hc12_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\rx_p20_bit_rate_kbps-0.5_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T20:54:14+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235311_radio_hc12_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p20_bit_rate_kbps-0.5_s60",
+      "label": "RX 60 B - TX 20 dBm - 0.5 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "60",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "bit_rate_kbps=0.5",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx",
+        "--transmitter-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235414_radio_hc12_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235414_radio_hc12_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\rx_p20_bit_rate_kbps-0.5_s60_attempt_01.log",
+          "finished_utc": "2026-07-19T20:55:22+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235414_radio_hc12_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p20_bit_rate_kbps-15_s8",
+      "label": "RX 8 B - TX 20 dBm - 15 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "bit_rate_kbps=15",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx",
+        "--transmitter-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235522_radio_hc12_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235522_radio_hc12_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\rx_p20_bit_rate_kbps-15_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T20:56:17+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235522_radio_hc12_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p20_bit_rate_kbps-15_s32",
+      "label": "RX 32 B - TX 20 dBm - 15 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "bit_rate_kbps=15",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx",
+        "--transmitter-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235617_radio_hc12_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235617_radio_hc12_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\rx_p20_bit_rate_kbps-15_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T20:57:11+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235617_radio_hc12_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p20_bit_rate_kbps-15_s60",
+      "label": "RX 60 B - TX 20 dBm - 15 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "60",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "bit_rate_kbps=15",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx",
+        "--transmitter-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235711_radio_hc12_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235711_radio_hc12_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\rx_p20_bit_rate_kbps-15_s60_attempt_01.log",
+          "finished_utc": "2026-07-19T20:58:06+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235711_radio_hc12_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p20_bit_rate_kbps-250_s8",
+      "label": "RX 8 B - TX 20 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "bit_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx",
+        "--transmitter-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235806_radio_hc12_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235806_radio_hc12_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\rx_p20_bit_rate_kbps-250_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T20:59:00+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235806_radio_hc12_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p20_bit_rate_kbps-250_s32",
+      "label": "RX 32 B - TX 20 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "bit_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx",
+        "--transmitter-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235900_radio_hc12_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235900_radio_hc12_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\rx_p20_bit_rate_kbps-250_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T20:59:53+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235900_radio_hc12_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p20_bit_rate_kbps-250_s60",
+      "label": "RX 60 B - TX 20 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "60",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2.5",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "bit_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx",
+        "--transmitter-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235954_radio_hc12_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235954_radio_hc12_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\rx_p20_bit_rate_kbps-250_s60_attempt_01.log",
+          "finished_utc": "2026-07-19T21:00:47+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\packet_rx\\20260719_235954_radio_hc12_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "continuous_tx_average",
+      "label": "Average TX power - 15 kbps - 60 s/power level",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "continuous",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "tx",
+        "--powers=-1,8,20",
+        "--frame-bytes",
+        "60",
+        "--gap-ms",
+        "15",
+        "--duration-s",
+        "60",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\continuous",
+        "--keep-power-on",
+        "--axis",
+        "bit_rate_kbps=15",
+        "--save-raw"
+      ],
+      "result_kind": "continuous",
+      "expected_rows": 3,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\continuous\\20260720_000048_radio_hc12_continuous_tx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\continuous\\20260720_000048_radio_hc12_continuous_tx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\continuous_tx_average_attempt_01.log",
+          "finished_utc": "2026-07-19T21:06:45+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 3,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\continuous\\20260720_000048_radio_hc12_continuous_tx",
+      "validation": {
+        "valid": true,
+        "rows": 3,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "continuous_rx_bit_rate_kbps-0.5",
+      "label": "Average RX power and loss - 0.5 kbps - 60 s/power level",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "continuous",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "rx",
+        "--powers=-1,8,20",
+        "--frame-bytes",
+        "60",
+        "--gap-ms",
+        "15",
+        "--duration-s",
+        "60",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\continuous",
+        "--keep-power-on",
+        "--axis",
+        "bit_rate_kbps=0.5",
+        "--transmitter-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "continuous",
+      "expected_rows": 3,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 1,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\continuous\\20260720_000646_radio_hc12_continuous_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\continuous\\20260720_000646_radio_hc12_continuous_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\logs\\continuous_rx_bit_rate_kbps-0.5_attempt_01.log",
+          "finished_utc": "2026-07-19T21:07:39+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "stopped",
+      "accepted_result": "",
+      "validation": {}
+    },
+    {
+      "step_id": "continuous_rx_bit_rate_kbps-15",
+      "label": "Average RX power and loss - 15 kbps - 60 s/power level",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "continuous",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "rx",
+        "--powers=-1,8,20",
+        "--frame-bytes",
+        "60",
+        "--gap-ms",
+        "15",
+        "--duration-s",
+        "60",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\continuous",
+        "--keep-power-on",
+        "--axis",
+        "bit_rate_kbps=15",
+        "--transmitter-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "continuous",
+      "expected_rows": 3,
+      "attempts": [],
+      "status": "pending",
+      "accepted_result": "",
+      "validation": {}
+    },
+    {
+      "step_id": "continuous_rx_bit_rate_kbps-250",
+      "label": "Average RX power and loss - 250 kbps - 60 s/power level",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "continuous",
+        "--module",
+        "RADIO_HC12",
+        "--direction",
+        "rx",
+        "--powers=-1,8,20",
+        "--frame-bytes",
+        "60",
+        "--gap-ms",
+        "15",
+        "--duration-s",
+        "60",
+        "--radio-port",
+        "COM39",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\continuous",
+        "--keep-power-on",
+        "--axis",
+        "bit_rate_kbps=250",
+        "--transmitter-port",
+        "COM40",
+        "--save-raw"
+      ],
+      "result_kind": "continuous",
+      "expected_rows": 3,
+      "attempts": [],
+      "status": "pending",
+      "accepted_result": "",
+      "validation": {}
+    }
+  ]
+}

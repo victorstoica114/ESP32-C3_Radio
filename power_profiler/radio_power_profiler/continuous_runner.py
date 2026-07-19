@@ -257,8 +257,8 @@ def run_continuous_profile(
             f"Continuous frames for {profile.profile_id} must be between "
             f"3 and {frame_limit} bytes"
         )
-    if not 0 <= inter_frame_gap_ms <= 1000:
-        raise ValueError("Continuous inter-frame gap must be between 0 and 1000 ms")
+    if not 0 <= inter_frame_gap_ms <= 10000:
+        raise ValueError("Continuous inter-frame gap must be between 0 and 10000 ms")
     if not powers_dbm:
         raise ValueError("At least one TX power is required")
 
@@ -352,6 +352,7 @@ def run_continuous_profile(
             peer.configure(profile.setup_commands)
             peer.configure(profile.post_config_commands)
 
+        previous_parameters: dict[str, Any] | None = None
         for index, power_dbm in enumerate(powers_dbm, start=1):
             if index > 1 and profile.reopen_continuous_between_powers:
                 radio, peer = _reopen_continuous_radios(
@@ -363,12 +364,17 @@ def run_continuous_profile(
                         transmitter_port if measurement_direction == "rx" else None
                     ),
                 )
+                previous_parameters = None
             power_value: float | int = (
                 int(power_dbm) if float(power_dbm).is_integer() else power_dbm
             )
             parameters = dict(base_parameters)
             parameters["tx_power_dbm"] = power_value
-            commands = parameter_commands(profile, parameters)
+            commands = parameter_commands(
+                profile,
+                parameters,
+                previous_parameters=previous_parameters,
+            )
             frame_airtime_s = estimate_airtime_s(
                 profile,
                 frame_bytes,
@@ -379,6 +385,7 @@ def run_continuous_profile(
             if peer is not None:
                 peer.configure(commands)
                 peer.configure(profile.post_config_commands)
+            previous_parameters = dict(parameters)
             time.sleep(max(0.10, profile.cooldown_s))
             radio.drain(wait_s=0.05)
             if peer is not None:
@@ -447,7 +454,7 @@ def run_continuous_profile(
             status = "ok"
             if measurement_direction == "rx":
                 frames_received = sum(
-                    SerialRadio.line_contains_payload(line, expected_payload)
+                    SerialRadio.count_payload_occurrences(line, expected_payload)
                     for line in receiver_lines
                 )
                 frame_loss_percent = (

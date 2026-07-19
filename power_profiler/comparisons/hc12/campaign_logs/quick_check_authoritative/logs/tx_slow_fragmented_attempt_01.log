@@ -1,0 +1,9 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 2 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=-1 --axis bit_rate_kbps=0.5 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233116_quick_radio_hc12\packet_results" --receiver-port COM40 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Measured transmitter: COM39, 115200 baud
+Peer receiver: COM40, 115200 baud
+Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+Configuring peer receiver on COM40 ...
+[   1/2] TX   32 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 0.5}, rep 1: ok, peak=28133.0 uA, energy=67067.246 uJ
+[   2/2] TX   32 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 0.5}, rep 2: ok, peak=27786.1 uA, energy=54528.693 uJ
+Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233116_quick_radio_hc12\packet_results\20260719_233214_radio_hc12

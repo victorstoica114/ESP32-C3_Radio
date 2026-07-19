@@ -164,8 +164,8 @@ class SerialRadio:
             raise ValueError("Continuous duration must be between 1000 and 600000 ms")
         if not 3 <= frame_bytes <= 64:
             raise ValueError("Continuous frame size must be between 3 and 64 bytes")
-        if not 0 <= inter_frame_gap_ms <= 1000:
-            raise ValueError("Continuous inter-frame gap must be between 0 and 1000 ms")
+        if not 0 <= inter_frame_gap_ms <= 10000:
+            raise ValueError("Continuous inter-frame gap must be between 0 and 10000 ms")
         if frame_airtime_s < 0:
             raise ValueError("Continuous frame airtime cannot be negative")
 
@@ -296,6 +296,15 @@ class SerialRadio:
         text = payload.decode("ascii", errors="ignore")
         upper = line.upper()
         return (bool(text) and text in line) or payload.hex().upper() in upper
+
+    @staticmethod
+    def count_payload_occurrences(line: str, payload: bytes) -> int:
+        """Count frames even when a transparent UART merges their delimiters."""
+        text = payload.decode("ascii", errors="ignore")
+        plain_count = line.count(text) if text else 0
+        hex_text = payload.hex().upper()
+        hex_count = line.upper().count(hex_text) if hex_text else 0
+        return max(plain_count, hex_count)
 
     def send_packet(
         self,

@@ -1,6 +1,6 @@
 # COM Port Map
 
-Last updated: 2026-07-02.
+Last updated: 2026-07-20.
 
 Stable COM-port assignments used for local radio pair tests.
 
@@ -19,7 +19,7 @@ Stable COM-port assignments used for local radio pair tests.
 | RA-01H (SX1276) / `RADIO_RA01H_SX1276` | COM29, COM30 | Tested: frequency isolation passed; OLED observed working; one I2C boot warning remains in serial log. |
 | SX1278, assumed RA-01 / `RADIO_RA01_SX1278` | COM31, COM32 | Tested: frequency isolation passed; OLED boot log clean after init fix. |
 | RA-02 (SX1278) / `RADIO_RA02_SX1278` | COM33, COM34 | Tested: frequency isolation passed. |
-| HC-12 / `RADIO_HC12` | COM35, COM36 | Tested: channel isolation and bidirectional exchange passed. |
+| HC-12 / `RADIO_HC12` | COM39, COM40 | Latest power campaign: COM39 measured through PPK2, COM40 peer; FU1/FU3/FU4 channel isolation and bidirectional exchange passed. |
 | E28 (SX1280) / `RADIO_E28_SX1280` | COM37, COM38 | Tested: frequency isolation and bidirectional exchange passed; OLED hardware-I2C recovery applied and boot log is clean. |
 | CC1101 V2 868 MHz / `RADIO_CC1101_V2_868` | COM39, COM40 | Confirmed as 868 MHz hardware in this local set: 868/869 MHz isolation passed 18/0 with the original antennas; 433.920 MHz remains unreliable, matching a wrong-band/front-end mismatch rather than a firmware fault. |
 | RA-01SH (SX1262) / `RADIO_RA01SH_SX1262` | COM41, COM42 | Tested after RADIO/SX1262 OLED splash update: frequency isolation and bidirectional exchange passed; boot log clean. |

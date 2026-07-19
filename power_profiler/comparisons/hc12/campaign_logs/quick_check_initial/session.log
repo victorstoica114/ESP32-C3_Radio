@@ -1,0 +1,68 @@
+[23:24:03] START   Quick session: 4 steps - RADIO_HC12
+[23:24:03] STEP    Fast TX, physical frame - attempt 1
+[23:24:03] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 2 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=20 --axis bit_rate_kbps=250 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_232403_quick_radio_hc12\packet_results" --receiver-port COM40 --save-raw
+[23:24:03] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:24:03] INFO    Measured transmitter: COM39, 115200 baud
+[23:24:03] INFO    Peer receiver: COM40, 115200 baud
+[23:24:06] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:24:11] INFO    Configuring peer receiver on COM40 ...
+[23:24:21] INFO    [   1/2] TX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 1: ok, peak=62915.3 uA, energy=3532.265 uJ
+[23:24:25] INFO    [   2/2] TX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 2: ok, peak=62915.3 uA, energy=3628.550 uJ
+[23:24:25] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_232403_quick_radio_hc12\packet_results\20260719_232403_radio_hc12
+[23:24:26] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:24:26] STEP    Fast RX, physical frame - attempt 1
+[23:24:26] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction rx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 2 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=20 --axis bit_rate_kbps=250 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_232403_quick_radio_hc12\packet_results" --transmitter-port COM40 --save-raw
+[23:24:26] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:24:26] INFO    Measured receiver: COM39, 115200 baud
+[23:24:26] INFO    Peer transmitter: COM40, 115200 baud
+[23:24:30] INFO    Configuring measured receiver (HC-12 UART radio) on COM39 ...
+[23:24:34] INFO    Configuring peer transmitter on COM40 ...
+[23:24:44] INFO    [   1/2] RX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 1: ok, peak=21482.8 uA, energy=348.209 uJ
+[23:24:49] INFO    [   2/2] RX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 2: ok, peak=24295.6 uA, energy=337.372 uJ
+[23:24:49] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_232403_quick_radio_hc12\packet_results\20260719_232426_radio_hc12_rx
+[23:24:49] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:24:50] STEP    Slow TX, fragmented transfer - attempt 1
+[23:24:50] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 2 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=-1 --axis bit_rate_kbps=0.5 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_232403_quick_radio_hc12\packet_results" --receiver-port COM40 --save-raw
+[23:24:50] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:24:50] INFO    Measured transmitter: COM39, 115200 baud
+[23:24:50] INFO    Peer receiver: COM40, 115200 baud
+[23:24:53] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:24:58] INFO    Configuring peer receiver on COM40 ...
+[23:25:10] INFO    [   1/2] TX   32 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 0.5}, rep 1: ok, peak=27885.1 uA, energy=66950.141 uJ
+[23:25:15] INFO    [   2/2] TX   32 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 0.5}, rep 2: ok, peak=28232.2 uA, energy=66964.594 uJ
+[23:25:15] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_232403_quick_radio_hc12\packet_results\20260719_232450_radio_hc12
+[23:25:16] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:25:16] STEP    Slow RX, fragmented transfer - attempt 1
+[23:25:16] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction rx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 2 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=-1 --axis bit_rate_kbps=0.5 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_232403_quick_radio_hc12\packet_results" --transmitter-port COM40 --save-raw
+[23:25:16] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:25:16] INFO    Measured receiver: COM39, 115200 baud
+[23:25:16] INFO    Peer transmitter: COM40, 115200 baud
+[23:25:20] INFO    Configuring measured receiver (HC-12 UART radio) on COM39 ...
+[23:25:23] INFO    ERROR: AT+BAUD=9600: #ERROR
+[23:25:24] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:25:24] ERROR   Slow RX, fragmented transfer: Process exited with code 2
+[23:25:24] WARNING Cooling before retry: 10 s
+[23:25:34] STEP    Slow RX, fragmented transfer - attempt 2
+[23:25:34] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction rx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 2 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=-1 --axis bit_rate_kbps=0.5 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_232403_quick_radio_hc12\packet_results" --transmitter-port COM40 --save-raw
+[23:25:34] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:25:34] INFO    Measured receiver: COM39, 115200 baud
+[23:25:34] INFO    Peer transmitter: COM40, 115200 baud
+[23:25:37] INFO    Configuring measured receiver (HC-12 UART radio) on COM39 ...
+[23:25:43] INFO    Configuring peer transmitter on COM40 ...
+[23:25:46] INFO    ERROR: AT+BAUD=9600: #ERROR
+[23:25:47] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:25:47] ERROR   Slow RX, fragmented transfer: Process exited with code 2
+[23:25:47] WARNING Cooling before retry: 10 s
+[23:25:57] STEP    Slow RX, fragmented transfer - attempt 3
+[23:25:57] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction rx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 2 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=-1 --axis bit_rate_kbps=0.5 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_232403_quick_radio_hc12\packet_results" --transmitter-port COM40 --save-raw
+[23:25:57] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:25:57] INFO    Measured receiver: COM39, 115200 baud
+[23:25:57] INFO    Peer transmitter: COM40, 115200 baud
+[23:26:01] INFO    Configuring measured receiver (HC-12 UART radio) on COM39 ...
+[23:26:05] INFO    Configuring peer transmitter on COM40 ...
+[23:26:18] INFO    [   1/2] RX   32 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 0.5}, rep 1: rx_missing, peak=23516.2 uA, energy=27294.897 uJ
+[23:26:23] INFO    [   2/2] RX   32 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 0.5}, rep 2: rx_missing, peak=23759.5 uA, energy=27233.538 uJ
+[23:26:23] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_232403_quick_radio_hc12\packet_results\20260719_232557_radio_hc12_rx
+[23:26:24] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:26:24] WARNING Slow RX, fragmented transfer: 2 transfers have missing packets or fragments
+[23:26:24] FINISH  Test completed successfully

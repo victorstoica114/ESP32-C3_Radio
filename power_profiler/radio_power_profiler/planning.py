@@ -132,9 +132,16 @@ def build_cases(profile: Profile, measurement_direction: str = "tx") -> list[Tes
     return cases
 
 
-def parameter_commands(profile: Profile, parameters: dict[str, Any]) -> list[str]:
+def parameter_commands(
+    profile: Profile,
+    parameters: dict[str, Any],
+    *,
+    previous_parameters: dict[str, Any] | None = None,
+) -> list[str]:
     return [
         command
         for axis in profile.axes
+        if previous_parameters is None
+        or previous_parameters.get(axis.name) != parameters[axis.name]
         for command in axis.commands_for(parameters[axis.name])
     ]

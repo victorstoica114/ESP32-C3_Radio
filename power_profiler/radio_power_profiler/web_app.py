@@ -232,6 +232,13 @@ def _continuous_command(
     frame_limit = profile.transmit.frame_payload_bytes or min(
         64, profile.transmit.max_payload_bytes
     )
+    gap_ms = 15
+    rate_axis = profile.airtime.get("rate_axis")
+    gap_by_value = profile.airtime.get("continuous_gap_ms_by_value", {})
+    if rate_axis in parameters and gap_by_value:
+        rate_value = parameters[rate_axis]
+        rate_key = _number(rate_value)
+        gap_ms = int(gap_by_value.get(rate_key, gap_ms))
     command = [
         sys.executable,
         "-u",
@@ -246,7 +253,7 @@ def _continuous_command(
         "--frame-bytes",
         str(frame_limit),
         "--gap-ms",
-        "15",
+        str(gap_ms),
         "--duration-s",
         _number(config.continuous_duration_s),
         "--radio-port",

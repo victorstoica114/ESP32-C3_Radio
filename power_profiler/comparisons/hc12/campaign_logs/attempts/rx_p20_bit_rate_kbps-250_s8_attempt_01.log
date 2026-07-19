@@ -1,0 +1,12 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction rx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=20 --axis bit_rate_kbps=250 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_rx" --transmitter-port COM40 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Measured receiver: COM39, 115200 baud
+Peer transmitter: COM40, 115200 baud
+Configuring measured receiver (HC-12 UART radio) on COM39 ...
+Configuring peer transmitter on COM40 ...
+[   1/5] RX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 1: ok, peak=21772.1 uA, energy=347.956 uJ
+[   2/5] RX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 2: ok, peak=21193.7 uA, energy=358.558 uJ
+[   3/5] RX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 3: ok, peak=21097.5 uA, energy=354.025 uJ
+[   4/5] RX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 4: ok, peak=21627.4 uA, energy=323.147 uJ
+[   5/5] RX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 5: ok, peak=21627.4 uA, energy=299.557 uJ
+Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_rx\20260719_235806_radio_hc12_rx

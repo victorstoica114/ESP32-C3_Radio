@@ -1,0 +1,526 @@
+[23:33:46] START   Campaign session: 40 steps - RADIO_HC12
+[23:33:46] STEP    TX 8 B - -1 dBm - 0.5 kbps - attempt 1
+[23:33:46] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=-1 --axis bit_rate_kbps=0.5 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:33:46] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:33:46] INFO    Measured transmitter: COM39, 115200 baud
+[23:33:46] INFO    Peer receiver: COM40, 115200 baud
+[23:33:50] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:33:56] INFO    Configuring peer receiver on COM40 ...
+[23:34:09] INFO    [   1/5] TX    8 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 0.5}, rep 1: rx_missing, peak=28133.0 uA, energy=26182.808 uJ
+[23:34:13] INFO    [   2/5] TX    8 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 0.5}, rep 2: rx_missing, peak=27885.1 uA, energy=26208.627 uJ
+[23:34:17] INFO    [   3/5] TX    8 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 0.5}, rep 3: rx_missing, peak=27934.7 uA, energy=26220.720 uJ
+[23:34:22] INFO    [   4/5] TX    8 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 0.5}, rep 4: rx_missing, peak=28232.2 uA, energy=26223.489 uJ
+[23:34:26] INFO    [   5/5] TX    8 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 0.5}, rep 5: rx_missing, peak=27835.6 uA, energy=26199.036 uJ
+[23:34:26] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_233346_radio_hc12
+[23:34:27] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:34:27] WARNING TX 8 B - -1 dBm - 0.5 kbps: 5 transfers have missing packets or fragments
+[23:34:27] STEP    TX 32 B - -1 dBm - 0.5 kbps - attempt 1
+[23:34:27] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=-1 --axis bit_rate_kbps=0.5 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:34:27] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:34:27] INFO    Measured transmitter: COM39, 115200 baud
+[23:34:27] INFO    Peer receiver: COM40, 115200 baud
+[23:34:31] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:34:36] INFO    Configuring peer receiver on COM40 ...
+[23:34:50] INFO    [   1/5] TX   32 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 0.5}, rep 1: ok, peak=27984.3 uA, energy=66995.379 uJ
+[23:34:56] INFO    [   2/5] TX   32 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 0.5}, rep 2: ok, peak=27885.1 uA, energy=67004.624 uJ
+[23:35:01] INFO    [   3/5] TX   32 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 0.5}, rep 3: ok, peak=27934.7 uA, energy=67026.239 uJ
+[23:35:06] INFO    [   4/5] TX   32 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 0.5}, rep 4: ok, peak=28033.8 uA, energy=63175.957 uJ
+[23:35:12] INFO    [   5/5] TX   32 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 0.5}, rep 5: ok, peak=28083.4 uA, energy=66965.097 uJ
+[23:35:12] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_233427_radio_hc12
+[23:35:12] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:35:12] STEP    TX 60 B - -1 dBm - 0.5 kbps - attempt 1
+[23:35:12] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 60 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=-1 --axis bit_rate_kbps=0.5 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:35:13] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:35:13] INFO    Measured transmitter: COM39, 115200 baud
+[23:35:13] INFO    Peer receiver: COM40, 115200 baud
+[23:35:16] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:35:22] INFO    Configuring peer receiver on COM40 ...
+[23:35:37] INFO    [   1/5] TX   60 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 0.5}, rep 1: ok, peak=28232.2 uA, energy=100902.713 uJ
+[23:35:43] INFO    [   2/5] TX   60 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 0.5}, rep 2: ok, peak=28430.8 uA, energy=115068.805 uJ
+[23:35:49] INFO    [   3/5] TX   60 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 0.5}, rep 3: ok, peak=27984.3 uA, energy=115052.724 uJ
+[23:35:55] INFO    [   4/5] TX   60 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 0.5}, rep 4: ok, peak=27984.3 uA, energy=115116.900 uJ
+[23:36:02] INFO    [   5/5] TX   60 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 0.5}, rep 5: ok, peak=28033.8 uA, energy=115195.371 uJ
+[23:36:02] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_233513_radio_hc12
+[23:36:02] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:36:02] STEP    TX 8 B - -1 dBm - 15 kbps - attempt 1
+[23:36:02] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=-1 --axis bit_rate_kbps=15 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:36:03] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:36:03] INFO    Measured transmitter: COM39, 115200 baud
+[23:36:03] INFO    Peer receiver: COM40, 115200 baud
+[23:36:06] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:36:12] INFO    Configuring peer receiver on COM40 ...
+[23:36:24] INFO    [   1/5] TX    8 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 15.0}, rep 1: ok, peak=27538.6 uA, energy=2292.969 uJ
+[23:36:28] INFO    [   2/5] TX    8 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 15.0}, rep 2: ok, peak=27538.6 uA, energy=2308.179 uJ
+[23:36:33] INFO    [   3/5] TX    8 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 15.0}, rep 3: ok, peak=27489.1 uA, energy=2286.306 uJ
+[23:36:37] INFO    [   4/5] TX    8 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 15.0}, rep 4: ok, peak=27538.6 uA, energy=2284.062 uJ
+[23:36:42] INFO    [   5/5] TX    8 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 15.0}, rep 5: ok, peak=27340.8 uA, energy=2287.019 uJ
+[23:36:42] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_233603_radio_hc12
+[23:36:42] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:36:42] STEP    TX 32 B - -1 dBm - 15 kbps - attempt 1
+[23:36:42] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=-1 --axis bit_rate_kbps=15 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:36:42] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:36:42] INFO    Measured transmitter: COM39, 115200 baud
+[23:36:42] INFO    Peer receiver: COM40, 115200 baud
+[23:36:46] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:36:51] INFO    Configuring peer receiver on COM40 ...
+[23:37:03] INFO    [   1/5] TX   32 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 15.0}, rep 1: ok, peak=27489.1 uA, energy=2306.418 uJ
+[23:37:07] INFO    [   2/5] TX   32 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 15.0}, rep 2: ok, peak=27538.6 uA, energy=2304.045 uJ
+[23:37:11] INFO    [   3/5] TX   32 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 15.0}, rep 3: ok, peak=27637.5 uA, energy=2308.293 uJ
+[23:37:16] INFO    [   4/5] TX   32 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 15.0}, rep 4: ok, peak=27291.3 uA, energy=2298.052 uJ
+[23:37:20] INFO    [   5/5] TX   32 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 15.0}, rep 5: ok, peak=27687.0 uA, energy=2304.153 uJ
+[23:37:20] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_233642_radio_hc12
+[23:37:21] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:37:21] STEP    TX 60 B - -1 dBm - 15 kbps - attempt 1
+[23:37:21] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 60 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=-1 --axis bit_rate_kbps=15 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:37:21] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:37:21] INFO    Measured transmitter: COM39, 115200 baud
+[23:37:21] INFO    Peer receiver: COM40, 115200 baud
+[23:37:25] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:37:30] INFO    Configuring peer receiver on COM40 ...
+[23:37:41] INFO    [   1/5] TX   60 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 15.0}, rep 1: ok, peak=27835.6 uA, energy=2304.149 uJ
+[23:37:46] INFO    [   2/5] TX   60 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 15.0}, rep 2: ok, peak=27736.5 uA, energy=2314.391 uJ
+[23:37:50] INFO    [   3/5] TX   60 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 15.0}, rep 3: ok, peak=27984.3 uA, energy=2301.674 uJ
+[23:37:55] INFO    [   4/5] TX   60 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 15.0}, rep 4: ok, peak=27736.5 uA, energy=2301.608 uJ
+[23:37:59] INFO    [   5/5] TX   60 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 15.0}, rep 5: ok, peak=27786.1 uA, energy=2303.258 uJ
+[23:37:59] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_233721_radio_hc12
+[23:38:00] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:38:00] STEP    TX 8 B - -1 dBm - 250 kbps - attempt 1
+[23:38:00] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=-1 --axis bit_rate_kbps=250 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:38:00] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:38:00] INFO    Measured transmitter: COM39, 115200 baud
+[23:38:00] INFO    Peer receiver: COM40, 115200 baud
+[23:38:03] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:38:08] INFO    Configuring peer receiver on COM40 ...
+[23:38:20] INFO    [   1/5] TX    8 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 250.0}, rep 1: ok, peak=27637.5 uA, energy=2293.337 uJ
+[23:38:24] INFO    [   2/5] TX    8 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 250.0}, rep 2: ok, peak=27390.2 uA, energy=2383.115 uJ
+[23:38:29] INFO    [   3/5] TX    8 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 250.0}, rep 3: ok, peak=27934.7 uA, energy=2294.223 uJ
+[23:38:33] INFO    [   4/5] TX    8 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 250.0}, rep 4: ok, peak=28927.9 uA, energy=2364.580 uJ
+[23:38:38] INFO    [   5/5] TX    8 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 250.0}, rep 5: ok, peak=28381.1 uA, energy=2291.392 uJ
+[23:38:38] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_233800_radio_hc12
+[23:38:38] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:38:38] STEP    TX 32 B - -1 dBm - 250 kbps - attempt 1
+[23:38:38] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=-1 --axis bit_rate_kbps=250 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:38:38] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:38:38] INFO    Measured transmitter: COM39, 115200 baud
+[23:38:38] INFO    Peer receiver: COM40, 115200 baud
+[23:38:42] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:38:47] INFO    Configuring peer receiver on COM40 ...
+[23:38:59] INFO    [   1/5] TX   32 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 250.0}, rep 1: ok, peak=28430.8 uA, energy=3233.527 uJ
+[23:39:03] INFO    [   2/5] TX   32 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 250.0}, rep 2: ok, peak=28133.0 uA, energy=3231.524 uJ
+[23:39:07] INFO    [   3/5] TX   32 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 250.0}, rep 3: ok, peak=28083.4 uA, energy=3229.015 uJ
+[23:39:12] INFO    [   4/5] TX   32 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 250.0}, rep 4: ok, peak=28133.0 uA, energy=3229.829 uJ
+[23:39:16] INFO    [   5/5] TX   32 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 250.0}, rep 5: ok, peak=27736.5 uA, energy=3226.858 uJ
+[23:39:16] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_233838_radio_hc12
+[23:39:17] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:39:17] STEP    TX 60 B - -1 dBm - 250 kbps - attempt 1
+[23:39:17] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 60 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=-1 --axis bit_rate_kbps=250 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:39:17] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:39:17] INFO    Measured transmitter: COM39, 115200 baud
+[23:39:17] INFO    Peer receiver: COM40, 115200 baud
+[23:39:21] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:39:26] INFO    Configuring peer receiver on COM40 ...
+[23:39:37] INFO    [   1/5] TX   60 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 250.0}, rep 1: ok, peak=28728.9 uA, energy=5067.686 uJ
+[23:39:42] INFO    [   2/5] TX   60 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 250.0}, rep 2: ok, peak=28281.8 uA, energy=5070.563 uJ
+[23:39:46] INFO    [   3/5] TX   60 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 250.0}, rep 3: ok, peak=28430.8 uA, energy=5055.661 uJ
+[23:39:50] INFO    [   4/5] TX   60 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 250.0}, rep 4: ok, peak=28430.8 uA, energy=5057.661 uJ
+[23:39:55] INFO    [   5/5] TX   60 B, {'tx_power_dbm': -1, 'bit_rate_kbps': 250.0}, rep 5: ok, peak=28629.5 uA, energy=5056.851 uJ
+[23:39:55] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_233917_radio_hc12
+[23:39:56] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:39:56] STEP    TX 8 B - 8 dBm - 0.5 kbps - attempt 1
+[23:39:56] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=8 --axis bit_rate_kbps=0.5 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:39:56] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:39:56] INFO    Measured transmitter: COM39, 115200 baud
+[23:39:56] INFO    Peer receiver: COM40, 115200 baud
+[23:39:59] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:40:04] INFO    Configuring peer receiver on COM40 ...
+[23:40:17] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 0.5}, rep 1: rx_missing, peak=40228.5 uA, energy=37423.448 uJ
+[23:40:21] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 0.5}, rep 2: rx_missing, peak=40228.5 uA, energy=37566.743 uJ
+[23:40:26] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 0.5}, rep 3: rx_missing, peak=40280.6 uA, energy=37562.602 uJ
+[23:40:30] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 0.5}, rep 4: rx_missing, peak=40488.9 uA, energy=37570.981 uJ
+[23:40:35] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 0.5}, rep 5: rx_missing, peak=40436.8 uA, energy=37613.601 uJ
+[23:40:35] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_233956_radio_hc12
+[23:40:35] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:40:35] WARNING TX 8 B - 8 dBm - 0.5 kbps: 5 transfers have missing packets or fragments
+[23:40:35] STEP    TX 32 B - 8 dBm - 0.5 kbps - attempt 1
+[23:40:35] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=8 --axis bit_rate_kbps=0.5 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:40:35] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:40:35] INFO    Measured transmitter: COM39, 115200 baud
+[23:40:35] INFO    Peer receiver: COM40, 115200 baud
+[23:40:39] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:40:45] INFO    Configuring peer receiver on COM40 ...
+[23:40:59] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 0.5}, rep 1: ok, peak=40645.2 uA, energy=93766.002 uJ
+[23:41:04] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 0.5}, rep 2: ok, peak=40332.6 uA, energy=77324.832 uJ
+[23:41:09] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 0.5}, rep 3: ok, peak=40488.9 uA, energy=83771.259 uJ
+[23:41:15] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 0.5}, rep 4: ok, peak=40541.0 uA, energy=93786.697 uJ
+[23:41:20] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 0.5}, rep 5: ok, peak=40332.6 uA, energy=93680.238 uJ
+[23:41:20] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_234035_radio_hc12
+[23:41:21] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:41:21] STEP    TX 60 B - 8 dBm - 0.5 kbps - attempt 1
+[23:41:21] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 60 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=8 --axis bit_rate_kbps=0.5 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:41:21] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:41:21] INFO    Measured transmitter: COM39, 115200 baud
+[23:41:21] INFO    Peer receiver: COM40, 115200 baud
+[23:41:25] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:41:30] INFO    Configuring peer receiver on COM40 ...
+[23:41:45] INFO    [   1/5] TX   60 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 0.5}, rep 1: ok, peak=40384.7 uA, energy=139430.050 uJ
+[23:41:51] INFO    [   2/5] TX   60 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 0.5}, rep 2: ok, peak=40176.5 uA, energy=136730.800 uJ
+[23:41:57] INFO    [   3/5] TX   60 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 0.5}, rep 3: ok, peak=40280.6 uA, energy=141746.099 uJ
+[23:42:04] INFO    [   4/5] TX   60 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 0.5}, rep 4: ok, peak=40541.0 uA, energy=160576.613 uJ
+[23:42:10] INFO    [   5/5] TX   60 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 0.5}, rep 5: ok, peak=40280.6 uA, energy=150678.714 uJ
+[23:42:10] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_234121_radio_hc12
+[23:42:11] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:42:11] STEP    TX 8 B - 8 dBm - 15 kbps - attempt 1
+[23:42:11] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=8 --axis bit_rate_kbps=15 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:42:11] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:42:11] INFO    Measured transmitter: COM39, 115200 baud
+[23:42:11] INFO    Peer receiver: COM40, 115200 baud
+[23:42:14] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:42:20] INFO    Configuring peer receiver on COM40 ...
+[23:42:32] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 15.0}, rep 1: ok, peak=39916.5 uA, energy=2936.148 uJ
+[23:42:36] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 15.0}, rep 2: ok, peak=40228.5 uA, energy=2930.286 uJ
+[23:42:41] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 15.0}, rep 3: ok, peak=39916.5 uA, energy=2929.704 uJ
+[23:42:45] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 15.0}, rep 4: ok, peak=39500.9 uA, energy=2932.293 uJ
+[23:42:50] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 15.0}, rep 5: ok, peak=40124.5 uA, energy=2941.378 uJ
+[23:42:50] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_234211_radio_hc12
+[23:42:50] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:42:50] STEP    TX 32 B - 8 dBm - 15 kbps - attempt 1
+[23:42:50] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=8 --axis bit_rate_kbps=15 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:42:51] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:42:51] INFO    Measured transmitter: COM39, 115200 baud
+[23:42:51] INFO    Peer receiver: COM40, 115200 baud
+[23:42:54] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:42:59] INFO    Configuring peer receiver on COM40 ...
+[23:43:11] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 15.0}, rep 1: ok, peak=40436.8 uA, energy=2972.219 uJ
+[23:43:15] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 15.0}, rep 2: ok, peak=40072.4 uA, energy=2955.655 uJ
+[23:43:19] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 15.0}, rep 3: ok, peak=40280.6 uA, energy=2951.224 uJ
+[23:43:24] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 15.0}, rep 4: ok, peak=40332.6 uA, energy=2947.523 uJ
+[23:43:28] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 15.0}, rep 5: ok, peak=40436.8 uA, energy=2946.547 uJ
+[23:43:28] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_234251_radio_hc12
+[23:43:29] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:43:29] STEP    TX 60 B - 8 dBm - 15 kbps - attempt 1
+[23:43:29] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 60 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=8 --axis bit_rate_kbps=15 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:43:29] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:43:29] INFO    Measured transmitter: COM39, 115200 baud
+[23:43:29] INFO    Peer receiver: COM40, 115200 baud
+[23:43:33] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:43:38] INFO    Configuring peer receiver on COM40 ...
+[23:43:49] INFO    [   1/5] TX   60 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 15.0}, rep 1: ok, peak=40072.4 uA, energy=2981.189 uJ
+[23:43:54] INFO    [   2/5] TX   60 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 15.0}, rep 2: ok, peak=40332.6 uA, energy=2965.347 uJ
+[23:43:58] INFO    [   3/5] TX   60 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 15.0}, rep 3: ok, peak=39916.5 uA, energy=2949.037 uJ
+[23:44:03] INFO    [   4/5] TX   60 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 15.0}, rep 4: ok, peak=40072.4 uA, energy=2946.907 uJ
+[23:44:07] INFO    [   5/5] TX   60 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 15.0}, rep 5: ok, peak=40332.6 uA, energy=2963.939 uJ
+[23:44:07] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_234329_radio_hc12
+[23:44:08] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:44:08] STEP    TX 8 B - 8 dBm - 250 kbps - attempt 1
+[23:44:08] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=8 --axis bit_rate_kbps=250 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:44:08] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:44:08] INFO    Measured transmitter: COM39, 115200 baud
+[23:44:08] INFO    Peer receiver: COM40, 115200 baud
+[23:44:12] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:44:17] INFO    Configuring peer receiver on COM40 ...
+[23:44:28] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 250.0}, rep 1: ok, peak=40958.2 uA, energy=2802.764 uJ
+[23:44:32] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 250.0}, rep 2: ok, peak=43106.6 uA, energy=2884.370 uJ
+[23:44:37] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 250.0}, rep 3: ok, peak=41742.2 uA, energy=2795.460 uJ
+[23:44:41] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 250.0}, rep 4: ok, peak=41376.0 uA, energy=2798.144 uJ
+[23:44:46] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 250.0}, rep 5: ok, peak=41376.0 uA, energy=2797.544 uJ
+[23:44:46] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_234408_radio_hc12
+[23:44:46] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:44:46] STEP    TX 32 B - 8 dBm - 250 kbps - attempt 1
+[23:44:46] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=8 --axis bit_rate_kbps=250 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:44:46] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:44:46] INFO    Measured transmitter: COM39, 115200 baud
+[23:44:46] INFO    Peer receiver: COM40, 115200 baud
+[23:44:50] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:44:55] INFO    Configuring peer receiver on COM40 ...
+[23:45:07] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 250.0}, rep 1: ok, peak=43317.1 uA, energy=4204.142 uJ
+[23:45:11] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 250.0}, rep 2: ok, peak=41219.3 uA, energy=4112.665 uJ
+[23:45:15] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 250.0}, rep 3: ok, peak=41376.0 uA, energy=4108.449 uJ
+[23:45:20] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 250.0}, rep 4: ok, peak=41532.9 uA, energy=4113.164 uJ
+[23:45:24] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 250.0}, rep 5: ok, peak=41323.8 uA, energy=4111.793 uJ
+[23:45:24] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_234446_radio_hc12
+[23:45:25] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:45:25] STEP    TX 60 B - 8 dBm - 250 kbps - attempt 1
+[23:45:25] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 60 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=8 --axis bit_rate_kbps=250 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:45:25] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:45:25] INFO    Measured transmitter: COM39, 115200 baud
+[23:45:25] INFO    Peer receiver: COM40, 115200 baud
+[23:45:29] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:45:34] INFO    Configuring peer receiver on COM40 ...
+[23:45:45] INFO    [   1/5] TX   60 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 250.0}, rep 1: ok, peak=42266.1 uA, energy=6752.409 uJ
+[23:45:50] INFO    [   2/5] TX   60 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 250.0}, rep 2: ok, peak=42371.0 uA, energy=6738.200 uJ
+[23:45:54] INFO    [   3/5] TX   60 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 250.0}, rep 3: ok, peak=41899.2 uA, energy=6728.790 uJ
+[23:45:58] INFO    [   4/5] TX   60 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 250.0}, rep 4: ok, peak=43844.1 uA, energy=6743.272 uJ
+[23:46:03] INFO    [   5/5] TX   60 B, {'tx_power_dbm': 8, 'bit_rate_kbps': 250.0}, rep 5: ok, peak=41376.0 uA, energy=6764.046 uJ
+[23:46:03] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_234525_radio_hc12
+[23:46:03] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:46:03] STEP    TX 8 B - 20 dBm - 0.5 kbps - attempt 1
+[23:46:03] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=20 --axis bit_rate_kbps=0.5 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:46:04] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:46:04] INFO    Measured transmitter: COM39, 115200 baud
+[23:46:04] INFO    Peer receiver: COM40, 115200 baud
+[23:46:07] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:46:12] INFO    Configuring peer receiver on COM40 ...
+[23:46:25] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 1: rx_missing, peak=61414.8 uA, energy=54550.126 uJ
+[23:46:29] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 2: rx_missing, peak=65917.2 uA, energy=54723.648 uJ
+[23:46:34] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 3: rx_missing, peak=59914.8 uA, energy=54637.650 uJ
+[23:46:38] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 4: rx_missing, peak=59914.8 uA, energy=53533.009 uJ
+[23:46:43] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 5: rx_missing, peak=61414.8 uA, energy=54722.177 uJ
+[23:46:43] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_234604_radio_hc12
+[23:46:43] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:46:43] WARNING TX 8 B - 20 dBm - 0.5 kbps: 5 transfers have missing packets or fragments
+[23:46:43] STEP    TX 32 B - 20 dBm - 0.5 kbps - attempt 1
+[23:46:43] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=20 --axis bit_rate_kbps=0.5 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:46:43] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:46:43] INFO    Measured transmitter: COM39, 115200 baud
+[23:46:43] INFO    Peer receiver: COM40, 115200 baud
+[23:46:47] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:46:53] INFO    Configuring peer receiver on COM40 ...
+[23:47:07] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 1: ok, peak=65917.2 uA, energy=120789.484 uJ
+[23:47:12] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 2: ok, peak=65166.6 uA, energy=134077.803 uJ
+[23:47:17] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 3: ok, peak=61414.8 uA, energy=134033.246 uJ
+[23:47:23] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 4: ok, peak=64416.1 uA, energy=134236.525 uJ
+[23:47:28] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 5: ok, peak=63665.6 uA, energy=134017.221 uJ
+[23:47:28] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_234643_radio_hc12
+[23:47:29] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:47:29] STEP    TX 60 B - 20 dBm - 0.5 kbps - attempt 1
+[23:47:29] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 60 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=20 --axis bit_rate_kbps=0.5 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:47:29] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:47:29] INFO    Measured transmitter: COM39, 115200 baud
+[23:47:29] INFO    Peer receiver: COM40, 115200 baud
+[23:47:33] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:47:38] INFO    Configuring peer receiver on COM40 ...
+[23:47:53] INFO    [   1/5] TX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 1: ok, peak=61414.8 uA, energy=205951.150 uJ
+[23:47:59] INFO    [   2/5] TX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 2: ok, peak=66667.9 uA, energy=229070.736 uJ
+[23:48:06] INFO    [   3/5] TX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 3: ok, peak=59914.8 uA, energy=213893.989 uJ
+[23:48:12] INFO    [   4/5] TX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 4: ok, peak=65917.2 uA, energy=202042.893 uJ
+[23:48:18] INFO    [   5/5] TX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 5: ok, peak=61414.8 uA, energy=200976.079 uJ
+[23:48:18] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_234729_radio_hc12
+[23:48:19] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:48:19] STEP    TX 8 B - 20 dBm - 15 kbps - attempt 1
+[23:48:19] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=20 --axis bit_rate_kbps=15 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:48:19] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:48:19] INFO    Measured transmitter: COM39, 115200 baud
+[23:48:19] INFO    Peer receiver: COM40, 115200 baud
+[23:48:23] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:48:28] INFO    Configuring peer receiver on COM40 ...
+[23:48:40] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 1: ok, peak=62915.3 uA, energy=3926.630 uJ
+[23:48:45] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 2: ok, peak=59914.8 uA, energy=3922.192 uJ
+[23:48:49] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 3: ok, peak=60664.8 uA, energy=3897.801 uJ
+[23:48:54] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 4: ok, peak=59914.8 uA, energy=3920.985 uJ
+[23:48:58] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 5: ok, peak=60664.8 uA, energy=3907.471 uJ
+[23:48:58] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_234819_radio_hc12
+[23:48:59] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:48:59] STEP    TX 32 B - 20 dBm - 15 kbps - attempt 1
+[23:48:59] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=20 --axis bit_rate_kbps=15 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:48:59] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:48:59] INFO    Measured transmitter: COM39, 115200 baud
+[23:48:59] INFO    Peer receiver: COM40, 115200 baud
+[23:49:03] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:49:08] INFO    Configuring peer receiver on COM40 ...
+[23:49:19] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 1: ok, peak=61414.8 uA, energy=3919.346 uJ
+[23:49:23] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 2: ok, peak=59914.8 uA, energy=3924.398 uJ
+[23:49:28] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 3: ok, peak=59914.8 uA, energy=3924.537 uJ
+[23:49:32] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 4: ok, peak=59296.8 uA, energy=3915.890 uJ
+[23:49:37] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 5: ok, peak=59914.8 uA, energy=3922.160 uJ
+[23:49:37] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_234859_radio_hc12
+[23:49:37] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:49:37] STEP    TX 60 B - 20 dBm - 15 kbps - attempt 1
+[23:49:37] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 60 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=20 --axis bit_rate_kbps=15 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:49:37] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:49:37] INFO    Measured transmitter: COM39, 115200 baud
+[23:49:38] INFO    Peer receiver: COM40, 115200 baud
+[23:49:41] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:49:46] INFO    Configuring peer receiver on COM40 ...
+[23:49:58] INFO    [   1/5] TX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 1: ok, peak=61414.8 uA, energy=3933.379 uJ
+[23:50:02] INFO    [   2/5] TX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 2: ok, peak=59914.8 uA, energy=3917.314 uJ
+[23:50:06] INFO    [   3/5] TX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 3: ok, peak=60664.8 uA, energy=3913.322 uJ
+[23:50:11] INFO    [   4/5] TX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 4: ok, peak=62165.0 uA, energy=3944.039 uJ
+[23:50:15] INFO    [   5/5] TX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 5: ok, peak=60664.8 uA, energy=3964.172 uJ
+[23:50:15] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_234937_radio_hc12
+[23:50:16] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:50:16] STEP    TX 8 B - 20 dBm - 250 kbps - attempt 1
+[23:50:16] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=20 --axis bit_rate_kbps=250 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:50:16] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:50:16] INFO    Measured transmitter: COM39, 115200 baud
+[23:50:16] INFO    Peer receiver: COM40, 115200 baud
+[23:50:20] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:50:25] INFO    Configuring peer receiver on COM40 ...
+[23:50:36] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 1: ok, peak=62165.0 uA, energy=3627.184 uJ
+[23:50:41] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 2: ok, peak=62165.0 uA, energy=3522.977 uJ
+[23:50:45] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 3: ok, peak=62915.3 uA, energy=3534.909 uJ
+[23:50:50] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 4: ok, peak=67418.7 uA, energy=3542.822 uJ
+[23:50:54] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 5: ok, peak=62915.3 uA, energy=3582.626 uJ
+[23:50:54] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_235016_radio_hc12
+[23:50:55] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:50:55] STEP    TX 32 B - 20 dBm - 250 kbps - attempt 1
+[23:50:55] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=20 --axis bit_rate_kbps=250 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:50:55] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:50:55] INFO    Measured transmitter: COM39, 115200 baud
+[23:50:55] INFO    Peer receiver: COM40, 115200 baud
+[23:50:59] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:51:04] INFO    Configuring peer receiver on COM40 ...
+[23:51:15] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 1: ok, peak=65166.6 uA, energy=5418.846 uJ
+[23:51:19] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 2: ok, peak=63665.6 uA, energy=5442.129 uJ
+[23:51:24] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 3: ok, peak=62915.3 uA, energy=5399.734 uJ
+[23:51:28] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 4: ok, peak=62915.3 uA, energy=5396.751 uJ
+[23:51:33] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 5: ok, peak=62915.3 uA, energy=5405.299 uJ
+[23:51:33] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_235055_radio_hc12
+[23:51:33] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:51:33] STEP    TX 60 B - 20 dBm - 250 kbps - attempt 1
+[23:51:33] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction tx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 60 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=20 --axis bit_rate_kbps=250 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx" --receiver-port COM40 --save-raw
+[23:51:33] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:51:33] INFO    Measured transmitter: COM39, 115200 baud
+[23:51:33] INFO    Peer receiver: COM40, 115200 baud
+[23:51:37] INFO    Configuring measured transmitter (HC-12 UART radio) on COM39 ...
+[23:51:42] INFO    Configuring peer receiver on COM40 ...
+[23:51:54] INFO    [   1/5] TX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 1: ok, peak=66667.9 uA, energy=9231.026 uJ
+[23:51:58] INFO    [   2/5] TX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 2: ok, peak=66667.9 uA, energy=9222.978 uJ
+[23:52:02] INFO    [   3/5] TX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 3: ok, peak=65917.2 uA, energy=9122.427 uJ
+[23:52:07] INFO    [   4/5] TX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 4: ok, peak=62915.3 uA, energy=9177.097 uJ
+[23:52:11] INFO    [   5/5] TX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 5: ok, peak=64406.7 uA, energy=9175.099 uJ
+[23:52:11] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_tx\20260719_235133_radio_hc12
+[23:52:12] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:52:12] STEP    RX 8 B - TX 20 dBm - 0.5 kbps - attempt 1
+[23:52:12] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction rx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=20 --axis bit_rate_kbps=0.5 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_rx" --transmitter-port COM40 --save-raw
+[23:52:12] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:52:12] INFO    Measured receiver: COM39, 115200 baud
+[23:52:12] INFO    Peer transmitter: COM40, 115200 baud
+[23:52:16] INFO    Configuring measured receiver (HC-12 UART radio) on COM39 ...
+[23:52:21] INFO    Configuring peer transmitter on COM40 ...
+[23:52:37] INFO    [   1/5] RX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 1: ok, peak=19706.4 uA, energy=7202.141 uJ
+[23:52:45] INFO    [   2/5] RX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 2: ok, peak=19802.1 uA, energy=7203.777 uJ
+[23:52:53] INFO    [   3/5] RX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 3: ok, peak=19945.6 uA, energy=7203.229 uJ
+[23:53:02] INFO    [   4/5] RX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 4: ok, peak=19993.5 uA, energy=7199.912 uJ
+[23:53:10] INFO    [   5/5] RX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 5: ok, peak=19897.8 uA, energy=7193.410 uJ
+[23:53:10] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_rx\20260719_235212_radio_hc12_rx
+[23:53:10] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:53:11] STEP    RX 32 B - TX 20 dBm - 0.5 kbps - attempt 1
+[23:53:11] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction rx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=20 --axis bit_rate_kbps=0.5 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_rx" --transmitter-port COM40 --save-raw
+[23:53:11] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:53:11] INFO    Measured receiver: COM39, 115200 baud
+[23:53:11] INFO    Peer transmitter: COM40, 115200 baud
+[23:53:14] INFO    Configuring measured receiver (HC-12 UART radio) on COM39 ...
+[23:53:20] INFO    Configuring peer transmitter on COM40 ...
+[23:53:37] INFO    [   1/5] RX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 1: ok, peak=23419.0 uA, energy=27264.552 uJ
+[23:53:46] INFO    [   2/5] RX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 2: ok, peak=23419.0 uA, energy=27185.721 uJ
+[23:53:55] INFO    [   3/5] RX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 3: ok, peak=23176.0 uA, energy=27202.148 uJ
+[23:54:04] INFO    [   4/5] RX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 4: ok, peak=23613.5 uA, energy=27221.413 uJ
+[23:54:13] INFO    [   5/5] RX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 5: ok, peak=23370.4 uA, energy=27199.374 uJ
+[23:54:13] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_rx\20260719_235311_radio_hc12_rx
+[23:54:14] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:54:14] STEP    RX 60 B - TX 20 dBm - 0.5 kbps - attempt 1
+[23:54:14] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction rx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 60 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=20 --axis bit_rate_kbps=0.5 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_rx" --transmitter-port COM40 --save-raw
+[23:54:14] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:54:14] INFO    Measured receiver: COM39, 115200 baud
+[23:54:14] INFO    Peer transmitter: COM40, 115200 baud
+[23:54:17] INFO    Configuring measured receiver (HC-12 UART radio) on COM39 ...
+[23:54:23] INFO    Configuring peer transmitter on COM40 ...
+[23:54:41] INFO    [   1/5] RX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 1: ok, peak=23564.9 uA, energy=52019.514 uJ
+[23:54:51] INFO    [   2/5] RX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 2: ok, peak=23467.6 uA, energy=51924.684 uJ
+[23:55:01] INFO    [   3/5] RX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 3: ok, peak=23419.0 uA, energy=51920.981 uJ
+[23:55:11] INFO    [   4/5] RX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 4: ok, peak=23516.2 uA, energy=51963.205 uJ
+[23:55:21] INFO    [   5/5] RX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 0.5}, rep 5: ok, peak=23370.4 uA, energy=51949.752 uJ
+[23:55:21] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_rx\20260719_235414_radio_hc12_rx
+[23:55:22] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:55:22] STEP    RX 8 B - TX 20 dBm - 15 kbps - attempt 1
+[23:55:22] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction rx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=20 --axis bit_rate_kbps=15 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_rx" --transmitter-port COM40 --save-raw
+[23:55:22] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:55:22] INFO    Measured receiver: COM39, 115200 baud
+[23:55:22] INFO    Peer transmitter: COM40, 115200 baud
+[23:55:25] INFO    Configuring measured receiver (HC-12 UART radio) on COM39 ...
+[23:55:31] INFO    Configuring peer transmitter on COM40 ...
+[23:55:46] INFO    [   1/5] RX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 1: ok, peak=20137.2 uA, energy=1189.496 uJ
+[23:55:54] INFO    [   2/5] RX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 2: ok, peak=19754.2 uA, energy=1185.936 uJ
+[23:56:01] INFO    [   3/5] RX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 3: ok, peak=19993.5 uA, energy=1187.237 uJ
+[23:56:09] INFO    [   4/5] RX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 4: ok, peak=20089.3 uA, energy=1186.398 uJ
+[23:56:16] INFO    [   5/5] RX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 5: ok, peak=20233.0 uA, energy=1188.475 uJ
+[23:56:16] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_rx\20260719_235522_radio_hc12_rx
+[23:56:17] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:56:17] STEP    RX 32 B - TX 20 dBm - 15 kbps - attempt 1
+[23:56:17] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction rx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=20 --axis bit_rate_kbps=15 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_rx" --transmitter-port COM40 --save-raw
+[23:56:17] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:56:17] INFO    Measured receiver: COM39, 115200 baud
+[23:56:17] INFO    Peer transmitter: COM40, 115200 baud
+[23:56:21] INFO    Configuring measured receiver (HC-12 UART radio) on COM39 ...
+[23:56:26] INFO    Configuring peer transmitter on COM40 ...
+[23:56:40] INFO    [   1/5] RX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 1: ok, peak=21868.7 uA, energy=1904.667 uJ
+[23:56:48] INFO    [   2/5] RX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 2: ok, peak=22981.9 uA, energy=1907.940 uJ
+[23:56:56] INFO    [   3/5] RX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 3: ok, peak=22400.4 uA, energy=1912.207 uJ
+[23:57:03] INFO    [   4/5] RX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 4: ok, peak=22303.6 uA, energy=1914.284 uJ
+[23:57:10] INFO    [   5/5] RX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 5: ok, peak=22594.1 uA, energy=1917.166 uJ
+[23:57:11] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_rx\20260719_235617_radio_hc12_rx
+[23:57:11] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:57:11] STEP    RX 60 B - TX 20 dBm - 15 kbps - attempt 1
+[23:57:11] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction rx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 60 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=20 --axis bit_rate_kbps=15 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_rx" --transmitter-port COM40 --save-raw
+[23:57:11] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:57:11] INFO    Measured receiver: COM39, 115200 baud
+[23:57:11] INFO    Peer transmitter: COM40, 115200 baud
+[23:57:15] INFO    Configuring measured receiver (HC-12 UART radio) on COM39 ...
+[23:57:20] INFO    Configuring peer transmitter on COM40 ...
+[23:57:35] INFO    [   1/5] RX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 1: ok, peak=23856.9 uA, energy=2818.886 uJ
+[23:57:42] INFO    [   2/5] RX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 2: ok, peak=24442.1 uA, energy=2839.788 uJ
+[23:57:50] INFO    [   3/5] RX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 3: ok, peak=24393.2 uA, energy=2850.190 uJ
+[23:57:57] INFO    [   4/5] RX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 4: ok, peak=24490.9 uA, energy=2844.832 uJ
+[23:58:05] INFO    [   5/5] RX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 15.0}, rep 5: ok, peak=24198.1 uA, energy=2837.488 uJ
+[23:58:05] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_rx\20260719_235711_radio_hc12_rx
+[23:58:06] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:58:06] STEP    RX 8 B - TX 20 dBm - 250 kbps - attempt 1
+[23:58:06] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction rx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=20 --axis bit_rate_kbps=250 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_rx" --transmitter-port COM40 --save-raw
+[23:58:06] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:58:06] INFO    Measured receiver: COM39, 115200 baud
+[23:58:06] INFO    Peer transmitter: COM40, 115200 baud
+[23:58:09] INFO    Configuring measured receiver (HC-12 UART radio) on COM39 ...
+[23:58:14] INFO    Configuring peer transmitter on COM40 ...
+[23:58:29] INFO    [   1/5] RX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 1: ok, peak=21772.1 uA, energy=347.956 uJ
+[23:58:36] INFO    [   2/5] RX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 2: ok, peak=21193.7 uA, energy=358.558 uJ
+[23:58:44] INFO    [   3/5] RX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 3: ok, peak=21097.5 uA, energy=354.025 uJ
+[23:58:51] INFO    [   4/5] RX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 4: ok, peak=21627.4 uA, energy=323.147 uJ
+[23:58:59] INFO    [   5/5] RX    8 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 5: ok, peak=21627.4 uA, energy=299.557 uJ
+[23:58:59] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_rx\20260719_235806_radio_hc12_rx
+[23:59:00] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:59:00] STEP    RX 32 B - TX 20 dBm - 250 kbps - attempt 1
+[23:59:00] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction rx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=20 --axis bit_rate_kbps=250 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_rx" --transmitter-port COM40 --save-raw
+[23:59:00] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:59:00] INFO    Measured receiver: COM39, 115200 baud
+[23:59:00] INFO    Peer transmitter: COM40, 115200 baud
+[23:59:03] INFO    Configuring measured receiver (HC-12 UART radio) on COM39 ...
+[23:59:09] INFO    Configuring peer transmitter on COM40 ...
+[23:59:23] INFO    [   1/5] RX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 1: ok, peak=21579.2 uA, energy=356.162 uJ
+[23:59:30] INFO    [   2/5] RX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 2: ok, peak=21579.2 uA, energy=370.029 uJ
+[23:59:38] INFO    [   3/5] RX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 3: ok, peak=21001.3 uA, energy=358.967 uJ
+[23:59:45] INFO    [   4/5] RX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 4: ok, peak=22013.6 uA, energy=333.687 uJ
+[23:59:53] INFO    [   5/5] RX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 5: ok, peak=22158.6 uA, energy=370.125 uJ
+[23:59:53] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_rx\20260719_235900_radio_hc12_rx
+[23:59:53] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[23:59:53] STEP    RX 60 B - TX 20 dBm - 250 kbps - attempt 1
+[23:59:53] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_HC12 --direction rx --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --sizes 60 --repetitions 5 --cooldown-s 2.5 --keep-power-on --axis tx_power_dbm=20 --axis bit_rate_kbps=250 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_rx" --transmitter-port COM40 --save-raw
+[23:59:54] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[23:59:54] INFO    Measured receiver: COM39, 115200 baud
+[23:59:54] INFO    Peer transmitter: COM40, 115200 baud
+[23:59:57] INFO    Configuring measured receiver (HC-12 UART radio) on COM39 ...
+[00:00:02] INFO    Configuring peer transmitter on COM40 ...
+[00:00:17] INFO    [   1/5] RX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 1: ok, peak=21241.9 uA, energy=385.899 uJ
+[00:00:24] INFO    [   2/5] RX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 2: ok, peak=23078.9 uA, energy=408.601 uJ
+[00:00:32] INFO    [   3/5] RX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 3: ok, peak=23030.4 uA, energy=417.582 uJ
+[00:00:39] INFO    [   4/5] RX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 4: ok, peak=21386.4 uA, energy=382.680 uJ
+[00:00:47] INFO    [   5/5] RX   60 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 250.0}, rep 5: ok, peak=22061.9 uA, energy=394.217 uJ
+[00:00:47] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\packet_rx\20260719_235954_radio_hc12_rx
+[00:00:47] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[00:00:47] STEP    Average TX power - 15 kbps - 60 s/power level - attempt 1
+[00:00:47] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_HC12 --direction tx --powers=-1,8,20 --frame-bytes 60 --gap-ms 15 --duration-s 60 --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\continuous" --keep-power-on --axis bit_rate_kbps=15 --save-raw
+[00:00:48] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[00:00:48] INFO    Continuous TX: 60 s per power, parameters={'bit_rate_kbps': 15.0}, 60 B frames, 15 ms gap
+[00:02:51] INFO    [1/3] TX -1 dBm: mean=21.449 mA, power=70.783 mW, status=ok
+[00:04:48] INFO    [2/3] TX 8 dBm: mean=32.353 mA, power=106.763 mW, status=ok
+[00:06:44] INFO    [3/3] TX 20 dBm: mean=48.953 mA, power=161.544 mW, status=ok
+[00:06:45] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\continuous\20260720_000048_radio_hc12_continuous_tx
+[00:06:45] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[00:06:45] STEP    Average RX power and loss - 0.5 kbps - 60 s/power level - attempt 1
+[00:06:45] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_HC12 --direction rx --powers=-1,8,20 --frame-bytes 60 --gap-ms 15 --duration-s 60 --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\continuous" --keep-power-on --axis bit_rate_kbps=0.5 --transmitter-port COM40 --save-raw
+[00:06:46] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[00:06:46] INFO    Continuous RX: 60 s per power, parameters={'bit_rate_kbps': 0.5}, 60 B frames, 15 ms gap
+[00:07:38] WARNING Stop requested by user
+[00:07:39] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[00:07:39] FINISH  Test stopped; completed results were preserved
+[00:07:39] CALLBACK Codex completion callback started
+[00:08:04] CALLBACK Codex completion notification displayed; automatic result analysis started

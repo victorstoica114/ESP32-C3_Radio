@@ -1,0 +1,209 @@
+Test: HC12_FU1_250kbps
+Ports: COM39 / COM40
+Baud: 115200
+Set command: AT+CHAN={value}
+Same value: 10
+Different values: 10 / 11
+Send template A->B: {payload}
+Send template B->A: {payload}
+Payload kind: Text
+Log: log\Test-AtPairChannelIsolation_HC12_FU1_250kbps_COM39_COM40_20260719_231952.txt
+
+--- COM39 boot/open ---
+<no output>
+--- COM40 boot/open ---
+<no output>
+--- COM39 >> AT ---
+OK
+--- COM39 >> AT+DEBUG=OFF ---
+OK
+--- COM39 >> AT+WAKE ---
+OK
+--- COM39 >> AT+BAUD=9600 ---
+<no output>
+--- COM39 >> AT+FU=1 ---
+[BAUD] Verify failed (check SET wiring / clone FW)
+#ERROR
+OK
+--- COM39 >> AT+POWER=4 ---
+OK
+--- COM40 >> AT ---
+OK
+--- COM40 >> AT+DEBUG=OFF ---
+OK
+--- COM40 >> AT+WAKE ---
+OK
+--- COM40 >> AT+BAUD=9600 ---
+<no output>
+--- COM40 >> AT+FU=1 ---
+[BAUD] Verify failed (check SET wiring / clone FW)
+#ERROR
+OK
+--- COM40 >> AT+POWER=4 ---
+OK
+
+=== STAGE 1: synchronized value, link must work ===
+--- COM39 >> AT+CHAN=10 ---
+OK
+--- COM39 >> AT+BRIDGE=ON ---
+OK
+--- COM39 >> AT+CFG? ---
+CFG:
+  USB_BAUD=115200
+  HC_BAUD=1200
+  CHANNEL=10
+  POWER=4
+  FU=1
+  UART=8N1
+  BRIDGE=ON
+  SLEEP=NO
+  FREQ??? 437.4 MHz
+OK
+--- COM40 >> AT+CHAN=10 ---
+OK
+--- COM40 >> AT+BRIDGE=ON ---
+OK
+--- COM40 >> AT+CFG? ---
+CFG:
+  USB_BAUD=115200
+  HC_BAUD=1200
+  CHANNEL=10
+  POWER=4
+  FU=1
+  UART=8N1
+  BRIDGE=ON
+  SLEEP=NO
+  FREQ??? 437.4 MHz
+OK
+--- COM39 payload -> COM40 ---
+command: HC12_FU1_250kbps_SYNC_BASE_A_TO_B
+expected token: HC12_FU1_250kbps_SYNC_BASE_A_TO_B
+COM39 tx output:
+<no output>
+COM40 rx output:
+HC12_FU1_250kbps_SYNC_BASE_A_TO_B
+--- COM40 payload -> COM39 ---
+command: HC12_FU1_250kbps_SYNC_BASE_B_TO_A
+expected token: HC12_FU1_250kbps_SYNC_BASE_B_TO_A
+COM40 tx output:
+<no output>
+COM39 rx output:
+HC12_FU1_250kbps_SYNC_BASE_B_TO_A
+
+=== STAGE 2: different values, link must stop ===
+--- COM39 >> AT+CHAN=10 ---
+OK
+--- COM39 >> AT+BRIDGE=ON ---
+OK
+--- COM39 >> AT+CFG? ---
+CFG:
+  USB_BAUD=115200
+  HC_BAUD=1200
+  CHANNEL=10
+  POWER=4
+  FU=1
+  UART=8N1
+  BRIDGE=ON
+  SLEEP=NO
+  FREQ??? 437.4 MHz
+OK
+--- COM40 >> AT+CHAN=11 ---
+OK
+--- COM40 >> AT+BRIDGE=ON ---
+OK
+--- COM40 >> AT+CFG? ---
+CFG:
+  USB_BAUD=115200
+  HC_BAUD=1200
+  CHANNEL=11
+  POWER=4
+  FU=1
+  UART=8N1
+  BRIDGE=ON
+  SLEEP=NO
+  FREQ??? 437.8 MHz
+OK
+--- COM39 payload -> COM40 ---
+command: HC12_FU1_250kbps_DESYNC_A_TO_B
+expected token: HC12_FU1_250kbps_DESYNC_A_TO_B
+COM39 tx output:
+<no output>
+COM40 rx output:
+<no output>
+--- COM40 payload -> COM39 ---
+command: HC12_FU1_250kbps_DESYNC_B_TO_A
+expected token: HC12_FU1_250kbps_DESYNC_B_TO_A
+COM40 tx output:
+<no output>
+COM39 rx output:
+<no output>
+
+=== STAGE 3: synchronized again, link must recover ===
+--- COM39 >> AT+CHAN=10 ---
+OK
+--- COM39 >> AT+BRIDGE=ON ---
+OK
+--- COM39 >> AT+CFG? ---
+CFG:
+  USB_BAUD=115200
+  HC_BAUD=1200
+  CHANNEL=10
+  POWER=4
+  FU=1
+  UART=8N1
+  BRIDGE=ON
+  SLEEP=NO
+  FREQ??? 437.4 MHz
+OK
+--- COM40 >> AT+CHAN=10 ---
+OK
+--- COM40 >> AT+BRIDGE=ON ---
+OK
+--- COM40 >> AT+CFG? ---
+CFG:
+  USB_BAUD=115200
+  HC_BAUD=1200
+  CHANNEL=10
+  POWER=4
+  FU=1
+  UART=8N1
+  BRIDGE=ON
+  SLEEP=NO
+  FREQ??? 437.4 MHz
+OK
+--- COM39 payload -> COM40 ---
+command: HC12_FU1_250kbps_RESYNC_A_TO_B
+expected token: HC12_FU1_250kbps_RESYNC_A_TO_B
+COM39 tx output:
+<no output>
+COM40 rx output:
+HC12_FU1_250kbps_RESYNC_A_TO_B
+--- COM40 payload -> COM39 ---
+command: HC12_FU1_250kbps_RESYNC_B_TO_A
+expected token: HC12_FU1_250kbps_RESYNC_B_TO_A
+COM40 tx output:
+<no output>
+COM39 rx output:
+HC12_FU1_250kbps_RESYNC_B_TO_A
+
+=== RESULTS ===
+PASS	COM39 set 10	expected 'OK'
+PASS	COM39 RX on after set 10	expected 'OK'
+PASS	COM40 set 10	expected 'OK'
+PASS	COM40 RX on after set 10	expected 'OK'
+PASS	SYNC_BASE COM39 to COM40 receive	expected 'HC12_FU1_250kbps_SYNC_BASE_A_TO_B'
+PASS	SYNC_BASE COM40 to COM39 receive	expected 'HC12_FU1_250kbps_SYNC_BASE_B_TO_A'
+PASS	COM39 set 10	expected 'OK'
+PASS	COM39 RX on after set 10	expected 'OK'
+PASS	COM40 set 11	expected 'OK'
+PASS	COM40 RX on after set 11	expected 'OK'
+PASS	DESYNC COM39 to COM40 isolated	not expected 'HC12_FU1_250kbps_DESYNC_A_TO_B'
+PASS	DESYNC COM40 to COM39 isolated	not expected 'HC12_FU1_250kbps_DESYNC_B_TO_A'
+PASS	COM39 set 10	expected 'OK'
+PASS	COM39 RX on after set 10	expected 'OK'
+PASS	COM40 set 10	expected 'OK'
+PASS	COM40 RX on after set 10	expected 'OK'
+PASS	RESYNC COM39 to COM40 receive	expected 'HC12_FU1_250kbps_RESYNC_A_TO_B'
+PASS	RESYNC COM40 to COM39 receive	expected 'HC12_FU1_250kbps_RESYNC_B_TO_A'
+=== SUMMARY ===
+PASS=18 FAIL=0

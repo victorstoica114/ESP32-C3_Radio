@@ -1,0 +1,7 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_HC12 --direction tx --powers=-1,8,20 --frame-bytes 60 --gap-ms 15 --duration-s 60 --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\continuous" --keep-power-on --axis bit_rate_kbps=15 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Continuous TX: 60 s per power, parameters={'bit_rate_kbps': 15.0}, 60 B frames, 15 ms gap
+[1/3] TX -1 dBm: mean=21.449 mA, power=70.783 mW, status=ok
+[2/3] TX 8 dBm: mean=32.353 mA, power=106.763 mW, status=ok
+[3/3] TX 20 dBm: mean=48.953 mA, power=161.544 mW, status=ok
+Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_233346_campaign_radio_hc12\continuous\20260720_000048_radio_hc12_continuous_tx

@@ -209,6 +209,13 @@ def _rate_description(row: dict[str, Any]) -> str:
     return f"{profile} ({rate} kbps)" if profile else f"{rate} kbps"
 
 
+def _gap_description(rows: list[dict[str, Any]]) -> str:
+    gaps = sorted({int(float(row["inter_frame_gap_ms"])) for row in rows})
+    if len(gaps) == 1:
+        return f"{gaps[0]} ms"
+    return "/".join(str(gap) for gap in gaps) + " ms"
+
+
 def write_power_tex(
     path: Path,
     tx_rows: list[dict[str, Any]],
@@ -220,6 +227,7 @@ def write_power_tex(
     xmin = min(powers) - max(2.0, (max(powers) - min(powers)) * 0.10)
     xmax = max(powers) + max(2.0, (max(powers) - min(powers)) * 0.10)
     rate_label = _rate_description(tx_rows[0])
+    gap_label = _gap_description(tx_rows + rx_rows)
     lines = [
         r"\documentclass[tikz,border=6pt]{standalone}",
         r"\usepackage[T1]{fontenc}",
@@ -256,7 +264,7 @@ def write_power_tex(
         r"\node[font=\footnotesize, align=center, text width=16.5cm]",
         r"  at ($(group c1r1.south)!0.5!(group c2r1.south)+(0,-2.55cm)$)",
         rf"  {{Fiecare punct este media unei ferestre de 60 s la 3,3 V; profil {rate_label},\\",
-        r"   pauză de 15 ms între cadre. Puterea RX de pe axa X este puterea emițătorului de stimul.};",
+        rf"   pauză de {gap_label} între cadre. Puterea RX de pe axa X este puterea emițătorului de stimul.}};",
         r"\end{tikzpicture}",
         r"\end{document}",
         "",

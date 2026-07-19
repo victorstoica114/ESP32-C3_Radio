@@ -1,0 +1,127 @@
+{
+  "created_utc": "2026-07-19T20:24:03+00:00",
+  "profile": {
+    "profile_id": "RADIO_HC12",
+    "display_name": "HC-12 UART radio",
+    "firmware_selection": "RADIO_HC12 + AT_COMMANDS",
+    "baudrate": 115200,
+    "setup_commands": [
+      "AT",
+      "AT+DEBUG=OFF",
+      "AT+BRIDGE=ON",
+      "AT+WAKE",
+      "AT+FU=3",
+      "AT+BAUD=9600",
+      "AT+CHAN=10",
+      "AT+UART=8N1"
+    ],
+    "post_config_commands": [],
+    "receiver_enable_commands": [
+      "AT+BRIDGE=ON"
+    ],
+    "payload_sizes": [
+      8
+    ],
+    "repetitions": 2,
+    "cooldown_s": 2.5,
+    "axes": [
+      {
+        "name": "tx_power_dbm",
+        "values": [
+          20
+        ],
+        "command": null,
+        "commands": {
+          "-1": [
+            "AT+POWER=1"
+          ],
+          "8": [
+            "AT+POWER=4"
+          ],
+          "20": [
+            "AT+POWER=8"
+          ]
+        },
+        "label": "TX power (dBm)"
+      },
+      {
+        "name": "bit_rate_kbps",
+        "values": [
+          250.0
+        ],
+        "command": null,
+        "commands": {
+          "0.5": [
+            "AT+BAUD=1200",
+            "AT+FU=4"
+          ],
+          "15": [
+            "AT+FU=3",
+            "AT+BAUD=9600"
+          ],
+          "250": [
+            "AT+FU=1",
+            "AT+BAUD=9600"
+          ]
+        },
+        "label": "HC-12 air rate (kbps)"
+      }
+    ],
+    "transmit": {
+      "mode": "text_line",
+      "command": null,
+      "line_overhead_bytes": 2,
+      "max_payload_bytes": 60,
+      "frame_payload_bytes": null,
+      "wait_for_ok": false
+    },
+    "receive": {
+      "inter_frame_gap_ms": 0.0,
+      "post_receive_s": 0.05
+    },
+    "capture": {
+      "pre_s": 0.2,
+      "post_s": 0.25,
+      "minimum_after_trigger_s": 0.75,
+      "max_after_trigger_s": 4.0,
+      "threshold_margin_uA": 1000.0,
+      "merge_gap_ms": 0.5,
+      "minimum_event_ms": 0.05,
+      "align_tx_airtime_window": false
+    },
+    "airtime": {
+      "kind": "fsk",
+      "rate_axis": "bit_rate_kbps",
+      "rate_multiplier": 1000,
+      "overhead_bytes": 0,
+      "ramp_s": 0.02,
+      "continuous_gap_ms_by_value": {
+        "0.5": 2100,
+        "15": 100,
+        "250": 50
+      }
+    },
+    "inter_run_commands": [],
+    "power_cycle_between_runs": false,
+    "power_cycle_min_airtime_s": 0.0,
+    "power_cycle_off_s": 1.0,
+    "restore_after_receive": true,
+    "warmup_transfers": 0,
+    "reopen_continuous_between_powers": false,
+    "notes": [
+      "FU4 uses 1200-baud UART and 500-bps air rate; FU3 uses 9600-baud UART and 15-kbps air rate; FU1 uses 9600-baud UART and 250-kbps air rate. Continuous gaps follow the HC-12 V2.6 timing guidance."
+    ]
+  },
+  "measurement_direction": "tx",
+  "measured_port": "COM39",
+  "radio_port": "COM39",
+  "transmitter_port": "COM39",
+  "receiver_port": "COM40",
+  "peer_port": "COM40",
+  "ppk_port": "COM11",
+  "ppk_mode": "ampere",
+  "voltage_mv": 3300,
+  "sample_rate_hz": 100000,
+  "save_raw": true,
+  "test_count": 2
+}

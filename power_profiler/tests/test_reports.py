@@ -16,6 +16,7 @@ import generate_continuous_report as continuous_report  # noqa: E402
 import generate_lora_campaign_reports as lora_reports  # noqa: E402
 import generate_lora_variant_comparison as variant_comparison  # noqa: E402
 import render_lora_campaign_plots as lora_renderer  # noqa: E402
+import render_web_campaign_plots as web_renderer  # noqa: E402
 import generate_web_campaign_reports as campaign_reports  # noqa: E402
 
 
@@ -117,6 +118,33 @@ class ReportTests(unittest.TestCase):
             self.assertTrue(data.endswith(b"%%EOF\n"))
             self.assertTrue(path.with_suffix(".png").read_bytes().startswith(b"\x89PNG"))
 
+    def test_generic_radio_energy_renderer_writes_pdf_and_png(self) -> None:
+        rows = []
+        for power in (-1.0, 8.0, 20.0):
+            for rate in (0.5, 15.0, 250.0):
+                for payload in (8.0, 32.0, 60.0):
+                    rows.append(
+                        {
+                            "tx_power_dbm": power,
+                            "bit_rate_kbps": rate,
+                            "payload_bytes": payload,
+                            "energy_total_mJ_mean": 1.0 + payload / rate,
+                        }
+                    )
+        with tempfile.TemporaryDirectory() as temporary:
+            output = Path(temporary)
+            path = web_renderer._energy_plot(
+                output,
+                "test",
+                "Generic radio",
+                rows,
+                title="TX energy",
+                suffix="tx_energy",
+            )
+
+            self.assertTrue(path.read_bytes().startswith(b"%PDF-1.4"))
+            self.assertTrue(path.with_suffix(".png").read_bytes().startswith(b"\x89PNG"))
+
     def test_energy_plot_scale_includes_sub_millijoule_measurements(self) -> None:
         limits, ticks = lora_renderer._log_energy_scale([0.04, 88.0])
 
@@ -194,6 +222,59 @@ class ReportTests(unittest.TestCase):
             self.assertEqual(
                 manifest["recovery_overrides"]["reason"], "targeted retry"
             )
+
+    def test_generic_campaign_manifest_accepts_valid_targeted_recovery(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            session = Path(temporary)
+            result = session / "recovery" / "continuous_tx"
+            result.mkdir(parents=True)
+            (result / "summary.csv").write_text("status\nok\n", encoding="utf-8")
+            (result / "metadata.json").write_text("{}\n", encoding="utf-8")
+            manifest_path = session / "manifest.json"
+            manifest_path.write_text(
+                '{"kind":"campaign","state":"stopped",'
+                '"completed_steps":0,"failed_steps":0,"steps":['
+                '{"step_id":"continuous_tx_average","status":"stopped"}]}',
+                encoding="utf-8",
+            )
+            (session / "recovery_overrides.json").write_text(
+                '{"reason":"targeted retry","steps":{'
+                '"continuous_tx_average":"recovery/continuous_tx"}}',
+                encoding="utf-8",
+            )
+
+            manifest = campaign_reports._read_manifest(manifest_path)
+
+            self.assertEqual(manifest["state"], "completed")
+            self.assertEqual(manifest["completed_steps"], 1)
+            self.assertEqual(manifest["failed_steps"], 0)
+            self.assertEqual(
+                Path(manifest["steps"][0]["accepted_result"]), result.resolve()
+            )
+            self.assertEqual(
+                manifest["recovery_overrides"]["reason"], "targeted retry"
+            )
+
+    def test_generic_campaign_provenance_includes_recovery_summaries(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            session = Path(temporary) / "session"
+            result = session / "recovery" / "continuous_tx"
+            result.mkdir(parents=True)
+            (result / "summary.csv").write_text("status\nok\n", encoding="utf-8")
+            (result / "metadata.json").write_text("{}\n", encoding="utf-8")
+            manifest_path = session / "manifest.json"
+            manifest_path.write_text("{}\n", encoding="utf-8")
+            (session / "recovery_overrides.json").write_text(
+                '{"steps":{"continuous_tx_average":"recovery/continuous_tx"}}',
+                encoding="utf-8",
+            )
+            output = Path(temporary) / "output"
+
+            campaign_reports._copy_provenance(manifest_path, output)
+
+            copied = output / "campaign_logs" / "recovery" / "continuous_tx"
+            self.assertTrue((copied / "summary.csv").is_file())
+            self.assertTrue((copied / "metadata.json").is_file())
 
     def test_continuous_workbook_exports_all_rx_profiles(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:

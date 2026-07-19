@@ -178,7 +178,11 @@ static String readSerialLineNonBlocking() {
 
 // ========= HC-12 low-level =========
 static void enterAT()    { digitalWrite(HC12_SET_PIN, LOW);  delay(60); }
-static void exitAT()     { digitalWrite(HC12_SET_PIN, HIGH); delay(120); }
+// The HC-12 V2.6 manual requires at least 200 ms in normal mode before
+// entering AT mode again.  A shorter delay makes baud transitions out of FU4
+// intermittent because the next query can be interpreted as a power-on AT
+// entry at the fixed 9600-baud configuration.
+static void exitAT()     { digitalWrite(HC12_SET_PIN, HIGH); delay(220); }
 
 static void hc12WriteLine(const char* s) {
   HC12_SERIAL.write((const uint8_t*)s, strlen(s));
@@ -402,6 +406,11 @@ static bool handleAT(String lineRaw) {
 
   if (u.startsWith("AT+BAUD=")) {
     uint32_t v; if (!parseUInt(line.substring(8), v)) { serialERR(); return true; }
+    if (v == cfg.hcBaud) {
+      Serial.print(F("[BAUD] Unchanged ")); Serial.println(v);
+      serialOK();
+      return true;
+    }
     if (hc12_set_baud_safe(v)) { cfg.hcBaud=v; eepromSave(cfg); serialOK(); } else serialERR();
     return true;
   }

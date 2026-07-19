@@ -368,6 +368,33 @@ class WebAppTests(unittest.TestCase):
             all("bandwidth_khz=125" in step.command for step in continuous)
         )
 
+    def test_hc12_campaign_uses_datasheet_safe_continuous_gaps(self):
+        config = WebConfig(
+            profile_id="RADIO_HC12",
+            measured_port="COM39",
+            peer_port="COM40",
+            ppk_port="COM11",
+        )
+        config.validate()
+        with tempfile.TemporaryDirectory() as temporary:
+            campaign = build_campaign_steps(config, Path(temporary) / "campaign")
+
+        self.assertEqual(len(campaign), 40)
+        continuous_rx = {
+            next(item for item in step.command if item.startswith("bit_rate_kbps=")):
+            step.command[step.command.index("--gap-ms") + 1]
+            for step in campaign
+            if step.step_id.startswith("continuous_rx_")
+        }
+        self.assertEqual(
+            continuous_rx,
+            {
+                "bit_rate_kbps=0.5": "2100",
+                "bit_rate_kbps=15": "100",
+                "bit_rate_kbps=250": "100",
+            },
+        )
+
     def test_current_web_defaults_target_e79_pair(self):
         config = WebConfig()
         self.assertEqual(config.profile_id, "RADIO_EBYTE_E79_CC1352P")

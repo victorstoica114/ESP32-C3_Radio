@@ -8,7 +8,7 @@ Stable local COM assignments are saved in [COM_PORT_MAP.md](COM_PORT_MAP.md).
 
 ## Test results snapshot
 
-Last updated: 2026-07-01.
+Last updated: 2026-07-20.
 
 The `log/` folder is local-only, so the table below keeps the important pass/fail state in git.
 
@@ -35,7 +35,7 @@ Each PASS here means:
 | RA-01H (SX1276) | `RADIO_RA01H_SX1276` | COM29, COM30 | 115200 | `AT+FREQ` | PASS 18/0 | `Test-AtPairChannelIsolation_RA01H_COM29_COM30_20260701_142553.txt`; OLED works, one I2C boot warning remains in serial log. |
 | SX1278, assumed RA-01 | `RADIO_RA01_SX1278` | COM31, COM32 | 9600 | `AT+FREQ` | PASS 18/0 | `Test-AtPairChannelIsolation_SX1278_COM31_COM32_COM31_COM32_20260701_142212.txt`; OLED boot log clean after init fix. |
 | RA-02 (SX1278) | `RADIO_RA02_SX1278` | COM33, COM34 | 9600 | `AT+FREQ` | PASS 18/0 | `Test-AtPairChannelIsolation_RA02_COM33_COM34_COM33_COM34_20260701_141531.txt` |
-| HC-12 | `RADIO_HC12` | COM35, COM36 | 115200 | `AT+CHAN` | PASS 12/0 | `Test-AtPairChannelIsolation_HC12_COM35_COM36_COM35_COM36_20260701_143725.txt` |
+| HC-12 | `RADIO_HC12` | COM39, COM40 | 115200 | `AT+CHAN` | PASS 18/0 per FU mode | Power-campaign diagnostics passed for FU3 (15 kbps), FU4 (0.5 kbps), and FU1 (250 kbps); COM39 was the measured DUT and COM40 the peer. |
 | E28 (SX1280) | `RADIO_E28_SX1280` | COM37, COM38 | 9600 | `AT+FREQ` | PASS 18/0 | `Test-AtPairChannelIsolation_E28_COM37_COM38_OLED_RECOVERY_COM37_COM38_20260701_152037.txt`; OLED hardware-I2C recovery added, boot log clean, frequency isolation passed. |
 | CC1101 V2, 868 MHz | `RADIO_CC1101_V2_868` | COM39, COM40 | 115200 | `AT+FREQ` | PASS 18/0 | `Test-AtPairChannelIsolation_C22_V2_868_ORIGINAL_ANTENNAS_FINAL_COM39_COM40_20260701_204309.txt`; passed cleanly at 868/869 MHz with the original antennas. The same boards are unreliable at 433.920 MHz, so this local V2 pair appears to be 868 MHz hardware/front-end. |
 | RA-01SH (SX1262) | `RADIO_RA01SH_SX1262` | COM41, COM42 | 9600 | `AT+FREQ` | PASS 18/0 | `Test-AtPairChannelIsolation_RA01SH_COM41_COM42_RADIO_SPLASH_COM41_COM42_20260701_162614.txt`; frequency isolation passed after RADIO/SX1262 OLED splash update; boot log clean. |

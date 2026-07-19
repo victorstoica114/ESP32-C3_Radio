@@ -19,6 +19,15 @@ class FakeSerial:
 
 
 class SerialRadioTests(unittest.TestCase):
+    def test_counts_concatenated_transparent_uart_payloads(self):
+        payload = SerialRadio.make_payload(12)
+        text = payload.decode("ascii")
+
+        self.assertEqual(
+            SerialRadio.count_payload_occurrences(text * 7, payload),
+            7,
+        )
+
     def test_fragments_large_cc1101_transfer(self):
         radio = SerialRadio.__new__(SerialRadio)
         radio.serial = FakeSerial()

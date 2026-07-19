@@ -78,8 +78,55 @@ def _radio_settings(rows: list[dict[str, Any]]) -> list[tuple[str, float, str]]:
 
 
 def _read_manifest(path: Path) -> dict[str, Any]:
-    manifest = json.loads(path.read_text(encoding="utf-8"))
-    if manifest.get("kind") != "campaign" or manifest.get("state") != "completed":
+    manifest = copy.deepcopy(json.loads(path.read_text(encoding="utf-8")))
+    if manifest.get("kind") != "campaign":
+        raise ValueError("Expected a campaign manifest")
+
+    recovery_path = path.parent / "recovery_overrides.json"
+    if recovery_path.exists():
+        recovery = json.loads(recovery_path.read_text(encoding="utf-8"))
+        overrides = recovery.get("steps", {})
+        if not isinstance(overrides, dict) or not overrides:
+            raise ValueError("Recovery overrides do not define any steps")
+        session_root = path.parent.resolve()
+        by_id = {step.get("step_id"): step for step in manifest.get("steps", [])}
+        resolved: dict[str, str] = {}
+        for step_id, relative_result in overrides.items():
+            if step_id not in by_id:
+                raise ValueError(f"Recovery override references unknown step {step_id}")
+            result = (session_root / str(relative_result)).resolve()
+            if not result.is_relative_to(session_root):
+                raise ValueError(f"Recovery result escapes the session: {result}")
+            if not (result / "summary.csv").is_file() or not (
+                result / "metadata.json"
+            ).is_file():
+                raise ValueError(f"Recovery result is incomplete: {result}")
+            step = by_id[step_id]
+            step["accepted_result"] = str(result)
+            step["status"] = "completed"
+            step["validation"] = {
+                "valid": True,
+                "errors": [],
+                "warnings": ["Accepted from targeted recovery override"],
+            }
+            resolved[step_id] = str(result)
+        incomplete = [
+            step
+            for step in manifest.get("steps", [])
+            if step.get("status") != "completed"
+        ]
+        manifest["completed_steps"] = len(manifest.get("steps", [])) - len(incomplete)
+        manifest["failed_steps"] = len(incomplete)
+        if not incomplete:
+            manifest["state"] = "completed"
+            manifest["message"] = "Campaign completed after targeted recovery"
+        manifest["recovery_overrides"] = {
+            "file": str(recovery_path.resolve()),
+            "reason": recovery.get("reason", ""),
+            "steps": resolved,
+        }
+
+    if manifest.get("state") != "completed":
         raise ValueError("The manifest is not a completed campaign")
     if manifest.get("failed_steps") != 0:
         raise ValueError("The campaign contains failed steps")
@@ -472,6 +519,20 @@ def _write_loss_reports(base: Path, rows: list[dict[str, Any]], module: str) -> 
     rates = sorted({row["bit_rate_kbps"] for row in rows})
     settings = _radio_settings(rows)
     frame_sizes = sorted({int(row["frame_bytes"]) for row in rows})
+    gap_by_rate = {
+        rate: sorted(
+            {
+                int(row["inter_frame_gap_ms"])
+                for row in rows
+                if row["bit_rate_kbps"] == rate
+            }
+        )
+        for rate in rates
+    }
+    gap_note = "; ".join(
+        f"{_number(rate)} kbps: {'/'.join(map(str, gaps))} ms"
+        for rate, gaps in gap_by_rate.items()
+    )
     workbook = Workbook()
     results = workbook.active
     results.title = "loss_results"
@@ -561,7 +622,7 @@ def _write_loss_reports(base: Path, rows: list[dict[str, Any]], module: str) -> 
             r"\end{axis}",
             r"\node[font=\footnotesize, align=center, text width=12cm, anchor=north]",
             r"  at ([yshift=-1.45cm]current axis.south)",
-            rf"  {{60 s per point; {','.join(map(str, frame_sizes))} B frames; 15 ms inter-frame gap. Shared rates may contain multiple RF profiles.}};",
+            rf"  {{60 s per point; {','.join(map(str, frame_sizes))} B frames; inter-frame gap: {gap_note}. Shared rates may contain multiple RF profiles.}};",
             r"\end{tikzpicture}",
             r"\end{document}",
             "",
@@ -574,13 +635,32 @@ def _copy_provenance(manifest_path: Path, output_dir: Path) -> None:
     destination = output_dir / "campaign_logs"
     destination.mkdir(parents=True, exist_ok=True)
     session_dir = manifest_path.parent
-    for name in ("manifest.json", "session.log", "codex_callback.log"):
+    for name in (
+        "manifest.json",
+        "session.log",
+        "codex_callback.log",
+        "recovery_overrides.json",
+    ):
         source = session_dir / name
         if source.exists():
             shutil.copy2(source, destination / name)
     source_logs = session_dir / "logs"
     if source_logs.exists():
         shutil.copytree(source_logs, destination / "attempts", dirs_exist_ok=True)
+    recovery_path = session_dir / "recovery_overrides.json"
+    if recovery_path.exists():
+        recovery = json.loads(recovery_path.read_text(encoding="utf-8"))
+        for relative_result in set(recovery.get("steps", {}).values()):
+            source = (session_dir / str(relative_result)).resolve()
+            if not source.is_relative_to(session_dir.resolve()):
+                raise ValueError(f"Recovery result escapes the session: {source}")
+            relative = source.relative_to(session_dir.resolve())
+            recovery_destination = destination / relative
+            recovery_destination.mkdir(parents=True, exist_ok=True)
+            for name in ("metadata.json", "summary.csv", "aggregates.csv"):
+                item = source / name
+                if item.exists():
+                    shutil.copy2(item, recovery_destination / name)
 
 
 def generate(manifest_path: Path, output_dir: Path, base_name: str) -> list[Path]:
@@ -612,13 +692,17 @@ def generate(manifest_path: Path, output_dir: Path, base_name: str) -> list[Path
     )
     large_rows = [row for row in tx_rows if row["payload_bytes"] >= 128]
     large_summary = [row for row in tx_summary if int(row["payload_bytes"]) >= 128]
-    write_transfer_csv(large_base.with_suffix(".csv"), large_rows)
-    write_transfer_xlsx(
-        large_base.with_suffix(".xlsx"),
-        large_rows,
-        large_summary,
-        tx_campaign_metadata,
-    )
+    if large_rows:
+        write_transfer_csv(large_base.with_suffix(".csv"), large_rows)
+        write_transfer_xlsx(
+            large_base.with_suffix(".xlsx"),
+            large_rows,
+            large_summary,
+            tx_campaign_metadata,
+        )
+    else:
+        large_base.with_suffix(".csv").unlink(missing_ok=True)
+        large_base.with_suffix(".xlsx").unlink(missing_ok=True)
     _write_energy_data(
         base.with_name(base.name + "_data").with_suffix(".csv"),
         sorted(

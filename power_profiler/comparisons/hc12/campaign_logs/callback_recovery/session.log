@@ -1,0 +1,56 @@
+[00:08:58] START   Continuous_rx session: 3 steps - RADIO_HC12
+[00:08:58] STEP    Average RX power and loss - 0.5 kbps - 60 s/power level - attempt 1
+[00:08:58] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_HC12 --direction rx --powers=-1,8,20 --frame-bytes 60 --gap-ms 2100 --duration-s 60 --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_000858_continuous_rx_radio_hc12\continuous" --keep-power-on --axis bit_rate_kbps=0.5 --transmitter-port COM40 --save-raw
+[00:08:58] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[00:08:58] INFO    Continuous RX: 60 s per power, parameters={'bit_rate_kbps': 0.5}, 60 B frames, 2100 ms gap
+[00:08:58] INFO    ERROR: Continuous inter-frame gap must be between 0 and 1000 ms
+[00:08:59] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[00:08:59] ERROR   Average RX power and loss - 0.5 kbps - 60 s/power level: Process exited with code 2
+[00:08:59] WARNING Cooling before retry: 10 s
+[00:09:09] STEP    Average RX power and loss - 0.5 kbps - 60 s/power level - attempt 2
+[00:09:09] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_HC12 --direction rx --powers=-1,8,20 --frame-bytes 60 --gap-ms 2100 --duration-s 60 --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_000858_continuous_rx_radio_hc12\continuous" --keep-power-on --axis bit_rate_kbps=0.5 --transmitter-port COM40 --save-raw
+[00:09:09] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[00:09:09] INFO    Continuous RX: 60 s per power, parameters={'bit_rate_kbps': 0.5}, 60 B frames, 2100 ms gap
+[00:09:09] INFO    ERROR: Continuous inter-frame gap must be between 0 and 1000 ms
+[00:09:10] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[00:09:10] ERROR   Average RX power and loss - 0.5 kbps - 60 s/power level: Process exited with code 2
+[00:09:10] WARNING Cooling before retry: 10 s
+[00:09:20] STEP    Average RX power and loss - 0.5 kbps - 60 s/power level - attempt 3
+[00:09:20] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_HC12 --direction rx --powers=-1,8,20 --frame-bytes 60 --gap-ms 2100 --duration-s 60 --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_000858_continuous_rx_radio_hc12\continuous" --keep-power-on --axis bit_rate_kbps=0.5 --transmitter-port COM40 --save-raw
+[00:09:20] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[00:09:20] INFO    Continuous RX: 60 s per power, parameters={'bit_rate_kbps': 0.5}, 60 B frames, 2100 ms gap
+[00:09:20] INFO    ERROR: Continuous inter-frame gap must be between 0 and 1000 ms
+[00:09:20] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[00:09:20] ERROR   Average RX power and loss - 0.5 kbps - 60 s/power level: Process exited with code 2
+[00:09:20] STEP    Average RX power and loss - 15 kbps - 60 s/power level - attempt 1
+[00:09:20] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_HC12 --direction rx --powers=-1,8,20 --frame-bytes 60 --gap-ms 100 --duration-s 60 --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_000858_continuous_rx_radio_hc12\continuous" --keep-power-on --axis bit_rate_kbps=15 --transmitter-port COM40 --save-raw
+[00:09:21] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[00:09:21] INFO    Continuous RX: 60 s per power, parameters={'bit_rate_kbps': 15.0}, 60 B frames, 100 ms gap
+[00:11:35] INFO    [1/3] RX -1 dBm: mean=17.105 mA, power=56.448 mW, status=ok
+[00:13:35] INFO    [2/3] RX 8 dBm: mean=17.075 mA, power=56.347 mW, status=ok
+[00:15:35] INFO    [3/3] RX 20 dBm: mean=17.088 mA, power=56.390 mW, status=ok
+[00:15:35] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_000858_continuous_rx_radio_hc12\continuous\20260720_000921_radio_hc12_continuous_rx
+[00:15:36] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[00:15:36] STEP    Average RX power and loss - 250 kbps - 60 s/power level - attempt 1
+[00:15:36] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_HC12 --direction rx --powers=-1,8,20 --frame-bytes 60 --gap-ms 50 --duration-s 60 --radio-port COM39 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_000858_continuous_rx_radio_hc12\continuous" --keep-power-on --axis bit_rate_kbps=250 --transmitter-port COM40 --save-raw
+[00:15:36] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[00:15:36] INFO    Continuous RX: 60 s per power, parameters={'bit_rate_kbps': 250.0}, 60 B frames, 50 ms gap
+[00:17:48] INFO    [1/3] RX -1 dBm: mean=6.865 mA, power=22.655 mW, status=ok
+[00:19:48] INFO    [2/3] RX 8 dBm: mean=7.271 mA, power=23.994 mW, status=ok
+[00:21:48] INFO    [3/3] RX 20 dBm: mean=7.277 mA, power=24.015 mW, status=ok
+[00:21:49] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_000858_continuous_rx_radio_hc12\continuous\20260720_001536_radio_hc12_continuous_rx
+[00:21:49] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[00:21:49] FINISH  Test completed with 1 failed batches
+[00:21:49] CALLBACK Codex completion callback started
+[00:22:13] CALLBACK Codex completion notification displayed; automatic result analysis started
+[00:22:17] WARNING PPK2 current-path guard released for an external diagnostic; VIN -> VOUT remains enabled
+[00:24:07] WARNING PPK2 current-path guard released for an external diagnostic; VIN -> VOUT remains enabled
+[00:25:36] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[00:26:16] WARNING PPK2 current-path guard released for an external diagnostic; VIN -> VOUT remains enabled
+[00:32:58] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[00:33:17] WARNING PPK2 current-path guard released for an external diagnostic; VIN -> VOUT remains enabled
+[00:35:43] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[00:36:02] WARNING PPK2 current-path guard released for an external diagnostic; VIN -> VOUT remains enabled
+[00:48:09] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[00:51:11] WARNING PPK2 current-path guard released for an external diagnostic; VIN -> VOUT remains enabled
+[00:57:40] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
