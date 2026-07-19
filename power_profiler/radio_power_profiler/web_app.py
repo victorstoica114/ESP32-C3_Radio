@@ -829,6 +829,10 @@ class JobManager:
                 self._callback_thread is not None
                 and self._callback_thread.is_alive()
             )
+            with self._ppk_guard_lock:
+                payload["ppk_guard_active"] = self._ppk_guard is not None
+                payload["ppk_guard_port"] = self._ppk_guard_port
+                payload["ppk_guard_voltage_mv"] = self._ppk_guard_voltage_mv
             return payload
 
     def start(self, kind: str, config: WebConfig) -> dict[str, Any]:
@@ -1049,6 +1053,55 @@ class JobManager:
                 "warning",
             )
 
+    def release_ppk_guard_for_diagnostics(self) -> dict[str, Any]:
+        with self._lock:
+            if self._thread is not None and self._thread.is_alive():
+                raise RuntimeError(
+                    "Cannot release the PPK2 guard while a test is running"
+                )
+        with self._ppk_guard_lock:
+            port = self._ppk_guard_port
+            voltage_mv = self._ppk_guard_voltage_mv
+            was_guarded = self._ppk_guard is not None
+        self._release_current_path_guard()
+        self._log(
+            "PPK2 current-path guard released for an external diagnostic; "
+            "VIN -> VOUT remains enabled",
+            "warning",
+        )
+        return {
+            "ok": True,
+            "guarded": False,
+            "was_guarded": was_guarded,
+            "ppk_port": port,
+            "voltage_mv": voltage_mv,
+        }
+
+    def enable_ppk_guard(self, ppk_port: str, voltage_mv: int) -> dict[str, Any]:
+        ppk_port = ppk_port.strip().upper()
+        if not COM_PATTERN.fullmatch(ppk_port):
+            raise ValueError("The PPK2 port must use the COM11 format")
+        if not 2500 <= voltage_mv <= 5000:
+            raise ValueError("Voltage must be between 2500 and 5000 mV")
+        with self._lock:
+            if self._thread is not None and self._thread.is_alive():
+                raise RuntimeError("Cannot change the PPK2 guard while a test is running")
+        self._ensure_current_path_on(ppk_port, voltage_mv)
+        with self._ppk_guard_lock:
+            guarded = (
+                self._ppk_guard is not None
+                and self._ppk_guard_port == ppk_port
+                and self._ppk_guard_voltage_mv == voltage_mv
+            )
+        if not guarded:
+            raise RuntimeError("PPK2 current-path guard could not be enabled")
+        return {
+            "ok": True,
+            "guarded": True,
+            "ppk_port": ppk_port,
+            "voltage_mv": voltage_mv,
+        }
+
     def _ensure_current_path_on(self, ppk_port: str, voltage_mv: int) -> None:
         with self._ppk_guard_lock:
             if (
@@ -1257,7 +1310,13 @@ class JobManager:
                 "instructions. Report the verified outcome to the user. If results are "
                 "clean, continue the result-processing work already authorized in this "
                 "thread. If anything is suspicious, diagnose it from the preserved data "
-                "before proposing or running additional hardware tests."
+                "before proposing or running additional hardware tests. If a manual "
+                "hardware diagnostic is required, keep this web server alive: POST "
+                "http://127.0.0.1:8765/api/ppk-guard/release before opening COM11, then "
+                "always POST http://127.0.0.1:8765/api/ppk-guard/enable with ppk_port and "
+                "voltage_mv from manifest.json after the diagnostic. Never stop, kill, "
+                "or restart the Radio Power Profiler server because it owns this callback "
+                "and performs the final conversation foreground action."
             )
         thread_id = self.codex_thread_id
         workdir = Path(__file__).resolve().parents[2]
@@ -1554,6 +1613,22 @@ class AppHandler(BaseHTTPRequestHandler):
             if parsed.path == "/api/stop":
                 self.server.manager.stop()
                 self._json({"ok": True}, HTTPStatus.ACCEPTED)
+                return
+            if parsed.path == "/api/ppk-guard/release":
+                self._json(
+                    self.server.manager.release_ppk_guard_for_diagnostics(),
+                    HTTPStatus.ACCEPTED,
+                )
+                return
+            if parsed.path == "/api/ppk-guard/enable":
+                raw = self._body()
+                self._json(
+                    self.server.manager.enable_ppk_guard(
+                        str(raw.get("ppk_port", "COM11")),
+                        int(raw.get("voltage_mv", 3300)),
+                    ),
+                    HTTPStatus.ACCEPTED,
+                )
                 return
             if parsed.path == "/api/test-codex":
                 self._json(

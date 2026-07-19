@@ -55,6 +55,8 @@ class WebAppTests(unittest.TestCase):
                 ],
             )
             self.assertIn(str(session), command[7])
+            self.assertIn("/api/ppk-guard/release", command[7])
+            self.assertIn("Never stop, kill, or restart", command[7])
             open_uri.assert_called_once_with(
                 f"vscode://openai.chatgpt/local/{thread_id}"
             )
@@ -228,6 +230,55 @@ class WebAppTests(unittest.TestCase):
 
             sampler_type.assert_called_once_with("COM11", voltage_mv=3300)
             sampler.power_on.assert_called_once_with()
+            sampler.close.assert_called_once_with(keep_power_on=True)
+
+    def test_ppk_guard_handoff_api_keeps_the_server_alive(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            manager = JobManager(Path(temporary))
+            server = AppServer(("127.0.0.1", 0), manager)
+            thread = threading.Thread(target=server.serve_forever, daemon=True)
+            with patch("radio_power_profiler.ppk.Ppk2Sampler") as sampler_type:
+                sampler = sampler_type.return_value
+                manager._ensure_current_path_on("COM11", 3300)
+                thread.start()
+                try:
+                    host, port = server.server_address
+                    release_request = urllib.request.Request(
+                        f"http://{host}:{port}/api/ppk-guard/release",
+                        data=b"",
+                        method="POST",
+                    )
+                    with urllib.request.urlopen(
+                        release_request,
+                        timeout=3,
+                    ) as response:
+                        released = json.loads(response.read().decode("utf-8"))
+
+                    enable_request = urllib.request.Request(
+                        f"http://{host}:{port}/api/ppk-guard/enable",
+                        data=json.dumps(
+                            {"ppk_port": "COM11", "voltage_mv": 3300}
+                        ).encode("utf-8"),
+                        headers={"Content-Type": "application/json"},
+                        method="POST",
+                    )
+                    with urllib.request.urlopen(
+                        enable_request,
+                        timeout=3,
+                    ) as response:
+                        enabled = json.loads(response.read().decode("utf-8"))
+
+                    self.assertFalse(released["guarded"])
+                    self.assertTrue(released["was_guarded"])
+                    self.assertTrue(enabled["guarded"])
+                    self.assertTrue(manager.status()["ppk_guard_active"])
+                finally:
+                    server.shutdown()
+                    server.server_close()
+                    thread.join(timeout=3)
+
+            self.assertEqual(sampler_type.call_count, 2)
+            self.assertEqual(sampler.power_on.call_count, 2)
             sampler.close.assert_called_once_with(keep_power_on=True)
 
     def test_lora_profile_uses_sf_and_bandwidth_in_web_campaign(self):
