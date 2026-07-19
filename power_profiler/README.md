@@ -129,7 +129,10 @@ automat. La final, orchestratorul folosește ID-ul explicit al threadului și
 După ce callback-ul se încheie cu succes, serverul deschide ruta locală a
 threadului în extensia Codex pentru VS Code, aducând fereastra și conversația în
 prim-plan.
-Callback-ul are maximum trei încercări, iar ieșirea completă este păstrată în
+Callback-ul rulează în două etape: publică mai întâi un mesaj scurt în conversație,
+apoi pornește analiza completă și revine cu verdictul și prelucrarea rezultatelor.
+Astfel, finalizarea măsurătorilor devine vizibilă fără a aștepta analiza de durată.
+Callback-ul are maximum trei încercări pentru fiecare etapă, iar ieșirea completă este păstrată în
 `codex_callback.log` în directorul sesiunii. Dacă ID-ul threadului sau Codex CLI
 nu este disponibil, opțiunea este dezactivată în interfață.
 

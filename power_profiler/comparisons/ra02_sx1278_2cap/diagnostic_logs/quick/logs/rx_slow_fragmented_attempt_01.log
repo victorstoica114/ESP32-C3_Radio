@@ -1,0 +1,9 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_RA02_SX1278_2CAP --direction rx --radio-port COM35 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 2 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=-4 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_200814_quick_radio_ra02_sx1278_2cap\packet_results" --transmitter-port COM36 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Measured receiver: COM35, 9600 baud
+Peer transmitter: COM36, 9600 baud
+Configuring measured receiver (Ai-Thinker RA-02 (SX1278) + 2Cap) on COM35 ...
+Configuring peer transmitter on COM36 ...
+[   1/2] RX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=13530.3 uA, energy=76471.258 uJ
+[   2/2] RX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=13390.9 uA, energy=76430.937 uJ
+Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_200814_quick_radio_ra02_sx1278_2cap\packet_results\20260719_200905_radio_ra02_sx1278_2cap_rx

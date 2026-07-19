@@ -41,7 +41,12 @@ class WebAppTests(unittest.TestCase):
                 manager._callback_thread.join(timeout=3)
 
             self.assertFalse(manager._callback_thread.is_alive())
-            command = run.call_args.args[0]
+            self.assertEqual(run.call_count, 2)
+            notification_command = run.call_args_list[0].args[0]
+            command = run.call_args_list[1].args[0]
+            self.assertEqual(notification_command[:7], command[:7])
+            self.assertIn("immediate visible completion notification", notification_command[7])
+            self.assertIn("Măsurătorile s-au încheiat", notification_command[7])
             self.assertEqual(
                 command[:7],
                 [
@@ -59,13 +64,19 @@ class WebAppTests(unittest.TestCase):
             self.assertIn("Never stop, kill, or restart", command[7])
             self.assertIn("do not create a temporary repository", command[7])
             self.assertIn("commit/push remains pending", command[7])
-            open_uri.assert_called_once_with(
-                f"vscode://openai.chatgpt/local/{thread_id}"
+            self.assertEqual(
+                open_uri.call_args_list,
+                [
+                    call(f"vscode://openai.chatgpt/local/{thread_id}"),
+                    call(f"vscode://openai.chatgpt/local/{thread_id}"),
+                ],
             )
             callback_log = (session / "codex_callback.log").read_text(
                 encoding="utf-8"
             )
-            self.assertIn("exited with code 0", callback_log)
+            self.assertIn("visible notification exited with code 0", callback_log)
+            self.assertIn("result analysis exited with code 0", callback_log)
+            self.assertIn("Displayed immediate completion notification", callback_log)
             self.assertIn("conversation foreground", callback_log)
 
     def test_codex_callback_test_is_hardware_free_and_uses_a_dedicated_session(self):
@@ -87,6 +98,42 @@ class WebAppTests(unittest.TestCase):
             _, call_kwargs = schedule.call_args
             self.assertTrue(call_kwargs["update_test_state"])
             self.assertIn("Do not access hardware", call_kwargs["prompt"])
+
+    def test_codex_callback_test_uses_the_immediate_visible_notification(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            session = root / "session"
+            session.mkdir()
+            manager = JobManager(root, codex_thread_id="thread-id")
+            manager.codex_executable = "codex.exe"
+            manager.vscode_process_id = ""
+            manager._session_dir = session
+            manager._log_path = session / "session.log"
+            prompt = "Hardware-free callback analysis test."
+
+            with (
+                patch("radio_power_profiler.web_app.subprocess.run") as run,
+                patch.object(manager, "_open_vscode_uri"),
+            ):
+                run.return_value.returncode = 0
+                manager._schedule_codex_callback(
+                    "callback-test",
+                    prompt=prompt,
+                    update_test_state=True,
+                )
+                manager._callback_thread.join(timeout=3)
+
+            self.assertFalse(manager._callback_thread.is_alive())
+            self.assertEqual(run.call_count, 2)
+            self.assertIn(
+                "immediate visible completion notification",
+                run.call_args_list[0].args[0][7],
+            )
+            self.assertIn(
+                "Testul callback Codex a ajuns în conversație",
+                run.call_args_list[0].args[0][7],
+            )
+            self.assertEqual(run.call_args_list[1].args[0][7], prompt)
 
     def test_codex_focus_reloads_webviews_before_reopening_the_thread(self):
         thread_id = "12345678-1234-1234-1234-123456789abc"

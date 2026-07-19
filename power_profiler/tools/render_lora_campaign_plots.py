@@ -487,7 +487,10 @@ def _continuous(
     canvas = PdfCanvas()
     tx_rows = [row for row in rows if row["measurement_direction"] == "tx"]
     sf = int(float(tx_rows[0]["spreading_factor"]))
-    canvas.text(350, 510, f"{module}: continuous average power (SF{sf})", size=16, bold=True)
+    title = f"{module}: continuous average power (SF{sf})"
+    title_size = min(16.0, (canvas.width - 40.0) / (len(title) * 0.6))
+    title_x = max(20.0, (canvas.width - len(title) * title_size * 0.6) / 2.0)
+    canvas.text(title_x, 510, title, size=title_size, bold=True)
     boxes = [(100, 100, 380, 340), (600, 100, 380, 340)]
     selected_sf = [row for row in rows if int(float(row["spreading_factor"])) == sf]
     powers = sorted({_f(row["tx_power_dbm"]) for row in selected_sf})

@@ -285,6 +285,26 @@
     "airtime": {"kind": "lora", "sf_axis": "spreading_factor", "bw_axis": "bandwidth_khz", "bw_multiplier": 1000, "coding_rate_denominator": 5, "preamble_symbols": 15, "crc": true, "implicit_header": false},
     "notes": ["RA-02 uses the SX1278 at 433 MHz; the campaign explicitly selects CR 4/5 and the firmware's 15-symbol preamble for reproducible airtime and energy analysis."]
   },
+  "RADIO_RA02_SX1278_2CAP": {
+    "display_name": "Ai-Thinker RA-02 (SX1278) + 2Cap",
+    "firmware_selection": "RADIO_RA02_SX1278 + AT_COMMANDS",
+    "baudrate": 9600,
+    "setup_commands": ["AT", "AT+RESET", "AT+DEBUG=OFF", "AT+RX=OFF", "AT+FREQ=433", "AT+CR=5", "AT+PREAMBLE=15", "AT+CRC=ON", "AT+HEADER=EXPLICIT"],
+    "post_config_commands": ["AT+RX=OFF"],
+    "receiver_enable_commands": ["AT+RX=ON"],
+    "payload_sizes": [8, 32, 128],
+    "repetitions": 5,
+    "cooldown_s": 1.0,
+    "reopen_continuous_between_powers": true,
+    "axes": [
+      {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+PWR={value}", "values": [-4, 10, 20]},
+      {"name": "spreading_factor", "label": "LoRa spreading factor", "command": "AT+SF={value}", "values": [7, 9, 12]},
+      {"name": "bandwidth_khz", "label": "LoRa bandwidth (kHz)", "command": "AT+BW={value}", "values": [125]}
+    ],
+    "transmit": {"mode": "text_line", "line_overhead_bytes": 0, "max_payload_bytes": 255},
+    "airtime": {"kind": "lora", "sf_axis": "spreading_factor", "bw_axis": "bandwidth_khz", "bw_multiplier": 1000, "coding_rate_denominator": 5, "preamble_symbols": 15, "crc": true, "implicit_header": false},
+    "notes": ["RA-02 SX1278 variant with two additional supply-decoupling capacitors; RF parameters are intentionally identical to the classic RA-02 profile for a controlled comparison."]
+  },
   "RADIO_E28_SX1280": {
     "display_name": "E28 direct SPI (SX1280)",
     "firmware_selection": "RADIO_E28_SX1280 + AT_COMMANDS",

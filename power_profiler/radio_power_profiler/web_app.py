@@ -931,11 +931,11 @@ class JobManager:
             "start",
         )
         prompt = (
-            "This is a foreground callback test initiated from the Radio Power "
-            "Profiler web interface. Do not access hardware, inspect campaign "
+            "This is the second phase of a foreground callback test initiated from "
+            "the Radio Power Profiler web interface. Do not access hardware, inspect campaign "
             "results, run commands, or modify files. Reply to the user in Romanian "
-            "with exactly this sentence: Testul callback Codex a ajuns în "
-            "conversație. Then finish the turn."
+            "with exactly this sentence: Ambele etape ale testului callback Codex "
+            "s-au încheiat cu succes. Then finish the turn."
         )
         if not self._schedule_codex_callback(
             "callback-test",
@@ -1303,6 +1303,20 @@ class JobManager:
             self._log(message, "warning")
             return False
 
+        if kind == "callback-test":
+            notification_sentence = "Testul callback Codex a ajuns în conversație."
+        else:
+            notification_sentence = (
+                "Măsurătorile s-au încheiat. Încep acum verificarea automată a "
+                "rezultatelor."
+            )
+        immediate_notification_prompt = (
+            f"The radio {kind} test session has finished. Session directory: "
+            f"{session_dir}. This is only the immediate visible completion "
+            "notification. Do not access hardware, inspect files, run commands, "
+            "or modify the workspace in this turn. Reply to the user in Romanian "
+            f"with exactly this sentence: {notification_sentence} Then finish the turn."
+        )
         if prompt is None:
             prompt = (
                 f"The radio {kind} test session has finished. Session directory: "
@@ -1349,94 +1363,148 @@ class JobManager:
         def run_callback() -> None:
             creationflags = subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0
             with callback_log.open("a", encoding="utf-8") as stream:
-                for attempt in range(1, 4):
-                    executable = self._resolve_codex_executable()
-                    stream.write(
-                        f"[{_utc_now()}] Starting Codex callback attempt {attempt}/3\n"
-                    )
-                    stream.write(
-                        f"[{_utc_now()}] Codex executable: {executable or 'not found'}\n"
-                    )
-                    stream.flush()
-                    if executable is None:
+                def run_turn(
+                    phase: str,
+                    turn_prompt: str,
+                    timeout_s: int,
+                ) -> bool:
+                    for attempt in range(1, 4):
+                        executable = self._resolve_codex_executable()
                         stream.write(
-                            f"[{_utc_now()}] Codex executable is unavailable\n"
-                        )
-                        stream.flush()
-                        if attempt < 3:
-                            time.sleep(30.0)
-                        continue
-                    try:
-                        result = subprocess.run(
-                            [
-                                executable,
-                                "exec",
-                                "--sandbox",
-                                "workspace-write",
-                                "resume",
-                                "--json",
-                                thread_id,
-                                prompt,
-                            ],
-                            cwd=workdir,
-                            stdout=stream,
-                            stderr=subprocess.STDOUT,
-                            text=True,
-                            encoding="utf-8",
-                            errors="replace",
-                            timeout=7200,
-                            creationflags=creationflags,
-                            check=False,
+                            f"[{_utc_now()}] Starting Codex {phase} attempt "
+                            f"{attempt}/3\n"
                         )
                         stream.write(
-                            f"[{_utc_now()}] Codex callback exited with code "
-                            f"{result.returncode}\n"
+                            f"[{_utc_now()}] Codex executable: "
+                            f"{executable or 'not found'}\n"
                         )
                         stream.flush()
-                        if result.returncode == 0:
-                            try:
-                                uri = self._focus_codex_thread()
-                                stream.write(
-                                    f"[{_utc_now()}] Requested Codex conversation "
-                                    f"foreground via {uri}\n"
-                                )
-                                self._log(
-                                    "Codex conversation foreground requested",
-                                    "callback",
-                                )
-                                finish_test(
-                                    "completed",
-                                    "Codex callback completed and requested the conversation foreground",
-                                )
-                            except (OSError, RuntimeError) as exc:
-                                stream.write(
-                                    f"[{_utc_now()}] Could not bring the Codex "
-                                    f"conversation to the foreground: {exc}\n"
-                                )
-                                self._log(
-                                    "Codex completed the callback, but VS Code could "
-                                    f"not be focused: {exc}",
-                                    "warning",
-                                )
-                                finish_test(
-                                    "completed_with_errors",
-                                    "Codex replied, but VS Code could not be focused: "
-                                    f"{exc}",
-                                )
+                        if executable is None:
+                            stream.write(
+                                f"[{_utc_now()}] Codex executable is unavailable\n"
+                            )
                             stream.flush()
-                            return
-                    except subprocess.TimeoutExpired:
+                            if attempt < 3:
+                                time.sleep(5.0)
+                            continue
+                        try:
+                            result = subprocess.run(
+                                [
+                                    executable,
+                                    "exec",
+                                    "--sandbox",
+                                    "workspace-write",
+                                    "resume",
+                                    "--json",
+                                    thread_id,
+                                    turn_prompt,
+                                ],
+                                cwd=workdir,
+                                stdout=stream,
+                                stderr=subprocess.STDOUT,
+                                text=True,
+                                encoding="utf-8",
+                                errors="replace",
+                                timeout=timeout_s,
+                                creationflags=creationflags,
+                                check=False,
+                            )
+                            stream.write(
+                                f"[{_utc_now()}] Codex {phase} exited with code "
+                                f"{result.returncode}\n"
+                            )
+                            stream.flush()
+                            if result.returncode == 0:
+                                return True
+                        except subprocess.TimeoutExpired:
+                            stream.write(
+                                f"[{_utc_now()}] Codex {phase} timed out after "
+                                f"{timeout_s} s\n"
+                            )
+                            stream.flush()
+                        except OSError as exc:
+                            stream.write(
+                                f"[{_utc_now()}] Could not start Codex {phase}: "
+                                f"{exc}\n"
+                            )
+                            stream.flush()
+                        if attempt < 3:
+                            time.sleep(5.0)
+                    return False
+
+                if immediate_notification_prompt is not None:
+                    if run_turn(
+                        "visible notification",
+                        immediate_notification_prompt,
+                        300,
+                    ):
+                        try:
+                            uri = self._focus_codex_thread()
+                            stream.write(
+                                f"[{_utc_now()}] Displayed immediate completion "
+                                f"notification via {uri}\n"
+                            )
+                            self._log(
+                                "Codex completion notification displayed; automatic "
+                                "result analysis started",
+                                "callback",
+                            )
+                        except (OSError, RuntimeError) as exc:
+                            stream.write(
+                                f"[{_utc_now()}] Immediate Codex notification was "
+                                f"created, but VS Code could not display it: {exc}\n"
+                            )
+                            self._log(
+                                "Codex created the completion notification, but VS Code "
+                                f"could not display it: {exc}",
+                                "warning",
+                            )
+                        stream.flush()
+                    else:
                         stream.write(
-                            f"[{_utc_now()}] Codex callback timed out after 7200 s\n"
+                            f"[{_utc_now()}] Immediate Codex notification failed; "
+                            "continuing with result analysis\n"
                         )
                         stream.flush()
-                    except OSError as exc:
-                        stream.write(
-                            f"[{_utc_now()}] Could not start Codex callback: {exc}\n"
+                        self._log(
+                            "Immediate Codex notification failed; automatic result "
+                            "analysis is still running",
+                            "warning",
                         )
-                        stream.flush()
-                    if attempt < 3:
-                        time.sleep(30.0)
+
+                if run_turn("result analysis", prompt, 7200):
+                    try:
+                        uri = self._focus_codex_thread()
+                        stream.write(
+                            f"[{_utc_now()}] Requested Codex conversation "
+                            f"foreground via {uri}\n"
+                        )
+                        self._log(
+                            "Codex conversation foreground requested",
+                            "callback",
+                        )
+                        finish_test(
+                            "completed",
+                            "Codex callback completed and requested the conversation foreground",
+                        )
+                    except (OSError, RuntimeError) as exc:
+                        stream.write(
+                            f"[{_utc_now()}] Could not bring the Codex "
+                            f"conversation to the foreground: {exc}\n"
+                        )
+                        self._log(
+                            "Codex completed the callback, but VS Code could "
+                            f"not be focused: {exc}",
+                            "warning",
+                        )
+                        finish_test(
+                            "completed_with_errors",
+                            "Codex replied, but VS Code could not be focused: "
+                            f"{exc}",
+                        )
+                    stream.flush()
+                    return
+
                 finish_test(
                     "failed",
                     "Codex callback failed after three attempts; inspect codex_callback.log",
@@ -1507,6 +1575,7 @@ HTML = r"""<!doctype html>
       <span class="muted">The quick check always saves raw traces; a full campaign may use tens of GB.</span></span></label>
     <p class="muted">PPK2 stays in Ampere Meter mode and guards the external VIN → VOUT current path between measurement steps and while the profiler is idle.</p>
     <label class="check"><input id="notifyCodex" type="checkbox" checked><span>Notify Codex, continue this thread, and bring the conversation to the foreground when the test finishes.
+      <span class="muted">Codex posts an immediate completion message first, then analyzes the results and returns with the verdict.</span>
       <span id="codexCallbackState" class="muted">Checking callback availability...</span></span></label>
     <div class="actions"><button id="quick">Run quick check</button><button id="campaign">Start full campaign</button>
       <button id="testCodex" class="secondary">Test Codex callback</button>

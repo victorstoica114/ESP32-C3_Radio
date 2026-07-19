@@ -1,0 +1,16 @@
+{
+  "authoritative_session": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap",
+  "packet_points": 36,
+  "packet_runs": 180,
+  "continuous_points": 12,
+  "maximum_energy_cv_percent": 0.7101766692417386,
+  "maximum_ppk_sample_loss_percent": 0.5257142857142857,
+  "packet_losses": 1,
+  "recovery_overrides": {},
+  "diagnostic_recovery_summaries": [],
+  "notes": [
+    "RX energy uses a deterministic integration window equal to calculated LoRa airtime.",
+    "Verified total radio loss is retained when the transmitter completed with zero serial errors.",
+    "Loss results are preserved as measured; isolated packet losses were not cherry-picked away."
+  ]
+}

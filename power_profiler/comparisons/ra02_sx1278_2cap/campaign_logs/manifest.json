@@ -1,0 +1,3252 @@
+{
+  "state": "completed",
+  "kind": "campaign",
+  "message": "Test completed successfully",
+  "started_utc": "2026-07-19T17:09:59+00:00",
+  "finished_utc": "2026-07-19T17:54:45+00:00",
+  "session_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap",
+  "current_step": 40,
+  "total_steps": 40,
+  "current_label": "",
+  "completed_steps": 40,
+  "failed_steps": 0,
+  "quick_verdict": null,
+  "config": {
+    "profile_id": "RADIO_RA02_SX1278_2CAP",
+    "measured_port": "COM35",
+    "peer_port": "COM36",
+    "ppk_port": "COM11",
+    "voltage_mv": 3300,
+    "repetitions": 5,
+    "cooldown_s": 1.0,
+    "continuous_duration_s": 60.0,
+    "max_retries": 2,
+    "retry_cooling_s": 10.0,
+    "save_raw_campaign": true,
+    "notify_codex": true
+  },
+  "steps": [
+    {
+      "step_id": "tx_p-4_spreading_factor-7_bandwidth_khz-125_s8",
+      "label": "TX 8 B - -4 dBm - SF7, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-4",
+        "--axis",
+        "spreading_factor=7",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201000_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201000_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p-4_spreading_factor-7_bandwidth_khz-125_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T17:10:21+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201000_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-4_spreading_factor-7_bandwidth_khz-125_s32",
+      "label": "TX 32 B - -4 dBm - SF7, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-4",
+        "--axis",
+        "spreading_factor=7",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201021_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201021_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p-4_spreading_factor-7_bandwidth_khz-125_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T17:10:42+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201021_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-4_spreading_factor-7_bandwidth_khz-125_s128",
+      "label": "TX 128 B - -4 dBm - SF7, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "128",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-4",
+        "--axis",
+        "spreading_factor=7",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201042_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201042_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p-4_spreading_factor-7_bandwidth_khz-125_s128_attempt_01.log",
+          "finished_utc": "2026-07-19T17:11:04+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201042_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-4_spreading_factor-9_bandwidth_khz-125_s8",
+      "label": "TX 8 B - -4 dBm - SF9, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-4",
+        "--axis",
+        "spreading_factor=9",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201105_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201105_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p-4_spreading_factor-9_bandwidth_khz-125_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T17:11:26+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201105_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-4_spreading_factor-9_bandwidth_khz-125_s32",
+      "label": "TX 32 B - -4 dBm - SF9, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-4",
+        "--axis",
+        "spreading_factor=9",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201126_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201126_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p-4_spreading_factor-9_bandwidth_khz-125_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T17:11:49+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201126_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-4_spreading_factor-9_bandwidth_khz-125_s128",
+      "label": "TX 128 B - -4 dBm - SF9, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "128",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-4",
+        "--axis",
+        "spreading_factor=9",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201150_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201150_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p-4_spreading_factor-9_bandwidth_khz-125_s128_attempt_01.log",
+          "finished_utc": "2026-07-19T17:12:18+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201150_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-4_spreading_factor-12_bandwidth_khz-125_s8",
+      "label": "TX 8 B - -4 dBm - SF12, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-4",
+        "--axis",
+        "spreading_factor=12",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201218_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201218_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p-4_spreading_factor-12_bandwidth_khz-125_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T17:12:53+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201218_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-4_spreading_factor-12_bandwidth_khz-125_s32",
+      "label": "TX 32 B - -4 dBm - SF12, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-4",
+        "--axis",
+        "spreading_factor=12",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201254_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201254_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p-4_spreading_factor-12_bandwidth_khz-125_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T17:13:39+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201254_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-4_spreading_factor-12_bandwidth_khz-125_s128",
+      "label": "TX 128 B - -4 dBm - SF12, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "128",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-4",
+        "--axis",
+        "spreading_factor=12",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201339_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201339_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p-4_spreading_factor-12_bandwidth_khz-125_s128_attempt_01.log",
+          "finished_utc": "2026-07-19T17:15:03+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201339_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p10_spreading_factor-7_bandwidth_khz-125_s8",
+      "label": "TX 8 B - 10 dBm - SF7, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=10",
+        "--axis",
+        "spreading_factor=7",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201503_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201503_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p10_spreading_factor-7_bandwidth_khz-125_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T17:15:24+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201503_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p10_spreading_factor-7_bandwidth_khz-125_s32",
+      "label": "TX 32 B - 10 dBm - SF7, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=10",
+        "--axis",
+        "spreading_factor=7",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201524_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201524_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p10_spreading_factor-7_bandwidth_khz-125_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T17:15:45+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201524_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p10_spreading_factor-7_bandwidth_khz-125_s128",
+      "label": "TX 128 B - 10 dBm - SF7, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "128",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=10",
+        "--axis",
+        "spreading_factor=7",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201545_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201545_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p10_spreading_factor-7_bandwidth_khz-125_s128_attempt_01.log",
+          "finished_utc": "2026-07-19T17:16:08+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201545_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p10_spreading_factor-9_bandwidth_khz-125_s8",
+      "label": "TX 8 B - 10 dBm - SF9, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=10",
+        "--axis",
+        "spreading_factor=9",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201608_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201608_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p10_spreading_factor-9_bandwidth_khz-125_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T17:16:29+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "rx_missing"
+            ],
+            "errors": [],
+            "warnings": [
+              "1 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201608_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "rx_missing"
+        ],
+        "errors": [],
+        "warnings": [
+          "1 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "tx_p10_spreading_factor-9_bandwidth_khz-125_s32",
+      "label": "TX 32 B - 10 dBm - SF9, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=10",
+        "--axis",
+        "spreading_factor=9",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201630_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201630_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p10_spreading_factor-9_bandwidth_khz-125_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T17:16:53+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201630_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p10_spreading_factor-9_bandwidth_khz-125_s128",
+      "label": "TX 128 B - 10 dBm - SF9, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "128",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=10",
+        "--axis",
+        "spreading_factor=9",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201653_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201653_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p10_spreading_factor-9_bandwidth_khz-125_s128_attempt_01.log",
+          "finished_utc": "2026-07-19T17:17:21+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201653_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p10_spreading_factor-12_bandwidth_khz-125_s8",
+      "label": "TX 8 B - 10 dBm - SF12, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=10",
+        "--axis",
+        "spreading_factor=12",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201722_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201722_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p10_spreading_factor-12_bandwidth_khz-125_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T17:17:57+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201722_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p10_spreading_factor-12_bandwidth_khz-125_s32",
+      "label": "TX 32 B - 10 dBm - SF12, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=10",
+        "--axis",
+        "spreading_factor=12",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201757_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201757_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p10_spreading_factor-12_bandwidth_khz-125_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T17:18:42+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201757_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p10_spreading_factor-12_bandwidth_khz-125_s128",
+      "label": "TX 128 B - 10 dBm - SF12, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "128",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=10",
+        "--axis",
+        "spreading_factor=12",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201842_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201842_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p10_spreading_factor-12_bandwidth_khz-125_s128_attempt_01.log",
+          "finished_utc": "2026-07-19T17:20:07+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_201842_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p20_spreading_factor-7_bandwidth_khz-125_s8",
+      "label": "TX 8 B - 20 dBm - SF7, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "spreading_factor=7",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202007_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202007_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p20_spreading_factor-7_bandwidth_khz-125_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T17:20:28+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202007_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p20_spreading_factor-7_bandwidth_khz-125_s32",
+      "label": "TX 32 B - 20 dBm - SF7, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "spreading_factor=7",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202028_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202028_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p20_spreading_factor-7_bandwidth_khz-125_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T17:20:49+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202028_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p20_spreading_factor-7_bandwidth_khz-125_s128",
+      "label": "TX 128 B - 20 dBm - SF7, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "128",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "spreading_factor=7",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202049_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202049_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p20_spreading_factor-7_bandwidth_khz-125_s128_attempt_01.log",
+          "finished_utc": "2026-07-19T17:21:12+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202049_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p20_spreading_factor-9_bandwidth_khz-125_s8",
+      "label": "TX 8 B - 20 dBm - SF9, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "spreading_factor=9",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202112_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202112_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p20_spreading_factor-9_bandwidth_khz-125_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T17:21:33+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202112_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p20_spreading_factor-9_bandwidth_khz-125_s32",
+      "label": "TX 32 B - 20 dBm - SF9, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "spreading_factor=9",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202133_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202133_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p20_spreading_factor-9_bandwidth_khz-125_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T17:21:56+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202133_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p20_spreading_factor-9_bandwidth_khz-125_s128",
+      "label": "TX 128 B - 20 dBm - SF9, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "128",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "spreading_factor=9",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202156_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202156_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p20_spreading_factor-9_bandwidth_khz-125_s128_attempt_01.log",
+          "finished_utc": "2026-07-19T17:22:24+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202156_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p20_spreading_factor-12_bandwidth_khz-125_s8",
+      "label": "TX 8 B - 20 dBm - SF12, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "spreading_factor=12",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202225_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202225_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p20_spreading_factor-12_bandwidth_khz-125_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T17:22:59+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202225_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p20_spreading_factor-12_bandwidth_khz-125_s32",
+      "label": "TX 32 B - 20 dBm - SF12, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "spreading_factor=12",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202259_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202259_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p20_spreading_factor-12_bandwidth_khz-125_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T17:23:42+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202259_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p20_spreading_factor-12_bandwidth_khz-125_s128",
+      "label": "TX 128 B - 20 dBm - SF12, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "128",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "spreading_factor=12",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx",
+        "--receiver-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202343_radio_ra02_sx1278_2cap",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202343_radio_ra02_sx1278_2cap"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\tx_p20_spreading_factor-12_bandwidth_khz-125_s128_attempt_01.log",
+          "finished_utc": "2026-07-19T17:25:03+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_tx\\20260719_202343_radio_ra02_sx1278_2cap",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p20_spreading_factor-7_bandwidth_khz-125_s8",
+      "label": "RX 8 B - TX 20 dBm - SF7, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "spreading_factor=7",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx",
+        "--transmitter-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202503_radio_ra02_sx1278_2cap_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202503_radio_ra02_sx1278_2cap_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\rx_p20_spreading_factor-7_bandwidth_khz-125_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T17:25:24+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202503_radio_ra02_sx1278_2cap_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p20_spreading_factor-7_bandwidth_khz-125_s32",
+      "label": "RX 32 B - TX 20 dBm - SF7, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "spreading_factor=7",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx",
+        "--transmitter-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202525_radio_ra02_sx1278_2cap_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202525_radio_ra02_sx1278_2cap_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\rx_p20_spreading_factor-7_bandwidth_khz-125_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T17:25:47+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202525_radio_ra02_sx1278_2cap_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p20_spreading_factor-7_bandwidth_khz-125_s128",
+      "label": "RX 128 B - TX 20 dBm - SF7, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "128",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "spreading_factor=7",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx",
+        "--transmitter-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202547_radio_ra02_sx1278_2cap_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202547_radio_ra02_sx1278_2cap_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\rx_p20_spreading_factor-7_bandwidth_khz-125_s128_attempt_01.log",
+          "finished_utc": "2026-07-19T17:26:10+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202547_radio_ra02_sx1278_2cap_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p20_spreading_factor-9_bandwidth_khz-125_s8",
+      "label": "RX 8 B - TX 20 dBm - SF9, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "spreading_factor=9",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx",
+        "--transmitter-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202611_radio_ra02_sx1278_2cap_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202611_radio_ra02_sx1278_2cap_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\rx_p20_spreading_factor-9_bandwidth_khz-125_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T17:26:33+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202611_radio_ra02_sx1278_2cap_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p20_spreading_factor-9_bandwidth_khz-125_s32",
+      "label": "RX 32 B - TX 20 dBm - SF9, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "spreading_factor=9",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx",
+        "--transmitter-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202633_radio_ra02_sx1278_2cap_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202633_radio_ra02_sx1278_2cap_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\rx_p20_spreading_factor-9_bandwidth_khz-125_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T17:26:58+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202633_radio_ra02_sx1278_2cap_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p20_spreading_factor-9_bandwidth_khz-125_s128",
+      "label": "RX 128 B - TX 20 dBm - SF9, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "128",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "spreading_factor=9",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx",
+        "--transmitter-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202658_radio_ra02_sx1278_2cap_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202658_radio_ra02_sx1278_2cap_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\rx_p20_spreading_factor-9_bandwidth_khz-125_s128_attempt_01.log",
+          "finished_utc": "2026-07-19T17:27:28+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202658_radio_ra02_sx1278_2cap_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p20_spreading_factor-12_bandwidth_khz-125_s8",
+      "label": "RX 8 B - TX 20 dBm - SF12, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "spreading_factor=12",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx",
+        "--transmitter-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202728_radio_ra02_sx1278_2cap_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202728_radio_ra02_sx1278_2cap_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\rx_p20_spreading_factor-12_bandwidth_khz-125_s8_attempt_01.log",
+          "finished_utc": "2026-07-19T17:28:04+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202728_radio_ra02_sx1278_2cap_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p20_spreading_factor-12_bandwidth_khz-125_s32",
+      "label": "RX 32 B - TX 20 dBm - SF12, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "spreading_factor=12",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx",
+        "--transmitter-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202804_radio_ra02_sx1278_2cap_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202804_radio_ra02_sx1278_2cap_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\rx_p20_spreading_factor-12_bandwidth_khz-125_s32_attempt_01.log",
+          "finished_utc": "2026-07-19T17:28:51+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202804_radio_ra02_sx1278_2cap_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p20_spreading_factor-12_bandwidth_khz-125_s128",
+      "label": "RX 128 B - TX 20 dBm - SF12, BW 125 kHz",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "128",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "1",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=20",
+        "--axis",
+        "spreading_factor=12",
+        "--axis",
+        "bandwidth_khz=125",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx",
+        "--transmitter-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202851_radio_ra02_sx1278_2cap_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202851_radio_ra02_sx1278_2cap_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\rx_p20_spreading_factor-12_bandwidth_khz-125_s128_attempt_01.log",
+          "finished_utc": "2026-07-19T17:30:16+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\packet_rx\\20260719_202851_radio_ra02_sx1278_2cap_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "continuous_tx_average",
+      "label": "Average TX power - SF9, BW 125 kHz - 60 s/power level",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "continuous",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "tx",
+        "--powers=-4,10,20",
+        "--frame-bytes",
+        "64",
+        "--gap-ms",
+        "15",
+        "--duration-s",
+        "60",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\continuous",
+        "--keep-power-on",
+        "--axis",
+        "spreading_factor=9",
+        "--axis",
+        "bandwidth_khz=125",
+        "--save-raw"
+      ],
+      "result_kind": "continuous",
+      "expected_rows": 3,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\continuous\\20260719_203017_radio_ra02_sx1278_2cap_continuous_tx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\continuous\\20260719_203017_radio_ra02_sx1278_2cap_continuous_tx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\continuous_tx_average_attempt_01.log",
+          "finished_utc": "2026-07-19T17:36:08+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 3,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\continuous\\20260719_203017_radio_ra02_sx1278_2cap_continuous_tx",
+      "validation": {
+        "valid": true,
+        "rows": 3,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "continuous_rx_spreading_factor-7_bandwidth_khz-125",
+      "label": "Average RX power and loss - SF7, BW 125 kHz - 60 s/power level",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "continuous",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "rx",
+        "--powers=-4,10,20",
+        "--frame-bytes",
+        "64",
+        "--gap-ms",
+        "15",
+        "--duration-s",
+        "60",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\continuous",
+        "--keep-power-on",
+        "--axis",
+        "spreading_factor=7",
+        "--axis",
+        "bandwidth_khz=125",
+        "--transmitter-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "continuous",
+      "expected_rows": 3,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\continuous\\20260719_203608_radio_ra02_sx1278_2cap_continuous_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\continuous\\20260719_203608_radio_ra02_sx1278_2cap_continuous_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\continuous_rx_spreading_factor-7_bandwidth_khz-125_attempt_01.log",
+          "finished_utc": "2026-07-19T17:42:14+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 3,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\continuous\\20260719_203608_radio_ra02_sx1278_2cap_continuous_rx",
+      "validation": {
+        "valid": true,
+        "rows": 3,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "continuous_rx_spreading_factor-9_bandwidth_khz-125",
+      "label": "Average RX power and loss - SF9, BW 125 kHz - 60 s/power level",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "continuous",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "rx",
+        "--powers=-4,10,20",
+        "--frame-bytes",
+        "64",
+        "--gap-ms",
+        "15",
+        "--duration-s",
+        "60",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\continuous",
+        "--keep-power-on",
+        "--axis",
+        "spreading_factor=9",
+        "--axis",
+        "bandwidth_khz=125",
+        "--transmitter-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "continuous",
+      "expected_rows": 3,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\continuous\\20260719_204214_radio_ra02_sx1278_2cap_continuous_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\continuous\\20260719_204214_radio_ra02_sx1278_2cap_continuous_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\continuous_rx_spreading_factor-9_bandwidth_khz-125_attempt_01.log",
+          "finished_utc": "2026-07-19T17:48:22+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 3,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\continuous\\20260719_204214_radio_ra02_sx1278_2cap_continuous_rx",
+      "validation": {
+        "valid": true,
+        "rows": 3,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "continuous_rx_spreading_factor-12_bandwidth_khz-125",
+      "label": "Average RX power and loss - SF12, BW 125 kHz - 60 s/power level",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "continuous",
+        "--module",
+        "RADIO_RA02_SX1278_2CAP",
+        "--direction",
+        "rx",
+        "--powers=-4,10,20",
+        "--frame-bytes",
+        "64",
+        "--gap-ms",
+        "15",
+        "--duration-s",
+        "60",
+        "--radio-port",
+        "COM35",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\continuous",
+        "--keep-power-on",
+        "--axis",
+        "spreading_factor=12",
+        "--axis",
+        "bandwidth_khz=125",
+        "--transmitter-port",
+        "COM36",
+        "--save-raw"
+      ],
+      "result_kind": "continuous",
+      "expected_rows": 3,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\continuous\\20260719_204822_radio_ra02_sx1278_2cap_continuous_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\continuous\\20260719_204822_radio_ra02_sx1278_2cap_continuous_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\logs\\continuous_rx_spreading_factor-12_bandwidth_khz-125_attempt_01.log",
+          "finished_utc": "2026-07-19T17:54:45+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 3,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_200959_campaign_radio_ra02_sx1278_2cap\\continuous\\20260719_204822_radio_ra02_sx1278_2cap_continuous_rx",
+      "validation": {
+        "valid": true,
+        "rows": 3,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    }
+  ]
+}

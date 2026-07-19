@@ -1,0 +1,15 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[width=0.92\linewidth,height=7cm,grid=both,
+xlabel={TX power (dBm)},ylabel={Mean TX current (mA)},
+legend pos=north west,title={RA-02 classic vs. RA-02 + 2Cap}]
+\addplot+[blue,mark=*] coordinates {(-4,11.106488) (10,26.665656) (20,61.724214)};
+\addlegendentry{RA-02 classic}
+\addplot+[red,dashed,mark=square*] coordinates {(-4,11.066119) (10,25.675254) (20,59.679502)};
+\addlegendentry{RA-02 + 2Cap}
+\end{axis}
+\end{tikzpicture}
+\end{document}

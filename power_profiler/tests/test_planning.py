@@ -82,6 +82,20 @@ class PlanningTests(unittest.TestCase):
         self.assertEqual(power_axis.values, (-4, 10, 20))
         self.assertEqual(len(build_cases(profile, "rx")), 135)
 
+    def test_ra02_2cap_profile_matches_classic_ra02_test_matrix(self):
+        classic = load_profile("RADIO_RA02_SX1278")
+        two_cap = load_profile("RADIO_RA02_SX1278_2CAP")
+        self.assertEqual(two_cap.firmware_selection, classic.firmware_selection)
+        self.assertEqual(two_cap.setup_commands, classic.setup_commands)
+        self.assertEqual(two_cap.post_config_commands, classic.post_config_commands)
+        self.assertEqual(two_cap.receiver_enable_commands, classic.receiver_enable_commands)
+        self.assertEqual(two_cap.payload_sizes, classic.payload_sizes)
+        self.assertEqual(two_cap.axes, classic.axes)
+        self.assertEqual(two_cap.airtime, classic.airtime)
+        self.assertTrue(two_cap.reopen_continuous_between_powers)
+        self.assertEqual(len(build_cases(two_cap, "tx")), 135)
+        self.assertEqual(len(build_cases(two_cap, "rx")), 135)
+
     def test_axis_override_preserves_command_mapping(self):
         profile = load_profile("RADIO_EBYTE_E32_433T33D")
         profile = override_profile(

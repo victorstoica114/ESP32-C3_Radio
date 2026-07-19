@@ -14,6 +14,7 @@ if str(TOOLS_DIR) not in sys.path:
 
 import generate_continuous_report as continuous_report  # noqa: E402
 import generate_lora_campaign_reports as lora_reports  # noqa: E402
+import generate_lora_variant_comparison as variant_comparison  # noqa: E402
 import render_lora_campaign_plots as lora_renderer  # noqa: E402
 import generate_web_campaign_reports as campaign_reports  # noqa: E402
 
@@ -34,6 +35,44 @@ def _continuous_row(profile: str, power: float) -> dict[str, object]:
 
 
 class ReportTests(unittest.TestCase):
+    def test_lora_variant_comparison_reports_relative_changes(self) -> None:
+        continuous_classic = [
+            {
+                "measurement_direction": "tx",
+                "tx_power_dbm": "10",
+                "spreading_factor": "9",
+                "bandwidth_khz": "125",
+                "mean_current_uA": "20000",
+                "mean_power_mW": "66",
+                "frames_transmitted": "100",
+                "frames_received": "",
+            }
+        ]
+        continuous_variant = [dict(continuous_classic[0])]
+        continuous_variant[0]["mean_current_uA"] = "19000"
+        continuous_variant[0]["mean_power_mW"] = "62.7"
+        packet_classic = [{
+            "measurement_direction": "tx",
+            "payload_bytes": "8",
+            "tx_power_dbm": "10",
+            "spreading_factor": "9",
+            "bandwidth_khz": "125",
+            "energy_total_mJ_mean": "10",
+            "energy_cv_percent": "0.2",
+            "packets_received": "5",
+        }]
+        packet_variant = [dict(packet_classic[0])]
+        packet_variant[0]["energy_total_mJ_mean"] = "9.5"
+
+        continuous = variant_comparison.compare_continuous(
+            continuous_classic, continuous_variant
+        )
+        packets = variant_comparison.compare_packets(packet_classic, packet_variant)
+
+        self.assertAlmostEqual(continuous[0]["current_delta_percent"], -5.0)
+        self.assertAlmostEqual(continuous[0]["power_delta_percent"], -5.0)
+        self.assertAlmostEqual(packets[0]["energy_delta_percent"], -5.0)
+
     def test_lora_loss_matrix_accepts_positive_minimum_tx_power(self) -> None:
         continuous = []
         for power in (2.0, 10.0, 20.0):
@@ -77,6 +116,31 @@ class ReportTests(unittest.TestCase):
             self.assertTrue(data.startswith(b"%PDF-1.4"))
             self.assertTrue(data.endswith(b"%%EOF\n"))
             self.assertTrue(path.with_suffix(".png").read_bytes().startswith(b"\x89PNG"))
+
+    def test_continuous_plot_fits_a_long_module_title(self) -> None:
+        rows = []
+        for direction in ("tx", "rx"):
+            for power in (-4.0, 10.0, 20.0):
+                rows.append(
+                    {
+                        "measurement_direction": direction,
+                        "spreading_factor": "9",
+                        "tx_power_dbm": power,
+                        "mean_power_mW": 40.0,
+                        "mean_current_uA": 12000.0,
+                    }
+                )
+        with tempfile.TemporaryDirectory() as temporary:
+            output = Path(temporary)
+            path = lora_renderer._continuous(
+                output,
+                "test",
+                "A very long LoRa module variant display name with qualifiers",
+                rows,
+            )
+
+            self.assertTrue(path.is_file())
+            self.assertTrue(path.with_suffix(".png").is_file())
 
     def test_lora_report_accepts_verified_total_radio_loss(self) -> None:
         row = {
