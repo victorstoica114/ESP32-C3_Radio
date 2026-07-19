@@ -1,0 +1,112 @@
+{
+  "created_utc": "2026-07-19T06:45:49+00:00",
+  "profile": {
+    "profile_id": "RADIO_SX1278_NAKED",
+    "display_name": "SX1278-Naked",
+    "firmware_selection": "RADIO_RA01_SX1278 + AT_COMMANDS",
+    "baudrate": 9600,
+    "setup_commands": [
+      "AT",
+      "AT+RESET",
+      "AT+DEBUG=OFF",
+      "AT+RX=OFF",
+      "AT+CR=5",
+      "AT+CRC=ON",
+      "AT+HEADER=EXPLICIT"
+    ],
+    "post_config_commands": [
+      "AT+RX=OFF"
+    ],
+    "receiver_enable_commands": [
+      "AT+RX=ON"
+    ],
+    "payload_sizes": [
+      64
+    ],
+    "repetitions": 20,
+    "cooldown_s": 0.5,
+    "axes": [
+      {
+        "name": "tx_power_dbm",
+        "values": [
+          -4
+        ],
+        "command": "AT+PWR={value}",
+        "commands": {},
+        "label": "TX power (dBm)"
+      },
+      {
+        "name": "spreading_factor",
+        "values": [
+          7
+        ],
+        "command": "AT+SF={value}",
+        "commands": {},
+        "label": "LoRa spreading factor"
+      },
+      {
+        "name": "bandwidth_khz",
+        "values": [
+          125
+        ],
+        "command": "AT+BW={value}",
+        "commands": {},
+        "label": "LoRa bandwidth (kHz)"
+      }
+    ],
+    "transmit": {
+      "mode": "text_line",
+      "command": null,
+      "line_overhead_bytes": 0,
+      "max_payload_bytes": 255,
+      "frame_payload_bytes": null,
+      "wait_for_ok": false
+    },
+    "receive": {
+      "inter_frame_gap_ms": 0.0,
+      "post_receive_s": 0.05
+    },
+    "capture": {
+      "pre_s": 0.2,
+      "post_s": 0.25,
+      "minimum_after_trigger_s": 0.5,
+      "max_after_trigger_s": 15.0,
+      "threshold_margin_uA": 500.0,
+      "merge_gap_ms": 0.5,
+      "minimum_event_ms": 0.05,
+      "align_tx_airtime_window": false
+    },
+    "airtime": {
+      "kind": "lora",
+      "sf_axis": "spreading_factor",
+      "bw_axis": "bandwidth_khz",
+      "bw_multiplier": 1000,
+      "coding_rate_denominator": 5,
+      "preamble_symbols": 8,
+      "crc": true,
+      "implicit_header": false
+    },
+    "inter_run_commands": [],
+    "power_cycle_between_runs": false,
+    "power_cycle_min_airtime_s": 0.0,
+    "power_cycle_off_s": 1.0,
+    "restore_after_receive": true,
+    "warmup_transfers": 0,
+    "reopen_continuous_between_powers": true,
+    "notes": [
+      "Bare SX1278 layout without an RF shield; uses the RA-01-compatible AT firmware."
+    ]
+  },
+  "measurement_direction": "rx",
+  "measured_port": "COM19",
+  "radio_port": "COM19",
+  "transmitter_port": "COM20",
+  "receiver_port": "COM19",
+  "peer_port": "COM20",
+  "ppk_port": "COM11",
+  "ppk_mode": "ampere",
+  "voltage_mv": 3300,
+  "sample_rate_hz": 100000,
+  "save_raw": true,
+  "test_count": 20
+}

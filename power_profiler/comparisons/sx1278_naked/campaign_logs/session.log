@@ -1,0 +1,545 @@
+[08:53:01] START   Campaign session: 40 steps - RADIO_SX1278_NAKED
+[08:53:01] STEP    TX 8 B - -4 dBm - SF7, BW 125 kHz - attempt 1
+[08:53:01] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=-4 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[08:53:02] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:53:02] INFO    Measured transmitter: COM19, 9600 baud
+[08:53:02] INFO    Peer receiver: COM20, 9600 baud
+[08:53:05] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[08:53:08] INFO    Configuring peer receiver on COM20 ...
+[08:53:11] INFO    [   1/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=17707.1 uA, energy=1690.673 uJ
+[08:53:14] INFO    [   2/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=17849.3 uA, energy=1688.742 uJ
+[08:53:16] INFO    [   3/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=18134.0 uA, energy=1687.974 uJ
+[08:53:19] INFO    [   4/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=17991.6 uA, energy=1687.702 uJ
+[08:53:21] INFO    [   5/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=18942.6 uA, energy=1686.770 uJ
+[08:53:22] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_085302_radio_sx1278_naked
+[08:53:22] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:53:22] STEP    TX 32 B - -4 dBm - SF7, BW 125 kHz - attempt 1
+[08:53:22] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=-4 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[08:53:22] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:53:22] INFO    Measured transmitter: COM19, 9600 baud
+[08:53:22] INFO    Peer receiver: COM20, 9600 baud
+[08:53:26] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[08:53:28] INFO    Configuring peer receiver on COM20 ...
+[08:53:32] INFO    [   1/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=17801.9 uA, energy=3085.201 uJ
+[08:53:35] INFO    [   2/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=17944.1 uA, energy=3076.299 uJ
+[08:53:37] INFO    [   3/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=17896.7 uA, energy=3077.634 uJ
+[08:53:40] INFO    [   4/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=18514.1 uA, energy=3071.561 uJ
+[08:53:42] INFO    [   5/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=18086.5 uA, energy=3073.940 uJ
+[08:53:42] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_085322_radio_sx1278_naked
+[08:53:43] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:53:43] STEP    TX 128 B - -4 dBm - SF7, BW 125 kHz - attempt 1
+[08:53:43] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=-4 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[08:53:43] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:53:43] INFO    Measured transmitter: COM19, 9600 baud
+[08:53:43] INFO    Peer receiver: COM20, 9600 baud
+[08:53:47] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[08:53:49] INFO    Configuring peer receiver on COM20 ...
+[08:53:53] INFO    [   1/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=17991.6 uA, energy=8655.759 uJ
+[08:53:56] INFO    [   2/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=17754.5 uA, energy=8631.402 uJ
+[08:53:59] INFO    [   3/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=18895.0 uA, energy=8626.781 uJ
+[08:54:01] INFO    [   4/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=17896.7 uA, energy=8631.386 uJ
+[08:54:04] INFO    [   5/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=18134.0 uA, energy=8625.003 uJ
+[08:54:04] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_085343_radio_sx1278_naked
+[08:54:05] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:54:05] STEP    TX 8 B - -4 dBm - SF9, BW 125 kHz - attempt 1
+[08:54:05] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=-4 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[08:54:05] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:54:05] INFO    Measured transmitter: COM19, 9600 baud
+[08:54:05] INFO    Peer receiver: COM20, 9600 baud
+[08:54:09] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[08:54:11] INFO    Configuring peer receiver on COM20 ...
+[08:54:15] INFO    [   1/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=18752.1 uA, energy=5936.156 uJ
+[08:54:18] INFO    [   2/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=18086.5 uA, energy=5921.918 uJ
+[08:54:20] INFO    [   3/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=18181.5 uA, energy=5924.109 uJ
+[08:54:23] INFO    [   4/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: rx_missing, peak=17470.3 uA, energy=5910.823 uJ
+[08:54:25] INFO    [   5/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=18181.5 uA, energy=5925.596 uJ
+[08:54:25] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_085405_radio_sx1278_naked
+[08:54:26] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:54:26] WARNING TX 8 B - -4 dBm - SF9, BW 125 kHz: 1 transfers have missing packets or fragments
+[08:54:26] STEP    TX 32 B - -4 dBm - SF9, BW 125 kHz - attempt 1
+[08:54:26] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=-4 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[08:54:26] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:54:26] INFO    Measured transmitter: COM19, 9600 baud
+[08:54:26] INFO    Peer receiver: COM20, 9600 baud
+[08:54:30] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[08:54:32] INFO    Configuring peer receiver on COM20 ...
+[08:54:36] INFO    [   1/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=17896.7 uA, energy=10719.283 uJ
+[08:54:39] INFO    [   2/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=17849.3 uA, energy=10673.189 uJ
+[08:54:42] INFO    [   3/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=18229.0 uA, energy=10681.457 uJ
+[08:54:45] INFO    [   4/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=17849.3 uA, energy=10677.272 uJ
+[08:54:47] INFO    [   5/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=18609.3 uA, energy=10659.682 uJ
+[08:54:47] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_085426_radio_sx1278_naked
+[08:54:48] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:54:48] STEP    TX 128 B - -4 dBm - SF9, BW 125 kHz - attempt 1
+[08:54:48] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=-4 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[08:54:48] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:54:48] INFO    Measured transmitter: COM19, 9600 baud
+[08:54:48] INFO    Peer receiver: COM20, 9600 baud
+[08:54:52] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[08:54:54] INFO    Configuring peer receiver on COM20 ...
+[08:55:00] INFO    [   1/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=17470.3 uA, energy=27309.461 uJ
+[08:55:03] INFO    [   2/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=17565.0 uA, energy=27276.753 uJ
+[08:55:07] INFO    [   3/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=17896.7 uA, energy=27280.323 uJ
+[08:55:11] INFO    [   4/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=17896.7 uA, energy=27271.646 uJ
+[08:55:15] INFO    [   5/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=17801.9 uA, energy=27272.739 uJ
+[08:55:15] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_085448_radio_sx1278_naked
+[08:55:16] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:55:16] STEP    TX 8 B - -4 dBm - SF12, BW 125 kHz - attempt 1
+[08:55:16] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=-4 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[08:55:16] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:55:16] INFO    Measured transmitter: COM19, 9600 baud
+[08:55:16] INFO    Peer receiver: COM20, 9600 baud
+[08:55:20] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[08:55:22] INFO    Configuring peer receiver on COM20 ...
+[08:55:28] INFO    [   1/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=17849.3 uA, energy=47274.709 uJ
+[08:55:33] INFO    [   2/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=17659.7 uA, energy=47262.002 uJ
+[08:55:38] INFO    [   3/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=17612.3 uA, energy=47294.870 uJ
+[08:55:42] INFO    [   4/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=17991.6 uA, energy=47275.490 uJ
+[08:55:47] INFO    [   5/5] TX    8 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=17328.3 uA, energy=47294.785 uJ
+[08:55:47] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_085516_radio_sx1278_naked
+[08:55:48] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:55:48] STEP    TX 32 B - -4 dBm - SF12, BW 125 kHz - attempt 1
+[08:55:48] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=-4 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[08:55:48] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:55:48] INFO    Measured transmitter: COM19, 9600 baud
+[08:55:48] INFO    Peer receiver: COM20, 9600 baud
+[08:55:52] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[08:55:54] INFO    Configuring peer receiver on COM20 ...
+[08:56:02] INFO    [   1/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=17896.7 uA, energy=79011.012 uJ
+[08:56:09] INFO    [   2/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=17896.7 uA, energy=78888.329 uJ
+[08:56:15] INFO    [   3/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=17896.7 uA, energy=78838.643 uJ
+[08:56:22] INFO    [   4/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=17944.1 uA, energy=78972.673 uJ
+[08:56:29] INFO    [   5/5] TX   32 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=17754.5 uA, energy=79027.395 uJ
+[08:56:29] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_085548_radio_sx1278_naked
+[08:56:30] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:56:30] STEP    TX 128 B - -4 dBm - SF12, BW 125 kHz - attempt 1
+[08:56:30] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=-4 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[08:56:30] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:56:30] INFO    Measured transmitter: COM19, 9600 baud
+[08:56:30] INFO    Peer receiver: COM20, 9600 baud
+[08:56:33] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[08:56:36] INFO    Configuring peer receiver on COM20 ...
+[08:56:51] INFO    [   1/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=18086.5 uA, energy=199639.960 uJ
+[08:57:06] INFO    [   2/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=17517.6 uA, energy=199591.066 uJ
+[08:57:20] INFO    [   3/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=18086.5 uA, energy=199393.473 uJ
+[08:57:34] INFO    [   4/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=17849.3 uA, energy=199413.502 uJ
+[08:57:49] INFO    [   5/5] TX  128 B, {'tx_power_dbm': -4, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=17801.9 uA, energy=199717.793 uJ
+[08:57:49] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_085630_radio_sx1278_naked
+[08:57:49] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:57:49] STEP    TX 8 B - 10 dBm - SF7, BW 125 kHz - attempt 1
+[08:57:49] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[08:57:50] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:57:50] INFO    Measured transmitter: COM19, 9600 baud
+[08:57:50] INFO    Peer receiver: COM20, 9600 baud
+[08:57:53] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[08:57:56] INFO    Configuring peer receiver on COM20 ...
+[08:58:00] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=56690.9 uA, energy=7813.957 uJ
+[08:58:02] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=56635.7 uA, energy=7812.491 uJ
+[08:58:04] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=56746.1 uA, energy=7805.002 uJ
+[08:58:07] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=56746.1 uA, energy=7805.743 uJ
+[08:58:10] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=56635.7 uA, energy=7799.816 uJ
+[08:58:10] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_085750_radio_sx1278_naked
+[08:58:10] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:58:10] STEP    TX 32 B - 10 dBm - SF7, BW 125 kHz - attempt 1
+[08:58:10] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[08:58:10] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:58:10] INFO    Measured transmitter: COM19, 9600 baud
+[08:58:10] INFO    Peer receiver: COM20, 9600 baud
+[08:58:14] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[08:58:16] INFO    Configuring peer receiver on COM20 ...
+[08:58:20] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=56967.1 uA, energy=14287.808 uJ
+[08:58:23] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=56856.6 uA, energy=14276.076 uJ
+[08:58:25] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=56801.3 uA, energy=14273.044 uJ
+[08:58:28] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=56911.8 uA, energy=14272.380 uJ
+[08:58:30] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=56911.8 uA, energy=14275.052 uJ
+[08:58:30] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_085810_radio_sx1278_naked
+[08:58:31] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:58:31] STEP    TX 128 B - 10 dBm - SF7, BW 125 kHz - attempt 1
+[08:58:31] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[08:58:31] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:58:31] INFO    Measured transmitter: COM19, 9600 baud
+[08:58:31] INFO    Peer receiver: COM20, 9600 baud
+[08:58:35] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[08:58:37] INFO    Configuring peer receiver on COM20 ...
+[08:58:41] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=56967.1 uA, energy=40168.788 uJ
+[08:58:44] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=56856.6 uA, energy=40107.927 uJ
+[08:58:47] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=56856.6 uA, energy=40110.987 uJ
+[08:58:49] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=56911.8 uA, energy=40109.207 uJ
+[08:58:52] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=57077.6 uA, energy=40103.497 uJ
+[08:58:52] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_085831_radio_sx1278_naked
+[08:58:53] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:58:53] STEP    TX 8 B - 10 dBm - SF9, BW 125 kHz - attempt 1
+[08:58:53] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[08:58:53] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:58:53] INFO    Measured transmitter: COM19, 9600 baud
+[08:58:53] INFO    Peer receiver: COM20, 9600 baud
+[08:58:57] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[08:58:59] INFO    Configuring peer receiver on COM20 ...
+[08:59:03] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=57022.3 uA, energy=27541.639 uJ
+[08:59:05] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=57077.6 uA, energy=27530.787 uJ
+[08:59:08] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=57022.3 uA, energy=27518.726 uJ
+[08:59:11] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=56856.6 uA, energy=27521.046 uJ
+[08:59:13] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=56856.6 uA, energy=27510.146 uJ
+[08:59:13] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_085853_radio_sx1278_naked
+[08:59:14] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:59:14] STEP    TX 32 B - 10 dBm - SF9, BW 125 kHz - attempt 1
+[08:59:14] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[08:59:14] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:59:14] INFO    Measured transmitter: COM19, 9600 baud
+[08:59:14] INFO    Peer receiver: COM20, 9600 baud
+[08:59:18] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[08:59:20] INFO    Configuring peer receiver on COM20 ...
+[08:59:24] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=56856.6 uA, energy=49700.288 uJ
+[08:59:27] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=56967.1 uA, energy=49661.369 uJ
+[08:59:30] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=56911.8 uA, energy=49660.149 uJ
+[08:59:33] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=56967.1 uA, energy=49674.244 uJ
+[08:59:35] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=56967.1 uA, energy=49683.292 uJ
+[08:59:35] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_085914_radio_sx1278_naked
+[08:59:36] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:59:36] STEP    TX 128 B - 10 dBm - SF9, BW 125 kHz - attempt 1
+[08:59:36] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[08:59:36] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:59:36] INFO    Measured transmitter: COM19, 9600 baud
+[08:59:36] INFO    Peer receiver: COM20, 9600 baud
+[08:59:40] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[08:59:42] INFO    Configuring peer receiver on COM20 ...
+[08:59:48] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=57077.6 uA, energy=127321.765 uJ
+[08:59:51] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=56911.8 uA, energy=127177.212 uJ
+[08:59:55] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=56967.1 uA, energy=127239.465 uJ
+[08:59:59] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=56967.1 uA, energy=127231.680 uJ
+[09:00:03] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=57077.6 uA, energy=127308.488 uJ
+[09:00:03] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_085936_radio_sx1278_naked
+[09:00:04] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:00:04] STEP    TX 8 B - 10 dBm - SF12, BW 125 kHz - attempt 1
+[09:00:04] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[09:00:04] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:00:04] INFO    Measured transmitter: COM19, 9600 baud
+[09:00:04] INFO    Peer receiver: COM20, 9600 baud
+[09:00:08] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[09:00:10] INFO    Configuring peer receiver on COM20 ...
+[09:00:16] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=57132.9 uA, energy=220398.985 uJ
+[09:00:21] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=57188.2 uA, energy=220449.444 uJ
+[09:00:26] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=57077.6 uA, energy=220349.525 uJ
+[09:00:30] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=57077.6 uA, energy=220392.068 uJ
+[09:00:35] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=57132.9 uA, energy=220359.687 uJ
+[09:00:35] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_090004_radio_sx1278_naked
+[09:00:36] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:00:36] STEP    TX 32 B - 10 dBm - SF12, BW 125 kHz - attempt 1
+[09:00:36] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[09:00:36] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:00:36] INFO    Measured transmitter: COM19, 9600 baud
+[09:00:36] INFO    Peer receiver: COM20, 9600 baud
+[09:00:39] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[09:00:42] INFO    Configuring peer receiver on COM20 ...
+[09:00:50] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=57188.2 uA, energy=368413.547 uJ
+[09:00:56] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=57132.9 uA, energy=368557.285 uJ
+[09:01:03] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=57132.9 uA, energy=368571.907 uJ
+[09:01:10] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=57464.8 uA, energy=368556.216 uJ
+[09:01:16] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=57188.2 uA, energy=368508.426 uJ
+[09:01:16] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_090036_radio_sx1278_naked
+[09:01:17] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:01:17] STEP    TX 128 B - 10 dBm - SF12, BW 125 kHz - attempt 1
+[09:01:17] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[09:01:17] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:01:17] INFO    Measured transmitter: COM19, 9600 baud
+[09:01:17] INFO    Peer receiver: COM20, 9600 baud
+[09:01:21] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[09:01:23] INFO    Configuring peer receiver on COM20 ...
+[09:01:39] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=57298.8 uA, energy=931889.916 uJ
+[09:01:53] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=57354.1 uA, energy=931657.468 uJ
+[09:02:07] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=57409.4 uA, energy=932454.952 uJ
+[09:02:21] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=57298.8 uA, energy=932389.458 uJ
+[09:02:35] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=57298.8 uA, energy=932264.351 uJ
+[09:02:35] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_090117_radio_sx1278_naked
+[09:02:36] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:02:36] STEP    TX 8 B - 20 dBm - SF7, BW 125 kHz - attempt 1
+[09:02:36] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[09:02:36] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:02:36] INFO    Measured transmitter: COM19, 9600 baud
+[09:02:36] INFO    Peer receiver: COM20, 9600 baud
+[09:02:40] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[09:02:42] INFO    Configuring peer receiver on COM20 ...
+[09:02:46] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=80947.9 uA, energy=10673.964 uJ
+[09:02:49] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=80947.9 uA, energy=10623.125 uJ
+[09:02:51] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=80947.9 uA, energy=10597.778 uJ
+[09:02:54] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=81700.3 uA, energy=10578.996 uJ
+[09:02:56] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=80947.9 uA, energy=10593.254 uJ
+[09:02:56] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_090236_radio_sx1278_naked
+[09:02:57] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:02:57] STEP    TX 32 B - 20 dBm - SF7, BW 125 kHz - attempt 1
+[09:02:57] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[09:02:57] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:02:57] INFO    Measured transmitter: COM19, 9600 baud
+[09:02:57] INFO    Peer receiver: COM20, 9600 baud
+[09:03:01] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[09:03:03] INFO    Configuring peer receiver on COM20 ...
+[09:03:07] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=80947.9 uA, energy=19536.431 uJ
+[09:03:09] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=80947.9 uA, energy=19318.204 uJ
+[09:03:12] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=80195.5 uA, energy=19345.054 uJ
+[09:03:14] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=80947.9 uA, energy=19286.672 uJ
+[09:03:17] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=80947.9 uA, energy=19329.251 uJ
+[09:03:17] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_090257_radio_sx1278_naked
+[09:03:17] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:03:17] STEP    TX 128 B - 20 dBm - SF7, BW 125 kHz - attempt 1
+[09:03:17] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[09:03:18] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:03:18] INFO    Measured transmitter: COM19, 9600 baud
+[09:03:18] INFO    Peer receiver: COM20, 9600 baud
+[09:03:21] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[09:03:24] INFO    Configuring peer receiver on COM20 ...
+[09:03:28] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=80947.9 uA, energy=54722.702 uJ
+[09:03:30] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=80947.9 uA, energy=54369.906 uJ
+[09:03:33] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=83205.5 uA, energy=54308.535 uJ
+[09:03:36] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=83958.2 uA, energy=54328.172 uJ
+[09:03:38] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=80947.9 uA, energy=54251.329 uJ
+[09:03:38] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_090318_radio_sx1278_naked
+[09:03:39] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:03:39] STEP    TX 8 B - 20 dBm - SF9, BW 125 kHz - attempt 1
+[09:03:39] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[09:03:39] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:03:39] INFO    Measured transmitter: COM19, 9600 baud
+[09:03:39] INFO    Peer receiver: COM20, 9600 baud
+[09:03:43] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[09:03:45] INFO    Configuring peer receiver on COM20 ...
+[09:03:49] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=80947.9 uA, energy=37675.878 uJ
+[09:03:52] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=81700.3 uA, energy=37350.709 uJ
+[09:03:54] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=80947.9 uA, energy=37100.484 uJ
+[09:03:57] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=81700.3 uA, energy=37145.407 uJ
+[09:03:59] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=80947.9 uA, energy=37220.465 uJ
+[09:03:59] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_090339_radio_sx1278_naked
+[09:04:00] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:04:00] STEP    TX 32 B - 20 dBm - SF9, BW 125 kHz - attempt 1
+[09:04:00] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[09:04:00] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:04:00] INFO    Measured transmitter: COM19, 9600 baud
+[09:04:00] INFO    Peer receiver: COM20, 9600 baud
+[09:04:04] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[09:04:06] INFO    Configuring peer receiver on COM20 ...
+[09:04:10] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=81700.3 uA, energy=67767.787 uJ
+[09:04:13] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=80947.9 uA, energy=67059.968 uJ
+[09:04:16] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=80947.9 uA, energy=66942.968 uJ
+[09:04:19] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=82452.9 uA, energy=67135.022 uJ
+[09:04:21] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=82452.9 uA, energy=67259.936 uJ
+[09:04:21] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_090400_radio_sx1278_naked
+[09:04:22] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:04:22] STEP    TX 128 B - 20 dBm - SF9, BW 125 kHz - attempt 1
+[09:04:22] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[09:04:22] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:04:22] INFO    Measured transmitter: COM19, 9600 baud
+[09:04:22] INFO    Peer receiver: COM20, 9600 baud
+[09:04:26] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[09:04:28] INFO    Configuring peer receiver on COM20 ...
+[09:04:33] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=82452.9 uA, energy=171826.252 uJ
+[09:04:37] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=80947.9 uA, energy=171071.574 uJ
+[09:04:41] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=80947.9 uA, energy=171237.227 uJ
+[09:04:45] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=81700.3 uA, energy=170814.052 uJ
+[09:04:49] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=80947.9 uA, energy=170944.489 uJ
+[09:04:49] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_090422_radio_sx1278_naked
+[09:04:49] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:04:49] STEP    TX 8 B - 20 dBm - SF12, BW 125 kHz - attempt 1
+[09:04:49] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[09:04:49] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:04:49] INFO    Measured transmitter: COM19, 9600 baud
+[09:04:49] INFO    Peer receiver: COM20, 9600 baud
+[09:04:53] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[09:04:55] INFO    Configuring peer receiver on COM20 ...
+[09:05:01] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=80947.9 uA, energy=297420.500 uJ
+[09:05:06] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=81700.3 uA, energy=295369.567 uJ
+[09:05:10] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=80947.9 uA, energy=295802.339 uJ
+[09:05:15] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=82452.9 uA, energy=296318.528 uJ
+[09:05:19] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=82452.9 uA, energy=296267.307 uJ
+[09:05:20] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_090449_radio_sx1278_naked
+[09:05:20] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:05:20] STEP    TX 32 B - 20 dBm - SF12, BW 125 kHz - attempt 1
+[09:05:20] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[09:05:20] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:05:20] INFO    Measured transmitter: COM19, 9600 baud
+[09:05:20] INFO    Peer receiver: COM20, 9600 baud
+[09:05:24] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[09:05:26] INFO    Configuring peer receiver on COM20 ...
+[09:05:34] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=83958.2 uA, energy=493890.937 uJ
+[09:05:40] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=81700.3 uA, energy=493496.913 uJ
+[09:05:47] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=81700.3 uA, energy=494198.958 uJ
+[09:05:53] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=82452.9 uA, energy=493627.585 uJ
+[09:06:00] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=82452.9 uA, energy=493750.994 uJ
+[09:06:00] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_090520_radio_sx1278_naked
+[09:06:00] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:06:00] STEP    TX 128 B - 20 dBm - SF12, BW 125 kHz - attempt 1
+[09:06:00] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction tx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx" --receiver-port COM20 --save-raw
+[09:06:00] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:06:00] INFO    Measured transmitter: COM19, 9600 baud
+[09:06:00] INFO    Peer receiver: COM20, 9600 baud
+[09:06:04] INFO    Configuring measured transmitter (SX1278-Naked) on COM19 ...
+[09:06:06] INFO    Configuring peer receiver on COM20 ...
+[09:06:21] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=82452.9 uA, energy=1246659.688 uJ
+[09:06:35] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=82452.9 uA, energy=1246144.729 uJ
+[09:06:48] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=81700.3 uA, energy=1244148.937 uJ
+[09:07:02] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=82452.9 uA, energy=1247439.299 uJ
+[09:07:16] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=83205.5 uA, energy=1252532.854 uJ
+[09:07:16] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_tx\20260719_090600_radio_sx1278_naked
+[09:07:16] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:07:16] STEP    RX 8 B - TX 20 dBm - SF7, BW 125 kHz - attempt 1
+[09:07:16] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction rx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_rx" --transmitter-port COM20 --save-raw
+[09:07:16] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:07:16] INFO    Measured receiver: COM19, 9600 baud
+[09:07:16] INFO    Peer transmitter: COM20, 9600 baud
+[09:07:20] INFO    Configuring measured receiver (SX1278-Naked) on COM19 ...
+[09:07:22] INFO    Configuring peer transmitter on COM20 ...
+[09:07:26] INFO    [   1/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=13483.8 uA, energy=1371.150 uJ
+[09:07:29] INFO    [   2/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=13809.3 uA, energy=1366.559 uJ
+[09:07:32] INFO    [   3/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=13576.8 uA, energy=1361.367 uJ
+[09:07:34] INFO    [   4/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=13762.8 uA, energy=1365.805 uJ
+[09:07:37] INFO    [   5/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=13437.4 uA, energy=1365.235 uJ
+[09:07:37] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_rx\20260719_090716_radio_sx1278_naked_rx
+[09:07:38] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:07:38] STEP    RX 32 B - TX 20 dBm - SF7, BW 125 kHz - attempt 1
+[09:07:38] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction rx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_rx" --transmitter-port COM20 --save-raw
+[09:07:38] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:07:38] INFO    Measured receiver: COM19, 9600 baud
+[09:07:38] INFO    Peer transmitter: COM20, 9600 baud
+[09:07:41] INFO    Configuring measured receiver (SX1278-Naked) on COM19 ...
+[09:07:44] INFO    Configuring peer transmitter on COM20 ...
+[09:07:48] INFO    [   1/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=13669.8 uA, energy=2734.012 uJ
+[09:07:50] INFO    [   2/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=13669.8 uA, energy=2729.866 uJ
+[09:07:53] INFO    [   3/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=13716.3 uA, energy=2727.489 uJ
+[09:07:56] INFO    [   4/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=13716.3 uA, energy=2729.758 uJ
+[09:07:58] INFO    [   5/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=13623.3 uA, energy=2725.745 uJ
+[09:07:58] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_rx\20260719_090738_radio_sx1278_naked_rx
+[09:07:59] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:07:59] STEP    RX 128 B - TX 20 dBm - SF7, BW 125 kHz - attempt 1
+[09:07:59] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction rx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_rx" --transmitter-port COM20 --save-raw
+[09:07:59] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:07:59] INFO    Measured receiver: COM19, 9600 baud
+[09:07:59] INFO    Peer transmitter: COM20, 9600 baud
+[09:08:03] INFO    Configuring measured receiver (SX1278-Naked) on COM19 ...
+[09:08:05] INFO    Configuring peer transmitter on COM20 ...
+[09:08:10] INFO    [   1/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=13716.3 uA, energy=8186.270 uJ
+[09:08:13] INFO    [   2/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=13716.3 uA, energy=8159.175 uJ
+[09:08:16] INFO    [   3/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=13669.8 uA, energy=8178.171 uJ
+[09:08:19] INFO    [   4/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=13669.8 uA, energy=8169.810 uJ
+[09:08:22] INFO    [   5/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=13809.3 uA, energy=8152.474 uJ
+[09:08:22] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_rx\20260719_090759_radio_sx1278_naked_rx
+[09:08:22] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:08:22] STEP    RX 8 B - TX 20 dBm - SF9, BW 125 kHz - attempt 1
+[09:08:22] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction rx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_rx" --transmitter-port COM20 --save-raw
+[09:08:22] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:08:22] INFO    Measured receiver: COM19, 9600 baud
+[09:08:22] INFO    Peer transmitter: COM20, 9600 baud
+[09:08:26] INFO    Configuring measured receiver (SX1278-Naked) on COM19 ...
+[09:08:28] INFO    Configuring peer transmitter on COM20 ...
+[09:08:32] INFO    [   1/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=13716.3 uA, energy=4699.425 uJ
+[09:08:35] INFO    [   2/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=13855.9 uA, energy=4680.709 uJ
+[09:08:38] INFO    [   3/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=13623.3 uA, energy=4686.405 uJ
+[09:08:41] INFO    [   4/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=13576.8 uA, energy=4684.514 uJ
+[09:08:44] INFO    [   5/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=13762.8 uA, energy=4687.258 uJ
+[09:08:44] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_rx\20260719_090822_radio_sx1278_naked_rx
+[09:08:44] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:08:44] STEP    RX 32 B - TX 20 dBm - SF9, BW 125 kHz - attempt 1
+[09:08:44] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction rx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_rx" --transmitter-port COM20 --save-raw
+[09:08:44] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:08:44] INFO    Measured receiver: COM19, 9600 baud
+[09:08:44] INFO    Peer transmitter: COM20, 9600 baud
+[09:08:48] INFO    Configuring measured receiver (SX1278-Naked) on COM19 ...
+[09:08:50] INFO    Configuring peer transmitter on COM20 ...
+[09:08:55] INFO    [   1/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=13809.3 uA, energy=9384.778 uJ
+[09:08:58] INFO    [   2/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=13855.9 uA, energy=9345.745 uJ
+[09:09:01] INFO    [   3/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=13809.3 uA, energy=9347.490 uJ
+[09:09:04] INFO    [   4/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=13809.3 uA, energy=9345.701 uJ
+[09:09:07] INFO    [   5/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=13809.3 uA, energy=9342.580 uJ
+[09:09:07] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_rx\20260719_090844_radio_sx1278_naked_rx
+[09:09:08] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:09:08] STEP    RX 128 B - TX 20 dBm - SF9, BW 125 kHz - attempt 1
+[09:09:08] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction rx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_rx" --transmitter-port COM20 --save-raw
+[09:09:08] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:09:08] INFO    Measured receiver: COM19, 9600 baud
+[09:09:08] INFO    Peer transmitter: COM20, 9600 baud
+[09:09:12] INFO    Configuring measured receiver (SX1278-Naked) on COM19 ...
+[09:09:14] INFO    Configuring peer transmitter on COM20 ...
+[09:09:19] INFO    [   1/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=13949.0 uA, energy=25709.559 uJ
+[09:09:24] INFO    [   2/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=13855.9 uA, energy=25635.324 uJ
+[09:09:28] INFO    [   3/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=13762.8 uA, energy=25632.309 uJ
+[09:09:32] INFO    [   4/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=13716.3 uA, energy=25665.572 uJ
+[09:09:36] INFO    [   5/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=13762.8 uA, energy=25652.211 uJ
+[09:09:36] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_rx\20260719_090908_radio_sx1278_naked_rx
+[09:09:37] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:09:37] STEP    RX 8 B - TX 20 dBm - SF12, BW 125 kHz - attempt 1
+[09:09:37] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction rx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_rx" --transmitter-port COM20 --save-raw
+[09:09:37] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:09:37] INFO    Measured receiver: COM19, 9600 baud
+[09:09:37] INFO    Peer transmitter: COM20, 9600 baud
+[09:09:41] INFO    Configuring measured receiver (SX1278-Naked) on COM19 ...
+[09:09:43] INFO    Configuring peer transmitter on COM20 ...
+[09:09:49] INFO    [   1/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=13902.4 uA, energy=37438.928 uJ
+[09:09:54] INFO    [   2/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=13809.3 uA, energy=37404.653 uJ
+[09:09:59] INFO    [   3/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=13762.8 uA, energy=37348.777 uJ
+[09:10:04] INFO    [   4/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=13809.3 uA, energy=37425.815 uJ
+[09:10:09] INFO    [   5/5] RX    8 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=13762.8 uA, energy=37454.564 uJ
+[09:10:09] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_rx\20260719_090937_radio_sx1278_naked_rx
+[09:10:10] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:10:10] STEP    RX 32 B - TX 20 dBm - SF12, BW 125 kHz - attempt 1
+[09:10:10] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction rx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_rx" --transmitter-port COM20 --save-raw
+[09:10:10] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:10:10] INFO    Measured receiver: COM19, 9600 baud
+[09:10:10] INFO    Peer transmitter: COM20, 9600 baud
+[09:10:14] INFO    Configuring measured receiver (SX1278-Naked) on COM19 ...
+[09:10:16] INFO    Configuring peer transmitter on COM20 ...
+[09:10:25] INFO    [   1/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=13902.4 uA, energy=68441.655 uJ
+[09:10:32] INFO    [   2/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=13855.9 uA, energy=68358.246 uJ
+[09:10:39] INFO    [   3/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=13902.4 uA, energy=68368.633 uJ
+[09:10:46] INFO    [   4/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=13902.4 uA, energy=68417.997 uJ
+[09:10:53] INFO    [   5/5] RX   32 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=13809.3 uA, energy=68469.157 uJ
+[09:10:53] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_rx\20260719_091010_radio_sx1278_naked_rx
+[09:10:53] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:10:53] STEP    RX 128 B - TX 20 dBm - SF12, BW 125 kHz - attempt 1
+[09:10:53] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_SX1278_NAKED --direction rx --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=20 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_rx" --transmitter-port COM20 --save-raw
+[09:10:53] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:10:53] INFO    Measured receiver: COM19, 9600 baud
+[09:10:53] INFO    Peer transmitter: COM20, 9600 baud
+[09:10:57] INFO    Configuring measured receiver (SX1278-Naked) on COM19 ...
+[09:10:59] INFO    Configuring peer transmitter on COM20 ...
+[09:11:15] INFO    [   1/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=13902.4 uA, energy=186308.657 uJ
+[09:11:30] INFO    [   2/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=14042.1 uA, energy=186117.748 uJ
+[09:11:45] INFO    [   3/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=13902.4 uA, energy=186003.636 uJ
+[09:11:59] INFO    [   4/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=13995.6 uA, energy=186324.206 uJ
+[09:12:14] INFO    [   5/5] RX  128 B, {'tx_power_dbm': 20, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=13995.6 uA, energy=186468.581 uJ
+[09:12:14] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\packet_rx\20260719_091053_radio_sx1278_naked_rx
+[09:12:15] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:12:15] STEP    Average TX power - SF9, BW 125 kHz - 60 s/power level - attempt 1
+[09:12:15] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_SX1278_NAKED --direction tx --powers=-4,10,20 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\continuous" --keep-power-on --axis spreading_factor=9 --axis bandwidth_khz=125 --save-raw
+[09:12:15] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:12:15] INFO    Continuous TX: 60 s per power, parameters={'spreading_factor': 9, 'bandwidth_khz': 125}, 64 B frames, 15 ms gap
+[09:14:14] INFO    [1/3] TX -4 dBm: mean=11.623 mA, power=38.357 mW, status=ok
+[09:16:11] INFO    [2/3] TX 10 dBm: mean=54.438 mA, power=179.644 mW, status=ok
+[09:18:01] INFO    [3/3] TX 20 dBm: mean=72.917 mA, power=240.625 mW, status=ok
+[09:18:01] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\continuous\20260719_091215_radio_sx1278_naked_continuous_tx
+[09:18:02] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:18:02] STEP    Average RX power and loss - SF7, BW 125 kHz - 60 s/power level - attempt 1
+[09:18:02] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_SX1278_NAKED --direction rx --powers=-4,10,20 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\continuous" --keep-power-on --axis spreading_factor=7 --axis bandwidth_khz=125 --transmitter-port COM20 --save-raw
+[09:18:02] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:18:02] INFO    Continuous RX: 60 s per power, parameters={'spreading_factor': 7, 'bandwidth_khz': 125}, 64 B frames, 15 ms gap
+[09:20:33] INFO    [1/3] RX -4 dBm: mean=11.422 mA, power=37.694 mW, status=no_rx_data
+[09:22:34] INFO    [2/3] RX 10 dBm: mean=11.384 mA, power=37.568 mW, status=ok
+[09:24:35] INFO    [3/3] RX 20 dBm: mean=11.392 mA, power=37.593 mW, status=ok
+[09:24:35] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\continuous\20260719_091802_radio_sx1278_naked_continuous_rx
+[09:24:36] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:24:36] WARNING Average RX power and loss - SF7, BW 125 kHz - 60 s/power level: 1 continuous points received no frames (100% loss)
+[09:24:36] STEP    Average RX power and loss - SF9, BW 125 kHz - 60 s/power level - attempt 1
+[09:24:36] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_SX1278_NAKED --direction rx --powers=-4,10,20 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\continuous" --keep-power-on --axis spreading_factor=9 --axis bandwidth_khz=125 --transmitter-port COM20 --save-raw
+[09:24:36] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:24:36] INFO    Continuous RX: 60 s per power, parameters={'spreading_factor': 9, 'bandwidth_khz': 125}, 64 B frames, 15 ms gap
+[09:26:38] INFO    [1/3] RX -4 dBm: mean=11.476 mA, power=37.870 mW, status=ok
+[09:28:40] INFO    [2/3] RX 10 dBm: mean=11.416 mA, power=37.672 mW, status=ok
+[09:30:41] INFO    [3/3] RX 20 dBm: mean=11.439 mA, power=37.748 mW, status=ok
+[09:30:41] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\continuous\20260719_092436_radio_sx1278_naked_continuous_rx
+[09:30:42] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:30:42] STEP    Average RX power and loss - SF12, BW 125 kHz - 60 s/power level - attempt 1
+[09:30:42] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_SX1278_NAKED --direction rx --powers=-4,10,20 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM19 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\continuous" --keep-power-on --axis spreading_factor=12 --axis bandwidth_khz=125 --transmitter-port COM20 --save-raw
+[09:30:42] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:30:42] INFO    Continuous RX: 60 s per power, parameters={'spreading_factor': 12, 'bandwidth_khz': 125}, 64 B frames, 15 ms gap
+[09:32:44] INFO    [1/3] RX -4 dBm: mean=11.529 mA, power=38.045 mW, status=ok
+[09:34:46] INFO    [2/3] RX 10 dBm: mean=11.435 mA, power=37.734 mW, status=ok
+[09:36:47] INFO    [3/3] RX 20 dBm: mean=11.454 mA, power=37.798 mW, status=ok
+[09:36:48] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_085301_campaign_radio_sx1278_naked\continuous\20260719_093042_radio_sx1278_naked_continuous_rx
+[09:36:48] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:36:48] FINISH  Test completed successfully
+[09:36:48] CALLBACK Codex completion callback started

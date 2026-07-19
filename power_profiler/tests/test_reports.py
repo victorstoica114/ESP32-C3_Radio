@@ -14,6 +14,7 @@ if str(TOOLS_DIR) not in sys.path:
 
 import generate_continuous_report as continuous_report  # noqa: E402
 import generate_lora_campaign_reports as lora_reports  # noqa: E402
+import render_lora_campaign_plots as lora_renderer  # noqa: E402
 import generate_web_campaign_reports as campaign_reports  # noqa: E402
 
 
@@ -33,6 +34,34 @@ def _continuous_row(profile: str, power: float) -> dict[str, object]:
 
 
 class ReportTests(unittest.TestCase):
+    def test_dependency_free_pdf_renderer_writes_a_valid_document(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "plot.pdf"
+            canvas = lora_renderer.PdfCanvas(320, 180)
+            canvas.text(20, 140, "Test plot", bold=True)
+            canvas.line(20, 20, 300, 150)
+            canvas.save(path)
+
+            data = path.read_bytes()
+            self.assertTrue(data.startswith(b"%PDF-1.4"))
+            self.assertTrue(data.endswith(b"%%EOF\n"))
+            self.assertTrue(path.with_suffix(".png").read_bytes().startswith(b"\x89PNG"))
+
+    def test_lora_report_accepts_verified_total_radio_loss(self) -> None:
+        row = {
+            "status": "no_rx_data",
+            "measurement_direction": "rx",
+            "frames_transmitted": 450.0,
+            "frames_received": 0,
+            "frame_loss_percent": 100.0,
+            "transmitter_response": "TXCONT=60000,FRAMES=450 | SERIAL_ERRORS=0",
+        }
+
+        self.assertTrue(lora_reports._valid_continuous_status(row))
+
+        row["transmitter_response"] = "TXCONT=60000,FRAMES=450 | SERIAL_ERRORS=1"
+        self.assertFalse(lora_reports._valid_continuous_status(row))
+
     def test_lora_manifest_accepts_valid_targeted_recovery(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             session = Path(temporary)

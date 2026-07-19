@@ -204,6 +204,19 @@ def _packet_rows(manifest: dict[str, Any]) -> tuple[list[dict[str, Any]], dict[s
     return rows, raw_by_direction
 
 
+def _valid_continuous_status(row: dict[str, Any]) -> bool:
+    if row["status"] == "ok":
+        return True
+    return (
+        row["status"] == "no_rx_data"
+        and row["measurement_direction"] == "rx"
+        and int(row["frames_transmitted"]) > 0
+        and int(row["frames_received"]) == 0
+        and float(row["frame_loss_percent"]) == 100.0
+        and "SERIAL_ERRORS=0" in row.get("transmitter_response", "")
+    )
+
+
 def _continuous_rows(manifest: dict[str, Any]) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     for step in manifest["steps"]:
@@ -243,7 +256,7 @@ def _continuous_rows(manifest: dict[str, Any]) -> list[dict[str, Any]]:
             row["frames_received"] = int(raw["frames_received"]) if raw["frames_received"] else ""
             row["frame_loss_percent"] = _f(raw["frame_loss_percent"]) if raw["frame_loss_percent"] else ""
             row["source_directory"] = result.name
-            if row["status"] != "ok" or row["requested_duration_s"] != 60.0:
+            if not _valid_continuous_status(row) or row["requested_duration_s"] != 60.0:
                 raise ValueError(f"Invalid continuous row in {result}")
             if row["sample_loss_percent"] > 1.0:
                 raise ValueError(f"PPK2 sample loss exceeds 1% in {result}")
@@ -546,14 +559,23 @@ def generate(manifest_path: Path, output: Path, base_name: str) -> list[Path]:
         "maximum_ppk_sample_loss_percent": max(row["sample_loss_percent_max"] for row in packet),
         "packet_losses": sum(row["packets_lost"] for row in packet),
         "recovery_overrides": manifest.get("recovery_overrides", {}),
+        "diagnostic_recovery_summaries": [
+            str(path.relative_to(manifest_path.parent))
+            for path in sorted((manifest_path.parent / "recovery").rglob("summary.csv"))
+        ]
+        if (manifest_path.parent / "recovery").exists()
+        else [],
         "notes": [
             "RX energy uses a deterministic integration window equal to calculated LoRa airtime.",
-            "The earlier threshold-selected RX campaign is diagnostic only and is excluded.",
+            "Verified total radio loss is retained when the transmitter completed with zero serial errors.",
             "Loss results are preserved as measured; isolated packet losses were not cherry-picked away.",
         ],
     }
     base.with_name(base.name + "_audit.json").write_text(json.dumps(audit, indent=2) + "\n", encoding="utf-8")
     _copy_provenance(manifest_path, output)
+    from render_lora_campaign_plots import render as render_plots
+
+    render_plots(output, base_name)
     return sorted(path for path in output.rglob("*") if path.is_file())
 
 
