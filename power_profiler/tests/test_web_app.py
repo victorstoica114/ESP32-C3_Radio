@@ -57,6 +57,8 @@ class WebAppTests(unittest.TestCase):
             self.assertIn(str(session), command[7])
             self.assertIn("/api/ppk-guard/release", command[7])
             self.assertIn("Never stop, kill, or restart", command[7])
+            self.assertIn("do not create a temporary repository", command[7])
+            self.assertIn("commit/push remains pending", command[7])
             open_uri.assert_called_once_with(
                 f"vscode://openai.chatgpt/local/{thread_id}"
             )

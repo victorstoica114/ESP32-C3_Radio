@@ -1318,7 +1318,12 @@ class JobManager:
                 "always POST http://127.0.0.1:8765/api/ppk-guard/enable with ppk_port and "
                 "voltage_mv from manifest.json after the diagnostic. Never stop, kill, "
                 "or restart the Radio Power Profiler server because it owns this callback "
-                "and performs the final conversation foreground action."
+                "and performs the final conversation foreground action. If the callback "
+                "sandbox cannot write the main .git directory or access the configured "
+                "Git credentials, do not create a temporary repository, alternate index, "
+                "known-hosts file, commit, or push workaround. Leave the validated "
+                "workspace files ready for the next normal activation and report that "
+                "commit/push remains pending."
             )
         thread_id = self.codex_thread_id
         workdir = Path(__file__).resolve().parents[2]
