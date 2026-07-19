@@ -1,0 +1,29 @@
+{
+  "created_utc": "2026-07-19T19:23:57+00:00",
+  "test_type": "continuous_average_power",
+  "profile_id": "RADIO_E28_SX1280",
+  "module": "E28 direct SPI (SX1280)",
+  "firmware_selection": "RADIO_E28_SX1280 + AT_COMMANDS",
+  "measurement_direction": "rx",
+  "measured_port": "COM37",
+  "peer_port": "COM38",
+  "ppk_port": "COM11",
+  "ppk_mode": "ampere",
+  "voltage_mv": 3300,
+  "sample_rate_hz": 100000,
+  "powers_dbm": [
+    -18.0,
+    0.0,
+    13.0
+  ],
+  "axis_parameters": {
+    "spreading_factor": 12,
+    "bandwidth_khz": 812.5
+  },
+  "bit_rate_kbps": null,
+  "frame_bytes": 64,
+  "content_bytes_per_frame": 64,
+  "inter_frame_gap_ms": 15,
+  "requested_duration_s": 60.0,
+  "save_raw": true
+}

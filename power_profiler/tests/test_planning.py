@@ -96,6 +96,19 @@ class PlanningTests(unittest.TestCase):
         self.assertEqual(len(build_cases(two_cap, "tx")), 135)
         self.assertEqual(len(build_cases(two_cap, "rx")), 135)
 
+    def test_e28_profile_has_deterministic_sx1280_phy_and_controlled_rx(self):
+        profile = load_profile("RADIO_E28_SX1280")
+        self.assertIn("AT+FREQ=2410.5", profile.setup_commands)
+        self.assertIn("AT+CR=6", profile.setup_commands)
+        self.assertIn("AT+PREAMBLE=16", profile.setup_commands)
+        self.assertIn("AT+CRC=OFF", profile.setup_commands)
+        self.assertEqual(profile.receiver_enable_commands, ("AT+RX=ON",))
+        self.assertEqual(profile.airtime["coding_rate_denominator"], 6)
+        self.assertEqual(profile.airtime["preamble_symbols"], 16)
+        self.assertFalse(profile.airtime["crc"])
+        self.assertEqual(len(build_cases(profile, "tx")), 135)
+        self.assertEqual(len(build_cases(profile, "rx")), 135)
+
     def test_axis_override_preserves_command_mapping(self):
         profile = load_profile("RADIO_EBYTE_E32_433T33D")
         profile = override_profile(

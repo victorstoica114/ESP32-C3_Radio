@@ -1,0 +1,223 @@
+Test: E28_POWER
+Ports: COM37 / COM38
+Baud: 9600
+Set command: AT+FREQ={value}
+Same value: 2410.5
+Different values: 2410.5 / 2420.5
+Send template A->B: {payload}
+Send template B->A: {payload}
+Payload kind: Text
+Log: log\Test-AtPairChannelIsolation_E28_POWER_COM37_COM38_20260719_214328.txt
+
+--- COM37 boot/open ---
+[BOOT] Starting SX1280 AT firmware
+[BOOT] DEBUG default = OFF
+[EEPROM] Loaded config = YES
+[SX1280] Applying config... OK
+[READY] Type AT+HELP
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0xe (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40384bc8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0xf4
+load:0x403cc710,len:0x76c
+load:0x403ce710,len:0x2370
+SHA-256 comparison failed:
+Calculated: 0c24681e98cad2eb628a1eaf600039caa2aca0e967e2090cb3a82117968cf823
+Expected: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+Attempting to boot anyway...
+entry 0x403cc710
+
+[BOOT] Starting SX1280 AT firmware
+[BOOT] DEBUG default = OFF
+[EEPROM] Loaded config = YES
+[SX1280] Applying config... OK
+[READY] Type AT+HELP
+--- COM38 boot/open ---
+[BOOT] Starting SX1280 AT firmware
+[BOOT] DEBUG default = OFF
+[EEPROM] Loaded config = YES
+[SX1280] Applying config... OK
+[READY] Type AT+HELP
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0xe (SPI_FAST_FLASH_BOOT)
+Saved PC:0x420081ac
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0xf4
+load:0x403cc710,len:0x76c
+load:0x403ce710,len:0x2370
+SHA-256 comparison failed:
+Calculated: 0c24681e98cad2eb628a1eaf600039caa2aca0e967e2090cb3a82117968cf823
+Expected: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+Attempting to boot anyway...
+entry 0x403cc710
+
+[BOOT] Starting SX1280 AT firmware
+[BOOT] DEBUG default = OFF
+[EEPROM] Loaded config = YES
+[SX1280] Applying config... OK
+[READY] Type AT+HELP
+--- COM37 >> AT ---
+OK
+--- COM37 >> AT+RESET ---
+OK
+--- COM37 >> AT+DEBUG=OFF ---
+OK
+--- COM37 >> AT+MODE=LORA ---
+OK
+--- COM37 >> AT+BW=812.5 ---
+OK
+--- COM37 >> AT+SF=8 ---
+OK
+--- COM37 >> AT+CR=6 ---
+OK
+--- COM37 >> AT+SYNC=0x12 ---
+OK
+--- COM37 >> AT+PREAMBLE=16 ---
+OK
+--- COM37 >> AT+CRC=OFF ---
+OK
+--- COM37 >> AT+HEADER=EXPLICIT ---
+OK
+--- COM37 >> AT+IQ=OFF ---
+OK
+--- COM38 >> AT ---
+OK
+--- COM38 >> AT+RESET ---
+OK
+--- COM38 >> AT+DEBUG=OFF ---
+OK
+--- COM38 >> AT+MODE=LORA ---
+OK
+--- COM38 >> AT+BW=812.5 ---
+OK
+--- COM38 >> AT+SF=8 ---
+OK
+--- COM38 >> AT+CR=6 ---
+OK
+--- COM38 >> AT+SYNC=0x12 ---
+OK
+--- COM38 >> AT+PREAMBLE=16 ---
+OK
+--- COM38 >> AT+CRC=OFF ---
+OK
+--- COM38 >> AT+HEADER=EXPLICIT ---
+OK
+--- COM38 >> AT+IQ=OFF ---
+OK
+
+=== STAGE 1: synchronized value, link must work ===
+--- COM37 >> AT+FREQ=2410.5 ---
+OK
+--- COM37 >> AT+RX=ON ---
+OK
+--- COM37 >> AT+FREQ? ---
+FREQ=2410.500
+OK
+--- COM38 >> AT+FREQ=2410.5 ---
+OK
+--- COM38 >> AT+RX=ON ---
+OK
+--- COM38 >> AT+FREQ? ---
+FREQ=2410.500
+OK
+--- COM37 payload -> COM38 ---
+command: E28_POWER_SYNC_BASE_A_TO_B
+expected token: E28_POWER_SYNC_BASE_A_TO_B
+COM37 tx output:
+<no output>
+COM38 rx output:
+E28_POWER_SYNC_BASE_A_TO_B
+--- COM38 payload -> COM37 ---
+command: E28_POWER_SYNC_BASE_B_TO_A
+expected token: E28_POWER_SYNC_BASE_B_TO_A
+COM38 tx output:
+<no output>
+COM37 rx output:
+E28_POWER_SYNC_BASE_B_TO_A
+
+=== STAGE 2: different values, link must stop ===
+--- COM37 >> AT+FREQ=2410.5 ---
+OK
+--- COM37 >> AT+RX=ON ---
+OK
+--- COM37 >> AT+FREQ? ---
+FREQ=2410.500
+OK
+--- COM38 >> AT+FREQ=2420.5 ---
+OK
+--- COM38 >> AT+RX=ON ---
+OK
+--- COM38 >> AT+FREQ? ---
+FREQ=2420.500
+OK
+--- COM37 payload -> COM38 ---
+command: E28_POWER_DESYNC_A_TO_B
+expected token: E28_POWER_DESYNC_A_TO_B
+COM37 tx output:
+<no output>
+COM38 rx output:
+<no output>
+--- COM38 payload -> COM37 ---
+command: E28_POWER_DESYNC_B_TO_A
+expected token: E28_POWER_DESYNC_B_TO_A
+COM38 tx output:
+<no output>
+COM37 rx output:
+<no output>
+
+=== STAGE 3: synchronized again, link must recover ===
+--- COM37 >> AT+FREQ=2410.5 ---
+OK
+--- COM37 >> AT+RX=ON ---
+OK
+--- COM37 >> AT+FREQ? ---
+FREQ=2410.500
+OK
+--- COM38 >> AT+FREQ=2410.5 ---
+OK
+--- COM38 >> AT+RX=ON ---
+OK
+--- COM38 >> AT+FREQ? ---
+FREQ=2410.500
+OK
+--- COM37 payload -> COM38 ---
+command: E28_POWER_RESYNC_A_TO_B
+expected token: E28_POWER_RESYNC_A_TO_B
+COM37 tx output:
+<no output>
+COM38 rx output:
+E28_POWER_RESYNC_A_TO_B
+--- COM38 payload -> COM37 ---
+command: E28_POWER_RESYNC_B_TO_A
+expected token: E28_POWER_RESYNC_B_TO_A
+COM38 tx output:
+<no output>
+COM37 rx output:
+E28_POWER_RESYNC_B_TO_A
+
+=== RESULTS ===
+PASS	COM37 set 2410.5	expected 'OK'
+PASS	COM37 RX on after set 2410.5	expected 'OK'
+PASS	COM38 set 2410.5	expected 'OK'
+PASS	COM38 RX on after set 2410.5	expected 'OK'
+PASS	SYNC_BASE COM37 to COM38 receive	expected 'E28_POWER_SYNC_BASE_A_TO_B'
+PASS	SYNC_BASE COM38 to COM37 receive	expected 'E28_POWER_SYNC_BASE_B_TO_A'
+PASS	COM37 set 2410.5	expected 'OK'
+PASS	COM37 RX on after set 2410.5	expected 'OK'
+PASS	COM38 set 2420.5	expected 'OK'
+PASS	COM38 RX on after set 2420.5	expected 'OK'
+PASS	DESYNC COM37 to COM38 isolated	not expected 'E28_POWER_DESYNC_A_TO_B'
+PASS	DESYNC COM38 to COM37 isolated	not expected 'E28_POWER_DESYNC_B_TO_A'
+PASS	COM37 set 2410.5	expected 'OK'
+PASS	COM37 RX on after set 2410.5	expected 'OK'
+PASS	COM38 set 2410.5	expected 'OK'
+PASS	COM38 RX on after set 2410.5	expected 'OK'
+PASS	RESYNC COM37 to COM38 receive	expected 'E28_POWER_RESYNC_A_TO_B'
+PASS	RESYNC COM38 to COM37 receive	expected 'E28_POWER_RESYNC_B_TO_A'
+=== SUMMARY ===
+PASS=18 FAIL=0

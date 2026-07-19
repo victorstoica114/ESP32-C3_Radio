@@ -428,6 +428,19 @@ def _three_panel_canvas(title: str) -> tuple[PdfCanvas, list[tuple[float, float,
     return canvas, boxes
 
 
+def _log_energy_scale(values: Sequence[float]) -> tuple[tuple[float, float], tuple[float, ...]]:
+    positive = [value for value in values if value > 0]
+    if not positive:
+        raise ValueError("A logarithmic energy plot requires positive values")
+    lower_exponent = math.floor(math.log10(min(positive) * 0.75))
+    upper_exponent = math.ceil(math.log10(max(positive) * 1.25))
+    if upper_exponent <= lower_exponent:
+        upper_exponent = lower_exponent + 1
+    limits = (10.0**lower_exponent, 10.0**upper_exponent)
+    ticks = tuple(10.0**exponent for exponent in range(lower_exponent, upper_exponent + 1))
+    return limits, ticks
+
+
 def _tx_energy(
     output: Path,
     base: str,
@@ -438,12 +451,15 @@ def _tx_energy(
     powers = tuple(sorted({_f(row["tx_power_dbm"]) for row in rows}))
     sfs = tuple(sorted({int(float(row["spreading_factor"])) for row in rows}))
     colors = (BLUE, ORANGE, GREEN)
+    y_range, y_ticks = _log_energy_scale(
+        [_f(row["energy_total_mJ_mean"]) for row in rows]
+    )
     for box, power in zip(boxes, powers):
-        _axes(canvas, box, y_ticks=(1, 10, 100, 1000, 10000), y_range=(1, 10000), x_ticks=((8, "8"), (32, "32"), (128, "128")), x_range=(8, 128), log_x=True, log_y=True, y_label="Energy [mJ]")
+        _axes(canvas, box, y_ticks=y_ticks, y_range=y_range, x_ticks=((8, "8"), (32, "32"), (128, "128")), x_range=(8, 128), log_x=True, log_y=True, y_label="Energy [mJ]")
         canvas.text(box[0] + 110, 455, f"{power:g} dBm", size=11, bold=True)
         for index, sf in enumerate(sfs):
             selected = sorted((row for row in rows if _f(row["tx_power_dbm"]) == power and int(float(row["spreading_factor"])) == sf), key=lambda row: _f(row["payload_bytes"]))
-            _plot_series(canvas, box, [(_f(row["payload_bytes"]), _f(row["energy_total_mJ_mean"])) for row in selected], x_range=(8, 128), y_range=(1, 10000), color=colors[index], marker=index, log_x=True, log_y=True, dash=("[] 0", "[7 3] 0", "[8 3 2 3] 0")[index])
+            _plot_series(canvas, box, [(_f(row["payload_bytes"]), _f(row["energy_total_mJ_mean"])) for row in selected], x_range=(8, 128), y_range=y_range, color=colors[index], marker=index, log_x=True, log_y=True, dash=("[] 0", "[7 3] 0", "[8 3 2 3] 0")[index])
     _legend(canvas, [(f"SF{sf}", colors[i], i) for i, sf in enumerate(sfs)], 420, 55)
     canvas.text(385, 25, "Payload [B]; five repetitions per point", size=9)
     path = output / f"{base}_tx_energy.pdf"
@@ -465,12 +481,18 @@ def _tx_rx_energy(
     spreading_factors = tuple(
         sorted({int(float(row["spreading_factor"])) for row in tx + rx})
     )
+    selected_power_rows = [
+        row for row in tx + rx if _f(row["tx_power_dbm"]) == power
+    ]
+    y_range, y_ticks = _log_energy_scale(
+        [_f(row["energy_total_mJ_mean"]) for row in selected_power_rows]
+    )
     for box, sf in zip(boxes, spreading_factors):
-        _axes(canvas, box, y_ticks=(1, 10, 100, 1000, 10000), y_range=(1, 10000), x_ticks=((8, "8"), (32, "32"), (128, "128")), x_range=(8, 128), log_x=True, log_y=True, y_label="Energy [mJ]")
+        _axes(canvas, box, y_ticks=y_ticks, y_range=y_range, x_ticks=((8, "8"), (32, "32"), (128, "128")), x_range=(8, 128), log_x=True, log_y=True, y_label="Energy [mJ]")
         canvas.text(box[0] + 125, 455, f"SF{sf}", size=11, bold=True)
         for index, (source, color, label) in enumerate(((tx, BLUE, "TX"), (rx, RED, "RX"))):
             selected = sorted((row for row in source if int(float(row["spreading_factor"])) == sf and _f(row["tx_power_dbm"]) == power), key=lambda row: _f(row["payload_bytes"]))
-            _plot_series(canvas, box, [(_f(row["payload_bytes"]), _f(row["energy_total_mJ_mean"])) for row in selected], x_range=(8, 128), y_range=(1, 10000), color=color, marker=index, log_x=True, log_y=True, dash=("[] 0", "[7 3] 0")[index])
+            _plot_series(canvas, box, [(_f(row["payload_bytes"]), _f(row["energy_total_mJ_mean"])) for row in selected], x_range=(8, 128), y_range=y_range, color=color, marker=index, log_x=True, log_y=True, dash=("[] 0", "[7 3] 0")[index])
     _legend(canvas, [("TX", BLUE, 0), ("RX", RED, 1)], 455, 55)
     canvas.text(350, 25, "Payload [B]; RX uses one deterministic LoRa airtime window", size=9)
     path = output / f"{base}_tx_rx_energy.pdf"

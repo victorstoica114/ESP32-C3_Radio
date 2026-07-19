@@ -1,0 +1,6 @@
+{
+  "reason": "The original continuous RX SF12 batch was interrupted when COM37 and COM38 were physically disconnected after the -18 dBm point. The complete three-power SF12 batch was rerun after reconnecting the same E28 pair; all points completed successfully and the interrupted attempt remains preserved for audit.",
+  "steps": {
+    "continuous_rx_spreading_factor-12_bandwidth_khz-812.5": "recovery/continuous_rx_sf12/20260719_222357_radio_e28_sx1280_continuous_rx"
+  }
+}

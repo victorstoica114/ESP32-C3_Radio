@@ -1,0 +1,9 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_E28_SX1280 --direction rx --radio-port COM37 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 2 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=13 --axis spreading_factor=5 --axis bandwidth_khz=812.5 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_214528_quick_radio_e28_sx1280\packet_results" --transmitter-port COM38 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Measured receiver: COM37, 9600 baud
+Peer transmitter: COM38, 9600 baud
+Configuring measured receiver (E28 direct SPI (SX1280)) on COM37 ...
+Configuring peer transmitter on COM38 ...
+[   1/2] RX    8 B, {'tx_power_dbm': 13, 'spreading_factor': 5, 'bandwidth_khz': 812.5}, rep 1: ok, peak=11662.7 uA, energy=43.866 uJ
+[   2/2] RX    8 B, {'tx_power_dbm': 13, 'spreading_factor': 5, 'bandwidth_khz': 812.5}, rep 2: ok, peak=13033.5 uA, energy=46.022 uJ
+Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_214528_quick_radio_e28_sx1280\packet_results\20260719_214543_radio_e28_sx1280_rx

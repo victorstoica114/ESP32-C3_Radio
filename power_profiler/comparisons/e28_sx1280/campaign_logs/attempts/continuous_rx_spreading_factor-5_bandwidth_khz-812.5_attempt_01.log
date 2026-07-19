@@ -1,0 +1,7 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_E28_SX1280 --direction rx --powers=-18,0,13 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM37 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_214712_campaign_radio_e28_sx1280\continuous" --keep-power-on --axis spreading_factor=5 --axis bandwidth_khz=812.5 --transmitter-port COM38 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Continuous RX: 60 s per power, parameters={'spreading_factor': 5, 'bandwidth_khz': 812.5}, 64 B frames, 15 ms gap
+[1/3] RX -18 dBm: mean=6.134 mA, power=20.242 mW, status=ok
+[2/3] RX 0 dBm: mean=6.078 mA, power=20.057 mW, status=ok
+[3/3] RX 13 dBm: mean=6.079 mA, power=20.061 mW, status=ok
+Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_214712_campaign_radio_e28_sx1280\continuous\20260719_220702_radio_e28_sx1280_continuous_rx

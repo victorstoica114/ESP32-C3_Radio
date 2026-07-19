@@ -117,6 +117,12 @@ class ReportTests(unittest.TestCase):
             self.assertTrue(data.endswith(b"%%EOF\n"))
             self.assertTrue(path.with_suffix(".png").read_bytes().startswith(b"\x89PNG"))
 
+    def test_energy_plot_scale_includes_sub_millijoule_measurements(self) -> None:
+        limits, ticks = lora_renderer._log_energy_scale([0.04, 88.0])
+
+        self.assertEqual(limits, (0.01, 1000.0))
+        self.assertEqual(ticks, (0.01, 0.1, 1.0, 10.0, 100.0, 1000.0))
+
     def test_continuous_plot_fits_a_long_module_title(self) -> None:
         rows = []
         for direction in ("tx", "rx"):
