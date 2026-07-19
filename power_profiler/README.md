@@ -75,6 +75,12 @@ Varianta cu shield folosește același firmware și profilul separat
 `RADIO_SX1278_SHIELDED` (`SX1278-Shielded`), pentru comparații directe cu
 varianta Naked.
 
+Varianta montată pe un PCB purtător cu doi condensatori suplimentari folosește
+tot firmware-ul `RADIO_RA01_SX1278`, dar are profilul separat
+`RADIO_SX1278_PCB_2CAP` (`SX1278-PCB-2Cap`). Parametrii radio sunt identici cu
+cei ai celorlalte variante SX1278, astfel încât diferențele de alimentare și RF
+să poată fi comparate direct.
+
 Plăcile Adafruit bazate pe același SX1278, dar care includ și un level shifter,
 folosesc profilul separat `RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER`
 (`SX1278-Adafruit-LevelShifter`). Parametrii radio rămân identici, iar separarea
