@@ -37,6 +37,14 @@ class PlanningTests(unittest.TestCase):
         )
         self.assertAlmostEqual(airtime, 0.056576, places=6)
 
+    def test_xl1276_profile_supports_controlled_rx_and_continuous_sweeps(self):
+        profile = load_profile("RADIO_XL1276_D01_SX1276")
+        self.assertIn("AT+CR=5", profile.setup_commands)
+        self.assertEqual(profile.receiver_enable_commands, ("AT+RX=ON",))
+        self.assertEqual(profile.post_config_commands, ("AT+RX=OFF",))
+        self.assertTrue(profile.reopen_continuous_between_powers)
+        self.assertEqual(len(build_cases(profile, "rx")), 135)
+
     def test_axis_override_preserves_command_mapping(self):
         profile = load_profile("RADIO_EBYTE_E32_433T33D")
         profile = override_profile(

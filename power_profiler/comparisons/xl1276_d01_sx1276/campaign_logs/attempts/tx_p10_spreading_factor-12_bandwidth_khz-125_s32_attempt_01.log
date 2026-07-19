@@ -1,0 +1,12 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_XL1276_D01_SX1276 --direction tx --radio-port COM27 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 1 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_135643_campaign_radio_xl1276_d01_sx1276\packet_tx" --receiver-port COM28 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Measured transmitter: COM27, 9600 baud
+Peer receiver: COM28, 9600 baud
+Configuring measured transmitter (XL1276-D01 (SX1276)) on COM27 ...
+Configuring peer receiver on COM28 ...
+[   1/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=68920.6 uA, energy=376194.418 uJ
+[   2/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=68920.6 uA, energy=374932.460 uJ
+[   3/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=68920.6 uA, energy=375288.194 uJ
+[   4/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=68920.6 uA, energy=375904.294 uJ
+[   5/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=68920.6 uA, energy=376496.909 uJ
+Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260719_135643_campaign_radio_xl1276_d01_sx1276\packet_tx\20260719_140415_radio_xl1276_d01_sx1276
