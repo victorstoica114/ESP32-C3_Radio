@@ -110,19 +110,21 @@ class PlanningTests(unittest.TestCase):
         self.assertEqual(len(build_cases(profile, "rx")), 135)
 
     def test_nrf24l01_profile_has_deterministic_phy_and_controlled_rx(self):
-        profile = load_profile("RADIO_NRF24L01")
-        self.assertIn("AT+CHAN=80", profile.setup_commands)
-        self.assertIn("AT+ADDR=0123456789", profile.setup_commands)
-        self.assertEqual(profile.receiver_enable_commands, ("AT+RX=ON",))
-        self.assertEqual(profile.post_config_commands, ("AT+RX=OFF",))
-        self.assertEqual(profile.payload_sizes, (8, 16, 32))
-        self.assertEqual(profile.transmit.frame_payload_bytes, 32)
-        power_axis = next(axis for axis in profile.axes if axis.name == "tx_power_dbm")
-        rate_axis = next(axis for axis in profile.axes if axis.name == "data_rate_kbps")
-        self.assertEqual(power_axis.values, (-18, -6, 0))
-        self.assertEqual(rate_axis.values, (250, 1000, 2000))
-        self.assertEqual(len(build_cases(profile, "tx")), 135)
-        self.assertEqual(len(build_cases(profile, "rx")), 135)
+        for profile_id in ("RADIO_NRF24L01", "RADIO_NRF24L01_PA"):
+            with self.subTest(profile_id=profile_id):
+                profile = load_profile(profile_id)
+                self.assertIn("AT+CHAN=80", profile.setup_commands)
+                self.assertIn("AT+ADDR=0123456789", profile.setup_commands)
+                self.assertEqual(profile.receiver_enable_commands, ("AT+RX=ON",))
+                self.assertEqual(profile.post_config_commands, ("AT+RX=OFF",))
+                self.assertEqual(profile.payload_sizes, (8, 16, 32))
+                self.assertEqual(profile.transmit.frame_payload_bytes, 32)
+                power_axis = next(axis for axis in profile.axes if axis.name == "tx_power_dbm")
+                rate_axis = next(axis for axis in profile.axes if axis.name == "data_rate_kbps")
+                self.assertEqual(power_axis.values, (-18, -6, 0))
+                self.assertEqual(rate_axis.values, (250, 1000, 2000))
+                self.assertEqual(len(build_cases(profile, "tx")), 135)
+                self.assertEqual(len(build_cases(profile, "rx")), 135)
 
     def test_axis_override_preserves_command_mapping(self):
         profile = load_profile("RADIO_EBYTE_E32_433T33D")

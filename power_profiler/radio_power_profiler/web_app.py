@@ -342,7 +342,7 @@ def build_quick_steps(config: WebConfig, session_dir: Path) -> list[CommandStep]
                 5,
             ),
         )
-    if config.profile_id == "RADIO_NRF24L01":
+    if config.profile_id in {"RADIO_NRF24L01", "RADIO_NRF24L01_PA"}:
         # These modules can pass at minimum power and at the fastest rate while
         # exhibiting severe delivery loss at high power and a slower rate.
         # Keep both directions in the quick check so that a bench-layout or

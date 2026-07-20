@@ -322,7 +322,10 @@ and transmitter serial errors in a CSV plus a complete session log. The local
 COM41/COM42 campaign is documented in
 `power_profiler/comparisons/nrf24l01/VALIDATION.md`; it exposed repeatable
 high-power loss at 250 and 1000 kbps, so the nRF24L01 web quick check includes
-maximum-power/minimum-rate cases in both directions.
+maximum-power/minimum-rate cases in both directions. The external-PA/LNA pair
+on COM43/COM44 is characterized separately under
+`power_profiler/comparisons/nrf24l01_pa/VALIDATION.md`; it must not be merged
+with the plain-module baseline.
 
 ### SX1276/SX1278 modules
 

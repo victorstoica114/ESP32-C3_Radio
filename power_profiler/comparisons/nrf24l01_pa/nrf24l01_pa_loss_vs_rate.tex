@@ -1,0 +1,30 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[width=12.5cm, height=7.4cm,
+  title={nRF24L01+PA: packet loss versus radio rate},
+  xmode=log, log basis x=10,
+  xmin=166.666667, xmax=3000, xtick={250,1000,2000},
+  xticklabels={250,1000,2000}, ymin=0, ymax=100,
+  xlabel={Radio rate [kbps]}, ylabel={Lost frames [\%]},
+  grid=both, minor grid style={gray!15}, major grid style={gray!35},
+  every axis plot/.append style={line width=1.25pt, mark size=2.8pt},
+  legend style={draw=none, fill=white, fill opacity=0.85, text opacity=1,
+    at={(0.03,0.97)}, anchor=north west, legend columns=1},
+]
+\addplot+[blue!75!black, solid, mark=*] coordinates {(250,100) (1000,47.5189235) (2000,26.1594002)};
+\addlegendentry{0 dBm}
+\addplot+[orange!90!black, dashed, mark=square*] coordinates {(250,100) (1000,46.1020752) (2000,26.1448793)};
+\addlegendentry{-6 dBm}
+\addplot+[green!50!black, dashdotted, mark=triangle*] coordinates {(250,0.14858841) (1000,0) (2000,0)};
+\addlegendentry{-18 dBm}
+\end{axis}
+\node[font=\footnotesize, align=center, text width=12cm, anchor=north]
+  at ([yshift=-1.45cm]current axis.south)
+  {60 s per point; 32 B frames; inter-frame gap: 250 kbps: 15 ms; 1000 kbps: 15 ms; 2000 kbps: 15 ms. Shared rates may contain multiple RF profiles.};
+\end{tikzpicture}
+\end{document}

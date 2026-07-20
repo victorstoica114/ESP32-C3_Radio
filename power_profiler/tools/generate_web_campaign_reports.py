@@ -476,7 +476,25 @@ def _read_loss_rows(result_dirs: list[Path]) -> list[dict[str, Any]]:
                     "status": raw["status"],
                     "source_directory": result_dir.name,
                 }
-                if row["status"] != "ok" or not 0 <= loss <= 100:
+                expected_loss = (
+                    100.0 * (transmitted - received) / transmitted
+                    if transmitted
+                    else 0.0
+                )
+                valid_no_rx_data = (
+                    row["status"] == "no_rx_data"
+                    and transmitted > 0
+                    and received == 0
+                    and math.isclose(loss, 100.0, abs_tol=1e-6)
+                )
+                if (
+                    row["status"] not in {"ok", "no_rx_data"}
+                    or received < 0
+                    or received > transmitted
+                    or not 0 <= loss <= 100
+                    or not math.isclose(loss, expected_loss, abs_tol=1e-4)
+                    or (row["status"] == "no_rx_data" and not valid_no_rx_data)
+                ):
                     raise ValueError(f"Invalid loss result: {row}")
                 rows.append(row)
     rows.sort(

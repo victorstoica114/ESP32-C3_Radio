@@ -13,7 +13,7 @@ Programul poate măsura separat TX sau RX. Calculează curentul de repaus, curen
 
 ## Ce module sunt incluse
 
-Comanda `profiles` afișează catalogul complet. Sunt definite profile pentru toate selecțiile radio din proiect: CC1101 V1/V2, cele trei E07, HC-12, nRF24L01, RA-01/RA-01H/RA-01SH/RA-02, E28, E22, E32 T20/T30/T33, E280, E79, XL1276-D01 și firmware-ul extern RA-08.
+Comanda `profiles` afișează catalogul complet. Sunt definite profile pentru toate selecțiile radio din proiect: CC1101 V1/V2, cele trei E07, HC-12, nRF24L01 și nRF24L01+PA, RA-01/RA-01H/RA-01SH/RA-02, E28, E22, E32 T20/T30/T33, E280, E79, XL1276-D01 și firmware-ul extern RA-08.
 
 Profilele sunt date editabile în `radio_power_profiler/profiles.json`. Acolo pot fi schimbate valorile implicite, comenzile AT, limitele pachetului și timpul de răcire.
 

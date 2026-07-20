@@ -1,0 +1,21 @@
+[06:33:33] Starting sustained nRF24L01 link diagnostic on COM43 / COM44
+[06:33:45] COM43->COM44 CH80 250 kbps -18 dBm: 158/182, loss=13.1868%, serial_errors=0
+[06:33:51] COM44->COM43 CH80 250 kbps -18 dBm: 179/179, loss=0.0000%, serial_errors=0
+[06:33:57] COM43->COM44 CH80 250 kbps -6 dBm: 0/189, loss=100.0000%, serial_errors=0
+[06:34:04] COM44->COM43 CH80 250 kbps -6 dBm: 0/186, loss=100.0000%, serial_errors=0
+[06:34:10] COM43->COM44 CH80 250 kbps 0 dBm: 0/187, loss=100.0000%, serial_errors=0
+[06:34:17] COM44->COM43 CH80 250 kbps 0 dBm: 0/188, loss=100.0000%, serial_errors=0
+[06:34:23] COM43->COM44 CH80 1000 kbps -18 dBm: 187/187, loss=0.0000%, serial_errors=0
+[06:34:29] COM44->COM43 CH80 1000 kbps -18 dBm: 184/184, loss=0.0000%, serial_errors=0
+[06:34:36] COM43->COM44 CH80 1000 kbps -6 dBm: 94/188, loss=50.0000%, serial_errors=0
+[06:34:42] COM44->COM43 CH80 1000 kbps -6 dBm: 108/186, loss=41.9355%, serial_errors=0
+[06:34:48] COM43->COM44 CH80 1000 kbps 0 dBm: 102/186, loss=45.1613%, serial_errors=0
+[06:34:55] COM44->COM43 CH80 1000 kbps 0 dBm: 103/187, loss=44.9198%, serial_errors=0
+[06:35:01] COM43->COM44 CH80 2000 kbps -18 dBm: 189/189, loss=0.0000%, serial_errors=0
+[06:35:07] COM44->COM43 CH80 2000 kbps -18 dBm: 185/185, loss=0.0000%, serial_errors=0
+[06:35:14] COM43->COM44 CH80 2000 kbps -6 dBm: 140/181, loss=22.6519%, serial_errors=0
+[06:35:20] COM44->COM43 CH80 2000 kbps -6 dBm: 140/184, loss=23.9130%, serial_errors=0
+[06:35:26] COM43->COM44 CH80 2000 kbps 0 dBm: 136/186, loss=26.8817%, serial_errors=0
+[06:35:33] COM44->COM43 CH80 2000 kbps 0 dBm: 129/181, loss=28.7293%, serial_errors=0
+[06:35:35] CSV: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\diagnostics\nrf24l01_pa\sustained_link_lna_off\summary.csv
+[06:35:35] Completed 18 scenarios; non-zero-loss scenarios: 13

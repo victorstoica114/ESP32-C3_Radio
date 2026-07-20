@@ -396,46 +396,61 @@ class WebAppTests(unittest.TestCase):
         )
 
     def test_nrf24l01_campaign_covers_all_rates_and_controlled_rx(self):
-        config = WebConfig(
-            profile_id="RADIO_NRF24L01",
-            measured_port="COM41",
-            peer_port="COM42",
-            ppk_port="COM11",
-        )
-        config.validate()
-        with tempfile.TemporaryDirectory() as temporary:
-            quick = build_quick_steps(config, Path(temporary) / "quick")
-            campaign = build_campaign_steps(config, Path(temporary) / "campaign")
+        for profile_id, measured_port, peer_port in (
+            ("RADIO_NRF24L01", "COM41", "COM42"),
+            ("RADIO_NRF24L01_PA", "COM43", "COM44"),
+        ):
+            with self.subTest(profile_id=profile_id):
+                config = WebConfig(
+                    profile_id=profile_id,
+                    measured_port=measured_port,
+                    peer_port=peer_port,
+                    ppk_port="COM11",
+                )
+                config.validate()
+                with tempfile.TemporaryDirectory() as temporary:
+                    quick = build_quick_steps(config, Path(temporary) / "quick")
+                    campaign = build_campaign_steps(config, Path(temporary) / "campaign")
 
-        self.assertEqual(len(quick), 6)
-        high_power_slow = {
-            step.step_id: step for step in quick if step.step_id.endswith("slow_high_power")
-        }
-        self.assertEqual(
-            set(high_power_slow),
-            {"tx_slow_high_power", "rx_slow_high_power"},
-        )
-        self.assertTrue(
-            all("tx_power_dbm=0" in step.command for step in high_power_slow.values())
-        )
-        self.assertTrue(
-            all("data_rate_kbps=250" in step.command for step in high_power_slow.values())
-        )
-        self.assertTrue(
-            all("--sizes" in step.command and "32" in step.command for step in high_power_slow.values())
-        )
-        self.assertEqual(len(campaign), 40)
-        self.assertEqual(
-            sum(step.result_kind == "packet" for step in campaign),
-            36,
-        )
-        continuous_rx = [
-            step for step in campaign if step.step_id.startswith("continuous_rx_")
-        ]
-        self.assertEqual(len(continuous_rx), 3)
-        self.assertTrue(
-            all(step.command[step.command.index("--gap-ms") + 1] == "15" for step in continuous_rx)
-        )
+                self.assertEqual(len(quick), 6)
+                high_power_slow = {
+                    step.step_id: step
+                    for step in quick
+                    if step.step_id.endswith("slow_high_power")
+                }
+                self.assertEqual(
+                    set(high_power_slow),
+                    {"tx_slow_high_power", "rx_slow_high_power"},
+                )
+                self.assertTrue(
+                    all("tx_power_dbm=0" in step.command for step in high_power_slow.values())
+                )
+                self.assertTrue(
+                    all("data_rate_kbps=250" in step.command for step in high_power_slow.values())
+                )
+                self.assertTrue(
+                    all(
+                        "--sizes" in step.command and "32" in step.command
+                        for step in high_power_slow.values()
+                    )
+                )
+                self.assertEqual(len(campaign), 40)
+                self.assertEqual(
+                    sum(step.result_kind == "packet" for step in campaign),
+                    36,
+                )
+                continuous_rx = [
+                    step
+                    for step in campaign
+                    if step.step_id.startswith("continuous_rx_")
+                ]
+                self.assertEqual(len(continuous_rx), 3)
+                self.assertTrue(
+                    all(
+                        step.command[step.command.index("--gap-ms") + 1] == "15"
+                        for step in continuous_rx
+                    )
+                )
 
     def test_current_web_defaults_target_e79_pair(self):
         config = WebConfig()

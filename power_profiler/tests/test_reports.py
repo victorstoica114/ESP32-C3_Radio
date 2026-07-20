@@ -36,6 +36,26 @@ def _continuous_row(profile: str, power: float) -> dict[str, object]:
 
 
 class ReportTests(unittest.TestCase):
+    def test_generic_loss_report_accepts_verified_total_radio_loss(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            result = Path(temporary)
+            (result / "metadata.json").write_text(
+                '{"measurement_direction":"rx"}\n', encoding="utf-8"
+            )
+            (result / "summary.csv").write_text(
+                "frames_transmitted,frames_received,frame_loss_percent,"
+                "bit_rate_kbps,rf_profile,tx_power_dbm,requested_duration_s,"
+                "frame_bytes,inter_frame_gap_ms,status\n"
+                "3366,0,100,250,,0,60,32,15,no_rx_data\n",
+                encoding="utf-8",
+            )
+
+            rows = campaign_reports._read_loss_rows([result])
+
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["frames_lost"], 3366)
+        self.assertEqual(rows[0]["delivery_percent"], 0.0)
+
     def test_generic_energy_matrix_keeps_valid_current_captures_with_rf_loss(self) -> None:
         common = {
             "module": "nRF24L01",

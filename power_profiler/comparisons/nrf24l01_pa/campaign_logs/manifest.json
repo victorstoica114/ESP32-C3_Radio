@@ -1,0 +1,3290 @@
+{
+  "state": "completed",
+  "kind": "campaign",
+  "message": "Test completed successfully",
+  "started_utc": "2026-07-20T03:36:22+00:00",
+  "finished_utc": "2026-07-20T04:20:33+00:00",
+  "session_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa",
+  "current_step": 40,
+  "total_steps": 40,
+  "current_label": "",
+  "completed_steps": 40,
+  "failed_steps": 0,
+  "quick_verdict": null,
+  "config": {
+    "profile_id": "RADIO_NRF24L01_PA",
+    "measured_port": "COM43",
+    "peer_port": "COM44",
+    "ppk_port": "COM11",
+    "voltage_mv": 3300,
+    "repetitions": 5,
+    "cooldown_s": 2.0,
+    "continuous_duration_s": 60.0,
+    "max_retries": 2,
+    "retry_cooling_s": 10.0,
+    "save_raw_campaign": true,
+    "notify_codex": false
+  },
+  "steps": [
+    {
+      "step_id": "tx_p-18_data_rate_kbps-250_s8",
+      "label": "TX 8 B - -18 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-18",
+        "--axis",
+        "data_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_063622_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_063622_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p-18_data_rate_kbps-250_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T03:36:47+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_063622_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-18_data_rate_kbps-250_s16",
+      "label": "TX 16 B - -18 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "16",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-18",
+        "--axis",
+        "data_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_063647_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_063647_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p-18_data_rate_kbps-250_s16_attempt_01.log",
+          "finished_utc": "2026-07-20T03:37:20+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_063647_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-18_data_rate_kbps-250_s32",
+      "label": "TX 32 B - -18 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-18",
+        "--axis",
+        "data_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_063720_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_063720_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p-18_data_rate_kbps-250_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T03:37:52+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_063720_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-18_data_rate_kbps-1000_s8",
+      "label": "TX 8 B - -18 dBm - 1000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-18",
+        "--axis",
+        "data_rate_kbps=1000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_063752_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_063752_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p-18_data_rate_kbps-1000_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T03:38:25+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_063752_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-18_data_rate_kbps-1000_s16",
+      "label": "TX 16 B - -18 dBm - 1000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "16",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-18",
+        "--axis",
+        "data_rate_kbps=1000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_063825_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_063825_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p-18_data_rate_kbps-1000_s16_attempt_01.log",
+          "finished_utc": "2026-07-20T03:38:57+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_063825_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-18_data_rate_kbps-1000_s32",
+      "label": "TX 32 B - -18 dBm - 1000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-18",
+        "--axis",
+        "data_rate_kbps=1000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_063858_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_063858_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p-18_data_rate_kbps-1000_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T03:39:30+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_063858_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-18_data_rate_kbps-2000_s8",
+      "label": "TX 8 B - -18 dBm - 2000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-18",
+        "--axis",
+        "data_rate_kbps=2000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_063930_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_063930_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p-18_data_rate_kbps-2000_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T03:40:03+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_063930_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-18_data_rate_kbps-2000_s16",
+      "label": "TX 16 B - -18 dBm - 2000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "16",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-18",
+        "--axis",
+        "data_rate_kbps=2000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064003_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064003_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p-18_data_rate_kbps-2000_s16_attempt_01.log",
+          "finished_utc": "2026-07-20T03:40:35+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064003_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-18_data_rate_kbps-2000_s32",
+      "label": "TX 32 B - -18 dBm - 2000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-18",
+        "--axis",
+        "data_rate_kbps=2000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064035_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064035_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p-18_data_rate_kbps-2000_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T03:41:08+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064035_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-6_data_rate_kbps-250_s8",
+      "label": "TX 8 B - -6 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-6",
+        "--axis",
+        "data_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064108_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064108_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p-6_data_rate_kbps-250_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T03:41:40+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "rx_missing",
+              "rx_missing"
+            ],
+            "errors": [],
+            "warnings": [
+              "2 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064108_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "rx_missing",
+          "rx_missing"
+        ],
+        "errors": [],
+        "warnings": [
+          "2 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "tx_p-6_data_rate_kbps-250_s16",
+      "label": "TX 16 B - -6 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "16",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-6",
+        "--axis",
+        "data_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064141_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064141_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p-6_data_rate_kbps-250_s16_attempt_01.log",
+          "finished_utc": "2026-07-20T03:42:13+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "rx_missing",
+              "rx_missing",
+              "rx_missing",
+              "rx_missing",
+              "rx_missing"
+            ],
+            "errors": [],
+            "warnings": [
+              "5 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064141_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "rx_missing",
+          "rx_missing",
+          "rx_missing",
+          "rx_missing",
+          "rx_missing"
+        ],
+        "errors": [],
+        "warnings": [
+          "5 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "tx_p-6_data_rate_kbps-250_s32",
+      "label": "TX 32 B - -6 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-6",
+        "--axis",
+        "data_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064213_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064213_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p-6_data_rate_kbps-250_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T03:42:46+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "rx_missing",
+              "rx_missing",
+              "rx_missing",
+              "rx_missing",
+              "rx_missing"
+            ],
+            "errors": [],
+            "warnings": [
+              "5 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064213_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "rx_missing",
+          "rx_missing",
+          "rx_missing",
+          "rx_missing",
+          "rx_missing"
+        ],
+        "errors": [],
+        "warnings": [
+          "5 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "tx_p-6_data_rate_kbps-1000_s8",
+      "label": "TX 8 B - -6 dBm - 1000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-6",
+        "--axis",
+        "data_rate_kbps=1000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064246_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064246_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p-6_data_rate_kbps-1000_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T03:43:18+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064246_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-6_data_rate_kbps-1000_s16",
+      "label": "TX 16 B - -6 dBm - 1000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "16",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-6",
+        "--axis",
+        "data_rate_kbps=1000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064319_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064319_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p-6_data_rate_kbps-1000_s16_attempt_01.log",
+          "finished_utc": "2026-07-20T03:43:51+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064319_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-6_data_rate_kbps-1000_s32",
+      "label": "TX 32 B - -6 dBm - 1000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-6",
+        "--axis",
+        "data_rate_kbps=1000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064351_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064351_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p-6_data_rate_kbps-1000_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T03:44:24+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "rx_missing",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": [
+              "1 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064351_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "rx_missing",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": [
+          "1 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "tx_p-6_data_rate_kbps-2000_s8",
+      "label": "TX 8 B - -6 dBm - 2000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-6",
+        "--axis",
+        "data_rate_kbps=2000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 2,
+          "result_dir": "",
+          "discovered_result_dirs": [],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p-6_data_rate_kbps-2000_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T03:44:40+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "attempt": 2,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064450_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064450_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p-6_data_rate_kbps-2000_s8_attempt_02.log",
+          "finished_utc": "2026-07-20T03:45:22+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064450_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p-6_data_rate_kbps-2000_s16",
+      "label": "TX 16 B - -6 dBm - 2000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "16",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-6",
+        "--axis",
+        "data_rate_kbps=2000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 2,
+          "result_dir": "",
+          "discovered_result_dirs": [],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p-6_data_rate_kbps-2000_s16_attempt_01.log",
+          "finished_utc": "2026-07-20T03:45:38+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "attempt": 2,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064548_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064548_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p-6_data_rate_kbps-2000_s16_attempt_02.log",
+          "finished_utc": "2026-07-20T03:46:21+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "rx_missing",
+              "ok",
+              "rx_missing"
+            ],
+            "errors": [],
+            "warnings": [
+              "2 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064548_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "rx_missing",
+          "ok",
+          "rx_missing"
+        ],
+        "errors": [],
+        "warnings": [
+          "2 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "tx_p-6_data_rate_kbps-2000_s32",
+      "label": "TX 32 B - -6 dBm - 2000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=-6",
+        "--axis",
+        "data_rate_kbps=2000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064621_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064621_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p-6_data_rate_kbps-2000_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T03:46:53+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064621_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p0_data_rate_kbps-250_s8",
+      "label": "TX 8 B - 0 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=0",
+        "--axis",
+        "data_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064653_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064653_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p0_data_rate_kbps-250_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T03:47:26+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "rx_missing",
+              "rx_missing",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": [
+              "2 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064653_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "rx_missing",
+          "rx_missing",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": [
+          "2 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "tx_p0_data_rate_kbps-250_s16",
+      "label": "TX 16 B - 0 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "16",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=0",
+        "--axis",
+        "data_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064726_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064726_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p0_data_rate_kbps-250_s16_attempt_01.log",
+          "finished_utc": "2026-07-20T03:47:59+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "rx_missing",
+              "rx_missing",
+              "rx_missing",
+              "rx_missing",
+              "rx_missing"
+            ],
+            "errors": [],
+            "warnings": [
+              "5 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064726_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "rx_missing",
+          "rx_missing",
+          "rx_missing",
+          "rx_missing",
+          "rx_missing"
+        ],
+        "errors": [],
+        "warnings": [
+          "5 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "tx_p0_data_rate_kbps-250_s32",
+      "label": "TX 32 B - 0 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=0",
+        "--axis",
+        "data_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064759_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064759_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p0_data_rate_kbps-250_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T03:48:31+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "rx_missing",
+              "rx_missing",
+              "rx_missing",
+              "rx_missing",
+              "rx_missing"
+            ],
+            "errors": [],
+            "warnings": [
+              "5 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064759_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "rx_missing",
+          "rx_missing",
+          "rx_missing",
+          "rx_missing",
+          "rx_missing"
+        ],
+        "errors": [],
+        "warnings": [
+          "5 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "tx_p0_data_rate_kbps-1000_s8",
+      "label": "TX 8 B - 0 dBm - 1000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=0",
+        "--axis",
+        "data_rate_kbps=1000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064831_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064831_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p0_data_rate_kbps-1000_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T03:49:04+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "rx_missing",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": [
+              "1 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064831_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "rx_missing",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": [
+          "1 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "tx_p0_data_rate_kbps-1000_s16",
+      "label": "TX 16 B - 0 dBm - 1000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "16",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=0",
+        "--axis",
+        "data_rate_kbps=1000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064904_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064904_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p0_data_rate_kbps-1000_s16_attempt_01.log",
+          "finished_utc": "2026-07-20T03:49:37+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "rx_missing",
+              "rx_missing",
+              "ok",
+              "rx_missing"
+            ],
+            "errors": [],
+            "warnings": [
+              "3 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064904_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "rx_missing",
+          "rx_missing",
+          "ok",
+          "rx_missing"
+        ],
+        "errors": [],
+        "warnings": [
+          "3 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "tx_p0_data_rate_kbps-1000_s32",
+      "label": "TX 32 B - 0 dBm - 1000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=0",
+        "--axis",
+        "data_rate_kbps=1000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064937_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064937_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p0_data_rate_kbps-1000_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T03:50:09+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_064937_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p0_data_rate_kbps-2000_s8",
+      "label": "TX 8 B - 0 dBm - 2000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=0",
+        "--axis",
+        "data_rate_kbps=2000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_065009_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_065009_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p0_data_rate_kbps-2000_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T03:50:42+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "rx_missing",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": [
+              "1 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_065009_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "rx_missing",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": [
+          "1 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "tx_p0_data_rate_kbps-2000_s16",
+      "label": "TX 16 B - 0 dBm - 2000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "16",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=0",
+        "--axis",
+        "data_rate_kbps=2000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_065042_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_065042_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p0_data_rate_kbps-2000_s16_attempt_01.log",
+          "finished_utc": "2026-07-20T03:51:14+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "rx_missing",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": [
+              "1 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_065042_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "rx_missing",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": [
+          "1 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "tx_p0_data_rate_kbps-2000_s32",
+      "label": "TX 32 B - 0 dBm - 2000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=0",
+        "--axis",
+        "data_rate_kbps=2000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx",
+        "--receiver-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_065115_radio_nrf24l01_pa",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_065115_radio_nrf24l01_pa"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\tx_p0_data_rate_kbps-2000_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T03:51:47+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "rx_missing",
+              "ok",
+              "rx_missing",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": [
+              "2 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_tx\\20260720_065115_radio_nrf24l01_pa",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "rx_missing",
+          "ok",
+          "rx_missing",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": [
+          "2 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "rx_p0_data_rate_kbps-250_s8",
+      "label": "RX 8 B - TX 0 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=0",
+        "--axis",
+        "data_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx",
+        "--transmitter-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065147_radio_nrf24l01_pa_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065147_radio_nrf24l01_pa_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\rx_p0_data_rate_kbps-250_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T03:52:22+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "rx_missing",
+              "rx_missing",
+              "rx_missing"
+            ],
+            "errors": [],
+            "warnings": [
+              "3 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065147_radio_nrf24l01_pa_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "rx_missing",
+          "rx_missing",
+          "rx_missing"
+        ],
+        "errors": [],
+        "warnings": [
+          "3 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "rx_p0_data_rate_kbps-250_s16",
+      "label": "RX 16 B - TX 0 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "16",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=0",
+        "--axis",
+        "data_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx",
+        "--transmitter-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065222_radio_nrf24l01_pa_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065222_radio_nrf24l01_pa_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\rx_p0_data_rate_kbps-250_s16_attempt_01.log",
+          "finished_utc": "2026-07-20T03:52:56+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "rx_missing",
+              "rx_missing",
+              "rx_missing",
+              "rx_missing",
+              "rx_missing"
+            ],
+            "errors": [],
+            "warnings": [
+              "5 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065222_radio_nrf24l01_pa_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "rx_missing",
+          "rx_missing",
+          "rx_missing",
+          "rx_missing",
+          "rx_missing"
+        ],
+        "errors": [],
+        "warnings": [
+          "5 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "rx_p0_data_rate_kbps-250_s32",
+      "label": "RX 32 B - TX 0 dBm - 250 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=0",
+        "--axis",
+        "data_rate_kbps=250",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx",
+        "--transmitter-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065256_radio_nrf24l01_pa_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065256_radio_nrf24l01_pa_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\rx_p0_data_rate_kbps-250_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T03:53:31+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "rx_missing",
+              "rx_missing",
+              "rx_missing",
+              "rx_missing",
+              "rx_missing"
+            ],
+            "errors": [],
+            "warnings": [
+              "5 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065256_radio_nrf24l01_pa_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "rx_missing",
+          "rx_missing",
+          "rx_missing",
+          "rx_missing",
+          "rx_missing"
+        ],
+        "errors": [],
+        "warnings": [
+          "5 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "rx_p0_data_rate_kbps-1000_s8",
+      "label": "RX 8 B - TX 0 dBm - 1000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=0",
+        "--axis",
+        "data_rate_kbps=1000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx",
+        "--transmitter-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065331_radio_nrf24l01_pa_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065331_radio_nrf24l01_pa_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\rx_p0_data_rate_kbps-1000_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T03:54:05+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "rx_missing",
+              "ok",
+              "rx_missing",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": [
+              "2 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065331_radio_nrf24l01_pa_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "rx_missing",
+          "ok",
+          "rx_missing",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": [
+          "2 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "rx_p0_data_rate_kbps-1000_s16",
+      "label": "RX 16 B - TX 0 dBm - 1000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "16",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=0",
+        "--axis",
+        "data_rate_kbps=1000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx",
+        "--transmitter-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065405_radio_nrf24l01_pa_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065405_radio_nrf24l01_pa_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\rx_p0_data_rate_kbps-1000_s16_attempt_01.log",
+          "finished_utc": "2026-07-20T03:54:39+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "rx_missing",
+              "rx_missing",
+              "ok",
+              "rx_missing",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": [
+              "3 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065405_radio_nrf24l01_pa_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "rx_missing",
+          "rx_missing",
+          "ok",
+          "rx_missing",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": [
+          "3 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "rx_p0_data_rate_kbps-1000_s32",
+      "label": "RX 32 B - TX 0 dBm - 1000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=0",
+        "--axis",
+        "data_rate_kbps=1000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx",
+        "--transmitter-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065440_radio_nrf24l01_pa_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065440_radio_nrf24l01_pa_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\rx_p0_data_rate_kbps-1000_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T03:55:14+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "rx_missing",
+              "rx_missing",
+              "rx_missing",
+              "rx_missing",
+              "rx_missing"
+            ],
+            "errors": [],
+            "warnings": [
+              "5 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065440_radio_nrf24l01_pa_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "rx_missing",
+          "rx_missing",
+          "rx_missing",
+          "rx_missing",
+          "rx_missing"
+        ],
+        "errors": [],
+        "warnings": [
+          "5 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "rx_p0_data_rate_kbps-2000_s8",
+      "label": "RX 8 B - TX 0 dBm - 2000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=0",
+        "--axis",
+        "data_rate_kbps=2000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx",
+        "--transmitter-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065514_radio_nrf24l01_pa_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065514_radio_nrf24l01_pa_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\rx_p0_data_rate_kbps-2000_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T03:55:48+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "rx_missing",
+              "ok",
+              "ok",
+              "rx_missing",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": [
+              "2 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065514_radio_nrf24l01_pa_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "rx_missing",
+          "ok",
+          "ok",
+          "rx_missing",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": [
+          "2 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "rx_p0_data_rate_kbps-2000_s16",
+      "label": "RX 16 B - TX 0 dBm - 2000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "16",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=0",
+        "--axis",
+        "data_rate_kbps=2000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx",
+        "--transmitter-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065548_radio_nrf24l01_pa_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065548_radio_nrf24l01_pa_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\rx_p0_data_rate_kbps-2000_s16_attempt_01.log",
+          "finished_utc": "2026-07-20T03:56:23+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "rx_missing",
+              "ok",
+              "rx_missing",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": [
+              "2 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065548_radio_nrf24l01_pa_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "rx_missing",
+          "ok",
+          "rx_missing",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": [
+          "2 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "rx_p0_data_rate_kbps-2000_s32",
+      "label": "RX 32 B - TX 0 dBm - 2000 kbps",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=0",
+        "--axis",
+        "data_rate_kbps=2000",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx",
+        "--transmitter-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065623_radio_nrf24l01_pa_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065623_radio_nrf24l01_pa_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\rx_p0_data_rate_kbps-2000_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T03:56:57+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "rx_missing",
+              "rx_missing"
+            ],
+            "errors": [],
+            "warnings": [
+              "2 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\packet_rx\\20260720_065623_radio_nrf24l01_pa_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "rx_missing",
+          "rx_missing"
+        ],
+        "errors": [],
+        "warnings": [
+          "2 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "continuous_tx_average",
+      "label": "Average TX power - 1000 kbps - 60 s/power level",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "continuous",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "tx",
+        "--powers=-18,-6,0",
+        "--frame-bytes",
+        "32",
+        "--gap-ms",
+        "15",
+        "--duration-s",
+        "60",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\continuous",
+        "--keep-power-on",
+        "--axis",
+        "data_rate_kbps=1000",
+        "--save-raw"
+      ],
+      "result_kind": "continuous",
+      "expected_rows": 3,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\continuous\\20260720_065658_radio_nrf24l01_pa_continuous_tx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\continuous\\20260720_065658_radio_nrf24l01_pa_continuous_tx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\continuous_tx_average_attempt_01.log",
+          "finished_utc": "2026-07-20T04:02:33+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 3,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\continuous\\20260720_065658_radio_nrf24l01_pa_continuous_tx",
+      "validation": {
+        "valid": true,
+        "rows": 3,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "continuous_rx_data_rate_kbps-250",
+      "label": "Average RX power and loss - 250 kbps - 60 s/power level",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "continuous",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "rx",
+        "--powers=-18,-6,0",
+        "--frame-bytes",
+        "32",
+        "--gap-ms",
+        "15",
+        "--duration-s",
+        "60",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\continuous",
+        "--keep-power-on",
+        "--axis",
+        "data_rate_kbps=250",
+        "--transmitter-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "continuous",
+      "expected_rows": 3,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\continuous\\20260720_070234_radio_nrf24l01_pa_continuous_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\continuous\\20260720_070234_radio_nrf24l01_pa_continuous_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\continuous_rx_data_rate_kbps-250_attempt_01.log",
+          "finished_utc": "2026-07-20T04:08:34+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 3,
+            "statuses": [
+              "ok",
+              "no_rx_data",
+              "no_rx_data"
+            ],
+            "errors": [],
+            "warnings": [
+              "2 continuous points received no frames (100% loss)"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\continuous\\20260720_070234_radio_nrf24l01_pa_continuous_rx",
+      "validation": {
+        "valid": true,
+        "rows": 3,
+        "statuses": [
+          "ok",
+          "no_rx_data",
+          "no_rx_data"
+        ],
+        "errors": [],
+        "warnings": [
+          "2 continuous points received no frames (100% loss)"
+        ]
+      }
+    },
+    {
+      "step_id": "continuous_rx_data_rate_kbps-1000",
+      "label": "Average RX power and loss - 1000 kbps - 60 s/power level",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "continuous",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "rx",
+        "--powers=-18,-6,0",
+        "--frame-bytes",
+        "32",
+        "--gap-ms",
+        "15",
+        "--duration-s",
+        "60",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\continuous",
+        "--keep-power-on",
+        "--axis",
+        "data_rate_kbps=1000",
+        "--transmitter-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "continuous",
+      "expected_rows": 3,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\continuous\\20260720_070835_radio_nrf24l01_pa_continuous_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\continuous\\20260720_070835_radio_nrf24l01_pa_continuous_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\continuous_rx_data_rate_kbps-1000_attempt_01.log",
+          "finished_utc": "2026-07-20T04:14:30+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 3,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\continuous\\20260720_070835_radio_nrf24l01_pa_continuous_rx",
+      "validation": {
+        "valid": true,
+        "rows": 3,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "continuous_rx_data_rate_kbps-2000",
+      "label": "Average RX power and loss - 2000 kbps - 60 s/power level",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "continuous",
+        "--module",
+        "RADIO_NRF24L01_PA",
+        "--direction",
+        "rx",
+        "--powers=-18,-6,0",
+        "--frame-bytes",
+        "32",
+        "--gap-ms",
+        "15",
+        "--duration-s",
+        "60",
+        "--radio-port",
+        "COM43",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\continuous",
+        "--keep-power-on",
+        "--axis",
+        "data_rate_kbps=2000",
+        "--transmitter-port",
+        "COM44",
+        "--save-raw"
+      ],
+      "result_kind": "continuous",
+      "expected_rows": 3,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\continuous\\20260720_071430_radio_nrf24l01_pa_continuous_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\continuous\\20260720_071430_radio_nrf24l01_pa_continuous_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\logs\\continuous_rx_data_rate_kbps-2000_attempt_01.log",
+          "finished_utc": "2026-07-20T04:20:33+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 3,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa\\continuous\\20260720_071430_radio_nrf24l01_pa_continuous_rx",
+      "validation": {
+        "valid": true,
+        "rows": 3,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    }
+  ]
+}

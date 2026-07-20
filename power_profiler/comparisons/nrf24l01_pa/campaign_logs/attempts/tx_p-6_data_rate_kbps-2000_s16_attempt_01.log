@@ -1,0 +1,5 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_NRF24L01_PA --direction tx --radio-port COM43 --ppk-port COM11 --voltage-mv 3300 --sizes 16 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-6 --axis data_rate_kbps=2000 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_063622_campaign_radio_nrf24l01_pa\packet_tx" --receiver-port COM44 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Measured transmitter: COM43, 9600 baud
+Peer receiver: COM44, 9600 baud
+ERROR: Unable to synchronize AT firmware on COM43: Timeout waiting for OK after 'AT': no response

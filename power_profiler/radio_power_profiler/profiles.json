@@ -133,6 +133,26 @@
     "airtime": {"kind": "fsk", "rate_axis": "data_rate_kbps", "rate_multiplier": 1000, "overhead_bytes": 10, "ramp_s": 0.001, "continuous_gap_ms_by_value": {"250": 15, "1000": 15, "2000": 15}},
     "notes": ["Auto-ack is disabled so a missing receiver cannot add retries to the energy of one packet."]
   },
+  "RADIO_NRF24L01_PA": {
+    "display_name": "nRF24L01+PA",
+    "firmware_selection": "RADIO_NRF24L01 + AT_COMMANDS",
+    "baudrate": 9600,
+    "setup_commands": ["AT", "AT+RESET", "AT+CHAN=80", "AT+ADDR=0123456789", "AT+DEBUG=OFF", "AT+RX=OFF", "AT+DYN=ON", "AT+AUTOACK=OFF", "AT+CRC=ON"],
+    "post_config_commands": ["AT+RX=OFF"],
+    "receiver_enable_commands": ["AT+RX=ON"],
+    "receive": {"inter_frame_gap_ms": 0, "post_receive_s": 0.08},
+    "payload_sizes": [8, 16, 32],
+    "repetitions": 5,
+    "cooldown_s": 0.25,
+    "axes": [
+      {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+PWR={value}", "values": [-18, -6, 0]},
+      {"name": "data_rate_kbps", "label": "Data rate (kbps)", "command": "AT+RATE={value}", "values": [250, 1000, 2000]}
+    ],
+    "transmit": {"mode": "text_line", "line_overhead_bytes": 0, "frame_payload_bytes": 32, "max_payload_bytes": 32},
+    "capture": {"minimum_after_trigger_s": 0.35, "threshold_margin_uA": 200},
+    "airtime": {"kind": "fsk", "rate_axis": "data_rate_kbps", "rate_multiplier": 1000, "overhead_bytes": 10, "ramp_s": 0.001, "continuous_gap_ms_by_value": {"250": 15, "1000": 15, "2000": 15}},
+    "notes": ["External PA/LNA module variant; uses the same radio matrix as the non-PA nRF24L01 profile for direct comparison. Auto-ack is disabled so a missing receiver cannot add retries to the energy of one packet."]
+  },
   "RADIO_SX1278_NAKED": {
     "display_name": "SX1278-Naked",
     "firmware_selection": "RADIO_RA01_SX1278 + AT_COMMANDS",

@@ -1,0 +1,54 @@
+{
+  "authoritative_session": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_063622_campaign_radio_nrf24l01_pa",
+  "effective_manifest_state": "completed",
+  "campaign_steps": 40,
+  "campaign_attempts": 42,
+  "recovered_attempt_failures": 2,
+  "packet_points": 36,
+  "packet_runs": 180,
+  "continuous_points": 12,
+  "maximum_energy_cv_percent": 35.053985204979014,
+  "maximum_packet_ppk_sample_loss_percent": 0.7751937984496124,
+  "maximum_continuous_ppk_sample_loss_percent": 0.002493847415914684,
+  "packet_losses": 64,
+  "continuous_frames_transmitted_for_rx": 31604,
+  "continuous_frames_received": 19644,
+  "continuous_frame_losses": 11960,
+  "accepted_raw_files": 192,
+  "raw_compressed_bytes": 540225049,
+  "raw_uncompressed_bytes": 3309339844,
+  "quick_check_raw_audit": {
+    "files": 12,
+    "compressed_bytes": 4242389,
+    "uncompressed_bytes": 26309551,
+    "gzip_crc": "passed"
+  },
+  "recovery_raw_audit": {
+    "files": 30,
+    "compressed_bytes": 10667351,
+    "uncompressed_bytes": 59725425,
+    "gzip_crc": "passed"
+  },
+  "diagnostics": [
+    "diagnostic_logs/channel_isolation_250kbps.log",
+    "diagnostic_logs/channel_isolation_250kbps_short.log",
+    "diagnostic_logs/rf_registers_COM43_COM44.log",
+    "diagnostic_logs/sustained_link/session.log",
+    "diagnostic_logs/sustained_link/summary.csv",
+    "diagnostic_logs/sustained_link_lna_off/session.log",
+    "diagnostic_logs/sustained_link_lna_off/summary.csv",
+    "diagnostic_logs/recovery_tx_low_power_2m/metadata.json",
+    "diagnostic_logs/recovery_tx_low_power_2m/summary.csv",
+    "diagnostic_logs/recovery_tx_low_power_2m/aggregates.csv"
+  ],
+  "notes": [
+    "All 40 campaign batches completed. Two initial AT synchronization timeouts on measured COM43, at TX -6 dBm / 2 Mbps / 8 B and 16 B, recovered automatically on attempt two; all accepted results are complete.",
+    "All 180 packet events were detected by PPK2. Sixty-four packets were not delivered over RF and are retained as rx_missing observations rather than measurement failures.",
+    "Two continuous RX rows legitimately report no_rx_data: the peer offered frames for 60 seconds, transmitter serial errors were zero, PPK2 captured the full measured window, and RF delivery was 0/3366 at 250 kbps for both -6 and 0 dBm.",
+    "A 36-scenario serial-only diagnostic reproduced the power/rate-dependent loss in both directions and on channels 80 and 40 with zero serial errors, excluding PPK2 and the web campaign as the cause.",
+    "The expected nRF24 RF_SETUP values were read back on both radios. Disabling the internal LNA did not improve the link, so simple internal LNA saturation is not supported by the diagnostic.",
+    "The highest campaign packet-energy coefficient of variation, 35.053985%, occurred at TX 16 B / -18 dBm / 2 Mbps. A separate 30-capture recovery repeated the variability with stable peaks but variable pulse duration, confirming a repeatable PA/front-end timing or supply behavior rather than a PPK2 trigger failure.",
+    "The leading bench-level hypotheses are external PA/LNA front-end behavior, local supply/decoupling integrity, and close-range RF coupling. The dataset is accepted as the authoritative baseline for this pair and layout, not as a clean-link reference.",
+    "Post-validation cleanup removes 42 non-authoritative quick/recovery raw traces after gzip CRC verification and compact-result archival. All 192 authoritative campaign traces remain present and unchanged."
+  ]
+}
