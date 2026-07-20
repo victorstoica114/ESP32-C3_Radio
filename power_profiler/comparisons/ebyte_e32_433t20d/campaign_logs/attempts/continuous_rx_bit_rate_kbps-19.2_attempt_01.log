@@ -1,0 +1,7 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E32_433T20D --direction rx --powers=10,14,20 --frame-bytes 58 --gap-ms 15 --duration-s 60 --radio-port COM50 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_172540_campaign_radio_ebyte_e32_868t20d\continuous" --keep-power-on --axis bit_rate_kbps=19.2 --transmitter-port COM49 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Continuous RX: 60 s per power, parameters={'bit_rate_kbps': 19.2}, 58 B frames, 15 ms gap
+[1/3] RX 10 dBm: mean=14.676 mA, power=48.431 mW, status=ok
+[2/3] RX 14 dBm: mean=14.659 mA, power=48.374 mW, status=ok
+[3/3] RX 20 dBm: mean=14.585 mA, power=48.129 mW, status=ok
+Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_172540_campaign_radio_ebyte_e32_868t20d\continuous\20260720_211645_radio_ebyte_e32_868t20d_continuous_rx

@@ -315,6 +315,16 @@ class PlanningTests(unittest.TestCase):
             ["AT+POWER1", "AT+AIR6"],
         )
 
+    def test_e32_433_t20_profile_is_separate_from_868_variant(self):
+        profile_433 = load_profile("RADIO_EBYTE_E32_433T20D")
+        profile_868 = load_profile("RADIO_EBYTE_E32_868T20D")
+
+        self.assertEqual(profile_433.display_name, "Ebyte E32-433T20D UART")
+        self.assertEqual(profile_868.display_name, "Ebyte E32-868T20D UART")
+        self.assertEqual(profile_433.firmware_selection, profile_868.firmware_selection)
+        self.assertEqual(profile_433.payload_sizes, profile_868.payload_sizes)
+        self.assertEqual(profile_433.axes, profile_868.axes)
+
     def test_e32_t33_profile_supports_large_transfers_and_three_rates(self):
         profile = load_profile("RADIO_EBYTE_E32_433T33D")
 
