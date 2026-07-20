@@ -1,0 +1,12 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_868T20D --direction rx --radio-port COM50 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=20 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_172540_campaign_radio_ebyte_e32_868t20d\packet_rx" --transmitter-port COM49 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Measured receiver: COM50, 115200 baud
+Peer transmitter: COM49, 115200 baud
+Configuring measured receiver (Ebyte E32-868T20D UART) on COM50 ...
+Configuring peer transmitter on COM49 ...
+[   1/5] RX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 19.2}, rep 1: ok, peak=23954.3 uA, energy=3085.265 uJ
+[   2/5] RX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 19.2}, rep 2: ok, peak=24198.1 uA, energy=3077.496 uJ
+[   3/5] RX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 19.2}, rep 3: ok, peak=23613.5 uA, energy=3084.015 uJ
+[   4/5] RX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 19.2}, rep 4: ok, peak=23467.6 uA, energy=3077.268 uJ
+[   5/5] RX   32 B, {'tx_power_dbm': 20, 'bit_rate_kbps': 19.2}, rep 5: ok, peak=22836.4 uA, energy=3078.729 uJ
+Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_172540_campaign_radio_ebyte_e32_868t20d\packet_rx\20260720_205255_radio_ebyte_e32_868t20d_rx

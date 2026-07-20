@@ -291,6 +291,30 @@ class PlanningTests(unittest.TestCase):
             ["AT+POWER1", "AT+AIR4"],
         )
 
+    def test_e32_868_t20_profile_is_explicit_and_campaign_ready(self):
+        profile = load_profile("RADIO_EBYTE_E32_868T20D")
+
+        self.assertEqual(profile.display_name, "Ebyte E32-868T20D UART")
+        self.assertEqual(profile.firmware_selection, "RADIO_EBYTE + AT_COMMANDS")
+        self.assertEqual(profile.transmit.frame_sizes(1024), (58,) * 17 + (38,))
+        self.assertEqual(profile.receiver_enable_commands, ("AT+BRIDGE=ON",))
+        self.assertFalse(profile.restore_after_receive)
+        self.assertTrue(profile.power_cycle_between_runs)
+        self.assertEqual(profile.parameter_verification_command, "AT+CFG?")
+        power_axis = next(axis for axis in profile.axes if axis.name == "tx_power_dbm")
+        rate_axis = next(axis for axis in profile.axes if axis.name == "bit_rate_kbps")
+        self.assertEqual(power_axis.values, (10, 14, 20))
+        self.assertEqual(rate_axis.values, (0.3, 4.8, 19.2))
+        self.assertEqual(len(build_cases(profile, "tx")), 270)
+        self.assertEqual(len(build_cases(profile, "rx")), 270)
+        self.assertEqual(
+            parameter_commands(
+                profile,
+                {"tx_power_dbm": 20, "bit_rate_kbps": 19.2},
+            ),
+            ["AT+POWER1", "AT+AIR6"],
+        )
+
     def test_e32_t33_profile_supports_large_transfers_and_three_rates(self):
         profile = load_profile("RADIO_EBYTE_E32_433T33D")
 

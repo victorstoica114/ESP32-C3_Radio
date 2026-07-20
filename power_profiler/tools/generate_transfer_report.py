@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from openpyxl import Workbook
+from openpyxl.cell.cell import ILLEGAL_CHARACTERS_RE
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
@@ -192,10 +193,16 @@ def _style_sheet(sheet) -> None:
         sheet.column_dimensions[get_column_letter(column[0].column)].width = width
 
 
+def _excel_safe_value(value: Any) -> Any:
+    if isinstance(value, str):
+        return ILLEGAL_CHARACTERS_RE.sub("", value)
+    return value
+
+
 def _append_rows(sheet, fields: list[str], rows: list[dict[str, Any]]) -> None:
     sheet.append(fields)
     for row in rows:
-        sheet.append([row.get(field, "") for field in fields])
+        sheet.append([_excel_safe_value(row.get(field, "")) for field in fields])
     _style_sheet(sheet)
 
 

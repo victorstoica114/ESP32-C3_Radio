@@ -13,6 +13,7 @@ if str(TOOLS_DIR) not in sys.path:
     sys.path.insert(0, str(TOOLS_DIR))
 
 import generate_continuous_report as continuous_report  # noqa: E402
+import generate_transfer_report as transfer_report  # noqa: E402
 import generate_lora_campaign_reports as lora_reports  # noqa: E402
 import generate_lora_variant_comparison as variant_comparison  # noqa: E402
 import render_lora_campaign_plots as lora_renderer  # noqa: E402
@@ -342,6 +343,37 @@ class ReportTests(unittest.TestCase):
             try:
                 self.assertEqual(workbook["continuous_results"].max_row - 1, 3)
                 self.assertEqual(workbook["comparison"].max_row - 1, 1)
+            finally:
+                workbook.close()
+
+    def test_transfer_workbook_sanitizes_xml_control_characters(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "transfer.xlsx"
+            report = [
+                {
+                    "payload_bytes": 8,
+                    "tx_power_dbm": 20.0,
+                    "bit_rate_kbps": 0.3,
+                    "energy_total_mJ_mean": 1.0,
+                }
+            ]
+            summary = [{"receiver_response": "\x00012345", "status": "ok"}]
+            metadata = {
+                "profile": {
+                    "display_name": "E32",
+                    "profile_id": "RADIO_EBYTE",
+                    "transmit": {"frame_payload_bytes": 58},
+                }
+            }
+
+            transfer_report.write_xlsx(path, report, summary, metadata)
+
+            workbook = load_workbook(path, read_only=True, data_only=True)
+            try:
+                self.assertEqual(
+                    workbook["summary_runs"]["A2"].value,
+                    "012345",
+                )
             finally:
                 workbook.close()
 
