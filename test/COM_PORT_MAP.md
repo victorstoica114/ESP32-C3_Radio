@@ -17,12 +17,13 @@ Stable COM-port assignments used for local radio pair tests.
 | RA-01 (SX1278) / `RADIO_RA01_SX1278` | COM25, COM26 | Tested: frequency isolation passed. |
 | RA-02 (SX1278) / `RADIO_RA02_SX1278` | COM27, COM28 | Tested: frequency isolation passed. |
 | RA-01H (SX1276) / `RADIO_RA01H_SX1276` | COM29, COM30 | Tested: frequency isolation passed; OLED observed working; one I2C boot warning remains in serial log. |
-| SX1278, assumed RA-01 / `RADIO_RA01_SX1278` | COM31, COM32 | Tested: frequency isolation passed; OLED boot log clean after init fix. |
+| RA-01SH (SX1262) / `RADIO_RA01SH_SX1262` | COM31, COM32 | Latest power campaign: COM31 measured through PPK2, COM32 peer; frequency isolation and bidirectional exchange passed. |
 | RA-02 (SX1278) / `RADIO_RA02_SX1278` | COM33, COM34 | Tested: frequency isolation passed. |
+| RA-02 (SX1278), two-capacitor carrier / `RADIO_RA02_SX1278_2CAP` | COM35, COM36 | Latest power campaign: COM35 measured through PPK2, COM36 peer. |
 | HC-12 / `RADIO_HC12` | COM39, COM40 | Latest power campaign: COM39 measured through PPK2, COM40 peer; FU1/FU3/FU4 channel isolation and bidirectional exchange passed. |
 | E28 (SX1280) / `RADIO_E28_SX1280` | COM37, COM38 | Tested: frequency isolation and bidirectional exchange passed; OLED hardware-I2C recovery applied and boot log is clean. |
 | CC1101 V2 868 MHz / `RADIO_CC1101_V2_868` | COM39, COM40 | Confirmed as 868 MHz hardware in this local set: 868/869 MHz isolation passed 18/0 with the original antennas; 433.920 MHz remains unreliable, matching a wrong-band/front-end mismatch rather than a firmware fault. |
-| RA-01SH (SX1262) / `RADIO_RA01SH_SX1262` | COM41, COM42 | Tested after RADIO/SX1262 OLED splash update: frequency isolation and bidirectional exchange passed; boot log clean. |
+| nRF24L01 / `RADIO_NRF24L01` | COM41, COM42 | Latest power campaign: COM41 measured through PPK2, COM42 peer. Channel isolation passed at all three rates; sustained diagnostics found repeatable high-power loss at 250/1000 kbps, documented under `power_profiler/comparisons/nrf24l01`. |
 | RA-01 (SX1278) / `RADIO_RA01_SX1278` | COM43, COM44 | Tested: frequency isolation passed; one I2C boot warning remains in serial log. |
 | RA-08 (ASR6601) / external AT modem firmware | COM45, COM46 | Tested with dedicated RA-08 script: channel isolation and bidirectional exchange passed. COM46 does not always echo after TX in long sessions, so the script reopens serial ports between directions. |
 | Ebyte E32T20 433 MHz / `RADIO_EBYTE` | COM47, COM48 | Tested: channel isolation passed after automatic module reset on saved config writes. |

@@ -1,0 +1,155 @@
+Test: N24_250R
+Ports: COM41 / COM42
+Baud: 9600
+Set command: AT+CHAN={value}
+Same value: 80
+Different values: 80 / 81
+Send template A->B: {payload}
+Send template B->A: {payload}
+Payload kind: Text
+Log: log\Test-AtPairChannelIsolation_N24_250R_COM41_COM42_20260720_045203.txt
+
+--- COM41 boot/open ---
+<no output>
+--- COM42 boot/open ---
+<no output>
+--- COM41 >> AT ---
+OK
+--- COM41 >> AT+DEBUG=OFF ---
+OK
+--- COM41 >> AT+DYN=ON ---
+OK
+--- COM41 >> AT+AUTOACK=OFF ---
+OK
+--- COM41 >> AT+CRC=ON ---
+OK
+--- COM41 >> AT+ADDR=0123456789 ---
+OK
+--- COM41 >> AT+RATE=250 ---
+OK
+--- COM42 >> AT ---
+OK
+--- COM42 >> AT+DEBUG=OFF ---
+OK
+--- COM42 >> AT+DYN=ON ---
+OK
+--- COM42 >> AT+AUTOACK=OFF ---
+OK
+--- COM42 >> AT+CRC=ON ---
+OK
+--- COM42 >> AT+ADDR=0123456789 ---
+OK
+--- COM42 >> AT+RATE=250 ---
+OK
+
+=== STAGE 1: synchronized value, link must work ===
+--- COM41 >> AT+CHAN=80 ---
+OK
+--- COM41 >> AT+RX=ON ---
+OK
+--- COM41 >> AT+CHAN? ---
+CHAN=80
+OK
+--- COM42 >> AT+CHAN=80 ---
+OK
+--- COM42 >> AT+RX=ON ---
+OK
+--- COM42 >> AT+CHAN? ---
+CHAN=80
+OK
+--- COM41 payload -> COM42 ---
+command: N24_250R_SYNC_BASE_A_TO_B
+expected token: N24_250R_SYNC_BASE_A_TO_B
+COM41 tx output:
+<no output>
+COM42 rx output:
+N24_250R_SYNC_BASE_A_TO_B
+--- COM42 payload -> COM41 ---
+command: N24_250R_SYNC_BASE_B_TO_A
+expected token: N24_250R_SYNC_BASE_B_TO_A
+COM42 tx output:
+<no output>
+COM41 rx output:
+N24_250R_SYNC_BASE_B_TO_A
+
+=== STAGE 2: different values, link must stop ===
+--- COM41 >> AT+CHAN=80 ---
+OK
+--- COM41 >> AT+RX=ON ---
+OK
+--- COM41 >> AT+CHAN? ---
+CHAN=80
+OK
+--- COM42 >> AT+CHAN=81 ---
+OK
+--- COM42 >> AT+RX=ON ---
+OK
+--- COM42 >> AT+CHAN? ---
+CHAN=81
+OK
+--- COM41 payload -> COM42 ---
+command: N24_250R_DESYNC_A_TO_B
+expected token: N24_250R_DESYNC_A_TO_B
+COM41 tx output:
+<no output>
+COM42 rx output:
+<no output>
+--- COM42 payload -> COM41 ---
+command: N24_250R_DESYNC_B_TO_A
+expected token: N24_250R_DESYNC_B_TO_A
+COM42 tx output:
+<no output>
+COM41 rx output:
+<no output>
+
+=== STAGE 3: synchronized again, link must recover ===
+--- COM41 >> AT+CHAN=80 ---
+OK
+--- COM41 >> AT+RX=ON ---
+OK
+--- COM41 >> AT+CHAN? ---
+CHAN=80
+OK
+--- COM42 >> AT+CHAN=80 ---
+OK
+--- COM42 >> AT+RX=ON ---
+OK
+--- COM42 >> AT+CHAN? ---
+CHAN=80
+OK
+--- COM41 payload -> COM42 ---
+command: N24_250R_RESYNC_A_TO_B
+expected token: N24_250R_RESYNC_A_TO_B
+COM41 tx output:
+<no output>
+COM42 rx output:
+N24_250R_RESYNC_A_TO_B
+--- COM42 payload -> COM41 ---
+command: N24_250R_RESYNC_B_TO_A
+expected token: N24_250R_RESYNC_B_TO_A
+COM42 tx output:
+<no output>
+COM41 rx output:
+N24_250R_RESYNC_B_TO_A
+
+=== RESULTS ===
+PASS	COM41 set 80	expected 'OK'
+PASS	COM41 RX on after set 80	expected 'OK'
+PASS	COM42 set 80	expected 'OK'
+PASS	COM42 RX on after set 80	expected 'OK'
+PASS	SYNC_BASE COM41 to COM42 receive	expected 'N24_250R_SYNC_BASE_A_TO_B'
+PASS	SYNC_BASE COM42 to COM41 receive	expected 'N24_250R_SYNC_BASE_B_TO_A'
+PASS	COM41 set 80	expected 'OK'
+PASS	COM41 RX on after set 80	expected 'OK'
+PASS	COM42 set 81	expected 'OK'
+PASS	COM42 RX on after set 81	expected 'OK'
+PASS	DESYNC COM41 to COM42 isolated	not expected 'N24_250R_DESYNC_A_TO_B'
+PASS	DESYNC COM42 to COM41 isolated	not expected 'N24_250R_DESYNC_B_TO_A'
+PASS	COM41 set 80	expected 'OK'
+PASS	COM41 RX on after set 80	expected 'OK'
+PASS	COM42 set 80	expected 'OK'
+PASS	COM42 RX on after set 80	expected 'OK'
+PASS	RESYNC COM41 to COM42 receive	expected 'N24_250R_RESYNC_A_TO_B'
+PASS	RESYNC COM42 to COM41 receive	expected 'N24_250R_RESYNC_B_TO_A'
+=== SUMMARY ===
+PASS=18 FAIL=0

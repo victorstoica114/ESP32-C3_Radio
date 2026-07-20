@@ -1,0 +1,46 @@
+[04:53:21] START   Quick session: 4 steps - RADIO_NRF24L01
+[04:53:21] STEP    Fast TX, physical frame - attempt 1
+[04:53:21] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_NRF24L01 --direction tx --radio-port COM41 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 2 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=0 --axis data_rate_kbps=2000 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_045321_quick_radio_nrf24l01\packet_results" --receiver-port COM42 --save-raw
+[04:53:21] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[04:53:21] INFO    Measured transmitter: COM41, 9600 baud
+[04:53:21] INFO    Peer receiver: COM42, 9600 baud
+[04:53:25] INFO    Configuring measured transmitter (nRF24L01) on COM41 ...
+[04:53:28] INFO    Configuring peer receiver on COM42 ...
+[04:53:33] INFO    [   1/2] TX    8 B, {'tx_power_dbm': 0, 'data_rate_kbps': 2000}, rep 1: ok, peak=35688.4 uA, energy=12.940 uJ
+[04:53:36] INFO    [   2/2] TX    8 B, {'tx_power_dbm': 0, 'data_rate_kbps': 2000}, rep 2: ok, peak=34718.6 uA, energy=12.177 uJ
+[04:53:36] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_045321_quick_radio_nrf24l01\packet_results\20260720_045321_radio_nrf24l01
+[04:53:37] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[04:53:37] STEP    Fast RX, physical frame - attempt 1
+[04:53:37] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_NRF24L01 --direction rx --radio-port COM41 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 2 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=0 --axis data_rate_kbps=2000 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_045321_quick_radio_nrf24l01\packet_results" --transmitter-port COM42 --save-raw
+[04:53:37] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[04:53:37] INFO    Measured receiver: COM41, 9600 baud
+[04:53:37] INFO    Peer transmitter: COM42, 9600 baud
+[04:53:45] INFO    Configuring measured receiver (nRF24L01) on COM41 ...
+[04:53:51] INFO    Configuring peer transmitter on COM42 ...
+[04:53:57] INFO    [   1/2] RX    8 B, {'tx_power_dbm': 0, 'data_rate_kbps': 2000}, rep 1: ok, peak=15725.9 uA, energy=52.452 uJ
+[04:54:00] INFO    [   2/2] RX    8 B, {'tx_power_dbm': 0, 'data_rate_kbps': 2000}, rep 2: ok, peak=15678.9 uA, energy=52.231 uJ
+[04:54:00] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_045321_quick_radio_nrf24l01\packet_results\20260720_045337_radio_nrf24l01_rx
+[04:54:01] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[04:54:01] STEP    Slow TX, fragmented transfer - attempt 1
+[04:54:01] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_NRF24L01 --direction tx --radio-port COM41 --ppk-port COM11 --voltage-mv 3300 --sizes 16 --repetitions 2 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-18 --axis data_rate_kbps=250 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_045321_quick_radio_nrf24l01\packet_results" --receiver-port COM42 --save-raw
+[04:54:01] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[04:54:01] INFO    Measured transmitter: COM41, 9600 baud
+[04:54:01] INFO    Peer receiver: COM42, 9600 baud
+[04:54:09] INFO    Configuring measured transmitter (nRF24L01) on COM41 ...
+[04:54:15] INFO    Configuring peer receiver on COM42 ...
+[04:54:20] INFO    [   1/2] TX   16 B, {'tx_power_dbm': -18, 'data_rate_kbps': 250}, rep 1: ok, peak=29426.0 uA, energy=33.590 uJ
+[04:54:24] INFO    [   2/2] TX   16 B, {'tx_power_dbm': -18, 'data_rate_kbps': 250}, rep 2: ok, peak=29775.3 uA, energy=33.337 uJ
+[04:54:24] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_045321_quick_radio_nrf24l01\packet_results\20260720_045401_radio_nrf24l01
+[04:54:24] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[04:54:24] STEP    Slow RX, fragmented transfer - attempt 1
+[04:54:24] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_NRF24L01 --direction rx --radio-port COM41 --ppk-port COM11 --voltage-mv 3300 --sizes 16 --repetitions 2 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-18 --axis data_rate_kbps=250 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_045321_quick_radio_nrf24l01\packet_results" --transmitter-port COM42 --save-raw
+[04:54:24] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[04:54:24] INFO    Measured receiver: COM41, 9600 baud
+[04:54:24] INFO    Peer transmitter: COM42, 9600 baud
+[04:54:32] INFO    Configuring measured receiver (nRF24L01) on COM41 ...
+[04:54:39] INFO    Configuring peer transmitter on COM42 ...
+[04:54:44] INFO    [   1/2] RX   16 B, {'tx_power_dbm': -18, 'data_rate_kbps': 250}, rep 1: ok, peak=14695.3 uA, energy=83.954 uJ
+[04:54:48] INFO    [   2/2] RX   16 B, {'tx_power_dbm': -18, 'data_rate_kbps': 250}, rep 2: ok, peak=14835.6 uA, energy=84.204 uJ
+[04:54:48] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_045321_quick_radio_nrf24l01\packet_results\20260720_045424_radio_nrf24l01_rx
+[04:54:48] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[04:54:48] FINISH  Test completed successfully

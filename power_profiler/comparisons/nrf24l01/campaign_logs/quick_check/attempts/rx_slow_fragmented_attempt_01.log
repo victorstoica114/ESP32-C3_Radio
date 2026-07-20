@@ -1,0 +1,9 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_NRF24L01 --direction rx --radio-port COM41 --ppk-port COM11 --voltage-mv 3300 --sizes 16 --repetitions 2 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-18 --axis data_rate_kbps=250 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_045321_quick_radio_nrf24l01\packet_results" --transmitter-port COM42 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Measured receiver: COM41, 9600 baud
+Peer transmitter: COM42, 9600 baud
+Configuring measured receiver (nRF24L01) on COM41 ...
+Configuring peer transmitter on COM42 ...
+[   1/2] RX   16 B, {'tx_power_dbm': -18, 'data_rate_kbps': 250}, rep 1: ok, peak=14695.3 uA, energy=83.954 uJ
+[   2/2] RX   16 B, {'tx_power_dbm': -18, 'data_rate_kbps': 250}, rep 2: ok, peak=14835.6 uA, energy=84.204 uJ
+Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_045321_quick_radio_nrf24l01\packet_results\20260720_045424_radio_nrf24l01_rx

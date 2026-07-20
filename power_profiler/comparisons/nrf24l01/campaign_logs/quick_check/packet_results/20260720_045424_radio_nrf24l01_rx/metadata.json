@@ -1,0 +1,107 @@
+{
+  "created_utc": "2026-07-20T01:54:24+00:00",
+  "profile": {
+    "profile_id": "RADIO_NRF24L01",
+    "display_name": "nRF24L01",
+    "firmware_selection": "RADIO_NRF24L01 + AT_COMMANDS",
+    "baudrate": 9600,
+    "setup_commands": [
+      "AT",
+      "AT+RESET",
+      "AT+CHAN=80",
+      "AT+ADDR=0123456789",
+      "AT+DEBUG=OFF",
+      "AT+RX=OFF",
+      "AT+DYN=ON",
+      "AT+AUTOACK=OFF",
+      "AT+CRC=ON"
+    ],
+    "post_config_commands": [
+      "AT+RX=OFF"
+    ],
+    "receiver_enable_commands": [
+      "AT+RX=ON"
+    ],
+    "payload_sizes": [
+      16
+    ],
+    "repetitions": 2,
+    "cooldown_s": 2.0,
+    "axes": [
+      {
+        "name": "tx_power_dbm",
+        "values": [
+          -18
+        ],
+        "command": "AT+PWR={value}",
+        "commands": {},
+        "label": "TX power (dBm)"
+      },
+      {
+        "name": "data_rate_kbps",
+        "values": [
+          250
+        ],
+        "command": "AT+RATE={value}",
+        "commands": {},
+        "label": "Data rate (kbps)"
+      }
+    ],
+    "transmit": {
+      "mode": "text_line",
+      "command": null,
+      "line_overhead_bytes": 0,
+      "max_payload_bytes": 32,
+      "frame_payload_bytes": null,
+      "wait_for_ok": false
+    },
+    "receive": {
+      "inter_frame_gap_ms": 0.0,
+      "post_receive_s": 0.08
+    },
+    "capture": {
+      "pre_s": 0.2,
+      "post_s": 0.25,
+      "minimum_after_trigger_s": 0.35,
+      "max_after_trigger_s": 15.0,
+      "threshold_margin_uA": 200.0,
+      "merge_gap_ms": 0.5,
+      "minimum_event_ms": 0.05,
+      "align_tx_airtime_window": false
+    },
+    "airtime": {
+      "kind": "fsk",
+      "rate_axis": "data_rate_kbps",
+      "rate_multiplier": 1000,
+      "overhead_bytes": 10,
+      "ramp_s": 0.001,
+      "continuous_gap_ms_by_value": {
+        "250": 15,
+        "1000": 15,
+        "2000": 15
+      }
+    },
+    "inter_run_commands": [],
+    "power_cycle_between_runs": false,
+    "power_cycle_min_airtime_s": 0.0,
+    "power_cycle_off_s": 1.0,
+    "restore_after_receive": true,
+    "warmup_transfers": 0,
+    "reopen_continuous_between_powers": false,
+    "notes": [
+      "Auto-ack is disabled so a missing receiver cannot add retries to the energy of one packet."
+    ]
+  },
+  "measurement_direction": "rx",
+  "measured_port": "COM41",
+  "radio_port": "COM41",
+  "transmitter_port": "COM42",
+  "receiver_port": "COM41",
+  "peer_port": "COM42",
+  "ppk_port": "COM11",
+  "ppk_mode": "ampere",
+  "voltage_mv": 3300,
+  "sample_rate_hz": 100000,
+  "save_raw": true,
+  "test_count": 2
+}

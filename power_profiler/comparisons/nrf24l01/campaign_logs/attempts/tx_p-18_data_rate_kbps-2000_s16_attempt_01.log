@@ -1,0 +1,12 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_NRF24L01 --direction tx --radio-port COM41 --ppk-port COM11 --voltage-mv 3300 --sizes 16 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-18 --axis data_rate_kbps=2000 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_045645_campaign_radio_nrf24l01\packet_tx" --receiver-port COM42 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Measured transmitter: COM41, 9600 baud
+Peer receiver: COM42, 9600 baud
+Configuring measured transmitter (nRF24L01) on COM41 ...
+Configuring peer receiver on COM42 ...
+[   1/5] TX   16 B, {'tx_power_dbm': -18, 'data_rate_kbps': 2000}, rep 1: ok, peak=30075.1 uA, energy=8.966 uJ
+[   2/5] TX   16 B, {'tx_power_dbm': -18, 'data_rate_kbps': 2000}, rep 2: ok, peak=31479.1 uA, energy=9.944 uJ
+[   3/5] TX   16 B, {'tx_power_dbm': -18, 'data_rate_kbps': 2000}, rep 3: ok, peak=31027.0 uA, energy=9.814 uJ
+[   4/5] TX   16 B, {'tx_power_dbm': -18, 'data_rate_kbps': 2000}, rep 4: ok, peak=30776.1 uA, energy=9.394 uJ
+[   5/5] TX   16 B, {'tx_power_dbm': -18, 'data_rate_kbps': 2000}, rep 5: ok, peak=28878.1 uA, energy=8.893 uJ
+Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_045645_campaign_radio_nrf24l01\packet_tx\20260720_050036_radio_nrf24l01

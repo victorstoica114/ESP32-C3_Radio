@@ -1,0 +1,39 @@
+{
+  "authoritative_session": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_045645_campaign_radio_nrf24l01",
+  "effective_manifest_state": "completed",
+  "campaign_steps": 40,
+  "packet_points": 36,
+  "packet_runs": 180,
+  "continuous_points": 12,
+  "maximum_energy_cv_percent": 5.0809101907954295,
+  "maximum_packet_ppk_sample_loss_percent": 0.717651322943095,
+  "maximum_continuous_ppk_sample_loss_percent": 0.00249384741591468,
+  "packet_losses": 38,
+  "continuous_frames_transmitted_for_rx": 31600,
+  "continuous_frames_received": 27329,
+  "continuous_frame_losses": 4271,
+  "accepted_raw_files": 192,
+  "raw_compressed_bytes": 562502506,
+  "raw_uncompressed_bytes": 3311460490,
+  "diagnostics": [
+    "diagnostic_logs/Test-AtPairChannelIsolation_NRF24L01_250kbps_COM41_COM42_20260720_044732.txt",
+    "diagnostic_logs/Test-AtPairChannelIsolation_N24_250_COM41_COM42_20260720_044832.txt",
+    "diagnostic_logs/Test-AtPairChannelIsolation_N24_250R_COM41_COM42_20260720_045203.txt",
+    "diagnostic_logs/Test-AtPairChannelIsolation_N24_1M_COM41_COM42_20260720_045016.txt",
+    "diagnostic_logs/Test-AtPairChannelIsolation_N24_2M_COM41_COM42_20260720_045111.txt",
+    "diagnostic_logs/NRF24L01_RF_SETUP_COM41_20260720.txt",
+    "diagnostic_logs/NRF24L01_RF_SETUP_COM42_20260720.txt",
+    "diagnostic_logs/sustained_link/session.log",
+    "diagnostic_logs/sustained_link/summary.csv"
+  ],
+  "notes": [
+    "The campaign completed all 40 batches on their first attempt. All 180 packet events and all 12 continuous windows were captured; PPK2 integrity is independent of RF delivery status.",
+    "Continuous RX delivery at -18 dBm was effectively perfect at all rates. At -6 and 0 dBm, loss reached 40.5767% and 34.7800% at 250 kbps, and 21.4246% and 27.2370% at 1 Mbps. All three 2 Mbps points had zero loss.",
+    "A 36-scenario serial-only diagnostic reproduced the power/rate dependence in both directions and on channels 80 and 40 with zero transmitter serial errors, excluding PPK2 and the web campaign as the cause.",
+    "Both radios reported the expected RF_SETUP values 0x21, 0x25, and 0x27 for 250 kbps at -18, -6, and 0 dBm, so the requested power settings reached the transceiver registers correctly.",
+    "The leading hardware hypotheses are insufficient local supply decoupling or non-ideal RF-module implementation at higher TX power. Nordic's product specification recommends close high-performance VDD decoupling, a parallel approximately 4.7 uF ceramic capacitor, filtered supply routing, and short supply connections.",
+    "The initial four-step quick check sampled only high-power/fast-rate and low-power/slow-rate corners, so it could not expose this interaction. The nRF24L01 quick check now adds high-power/slow-rate TX and RX cases and uses the full 32-byte physical frame.",
+    "The current dataset is retained as the authoritative characterization of the connected modules and bench layout. A new named campaign is recommended after adding local decoupling or increasing RF separation; it should not overwrite these measurements.",
+    "Post-validation cleanup removed eight non-authoritative quick-check raw traces (2,867,760 bytes) and duplicate source copies of seven diagnostic logs plus the sustained-diagnostic directory. Their compact results and verified log copies remain under this comparison; all 192 authoritative campaign traces remain present."
+  ]
+}

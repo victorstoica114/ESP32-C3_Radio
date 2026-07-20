@@ -1,0 +1,74 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260720055706
+Username: ALEXANDRU-PC-LE\CodexSandboxOffline
+RunAs User: ALEXANDRU-PC-LE\CodexSandboxOffline
+Configuration Name:
+Machine: ALEXANDRU-PC-LE (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -Command try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}
+Start-Transcript -LiteralPath '.\log\NRF24L01_RF_SETUP_COM42_20260720.txt' -Force | Out-Null; try { & '.\test\Invoke-AtProbe.ps1' -Port COM42 -Baud 9600 -OpenWaitMs 200 -CommandWaitMs 250 -Command @('AT','AT+RX=OFF','AT+RATE=250','AT+PWR=-18','AT+STATUS?','AT+PWR=-6','AT+STATUS?','AT+PWR=0','AT+STATUS?','AT+RX=OFF') } finally { Stop-Transcript | Out-Null }
+Process ID: 38984
+PSVersion: 5.1.26100.8875
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.8875
+BuildVersion: 10.0.26100.8875
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+--- COM42 @ 9600 ---
+>> AT
+OK
+>> AT+RX=OFF
+OK
+>> AT+RATE=250
+OK
+>> AT+PWR=-18
+OK
+>> AT+STATUS?
+STATUS=0xE
+FIFO_STATUS=0x11
+RF_CH=80
+RF_SETUP=0x21
+EN_AA=0x0
+EN_RXADDR=0x1
+SETUP_RETR=0x5F
+FEATURE=0x4
+DYNPD=0x3F
+RPD=NO
+OK
+>> AT+PWR=-6
+OK
+>> AT+STATUS?
+STATUS=0xE
+FIFO_STATUS=0x11
+RF_CH=80
+RF_SETUP=0x25
+EN_AA=0x0
+EN_RXADDR=0x1
+SETUP_RETR=0x5F
+FEATURE=0x4
+DYNPD=0x3F
+RPD=NO
+OK
+>> AT+PWR=0
+OK
+>> AT+STATUS?
+STATUS=0xE
+FIFO_STATUS=0x11
+RF_CH=80
+RF_SETUP=0x27
+EN_AA=0x0
+EN_RXADDR=0x1
+SETUP_RETR=0x5F
+FEATURE=0x4
+DYNPD=0x3F
+RPD=NO
+OK
+>> AT+RX=OFF
+OK
+**********************
+Windows PowerShell transcript end
+End time: 20260720055709
+**********************

@@ -36,6 +36,31 @@ def _continuous_row(profile: str, power: float) -> dict[str, object]:
 
 
 class ReportTests(unittest.TestCase):
+    def test_generic_energy_matrix_keeps_valid_current_captures_with_rf_loss(self) -> None:
+        common = {
+            "module": "nRF24L01",
+            "payload_bytes": 32,
+            "tx_power_dbm": 0.0,
+            "bit_rate_kbps": 250.0,
+            "rf_profile": "",
+            "runs": 5,
+            "status_ok_runs": 5,
+            "max_frame_payload_bytes": 32,
+        }
+        tx_rows = [{**common, "packets_received": 2}]
+        rx_rows = [{**common, "packets_received": 4}]
+
+        sizes, powers, settings, rx_power, module, frame_limit = (
+            campaign_reports._validate_energy_matrix(tx_rows, rx_rows, 5)
+        )
+
+        self.assertEqual(sizes, [32])
+        self.assertEqual(powers, [0.0])
+        self.assertEqual(settings[0][1], 250.0)
+        self.assertEqual(rx_power, 0.0)
+        self.assertEqual(module, "nRF24L01")
+        self.assertEqual(frame_limit, 32)
+
     def test_lora_variant_comparison_reports_relative_changes(self) -> None:
         continuous_classic = [
             {

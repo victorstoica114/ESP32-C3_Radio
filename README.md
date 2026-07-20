@@ -316,6 +316,14 @@ line can be sent at its actual length. If `AT+DYN=OFF` is selected, payload
 lines must have exactly the configured `AT+PLEN` length; otherwise the firmware
 returns `#ERROR: FIXED_PAYLOAD_LENGTH_MISMATCH`.
 
+For sustained bidirectional validation across channel, rate, and power, use
+`test/Test-Nrf24SustainedLink.ps1`. It records offered/received unique frames
+and transmitter serial errors in a CSV plus a complete session log. The local
+COM41/COM42 campaign is documented in
+`power_profiler/comparisons/nrf24l01/VALIDATION.md`; it exposed repeatable
+high-power loss at 250 and 1000 kbps, so the nRF24L01 web quick check includes
+maximum-power/minimum-rate cases in both directions.
+
 ### SX1276/SX1278 modules
 
 Applies to `RADIO_RA01_SX1278`, `RADIO_RA02_SX1278`,

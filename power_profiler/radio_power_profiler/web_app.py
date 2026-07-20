@@ -342,6 +342,33 @@ def build_quick_steps(config: WebConfig, session_dir: Path) -> list[CommandStep]
                 5,
             ),
         )
+    if config.profile_id == "RADIO_NRF24L01":
+        # These modules can pass at minimum power and at the fastest rate while
+        # exhibiting severe delivery loss at high power and a slower rate.
+        # Keep both directions in the quick check so that a bench-layout or
+        # supply-decoupling problem is found before the full campaign.
+        definitions.extend(
+            [
+                (
+                    "tx_slow_high_power",
+                    "Slow TX at maximum power",
+                    "tx",
+                    max_frame,
+                    max(powers),
+                    slow_parameters,
+                    quick_repetitions,
+                ),
+                (
+                    "rx_slow_high_power",
+                    "Slow RX at maximum peer power",
+                    "rx",
+                    max_frame,
+                    max(powers),
+                    slow_parameters,
+                    quick_repetitions,
+                ),
+            ]
+        )
     return [
         CommandStep(
             step_id=step_id,

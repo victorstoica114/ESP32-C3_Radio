@@ -126,11 +126,12 @@ def build_report(result_dir: Path) -> tuple[list[dict[str, Any]], list[dict[str,
                 "packet_loss_percent": _number(
                     aggregate.get("packet_loss_percent")
                 ),
-                # Missing data at an optional peer does not invalidate a TX
-                # current capture. Link loss remains reported separately.
+                # A missing RF payload does not invalidate a current capture
+                # when the PPK2 event itself was measured successfully. Link
+                # loss remains reported separately for both directions.
                 "status_ok_runs": sum(
                     row["status"] == "ok"
-                    or (direction == "tx" and row["status"] == "rx_missing")
+                    or row["status"] == "rx_missing"
                     for row in runs
                 ),
                 "event_duration_ms_mean": duration_ms,

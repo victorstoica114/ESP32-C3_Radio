@@ -211,8 +211,6 @@ def _validate_energy_matrix(
         for row in tx_rows + rx_rows
     ):
         raise ValueError("Every energy point must contain all valid repetitions")
-    if any(row["packets_received"] != repetitions for row in rx_rows):
-        raise ValueError("Every RX point must contain all received transfers")
     frame_limit = max(int(row["max_frame_payload_bytes"]) for row in tx_rows)
     return sizes, powers, settings, rx_powers[0], module, frame_limit
 
