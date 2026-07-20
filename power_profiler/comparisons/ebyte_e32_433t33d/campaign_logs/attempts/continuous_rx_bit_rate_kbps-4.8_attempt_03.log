@@ -1,0 +1,4 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E32_433T33D --direction rx --powers=24,27,30 --frame-bytes 58 --gap-ms 15 --duration-s 60 --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\continuous" --keep-power-on --axis bit_rate_kbps=4.8 --transmitter-port COM47 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Continuous RX: 60 s per power, parameters={'bit_rate_kbps': 4.8}, 58 B frames, 15 ms gap
+ERROR: Radio serial transmission did not finish in time

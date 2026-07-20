@@ -10,6 +10,7 @@ class Axis:
     values: tuple[Any, ...]
     command: str | None = None
     commands: dict[str, tuple[str, ...]] = field(default_factory=dict)
+    expected_responses: dict[str, tuple[str, ...]] = field(default_factory=dict)
     label: str = ""
 
     def command_for(self, value: Any) -> str:
@@ -35,6 +36,19 @@ class Axis:
         if self.command is None:
             raise ValueError(f"Axis {self.name!r} has no command template")
         return (self.command.format(value=value),)
+
+    def expected_responses_for(self, value: Any) -> tuple[str, ...]:
+        if not self.expected_responses:
+            return ()
+        key = str(value)
+        if isinstance(value, float) and value.is_integer():
+            key = str(int(value))
+        try:
+            return self.expected_responses[key]
+        except KeyError as exc:
+            raise ValueError(
+                f"Axis {self.name!r} has no expected response for value {value!r}"
+            ) from exc
 
 
 @dataclass(frozen=True)
@@ -111,6 +125,7 @@ class Profile:
     reopen_continuous_between_powers: bool = False
     continuous_inter_power_commands: tuple[str, ...] = ()
     continuous_reopen_setup_commands: tuple[str, ...] = ()
+    parameter_verification_command: str | None = None
     notes: tuple[str, ...] = ()
 
 

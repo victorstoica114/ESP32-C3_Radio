@@ -22,6 +22,20 @@ class FakeSerial:
         self.flushes += 1
 
 
+class TimedFakeSerial:
+    def __init__(self, data):
+        self.data = bytearray(data)
+
+    @property
+    def in_waiting(self):
+        return len(self.data)
+
+    def read(self, length):
+        value = bytes(self.data[:length])
+        del self.data[:length]
+        return value
+
+
 class SerialRadioTests(unittest.TestCase):
     def test_configure_retries_transient_modem_error(self):
         radio = SerialRadio.__new__(SerialRadio)
@@ -54,6 +68,99 @@ class SerialRadioTests(unittest.TestCase):
 
         self.assertEqual(radio.command.call_count, 2)
 
+    def test_verified_parameters_retry_full_selection_after_readback_mismatch(self):
+        radio = SerialRadio.__new__(SerialRadio)
+        radio.configure = Mock(
+            side_effect=(
+                [CommandResult("AT+AIR6", ("OK",))],
+                [
+                    CommandResult("AT+POWER2", ("OK",)),
+                    CommandResult("AT+AIR6", ("OK",)),
+                ],
+            )
+        )
+        radio.command = Mock(
+            side_effect=(
+                CommandResult(
+                    "AT+CFG?",
+                    (
+                        "TX Power: code 1 (30 dBm)",
+                        "Air Data Rate: 0.3kbps",
+                        "OK",
+                    ),
+                ),
+                CommandResult(
+                    "AT+CFG?",
+                    (
+                        "TX Power: code 1 (30 dBm)",
+                        "Air Data Rate: 19.2kbps",
+                        "OK",
+                    ),
+                ),
+            )
+        )
+        radio.drain = Mock(return_value=())
+        profile = load_profile("RADIO_EBYTE_E32_433T33D")
+
+        with patch("radio_power_profiler.serial_radio.time.sleep") as sleep:
+            results = radio.configure_profile_parameters(
+                profile,
+                {"tx_power_dbm": 30, "bit_rate_kbps": 19.2},
+                previous_parameters={"tx_power_dbm": 30, "bit_rate_kbps": 4.8},
+            )
+
+        self.assertEqual(
+            radio.configure.call_args_list[0].args[0],
+            ["AT+AIR6"],
+        )
+        self.assertEqual(
+            radio.configure.call_args_list[1].args[0],
+            ["AT+POWER2", "AT+AIR6"],
+        )
+        self.assertEqual(results[-1].command, "AT+CFG?")
+        radio.drain.assert_called_once_with(wait_s=0.05)
+        self.assertEqual(
+            [call.args[0] for call in sleep.call_args_list],
+            [1.0, 0.20, 1.0],
+        )
+
+    def test_verified_parameters_retry_readback_without_rewriting_modem(self):
+        radio = SerialRadio.__new__(SerialRadio)
+        radio.configure = Mock(
+            return_value=[CommandResult("AT+POWER2", ("OK",))]
+        )
+        radio.command = Mock(
+            side_effect=(
+                RadioCommandError("AT+CFG?: no response"),
+                CommandResult(
+                    "AT+CFG?",
+                    (
+                        "TX Power: code 1 (30 dBm)",
+                        "Air Data Rate: 19.2kbps",
+                        "OK",
+                    ),
+                ),
+            )
+        )
+        radio.drain = Mock(return_value=())
+        profile = load_profile("RADIO_EBYTE_E32_433T33D")
+
+        with patch("radio_power_profiler.serial_radio.time.sleep") as sleep:
+            radio.configure_profile_parameters(
+                profile,
+                {"tx_power_dbm": 30, "bit_rate_kbps": 19.2},
+            )
+
+        radio.configure.assert_called_once_with(
+            ["AT+POWER2", "AT+AIR6"],
+            attempts=1,
+        )
+        self.assertEqual(radio.command.call_count, 2)
+        self.assertEqual(
+            [call.args[0] for call in sleep.call_args_list],
+            [1.0, 0.75],
+        )
+
     def test_counts_concatenated_transparent_uart_payloads(self):
         payload = SerialRadio.make_payload(12)
         text = payload.decode("ascii")
@@ -62,6 +169,38 @@ class SerialRadioTests(unittest.TestCase):
             SerialRadio.count_payload_occurrences(text * 7, payload),
             7,
         )
+
+    def test_bounded_drain_does_not_extend_deadline_when_data_arrives(self):
+        radio = SerialRadio.__new__(SerialRadio)
+        radio.serial = TimedFakeSerial(b"frame-one\r\nframe-two\r\n")
+
+        with patch(
+            "radio_power_profiler.serial_radio.time.monotonic",
+            side_effect=(10.0, 10.0, 10.021),
+        ):
+            lines = radio.drain_bounded(duration_s=0.02)
+
+        self.assertEqual(lines, ("frame-one", "frame-two"))
+
+    def test_bounded_drain_preserves_a_line_split_across_time_windows(self):
+        radio = SerialRadio.__new__(SerialRadio)
+        radio.serial = TimedFakeSerial(b"partial-")
+
+        with patch(
+            "radio_power_profiler.serial_radio.time.monotonic",
+            side_effect=(20.0, 20.0, 20.021),
+        ):
+            first = radio.drain_bounded(duration_s=0.02)
+
+        radio.serial = TimedFakeSerial(b"frame\r\n")
+        with patch(
+            "radio_power_profiler.serial_radio.time.monotonic",
+            side_effect=(30.0, 30.0, 30.021),
+        ):
+            second = radio.drain_bounded(duration_s=0.02)
+
+        self.assertEqual(first, ())
+        self.assertEqual(second, ("partial-frame",))
 
     def test_fragments_large_cc1101_transfer(self):
         radio = SerialRadio.__new__(SerialRadio)

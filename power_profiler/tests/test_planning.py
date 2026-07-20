@@ -151,12 +151,16 @@ class PlanningTests(unittest.TestCase):
             profile,
             sizes=(8,),
             repetitions=1,
-            axis_overrides={"tx_power_dbm": (33,), "air_rate_code": (6,)},
+            axis_overrides={"tx_power_dbm": (30,), "bit_rate_kbps": (19.2,)},
         )
         cases = build_cases(profile)
         self.assertEqual(len(cases), 1)
         power_axis = next(axis for axis in profile.axes if axis.name == "tx_power_dbm")
-        self.assertEqual(power_axis.command_for(33), "AT+POWER1")
+        self.assertEqual(power_axis.command_for(30), "AT+POWER2")
+        self.assertEqual(
+            power_axis.expected_responses_for(30),
+            ("TX Power: code 1 (30 dBm)",),
+        )
 
     def test_cc1101_fragmented_transfer_airtime(self):
         profile = load_profile("RADIO_CC1101_V2_868")
@@ -286,6 +290,29 @@ class PlanningTests(unittest.TestCase):
             ),
             ["AT+POWER1", "AT+AIR4"],
         )
+
+    def test_e32_t33_profile_supports_large_transfers_and_three_rates(self):
+        profile = load_profile("RADIO_EBYTE_E32_433T33D")
+
+        self.assertEqual(profile.transmit.frame_sizes(1024), (58,) * 17 + (38,))
+        self.assertEqual(profile.receiver_enable_commands, ("AT+BRIDGE=ON",))
+        self.assertFalse(profile.restore_after_receive)
+        self.assertEqual(profile.inter_run_commands, ("AT+RESET", "AT+BRIDGE=ON"))
+        self.assertTrue(profile.power_cycle_between_runs)
+        power_axis = next(axis for axis in profile.axes if axis.name == "tx_power_dbm")
+        rate_axis = next(axis for axis in profile.axes if axis.name == "bit_rate_kbps")
+        self.assertEqual(power_axis.values, (24, 27, 30))
+        self.assertEqual(rate_axis.values, (0.3, 4.8, 19.2))
+        self.assertEqual(len(build_cases(profile, "tx")), 270)
+        self.assertEqual(len(build_cases(profile, "rx")), 270)
+        self.assertEqual(
+            parameter_commands(
+                profile,
+                {"tx_power_dbm": 30, "bit_rate_kbps": 19.2},
+            ),
+            ["AT+POWER2", "AT+AIR6"],
+        )
+        self.assertEqual(profile.parameter_verification_command, "AT+CFG?")
 
     def test_hc12_profile_maps_real_power_air_rates_and_fu4_uart(self):
         profile = load_profile("RADIO_HC12")

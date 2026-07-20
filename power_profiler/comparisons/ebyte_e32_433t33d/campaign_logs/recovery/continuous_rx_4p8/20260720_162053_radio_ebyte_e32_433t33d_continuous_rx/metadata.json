@@ -1,0 +1,28 @@
+{
+  "created_utc": "2026-07-20T13:20:53+00:00",
+  "test_type": "continuous_average_power",
+  "profile_id": "RADIO_EBYTE_E32_433T33D",
+  "module": "Ebyte E32-433T33D UART",
+  "firmware_selection": "RADIO_EBYTE_E32_433T33D + AT_COMMANDS",
+  "measurement_direction": "rx",
+  "measured_port": "COM48",
+  "peer_port": "COM47",
+  "ppk_port": "COM11",
+  "ppk_mode": "ampere",
+  "voltage_mv": 3300,
+  "sample_rate_hz": 100000,
+  "powers_dbm": [
+    24.0,
+    27.0,
+    30.0
+  ],
+  "axis_parameters": {
+    "bit_rate_kbps": 4.8
+  },
+  "bit_rate_kbps": 4.8,
+  "frame_bytes": 58,
+  "content_bytes_per_frame": 56,
+  "inter_frame_gap_ms": 15,
+  "requested_duration_s": 60.0,
+  "save_raw": true
+}

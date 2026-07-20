@@ -21,6 +21,11 @@ class FakeReceiver:
         self.configure_calls.append(tuple(commands))
         return []
 
+    def configure_profile_parameters(self, profile, parameters, **kwargs):
+        from radio_power_profiler.planning import parameter_commands
+
+        return self.configure(parameter_commands(profile, parameters))
+
     def drain(self, *, wait_s):
         self.drain_calls.append(wait_s)
         return self.lines

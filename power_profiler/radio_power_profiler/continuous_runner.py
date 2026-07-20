@@ -177,11 +177,11 @@ def _receive_continuous(
     receiver_lines: list[str] = []
     sender.start()
     while sender.is_alive():
-        receiver_lines.extend(receiver.drain(wait_s=0.02))
+        receiver_lines.extend(receiver.drain_bounded(duration_s=0.02))
     sender.join(timeout=1.0)
     receiver_lines.extend(
-        receiver.drain(
-            wait_s=_continuous_receiver_tail_s(
+        receiver.drain_bounded(
+            duration_s=_continuous_receiver_tail_s(
                 profile,
                 frame_airtime_s=frame_airtime_s,
             )
@@ -377,20 +377,23 @@ def run_continuous_profile(
             )
             parameters = dict(base_parameters)
             parameters["tx_power_dbm"] = power_value
-            commands = parameter_commands(
-                profile,
-                parameters,
-                previous_parameters=previous_parameters,
-            )
             frame_airtime_s = estimate_airtime_s(
                 profile,
                 frame_bytes,
                 parameters,
             )
-            radio.configure(commands)
+            radio.configure_profile_parameters(
+                profile,
+                parameters,
+                previous_parameters=previous_parameters,
+            )
             radio.configure(profile.post_config_commands)
             if peer is not None:
-                peer.configure(commands)
+                peer.configure_profile_parameters(
+                    profile,
+                    parameters,
+                    previous_parameters=previous_parameters,
+                )
                 peer.configure(profile.post_config_commands)
             previous_parameters = dict(parameters)
             time.sleep(max(0.10, profile.cooldown_s))

@@ -37,6 +37,14 @@ def load_profile(profile_id: str) -> Profile:
                 )
                 for value, commands in item.get("commands", {}).items()
             },
+            expected_responses={
+                str(value): (
+                    tuple(responses)
+                    if isinstance(responses, list)
+                    else (str(responses),)
+                )
+                for value, responses in item.get("expected_responses", {}).items()
+            },
             label=item.get("label", ""),
         )
         for item in raw.get("axes", [])
@@ -108,6 +116,7 @@ def load_profile(profile_id: str) -> Profile:
         continuous_reopen_setup_commands=tuple(
             raw.get("continuous_reopen_setup_commands", [])
         ),
+        parameter_verification_command=raw.get("parameter_verification_command"),
         notes=tuple(raw.get("notes", [])),
     )
 
@@ -132,6 +141,7 @@ def override_profile(
             values=axis_overrides.get(axis.name, axis.values),
             command=axis.command,
             commands=axis.commands,
+            expected_responses=axis.expected_responses,
             label=axis.label,
         )
         for axis in profile.axes
@@ -161,5 +171,6 @@ def override_profile(
         reopen_continuous_between_powers=profile.reopen_continuous_between_powers,
         continuous_inter_power_commands=profile.continuous_inter_power_commands,
         continuous_reopen_setup_commands=profile.continuous_reopen_setup_commands,
+        parameter_verification_command=profile.parameter_verification_command,
         notes=profile.notes,
     )

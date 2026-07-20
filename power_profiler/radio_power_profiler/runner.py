@@ -176,7 +176,7 @@ def _restore_after_reset(
         if command.strip().upper() not in inter_run_resets
     )
     radio.configure(setup_commands)
-    radio.configure(parameter_commands(profile, parameters))
+    radio.configure_profile_parameters(profile, parameters)
     radio.configure(role_commands)
 
 
@@ -274,10 +274,18 @@ def run_profile(
 
         for case in cases:
             if case.parameters != previous_parameters:
-                radio.configure(parameter_commands(profile, case.parameters))
+                radio.configure_profile_parameters(
+                    profile,
+                    case.parameters,
+                    previous_parameters=previous_parameters,
+                )
                 radio.configure(profile.post_config_commands)
                 if peer is not None:
-                    peer.configure(parameter_commands(profile, case.parameters))
+                    peer.configure_profile_parameters(
+                        profile,
+                        case.parameters,
+                        previous_parameters=previous_parameters,
+                    )
                     peer.configure(
                         profile.receiver_enable_commands
                         if measurement_direction == "tx"

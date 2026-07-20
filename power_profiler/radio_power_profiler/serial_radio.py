@@ -3,7 +3,7 @@ from __future__ import annotations
 import re
 import time
 from dataclasses import dataclass
-from typing import Iterable
+from typing import Any, Iterable, Mapping
 
 from .models import Profile
 
@@ -57,6 +57,7 @@ class SerialRadio:
             timeout=0.03,
             write_timeout=5.0,
         )
+        self._bounded_partial = bytearray()
         # Opening an ESP32-C3 USB CDC port can reset the controller.  Wait for
         # its AT firmware to finish setup before discarding the boot banner;
         # otherwise the first command can be interleaved with that banner and
@@ -109,6 +110,34 @@ class SerialRadio:
                 time.sleep(0.005)
         text = data.decode("utf-8", errors="replace")
         return tuple(line.strip() for line in text.splitlines() if line.strip())
+
+    def drain_bounded(self, *, duration_s: float) -> tuple[str, ...]:
+        """Read serial data for an absolute duration without an idle extension.
+
+        ``drain`` deliberately waits for a quiet period, which is useful after
+        commands and bounded packet transfers.  A continuously receiving UART
+        may never become quiet, however, so continuous campaigns need a hard
+        deadline to keep their trigger inside the PPK2 capture window.
+        """
+        if duration_s < 0:
+            raise ValueError("Bounded drain duration cannot be negative")
+        deadline = time.monotonic() + duration_s
+        data = getattr(self, "_bounded_partial", bytearray())
+        while time.monotonic() < deadline:
+            waiting = self.serial.in_waiting
+            if waiting:
+                data.extend(self.serial.read(waiting))
+            else:
+                time.sleep(0.005)
+        lines: list[str] = []
+        while b"\n" in data:
+            raw, _, remainder = data.partition(b"\n")
+            data = bytearray(remainder)
+            line = raw.decode("utf-8", errors="replace").strip("\x00\r ")
+            if line:
+                lines.append(line)
+        self._bounded_partial = data
+        return tuple(lines)
 
     def command(
         self,
@@ -315,6 +344,88 @@ class SerialRadio:
                     self.drain(wait_s=0.05)
                     time.sleep(retry_delay_s)
         return results
+
+    def configure_profile_parameters(
+        self,
+        profile: Profile,
+        parameters: Mapping[str, Any],
+        *,
+        previous_parameters: Mapping[str, Any] | None = None,
+        attempts: int = 3,
+        retry_delay_s: float = 0.20,
+        verification_settle_s: float = 1.0,
+        readback_attempts: int = 3,
+    ) -> list[CommandResult]:
+        """Apply an axis selection and verify the modem's physical state.
+
+        Some UART radios acknowledge a saved setter before the modem has
+        reliably reset into the new configuration.  Profiles that expose a
+        physical readback command can declare the response fragments expected
+        for each axis value.  A mismatch retries the complete parameter set so
+        a measurement can never start with only part of the requested state.
+        """
+        from .planning import parameter_commands
+
+        changed_commands = parameter_commands(
+            profile,
+            dict(parameters),
+            previous_parameters=(
+                dict(previous_parameters)
+                if previous_parameters is not None
+                else None
+            ),
+        )
+        verification_command = profile.parameter_verification_command
+        expected = tuple(
+            fragment
+            for axis in profile.axes
+            if axis.name in parameters
+            for fragment in axis.expected_responses_for(parameters[axis.name])
+        )
+        if not verification_command or not expected:
+            return self.configure(commands, attempts=attempts)
+
+        last_error: RadioCommandError | None = None
+        for attempt in range(1, attempts + 1):
+            try:
+                commands = (
+                    changed_commands
+                    if attempt == 1
+                    else parameter_commands(profile, dict(parameters))
+                )
+                results = self.configure(commands, attempts=1)
+                time.sleep(verification_settle_s)
+                readback: CommandResult | None = None
+                for readback_attempt in range(1, readback_attempts + 1):
+                    try:
+                        readback = self.command(verification_command)
+                        break
+                    except RadioCommandError:
+                        if readback_attempt == readback_attempts:
+                            raise
+                        self.drain(wait_s=0.05)
+                        time.sleep(0.75)
+                assert readback is not None
+                rendered = "\n".join(readback.lines).upper()
+                missing = [
+                    fragment
+                    for fragment in expected
+                    if fragment.upper() not in rendered
+                ]
+                if missing:
+                    raise RadioCommandError(
+                        f"{verification_command}: physical configuration mismatch; "
+                        f"missing {missing!r}"
+                    )
+                return results + [readback]
+            except RadioCommandError as exc:
+                last_error = exc
+                if attempt == attempts:
+                    raise
+                self.drain(wait_s=0.05)
+                time.sleep(retry_delay_s)
+        assert last_error is not None
+        raise last_error
 
     @staticmethod
     def make_payload(length: int) -> bytes:

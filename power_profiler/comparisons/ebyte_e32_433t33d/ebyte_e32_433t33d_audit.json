@@ -1,0 +1,51 @@
+{
+  "authoritative_session": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_120223_campaign_radio_ebyte_e32_433t33d",
+  "original_manifest_state": "completed_with_errors",
+  "effective_state": "completed",
+  "campaign_steps": 76,
+  "original_completed_steps": 75,
+  "original_failed_steps": 1,
+  "recovery_overrides": 1,
+  "packet_batches": 72,
+  "packet_runs": 360,
+  "packet_events_detected": 360,
+  "packet_complete_transfers": 299,
+  "packet_incomplete_transfers": 61,
+  "packet_raw_files": 360,
+  "continuous_points": 12,
+  "continuous_tx_points": 3,
+  "continuous_rx_points": 9,
+  "continuous_frames_transmitted_for_rx": 2559,
+  "continuous_frames_received": 1522,
+  "continuous_frames_lost": 1037,
+  "continuous_raw_files": 12,
+  "effective_raw_files": 372,
+  "maximum_energy_cv_percent": 3.571063304098231,
+  "maximum_packet_ppk_sample_loss_percent": 0.29473684210526313,
+  "maximum_continuous_ppk_sample_loss_percent": 0.00297782812752873,
+  "maximum_accepted_continuous_peak_current_uA": 830225.6126750147,
+  "excluded_power_dbm": 33,
+  "excluded_power_reason": "Quick preflight sustained approximately 925 mA, too close to the PPK2 1 A measurement ceiling.",
+  "continuous_rx_recovery": {
+    "step_id": "continuous_rx_bit_rate_kbps-4.8",
+    "accepted_directory": "recovery/continuous_rx_4p8/20260720_162053_radio_ebyte_e32_433t33d_continuous_rx",
+    "root_cause": "A quiet-period UART drain could extend indefinitely under sustained receive traffic and overrun the PPK2 trigger deadline.",
+    "fix": "Use an absolute drain deadline and retain partial UART lines across bounded read windows.",
+    "accepted_rows": 3,
+    "statuses": ["ok", "ok", "ok"]
+  },
+  "validation": {
+    "csv_has_non_finite_values": false,
+    "xlsx_load": "passed",
+    "latex_sources": 6,
+    "pdf_plots": 6,
+    "png_plots": 6,
+    "plot_visual_review": "passed"
+  },
+  "notes": [
+    "All requested radio-axis values were applied and verified through physical AT+CFG? readback.",
+    "The 4.8 kbps recovery is the only accepted replacement; original failed attempts remain archived for provenance.",
+    "High-rate large-payload packet loss was confirmed from preserved receiver responses and by the independent continuous-RX sweep.",
+    "Requested TX power is a modem configuration value and is not a calibrated radiated-power measurement."
+  ]
+}

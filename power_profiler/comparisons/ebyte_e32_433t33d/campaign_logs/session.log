@@ -1,0 +1,1081 @@
+[12:02:23] START   Campaign session: 76 steps - RADIO_EBYTE_E32_433T33D
+[12:02:23] STEP    TX 8 B - 24 dBm - 0.3 kbps - attempt 1
+[12:02:23] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=24 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[12:02:23] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[12:02:23] INFO    Measured transmitter: COM48, 115200 baud
+[12:02:23] INFO    Peer receiver: COM47, 115200 baud
+[12:02:27] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[12:02:32] INFO    Configuring peer receiver on COM47 ...
+[12:02:52] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=642110.8 uA, energy=492142.191 uJ
+[12:03:00] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=642110.8 uA, energy=491950.759 uJ
+[12:03:07] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=642110.8 uA, energy=492199.512 uJ
+[12:03:15] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=641295.8 uA, energy=491950.348 uJ
+[12:03:22] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=642110.8 uA, energy=492075.790 uJ
+[12:03:22] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_120223_radio_ebyte_e32_433t33d
+[12:03:23] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[12:03:23] STEP    TX 32 B - 24 dBm - 0.3 kbps - attempt 1
+[12:03:23] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=24 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[12:03:23] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[12:03:23] INFO    Measured transmitter: COM48, 115200 baud
+[12:03:23] INFO    Peer receiver: COM47, 115200 baud
+[12:03:27] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[12:03:32] INFO    Configuring peer receiver on COM47 ...
+[12:03:56] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=647002.9 uA, energy=923460.101 uJ
+[12:04:08] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=646187.4 uA, energy=922455.296 uJ
+[12:04:19] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=645371.9 uA, energy=922519.167 uJ
+[12:04:31] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=647002.9 uA, energy=922796.731 uJ
+[12:04:42] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=648634.3 uA, energy=922856.014 uJ
+[12:04:42] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_120323_radio_ebyte_e32_433t33d
+[12:04:43] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[12:04:43] STEP    TX 58 B - 24 dBm - 0.3 kbps - attempt 1
+[12:04:43] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 58 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=24 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[12:04:43] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[12:04:43] INFO    Measured transmitter: COM48, 115200 baud
+[12:04:43] INFO    Peer receiver: COM47, 115200 baud
+[12:04:46] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[12:04:52] INFO    Configuring peer receiver on COM47 ...
+[12:05:20] INFO    [   1/5] TX   58 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=648634.3 uA, energy=1441358.912 uJ
+[12:05:36] INFO    [   2/5] TX   58 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=648634.3 uA, energy=1440539.955 uJ
+[12:05:51] INFO    [   3/5] TX   58 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=648634.3 uA, energy=1441282.230 uJ
+[12:06:07] INFO    [   4/5] TX   58 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=648634.3 uA, energy=1440297.738 uJ
+[12:06:23] INFO    [   5/5] TX   58 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=649450.2 uA, energy=1442039.419 uJ
+[12:06:23] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_120443_radio_ebyte_e32_433t33d
+[12:06:24] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[12:06:24] STEP    TX 128 B - 24 dBm - 0.3 kbps - attempt 1
+[12:06:24] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=24 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[12:06:24] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[12:06:24] INFO    Measured transmitter: COM48, 115200 baud
+[12:06:24] INFO    Peer receiver: COM47, 115200 baud
+[12:06:27] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[12:06:32] INFO    Configuring peer receiver on COM47 ...
+[12:07:16] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=650266.1 uA, energy=3418394.666 uJ
+[12:08:20] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=648634.3 uA, energy=3417612.559 uJ
+[12:09:24] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=649450.2 uA, energy=3417868.898 uJ
+[12:10:27] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=649450.2 uA, energy=3419651.541 uJ
+[12:11:31] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=650266.1 uA, energy=3420053.739 uJ
+[12:11:31] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_120624_radio_ebyte_e32_433t33d
+[12:11:31] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[12:11:31] STEP    TX 512 B - 24 dBm - 0.3 kbps - attempt 1
+[12:11:32] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 512 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=24 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[12:11:32] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[12:11:32] INFO    Measured transmitter: COM48, 115200 baud
+[12:11:32] INFO    Peer receiver: COM47, 115200 baud
+[12:11:35] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[12:11:41] INFO    Configuring peer receiver on COM47 ...
+[12:13:42] INFO    [   1/5] TX  512 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=651898.2 uA, energy=12766754.304 uJ
+[12:16:02] INFO    [   2/5] TX  512 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=651898.2 uA, energy=12776881.524 uJ
+[12:18:22] INFO    [   3/5] TX  512 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=651898.2 uA, energy=12786919.616 uJ
+[12:20:43] INFO    [   4/5] TX  512 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=651898.2 uA, energy=12797528.769 uJ
+[12:23:03] INFO    [   5/5] TX  512 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=653530.6 uA, energy=12804868.344 uJ
+[12:23:03] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_121132_radio_ebyte_e32_433t33d
+[12:23:04] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[12:23:04] STEP    TX 1024 B - 24 dBm - 0.3 kbps - attempt 1
+[12:23:04] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 1024 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=24 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[12:23:04] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[12:23:04] INFO    Measured transmitter: COM48, 115200 baud
+[12:23:04] INFO    Peer receiver: COM47, 115200 baud
+[12:23:07] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[12:23:13] INFO    Configuring peer receiver on COM47 ...
+[12:26:57] INFO    [   1/5] TX 1024 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=655163.4 uA, energy=25678089.623 uJ
+[12:31:02] INFO    [   2/5] TX 1024 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=655163.4 uA, energy=25671711.877 uJ
+[12:35:07] INFO    [   3/5] TX 1024 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=653530.6 uA, energy=25676243.479 uJ
+[12:39:11] INFO    [   4/5] TX 1024 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=655163.4 uA, energy=25669826.765 uJ
+[12:43:14] INFO    [   5/5] TX 1024 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=655163.4 uA, energy=25678318.849 uJ
+[12:43:14] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_122304_radio_ebyte_e32_433t33d
+[12:43:15] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[12:43:15] STEP    TX 8 B - 24 dBm - 4.8 kbps - attempt 1
+[12:43:15] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=24 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[12:43:15] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[12:43:15] INFO    Measured transmitter: COM48, 115200 baud
+[12:43:15] INFO    Peer receiver: COM47, 115200 baud
+[12:43:19] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[12:43:24] INFO    Configuring peer receiver on COM47 ...
+[12:43:51] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=639666.0 uA, energy=164673.099 uJ
+[12:43:56] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=638851.2 uA, energy=164548.233 uJ
+[12:44:01] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=638851.2 uA, energy=164461.488 uJ
+[12:44:05] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=638851.2 uA, energy=164543.942 uJ
+[12:44:10] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=637221.9 uA, energy=164621.766 uJ
+[12:44:10] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_124315_radio_ebyte_e32_433t33d
+[12:44:11] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[12:44:11] STEP    TX 32 B - 24 dBm - 4.8 kbps - attempt 1
+[12:44:11] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=24 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[12:44:11] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[12:44:11] INFO    Measured transmitter: COM48, 115200 baud
+[12:44:11] INFO    Peer receiver: COM47, 115200 baud
+[12:44:15] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[12:44:19] INFO    Configuring peer receiver on COM47 ...
+[12:44:37] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=642110.8 uA, energy=335974.864 uJ
+[12:44:41] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=642110.8 uA, energy=335960.298 uJ
+[12:44:46] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=642110.8 uA, energy=336006.776 uJ
+[12:44:51] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=642110.8 uA, energy=335899.112 uJ
+[12:44:56] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=642110.8 uA, energy=335951.561 uJ
+[12:44:56] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_124411_radio_ebyte_e32_433t33d
+[12:44:56] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[12:44:56] STEP    TX 58 B - 24 dBm - 4.8 kbps - attempt 1
+[12:44:56] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 58 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=24 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[12:44:57] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[12:44:57] INFO    Measured transmitter: COM48, 115200 baud
+[12:44:57] INFO    Peer receiver: COM47, 115200 baud
+[12:45:00] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[12:45:05] INFO    Configuring peer receiver on COM47 ...
+[12:45:22] INFO    [   1/5] TX   58 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=647818.6 uA, energy=529829.347 uJ
+[12:45:27] INFO    [   2/5] TX   58 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=643741.2 uA, energy=529394.835 uJ
+[12:45:32] INFO    [   3/5] TX   58 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=645371.9 uA, energy=529379.273 uJ
+[12:45:37] INFO    [   4/5] TX   58 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=643741.2 uA, energy=529076.924 uJ
+[12:45:41] INFO    [   5/5] TX   58 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=645371.9 uA, energy=529265.437 uJ
+[12:45:41] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_124457_radio_ebyte_e32_433t33d
+[12:45:42] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[12:45:42] STEP    TX 128 B - 24 dBm - 4.8 kbps - attempt 1
+[12:45:42] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=24 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[12:45:42] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[12:45:42] INFO    Measured transmitter: COM48, 115200 baud
+[12:45:42] INFO    Peer receiver: COM47, 115200 baud
+[12:45:46] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[12:45:50] INFO    Configuring peer receiver on COM47 ...
+[12:46:08] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=648634.3 uA, energy=1265303.907 uJ
+[12:46:14] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=651082.1 uA, energy=1263782.477 uJ
+[12:46:19] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=649450.2 uA, energy=1265143.362 uJ
+[12:46:24] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=649450.2 uA, energy=1265610.656 uJ
+[12:46:30] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=650266.1 uA, energy=1264903.273 uJ
+[12:46:30] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_124542_radio_ebyte_e32_433t33d
+[12:46:30] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[12:46:30] STEP    TX 512 B - 24 dBm - 4.8 kbps - attempt 1
+[12:46:30] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 512 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=24 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[12:46:31] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[12:46:31] INFO    Measured transmitter: COM48, 115200 baud
+[12:46:31] INFO    Peer receiver: COM47, 115200 baud
+[12:46:34] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[12:46:39] INFO    Configuring peer receiver on COM47 ...
+[12:47:01] INFO    [   1/5] TX  512 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=655979.9 uA, energy=4764379.805 uJ
+[12:47:10] INFO    [   2/5] TX  512 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=658430.1 uA, energy=4772067.791 uJ
+[12:47:19] INFO    [   3/5] TX  512 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=658430.1 uA, energy=4778270.923 uJ
+[12:47:28] INFO    [   4/5] TX  512 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=658430.1 uA, energy=4782398.740 uJ
+[12:47:37] INFO    [   5/5] TX  512 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=658430.1 uA, energy=4782460.027 uJ
+[12:47:37] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_124631_radio_ebyte_e32_433t33d
+[12:47:38] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[12:47:38] STEP    TX 1024 B - 24 dBm - 4.8 kbps - attempt 1
+[12:47:38] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 1024 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=24 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[12:47:38] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[12:47:38] INFO    Measured transmitter: COM48, 115200 baud
+[12:47:38] INFO    Peer receiver: COM47, 115200 baud
+[12:47:41] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[12:47:47] INFO    Configuring peer receiver on COM47 ...
+[12:48:13] INFO    [   1/5] TX 1024 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=661698.1 uA, energy=9607682.263 uJ
+[12:48:27] INFO    [   2/5] TX 1024 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=661698.1 uA, energy=9621892.048 uJ
+[12:48:41] INFO    [   3/5] TX 1024 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=663332.7 uA, energy=9637251.039 uJ
+[12:48:55] INFO    [   4/5] TX 1024 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=664967.6 uA, energy=9643448.257 uJ
+[12:49:08] INFO    [   5/5] TX 1024 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=664967.6 uA, energy=9653682.091 uJ
+[12:49:08] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_124738_radio_ebyte_e32_433t33d
+[12:49:09] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[12:49:09] STEP    TX 8 B - 24 dBm - 19.2 kbps - attempt 1
+[12:49:09] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=24 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[12:49:09] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[12:49:09] INFO    Measured transmitter: COM48, 115200 baud
+[12:49:09] INFO    Peer receiver: COM47, 115200 baud
+[12:49:13] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[12:49:18] INFO    Configuring peer receiver on COM47 ...
+[12:49:46] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 1: ok, peak=638851.2 uA, energy=62954.266 uJ
+[12:49:51] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 2: ok, peak=640480.9 uA, energy=62908.824 uJ
+[12:49:56] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 3: ok, peak=637221.9 uA, energy=62840.224 uJ
+[12:50:00] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 4: ok, peak=637221.9 uA, energy=62908.458 uJ
+[12:50:05] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 5: ok, peak=638851.2 uA, energy=62876.880 uJ
+[12:50:05] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_124909_radio_ebyte_e32_433t33d
+[12:50:06] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[12:50:06] STEP    TX 32 B - 24 dBm - 19.2 kbps - attempt 1
+[12:50:06] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=24 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[12:50:06] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[12:50:06] INFO    Measured transmitter: COM48, 115200 baud
+[12:50:06] INFO    Peer receiver: COM47, 115200 baud
+[12:50:10] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[12:50:15] INFO    Configuring peer receiver on COM47 ...
+[12:50:32] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 1: ok, peak=642110.8 uA, energy=126999.519 uJ
+[12:50:37] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 2: ok, peak=639666.0 uA, energy=126847.096 uJ
+[12:50:42] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 3: ok, peak=639666.0 uA, energy=126834.553 uJ
+[12:50:47] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 4: ok, peak=642110.8 uA, energy=126854.585 uJ
+[12:50:52] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 5: ok, peak=640480.9 uA, energy=126877.457 uJ
+[12:50:52] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_125006_radio_ebyte_e32_433t33d
+[12:50:52] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[12:50:52] STEP    TX 58 B - 24 dBm - 19.2 kbps - attempt 1
+[12:50:52] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 58 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=24 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[12:50:52] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[12:50:52] INFO    Measured transmitter: COM48, 115200 baud
+[12:50:52] INFO    Peer receiver: COM47, 115200 baud
+[12:50:56] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[12:51:01] INFO    Configuring peer receiver on COM47 ...
+[12:51:18] INFO    [   1/5] TX   58 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 1: ok, peak=642110.8 uA, energy=191164.618 uJ
+[12:51:23] INFO    [   2/5] TX   58 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 2: ok, peak=642110.8 uA, energy=190956.584 uJ
+[12:51:28] INFO    [   3/5] TX   58 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 3: ok, peak=642110.8 uA, energy=190991.984 uJ
+[12:51:32] INFO    [   4/5] TX   58 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 4: ok, peak=642926.0 uA, energy=190920.899 uJ
+[12:51:37] INFO    [   5/5] TX   58 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 5: ok, peak=642110.8 uA, energy=190895.661 uJ
+[12:51:37] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_125052_radio_ebyte_e32_433t33d
+[12:51:38] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[12:51:38] STEP    TX 128 B - 24 dBm - 19.2 kbps - attempt 1
+[12:51:38] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=24 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[12:51:38] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[12:51:38] INFO    Measured transmitter: COM48, 115200 baud
+[12:51:38] INFO    Peer receiver: COM47, 115200 baud
+[12:51:42] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[12:51:46] INFO    Configuring peer receiver on COM47 ...
+[12:52:04] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 1: rx_missing, peak=643741.2 uA, energy=424438.254 uJ
+[12:52:08] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 2: rx_missing, peak=643741.2 uA, energy=411242.014 uJ
+[12:52:13] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 3: rx_missing, peak=642110.8 uA, energy=398154.469 uJ
+[12:52:18] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 4: rx_missing, peak=644556.5 uA, energy=394916.569 uJ
+[12:52:23] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 5: rx_missing, peak=643741.2 uA, energy=401390.461 uJ
+[12:52:23] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_125138_radio_ebyte_e32_433t33d
+[12:52:23] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[12:52:23] WARNING TX 128 B - 24 dBm - 19.2 kbps: 5 transfers have missing packets or fragments
+[12:52:23] STEP    TX 512 B - 24 dBm - 19.2 kbps - attempt 1
+[12:52:23] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 512 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=24 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[12:52:23] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[12:52:23] INFO    Measured transmitter: COM48, 115200 baud
+[12:52:23] INFO    Peer receiver: COM47, 115200 baud
+[12:52:27] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[12:52:32] INFO    Configuring peer receiver on COM47 ...
+[12:52:51] INFO    [   1/5] TX  512 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 1: rx_missing, peak=650266.1 uA, energy=1502135.731 uJ
+[12:52:57] INFO    [   2/5] TX  512 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 2: rx_missing, peak=648634.3 uA, energy=1484816.258 uJ
+[12:53:04] INFO    [   3/5] TX  512 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 3: rx_missing, peak=653530.6 uA, energy=1531537.176 uJ
+[12:53:10] INFO    [   4/5] TX  512 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 4: rx_missing, peak=650266.1 uA, energy=1518226.596 uJ
+[12:53:16] INFO    [   5/5] TX  512 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 5: rx_missing, peak=651898.2 uA, energy=1501539.294 uJ
+[12:53:16] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_125223_radio_ebyte_e32_433t33d
+[12:53:17] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[12:53:17] WARNING TX 512 B - 24 dBm - 19.2 kbps: 5 transfers have missing packets or fragments
+[12:53:17] STEP    TX 1024 B - 24 dBm - 19.2 kbps - attempt 1
+[12:53:17] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 1024 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=24 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[12:53:17] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[12:53:17] INFO    Measured transmitter: COM48, 115200 baud
+[12:53:17] INFO    Peer receiver: COM47, 115200 baud
+[12:53:21] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[12:53:26] INFO    Configuring peer receiver on COM47 ...
+[12:53:47] INFO    [   1/5] TX 1024 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 1: rx_missing, peak=654347.0 uA, energy=3036482.082 uJ
+[12:53:55] INFO    [   2/5] TX 1024 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 2: rx_missing, peak=653530.6 uA, energy=3073955.735 uJ
+[12:54:04] INFO    [   3/5] TX 1024 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 3: rx_missing, peak=655979.9 uA, energy=3046730.944 uJ
+[12:54:13] INFO    [   4/5] TX 1024 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 4: rx_missing, peak=653530.6 uA, energy=2955002.206 uJ
+[12:54:21] INFO    [   5/5] TX 1024 B, {'tx_power_dbm': 24, 'bit_rate_kbps': 19.2}, rep 5: rx_missing, peak=655163.4 uA, energy=3000379.423 uJ
+[12:54:21] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_125317_radio_ebyte_e32_433t33d
+[12:54:22] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[12:54:22] WARNING TX 1024 B - 24 dBm - 19.2 kbps: 5 transfers have missing packets or fragments
+[12:54:22] STEP    TX 8 B - 27 dBm - 0.3 kbps - attempt 1
+[12:54:22] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=27 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[12:54:22] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[12:54:22] INFO    Measured transmitter: COM48, 115200 baud
+[12:54:22] INFO    Peer receiver: COM47, 115200 baud
+[12:54:26] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[12:54:31] INFO    Configuring peer receiver on COM47 ...
+[12:55:00] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=733124.6 uA, energy=562552.392 uJ
+[12:55:08] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=733949.5 uA, energy=561845.950 uJ
+[12:55:15] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=732299.9 uA, energy=562050.130 uJ
+[12:55:23] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=733949.5 uA, energy=562034.318 uJ
+[12:55:30] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=733124.6 uA, energy=562015.249 uJ
+[12:55:30] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_125422_radio_ebyte_e32_433t33d
+[12:55:31] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[12:55:31] STEP    TX 32 B - 27 dBm - 0.3 kbps - attempt 1
+[12:55:31] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=27 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[12:55:31] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[12:55:31] INFO    Measured transmitter: COM48, 115200 baud
+[12:55:31] INFO    Peer receiver: COM47, 115200 baud
+[12:55:35] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[12:55:39] INFO    Configuring peer receiver on COM47 ...
+[12:56:03] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=734774.4 uA, energy=1050858.732 uJ
+[12:56:14] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=735599.4 uA, energy=1050642.282 uJ
+[12:56:26] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=733949.5 uA, energy=1050608.760 uJ
+[12:56:37] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=734774.4 uA, energy=1050823.087 uJ
+[12:56:48] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=737249.7 uA, energy=1051349.381 uJ
+[12:56:49] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_125531_radio_ebyte_e32_433t33d
+[12:56:49] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[12:56:49] STEP    TX 58 B - 27 dBm - 0.3 kbps - attempt 1
+[12:56:49] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 58 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=27 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[12:56:49] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[12:56:49] INFO    Measured transmitter: COM48, 115200 baud
+[12:56:49] INFO    Peer receiver: COM47, 115200 baud
+[12:56:53] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[12:56:58] INFO    Configuring peer receiver on COM47 ...
+[12:57:26] INFO    [   1/5] TX   58 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=737249.7 uA, energy=1640057.183 uJ
+[12:57:41] INFO    [   2/5] TX   58 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=737249.7 uA, energy=1639036.868 uJ
+[12:57:57] INFO    [   3/5] TX   58 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=735599.4 uA, energy=1639106.029 uJ
+[12:58:13] INFO    [   4/5] TX   58 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=735599.4 uA, energy=1639008.314 uJ
+[12:58:29] INFO    [   5/5] TX   58 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=735599.4 uA, energy=1638816.234 uJ
+[12:58:29] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_125649_radio_ebyte_e32_433t33d
+[12:58:29] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[12:58:29] STEP    TX 128 B - 27 dBm - 0.3 kbps - attempt 1
+[12:58:29] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=27 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[12:58:29] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[12:58:29] INFO    Measured transmitter: COM48, 115200 baud
+[12:58:29] INFO    Peer receiver: COM47, 115200 baud
+[12:58:33] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[12:58:38] INFO    Configuring peer receiver on COM47 ...
+[12:59:22] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=737249.7 uA, energy=3883286.613 uJ
+[13:00:25] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=737249.7 uA, energy=3883022.558 uJ
+[13:01:29] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=734774.4 uA, energy=3877586.909 uJ
+[13:02:32] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=737249.7 uA, energy=3880583.329 uJ
+[13:03:36] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=735599.4 uA, energy=3882465.472 uJ
+[13:03:36] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_125829_radio_ebyte_e32_433t33d
+[13:03:37] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:03:37] STEP    TX 512 B - 27 dBm - 0.3 kbps - attempt 1
+[13:03:37] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 512 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=27 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[13:03:37] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:03:37] INFO    Measured transmitter: COM48, 115200 baud
+[13:03:37] INFO    Peer receiver: COM47, 115200 baud
+[13:03:40] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[13:03:46] INFO    Configuring peer receiver on COM47 ...
+[13:05:47] INFO    [   1/5] TX  512 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=737249.7 uA, energy=14459613.166 uJ
+[13:08:08] INFO    [   2/5] TX  512 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=740551.4 uA, energy=14483598.595 uJ
+[13:10:33] INFO    [   3/5] TX  512 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=743854.4 uA, energy=14557281.696 uJ
+[13:12:58] INFO    [   4/5] TX  512 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=738900.4 uA, energy=14485803.925 uJ
+[13:15:22] INFO    [   5/5] TX  512 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=737249.7 uA, energy=14499090.133 uJ
+[13:15:22] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_130337_radio_ebyte_e32_433t33d
+[13:15:22] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:15:22] STEP    TX 1024 B - 27 dBm - 0.3 kbps - attempt 1
+[13:15:22] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 1024 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=27 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[13:15:23] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:15:23] INFO    Measured transmitter: COM48, 115200 baud
+[13:15:23] INFO    Peer receiver: COM47, 115200 baud
+[13:15:26] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[13:15:31] INFO    Configuring peer receiver on COM47 ...
+[13:19:26] INFO    [   1/5] TX 1024 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=740551.4 uA, energy=29145995.286 uJ
+[13:23:43] INFO    [   2/5] TX 1024 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=739725.8 uA, energy=29108334.168 uJ
+[13:28:00] INFO    [   3/5] TX 1024 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 3: rx_missing, peak=811875.8 uA, energy=29820266.558 uJ
+[13:32:15] INFO    [   4/5] TX 1024 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=790244.3 uA, energy=30114634.567 uJ
+[13:36:30] INFO    [   5/5] TX 1024 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=743854.4 uA, energy=29257433.538 uJ
+[13:36:30] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_131523_radio_ebyte_e32_433t33d
+[13:36:31] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:36:31] WARNING TX 1024 B - 27 dBm - 0.3 kbps: 1 transfers have missing packets or fragments
+[13:36:31] STEP    TX 8 B - 27 dBm - 4.8 kbps - attempt 1
+[13:36:31] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=27 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[13:36:31] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:36:31] INFO    Measured transmitter: COM48, 115200 baud
+[13:36:31] INFO    Peer receiver: COM47, 115200 baud
+[13:36:35] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[13:36:40] INFO    Configuring peer receiver on COM47 ...
+[13:37:08] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=733949.5 uA, energy=189029.752 uJ
+[13:37:13] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=732299.9 uA, energy=188374.477 uJ
+[13:37:18] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=731475.2 uA, energy=188292.798 uJ
+[13:37:23] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=729001.7 uA, energy=187747.538 uJ
+[13:37:27] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=730650.6 uA, energy=187748.084 uJ
+[13:37:27] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_133631_radio_ebyte_e32_433t33d
+[13:37:28] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:37:28] STEP    TX 32 B - 27 dBm - 4.8 kbps - attempt 1
+[13:37:28] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=27 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[13:37:28] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:37:28] INFO    Measured transmitter: COM48, 115200 baud
+[13:37:28] INFO    Peer receiver: COM47, 115200 baud
+[13:37:32] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[13:37:37] INFO    Configuring peer receiver on COM47 ...
+[13:37:54] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=731475.2 uA, energy=383340.349 uJ
+[13:37:59] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=730650.6 uA, energy=382807.859 uJ
+[13:38:04] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=730650.6 uA, energy=383528.692 uJ
+[13:38:08] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=730650.6 uA, energy=382724.483 uJ
+[13:38:13] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=735599.4 uA, energy=385443.616 uJ
+[13:38:13] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_133728_radio_ebyte_e32_433t33d
+[13:38:14] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:38:14] STEP    TX 58 B - 27 dBm - 4.8 kbps - attempt 1
+[13:38:14] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 58 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=27 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[13:38:14] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:38:14] INFO    Measured transmitter: COM48, 115200 baud
+[13:38:14] INFO    Peer receiver: COM47, 115200 baud
+[13:38:18] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[13:38:23] INFO    Configuring peer receiver on COM47 ...
+[13:38:41] INFO    [   1/5] TX   58 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=737249.7 uA, energy=606273.081 uJ
+[13:38:46] INFO    [   2/5] TX   58 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=737249.7 uA, energy=606304.018 uJ
+[13:38:50] INFO    [   3/5] TX   58 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=736424.5 uA, energy=606050.127 uJ
+[13:38:55] INFO    [   4/5] TX   58 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=736424.5 uA, energy=606184.683 uJ
+[13:39:00] INFO    [   5/5] TX   58 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=737249.7 uA, energy=606262.328 uJ
+[13:39:00] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_133814_radio_ebyte_e32_433t33d
+[13:39:01] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:39:01] STEP    TX 128 B - 27 dBm - 4.8 kbps - attempt 1
+[13:39:01] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=27 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[13:39:01] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:39:01] INFO    Measured transmitter: COM48, 115200 baud
+[13:39:01] INFO    Peer receiver: COM47, 115200 baud
+[13:39:05] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[13:39:10] INFO    Configuring peer receiver on COM47 ...
+[13:39:28] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=737249.7 uA, energy=1441102.781 uJ
+[13:39:34] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=738900.4 uA, energy=1441803.927 uJ
+[13:39:39] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=736424.5 uA, energy=1439039.815 uJ
+[13:39:45] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=738075.0 uA, energy=1441530.683 uJ
+[13:39:50] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=737249.7 uA, energy=1440310.888 uJ
+[13:39:50] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_133901_radio_ebyte_e32_433t33d
+[13:39:51] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:39:51] STEP    TX 512 B - 27 dBm - 4.8 kbps - attempt 1
+[13:39:51] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 512 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=27 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[13:39:51] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:39:51] INFO    Measured transmitter: COM48, 115200 baud
+[13:39:51] INFO    Peer receiver: COM47, 115200 baud
+[13:39:55] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[13:39:59] INFO    Configuring peer receiver on COM47 ...
+[13:40:21] INFO    [   1/5] TX  512 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=740551.4 uA, energy=5393841.853 uJ
+[13:40:30] INFO    [   2/5] TX  512 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=740551.4 uA, energy=5396916.350 uJ
+[13:40:39] INFO    [   3/5] TX  512 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=743854.4 uA, energy=5416848.680 uJ
+[13:40:48] INFO    [   4/5] TX  512 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=742202.7 uA, energy=5407521.878 uJ
+[13:40:57] INFO    [   5/5] TX  512 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=741377.0 uA, energy=5400084.786 uJ
+[13:40:57] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_133951_radio_ebyte_e32_433t33d
+[13:40:58] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:40:58] STEP    TX 1024 B - 27 dBm - 4.8 kbps - attempt 1
+[13:40:58] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 1024 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=27 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[13:40:58] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:40:58] INFO    Measured transmitter: COM48, 115200 baud
+[13:40:58] INFO    Peer receiver: COM47, 115200 baud
+[13:41:02] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[13:41:06] INFO    Configuring peer receiver on COM47 ...
+[13:41:33] INFO    [   1/5] TX 1024 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=747158.9 uA, energy=10873503.072 uJ
+[13:41:47] INFO    [   2/5] TX 1024 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=747158.9 uA, energy=10874232.300 uJ
+[13:42:02] INFO    [   3/5] TX 1024 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=747158.9 uA, energy=10893707.924 uJ
+[13:42:16] INFO    [   4/5] TX 1024 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=748811.7 uA, energy=10902092.294 uJ
+[13:42:30] INFO    [   5/5] TX 1024 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=750464.8 uA, energy=10905728.648 uJ
+[13:42:30] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_134058_radio_ebyte_e32_433t33d
+[13:42:31] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:42:31] STEP    TX 8 B - 27 dBm - 19.2 kbps - attempt 1
+[13:42:31] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=27 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[13:42:31] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:42:31] INFO    Measured transmitter: COM48, 115200 baud
+[13:42:31] INFO    Peer receiver: COM47, 115200 baud
+[13:42:35] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[13:42:40] INFO    Configuring peer receiver on COM47 ...
+[13:43:08] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 1: ok, peak=731475.2 uA, energy=71429.579 uJ
+[13:43:13] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 2: ok, peak=725704.9 uA, energy=70984.509 uJ
+[13:43:18] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 3: ok, peak=726529.0 uA, energy=70941.334 uJ
+[13:43:22] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 4: ok, peak=727353.1 uA, energy=70975.294 uJ
+[13:43:27] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 5: ok, peak=728177.4 uA, energy=70945.430 uJ
+[13:43:27] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_134231_radio_ebyte_e32_433t33d
+[13:43:28] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:43:28] STEP    TX 32 B - 27 dBm - 19.2 kbps - attempt 1
+[13:43:28] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=27 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[13:43:28] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:43:28] INFO    Measured transmitter: COM48, 115200 baud
+[13:43:28] INFO    Peer receiver: COM47, 115200 baud
+[13:43:32] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[13:43:37] INFO    Configuring peer receiver on COM47 ...
+[13:43:55] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 1: ok, peak=735599.4 uA, energy=144997.726 uJ
+[13:44:00] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 2: ok, peak=733949.5 uA, energy=145074.747 uJ
+[13:44:04] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 3: ok, peak=733949.5 uA, energy=145029.090 uJ
+[13:44:09] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 4: ok, peak=732299.9 uA, energy=144874.882 uJ
+[13:44:14] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 5: ok, peak=733949.5 uA, energy=144960.596 uJ
+[13:44:14] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_134328_radio_ebyte_e32_433t33d
+[13:44:15] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:44:15] STEP    TX 58 B - 27 dBm - 19.2 kbps - attempt 1
+[13:44:15] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 58 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=27 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[13:44:15] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:44:15] INFO    Measured transmitter: COM48, 115200 baud
+[13:44:15] INFO    Peer receiver: COM47, 115200 baud
+[13:44:19] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[13:44:24] INFO    Configuring peer receiver on COM47 ...
+[13:44:42] INFO    [   1/5] TX   58 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 1: ok, peak=733949.5 uA, energy=218634.144 uJ
+[13:44:47] INFO    [   2/5] TX   58 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 2: ok, peak=736424.5 uA, energy=218591.063 uJ
+[13:44:51] INFO    [   3/5] TX   58 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 3: ok, peak=735599.4 uA, energy=218524.945 uJ
+[13:44:56] INFO    [   4/5] TX   58 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 4: ok, peak=734774.4 uA, energy=218554.875 uJ
+[13:45:01] INFO    [   5/5] TX   58 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 5: ok, peak=734774.4 uA, energy=218508.771 uJ
+[13:45:01] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_134415_radio_ebyte_e32_433t33d
+[13:45:02] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:45:02] STEP    TX 128 B - 27 dBm - 19.2 kbps - attempt 1
+[13:45:02] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=27 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[13:45:02] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:45:02] INFO    Measured transmitter: COM48, 115200 baud
+[13:45:02] INFO    Peer receiver: COM47, 115200 baud
+[13:45:06] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[13:45:11] INFO    Configuring peer receiver on COM47 ...
+[13:45:28] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 1: rx_missing, peak=738075.0 uA, energy=484386.022 uJ
+[13:45:33] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 2: rx_missing, peak=734774.4 uA, energy=468981.870 uJ
+[13:45:38] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 3: rx_missing, peak=736424.5 uA, energy=465326.901 uJ
+[13:45:43] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 4: rx_missing, peak=737249.7 uA, energy=479875.069 uJ
+[13:45:48] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 5: rx_missing, peak=734774.4 uA, energy=464753.680 uJ
+[13:45:48] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_134502_radio_ebyte_e32_433t33d
+[13:45:48] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:45:48] WARNING TX 128 B - 27 dBm - 19.2 kbps: 5 transfers have missing packets or fragments
+[13:45:48] STEP    TX 512 B - 27 dBm - 19.2 kbps - attempt 1
+[13:45:48] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 512 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=27 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[13:45:49] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:45:49] INFO    Measured transmitter: COM48, 115200 baud
+[13:45:49] INFO    Peer receiver: COM47, 115200 baud
+[13:45:52] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[13:45:57] INFO    Configuring peer receiver on COM47 ...
+[13:46:16] INFO    [   1/5] TX  512 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 1: rx_missing, peak=734774.4 uA, energy=1716726.967 uJ
+[13:46:23] INFO    [   2/5] TX  512 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 2: rx_missing, peak=738900.4 uA, energy=1672654.009 uJ
+[13:46:29] INFO    [   3/5] TX  512 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 3: rx_missing, peak=740551.4 uA, energy=1742808.339 uJ
+[13:46:36] INFO    [   4/5] TX  512 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 4: rx_missing, peak=740551.4 uA, energy=1709270.541 uJ
+[13:46:42] INFO    [   5/5] TX  512 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 5: rx_missing, peak=740551.4 uA, energy=1704719.997 uJ
+[13:46:42] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_134549_radio_ebyte_e32_433t33d
+[13:46:43] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:46:43] WARNING TX 512 B - 27 dBm - 19.2 kbps: 5 transfers have missing packets or fragments
+[13:46:43] STEP    TX 1024 B - 27 dBm - 19.2 kbps - attempt 1
+[13:46:43] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 1024 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=27 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[13:46:43] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:46:43] INFO    Measured transmitter: COM48, 115200 baud
+[13:46:43] INFO    Peer receiver: COM47, 115200 baud
+[13:46:47] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[13:46:52] INFO    Configuring peer receiver on COM47 ...
+[13:47:13] INFO    [   1/5] TX 1024 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 1: rx_missing, peak=741377.0 uA, energy=3434712.338 uJ
+[13:47:22] INFO    [   2/5] TX 1024 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 2: rx_missing, peak=741377.0 uA, energy=3418357.235 uJ
+[13:47:31] INFO    [   3/5] TX 1024 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 3: rx_missing, peak=737249.7 uA, energy=3473478.565 uJ
+[13:47:40] INFO    [   4/5] TX 1024 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 4: rx_missing, peak=737249.7 uA, energy=3421753.340 uJ
+[13:47:49] INFO    [   5/5] TX 1024 B, {'tx_power_dbm': 27, 'bit_rate_kbps': 19.2}, rep 5: rx_missing, peak=738900.4 uA, energy=3463387.798 uJ
+[13:47:49] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_134643_radio_ebyte_e32_433t33d
+[13:47:50] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:47:50] WARNING TX 1024 B - 27 dBm - 19.2 kbps: 5 transfers have missing packets or fragments
+[13:47:50] STEP    TX 8 B - 30 dBm - 0.3 kbps - attempt 1
+[13:47:50] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[13:47:50] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:47:50] INFO    Measured transmitter: COM48, 115200 baud
+[13:47:50] INFO    Peer receiver: COM47, 115200 baud
+[13:47:54] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[13:47:59] INFO    Configuring peer receiver on COM47 ...
+[13:48:30] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=820211.4 uA, energy=628750.986 uJ
+[13:48:37] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=820211.4 uA, energy=628161.665 uJ
+[13:48:45] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=818543.6 uA, energy=627973.075 uJ
+[13:48:53] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=820211.4 uA, energy=629412.322 uJ
+[13:49:00] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=821045.4 uA, energy=629390.419 uJ
+[13:49:00] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_134750_radio_ebyte_e32_433t33d
+[13:49:01] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:49:01] STEP    TX 32 B - 30 dBm - 0.3 kbps - attempt 1
+[13:49:01] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[13:49:01] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:49:01] INFO    Measured transmitter: COM48, 115200 baud
+[13:49:01] INFO    Peer receiver: COM47, 115200 baud
+[13:49:05] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[13:49:10] INFO    Configuring peer receiver on COM47 ...
+[13:49:35] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=824382.4 uA, energy=1178187.097 uJ
+[13:49:47] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=820211.4 uA, energy=1173020.831 uJ
+[13:49:59] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=820211.4 uA, energy=1170342.172 uJ
+[13:50:10] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=816876.1 uA, energy=1166879.499 uJ
+[13:50:22] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=814375.6 uA, energy=1166082.868 uJ
+[13:50:22] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_134901_radio_ebyte_e32_433t33d
+[13:50:23] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:50:23] STEP    TX 58 B - 30 dBm - 0.3 kbps - attempt 1
+[13:50:23] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 58 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[13:50:23] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:50:23] INFO    Measured transmitter: COM48, 115200 baud
+[13:50:23] INFO    Peer receiver: COM47, 115200 baud
+[13:50:26] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[13:50:32] INFO    Configuring peer receiver on COM47 ...
+[13:51:01] INFO    [   1/5] TX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=818543.6 uA, energy=1820731.654 uJ
+[13:51:18] INFO    [   2/5] TX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=820211.4 uA, energy=1823793.391 uJ
+[13:51:34] INFO    [   3/5] TX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=820211.4 uA, energy=1826612.216 uJ
+[13:51:50] INFO    [   4/5] TX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=818543.6 uA, energy=1824104.714 uJ
+[13:52:06] INFO    [   5/5] TX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=815209.0 uA, energy=1814479.704 uJ
+[13:52:06] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_135023_radio_ebyte_e32_433t33d
+[13:52:06] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:52:06] STEP    TX 128 B - 30 dBm - 0.3 kbps - attempt 1
+[13:52:07] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[13:52:07] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:52:07] INFO    Measured transmitter: COM48, 115200 baud
+[13:52:07] INFO    Peer receiver: COM47, 115200 baud
+[13:52:10] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[13:52:16] INFO    Configuring peer receiver on COM47 ...
+[13:53:02] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=823548.1 uA, energy=4343121.994 uJ
+[13:54:06] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=820211.4 uA, energy=4332628.746 uJ
+[13:55:11] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=844434.0 uA, energy=4346458.470 uJ
+[13:56:16] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=823548.1 uA, energy=4349713.418 uJ
+[13:57:21] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=821045.4 uA, energy=4338486.908 uJ
+[13:57:21] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_135207_radio_ebyte_e32_433t33d
+[13:57:22] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:57:22] STEP    TX 512 B - 30 dBm - 0.3 kbps - attempt 1
+[13:57:22] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 512 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[13:57:22] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:57:22] INFO    Measured transmitter: COM48, 115200 baud
+[13:57:22] INFO    Peer receiver: COM47, 115200 baud
+[13:57:26] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[13:57:31] INFO    Configuring peer receiver on COM47 ...
+[13:59:38] INFO    [   1/5] TX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=824382.4 uA, energy=16170795.880 uJ
+[14:02:04] INFO    [   2/5] TX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=824382.4 uA, energy=16128867.887 uJ
+[14:04:30] INFO    [   3/5] TX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=823548.1 uA, energy=16137044.377 uJ
+[14:06:57] INFO    [   4/5] TX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=820211.4 uA, energy=16097830.753 uJ
+[14:09:25] INFO    [   5/5] TX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=817709.8 uA, energy=16111292.184 uJ
+[14:09:25] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_135722_radio_ebyte_e32_433t33d
+[14:09:25] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[14:09:25] STEP    TX 1024 B - 30 dBm - 0.3 kbps - attempt 1
+[14:09:25] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 1024 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[14:09:26] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[14:09:26] INFO    Measured transmitter: COM48, 115200 baud
+[14:09:26] INFO    Peer receiver: COM47, 115200 baud
+[14:09:29] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[14:09:34] INFO    Configuring peer receiver on COM47 ...
+[14:13:36] INFO    [   1/5] TX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=814375.6 uA, energy=31990357.995 uJ
+[14:17:57] INFO    [   2/5] TX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=815209.0 uA, energy=32112625.904 uJ
+[14:22:18] INFO    [   3/5] TX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=816876.1 uA, energy=32105666.789 uJ
+[14:26:34] INFO    [   4/5] TX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=816876.1 uA, energy=32226413.973 uJ
+[14:30:50] INFO    [   5/5] TX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=858667.7 uA, energy=32480308.734 uJ
+[14:30:50] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_140926_radio_ebyte_e32_433t33d
+[14:30:51] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[14:30:51] STEP    TX 8 B - 30 dBm - 4.8 kbps - attempt 1
+[14:30:51] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[14:30:51] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[14:30:51] INFO    Measured transmitter: COM48, 115200 baud
+[14:30:51] INFO    Peer receiver: COM47, 115200 baud
+[14:30:55] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[14:31:00] INFO    Configuring peer receiver on COM47 ...
+[14:31:28] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=817709.8 uA, energy=210064.982 uJ
+[14:31:33] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=816042.5 uA, energy=209660.756 uJ
+[14:31:38] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=816042.5 uA, energy=209686.998 uJ
+[14:31:43] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=815209.0 uA, energy=209625.204 uJ
+[14:31:47] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=813542.2 uA, energy=209314.251 uJ
+[14:31:48] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_143051_radio_ebyte_e32_433t33d
+[14:31:48] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[14:31:48] STEP    TX 32 B - 30 dBm - 4.8 kbps - attempt 1
+[14:31:48] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[14:31:48] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[14:31:48] INFO    Measured transmitter: COM48, 115200 baud
+[14:31:48] INFO    Peer receiver: COM47, 115200 baud
+[14:31:52] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[14:31:57] INFO    Configuring peer receiver on COM47 ...
+[14:32:15] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=813542.2 uA, energy=426616.080 uJ
+[14:32:20] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=813542.2 uA, energy=426786.377 uJ
+[14:32:25] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=813542.2 uA, energy=426272.582 uJ
+[14:32:29] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=813542.2 uA, energy=426394.702 uJ
+[14:32:34] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=813542.2 uA, energy=427050.896 uJ
+[14:32:34] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_143148_radio_ebyte_e32_433t33d
+[14:32:35] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[14:32:35] STEP    TX 58 B - 30 dBm - 4.8 kbps - attempt 1
+[14:32:35] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 58 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[14:32:35] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[14:32:35] INFO    Measured transmitter: COM48, 115200 baud
+[14:32:35] INFO    Peer receiver: COM47, 115200 baud
+[14:32:39] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[14:32:44] INFO    Configuring peer receiver on COM47 ...
+[14:33:01] INFO    [   1/5] TX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=819377.4 uA, energy=674586.050 uJ
+[14:33:06] INFO    [   2/5] TX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=818543.6 uA, energy=674529.313 uJ
+[14:33:11] INFO    [   3/5] TX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=820211.4 uA, energy=674483.391 uJ
+[14:33:16] INFO    [   4/5] TX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=817709.8 uA, energy=674478.476 uJ
+[14:33:21] INFO    [   5/5] TX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=821879.5 uA, energy=677234.169 uJ
+[14:33:21] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_143235_radio_ebyte_e32_433t33d
+[14:33:22] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[14:33:22] STEP    TX 128 B - 30 dBm - 4.8 kbps - attempt 1
+[14:33:22] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[14:33:22] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[14:33:22] INFO    Measured transmitter: COM48, 115200 baud
+[14:33:22] INFO    Peer receiver: COM47, 115200 baud
+[14:33:25] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[14:33:30] INFO    Configuring peer receiver on COM47 ...
+[14:33:48] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=816876.1 uA, energy=1595248.617 uJ
+[14:33:54] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=818543.6 uA, energy=1596133.569 uJ
+[14:33:59] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=818543.6 uA, energy=1601081.853 uJ
+[14:34:05] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=821045.4 uA, energy=1602633.209 uJ
+[14:34:10] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=820211.4 uA, energy=1602259.533 uJ
+[14:34:10] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_143322_radio_ebyte_e32_433t33d
+[14:34:11] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[14:34:11] STEP    TX 512 B - 30 dBm - 4.8 kbps - attempt 1
+[14:34:11] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 512 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[14:34:11] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[14:34:11] INFO    Measured transmitter: COM48, 115200 baud
+[14:34:11] INFO    Peer receiver: COM47, 115200 baud
+[14:34:15] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[14:34:19] INFO    Configuring peer receiver on COM47 ...
+[14:34:41] INFO    [   1/5] TX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=816876.1 uA, energy=5954215.984 uJ
+[14:34:50] INFO    [   2/5] TX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=816876.1 uA, energy=5951496.171 uJ
+[14:35:00] INFO    [   3/5] TX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=816876.1 uA, energy=5954585.486 uJ
+[14:35:09] INFO    [   4/5] TX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=816876.1 uA, energy=5953058.855 uJ
+[14:35:18] INFO    [   5/5] TX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=821045.4 uA, energy=5995152.098 uJ
+[14:35:18] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_143411_radio_ebyte_e32_433t33d
+[14:35:19] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[14:35:19] STEP    TX 1024 B - 30 dBm - 4.8 kbps - attempt 1
+[14:35:19] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 1024 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[14:35:19] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[14:35:19] INFO    Measured transmitter: COM48, 115200 baud
+[14:35:19] INFO    Peer receiver: COM47, 115200 baud
+[14:35:23] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[14:35:27] INFO    Configuring peer receiver on COM47 ...
+[14:35:54] INFO    [   1/5] TX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=856991.8 uA, energy=12081533.078 uJ
+[14:36:09] INFO    [   2/5] TX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=821045.4 uA, energy=11967217.290 uJ
+[14:36:23] INFO    [   3/5] TX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=820211.4 uA, energy=11965869.159 uJ
+[14:36:37] INFO    [   4/5] TX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=822713.8 uA, energy=11985598.026 uJ
+[14:36:52] INFO    [   5/5] TX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=816876.1 uA, energy=11924422.881 uJ
+[14:36:52] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_143519_radio_ebyte_e32_433t33d
+[14:36:52] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[14:36:52] STEP    TX 8 B - 30 dBm - 19.2 kbps - attempt 1
+[14:36:52] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[14:36:53] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[14:36:53] INFO    Measured transmitter: COM48, 115200 baud
+[14:36:53] INFO    Peer receiver: COM47, 115200 baud
+[14:36:56] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[14:37:01] INFO    Configuring peer receiver on COM47 ...
+[14:37:29] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 1: ok, peak=813542.2 uA, energy=78881.676 uJ
+[14:37:34] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 2: ok, peak=814375.6 uA, energy=78940.516 uJ
+[14:37:39] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 3: ok, peak=814375.6 uA, energy=78927.871 uJ
+[14:37:44] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 4: ok, peak=816876.1 uA, energy=79009.303 uJ
+[14:37:49] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 5: ok, peak=814375.6 uA, energy=78819.921 uJ
+[14:37:49] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_143653_radio_ebyte_e32_433t33d
+[14:37:50] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[14:37:50] STEP    TX 32 B - 30 dBm - 19.2 kbps - attempt 1
+[14:37:50] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[14:37:50] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[14:37:50] INFO    Measured transmitter: COM48, 115200 baud
+[14:37:50] INFO    Peer receiver: COM47, 115200 baud
+[14:37:54] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[14:37:58] INFO    Configuring peer receiver on COM47 ...
+[14:38:16] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 1: ok, peak=813542.2 uA, energy=160306.585 uJ
+[14:38:21] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 2: ok, peak=813542.2 uA, energy=160342.928 uJ
+[14:38:25] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 3: ok, peak=813542.2 uA, energy=160266.912 uJ
+[14:38:30] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 4: ok, peak=815209.0 uA, energy=160595.283 uJ
+[14:38:35] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 5: ok, peak=813542.2 uA, energy=160258.902 uJ
+[14:38:35] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_143750_radio_ebyte_e32_433t33d
+[14:38:36] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[14:38:36] STEP    TX 58 B - 30 dBm - 19.2 kbps - attempt 1
+[14:38:36] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 58 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[14:38:36] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[14:38:36] INFO    Measured transmitter: COM48, 115200 baud
+[14:38:36] INFO    Peer receiver: COM47, 115200 baud
+[14:38:40] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[14:38:45] INFO    Configuring peer receiver on COM47 ...
+[14:39:03] INFO    [   1/5] TX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 1: ok, peak=815209.0 uA, energy=242222.798 uJ
+[14:39:08] INFO    [   2/5] TX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 2: ok, peak=815209.0 uA, energy=242363.320 uJ
+[14:39:12] INFO    [   3/5] TX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 3: ok, peak=810209.8 uA, energy=240859.930 uJ
+[14:39:17] INFO    [   4/5] TX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 4: ok, peak=810209.8 uA, energy=240794.038 uJ
+[14:39:22] INFO    [   5/5] TX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 5: ok, peak=807711.3 uA, energy=240116.694 uJ
+[14:39:22] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_143836_radio_ebyte_e32_433t33d
+[14:39:23] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[14:39:23] STEP    TX 128 B - 30 dBm - 19.2 kbps - attempt 1
+[14:39:23] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[14:39:23] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[14:39:23] INFO    Measured transmitter: COM48, 115200 baud
+[14:39:23] INFO    Peer receiver: COM47, 115200 baud
+[14:39:27] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[14:39:32] INFO    Configuring peer receiver on COM47 ...
+[14:39:50] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 1: rx_missing, peak=811042.8 uA, energy=526944.726 uJ
+[14:39:55] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 2: rx_missing, peak=808544.1 uA, energy=534049.732 uJ
+[14:39:59] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 3: rx_missing, peak=809376.9 uA, energy=497991.042 uJ
+[14:40:04] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 4: rx_missing, peak=808544.1 uA, energy=494213.405 uJ
+[14:40:09] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 5: rx_missing, peak=810209.8 uA, energy=526651.771 uJ
+[14:40:09] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_143923_radio_ebyte_e32_433t33d
+[14:40:10] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[14:40:10] WARNING TX 128 B - 30 dBm - 19.2 kbps: 5 transfers have missing packets or fragments
+[14:40:10] STEP    TX 512 B - 30 dBm - 19.2 kbps - attempt 1
+[14:40:10] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 512 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[14:40:10] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[14:40:10] INFO    Measured transmitter: COM48, 115200 baud
+[14:40:10] INFO    Peer receiver: COM47, 115200 baud
+[14:40:14] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[14:40:19] INFO    Configuring peer receiver on COM47 ...
+[14:40:38] INFO    [   1/5] TX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 1: rx_missing, peak=811042.8 uA, energy=1921667.489 uJ
+[14:40:45] INFO    [   2/5] TX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 2: rx_missing, peak=811875.8 uA, energy=1862719.352 uJ
+[14:40:51] INFO    [   3/5] TX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 3: rx_missing, peak=813542.2 uA, energy=1922799.814 uJ
+[14:40:57] INFO    [   4/5] TX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 4: rx_missing, peak=820211.4 uA, energy=1893476.119 uJ
+[14:41:04] INFO    [   5/5] TX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 5: rx_missing, peak=820211.4 uA, energy=1909917.492 uJ
+[14:41:04] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_144010_radio_ebyte_e32_433t33d
+[14:41:05] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[14:41:05] WARNING TX 512 B - 30 dBm - 19.2 kbps: 5 transfers have missing packets or fragments
+[14:41:05] STEP    TX 1024 B - 30 dBm - 19.2 kbps - attempt 1
+[14:41:05] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 1024 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+[14:41:05] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[14:41:05] INFO    Measured transmitter: COM48, 115200 baud
+[14:41:05] INFO    Peer receiver: COM47, 115200 baud
+[14:41:08] INFO    Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+[14:41:14] INFO    Configuring peer receiver on COM47 ...
+[14:41:36] INFO    [   1/5] TX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 1: rx_missing, peak=820211.4 uA, energy=3839745.529 uJ
+[14:41:45] INFO    [   2/5] TX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 2: rx_missing, peak=820211.4 uA, energy=3775813.572 uJ
+[14:41:53] INFO    [   3/5] TX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 3: rx_missing, peak=820211.4 uA, energy=3798765.051 uJ
+[14:42:02] INFO    [   4/5] TX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 4: rx_missing, peak=820211.4 uA, energy=3850642.383 uJ
+[14:42:11] INFO    [   5/5] TX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 5: rx_missing, peak=821045.4 uA, energy=3836567.541 uJ
+[14:42:11] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_144105_radio_ebyte_e32_433t33d
+[14:42:11] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[14:42:11] WARNING TX 1024 B - 30 dBm - 19.2 kbps: 5 transfers have missing packets or fragments
+[14:42:11] STEP    RX 8 B - TX 30 dBm - 0.3 kbps - attempt 1
+[14:42:11] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction rx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx" --transmitter-port COM47 --save-raw
+[14:42:11] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[14:42:11] INFO    Measured receiver: COM48, 115200 baud
+[14:42:11] INFO    Peer transmitter: COM47, 115200 baud
+[14:42:15] INFO    Configuring measured receiver (Ebyte E32-433T33D UART) on COM48 ...
+[14:42:20] INFO    Configuring peer transmitter on COM47 ...
+[14:42:53] INFO    [   1/5] RX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=111870.2 uA, energy=88763.519 uJ
+[14:43:03] INFO    [   2/5] RX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=108091.3 uA, energy=87781.278 uJ
+[14:43:13] INFO    [   3/5] RX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=108846.9 uA, energy=88130.124 uJ
+[14:43:23] INFO    [   4/5] RX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=115651.3 uA, energy=87420.832 uJ
+[14:43:33] INFO    [   5/5] RX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=114894.9 uA, energy=88065.435 uJ
+[14:43:33] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx\20260720_144211_radio_ebyte_e32_433t33d_rx
+[14:43:34] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[14:43:34] STEP    RX 32 B - TX 30 dBm - 0.3 kbps - attempt 1
+[14:43:34] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction rx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx" --transmitter-port COM47 --save-raw
+[14:43:34] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[14:43:34] INFO    Measured receiver: COM48, 115200 baud
+[14:43:34] INFO    Peer transmitter: COM47, 115200 baud
+[14:43:38] INFO    Configuring measured receiver (Ebyte E32-433T33D UART) on COM48 ...
+[14:43:42] INFO    Configuring peer transmitter on COM47 ...
+[14:44:09] INFO    [   1/5] RX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=121705.6 uA, energy=175063.818 uJ
+[14:44:23] INFO    [   2/5] RX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=111114.3 uA, energy=176111.703 uJ
+[14:44:37] INFO    [   3/5] RX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=120191.5 uA, energy=174282.525 uJ
+[14:44:51] INFO    [   4/5] RX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=116407.8 uA, energy=175927.977 uJ
+[14:45:05] INFO    [   5/5] RX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=106580.4 uA, energy=175992.032 uJ
+[14:45:05] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx\20260720_144334_radio_ebyte_e32_433t33d_rx
+[14:45:05] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[14:45:05] STEP    RX 58 B - TX 30 dBm - 0.3 kbps - attempt 1
+[14:45:05] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction rx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 58 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx" --transmitter-port COM47 --save-raw
+[14:45:06] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[14:45:06] INFO    Measured receiver: COM48, 115200 baud
+[14:45:06] INFO    Peer transmitter: COM47, 115200 baud
+[14:45:09] INFO    Configuring measured receiver (Ebyte E32-433T33D UART) on COM48 ...
+[14:45:14] INFO    Configuring peer transmitter on COM47 ...
+[14:45:46] INFO    [   1/5] RX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=112626.3 uA, energy=276925.693 uJ
+[14:46:04] INFO    [   2/5] RX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=118677.7 uA, energy=275047.785 uJ
+[14:46:23] INFO    [   3/5] RX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=114894.9 uA, energy=275383.361 uJ
+[14:46:41] INFO    [   4/5] RX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=110358.4 uA, energy=274397.011 uJ
+[14:46:59] INFO    [   5/5] RX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=118677.7 uA, energy=273344.663 uJ
+[14:47:59] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx\20260720_144506_radio_ebyte_e32_433t33d_rx
+[14:48:00] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[14:48:00] STEP    RX 128 B - TX 30 dBm - 0.3 kbps - attempt 1
+[14:48:00] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction rx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx" --transmitter-port COM47 --save-raw
+[14:48:00] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[14:48:00] INFO    Measured receiver: COM48, 115200 baud
+[14:48:00] INFO    Peer transmitter: COM47, 115200 baud
+[14:48:04] INFO    Configuring measured receiver (Ebyte E32-433T33D UART) on COM48 ...
+[14:48:09] INFO    Configuring peer transmitter on COM47 ...
+[14:48:56] INFO    [   1/5] RX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=118677.7 uA, energy=645010.994 uJ
+[14:50:02] INFO    [   2/5] RX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=120191.5 uA, energy=633832.846 uJ
+[14:51:09] INFO    [   3/5] RX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=118677.7 uA, energy=631909.645 uJ
+[14:52:17] INFO    [   4/5] RX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=117921.0 uA, energy=631892.016 uJ
+[14:53:26] INFO    [   5/5] RX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=113382.4 uA, energy=634070.755 uJ
+[14:53:26] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx\20260720_144800_radio_ebyte_e32_433t33d_rx
+[14:53:26] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[14:53:26] STEP    RX 512 B - TX 30 dBm - 0.3 kbps - attempt 1
+[14:53:27] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction rx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 512 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx" --transmitter-port COM47 --save-raw
+[14:53:27] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[14:53:27] INFO    Measured receiver: COM48, 115200 baud
+[14:53:27] INFO    Peer transmitter: COM47, 115200 baud
+[14:53:30] INFO    Configuring measured receiver (Ebyte E32-433T33D UART) on COM48 ...
+[14:53:36] INFO    Configuring peer transmitter on COM47 ...
+[14:55:44] INFO    [   1/5] RX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=120191.5 uA, energy=2355701.656 uJ
+[14:58:09] INFO    [   2/5] RX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=117921.0 uA, energy=2357208.307 uJ
+[15:00:36] INFO    [   3/5] RX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=119434.6 uA, energy=2348045.515 uJ
+[15:03:02] INFO    [   4/5] RX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=120191.5 uA, energy=2335551.400 uJ
+[15:05:45] INFO    [   5/5] RX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=121705.6 uA, energy=2314350.923 uJ
+[15:05:45] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx\20260720_145327_radio_ebyte_e32_433t33d_rx
+[15:05:46] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:05:46] STEP    RX 1024 B - TX 30 dBm - 0.3 kbps - attempt 1
+[15:05:46] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction rx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 1024 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=0.3 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx" --transmitter-port COM47 --save-raw
+[15:05:46] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:05:46] INFO    Measured receiver: COM48, 115200 baud
+[15:05:46] INFO    Peer transmitter: COM47, 115200 baud
+[15:05:50] INFO    Configuring measured receiver (Ebyte E32-433T33D UART) on COM48 ...
+[15:05:55] INFO    Configuring peer transmitter on COM47 ...
+[15:09:51] INFO    [   1/5] RX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 1: ok, peak=123220.0 uA, energy=4618929.251 uJ
+[15:13:57] INFO    [   2/5] RX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 2: ok, peak=122462.8 uA, energy=4631353.257 uJ
+[15:18:02] INFO    [   3/5] RX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 3: ok, peak=123220.0 uA, energy=4632777.013 uJ
+[15:22:18] INFO    [   4/5] RX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 4: ok, peak=123220.0 uA, energy=4657575.250 uJ
+[15:26:47] INFO    [   5/5] RX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 0.3}, rep 5: ok, peak=122462.8 uA, energy=4667437.874 uJ
+[15:26:47] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx\20260720_150546_radio_ebyte_e32_433t33d_rx
+[15:26:48] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:26:48] STEP    RX 8 B - TX 30 dBm - 4.8 kbps - attempt 1
+[15:26:48] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction rx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx" --transmitter-port COM47 --save-raw
+[15:26:48] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:26:48] INFO    Measured receiver: COM48, 115200 baud
+[15:26:48] INFO    Peer transmitter: COM47, 115200 baud
+[15:26:52] INFO    Configuring measured receiver (Ebyte E32-433T33D UART) on COM48 ...
+[15:26:57] INFO    Configuring peer transmitter on COM47 ...
+[15:27:27] INFO    [   1/5] RX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=114894.9 uA, energy=13247.434 uJ
+[15:27:34] INFO    [   2/5] RX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=111870.2 uA, energy=13492.825 uJ
+[15:27:41] INFO    [   3/5] RX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=103559.5 uA, energy=13598.918 uJ
+[15:27:48] INFO    [   4/5] RX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=114138.6 uA, energy=13295.609 uJ
+[15:27:55] INFO    [   5/5] RX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=110358.4 uA, energy=13380.747 uJ
+[15:27:55] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx\20260720_152648_radio_ebyte_e32_433t33d_rx
+[15:27:55] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:27:55] STEP    RX 32 B - TX 30 dBm - 4.8 kbps - attempt 1
+[15:27:55] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction rx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx" --transmitter-port COM47 --save-raw
+[15:27:56] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:27:56] INFO    Measured receiver: COM48, 115200 baud
+[15:27:56] INFO    Peer transmitter: COM47, 115200 baud
+[15:27:59] INFO    Configuring measured receiver (Ebyte E32-433T33D UART) on COM48 ...
+[15:28:04] INFO    Configuring peer transmitter on COM47 ...
+[15:28:24] INFO    [   1/5] RX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=120948.5 uA, energy=26884.453 uJ
+[15:28:31] INFO    [   2/5] RX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=114138.6 uA, energy=27689.567 uJ
+[15:28:39] INFO    [   3/5] RX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=121705.6 uA, energy=26857.085 uJ
+[15:28:46] INFO    [   4/5] RX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=119434.6 uA, energy=27026.864 uJ
+[15:28:53] INFO    [   5/5] RX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=119434.6 uA, energy=27350.664 uJ
+[15:28:53] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx\20260720_152756_radio_ebyte_e32_433t33d_rx
+[15:28:53] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:28:53] STEP    RX 58 B - TX 30 dBm - 4.8 kbps - attempt 1
+[15:28:53] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction rx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 58 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx" --transmitter-port COM47 --save-raw
+[15:28:54] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:28:54] INFO    Measured receiver: COM48, 115200 baud
+[15:28:54] INFO    Peer transmitter: COM47, 115200 baud
+[15:28:57] INFO    Configuring measured receiver (Ebyte E32-433T33D UART) on COM48 ...
+[15:29:02] INFO    Configuring peer transmitter on COM47 ...
+[15:29:23] INFO    [   1/5] RX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=123220.0 uA, energy=41733.116 uJ
+[15:29:30] INFO    [   2/5] RX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=120191.5 uA, energy=41688.330 uJ
+[15:29:37] INFO    [   3/5] RX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=118677.7 uA, energy=42649.014 uJ
+[15:29:45] INFO    [   4/5] RX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=117164.4 uA, energy=41845.198 uJ
+[15:29:52] INFO    [   5/5] RX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=115651.3 uA, energy=42409.293 uJ
+[15:29:52] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx\20260720_152854_radio_ebyte_e32_433t33d_rx
+[15:29:52] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:29:52] STEP    RX 128 B - TX 30 dBm - 4.8 kbps - attempt 1
+[15:29:52] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction rx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx" --transmitter-port COM47 --save-raw
+[15:29:53] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:29:53] INFO    Measured receiver: COM48, 115200 baud
+[15:29:53] INFO    Peer transmitter: COM47, 115200 baud
+[15:29:56] INFO    Configuring measured receiver (Ebyte E32-433T33D UART) on COM48 ...
+[15:30:01] INFO    Configuring peer transmitter on COM47 ...
+[15:30:23] INFO    [   1/5] RX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=120948.5 uA, energy=104050.055 uJ
+[15:30:31] INFO    [   2/5] RX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=120191.5 uA, energy=104059.982 uJ
+[15:30:39] INFO    [   3/5] RX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=117164.4 uA, energy=104041.119 uJ
+[15:30:47] INFO    [   4/5] RX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=120948.5 uA, energy=102509.763 uJ
+[15:30:55] INFO    [   5/5] RX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=118677.7 uA, energy=103958.045 uJ
+[15:30:55] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx\20260720_152953_radio_ebyte_e32_433t33d_rx
+[15:30:55] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:30:55] STEP    RX 512 B - TX 30 dBm - 4.8 kbps - attempt 1
+[15:30:55] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction rx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 512 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx" --transmitter-port COM47 --save-raw
+[15:30:55] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:30:55] INFO    Measured receiver: COM48, 115200 baud
+[15:30:55] INFO    Peer transmitter: COM47, 115200 baud
+[15:30:59] INFO    Configuring measured receiver (Ebyte E32-433T33D UART) on COM48 ...
+[15:31:04] INFO    Configuring peer transmitter on COM47 ...
+[15:31:28] INFO    [   1/5] RX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=121705.6 uA, energy=377588.046 uJ
+[15:31:40] INFO    [   2/5] RX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=121705.6 uA, energy=378608.532 uJ
+[15:31:52] INFO    [   3/5] RX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=120948.5 uA, energy=378971.407 uJ
+[15:32:03] INFO    [   4/5] RX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=120191.5 uA, energy=378456.890 uJ
+[15:32:15] INFO    [   5/5] RX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=123220.0 uA, energy=378760.606 uJ
+[15:32:15] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx\20260720_153055_radio_ebyte_e32_433t33d_rx
+[15:32:15] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:32:15] STEP    RX 1024 B - TX 30 dBm - 4.8 kbps - attempt 1
+[15:32:15] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction rx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 1024 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=4.8 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx" --transmitter-port COM47 --save-raw
+[15:32:16] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:32:16] INFO    Measured receiver: COM48, 115200 baud
+[15:32:16] INFO    Peer transmitter: COM47, 115200 baud
+[15:32:19] INFO    Configuring measured receiver (Ebyte E32-433T33D UART) on COM48 ...
+[15:32:24] INFO    Configuring peer transmitter on COM47 ...
+[15:32:53] INFO    [   1/5] RX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 1: ok, peak=121705.6 uA, energy=757284.640 uJ
+[15:33:10] INFO    [   2/5] RX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 2: ok, peak=120948.5 uA, energy=753949.304 uJ
+[15:33:26] INFO    [   3/5] RX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 3: ok, peak=121705.6 uA, energy=755490.859 uJ
+[15:33:43] INFO    [   4/5] RX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 4: ok, peak=120191.5 uA, energy=754720.975 uJ
+[15:33:59] INFO    [   5/5] RX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 4.8}, rep 5: ok, peak=121705.6 uA, energy=754806.607 uJ
+[15:33:59] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx\20260720_153216_radio_ebyte_e32_433t33d_rx
+[15:33:59] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:34:00] STEP    RX 8 B - TX 30 dBm - 19.2 kbps - attempt 1
+[15:34:00] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction rx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx" --transmitter-port COM47 --save-raw
+[15:34:00] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:34:00] INFO    Measured receiver: COM48, 115200 baud
+[15:34:00] INFO    Peer transmitter: COM47, 115200 baud
+[15:34:03] INFO    Configuring measured receiver (Ebyte E32-433T33D UART) on COM48 ...
+[15:34:09] INFO    Configuring peer transmitter on COM47 ...
+[15:34:39] INFO    [   1/5] RX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 1: ok, peak=116407.8 uA, energy=5345.570 uJ
+[15:34:46] INFO    [   2/5] RX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 2: ok, peak=115651.3 uA, energy=5683.903 uJ
+[15:34:53] INFO    [   3/5] RX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 3: ok, peak=113382.4 uA, energy=5602.975 uJ
+[15:35:00] INFO    [   4/5] RX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 4: ok, peak=119434.6 uA, energy=5828.460 uJ
+[15:35:06] INFO    [   5/5] RX    8 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 5: ok, peak=120191.5 uA, energy=5759.933 uJ
+[15:35:06] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx\20260720_153400_radio_ebyte_e32_433t33d_rx
+[15:35:07] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:35:07] STEP    RX 32 B - TX 30 dBm - 19.2 kbps - attempt 1
+[15:35:07] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction rx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx" --transmitter-port COM47 --save-raw
+[15:35:07] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:35:07] INFO    Measured receiver: COM48, 115200 baud
+[15:35:07] INFO    Peer transmitter: COM47, 115200 baud
+[15:35:11] INFO    Configuring measured receiver (Ebyte E32-433T33D UART) on COM48 ...
+[15:35:16] INFO    Configuring peer transmitter on COM47 ...
+[15:35:36] INFO    [   1/5] RX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 1: ok, peak=117921.0 uA, energy=10187.796 uJ
+[15:35:43] INFO    [   2/5] RX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 2: ok, peak=119434.6 uA, energy=10405.156 uJ
+[15:35:50] INFO    [   3/5] RX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 3: ok, peak=111114.3 uA, energy=10436.820 uJ
+[15:35:57] INFO    [   4/5] RX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 4: ok, peak=117921.0 uA, energy=10393.568 uJ
+[15:36:04] INFO    [   5/5] RX   32 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 5: ok, peak=113382.4 uA, energy=10409.561 uJ
+[15:36:04] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx\20260720_153507_radio_ebyte_e32_433t33d_rx
+[15:36:05] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:36:05] STEP    RX 58 B - TX 30 dBm - 19.2 kbps - attempt 1
+[15:36:05] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction rx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 58 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx" --transmitter-port COM47 --save-raw
+[15:36:05] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:36:05] INFO    Measured receiver: COM48, 115200 baud
+[15:36:05] INFO    Peer transmitter: COM47, 115200 baud
+[15:36:08] INFO    Configuring measured receiver (Ebyte E32-433T33D UART) on COM48 ...
+[15:36:14] INFO    Configuring peer transmitter on COM47 ...
+[15:36:34] INFO    [   1/5] RX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 1: ok, peak=116407.8 uA, energy=15356.517 uJ
+[15:36:41] INFO    [   2/5] RX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 2: ok, peak=114138.6 uA, energy=15596.265 uJ
+[15:36:47] INFO    [   3/5] RX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 3: ok, peak=117164.4 uA, energy=15665.499 uJ
+[15:36:54] INFO    [   4/5] RX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 4: ok, peak=110358.4 uA, energy=15566.130 uJ
+[15:37:01] INFO    [   5/5] RX   58 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 5: ok, peak=114894.9 uA, energy=15688.041 uJ
+[15:37:01] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx\20260720_153605_radio_ebyte_e32_433t33d_rx
+[15:37:02] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:37:02] STEP    RX 128 B - TX 30 dBm - 19.2 kbps - attempt 1
+[15:37:02] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction rx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx" --transmitter-port COM47 --save-raw
+[15:37:02] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:37:02] INFO    Measured receiver: COM48, 115200 baud
+[15:37:02] INFO    Peer transmitter: COM47, 115200 baud
+[15:37:06] INFO    Configuring measured receiver (Ebyte E32-433T33D UART) on COM48 ...
+[15:37:11] INFO    Configuring peer transmitter on COM47 ...
+[15:37:31] INFO    [   1/5] RX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 1: rx_missing, peak=115651.3 uA, energy=35569.386 uJ
+[15:37:38] INFO    [   2/5] RX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 2: rx_missing, peak=121705.6 uA, energy=38491.967 uJ
+[15:37:46] INFO    [   3/5] RX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 3: rx_missing, peak=123220.0 uA, energy=36963.780 uJ
+[15:37:53] INFO    [   4/5] RX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 4: rx_missing, peak=117921.0 uA, energy=37404.795 uJ
+[15:38:00] INFO    [   5/5] RX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 5: rx_missing, peak=120191.5 uA, energy=38945.580 uJ
+[15:38:00] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx\20260720_153702_radio_ebyte_e32_433t33d_rx
+[15:38:01] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:38:01] WARNING RX 128 B - TX 30 dBm - 19.2 kbps: 5 transfers have missing packets or fragments
+[15:38:01] STEP    RX 512 B - TX 30 dBm - 19.2 kbps - attempt 1
+[15:38:01] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction rx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 512 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx" --transmitter-port COM47 --save-raw
+[15:38:01] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:38:01] INFO    Measured receiver: COM48, 115200 baud
+[15:38:01] INFO    Peer transmitter: COM47, 115200 baud
+[15:38:05] INFO    Configuring measured receiver (Ebyte E32-433T33D UART) on COM48 ...
+[15:38:10] INFO    Configuring peer transmitter on COM47 ...
+[15:38:32] INFO    [   1/5] RX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 1: rx_missing, peak=120948.5 uA, energy=137916.471 uJ
+[15:38:41] INFO    [   2/5] RX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 2: rx_missing, peak=121705.6 uA, energy=139768.770 uJ
+[15:38:50] INFO    [   3/5] RX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 3: rx_missing, peak=123220.0 uA, energy=133638.105 uJ
+[15:38:59] INFO    [   4/5] RX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 4: rx_missing, peak=120191.5 uA, energy=133393.534 uJ
+[15:39:08] INFO    [   5/5] RX  512 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 5: rx_missing, peak=120191.5 uA, energy=137724.088 uJ
+[15:39:08] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx\20260720_153801_radio_ebyte_e32_433t33d_rx
+[15:39:09] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:39:09] WARNING RX 512 B - TX 30 dBm - 19.2 kbps: 5 transfers have missing packets or fragments
+[15:39:09] STEP    RX 1024 B - TX 30 dBm - 19.2 kbps - attempt 1
+[15:39:09] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction rx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 1024 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx" --transmitter-port COM47 --save-raw
+[15:39:09] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:39:09] INFO    Measured receiver: COM48, 115200 baud
+[15:39:09] INFO    Peer transmitter: COM47, 115200 baud
+[15:39:13] INFO    Configuring measured receiver (Ebyte E32-433T33D UART) on COM48 ...
+[15:39:18] INFO    Configuring peer transmitter on COM47 ...
+[15:39:42] INFO    [   1/5] RX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 1: rx_missing, peak=120948.5 uA, energy=269689.640 uJ
+[15:39:54] INFO    [   2/5] RX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 2: rx_missing, peak=119434.6 uA, energy=276210.355 uJ
+[15:40:05] INFO    [   3/5] RX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 3: rx_missing, peak=121705.6 uA, energy=273063.013 uJ
+[15:40:16] INFO    [   4/5] RX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 4: rx_missing, peak=123220.0 uA, energy=277167.199 uJ
+[15:40:27] INFO    [   5/5] RX 1024 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 5: rx_missing, peak=120191.5 uA, energy=275779.143 uJ
+[15:40:28] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_rx\20260720_153909_radio_ebyte_e32_433t33d_rx
+[15:40:28] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:40:28] WARNING RX 1024 B - TX 30 dBm - 19.2 kbps: 5 transfers have missing packets or fragments
+[15:40:28] STEP    Average TX power - 4.8 kbps - 60 s/power level - attempt 1
+[15:40:28] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E32_433T33D --direction tx --powers=24,27,30 --frame-bytes 58 --gap-ms 15 --duration-s 60 --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\continuous" --keep-power-on --axis bit_rate_kbps=4.8 --save-raw
+[15:40:28] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:40:28] INFO    Continuous TX: 60 s per power, parameters={'bit_rate_kbps': 4.8}, 58 B frames, 15 ms gap
+[15:42:47] INFO    [1/3] TX 24 dBm: mean=619.801 mA, power=2045.343 mW, status=ok
+[15:44:44] INFO    [2/3] TX 27 dBm: mean=699.189 mA, power=2307.325 mW, status=ok
+[15:46:44] INFO    [3/3] TX 30 dBm: mean=765.112 mA, power=2524.871 mW, status=ok
+[15:46:45] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\continuous\20260720_154028_radio_ebyte_e32_433t33d_continuous_tx
+[15:46:45] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:46:45] STEP    Average RX power and loss - 0.3 kbps - 60 s/power level - attempt 1
+[15:46:45] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E32_433T33D --direction rx --powers=24,27,30 --frame-bytes 58 --gap-ms 15 --duration-s 60 --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\continuous" --keep-power-on --axis bit_rate_kbps=0.3 --transmitter-port COM47 --save-raw
+[15:46:45] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:46:45] INFO    Continuous RX: 60 s per power, parameters={'bit_rate_kbps': 0.3}, 58 B frames, 15 ms gap
+[15:49:25] INFO    [1/3] RX 24 dBm: mean=14.843 mA, power=48.983 mW, status=ok
+[15:51:39] INFO    [2/3] RX 27 dBm: mean=16.134 mA, power=53.243 mW, status=ok
+[15:53:52] INFO    [3/3] RX 30 dBm: mean=17.080 mA, power=56.364 mW, status=ok
+[15:53:53] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\continuous\20260720_154645_radio_ebyte_e32_433t33d_continuous_rx
+[15:53:54] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:53:54] STEP    Average RX power and loss - 4.8 kbps - 60 s/power level - attempt 1
+[15:53:54] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E32_433T33D --direction rx --powers=24,27,30 --frame-bytes 58 --gap-ms 15 --duration-s 60 --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\continuous" --keep-power-on --axis bit_rate_kbps=4.8 --transmitter-port COM47 --save-raw
+[15:53:54] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:53:54] INFO    Continuous RX: 60 s per power, parameters={'bit_rate_kbps': 4.8}, 58 B frames, 15 ms gap
+[15:55:30] INFO    ERROR: Radio serial transmission did not finish in time
+[15:55:31] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:55:31] ERROR   Average RX power and loss - 4.8 kbps - 60 s/power level: Process exited with code 2
+[15:55:31] WARNING Cooling before retry: 10 s
+[15:55:41] STEP    Average RX power and loss - 4.8 kbps - 60 s/power level - attempt 2
+[15:55:41] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E32_433T33D --direction rx --powers=24,27,30 --frame-bytes 58 --gap-ms 15 --duration-s 60 --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\continuous" --keep-power-on --axis bit_rate_kbps=4.8 --transmitter-port COM47 --save-raw
+[15:55:41] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:55:41] INFO    Continuous RX: 60 s per power, parameters={'bit_rate_kbps': 4.8}, 58 B frames, 15 ms gap
+[15:57:08] INFO    ERROR: Radio serial transmission did not finish in time
+[15:57:09] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:57:09] ERROR   Average RX power and loss - 4.8 kbps - 60 s/power level: Process exited with code 2
+[15:57:09] WARNING Cooling before retry: 10 s
+[15:57:19] STEP    Average RX power and loss - 4.8 kbps - 60 s/power level - attempt 3
+[15:57:19] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E32_433T33D --direction rx --powers=24,27,30 --frame-bytes 58 --gap-ms 15 --duration-s 60 --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\continuous" --keep-power-on --axis bit_rate_kbps=4.8 --transmitter-port COM47 --save-raw
+[15:57:19] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:57:19] INFO    Continuous RX: 60 s per power, parameters={'bit_rate_kbps': 4.8}, 58 B frames, 15 ms gap
+[15:58:47] INFO    ERROR: Radio serial transmission did not finish in time
+[15:58:47] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[15:58:47] ERROR   Average RX power and loss - 4.8 kbps - 60 s/power level: Process exited with code 2
+[15:58:47] STEP    Average RX power and loss - 19.2 kbps - 60 s/power level - attempt 1
+[15:58:48] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E32_433T33D --direction rx --powers=24,27,30 --frame-bytes 58 --gap-ms 15 --duration-s 60 --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\continuous" --keep-power-on --axis bit_rate_kbps=19.2 --transmitter-port COM47 --save-raw
+[15:58:48] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[15:58:48] INFO    Continuous RX: 60 s per power, parameters={'bit_rate_kbps': 19.2}, 58 B frames, 15 ms gap
+[16:01:17] INFO    [1/3] RX 24 dBm: mean=40.079 mA, power=132.262 mW, status=ok
+[16:03:21] INFO    [2/3] RX 27 dBm: mean=46.477 mA, power=153.376 mW, status=ok
+[16:05:22] INFO    [3/3] RX 30 dBm: mean=50.986 mA, power=168.253 mW, status=ok
+[16:05:23] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\continuous\20260720_155848_radio_ebyte_e32_433t33d_continuous_rx
+[16:05:23] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[16:05:23] FINISH  Test completed with 1 failed batches
+[16:05:23] CALLBACK Codex completion callback started
+[16:05:48] CALLBACK Codex completion notification displayed; automatic result analysis started
+[16:12:17] WARNING PPK2 current-path guard released for an external diagnostic; VIN -> VOUT remains enabled
+[16:12:47] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[16:13:08] WARNING PPK2 current-path guard released for an external diagnostic; VIN -> VOUT remains enabled
+[16:19:41] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[16:20:53] WARNING PPK2 current-path guard released for an external diagnostic; VIN -> VOUT remains enabled
+[16:27:16] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)

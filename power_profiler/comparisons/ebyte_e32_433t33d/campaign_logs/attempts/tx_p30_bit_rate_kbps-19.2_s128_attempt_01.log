@@ -1,0 +1,12 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E32_433T33D --direction tx --radio-port COM48 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=30 --axis bit_rate_kbps=19.2 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx" --receiver-port COM47 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Measured transmitter: COM48, 115200 baud
+Peer receiver: COM47, 115200 baud
+Configuring measured transmitter (Ebyte E32-433T33D UART) on COM48 ...
+Configuring peer receiver on COM47 ...
+[   1/5] TX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 1: rx_missing, peak=811042.8 uA, energy=526944.726 uJ
+[   2/5] TX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 2: rx_missing, peak=808544.1 uA, energy=534049.732 uJ
+[   3/5] TX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 3: rx_missing, peak=809376.9 uA, energy=497991.042 uJ
+[   4/5] TX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 4: rx_missing, peak=808544.1 uA, energy=494213.405 uJ
+[   5/5] TX  128 B, {'tx_power_dbm': 30, 'bit_rate_kbps': 19.2}, rep 5: rx_missing, peak=810209.8 uA, energy=526651.771 uJ
+Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_120223_campaign_radio_ebyte_e32_433t33d\packet_tx\20260720_143923_radio_ebyte_e32_433t33d

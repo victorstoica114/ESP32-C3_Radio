@@ -1,0 +1,7 @@
+{
+  "created_utc": "2026-07-20T13:27:00+00:00",
+  "reason": "The original 4.8 kbps continuous RX batch exhausted the PPK2 trigger window because quiet-period UART draining could remain active while the E32 delivered a continuous stream. The bounded reader was fixed to use an absolute deadline and preserve partial UART lines across windows; the targeted three-power sweep then completed with valid raw captures.",
+  "steps": {
+    "continuous_rx_bit_rate_kbps-4.8": "recovery/continuous_rx_4p8/20260720_162053_radio_ebyte_e32_433t33d_continuous_rx"
+  }
+}
