@@ -17,7 +17,7 @@
   "raw_uncompressed_bytes": 4028958667,
   "recovery_overrides": {
     "file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_233346_campaign_radio_hc12\\recovery_overrides.json",
-    "reason": "Targeted HC-12 recovery after correcting FU4 baud transition timing, packet confirmation latency, continuous-gap validation, and FU1 UART pacing. Original invalid and diagnostic captures remain preserved but are not authoritative.",
+    "reason": "Targeted HC-12 recovery after correcting FU4 baud transition timing, packet confirmation latency, continuous-gap validation, and FU1 UART pacing. Rejected raw captures were removed after validation; their logs and compact summaries remain preserved for provenance.",
     "steps": {
       "tx_p-1_bit_rate_kbps-0.5_s8": "recovery/packet_tx/20260720_003317_radio_hc12",
       "tx_p8_bit_rate_kbps-0.5_s8": "recovery/packet_tx/20260720_003405_radio_hc12",
@@ -39,6 +39,7 @@
     "FU4 required a 1200-baud UART, a 500-bps air rate, and a measured approximately 1.66 s end-to-end receive allowance.",
     "FU1 continuous RX at a 50 ms host gap lost approximately 99.8% of logical frames because the UART/radio path was overdriven; gaps from 75 ms upward produced zero loss in the pacing diagnostic. The authoritative campaign uses 100 ms.",
     "The largest packet-energy coefficient of variation was 8.567% for TX at 8 dBm, 0.5 kbps, and 32 B. Its five transfers were received successfully and the variation follows differing FU4 burst durations, not PPK2 sample loss.",
-    "Original invalid and interrupted results are retained under campaign_logs for provenance and excluded through recovery_overrides.json."
+    "Rejected-result logs and compact summaries are retained under campaign_logs/rejected_results for provenance and excluded through recovery_overrides.json.",
+    "Post-validation cleanup removed 48 superseded, rejected, or duplicate raw traces; all 192 authoritative raw traces remain present and CRC-valid."
   ]
 }

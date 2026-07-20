@@ -1,5 +1,5 @@
 {
-  "reason": "Targeted HC-12 recovery after correcting FU4 baud transition timing, packet confirmation latency, continuous-gap validation, and FU1 UART pacing. Original invalid and diagnostic captures remain preserved but are not authoritative.",
+  "reason": "Targeted HC-12 recovery after correcting FU4 baud transition timing, packet confirmation latency, continuous-gap validation, and FU1 UART pacing. Rejected raw captures were removed after validation; their logs and compact summaries remain preserved for provenance.",
   "steps": {
     "tx_p-1_bit_rate_kbps-0.5_s8": "recovery/packet_tx/20260720_003317_radio_hc12",
     "tx_p8_bit_rate_kbps-0.5_s8": "recovery/packet_tx/20260720_003405_radio_hc12",

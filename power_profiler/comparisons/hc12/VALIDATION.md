@@ -7,9 +7,10 @@ Authoritative campaign: `20260719_233346_campaign_radio_hc12`
 The HC-12 measurement set is complete and accepted for packet-energy,
 continuous average-power, continuous delivery, and loss-versus-rate analysis.
 The accepted virtual manifest contains all 40/40 campaign batches with no
-failed step. All known invalid or incomplete measurements were diagnosed,
-preserved for provenance, and excluded through seven explicit recovery
-overrides.
+failed step. All known invalid or incomplete measurements were diagnosed and
+excluded through seven explicit recovery overrides. Their logs and compact
+summaries remain available for provenance, while rejected raw captures were
+removed during post-validation cleanup.
 
 No additional hardware rerun is required. The authoritative packet set has
 zero missing transfers, and the authoritative continuous RX set received all
@@ -108,14 +109,28 @@ All authoritative loss values are 0%. These delivery results characterize
 the present short-range bench setup and should not be interpreted as a range
 or sensitivity limit.
 
+## Post-validation cleanup
+
+The cleanup performed on 2026-07-20 removed 48 superseded, rejected, or
+duplicate raw traces and approximately 575.7 MiB of non-authoritative session
+data. This comprised 20 traces from the superseded initial quick check, 21
+superseded/rejected traces from the main campaign, and seven traces from the
+auxiliary callback-recovery session.
+
+The authoritative set remains unchanged at 192/192 gzip traces and
+693,751,776 compressed bytes. All campaign, quick-check, callback, attempt,
+and diagnostic logs were retained. Compact summaries for rejected continuous
+runs are grouped under `campaign_logs/rejected_results`; duplicate copies of
+accepted recovery summaries were removed.
+
 ## Deliverables
 
 - Consolidated CSV and XLSX files for packet TX, packet RX, continuous power,
   delivery, and loss versus radio rate.
 - Six LaTeX sources and matching dependency-free PDF/PNG renderings.
 - Campaign manifest, session and callback logs, every campaign attempt log,
-  both quick-check histories, recovery metadata/summaries, and all five HC-12
-  diagnostic logs.
+  both quick-check histories, authoritative recovery metadata/summaries,
+  compact rejected-result summaries, and all five HC-12 diagnostic logs.
 
 The local MiKTeX installation has not completed its first-run setup, so the
 LaTeX sources could not be compiled locally. The dependency-free renderer
