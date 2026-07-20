@@ -1,0 +1,142 @@
+Test: E2802M
+Ports: COM45 / COM46
+Baud: 115200
+Set command: AT+CHAN={value}
+Same value: 20
+Different values: 21 / 22
+Send template A->B: {payload}
+Send template B->A: {payload}
+Payload kind: Text
+Log: power_profiler/diagnostics/e280/channel_isolation_2M.log
+
+--- COM45 boot/open ---
+<no output>
+--- COM46 boot/open ---
+<no output>
+--- COM45 >> AT ---
+OK
+--- COM45 >> AT+DEBUG=OFF ---
+OK
+--- COM45 >> AT+WAKE ---
+OK
+--- COM45 >> AT+BRIDGE=ON ---
+OK
+--- COM45 >> AT+FIXED=OFF ---
+OK
+--- COM45 >> AT+AIR=2M ---
+OK
+--- COM45 >> AT+POWER=4 ---
+OK
+--- COM46 >> AT ---
+OK
+--- COM46 >> AT+DEBUG=OFF ---
+OK
+--- COM46 >> AT+WAKE ---
+OK
+--- COM46 >> AT+BRIDGE=ON ---
+OK
+--- COM46 >> AT+FIXED=OFF ---
+OK
+--- COM46 >> AT+AIR=2M ---
+OK
+--- COM46 >> AT+POWER=4 ---
+OK
+
+=== STAGE 1: synchronized value, link must work ===
+--- COM45 >> AT+CHAN=20 ---
+OK
+--- COM45 >> AT+CHAN? ---
+CHAN=20
+OK
+--- COM46 >> AT+CHAN=20 ---
+OK
+--- COM46 >> AT+CHAN? ---
+CHAN=20
+OK
+--- COM45 payload -> COM46 ---
+command: E2802M_SYNC_BASE_A_TO_B
+expected token: E2802M_SYNC_BASE_A_TO_B
+COM45 tx output:
+<no output>
+COM46 rx output:
+E2802M_SYNC_BASE_A_TO_B
+--- COM46 payload -> COM45 ---
+command: E2802M_SYNC_BASE_B_TO_A
+expected token: E2802M_SYNC_BASE_B_TO_A
+COM46 tx output:
+<no output>
+COM45 rx output:
+E2802M_SYNC_BASE_B_TO_A
+
+=== STAGE 2: different values, link must stop ===
+--- COM45 >> AT+CHAN=21 ---
+#ERROR
+--- COM45 >> AT+CHAN? ---
+CHAN=20
+OK
+--- COM46 >> AT+CHAN=22 ---
+#ERROR
+--- COM46 >> AT+CHAN? ---
+CHAN=20
+OK
+--- COM45 payload -> COM46 ---
+command: E2802M_DESYNC_A_TO_B
+expected token: E2802M_DESYNC_A_TO_B
+COM45 tx output:
+<no output>
+COM46 rx output:
+E2802M_DESYNC_A_TO_B
+--- COM46 payload -> COM45 ---
+command: E2802M_DESYNC_B_TO_A
+expected token: E2802M_DESYNC_B_TO_A
+COM46 tx output:
+<no output>
+COM45 rx output:
+E2802M_DESYNC_B_TO_A
+
+=== STAGE 3: synchronized again, link must recover ===
+--- COM45 >> AT+CHAN=20 ---
+OK
+--- COM45 >> AT+CHAN? ---
+CHAN=20
+OK
+--- COM46 >> AT+CHAN=20 ---
+OK
+--- COM46 >> AT+CHAN? ---
+CHAN=20
+OK
+--- COM45 payload -> COM46 ---
+command: E2802M_RESYNC_A_TO_B
+expected token: E2802M_RESYNC_A_TO_B
+COM45 tx output:
+<no output>
+COM46 rx output:
+E2802M_RESYNC_A_TO_B
+--- COM46 payload -> COM45 ---
+command: E2802M_RESYNC_B_TO_A
+expected token: E2802M_RESYNC_B_TO_A
+COM46 tx output:
+<no output>
+COM45 rx output:
+E2802M_RESYNC_B_TO_A
+
+=== RESULTS ===
+PASS	COM45 set 20	expected 'OK'
+PASS	COM46 set 20	expected 'OK'
+PASS	SYNC_BASE COM45 to COM46 receive	expected 'E2802M_SYNC_BASE_A_TO_B'
+PASS	SYNC_BASE COM46 to COM45 receive	expected 'E2802M_SYNC_BASE_B_TO_A'
+FAIL	COM45 set 21	expected 'OK'
+FAIL	COM46 set 22	expected 'OK'
+FAIL	DESYNC COM45 to COM46 isolated	not expected 'E2802M_DESYNC_A_TO_B'
+FAIL	DESYNC COM46 to COM45 isolated	not expected 'E2802M_DESYNC_B_TO_A'
+PASS	COM45 set 20	expected 'OK'
+PASS	COM46 set 20	expected 'OK'
+PASS	RESYNC COM45 to COM46 receive	expected 'E2802M_RESYNC_A_TO_B'
+PASS	RESYNC COM46 to COM45 receive	expected 'E2802M_RESYNC_B_TO_A'
+=== SUMMARY ===
+PASS=8 FAIL=4
+=== FAILURES ===
+FAIL	COM45 set 21	expected 'OK'
+FAIL	COM46 set 22	expected 'OK'
+FAIL	DESYNC COM45 to COM46 isolated	not expected 'E2802M_DESYNC_A_TO_B'
+FAIL	DESYNC COM46 to COM45 isolated	not expected 'E2802M_DESYNC_B_TO_A'

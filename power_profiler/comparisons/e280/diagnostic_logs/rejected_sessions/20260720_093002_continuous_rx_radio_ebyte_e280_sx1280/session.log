@@ -1,0 +1,17 @@
+[09:30:02] START   Continuous_rx session: 9 steps - RADIO_EBYTE_E280_SX1280
+[09:30:02] STEP    Average RX power and loss at 4 dBm - air rate 1K - 60 s/power level - attempt 1
+[09:30:02] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E280_SX1280 --direction rx --powers=4 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_093002_continuous_rx_radio_ebyte_e280_sx1280\continuous" --keep-power-on --axis air_rate=1K --transmitter-port COM46 --save-raw
+[09:30:03] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:30:03] INFO    Continuous RX: 60 s per power, parameters={'air_rate': '1K'}, 64 B frames, 15 ms gap
+[09:31:08] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:31:08] ERROR   Average RX power and loss at 4 dBm - air rate 1K - 60 s/power level: Process exited with code 4294967295
+[09:31:08] WARNING Cooling before retry: 10 s
+[09:31:18] STEP    Average RX power and loss at 4 dBm - air rate 1K - 60 s/power level - attempt 2
+[09:31:18] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E280_SX1280 --direction rx --powers=4 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_093002_continuous_rx_radio_ebyte_e280_sx1280\continuous" --keep-power-on --axis air_rate=1K --transmitter-port COM46 --save-raw
+[09:31:18] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:31:18] INFO    Continuous RX: 60 s per power, parameters={'air_rate': '1K'}, 64 B frames, 15 ms gap
+[09:31:36] WARNING Stop requested by user
+[09:31:37] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:31:37] FINISH  Test stopped; completed results were preserved
+[09:31:37] CALLBACK Codex completion callback started
+[09:31:48] WARNING Immediate Codex notification failed; automatic result analysis is still running

@@ -1,0 +1,3433 @@
+{
+  "state": "stopped",
+  "kind": "campaign",
+  "message": "Test stopped; completed results were preserved",
+  "started_utc": "2026-07-20T05:32:04+00:00",
+  "finished_utc": "2026-07-20T06:22:48+00:00",
+  "session_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280",
+  "current_step": 40,
+  "total_steps": 40,
+  "current_label": "",
+  "completed_steps": 37,
+  "failed_steps": 2,
+  "quick_verdict": null,
+  "config": {
+    "profile_id": "RADIO_EBYTE_E280_SX1280",
+    "measured_port": "COM45",
+    "peer_port": "COM46",
+    "ppk_port": "COM11",
+    "voltage_mv": 3300,
+    "repetitions": 5,
+    "cooldown_s": 2.0,
+    "continuous_duration_s": 60.0,
+    "max_retries": 2,
+    "retry_cooling_s": 10.0,
+    "save_raw_campaign": true,
+    "notify_codex": true
+  },
+  "steps": [
+    {
+      "step_id": "tx_p4_air_rate-1K_s8",
+      "label": "TX 8 B - 4 dBm - air rate 1K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=4",
+        "--axis",
+        "air_rate=1K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083204_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083204_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p4_air_rate-1K_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T05:32:43+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083204_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p4_air_rate-1K_s32",
+      "label": "TX 32 B - 4 dBm - air rate 1K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=4",
+        "--axis",
+        "air_rate=1K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083243_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083243_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p4_air_rate-1K_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T05:33:23+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "rx_missing"
+            ],
+            "errors": [],
+            "warnings": [
+              "1 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083243_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "rx_missing"
+        ],
+        "errors": [],
+        "warnings": [
+          "1 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "tx_p4_air_rate-1K_s64",
+      "label": "TX 64 B - 4 dBm - air rate 1K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "64",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=4",
+        "--axis",
+        "air_rate=1K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 2,
+          "result_dir": "",
+          "discovered_result_dirs": [],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p4_air_rate-1K_s64_attempt_01.log",
+          "finished_utc": "2026-07-20T05:33:33+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "attempt": 2,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083343_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083343_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p4_air_rate-1K_s64_attempt_02.log",
+          "finished_utc": "2026-07-20T05:34:25+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083343_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p4_air_rate-100K_s8",
+      "label": "TX 8 B - 4 dBm - air rate 100K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=4",
+        "--axis",
+        "air_rate=100K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083426_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083426_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p4_air_rate-100K_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T05:35:04+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083426_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p4_air_rate-100K_s32",
+      "label": "TX 32 B - 4 dBm - air rate 100K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=4",
+        "--axis",
+        "air_rate=100K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 2,
+          "result_dir": "",
+          "discovered_result_dirs": [],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p4_air_rate-100K_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T05:35:14+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "attempt": 2,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083524_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083524_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p4_air_rate-100K_s32_attempt_02.log",
+          "finished_utc": "2026-07-20T05:36:03+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083524_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p4_air_rate-100K_s64",
+      "label": "TX 64 B - 4 dBm - air rate 100K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "64",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=4",
+        "--axis",
+        "air_rate=100K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083603_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083603_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p4_air_rate-100K_s64_attempt_01.log",
+          "finished_utc": "2026-07-20T05:36:42+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083603_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p4_air_rate-2M_s8",
+      "label": "TX 8 B - 4 dBm - air rate 2M",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=4",
+        "--axis",
+        "air_rate=2M",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083642_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083642_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p4_air_rate-2M_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T05:37:21+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083642_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p4_air_rate-2M_s32",
+      "label": "TX 32 B - 4 dBm - air rate 2M",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=4",
+        "--axis",
+        "air_rate=2M",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083721_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083721_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p4_air_rate-2M_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T05:38:00+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083721_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p4_air_rate-2M_s64",
+      "label": "TX 64 B - 4 dBm - air rate 2M",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "64",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=4",
+        "--axis",
+        "air_rate=2M",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 2,
+          "result_dir": "",
+          "discovered_result_dirs": [],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p4_air_rate-2M_s64_attempt_01.log",
+          "finished_utc": "2026-07-20T05:38:10+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "attempt": 2,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083820_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083820_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p4_air_rate-2M_s64_attempt_02.log",
+          "finished_utc": "2026-07-20T05:38:58+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083820_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p7_air_rate-1K_s8",
+      "label": "TX 8 B - 7 dBm - air rate 1K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=7",
+        "--axis",
+        "air_rate=1K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083859_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083859_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p7_air_rate-1K_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T05:39:37+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083859_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p7_air_rate-1K_s32",
+      "label": "TX 32 B - 7 dBm - air rate 1K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=7",
+        "--axis",
+        "air_rate=1K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083938_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083938_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p7_air_rate-1K_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T05:40:17+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "rx_missing",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": [
+              "1 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_083938_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "rx_missing",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": [
+          "1 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "tx_p7_air_rate-1K_s64",
+      "label": "TX 64 B - 7 dBm - air rate 1K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "64",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=7",
+        "--axis",
+        "air_rate=1K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 2,
+          "result_dir": "",
+          "discovered_result_dirs": [],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p7_air_rate-1K_s64_attempt_01.log",
+          "finished_utc": "2026-07-20T05:40:27+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "attempt": 2,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084037_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084037_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p7_air_rate-1K_s64_attempt_02.log",
+          "finished_utc": "2026-07-20T05:41:20+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084037_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p7_air_rate-100K_s8",
+      "label": "TX 8 B - 7 dBm - air rate 100K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=7",
+        "--axis",
+        "air_rate=100K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084120_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084120_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p7_air_rate-100K_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T05:41:59+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084120_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p7_air_rate-100K_s32",
+      "label": "TX 32 B - 7 dBm - air rate 100K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=7",
+        "--axis",
+        "air_rate=100K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084159_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084159_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p7_air_rate-100K_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T05:42:38+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084159_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p7_air_rate-100K_s64",
+      "label": "TX 64 B - 7 dBm - air rate 100K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "64",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=7",
+        "--axis",
+        "air_rate=100K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 2,
+          "result_dir": "",
+          "discovered_result_dirs": [],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p7_air_rate-100K_s64_attempt_01.log",
+          "finished_utc": "2026-07-20T05:42:48+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "attempt": 2,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084258_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084258_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p7_air_rate-100K_s64_attempt_02.log",
+          "finished_utc": "2026-07-20T05:43:36+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084258_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p7_air_rate-2M_s8",
+      "label": "TX 8 B - 7 dBm - air rate 2M",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=7",
+        "--axis",
+        "air_rate=2M",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084337_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084337_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p7_air_rate-2M_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T05:44:15+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "rx_missing",
+              "rx_missing",
+              "ok",
+              "ok",
+              "rx_missing"
+            ],
+            "errors": [],
+            "warnings": [
+              "3 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084337_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "rx_missing",
+          "rx_missing",
+          "ok",
+          "ok",
+          "rx_missing"
+        ],
+        "errors": [],
+        "warnings": [
+          "3 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "tx_p7_air_rate-2M_s32",
+      "label": "TX 32 B - 7 dBm - air rate 2M",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=7",
+        "--axis",
+        "air_rate=2M",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 2,
+          "result_dir": "",
+          "discovered_result_dirs": [],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p7_air_rate-2M_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T05:44:25+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "attempt": 2,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084435_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084435_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p7_air_rate-2M_s32_attempt_02.log",
+          "finished_utc": "2026-07-20T05:45:14+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "rx_missing"
+            ],
+            "errors": [],
+            "warnings": [
+              "1 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084435_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "rx_missing"
+        ],
+        "errors": [],
+        "warnings": [
+          "1 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "tx_p7_air_rate-2M_s64",
+      "label": "TX 64 B - 7 dBm - air rate 2M",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "64",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=7",
+        "--axis",
+        "air_rate=2M",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084514_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084514_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p7_air_rate-2M_s64_attempt_01.log",
+          "finished_utc": "2026-07-20T05:45:53+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "rx_missing"
+            ],
+            "errors": [],
+            "warnings": [
+              "1 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084514_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "rx_missing"
+        ],
+        "errors": [],
+        "warnings": [
+          "1 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "tx_p12_air_rate-1K_s8",
+      "label": "TX 8 B - 12 dBm - air rate 1K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=12",
+        "--axis",
+        "air_rate=1K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084553_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084553_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p12_air_rate-1K_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T05:46:32+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084553_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p12_air_rate-1K_s32",
+      "label": "TX 32 B - 12 dBm - air rate 1K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=12",
+        "--axis",
+        "air_rate=1K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084632_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084632_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p12_air_rate-1K_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T05:47:12+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "rx_missing"
+            ],
+            "errors": [],
+            "warnings": [
+              "1 transfers have missing packets or fragments"
+            ]
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084632_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "rx_missing"
+        ],
+        "errors": [],
+        "warnings": [
+          "1 transfers have missing packets or fragments"
+        ]
+      }
+    },
+    {
+      "step_id": "tx_p12_air_rate-1K_s64",
+      "label": "TX 64 B - 12 dBm - air rate 1K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "64",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=12",
+        "--axis",
+        "air_rate=1K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084712_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084712_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p12_air_rate-1K_s64_attempt_01.log",
+          "finished_utc": "2026-07-20T05:47:55+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084712_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p12_air_rate-100K_s8",
+      "label": "TX 8 B - 12 dBm - air rate 100K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=12",
+        "--axis",
+        "air_rate=100K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084755_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084755_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p12_air_rate-100K_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T05:48:34+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084755_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p12_air_rate-100K_s32",
+      "label": "TX 32 B - 12 dBm - air rate 100K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=12",
+        "--axis",
+        "air_rate=100K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084834_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084834_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p12_air_rate-100K_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T05:49:13+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084834_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p12_air_rate-100K_s64",
+      "label": "TX 64 B - 12 dBm - air rate 100K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "64",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=12",
+        "--axis",
+        "air_rate=100K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 2,
+          "result_dir": "",
+          "discovered_result_dirs": [],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p12_air_rate-100K_s64_attempt_01.log",
+          "finished_utc": "2026-07-20T05:49:23+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "attempt": 2,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084933_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084933_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p12_air_rate-100K_s64_attempt_02.log",
+          "finished_utc": "2026-07-20T05:50:11+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_084933_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p12_air_rate-2M_s8",
+      "label": "TX 8 B - 12 dBm - air rate 2M",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=12",
+        "--axis",
+        "air_rate=2M",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_085012_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_085012_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p12_air_rate-2M_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T05:50:50+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_085012_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p12_air_rate-2M_s32",
+      "label": "TX 32 B - 12 dBm - air rate 2M",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=12",
+        "--axis",
+        "air_rate=2M",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 2,
+          "result_dir": "",
+          "discovered_result_dirs": [],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p12_air_rate-2M_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T05:51:00+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "attempt": 2,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_085110_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_085110_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p12_air_rate-2M_s32_attempt_02.log",
+          "finished_utc": "2026-07-20T05:51:49+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_085110_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "tx_p12_air_rate-2M_s64",
+      "label": "TX 64 B - 12 dBm - air rate 2M",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "64",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=12",
+        "--axis",
+        "air_rate=2M",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx",
+        "--receiver-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_085149_radio_ebyte_e280_sx1280",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_085149_radio_ebyte_e280_sx1280"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\tx_p12_air_rate-2M_s64_attempt_01.log",
+          "finished_utc": "2026-07-20T05:52:28+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_tx\\20260720_085149_radio_ebyte_e280_sx1280",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p12_air_rate-1K_s8",
+      "label": "RX 8 B - TX 12 dBm - air rate 1K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=12",
+        "--axis",
+        "air_rate=1K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx",
+        "--transmitter-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085228_radio_ebyte_e280_sx1280_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085228_radio_ebyte_e280_sx1280_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\rx_p12_air_rate-1K_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T05:53:07+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085228_radio_ebyte_e280_sx1280_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p12_air_rate-1K_s32",
+      "label": "RX 32 B - TX 12 dBm - air rate 1K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=12",
+        "--axis",
+        "air_rate=1K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx",
+        "--transmitter-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 2,
+          "result_dir": "",
+          "discovered_result_dirs": [],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\rx_p12_air_rate-1K_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T05:53:17+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "attempt": 2,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085327_radio_ebyte_e280_sx1280_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085327_radio_ebyte_e280_sx1280_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\rx_p12_air_rate-1K_s32_attempt_02.log",
+          "finished_utc": "2026-07-20T05:54:08+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085327_radio_ebyte_e280_sx1280_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p12_air_rate-1K_s64",
+      "label": "RX 64 B - TX 12 dBm - air rate 1K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "64",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=12",
+        "--axis",
+        "air_rate=1K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx",
+        "--transmitter-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085408_radio_ebyte_e280_sx1280_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085408_radio_ebyte_e280_sx1280_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\rx_p12_air_rate-1K_s64_attempt_01.log",
+          "finished_utc": "2026-07-20T05:54:52+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085408_radio_ebyte_e280_sx1280_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p12_air_rate-100K_s8",
+      "label": "RX 8 B - TX 12 dBm - air rate 100K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=12",
+        "--axis",
+        "air_rate=100K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx",
+        "--transmitter-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085452_radio_ebyte_e280_sx1280_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085452_radio_ebyte_e280_sx1280_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\rx_p12_air_rate-100K_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T05:55:31+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085452_radio_ebyte_e280_sx1280_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p12_air_rate-100K_s32",
+      "label": "RX 32 B - TX 12 dBm - air rate 100K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=12",
+        "--axis",
+        "air_rate=100K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx",
+        "--transmitter-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 2,
+          "result_dir": "",
+          "discovered_result_dirs": [],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\rx_p12_air_rate-100K_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T05:55:41+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "attempt": 2,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085551_radio_ebyte_e280_sx1280_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085551_radio_ebyte_e280_sx1280_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\rx_p12_air_rate-100K_s32_attempt_02.log",
+          "finished_utc": "2026-07-20T05:56:30+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085551_radio_ebyte_e280_sx1280_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p12_air_rate-100K_s64",
+      "label": "RX 64 B - TX 12 dBm - air rate 100K",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "64",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=12",
+        "--axis",
+        "air_rate=100K",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx",
+        "--transmitter-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 2,
+          "result_dir": "",
+          "discovered_result_dirs": [],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\rx_p12_air_rate-100K_s64_attempt_01.log",
+          "finished_utc": "2026-07-20T05:56:40+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "attempt": 2,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085650_radio_ebyte_e280_sx1280_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085650_radio_ebyte_e280_sx1280_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\rx_p12_air_rate-100K_s64_attempt_02.log",
+          "finished_utc": "2026-07-20T05:57:29+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085650_radio_ebyte_e280_sx1280_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p12_air_rate-2M_s8",
+      "label": "RX 8 B - TX 12 dBm - air rate 2M",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "8",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=12",
+        "--axis",
+        "air_rate=2M",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx",
+        "--transmitter-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085729_radio_ebyte_e280_sx1280_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085729_radio_ebyte_e280_sx1280_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\rx_p12_air_rate-2M_s8_attempt_01.log",
+          "finished_utc": "2026-07-20T05:58:08+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085729_radio_ebyte_e280_sx1280_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p12_air_rate-2M_s32",
+      "label": "RX 32 B - TX 12 dBm - air rate 2M",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "32",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=12",
+        "--axis",
+        "air_rate=2M",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx",
+        "--transmitter-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 2,
+          "result_dir": "",
+          "discovered_result_dirs": [],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\rx_p12_air_rate-2M_s32_attempt_01.log",
+          "finished_utc": "2026-07-20T05:58:18+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "attempt": 2,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085828_radio_ebyte_e280_sx1280_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085828_radio_ebyte_e280_sx1280_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\rx_p12_air_rate-2M_s32_attempt_02.log",
+          "finished_utc": "2026-07-20T05:59:07+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085828_radio_ebyte_e280_sx1280_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "rx_p12_air_rate-2M_s64",
+      "label": "RX 64 B - TX 12 dBm - air rate 2M",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "run",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "rx",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--sizes",
+        "64",
+        "--repetitions",
+        "5",
+        "--cooldown-s",
+        "2",
+        "--keep-power-on",
+        "--axis",
+        "tx_power_dbm=12",
+        "--axis",
+        "air_rate=2M",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx",
+        "--transmitter-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "packet",
+      "expected_rows": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085908_radio_ebyte_e280_sx1280_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085908_radio_ebyte_e280_sx1280_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\rx_p12_air_rate-2M_s64_attempt_01.log",
+          "finished_utc": "2026-07-20T05:59:47+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 5,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\packet_rx\\20260720_085908_radio_ebyte_e280_sx1280_rx",
+      "validation": {
+        "valid": true,
+        "rows": 5,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "continuous_tx_average",
+      "label": "Average TX power - air rate 100K - 60 s/power level",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "continuous",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "tx",
+        "--powers=4,7,12",
+        "--frame-bytes",
+        "64",
+        "--gap-ms",
+        "15",
+        "--duration-s",
+        "60",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous",
+        "--keep-power-on",
+        "--axis",
+        "air_rate=100K",
+        "--save-raw"
+      ],
+      "result_kind": "continuous",
+      "expected_rows": 3,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous\\20260720_085947_radio_ebyte_e280_sx1280_continuous_tx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous\\20260720_085947_radio_ebyte_e280_sx1280_continuous_tx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\continuous_tx_average_attempt_01.log",
+          "finished_utc": "2026-07-20T06:05:33+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 3,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous\\20260720_085947_radio_ebyte_e280_sx1280_continuous_tx",
+      "validation": {
+        "valid": true,
+        "rows": 3,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "continuous_rx_air_rate-1K",
+      "label": "Average RX power and loss - air rate 1K - 60 s/power level",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "continuous",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "rx",
+        "--powers=4,7,12",
+        "--frame-bytes",
+        "64",
+        "--gap-ms",
+        "15",
+        "--duration-s",
+        "60",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous",
+        "--keep-power-on",
+        "--axis",
+        "air_rate=1K",
+        "--transmitter-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "continuous",
+      "expected_rows": 3,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 2,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous\\20260720_090533_radio_ebyte_e280_sx1280_continuous_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous\\20260720_090533_radio_ebyte_e280_sx1280_continuous_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\continuous_rx_air_rate-1K_attempt_01.log",
+          "finished_utc": "2026-07-20T06:05:42+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "attempt": 2,
+          "return_code": 2,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous\\20260720_090553_radio_ebyte_e280_sx1280_continuous_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous\\20260720_090553_radio_ebyte_e280_sx1280_continuous_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\continuous_rx_air_rate-1K_attempt_02.log",
+          "finished_utc": "2026-07-20T06:08:07+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "attempt": 3,
+          "return_code": 2,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous\\20260720_090817_radio_ebyte_e280_sx1280_continuous_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous\\20260720_090817_radio_ebyte_e280_sx1280_continuous_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\continuous_rx_air_rate-1K_attempt_03.log",
+          "finished_utc": "2026-07-20T06:10:33+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "failed",
+      "accepted_result": "",
+      "validation": {
+        "valid": false,
+        "errors": [
+          "Process exited with code 2"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "continuous_rx_air_rate-100K",
+      "label": "Average RX power and loss - air rate 100K - 60 s/power level",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "continuous",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "rx",
+        "--powers=4,7,12",
+        "--frame-bytes",
+        "64",
+        "--gap-ms",
+        "15",
+        "--duration-s",
+        "60",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous",
+        "--keep-power-on",
+        "--axis",
+        "air_rate=100K",
+        "--transmitter-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "continuous",
+      "expected_rows": 3,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 2,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous\\20260720_091033_radio_ebyte_e280_sx1280_continuous_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous\\20260720_091033_radio_ebyte_e280_sx1280_continuous_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\continuous_rx_air_rate-100K_attempt_01.log",
+          "finished_utc": "2026-07-20T06:12:51+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "attempt": 2,
+          "return_code": 2,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous\\20260720_091301_radio_ebyte_e280_sx1280_continuous_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous\\20260720_091301_radio_ebyte_e280_sx1280_continuous_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\continuous_rx_air_rate-100K_attempt_02.log",
+          "finished_utc": "2026-07-20T06:15:20+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "attempt": 3,
+          "return_code": 2,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous\\20260720_091530_radio_ebyte_e280_sx1280_continuous_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous\\20260720_091530_radio_ebyte_e280_sx1280_continuous_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\continuous_rx_air_rate-100K_attempt_03.log",
+          "finished_utc": "2026-07-20T06:17:51+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "failed",
+      "accepted_result": "",
+      "validation": {
+        "valid": false,
+        "errors": [
+          "Process exited with code 2"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "continuous_rx_air_rate-2M",
+      "label": "Average RX power and loss - air rate 2M - 60 s/power level",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "continuous",
+        "--module",
+        "RADIO_EBYTE_E280_SX1280",
+        "--direction",
+        "rx",
+        "--powers=4,7,12",
+        "--frame-bytes",
+        "64",
+        "--gap-ms",
+        "15",
+        "--duration-s",
+        "60",
+        "--radio-port",
+        "COM45",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous",
+        "--keep-power-on",
+        "--axis",
+        "air_rate=2M",
+        "--transmitter-port",
+        "COM46",
+        "--save-raw"
+      ],
+      "result_kind": "continuous",
+      "expected_rows": 3,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 2,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous\\20260720_091752_radio_ebyte_e280_sx1280_continuous_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous\\20260720_091752_radio_ebyte_e280_sx1280_continuous_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\continuous_rx_air_rate-2M_attempt_01.log",
+          "finished_utc": "2026-07-20T06:20:11+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "attempt": 2,
+          "return_code": 2,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous\\20260720_092021_radio_ebyte_e280_sx1280_continuous_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\continuous\\20260720_092021_radio_ebyte_e280_sx1280_continuous_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_083204_campaign_radio_ebyte_e280_sx1280\\logs\\continuous_rx_air_rate-2M_attempt_02.log",
+          "finished_utc": "2026-07-20T06:22:46+00:00",
+          "validation": {
+            "valid": false,
+            "errors": [
+              "Process exited with code 2"
+            ],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "stopped",
+      "accepted_result": "",
+      "validation": {
+        "valid": false,
+        "errors": [
+          "Process exited with code 2"
+        ],
+        "warnings": []
+      }
+    }
+  ]
+}

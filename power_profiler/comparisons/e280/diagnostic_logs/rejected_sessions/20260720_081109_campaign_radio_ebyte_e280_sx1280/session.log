@@ -1,0 +1,234 @@
+[08:11:09] START   Campaign session: 40 steps - RADIO_EBYTE_E280_SX1280
+[08:11:09] STEP    TX 8 B - 4 dBm - air rate 1K - attempt 1
+[08:11:09] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E280_SX1280 --direction tx --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=4 --axis air_rate=1K --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx" --receiver-port COM46 --save-raw
+[08:11:09] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:11:09] INFO    Measured transmitter: COM45, 115200 baud
+[08:11:09] INFO    Peer receiver: COM46, 115200 baud
+[08:11:17] INFO    Configuring measured transmitter (Ebyte E280-2G4T12S UART (SX1280)) on COM45 ...
+[08:11:24] INFO    Configuring peer receiver on COM46 ...
+[08:11:32] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 4, 'air_rate': '1K'}, rep 1: ok, peak=29376.2 uA, energy=23157.170 uJ
+[08:11:36] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 4, 'air_rate': '1K'}, rep 2: ok, peak=29775.3 uA, energy=23169.782 uJ
+[08:11:40] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 4, 'air_rate': '1K'}, rep 3: ok, peak=29575.7 uA, energy=23207.137 uJ
+[08:11:44] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 4, 'air_rate': '1K'}, rep 4: ok, peak=29475.9 uA, energy=23220.463 uJ
+[08:11:47] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 4, 'air_rate': '1K'}, rep 5: ok, peak=29725.4 uA, energy=23150.997 uJ
+[08:11:47] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx\20260720_081109_radio_ebyte_e280_sx1280
+[08:11:48] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:11:48] STEP    TX 32 B - 4 dBm - air rate 1K - attempt 1
+[08:11:48] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E280_SX1280 --direction tx --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=4 --axis air_rate=1K --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx" --receiver-port COM46 --save-raw
+[08:11:48] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:11:48] INFO    Measured transmitter: COM45, 115200 baud
+[08:11:48] INFO    Peer receiver: COM46, 115200 baud
+[08:11:56] INFO    Configuring measured transmitter (Ebyte E280-2G4T12S UART (SX1280)) on COM45 ...
+[08:12:03] INFO    Configuring peer receiver on COM46 ...
+[08:12:11] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 4, 'air_rate': '1K'}, rep 1: ok, peak=29525.8 uA, energy=44041.837 uJ
+[08:12:15] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 4, 'air_rate': '1K'}, rep 2: ok, peak=29525.8 uA, energy=44026.128 uJ
+[08:12:19] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 4, 'air_rate': '1K'}, rep 3: rx_missing, peak=29475.9 uA, energy=4474.546 uJ
+[08:12:23] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 4, 'air_rate': '1K'}, rep 4: ok, peak=29475.9 uA, energy=44053.036 uJ
+[08:12:27] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 4, 'air_rate': '1K'}, rep 5: ok, peak=29376.2 uA, energy=44051.071 uJ
+[08:12:27] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx\20260720_081148_radio_ebyte_e280_sx1280
+[08:12:28] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:12:28] WARNING TX 32 B - 4 dBm - air rate 1K: 1 transfers have missing packets or fragments
+[08:12:28] STEP    TX 64 B - 4 dBm - air rate 1K - attempt 1
+[08:12:28] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E280_SX1280 --direction tx --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --sizes 64 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=4 --axis air_rate=1K --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx" --receiver-port COM46 --save-raw
+[08:12:28] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:12:28] INFO    Measured transmitter: COM45, 115200 baud
+[08:12:28] INFO    Peer receiver: COM46, 115200 baud
+[08:12:35] INFO    Configuring measured transmitter (Ebyte E280-2G4T12S UART (SX1280)) on COM45 ...
+[08:12:37] INFO    ERROR: AT+FIXED=OFF: #ERROR
+[08:12:38] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:12:38] ERROR   TX 64 B - 4 dBm - air rate 1K: Process exited with code 2
+[08:12:38] WARNING Cooling before retry: 10 s
+[08:12:48] STEP    TX 64 B - 4 dBm - air rate 1K - attempt 2
+[08:12:48] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E280_SX1280 --direction tx --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --sizes 64 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=4 --axis air_rate=1K --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx" --receiver-port COM46 --save-raw
+[08:12:48] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:12:48] INFO    Measured transmitter: COM45, 115200 baud
+[08:12:48] INFO    Peer receiver: COM46, 115200 baud
+[08:12:55] INFO    Configuring measured transmitter (Ebyte E280-2G4T12S UART (SX1280)) on COM45 ...
+[08:13:02] INFO    Configuring peer receiver on COM46 ...
+[08:13:11] INFO    [   1/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '1K'}, rep 1: ok, peak=29475.9 uA, energy=71801.497 uJ
+[08:13:16] INFO    [   2/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '1K'}, rep 2: ok, peak=29426.0 uA, energy=71862.166 uJ
+[08:13:20] INFO    [   3/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '1K'}, rep 3: ok, peak=29775.3 uA, energy=71878.756 uJ
+[08:13:25] INFO    [   4/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '1K'}, rep 4: ok, peak=29875.2 uA, energy=71837.801 uJ
+[08:13:30] INFO    [   5/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '1K'}, rep 5: ok, peak=29475.9 uA, energy=71885.726 uJ
+[08:13:30] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx\20260720_081248_radio_ebyte_e280_sx1280
+[08:13:30] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:13:30] STEP    TX 8 B - 4 dBm - air rate 100K - attempt 1
+[08:13:30] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E280_SX1280 --direction tx --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=4 --axis air_rate=100K --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx" --receiver-port COM46 --save-raw
+[08:13:30] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:13:30] INFO    Measured transmitter: COM45, 115200 baud
+[08:13:30] INFO    Peer receiver: COM46, 115200 baud
+[08:13:38] INFO    Configuring measured transmitter (Ebyte E280-2G4T12S UART (SX1280)) on COM45 ...
+[08:13:40] INFO    ERROR: AT+FIXED=OFF: #ERROR
+[08:13:40] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:13:40] ERROR   TX 8 B - 4 dBm - air rate 100K: Process exited with code 2
+[08:13:40] WARNING Cooling before retry: 10 s
+[08:13:50] STEP    TX 8 B - 4 dBm - air rate 100K - attempt 2
+[08:13:50] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E280_SX1280 --direction tx --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=4 --axis air_rate=100K --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx" --receiver-port COM46 --save-raw
+[08:13:50] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:13:50] INFO    Measured transmitter: COM45, 115200 baud
+[08:13:50] INFO    Peer receiver: COM46, 115200 baud
+[08:13:58] INFO    Configuring measured transmitter (Ebyte E280-2G4T12S UART (SX1280)) on COM45 ...
+[08:14:05] INFO    Configuring peer receiver on COM46 ...
+[08:14:13] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 4, 'air_rate': '100K'}, rep 1: ok, peak=29975.2 uA, energy=211.572 uJ
+[08:14:17] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 4, 'air_rate': '100K'}, rep 2: ok, peak=29376.2 uA, energy=210.859 uJ
+[08:14:21] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 4, 'air_rate': '100K'}, rep 3: ok, peak=29077.2 uA, energy=210.011 uJ
+[08:14:25] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 4, 'air_rate': '100K'}, rep 4: ok, peak=29276.5 uA, energy=210.325 uJ
+[08:14:28] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 4, 'air_rate': '100K'}, rep 5: ok, peak=29326.3 uA, energy=210.659 uJ
+[08:14:28] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx\20260720_081350_radio_ebyte_e280_sx1280
+[08:14:29] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:14:29] STEP    TX 32 B - 4 dBm - air rate 100K - attempt 1
+[08:14:29] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E280_SX1280 --direction tx --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=4 --axis air_rate=100K --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx" --receiver-port COM46 --save-raw
+[08:14:29] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:14:29] INFO    Measured transmitter: COM45, 115200 baud
+[08:14:29] INFO    Peer receiver: COM46, 115200 baud
+[08:14:37] INFO    Configuring measured transmitter (Ebyte E280-2G4T12S UART (SX1280)) on COM45 ...
+[08:14:44] INFO    Configuring peer receiver on COM46 ...
+[08:14:52] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 4, 'air_rate': '100K'}, rep 1: ok, peak=29875.2 uA, energy=373.692 uJ
+[08:14:56] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 4, 'air_rate': '100K'}, rep 2: ok, peak=29725.4 uA, energy=373.539 uJ
+[08:15:00] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 4, 'air_rate': '100K'}, rep 3: ok, peak=29575.7 uA, energy=373.446 uJ
+[08:15:03] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 4, 'air_rate': '100K'}, rep 4: ok, peak=30275.2 uA, energy=375.685 uJ
+[08:15:07] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 4, 'air_rate': '100K'}, rep 5: ok, peak=29326.3 uA, energy=372.395 uJ
+[08:15:07] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx\20260720_081429_radio_ebyte_e280_sx1280
+[08:15:08] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:15:08] STEP    TX 64 B - 4 dBm - air rate 100K - attempt 1
+[08:15:08] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E280_SX1280 --direction tx --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --sizes 64 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=4 --axis air_rate=100K --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx" --receiver-port COM46 --save-raw
+[08:15:08] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:15:08] INFO    Measured transmitter: COM45, 115200 baud
+[08:15:08] INFO    Peer receiver: COM46, 115200 baud
+[08:15:15] INFO    Configuring measured transmitter (Ebyte E280-2G4T12S UART (SX1280)) on COM45 ...
+[08:15:23] INFO    Configuring peer receiver on COM46 ...
+[08:15:31] INFO    [   1/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '100K'}, rep 1: ok, peak=29875.2 uA, energy=45.557 uJ
+[08:15:35] INFO    [   2/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '100K'}, rep 2: ok, peak=29426.0 uA, energy=109.028 uJ
+[08:15:38] INFO    [   3/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '100K'}, rep 3: ok, peak=29127.0 uA, energy=156.369 uJ
+[08:15:42] INFO    [   4/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '100K'}, rep 4: ok, peak=28579.8 uA, energy=156.997 uJ
+[08:15:46] INFO    [   5/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '100K'}, rep 5: ok, peak=28579.8 uA, energy=131.430 uJ
+[08:15:46] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx\20260720_081508_radio_ebyte_e280_sx1280
+[08:15:47] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:15:47] STEP    TX 8 B - 4 dBm - air rate 2M - attempt 1
+[08:15:47] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E280_SX1280 --direction tx --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=4 --axis air_rate=2M --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx" --receiver-port COM46 --save-raw
+[08:15:47] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:15:47] INFO    Measured transmitter: COM45, 115200 baud
+[08:15:47] INFO    Peer receiver: COM46, 115200 baud
+[08:15:54] INFO    Configuring measured transmitter (Ebyte E280-2G4T12S UART (SX1280)) on COM45 ...
+[08:15:56] INFO    ERROR: AT+FIXED=OFF: #ERROR
+[08:15:57] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:15:57] ERROR   TX 8 B - 4 dBm - air rate 2M: Process exited with code 2
+[08:15:57] WARNING Cooling before retry: 10 s
+[08:16:07] STEP    TX 8 B - 4 dBm - air rate 2M - attempt 2
+[08:16:07] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E280_SX1280 --direction tx --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=4 --axis air_rate=2M --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx" --receiver-port COM46 --save-raw
+[08:16:07] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:16:07] INFO    Measured transmitter: COM45, 115200 baud
+[08:16:07] INFO    Peer receiver: COM46, 115200 baud
+[08:16:14] INFO    Configuring measured transmitter (Ebyte E280-2G4T12S UART (SX1280)) on COM45 ...
+[08:16:21] INFO    Configuring peer receiver on COM46 ...
+[08:16:30] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 1: ok, peak=27687.0 uA, energy=17.597 uJ
+[08:16:33] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 2: ok, peak=28629.5 uA, energy=17.292 uJ
+[08:16:37] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 3: ok, peak=28430.8 uA, energy=18.257 uJ
+[08:16:41] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 4: ok, peak=28629.5 uA, energy=18.362 uJ
+[08:16:45] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 5: ok, peak=27984.3 uA, energy=17.916 uJ
+[08:16:45] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx\20260720_081607_radio_ebyte_e280_sx1280
+[08:16:45] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:16:45] STEP    TX 32 B - 4 dBm - air rate 2M - attempt 1
+[08:16:45] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E280_SX1280 --direction tx --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=4 --axis air_rate=2M --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx" --receiver-port COM46 --save-raw
+[08:16:45] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:16:45] INFO    Measured transmitter: COM45, 115200 baud
+[08:16:45] INFO    Peer receiver: COM46, 115200 baud
+[08:16:53] INFO    Configuring measured transmitter (Ebyte E280-2G4T12S UART (SX1280)) on COM45 ...
+[08:17:00] INFO    Configuring peer receiver on COM46 ...
+[08:17:08] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 1: ok, peak=28778.6 uA, energy=25.906 uJ
+[08:17:12] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 2: ok, peak=27885.1 uA, energy=25.603 uJ
+[08:17:16] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 3: ok, peak=27340.8 uA, energy=25.735 uJ
+[08:17:20] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 4: ok, peak=28083.4 uA, energy=25.472 uJ
+[08:17:23] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 5: ok, peak=27687.0 uA, energy=24.665 uJ
+[08:17:23] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx\20260720_081645_radio_ebyte_e280_sx1280
+[08:17:24] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:17:24] STEP    TX 64 B - 4 dBm - air rate 2M - attempt 1
+[08:17:24] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E280_SX1280 --direction tx --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --sizes 64 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=4 --axis air_rate=2M --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx" --receiver-port COM46 --save-raw
+[08:17:24] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:17:24] INFO    Measured transmitter: COM45, 115200 baud
+[08:17:24] INFO    Peer receiver: COM46, 115200 baud
+[08:17:32] INFO    Configuring measured transmitter (Ebyte E280-2G4T12S UART (SX1280)) on COM45 ...
+[08:17:39] INFO    Configuring peer receiver on COM46 ...
+[08:17:47] INFO    [   1/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 1: no_event_detected, peak=0.0 uA, energy=0.000 uJ
+[08:17:51] INFO    [   2/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 2: no_event_detected, peak=0.0 uA, energy=0.000 uJ
+[08:17:55] INFO    [   3/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 3: no_event_detected, peak=0.0 uA, energy=0.000 uJ
+[08:17:58] INFO    [   4/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 4: no_event_detected, peak=0.0 uA, energy=0.000 uJ
+[08:18:02] INFO    [   5/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 5: no_event_detected, peak=0.0 uA, energy=0.000 uJ
+[08:18:02] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx\20260720_081724_radio_ebyte_e280_sx1280
+[08:18:03] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:18:03] ERROR   TX 64 B - 4 dBm - air rate 2M: Invalid hardware status: no_event_detected, no_event_detected, no_event_detected, no_event_detected, no_event_detected
+[08:18:03] WARNING Cooling before retry: 10 s
+[08:18:13] STEP    TX 64 B - 4 dBm - air rate 2M - attempt 2
+[08:18:13] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E280_SX1280 --direction tx --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --sizes 64 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=4 --axis air_rate=2M --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx" --receiver-port COM46 --save-raw
+[08:18:13] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:18:13] INFO    Measured transmitter: COM45, 115200 baud
+[08:18:13] INFO    Peer receiver: COM46, 115200 baud
+[08:18:20] INFO    Configuring measured transmitter (Ebyte E280-2G4T12S UART (SX1280)) on COM45 ...
+[08:18:28] INFO    Configuring peer receiver on COM46 ...
+[08:18:36] INFO    [   1/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 1: no_event_detected, peak=0.0 uA, energy=0.000 uJ
+[08:18:40] INFO    [   2/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 2: no_event_detected, peak=0.0 uA, energy=0.000 uJ
+[08:18:43] INFO    [   3/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 3: no_event_detected, peak=0.0 uA, energy=0.000 uJ
+[08:18:47] INFO    [   4/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 4: no_event_detected, peak=0.0 uA, energy=0.000 uJ
+[08:18:51] INFO    [   5/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 5: no_event_detected, peak=0.0 uA, energy=0.000 uJ
+[08:18:51] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx\20260720_081813_radio_ebyte_e280_sx1280
+[08:18:52] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:18:52] ERROR   TX 64 B - 4 dBm - air rate 2M: Invalid hardware status: no_event_detected, no_event_detected, no_event_detected, no_event_detected, no_event_detected
+[08:18:52] WARNING Cooling before retry: 10 s
+[08:19:02] STEP    TX 64 B - 4 dBm - air rate 2M - attempt 3
+[08:19:02] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E280_SX1280 --direction tx --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --sizes 64 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=4 --axis air_rate=2M --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx" --receiver-port COM46 --save-raw
+[08:19:02] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:19:02] INFO    Measured transmitter: COM45, 115200 baud
+[08:19:02] INFO    Peer receiver: COM46, 115200 baud
+[08:19:09] INFO    Configuring measured transmitter (Ebyte E280-2G4T12S UART (SX1280)) on COM45 ...
+[08:19:16] INFO    Configuring peer receiver on COM46 ...
+[08:19:25] INFO    [   1/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 1: no_event_detected, peak=0.0 uA, energy=0.000 uJ
+[08:19:28] INFO    [   2/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 2: no_event_detected, peak=0.0 uA, energy=0.000 uJ
+[08:19:32] INFO    [   3/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 3: no_event_detected, peak=0.0 uA, energy=0.000 uJ
+[08:19:36] INFO    [   4/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 4: no_event_detected, peak=0.0 uA, energy=0.000 uJ
+[08:19:40] INFO    [   5/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '2M'}, rep 5: no_event_detected, peak=0.0 uA, energy=0.000 uJ
+[08:19:40] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx\20260720_081902_radio_ebyte_e280_sx1280
+[08:19:40] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:19:40] ERROR   TX 64 B - 4 dBm - air rate 2M: Invalid hardware status: no_event_detected, no_event_detected, no_event_detected, no_event_detected, no_event_detected
+[08:19:40] STEP    TX 8 B - 7 dBm - air rate 1K - attempt 1
+[08:19:40] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E280_SX1280 --direction tx --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=7 --axis air_rate=1K --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx" --receiver-port COM46 --save-raw
+[08:19:41] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:19:41] INFO    Measured transmitter: COM45, 115200 baud
+[08:19:41] INFO    Peer receiver: COM46, 115200 baud
+[08:19:48] INFO    Configuring measured transmitter (Ebyte E280-2G4T12S UART (SX1280)) on COM45 ...
+[08:19:55] INFO    Configuring peer receiver on COM46 ...
+[08:20:04] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 7, 'air_rate': '1K'}, rep 1: ok, peak=31529.4 uA, energy=25098.006 uJ
+[08:20:07] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 7, 'air_rate': '1K'}, rep 2: ok, peak=31680.4 uA, energy=25187.103 uJ
+[08:20:11] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 7, 'air_rate': '1K'}, rep 3: ok, peak=31529.4 uA, energy=25084.811 uJ
+[08:20:15] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 7, 'air_rate': '1K'}, rep 4: ok, peak=31328.3 uA, energy=25201.105 uJ
+[08:20:19] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 7, 'air_rate': '1K'}, rep 5: ok, peak=32083.3 uA, energy=25172.446 uJ
+[08:20:19] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx\20260720_081941_radio_ebyte_e280_sx1280
+[08:20:19] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:20:19] STEP    TX 32 B - 7 dBm - air rate 1K - attempt 1
+[08:20:19] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E280_SX1280 --direction tx --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=7 --axis air_rate=1K --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx" --receiver-port COM46 --save-raw
+[08:20:20] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:20:20] INFO    Measured transmitter: COM45, 115200 baud
+[08:20:20] INFO    Peer receiver: COM46, 115200 baud
+[08:20:27] INFO    Configuring measured transmitter (Ebyte E280-2G4T12S UART (SX1280)) on COM45 ...
+[08:20:34] INFO    Configuring peer receiver on COM46 ...
+[08:20:43] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 7, 'air_rate': '1K'}, rep 1: ok, peak=34718.6 uA, energy=47737.715 uJ
+[08:20:47] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 7, 'air_rate': '1K'}, rep 2: ok, peak=31730.7 uA, energy=47839.886 uJ
+[08:20:51] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 7, 'air_rate': '1K'}, rep 3: rx_missing, peak=30575.6 uA, energy=154.387 uJ
+[08:20:55] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 7, 'air_rate': '1K'}, rep 4: ok, peak=31730.7 uA, energy=47843.820 uJ
+[08:20:59] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 7, 'air_rate': '1K'}, rep 5: ok, peak=31529.4 uA, energy=47938.482 uJ
+[08:20:59] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx\20260720_082020_radio_ebyte_e280_sx1280
+[08:20:59] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:20:59] WARNING TX 32 B - 7 dBm - air rate 1K: 1 transfers have missing packets or fragments
+[08:20:59] STEP    TX 64 B - 7 dBm - air rate 1K - attempt 1
+[08:20:59] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E280_SX1280 --direction tx --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --sizes 64 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=7 --axis air_rate=1K --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx" --receiver-port COM46 --save-raw
+[08:21:00] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[08:21:00] INFO    Measured transmitter: COM45, 115200 baud
+[08:21:00] INFO    Peer receiver: COM46, 115200 baud
+[08:21:01] WARNING Stop requested by user
+[08:21:01] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:21:01] FINISH  Test stopped; completed results were preserved
+[08:21:01] CALLBACK Codex completion callback started
+[08:21:25] CALLBACK Codex completion notification displayed; automatic result analysis started
+[08:23:44] WARNING PPK2 current-path guard released for an external diagnostic; VIN -> VOUT remains enabled
+[08:24:23] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[08:25:12] WARNING PPK2 current-path guard released for an external diagnostic; VIN -> VOUT remains enabled
+[08:25:12] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)

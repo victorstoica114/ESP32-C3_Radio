@@ -780,6 +780,14 @@ static bool applyCurrent(bool saveToFlash) {
   return ok;
 }
 
+static bool applyCandidate(const E280Config& next, bool saveToFlash) {
+  E280Config previous = cfgCurrent;
+  cfgCurrent = next;
+  if (applyCurrent(saveToFlash)) return true;
+  cfgCurrent = previous;
+  return false;
+}
+
 static bool sendFixedText(uint8_t addh, uint8_t addl, uint8_t chan, const String& payload) {
   if (moduleSleeping || currentMode == E280_MODE_CONFIGURATION || currentMode == E280_MODE_LOW_POWER) {
     serialError(F("RADIO_SLEEPING (send AT+WAKE)"));
@@ -1072,11 +1080,11 @@ static bool handleAT(const String& lineRaw) {
 
   if (u.startsWith("AT+CHAN=")) {
     uint8_t v; if (!parseChannel(line.substring(8), v)) { serialERR(); return true; }
+    if (cfgCurrent.chan == v) { serialOK(); return true; }
     E280Config next = cfgCurrent;
     next.chan = v;
     if (!validChannelForConfig(next)) { serialERR(); return true; }
-    cfgCurrent = next;
-    applyCurrent(true) ? serialOK() : serialERR();
+    applyCandidate(next, true) ? serialOK() : serialERR();
     return true;
   }
 
@@ -1110,43 +1118,49 @@ static bool handleAT(const String& lineRaw) {
 
   if (u.startsWith("AT+AIR=")) {
     uint8_t code; if (!parseAirCode(line.substring(7), code)) { serialERR(); return true; }
+    if (airCode(cfgCurrent) == code) { serialOK(); return true; }
     E280Config next = cfgCurrent;
     setAirCode(next, code);
     if (!validChannelForConfig(next)) { serialERR(); return true; }
-    cfgCurrent = next;
-    applyCurrent(true) ? serialOK() : serialERR();
+    applyCandidate(next, true) ? serialOK() : serialERR();
     return true;
   }
 
   if (u.startsWith("AT+AIR")) {
     uint8_t code; if (!parseAirCode(u.substring(6), code)) { serialERR(); return true; }
+    if (airCode(cfgCurrent) == code) { serialOK(); return true; }
     E280Config next = cfgCurrent;
     setAirCode(next, code);
     if (!validChannelForConfig(next)) { serialERR(); return true; }
-    cfgCurrent = next;
-    applyCurrent(true) ? serialOK() : serialERR();
+    applyCandidate(next, true) ? serialOK() : serialERR();
     return true;
   }
 
   if (u.startsWith("AT+POWER=") || u.startsWith("AT+PWR=")) {
     int eq = line.indexOf('=');
     uint8_t code; if (eq < 0 || !parsePowerCode(line.substring(eq + 1), code)) { serialERR(); return true; }
-    setPowerCode(cfgCurrent, code);
-    applyCurrent(true) ? serialOK() : serialERR();
+    if (powerCode(cfgCurrent) == code) { serialOK(); return true; }
+    E280Config next = cfgCurrent;
+    setPowerCode(next, code);
+    applyCandidate(next, true) ? serialOK() : serialERR();
     return true;
   }
 
   if (u.startsWith("AT+POWER")) {
     uint8_t code; if (!parsePowerCode(u.substring(8), code)) { serialERR(); return true; }
-    setPowerCode(cfgCurrent, code);
-    applyCurrent(true) ? serialOK() : serialERR();
+    if (powerCode(cfgCurrent) == code) { serialOK(); return true; }
+    E280Config next = cfgCurrent;
+    setPowerCode(next, code);
+    applyCandidate(next, true) ? serialOK() : serialERR();
     return true;
   }
 
   if (u.startsWith("AT+FIXED=")) {
     bool on; if (!parseOnOff(line.substring(9), on)) { serialERR(); return true; }
-    setOptionBit(cfgCurrent, 0x80, on);
-    applyCurrent(true) ? serialOK() : serialERR();
+    if (fixedPointEnabled(cfgCurrent) == on) { serialOK(); return true; }
+    E280Config next = cfgCurrent;
+    setOptionBit(next, 0x80, on);
+    applyCandidate(next, true) ? serialOK() : serialERR();
     return true;
   }
 

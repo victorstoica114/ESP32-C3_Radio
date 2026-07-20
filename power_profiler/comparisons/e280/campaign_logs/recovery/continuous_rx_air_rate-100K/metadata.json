@@ -1,0 +1,34 @@
+{
+  "created_utc": "2026-07-20T06:54:44+00:00",
+  "test_type": "continuous_average_power",
+  "profile_id": "RADIO_EBYTE_E280_SX1280",
+  "module": "Ebyte E280-2G4T12S UART (SX1280)",
+  "firmware_selection": "RADIO_EBYTE_E280_SX1280 + AT_COMMANDS",
+  "measurement_direction": "rx",
+  "measured_port": "COM45",
+  "peer_port": "COM46",
+  "ppk_port": "COM11",
+  "ppk_mode": "ampere",
+  "voltage_mv": 3300,
+  "sample_rate_hz": 100000,
+  "powers_dbm": [
+    4.0,
+    7.0,
+    12.0
+  ],
+  "axis_parameters": {
+    "air_rate": "100K"
+  },
+  "bit_rate_kbps": 100.0,
+  "frame_bytes": 64,
+  "content_bytes_per_frame": 62,
+  "inter_frame_gap_ms": 15,
+  "requested_duration_s": 60.0,
+  "save_raw": true,
+  "merged_split_results": true,
+  "source_directories": [
+    "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\\continuous\\20260720_093842_radio_ebyte_e280_sx1280_continuous_rx",
+    "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\\continuous\\20260720_094051_radio_ebyte_e280_sx1280_continuous_rx",
+    "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\\continuous\\20260720_094300_radio_ebyte_e280_sx1280_continuous_rx"
+  ]
+}

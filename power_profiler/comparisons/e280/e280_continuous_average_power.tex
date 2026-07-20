@@ -1,0 +1,38 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{calc}
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{tikzpicture}
+\begin{groupplot}[/pgf/number format/use comma,
+  group style={group size=2 by 1, horizontal sep=1.7cm},
+  width=8.2cm, height=6.4cm,
+  xmin=2, xmax=14, xtick={4,7,12},
+  xlabel={Puterea RF configurată [dBm]},
+  grid=both, minor grid style={gray!15}, major grid style={gray!35},
+  every axis plot/.append style={line width=1.2pt, mark size=2.6pt},
+  legend style={font=\small, draw=none, fill=none,
+    at={(0.5,-0.25)}, anchor=north, legend columns=2},
+]
+\nextgroupplot[title={Putere totală}, ylabel={Puterea electrică medie [mW]}]
+\addplot+[blue!75!black, mark=*] coordinates {(4,63.7073497) (7,64.2998484) (12,66.2338391)};
+\addlegendentry{TX}
+\addplot+[red!75!black, dashed, mark=square*] coordinates {(4,62.8628293) (7,62.9776086) (12,62.9351895)};
+\addlegendentry{RX}
+\nextgroupplot[title={Putere peste standby}, ylabel={Puterea medie suplimentară [mW]}]
+\addplot+[blue!75!black, mark=*] coordinates {(4,1.43729618) (7,1.91505361) (12,3.90966694)};
+\addlegendentry{TX}
+\addplot+[red!75!black, dashed, mark=square*] coordinates {(4,0.544032323) (7,0.670476199) (12,0.484118312)};
+\addlegendentry{RX}
+\end{groupplot}
+\node[font=\bfseries\large] at ($(group c1r1.north)!0.5!(group c2r1.north)+(0,0.85cm)$)
+  {Ebyte E280-2G4T12S UART (SX1280): putere medie în flux continuu};
+\node[font=\footnotesize, align=center, text width=16.5cm]
+  at ($(group c1r1.south)!0.5!(group c2r1.south)+(0,-2.55cm)$)
+  {Fiecare punct este media unei ferestre de 60 s la 3,3 V; profil 100 kbps,\\
+   pauză de 15 ms între cadre. Puterea RX de pe axa X este puterea emițătorului de stimul.};
+\end{tikzpicture}
+\end{document}

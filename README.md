@@ -457,6 +457,15 @@ The E280 pair on COM17 and COM18 was re-flashed with the E280 firmware after a
 stale E79 splash was observed. Channel 23/24 isolation, desync blocking, resync
 recovery, and bidirectional transparent payload exchange passed.
 
+The latest power campaign used COM45 as the PPK2-monitored DUT and COM46 as
+the peer, with channel 10 shared by the 1K, 100K, and 2M modes. The complete
+CSV/XLSX, LaTeX/PDF/PNG plots, raw-data audit, recovery provenance, and
+continuous transparent-UART loss are under
+`power_profiler/comparisons/e280/VALIDATION.md`. Packet diagnostics exposed a
+stale shadow-configuration bug and periodic truncated transmissions; verified
+write rollback plus an inter-run E280 reset produced a clean 180/180 effective
+packet matrix.
+
 ### Ebyte E79 CC1352P
 
 `E79-400DM2005S` is a TI CC1352P wireless MCU module, not a direct ESP32

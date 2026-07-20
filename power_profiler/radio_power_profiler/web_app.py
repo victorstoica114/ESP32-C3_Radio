@@ -342,6 +342,23 @@ def build_quick_steps(config: WebConfig, session_dir: Path) -> list[CommandStep]
                 5,
             ),
         )
+    if config.profile_id == "RADIO_EBYTE_E280_SX1280":
+        # E280 transparent UART forwarding delays the RF burst by the module's
+        # 9600-baud UART serialization time. Cover the longest configured
+        # frame at the fastest air rate and minimum power so a late, short TX
+        # pulse cannot escape the generic 8-byte fast check.
+        definitions.insert(
+            2,
+            (
+                "tx_fast_low_power_full_frame",
+                "Fast low-power TX, full configured frame",
+                "tx",
+                max(profile.payload_sizes),
+                min(powers),
+                fast_parameters,
+                quick_repetitions,
+            ),
+        )
     if config.profile_id in {"RADIO_NRF24L01", "RADIO_NRF24L01_PA"}:
         # These modules can pass at minimum power and at the fastest rate while
         # exhibiting severe delivery loss at high power and a slower rate.
@@ -474,24 +491,41 @@ def build_campaign_steps(config: WebConfig, session_dir: Path) -> list[CommandSt
     )
     for parameters in parameter_sets:
         token = _parameter_token(parameters)
-        steps.append(
-            CommandStep(
-                step_id=f"continuous_rx_{token}",
-                label=(
-                    f"Average RX power and loss - {_parameter_label(parameters)} - "
-                    f"{_number(config.continuous_duration_s)} s/power level"
-                ),
-                command=_continuous_command(
-                    config,
-                    direction="rx",
-                    powers=powers,
-                    parameters=parameters,
-                    output=continuous_output,
-                ),
-                result_kind="continuous",
-                expected_rows=len(powers),
-            )
+        continuous_power_groups = (
+            [(power,) for power in powers]
+            if config.profile_id == "RADIO_EBYTE_E280_SX1280"
+            else [powers]
         )
+        for power_group in continuous_power_groups:
+            split_suffix = (
+                f"_p{_number(power_group[0])}"
+                if len(continuous_power_groups) > 1
+                else ""
+            )
+            power_label = (
+                f" at {_number(power_group[0])} dBm"
+                if len(continuous_power_groups) > 1
+                else ""
+            )
+            steps.append(
+                CommandStep(
+                    step_id=f"continuous_rx_{token}{split_suffix}",
+                    label=(
+                        f"Average RX power and loss{power_label} - "
+                        f"{_parameter_label(parameters)} - "
+                        f"{_number(config.continuous_duration_s)} s/power level"
+                    ),
+                    command=_continuous_command(
+                        config,
+                        direction="rx",
+                        powers=power_group,
+                        parameters=parameters,
+                        output=continuous_output,
+                    ),
+                    result_kind="continuous",
+                    expected_rows=len(power_group),
+                )
+            )
     return steps
 
 
@@ -850,10 +884,17 @@ class JobManager:
             }
             self._logs.append(item)
             if self._log_path is not None:
-                with self._log_path.open("a", encoding="utf-8") as stream:
-                    stream.write(
-                        f"[{item['time']}] {level.upper():<7} {message}\n"
-                    )
+                try:
+                    with self._log_path.open("a", encoding="utf-8") as stream:
+                        stream.write(
+                            f"[{item['time']}] {level.upper():<7} {message}\n"
+                        )
+                except FileNotFoundError:
+                    # Cleanup may archive and remove a finished session while
+                    # the long-lived web server still owns its in-memory
+                    # state. Keep API/PPK-guard operations alive instead of
+                    # crashing while attempting to append to the old path.
+                    self._log_path = None
 
     def status(self, after: int = 0) -> dict[str, Any]:
         with self._lock:

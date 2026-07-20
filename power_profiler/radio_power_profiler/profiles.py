@@ -85,6 +85,9 @@ def load_profile(profile_id: str) -> Profile:
             ),
             merge_gap_ms=float(capture_raw.get("merge_gap_ms", 0.50)),
             minimum_event_ms=float(capture_raw.get("minimum_event_ms", 0.05)),
+            search_window_margin_s=float(
+                capture_raw.get("search_window_margin_s", 0.15)
+            ),
             align_tx_airtime_window=bool(
                 capture_raw.get("align_tx_airtime_window", False)
             ),
@@ -98,6 +101,12 @@ def load_profile(profile_id: str) -> Profile:
         warmup_transfers=int(raw.get("warmup_transfers", 0)),
         reopen_continuous_between_powers=bool(
             raw.get("reopen_continuous_between_powers", False)
+        ),
+        continuous_inter_power_commands=tuple(
+            raw.get("continuous_inter_power_commands", [])
+        ),
+        continuous_reopen_setup_commands=tuple(
+            raw.get("continuous_reopen_setup_commands", [])
         ),
         notes=tuple(raw.get("notes", [])),
     )
@@ -150,5 +159,7 @@ def override_profile(
         restore_after_receive=profile.restore_after_receive,
         warmup_transfers=profile.warmup_transfers,
         reopen_continuous_between_powers=profile.reopen_continuous_between_powers,
+        continuous_inter_power_commands=profile.continuous_inter_power_commands,
+        continuous_reopen_setup_commands=profile.continuous_reopen_setup_commands,
         notes=profile.notes,
     )

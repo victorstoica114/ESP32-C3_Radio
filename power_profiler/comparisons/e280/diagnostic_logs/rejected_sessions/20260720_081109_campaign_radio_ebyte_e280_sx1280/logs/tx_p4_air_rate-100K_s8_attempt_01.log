@@ -1,0 +1,6 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E280_SX1280 --direction tx --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=4 --axis air_rate=100K --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_081109_campaign_radio_ebyte_e280_sx1280\packet_tx" --receiver-port COM46 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Measured transmitter: COM45, 115200 baud
+Peer receiver: COM46, 115200 baud
+Configuring measured transmitter (Ebyte E280-2G4T12S UART (SX1280)) on COM45 ...
+ERROR: AT+FIXED=OFF: #ERROR

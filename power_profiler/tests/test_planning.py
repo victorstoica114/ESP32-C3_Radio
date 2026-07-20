@@ -109,6 +109,25 @@ class PlanningTests(unittest.TestCase):
         self.assertEqual(len(build_cases(profile, "tx")), 135)
         self.assertEqual(len(build_cases(profile, "rx")), 135)
 
+    def test_e280_profile_uses_a_channel_valid_at_every_air_rate(self):
+        profile = load_profile("RADIO_EBYTE_E280_SX1280")
+        self.assertIn("AT+CHAN=10", profile.setup_commands)
+        self.assertIn("AT+FIXED=OFF", profile.setup_commands)
+        self.assertEqual(profile.receiver_enable_commands, ("AT+BRIDGE=ON",))
+        self.assertFalse(profile.restore_after_receive)
+        self.assertTrue(profile.reopen_continuous_between_powers)
+        self.assertEqual(profile.continuous_inter_power_commands, ("AT+RESET",))
+        self.assertNotIn("AT+FIXED=OFF", profile.continuous_reopen_setup_commands)
+        self.assertIn("AT+BRIDGE=ON", profile.continuous_reopen_setup_commands)
+        self.assertEqual(profile.capture.search_window_margin_s, 0.30)
+        self.assertEqual(profile.payload_sizes, (8, 32, 64))
+        power_axis = next(axis for axis in profile.axes if axis.name == "tx_power_dbm")
+        rate_axis = next(axis for axis in profile.axes if axis.name == "air_rate")
+        self.assertEqual(power_axis.values, (4, 7, 12))
+        self.assertEqual(rate_axis.values, ("1K", "100K", "2M"))
+        self.assertEqual(len(build_cases(profile, "tx")), 135)
+        self.assertEqual(len(build_cases(profile, "rx")), 135)
+
     def test_nrf24l01_profile_has_deterministic_phy_and_controlled_rx(self):
         for profile_id in ("RADIO_NRF24L01", "RADIO_NRF24L01_PA"):
             with self.subTest(profile_id=profile_id):

@@ -162,7 +162,20 @@ def _restore_after_reset(
     role_commands: tuple[str, ...],
 ) -> None:
     """Reapply the complete modem configuration after a reset."""
-    radio.configure(profile.setup_commands)
+    # The caller has already sent ``inter_run_commands``.  A reset command may
+    # also be part of the normal process-start setup, but repeating it here
+    # would reset the modem twice between every measured packet.
+    inter_run_resets = {
+        command.strip().upper()
+        for command in profile.inter_run_commands
+        if "RESET" in command.upper()
+    }
+    setup_commands = tuple(
+        command
+        for command in profile.setup_commands
+        if command.strip().upper() not in inter_run_resets
+    )
+    radio.configure(setup_commands)
     radio.configure(parameter_commands(profile, parameters))
     radio.configure(role_commands)
 
@@ -366,7 +379,8 @@ def run_profile(
                 expected_event_count=len(transmission.frame_payload_bytes),
                 search_window_s=min(
                     case.capture_after_trigger_s,
-                    case.estimated_event_s * 1.5 + 0.15,
+                    case.estimated_event_s * 1.5
+                    + profile.capture.search_window_margin_s,
                 ),
                 fallback_window_s=(
                     max(

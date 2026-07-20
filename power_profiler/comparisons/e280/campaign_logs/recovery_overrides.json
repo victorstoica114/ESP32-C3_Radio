@@ -1,0 +1,14 @@
+{
+  "reason": "The original E280 continuous-RX sweeps failed after their first power point because the modem AT firmware rewrote unchanged persistent settings and the radio refused the next configuration transition. The nine 60-second RX recovery points completed in independent processes and were merged by rate. Six packet points also contained shortened transmissions: subsequent diagnostics found that a failed persistent setter could leave the ESP32 shadow configuration ahead of the physical E280, and that this pair periodically truncated a frame without an inter-run reset. The firmware now rolls back the shadow configuration after a failed verified write, both radios are read back before recovery, and AT+RESET is executed and the full configuration restored between measured packets. The six packet overrides below each contain five delivered, event-stable repetitions.",
+  "steps": {
+    "continuous_rx_air_rate-1K": "recovery/continuous_rx_air_rate-1K",
+    "continuous_rx_air_rate-100K": "recovery/continuous_rx_air_rate-100K",
+    "continuous_rx_air_rate-2M": "recovery/continuous_rx_air_rate-2M",
+    "tx_p4_air_rate-1K_s32": "recovery/packet_reset/20260720_102418_radio_ebyte_e280_sx1280",
+    "tx_p7_air_rate-1K_s32": "recovery/packet_reset/20260720_102527_radio_ebyte_e280_sx1280",
+    "tx_p12_air_rate-1K_s32": "recovery/packet_reset/20260720_102220_radio_ebyte_e280_sx1280",
+    "tx_p7_air_rate-2M_s8": "recovery/packet_reset/20260720_102635_radio_ebyte_e280_sx1280",
+    "tx_p7_air_rate-2M_s32": "recovery/packet_reset/20260720_102743_radio_ebyte_e280_sx1280",
+    "tx_p7_air_rate-2M_s64": "recovery/packet_reset/20260720_102850_radio_ebyte_e280_sx1280"
+  }
+}

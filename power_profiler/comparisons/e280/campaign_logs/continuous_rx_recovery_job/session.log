@@ -1,0 +1,74 @@
+[09:32:19] START   Continuous_rx session: 9 steps - RADIO_EBYTE_E280_SX1280
+[09:32:19] STEP    Average RX power and loss at 4 dBm - air rate 1K - 60 s/power level - attempt 1
+[09:32:19] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E280_SX1280 --direction rx --powers=4 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\continuous" --keep-power-on --axis air_rate=1K --transmitter-port COM46 --save-raw
+[09:32:20] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:32:20] INFO    Continuous RX: 60 s per power, parameters={'air_rate': '1K'}, 64 B frames, 15 ms gap
+[09:34:22] INFO    [1/1] RX 4 dBm: mean=17.488 mA, power=57.710 mW, status=ok
+[09:34:22] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\continuous\20260720_093220_radio_ebyte_e280_sx1280_continuous_rx
+[09:34:23] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:34:23] STEP    Average RX power and loss at 7 dBm - air rate 1K - 60 s/power level - attempt 1
+[09:34:23] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E280_SX1280 --direction rx --powers=7 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\continuous" --keep-power-on --axis air_rate=1K --transmitter-port COM46 --save-raw
+[09:34:23] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:34:23] INFO    Continuous RX: 60 s per power, parameters={'air_rate': '1K'}, 64 B frames, 15 ms gap
+[09:36:31] INFO    [1/1] RX 7 dBm: mean=17.494 mA, power=57.730 mW, status=ok
+[09:36:32] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\continuous\20260720_093423_radio_ebyte_e280_sx1280_continuous_rx
+[09:36:33] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:36:33] STEP    Average RX power and loss at 12 dBm - air rate 1K - 60 s/power level - attempt 1
+[09:36:33] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E280_SX1280 --direction rx --powers=12 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\continuous" --keep-power-on --axis air_rate=1K --transmitter-port COM46 --save-raw
+[09:36:33] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:36:33] INFO    Continuous RX: 60 s per power, parameters={'air_rate': '1K'}, 64 B frames, 15 ms gap
+[09:38:41] INFO    [1/1] RX 12 dBm: mean=17.475 mA, power=57.669 mW, status=ok
+[09:38:41] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\continuous\20260720_093633_radio_ebyte_e280_sx1280_continuous_rx
+[09:38:42] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:38:42] STEP    Average RX power and loss at 4 dBm - air rate 100K - 60 s/power level - attempt 1
+[09:38:42] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E280_SX1280 --direction rx --powers=4 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\continuous" --keep-power-on --axis air_rate=100K --transmitter-port COM46 --save-raw
+[09:38:42] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:38:42] INFO    Continuous RX: 60 s per power, parameters={'air_rate': '100K'}, 64 B frames, 15 ms gap
+[09:40:50] INFO    [1/1] RX 4 dBm: mean=19.049 mA, power=62.863 mW, status=ok
+[09:40:50] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\continuous\20260720_093842_radio_ebyte_e280_sx1280_continuous_rx
+[09:40:51] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:40:51] STEP    Average RX power and loss at 7 dBm - air rate 100K - 60 s/power level - attempt 1
+[09:40:51] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E280_SX1280 --direction rx --powers=7 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\continuous" --keep-power-on --axis air_rate=100K --transmitter-port COM46 --save-raw
+[09:40:51] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:40:51] INFO    Continuous RX: 60 s per power, parameters={'air_rate': '100K'}, 64 B frames, 15 ms gap
+[09:42:58] INFO    [1/1] RX 7 dBm: mean=19.084 mA, power=62.978 mW, status=ok
+[09:42:59] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\continuous\20260720_094051_radio_ebyte_e280_sx1280_continuous_rx
+[09:42:59] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:42:59] STEP    Average RX power and loss at 12 dBm - air rate 100K - 60 s/power level - attempt 1
+[09:42:59] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E280_SX1280 --direction rx --powers=12 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\continuous" --keep-power-on --axis air_rate=100K --transmitter-port COM46 --save-raw
+[09:43:00] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:43:00] INFO    Continuous RX: 60 s per power, parameters={'air_rate': '100K'}, 64 B frames, 15 ms gap
+[09:45:08] INFO    [1/1] RX 12 dBm: mean=19.071 mA, power=62.935 mW, status=ok
+[09:45:09] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\continuous\20260720_094300_radio_ebyte_e280_sx1280_continuous_rx
+[09:45:09] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:45:09] STEP    Average RX power and loss at 4 dBm - air rate 2M - 60 s/power level - attempt 1
+[09:45:09] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E280_SX1280 --direction rx --powers=4 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\continuous" --keep-power-on --axis air_rate=2M --transmitter-port COM46 --save-raw
+[09:45:10] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:45:10] INFO    Continuous RX: 60 s per power, parameters={'air_rate': '2M'}, 64 B frames, 15 ms gap
+[09:47:19] INFO    [1/1] RX 4 dBm: mean=17.929 mA, power=59.167 mW, status=ok
+[09:47:19] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\continuous\20260720_094510_radio_ebyte_e280_sx1280_continuous_rx
+[09:47:20] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:47:20] STEP    Average RX power and loss at 7 dBm - air rate 2M - 60 s/power level - attempt 1
+[09:47:20] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E280_SX1280 --direction rx --powers=7 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\continuous" --keep-power-on --axis air_rate=2M --transmitter-port COM46 --save-raw
+[09:47:20] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:47:20] INFO    Continuous RX: 60 s per power, parameters={'air_rate': '2M'}, 64 B frames, 15 ms gap
+[09:49:29] INFO    [1/1] RX 7 dBm: mean=17.926 mA, power=59.157 mW, status=ok
+[09:49:29] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\continuous\20260720_094720_radio_ebyte_e280_sx1280_continuous_rx
+[09:49:30] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:49:30] STEP    Average RX power and loss at 12 dBm - air rate 2M - 60 s/power level - attempt 1
+[09:49:30] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E280_SX1280 --direction rx --powers=12 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\continuous" --keep-power-on --axis air_rate=2M --transmitter-port COM46 --save-raw
+[09:49:30] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:49:30] INFO    Continuous RX: 60 s per power, parameters={'air_rate': '2M'}, 64 B frames, 15 ms gap
+[09:51:37] INFO    [1/1] RX 12 dBm: mean=17.969 mA, power=59.299 mW, status=ok
+[09:51:38] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\continuous\20260720_094930_radio_ebyte_e280_sx1280_continuous_rx
+[09:51:38] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:51:38] FINISH  Test completed successfully
+[09:51:38] CALLBACK Codex completion callback started
+[09:51:49] WARNING Immediate Codex notification failed; automatic result analysis is still running
+[09:52:47] WARNING PPK2 current-path guard released for an external diagnostic; VIN -> VOUT remains enabled
+[09:52:47] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:53:10] WARNING PPK2 current-path guard released for an external diagnostic; VIN -> VOUT remains enabled
+[09:53:57] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:54:17] WARNING PPK2 current-path guard released for an external diagnostic; VIN -> VOUT remains enabled
+[09:57:50] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[10:06:34] WARNING PPK2 current-path guard released for an external diagnostic; VIN -> VOUT remains enabled

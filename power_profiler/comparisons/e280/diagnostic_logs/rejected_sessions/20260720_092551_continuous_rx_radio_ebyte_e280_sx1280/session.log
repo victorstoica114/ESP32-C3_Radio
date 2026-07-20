@@ -1,0 +1,16 @@
+[09:25:51] START   Continuous_rx session: 9 steps - RADIO_EBYTE_E280_SX1280
+[09:25:51] STEP    Average RX power and loss at 4 dBm - air rate 1K - 60 s/power level - attempt 1
+[09:25:51] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E280_SX1280 --direction rx --powers=4 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_092551_continuous_rx_radio_ebyte_e280_sx1280\continuous" --keep-power-on --axis air_rate=1K --transmitter-port COM46 --save-raw
+[09:25:51] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:25:51] INFO    Continuous RX: 60 s per power, parameters={'air_rate': '1K'}, 64 B frames, 15 ms gap
+[09:28:10] INFO    [1/1] RX 4 dBm: mean=17.501 mA, power=57.753 mW, status=ok
+[09:28:11] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_092551_continuous_rx_radio_ebyte_e280_sx1280\continuous\20260720_092551_radio_ebyte_e280_sx1280_continuous_rx
+[09:28:11] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:28:11] STEP    Average RX power and loss at 7 dBm - air rate 1K - 60 s/power level - attempt 1
+[09:28:11] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E280_SX1280 --direction rx --powers=7 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_092551_continuous_rx_radio_ebyte_e280_sx1280\continuous" --keep-power-on --axis air_rate=1K --transmitter-port COM46 --save-raw
+[09:28:12] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[09:28:12] INFO    Continuous RX: 60 s per power, parameters={'air_rate': '1K'}, 64 B frames, 15 ms gap
+[09:28:24] INFO    ERROR: AT+FIXED=OFF: #ERROR
+[09:28:24] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[09:28:24] ERROR   Average RX power and loss at 7 dBm - air rate 1K - 60 s/power level: Process exited with code 2
+[09:28:24] WARNING Cooling before retry: 10 s

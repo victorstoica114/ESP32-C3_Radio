@@ -428,18 +428,24 @@
     "display_name": "Ebyte E280-2G4T12S UART (SX1280)",
     "firmware_selection": "RADIO_EBYTE_E280_SX1280 + AT_COMMANDS",
     "baudrate": 115200,
-    "setup_commands": ["AT", "AT+DEBUG=OFF", "AT+WAKE", "AT+BRIDGE=ON", "AT+FIXED=OFF"],
+    "setup_commands": ["AT", "AT+DEBUG=OFF", "AT+RESET", "AT+WAKE", "AT+BRIDGE=ON", "AT+FIXED=OFF", "AT+CHAN=10"],
     "post_config_commands": [],
+    "receiver_enable_commands": ["AT+BRIDGE=ON"],
+    "restore_after_receive": false,
     "payload_sizes": [8, 32, 64],
     "repetitions": 5,
     "cooldown_s": 0.75,
+    "reopen_continuous_between_powers": true,
+    "continuous_inter_power_commands": ["AT+RESET"],
+    "continuous_reopen_setup_commands": ["AT", "AT+DEBUG=OFF", "AT+WAKE", "AT+BRIDGE=ON"],
+    "inter_run_commands": ["AT+RESET"],
     "axes": [
       {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+POWER={value}", "values": [4, 7, 12]},
       {"name": "air_rate", "label": "E280 air rate", "command": "AT+AIR={value}", "values": ["1K", "100K", "2M"]}
     ],
     "transmit": {"mode": "text_line", "line_overhead_bytes": 2, "max_payload_bytes": 255},
     "airtime": {"kind": "fsk", "rate_axis": "air_rate", "rate_bps_by_value": {"1K": 1000, "100K": 100000, "2M": 2000000}, "overhead_bytes": 12, "ramp_s": 0.010},
-    "capture": {"minimum_after_trigger_s": 0.75, "max_after_trigger_s": 4.0, "threshold_margin_uA": 500}
+    "capture": {"minimum_after_trigger_s": 0.75, "max_after_trigger_s": 4.0, "threshold_margin_uA": 500, "search_window_margin_s": 0.30}
   },
   "RADIO_EBYTE_E79_CC1352P": {
     "display_name": "Ebyte E79-400DM2005S (CC1352P AT modem)",

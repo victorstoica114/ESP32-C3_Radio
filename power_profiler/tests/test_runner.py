@@ -111,6 +111,37 @@ class RunnerTests(unittest.TestCase):
             profile.receiver_enable_commands,
         )
 
+    def test_e280_restore_does_not_repeat_inter_run_reset(self):
+        profile = override_profile(
+            load_profile("RADIO_EBYTE_E280_SX1280"),
+            sizes=(32,),
+            repetitions=1,
+            axis_overrides={
+                "tx_power_dbm": (12,),
+                "air_rate": ("1K",),
+            },
+        )
+        case = build_cases(profile, "tx")[0]
+        radio = FakeReceiver(())
+
+        _restore_after_reset(
+            radio,
+            profile,
+            case.parameters,
+            profile.receiver_enable_commands,
+        )
+
+        self.assertNotIn("AT+RESET", radio.configure_calls[0])
+        self.assertEqual(radio.configure_calls[0].count("AT"), 1)
+        self.assertEqual(
+            radio.configure_calls[1],
+            ("AT+POWER=12", "AT+AIR=1K"),
+        )
+        self.assertEqual(
+            radio.configure_calls[2],
+            profile.receiver_enable_commands,
+        )
+
     def test_receive_transfer_bounds_rx_window_and_waits_for_sender(self):
         profile = override_profile(
             load_profile("RADIO_CC1101_V2_868"),

@@ -20,6 +20,20 @@ from radio_power_profiler.web_app import (
 
 
 class WebAppTests(unittest.TestCase):
+    def test_logging_survives_an_archived_session_directory(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            manager = JobManager(root, codex_thread_id="thread-id")
+            manager._log_path = root / "archived-session" / "session.log"
+
+            manager._log("PPK guard remains available")
+
+            self.assertIsNone(manager._log_path)
+            self.assertEqual(
+                manager.status()["logs"][-1]["message"],
+                "PPK guard remains available",
+            )
+
     def test_codex_callback_resumes_the_captured_thread(self):
         thread_id = "12345678-1234-1234-1234-123456789abc"
         with tempfile.TemporaryDirectory() as temporary:
@@ -451,6 +465,55 @@ class WebAppTests(unittest.TestCase):
                         for step in continuous_rx
                     )
                 )
+
+    def test_e280_quick_check_covers_late_low_power_fast_tx(self):
+        config = WebConfig(
+            profile_id="RADIO_EBYTE_E280_SX1280",
+            measured_port="COM45",
+            peer_port="COM46",
+            ppk_port="COM11",
+        )
+        with tempfile.TemporaryDirectory() as temporary:
+            quick = build_quick_steps(config, Path(temporary) / "quick")
+
+        self.assertEqual(len(quick), 5)
+        metrology = next(
+            step
+            for step in quick
+            if step.step_id == "tx_fast_low_power_full_frame"
+        )
+        self.assertEqual(metrology.expected_rows, 2)
+        self.assertIn("tx_power_dbm=4", metrology.command)
+        self.assertIn("air_rate=2M", metrology.command)
+        self.assertIn("64", metrology.command)
+
+    def test_e280_continuous_rx_runs_each_power_in_a_fresh_process(self):
+        config = WebConfig(
+            profile_id="RADIO_EBYTE_E280_SX1280",
+            measured_port="COM45",
+            peer_port="COM46",
+            ppk_port="COM11",
+        )
+        with tempfile.TemporaryDirectory() as temporary:
+            campaign = build_campaign_steps(config, Path(temporary) / "campaign")
+            continuous_rx = [
+                step
+                for step in campaign
+                if step.step_id.startswith("continuous_rx_")
+            ]
+
+        self.assertEqual(len(campaign), 46)
+        self.assertEqual(len(continuous_rx), 9)
+        self.assertTrue(all(step.expected_rows == 1 for step in continuous_rx))
+        self.assertEqual(
+            {
+                item.split("=", 1)[1]
+                for step in continuous_rx
+                for item in step.command
+                if item.startswith("--powers=")
+            },
+            {"4", "7", "12"},
+        )
 
     def test_current_web_defaults_target_e79_pair(self):
         config = WebConfig()

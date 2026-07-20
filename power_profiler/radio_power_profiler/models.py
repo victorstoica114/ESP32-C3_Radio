@@ -75,6 +75,7 @@ class CaptureSpec:
     threshold_margin_uA: float = 500.0
     merge_gap_ms: float = 0.50
     minimum_event_ms: float = 0.05
+    search_window_margin_s: float = 0.15
     align_tx_airtime_window: bool = False
 
 
@@ -108,6 +109,8 @@ class Profile:
     restore_after_receive: bool = True
     warmup_transfers: int = 0
     reopen_continuous_between_powers: bool = False
+    continuous_inter_power_commands: tuple[str, ...] = ()
+    continuous_reopen_setup_commands: tuple[str, ...] = ()
     notes: tuple[str, ...] = ()
 
 

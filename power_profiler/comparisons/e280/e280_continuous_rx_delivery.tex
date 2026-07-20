@@ -1,0 +1,21 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[width=10.5cm, height=6.4cm,
+  title={Ebyte E280-2G4T12S UART (SX1280): cadre recepționate în testul continuu},
+  xmin=2, xmax=14, xtick={4,7,12},
+  ymin=0, ymax=105, ytick={0,20,40,60,80,100},
+  xlabel={Puterea emițătorului de stimul [dBm]},
+  ylabel={Cadre recepționate [\%]},
+  grid=both, minor grid style={gray!15}, major grid style={gray!35},
+]
+\addplot+[red!75!black, line width=1.2pt, mark=square*, mark size=2.8pt] coordinates {(4,46.9720906) (7,47.0247499) (12,46.9720906)};
+\end{axis}
+\node[font=\footnotesize, align=center, text width=10cm] at (5.25,-1.45)
+  {1899 cadre transmise/punct; 64 B/cadru, profil 100 kbps, 60 s.};
+\end{tikzpicture}
+\end{document}

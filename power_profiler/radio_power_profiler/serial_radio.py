@@ -283,8 +283,38 @@ class SerialRadio:
             response_lines=result.lines,
         )
 
-    def configure(self, commands: Iterable[str]) -> list[CommandResult]:
-        return [self.command(command) for command in commands]
+    def configure(
+        self,
+        commands: Iterable[str],
+        *,
+        attempts: int = 3,
+        retry_delay_s: float = 0.15,
+    ) -> list[CommandResult]:
+        """Apply configuration commands, retrying transient modem failures.
+
+        Several UART modem modules save and re-apply their complete radio
+        configuration for each setter.  Their AUX/busy transition can race
+        the following host command and produce a short ``#ERROR`` even though
+        the same command succeeds moments later.  Retrying here avoids
+        discarding an entire measurement (or continuous power level) for that
+        recoverable control-plane failure.  Persistent errors are still
+        raised after the final attempt.
+        """
+        if attempts < 1:
+            raise ValueError("Configuration attempts must be at least 1")
+
+        results: list[CommandResult] = []
+        for command in commands:
+            for attempt in range(1, attempts + 1):
+                try:
+                    results.append(self.command(command))
+                    break
+                except RadioCommandError:
+                    if attempt == attempts:
+                        raise
+                    self.drain(wait_s=0.05)
+                    time.sleep(retry_delay_s)
+        return results
 
     @staticmethod
     def make_payload(length: int) -> bytes:

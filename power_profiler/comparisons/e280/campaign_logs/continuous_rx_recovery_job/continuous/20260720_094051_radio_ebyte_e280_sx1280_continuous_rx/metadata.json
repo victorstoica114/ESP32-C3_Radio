@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-07-20T06:40:51+00:00",
+  "test_type": "continuous_average_power",
+  "profile_id": "RADIO_EBYTE_E280_SX1280",
+  "module": "Ebyte E280-2G4T12S UART (SX1280)",
+  "firmware_selection": "RADIO_EBYTE_E280_SX1280 + AT_COMMANDS",
+  "measurement_direction": "rx",
+  "measured_port": "COM45",
+  "peer_port": "COM46",
+  "ppk_port": "COM11",
+  "ppk_mode": "ampere",
+  "voltage_mv": 3300,
+  "sample_rate_hz": 100000,
+  "powers_dbm": [
+    7.0
+  ],
+  "axis_parameters": {
+    "air_rate": "100K"
+  },
+  "bit_rate_kbps": 100.0,
+  "frame_bytes": 64,
+  "content_bytes_per_frame": 62,
+  "inter_frame_gap_ms": 15,
+  "requested_duration_s": 60.0,
+  "save_raw": true
+}

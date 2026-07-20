@@ -1,0 +1,12 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E280_SX1280 --direction tx --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --sizes 64 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=4 --axis air_rate=1K --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_083204_campaign_radio_ebyte_e280_sx1280\packet_tx" --receiver-port COM46 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Measured transmitter: COM45, 115200 baud
+Peer receiver: COM46, 115200 baud
+Configuring measured transmitter (Ebyte E280-2G4T12S UART (SX1280)) on COM45 ...
+Configuring peer receiver on COM46 ...
+[   1/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '1K'}, rep 1: ok, peak=29575.7 uA, energy=78731.202 uJ
+[   2/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '1K'}, rep 2: ok, peak=29575.7 uA, energy=78596.534 uJ
+[   3/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '1K'}, rep 3: ok, peak=29675.5 uA, energy=78583.315 uJ
+[   4/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '1K'}, rep 4: ok, peak=29875.2 uA, energy=78714.966 uJ
+[   5/5] TX   64 B, {'tx_power_dbm': 4, 'air_rate': '1K'}, rep 5: ok, peak=29525.8 uA, energy=78734.854 uJ
+Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_083204_campaign_radio_ebyte_e280_sx1280\packet_tx\20260720_083343_radio_ebyte_e280_sx1280

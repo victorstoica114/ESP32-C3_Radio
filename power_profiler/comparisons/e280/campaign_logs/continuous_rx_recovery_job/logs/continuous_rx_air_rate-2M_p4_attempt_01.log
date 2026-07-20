@@ -1,0 +1,5 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E280_SX1280 --direction rx --powers=4 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM45 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\continuous" --keep-power-on --axis air_rate=2M --transmitter-port COM46 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Continuous RX: 60 s per power, parameters={'air_rate': '2M'}, 64 B frames, 15 ms gap
+[1/1] RX 4 dBm: mean=17.929 mA, power=59.167 mW, status=ok
+Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260720_093219_continuous_rx_radio_ebyte_e280_sx1280\continuous\20260720_094510_radio_ebyte_e280_sx1280_continuous_rx

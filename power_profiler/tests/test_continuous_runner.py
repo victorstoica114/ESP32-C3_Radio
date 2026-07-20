@@ -94,6 +94,39 @@ class ContinuousRunnerTests(unittest.TestCase):
             [profile.setup_commands, profile.post_config_commands],
         )
 
+    def test_resets_e280_modems_before_reopening_between_powers(self) -> None:
+        profile = load_profile("RADIO_EBYTE_E280_SX1280")
+        old_radio = _FakeRadio()
+        old_peer = _FakeRadio()
+        new_radio = _FakeRadio()
+        new_peer = _FakeRadio()
+
+        with (
+            patch(
+                "radio_power_profiler.continuous_runner.SerialRadio",
+                side_effect=[new_radio, new_peer],
+            ),
+            patch("radio_power_profiler.continuous_runner.time.sleep"),
+        ):
+            _reopen_continuous_radios(
+                old_radio,
+                old_peer,
+                profile,
+                radio_port="COM45",
+                transmitter_port="COM46",
+            )
+
+        self.assertEqual(old_radio.configured, [("AT+RESET",)])
+        self.assertEqual(old_peer.configured, [("AT+RESET",)])
+        self.assertEqual(
+            new_radio.configured,
+            [profile.continuous_reopen_setup_commands, profile.post_config_commands],
+        )
+        self.assertEqual(
+            new_peer.configured,
+            [profile.continuous_reopen_setup_commands, profile.post_config_commands],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

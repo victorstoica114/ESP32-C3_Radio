@@ -2,7 +2,11 @@ import unittest
 from unittest.mock import Mock, patch
 
 from radio_power_profiler.profiles import load_profile
-from radio_power_profiler.serial_radio import CommandResult, SerialRadio
+from radio_power_profiler.serial_radio import (
+    CommandResult,
+    RadioCommandError,
+    SerialRadio,
+)
 
 
 class FakeSerial:
@@ -19,6 +23,37 @@ class FakeSerial:
 
 
 class SerialRadioTests(unittest.TestCase):
+    def test_configure_retries_transient_modem_error(self):
+        radio = SerialRadio.__new__(SerialRadio)
+        radio.command = Mock(
+            side_effect=(
+                RadioCommandError("AT+FIXED=OFF: #ERROR"),
+                CommandResult("AT+FIXED=OFF", ("OK",)),
+            )
+        )
+        radio.drain = Mock(return_value=())
+
+        with patch("radio_power_profiler.serial_radio.time.sleep") as sleep:
+            results = radio.configure(("AT+FIXED=OFF",))
+
+        self.assertEqual(results, [CommandResult("AT+FIXED=OFF", ("OK",))])
+        self.assertEqual(radio.command.call_count, 2)
+        radio.drain.assert_called_once_with(wait_s=0.05)
+        sleep.assert_called_once_with(0.15)
+
+    def test_configure_reraises_persistent_modem_error(self):
+        radio = SerialRadio.__new__(SerialRadio)
+        radio.command = Mock(side_effect=RadioCommandError("invalid"))
+        radio.drain = Mock(return_value=())
+
+        with (
+            patch("radio_power_profiler.serial_radio.time.sleep"),
+            self.assertRaisesRegex(RadioCommandError, "invalid"),
+        ):
+            radio.configure(("AT+BAD",), attempts=2)
+
+        self.assertEqual(radio.command.call_count, 2)
+
     def test_counts_concatenated_transparent_uart_payloads(self):
         payload = SerialRadio.make_payload(12)
         text = payload.decode("ascii")

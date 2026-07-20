@@ -1,0 +1,30 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[width=12.5cm, height=7.4cm,
+  title={Ebyte E280-2G4T12S UART (SX1280): packet loss versus radio rate},
+  xmode=log, log basis x=10,
+  xmin=0.666666667, xmax=3000, xtick={1,100,2000},
+  xticklabels={1,100,2000}, ymin=0, ymax=85,
+  xlabel={Radio rate [kbps]}, ylabel={Lost frames [\%]},
+  grid=both, minor grid style={gray!15}, major grid style={gray!35},
+  every axis plot/.append style={line width=1.25pt, mark size=2.8pt},
+  legend style={draw=none, fill=white, fill opacity=0.85, text opacity=1,
+    at={(0.03,0.97)}, anchor=north west, legend columns=1},
+]
+\addplot+[blue!75!black, solid, mark=*] coordinates {(1,61.0526316) (100,53.0279094) (2000,61.6179002)};
+\addlegendentry{12 dBm}
+\addplot+[orange!90!black, dashed, mark=square*] coordinates {(1,64.2105263) (100,52.9752501) (2000,66.394148)};
+\addlegendentry{7 dBm}
+\addplot+[green!50!black, dashdotted, mark=triangle*] coordinates {(1,61.0526316) (100,53.0279094) (2000,67.2547332)};
+\addlegendentry{4 dBm}
+\end{axis}
+\node[font=\footnotesize, align=center, text width=12cm, anchor=north]
+  at ([yshift=-1.45cm]current axis.south)
+  {60 s per point; 64 B frames; inter-frame gap: 1 kbps: 15 ms; 100 kbps: 15 ms; 2000 kbps: 15 ms. Shared rates may contain multiple RF profiles.};
+\end{tikzpicture}
+\end{document}

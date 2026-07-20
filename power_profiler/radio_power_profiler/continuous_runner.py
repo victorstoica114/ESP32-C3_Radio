@@ -205,18 +205,25 @@ def _reopen_continuous_radios(
     transmitter_port: str | None,
 ) -> tuple[SerialRadio, SerialRadio | None]:
     """Reset the USB-CDC AT session after a long host-driven LoRa stream."""
+    if profile.continuous_inter_power_commands:
+        radio.configure(profile.continuous_inter_power_commands)
+        if peer is not None:
+            peer.configure(profile.continuous_inter_power_commands)
     radio.close()
     if peer is not None:
         peer.close()
     time.sleep(max(0.50, profile.cooldown_s))
 
+    reopen_setup = (
+        profile.continuous_reopen_setup_commands or profile.setup_commands
+    )
     reopened_radio = SerialRadio(radio_port, profile.baudrate)
-    reopened_radio.configure(profile.setup_commands)
+    reopened_radio.configure(reopen_setup)
     reopened_radio.configure(profile.post_config_commands)
     reopened_peer: SerialRadio | None = None
     if transmitter_port is not None:
         reopened_peer = SerialRadio(transmitter_port, profile.baudrate)
-        reopened_peer.configure(profile.setup_commands)
+        reopened_peer.configure(reopen_setup)
         reopened_peer.configure(profile.post_config_commands)
     return reopened_radio, reopened_peer
 
