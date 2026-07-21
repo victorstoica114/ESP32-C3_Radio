@@ -76,6 +76,9 @@ def load_profile(profile_id: str) -> Profile:
                 else None
             ),
             wait_for_ok=bool(tx_raw.get("wait_for_ok", False)),
+            continuous_pacing_includes_airtime=bool(
+                tx_raw.get("continuous_pacing_includes_airtime", False)
+            ),
         ),
         receive=ReceiveSpec(
             inter_frame_gap_ms=float(rx_raw.get("inter_frame_gap_ms", 0.0)),

@@ -579,6 +579,19 @@ def validate_result(step: CommandStep, result_dir: Path) -> dict[str, Any]:
         ]
         if invalid:
             errors.append("Invalid continuous-test status: " + ", ".join(invalid))
+        serial_errors: list[int] = []
+        for row in rows:
+            match = re.search(
+                r"(?:^|\|\s*)SERIAL_ERRORS=(\d+)",
+                row.get("transmitter_response", ""),
+            )
+            if match and int(match.group(1)) > 0:
+                serial_errors.append(int(match.group(1)))
+        if serial_errors:
+            errors.append(
+                "Continuous transmitter reported serial errors: "
+                + ", ".join(str(value) for value in serial_errors)
+            )
         no_rx_data = sum(status == "no_rx_data" for status in statuses)
         if no_rx_data:
             warnings.append(

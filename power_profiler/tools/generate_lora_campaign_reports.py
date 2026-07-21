@@ -66,6 +66,14 @@ def _f(value: Any) -> float:
     return float(value) if value not in (None, "") else 0.0
 
 
+def _bandwidth_khz(parameters: dict[str, Any]) -> float:
+    if parameters.get("bandwidth_khz") not in (None, ""):
+        return _f(parameters["bandwidth_khz"])
+    if parameters.get("bandwidth_hz") not in (None, ""):
+        return _f(parameters["bandwidth_hz"]) / 1000.0
+    raise ValueError("LoRa result does not contain a bandwidth parameter")
+
+
 def _n(value: float | int) -> str:
     return f"{value:.9g}"
 
@@ -157,7 +165,7 @@ def _packet_rows(manifest: dict[str, Any]) -> tuple[list[dict[str, Any]], dict[s
             "payload_bytes": int(aggregate["payload_bytes"]),
             "tx_power_dbm": _f(params["tx_power_dbm"]),
             "spreading_factor": int(params["spreading_factor"]),
-            "bandwidth_khz": _f(params["bandwidth_khz"]),
+            "bandwidth_khz": _bandwidth_khz(params),
             "runs": int(aggregate["runs"]),
             "events_detected": int(aggregate["events_detected"]),
             "packets_attempted": int(aggregate["packets_attempted"]),
@@ -205,6 +213,16 @@ def _packet_rows(manifest: dict[str, Any]) -> tuple[list[dict[str, Any]], dict[s
 
 
 def _valid_continuous_status(row: dict[str, Any]) -> bool:
+    serial_errors = next(
+        (
+            int(part.partition("=")[2])
+            for part in row.get("transmitter_response", "").split(" | ")
+            if part.startswith("SERIAL_ERRORS=")
+        ),
+        0,
+    )
+    if serial_errors:
+        return False
     if row["status"] == "ok":
         return True
     return (
@@ -225,6 +243,7 @@ def _continuous_rows(manifest: dict[str, Any]) -> list[dict[str, Any]]:
         result = Path(step["accepted_result"])
         for raw in _read_csv(result / "summary.csv"):
             row: dict[str, Any] = dict(raw)
+            parameters = json.loads(raw.get("parameters_json") or "{}")
             for field in (
                 "voltage_mv",
                 "tx_power_dbm",
@@ -253,6 +272,9 @@ def _continuous_rows(manifest: dict[str, Any]) -> list[dict[str, Any]]:
                 "energy_60s_mJ",
             ):
                 row[field] = _f(raw.get(field))
+            row["bandwidth_khz"] = _bandwidth_khz(
+                {**parameters, "bandwidth_khz": raw.get("bandwidth_khz")}
+            )
             row["frames_received"] = int(raw["frames_received"]) if raw["frames_received"] else ""
             row["frame_loss_percent"] = _f(raw["frame_loss_percent"]) if raw["frame_loss_percent"] else ""
             row["source_directory"] = result.name
@@ -533,11 +555,18 @@ def _copy_provenance(manifest_path: Path, output: Path) -> None:
     recovery = session / "recovery"
     if recovery.exists():
         for source in recovery.rglob("*"):
-            if source.is_file() and source.name in {
-                "metadata.json",
-                "summary.csv",
-                "aggregates.csv",
-            }:
+            if source.is_file() and (
+                source.suffix == ".log"
+                or source.name
+                in {
+                    "metadata.json",
+                    "summary.csv",
+                    "aggregates.csv",
+                    "manifest.json",
+                    "session.log",
+                    "codex_callback.log",
+                }
+            ):
                 target = destination / "recovery" / source.relative_to(recovery)
                 target.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(source, target)

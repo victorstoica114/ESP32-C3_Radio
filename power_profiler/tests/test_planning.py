@@ -400,9 +400,14 @@ class PlanningTests(unittest.TestCase):
             0.98,
         )
 
-    def test_rx_plan_rejects_profile_without_controlled_receiver(self):
-        with self.assertRaisesRegex(ValueError, "does not support controlled RX"):
-            build_cases(load_profile("RA08_ASR6601"), "rx")
+    def test_ra08_profile_supports_controlled_receiver(self):
+        profile = load_profile("RA08_ASR6601")
+
+        self.assertEqual(profile.receiver_enable_commands, ("AT+RX=ON",))
+        self.assertEqual(profile.parameter_verification_command, "AT+CFG?")
+        self.assertTrue(profile.transmit.continuous_pacing_includes_airtime)
+        self.assertNotIn("AT+DEBUG=OFF", profile.setup_commands)
+        self.assertEqual(len(build_cases(profile, "rx")), 135)
 
 
 if __name__ == "__main__":

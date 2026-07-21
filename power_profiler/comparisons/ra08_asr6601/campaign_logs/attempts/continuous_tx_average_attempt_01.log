@@ -1,0 +1,7 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RA08_ASR6601 --direction tx --powers=2,12,22 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM54 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_201429_campaign_ra08_asr6601\continuous" --keep-power-on --axis spreading_factor=9 --axis bandwidth_hz=125000 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Continuous TX: 60 s per power, parameters={'spreading_factor': 9, 'bandwidth_hz': 125000}, 64 B frames, 15 ms gap
+[1/3] TX 2 dBm: mean=47.702 mA, power=157.417 mW, status=ok
+[2/3] TX 12 dBm: mean=82.977 mA, power=273.823 mW, status=ok
+[3/3] TX 22 dBm: mean=112.985 mA, power=372.851 mW, status=ok
+Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_201429_campaign_ra08_asr6601\continuous\20260721_203636_ra08_asr6601_continuous_tx

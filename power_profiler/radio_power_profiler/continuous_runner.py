@@ -462,6 +462,14 @@ def run_continuous_profile(
             frames_received: int | str = ""
             frame_loss_percent: float | str = ""
             status = "ok"
+            serial_errors = next(
+                (
+                    int(line.partition("=")[2])
+                    for line in transmission.response_lines
+                    if line.startswith("SERIAL_ERRORS=")
+                ),
+                0,
+            )
             if measurement_direction == "rx":
                 frames_received = sum(
                     SerialRadio.count_payload_occurrences(line, expected_payload)
@@ -476,6 +484,8 @@ def run_continuous_profile(
                 )
                 if frames_received == 0:
                     status = "no_rx_data"
+            if serial_errors:
+                status = "serial_error"
 
             row = {
                 "run_id": f"continuous_{index:03d}",
@@ -491,7 +501,12 @@ def run_continuous_profile(
                 "bit_rate_kbps": derived_bit_rate_kbps or "",
                 "data_rate_kbps": parameters.get("data_rate_kbps", ""),
                 "spreading_factor": parameters.get("spreading_factor", ""),
-                "bandwidth_khz": parameters.get("bandwidth_khz", ""),
+                "bandwidth_khz": parameters.get(
+                    "bandwidth_khz",
+                    float(parameters["bandwidth_hz"]) / 1000.0
+                    if "bandwidth_hz" in parameters
+                    else "",
+                ),
                 "air_rate": parameters.get("air_rate", ""),
                 "rf_profile": parameters.get("rf_profile", ""),
                 "parameters_json": json.dumps(parameters, sort_keys=True),

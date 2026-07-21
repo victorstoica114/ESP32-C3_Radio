@@ -1,0 +1,258 @@
+{
+  "state": "completed",
+  "kind": "continuous_rx",
+  "message": "Test completed successfully",
+  "started_utc": "2026-07-21T18:05:06+00:00",
+  "finished_utc": "2026-07-21T18:23:12+00:00",
+  "session_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260721_210506_continuous_rx_ra08_asr6601",
+  "current_step": 3,
+  "total_steps": 3,
+  "current_label": "",
+  "completed_steps": 3,
+  "failed_steps": 0,
+  "quick_verdict": null,
+  "config": {
+    "profile_id": "RA08_ASR6601",
+    "measured_port": "COM54",
+    "peer_port": "COM53",
+    "ppk_port": "COM11",
+    "voltage_mv": 3300,
+    "repetitions": 5,
+    "cooldown_s": 2.0,
+    "continuous_duration_s": 60.0,
+    "max_retries": 2,
+    "retry_cooling_s": 10.0,
+    "save_raw_campaign": true,
+    "notify_codex": true
+  },
+  "steps": [
+    {
+      "step_id": "continuous_rx_spreading_factor-7_bandwidth_hz-125000",
+      "label": "Average RX power and loss - SF7, bandwidth_hz=125000 - 60 s/power level",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "continuous",
+        "--module",
+        "RA08_ASR6601",
+        "--direction",
+        "rx",
+        "--powers=2,12,22",
+        "--frame-bytes",
+        "64",
+        "--gap-ms",
+        "15",
+        "--duration-s",
+        "60",
+        "--radio-port",
+        "COM54",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260721_210506_continuous_rx_ra08_asr6601\\continuous",
+        "--keep-power-on",
+        "--axis",
+        "spreading_factor=7",
+        "--axis",
+        "bandwidth_hz=125000",
+        "--transmitter-port",
+        "COM53",
+        "--save-raw"
+      ],
+      "result_kind": "continuous",
+      "expected_rows": 3,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260721_210506_continuous_rx_ra08_asr6601\\continuous\\20260721_210507_ra08_asr6601_continuous_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260721_210506_continuous_rx_ra08_asr6601\\continuous\\20260721_210507_ra08_asr6601_continuous_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260721_210506_continuous_rx_ra08_asr6601\\logs\\continuous_rx_spreading_factor-7_bandwidth_hz-125000_attempt_01.log",
+          "finished_utc": "2026-07-21T18:11:09+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 3,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260721_210506_continuous_rx_ra08_asr6601\\continuous\\20260721_210507_ra08_asr6601_continuous_rx",
+      "validation": {
+        "valid": true,
+        "rows": 3,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "continuous_rx_spreading_factor-9_bandwidth_hz-125000",
+      "label": "Average RX power and loss - SF9, bandwidth_hz=125000 - 60 s/power level",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "continuous",
+        "--module",
+        "RA08_ASR6601",
+        "--direction",
+        "rx",
+        "--powers=2,12,22",
+        "--frame-bytes",
+        "64",
+        "--gap-ms",
+        "15",
+        "--duration-s",
+        "60",
+        "--radio-port",
+        "COM54",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260721_210506_continuous_rx_ra08_asr6601\\continuous",
+        "--keep-power-on",
+        "--axis",
+        "spreading_factor=9",
+        "--axis",
+        "bandwidth_hz=125000",
+        "--transmitter-port",
+        "COM53",
+        "--save-raw"
+      ],
+      "result_kind": "continuous",
+      "expected_rows": 3,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260721_210506_continuous_rx_ra08_asr6601\\continuous\\20260721_211109_ra08_asr6601_continuous_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260721_210506_continuous_rx_ra08_asr6601\\continuous\\20260721_211109_ra08_asr6601_continuous_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260721_210506_continuous_rx_ra08_asr6601\\logs\\continuous_rx_spreading_factor-9_bandwidth_hz-125000_attempt_01.log",
+          "finished_utc": "2026-07-21T18:17:05+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 3,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260721_210506_continuous_rx_ra08_asr6601\\continuous\\20260721_211109_ra08_asr6601_continuous_rx",
+      "validation": {
+        "valid": true,
+        "rows": 3,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "step_id": "continuous_rx_spreading_factor-12_bandwidth_hz-125000",
+      "label": "Average RX power and loss - SF12, bandwidth_hz=125000 - 60 s/power level",
+      "command": [
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "radio_power_profiler",
+        "continuous",
+        "--module",
+        "RA08_ASR6601",
+        "--direction",
+        "rx",
+        "--powers=2,12,22",
+        "--frame-bytes",
+        "64",
+        "--gap-ms",
+        "15",
+        "--duration-s",
+        "60",
+        "--radio-port",
+        "COM54",
+        "--ppk-port",
+        "COM11",
+        "--voltage-mv",
+        "3300",
+        "--output",
+        "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260721_210506_continuous_rx_ra08_asr6601\\continuous",
+        "--keep-power-on",
+        "--axis",
+        "spreading_factor=12",
+        "--axis",
+        "bandwidth_hz=125000",
+        "--transmitter-port",
+        "COM53",
+        "--save-raw"
+      ],
+      "result_kind": "continuous",
+      "expected_rows": 3,
+      "attempts": [
+        {
+          "attempt": 1,
+          "return_code": 0,
+          "result_dir": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260721_210506_continuous_rx_ra08_asr6601\\continuous\\20260721_211705_ra08_asr6601_continuous_rx",
+          "discovered_result_dirs": [
+            "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260721_210506_continuous_rx_ra08_asr6601\\continuous\\20260721_211705_ra08_asr6601_continuous_rx"
+          ],
+          "log_file": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260721_210506_continuous_rx_ra08_asr6601\\logs\\continuous_rx_spreading_factor-12_bandwidth_hz-125000_attempt_01.log",
+          "finished_utc": "2026-07-21T18:23:12+00:00",
+          "validation": {
+            "valid": true,
+            "rows": 3,
+            "statuses": [
+              "ok",
+              "ok",
+              "ok"
+            ],
+            "errors": [],
+            "warnings": []
+          }
+        }
+      ],
+      "status": "completed",
+      "accepted_result": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260721_210506_continuous_rx_ra08_asr6601\\continuous\\20260721_211705_ra08_asr6601_continuous_rx",
+      "validation": {
+        "valid": true,
+        "rows": 3,
+        "statuses": [
+          "ok",
+          "ok",
+          "ok"
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    }
+  ]
+}

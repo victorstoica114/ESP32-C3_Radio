@@ -258,7 +258,12 @@ class SerialRadio:
                         serial_errors += 1
                         self.drain(wait_s=0.05)
                 pacing_s = inter_frame_gap_ms / 1000.0
-                if profile.transmit.mode == "text_line":
+                if (
+                    profile.transmit.mode == "text_line"
+                    or profile.transmit.continuous_pacing_includes_airtime
+                ):
+                    # Some host-driven radios acknowledge a command before RF
+                    # transmission ends and reject the next command as BUSY.
                     pacing_s += frame_airtime_s
                 if pacing_s:
                     remaining_s = deadline - time.monotonic()

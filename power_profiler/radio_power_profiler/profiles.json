@@ -554,17 +554,20 @@
     "display_name": "Ai-Thinker RA-08 (ASR6601 AT modem)",
     "firmware_selection": "Standalone RA-08 AT modem firmware",
     "baudrate": 115200,
-    "setup_commands": ["AT", "AT+DEFAULT", "AT+DEBUG=OFF", "AT+RX=OFF"],
+    "setup_commands": ["AT", "AT+DEFAULT", "AT+RX=OFF"],
     "post_config_commands": ["AT+RX=OFF"],
+    "receiver_enable_commands": ["AT+RX=ON"],
+    "parameter_verification_command": "AT+CFG?",
     "payload_sizes": [8, 32, 128],
     "repetitions": 5,
     "cooldown_s": 1.0,
     "axes": [
-      {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+PWR={value}", "values": [2, 12, 22]},
-      {"name": "spreading_factor", "label": "LoRa spreading factor", "command": "AT+SF={value}", "values": [7, 9, 12]},
-      {"name": "bandwidth_hz", "label": "LoRa bandwidth (Hz)", "command": "AT+BW={value}", "values": [125000]}
+      {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+PWR={value}", "values": [2, 12, 22], "expected_responses": {"2": "PWR=2", "12": "PWR=12", "22": "PWR=22"}},
+      {"name": "spreading_factor", "label": "LoRa spreading factor", "command": "AT+SF={value}", "values": [7, 9, 12], "expected_responses": {"7": "SF=7", "9": "SF=9", "12": "SF=12"}},
+      {"name": "bandwidth_hz", "label": "LoRa bandwidth (Hz)", "command": "AT+BW={value}", "values": [125000], "expected_responses": {"125000": "BW=125000"}}
     ],
-    "transmit": {"mode": "hex_command", "command": "AT+SEND={payload_hex}", "line_overhead_bytes": 0, "max_payload_bytes": 255},
-    "airtime": {"kind": "lora", "sf_axis": "spreading_factor", "bw_axis": "bandwidth_hz", "bw_multiplier": 1, "coding_rate_denominator": 5, "preamble_symbols": 8, "crc": true, "implicit_header": false}
+    "transmit": {"mode": "hex_command", "command": "AT+SEND={payload_hex}", "line_overhead_bytes": 0, "max_payload_bytes": 255, "continuous_pacing_includes_airtime": true},
+    "airtime": {"kind": "lora", "sf_axis": "spreading_factor", "bw_axis": "bandwidth_hz", "bw_multiplier": 1, "coding_rate_denominator": 5, "preamble_symbols": 8, "crc": true, "implicit_header": false},
+    "notes": ["Profile verified against standalone RA-08 AT modem firmware 0.1.3; that firmware intentionally does not expose an AT+DEBUG command.", "Host-driven continuous AT+SEND traffic is paced by modeled LoRa airtime because firmware 0.1.3 rejects a new command while the preceding frame is still on air."]
   }
 }

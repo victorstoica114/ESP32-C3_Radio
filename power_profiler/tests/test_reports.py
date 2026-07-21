@@ -37,6 +37,10 @@ def _continuous_row(profile: str, power: float) -> dict[str, object]:
 
 
 class ReportTests(unittest.TestCase):
+    def test_lora_report_normalizes_bandwidth_in_hz(self) -> None:
+        self.assertEqual(lora_reports._bandwidth_khz({"bandwidth_khz": 125}), 125.0)
+        self.assertEqual(lora_reports._bandwidth_khz({"bandwidth_hz": 125000}), 125.0)
+
     def test_generic_loss_report_accepts_verified_total_radio_loss(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             result = Path(temporary)
@@ -237,6 +241,12 @@ class ReportTests(unittest.TestCase):
         row["transmitter_response"] = "TXCONT=60000,FRAMES=450 | SERIAL_ERRORS=1"
         self.assertFalse(lora_reports._valid_continuous_status(row))
 
+        row["status"] = "ok"
+        self.assertFalse(lora_reports._valid_continuous_status(row))
+
+        row["transmitter_response"] = "TXCONT=60000,FRAMES=450 | SERIAL_ERRORS=0"
+        self.assertTrue(lora_reports._valid_continuous_status(row))
+
     def test_lora_manifest_accepts_valid_targeted_recovery(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             session = Path(temporary)
@@ -308,6 +318,10 @@ class ReportTests(unittest.TestCase):
             result.mkdir(parents=True)
             (result / "summary.csv").write_text("status\nok\n", encoding="utf-8")
             (result / "metadata.json").write_text("{}\n", encoding="utf-8")
+            (result / "recovery.log").write_text("completed\n", encoding="utf-8")
+            session_logs = session / "recovery" / "session_logs"
+            session_logs.mkdir()
+            (session_logs / "manifest.json").write_text("{}\n", encoding="utf-8")
             manifest_path = session / "manifest.json"
             manifest_path.write_text("{}\n", encoding="utf-8")
             (session / "recovery_overrides.json").write_text(
@@ -321,6 +335,16 @@ class ReportTests(unittest.TestCase):
             copied = output / "campaign_logs" / "recovery" / "continuous_tx"
             self.assertTrue((copied / "summary.csv").is_file())
             self.assertTrue((copied / "metadata.json").is_file())
+            self.assertTrue((copied / "recovery.log").is_file())
+            self.assertTrue(
+                (
+                    output
+                    / "campaign_logs"
+                    / "recovery"
+                    / "session_logs"
+                    / "manifest.json"
+                ).is_file()
+            )
 
     def test_continuous_workbook_exports_all_rx_profiles(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:

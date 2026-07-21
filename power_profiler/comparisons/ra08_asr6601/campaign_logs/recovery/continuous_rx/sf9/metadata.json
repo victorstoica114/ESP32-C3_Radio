@@ -1,0 +1,29 @@
+{
+  "created_utc": "2026-07-21T18:11:09+00:00",
+  "test_type": "continuous_average_power",
+  "profile_id": "RA08_ASR6601",
+  "module": "Ai-Thinker RA-08 (ASR6601 AT modem)",
+  "firmware_selection": "Standalone RA-08 AT modem firmware",
+  "measurement_direction": "rx",
+  "measured_port": "COM54",
+  "peer_port": "COM53",
+  "ppk_port": "COM11",
+  "ppk_mode": "ampere",
+  "voltage_mv": 3300,
+  "sample_rate_hz": 100000,
+  "powers_dbm": [
+    2.0,
+    12.0,
+    22.0
+  ],
+  "axis_parameters": {
+    "spreading_factor": 9,
+    "bandwidth_hz": 125000
+  },
+  "bit_rate_kbps": null,
+  "frame_bytes": 64,
+  "content_bytes_per_frame": 64,
+  "inter_frame_gap_ms": 15,
+  "requested_duration_s": 60.0,
+  "save_raw": true
+}

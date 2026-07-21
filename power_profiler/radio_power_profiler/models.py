@@ -59,6 +59,7 @@ class TransmitSpec:
     max_payload_bytes: int = 255
     frame_payload_bytes: int | None = None
     wait_for_ok: bool = False
+    continuous_pacing_includes_airtime: bool = False
 
     def frame_sizes(self, payload_bytes: int) -> tuple[int, ...]:
         frame_limit = self.frame_payload_bytes or payload_bytes

@@ -677,6 +677,24 @@ def _copy_provenance(manifest_path: Path, output_dir: Path) -> None:
                 item = source / name
                 if item.exists():
                     shutil.copy2(item, recovery_destination / name)
+    recovery_root = session_dir / "recovery"
+    if recovery_root.exists():
+        for source in recovery_root.rglob("*"):
+            if source.is_file() and (
+                source.suffix == ".log"
+                or source.name
+                in {
+                    "metadata.json",
+                    "summary.csv",
+                    "aggregates.csv",
+                    "manifest.json",
+                    "session.log",
+                    "codex_callback.log",
+                }
+            ):
+                target = destination / "recovery" / source.relative_to(recovery_root)
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(source, target)
 
 
 def generate(manifest_path: Path, output_dir: Path, base_name: str) -> list[Path]:

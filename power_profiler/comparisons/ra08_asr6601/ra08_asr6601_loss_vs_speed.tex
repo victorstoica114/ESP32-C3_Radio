@@ -1,0 +1,19 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[width=12.5cm,height=7.4cm,
+ title={RA-08 (ASR6601): loss versus effective payload speed},xmode=log,xmin=0.1408,xmax=4.20266667,ymin=0,ymax=10,
+ xtick={0.187733333,1.21173333,3.36213333},xticklabels={0.188,1.21,3.36},
+ xlabel={Effective payload speed [kbps]},ylabel={Lost frames [\%]},grid=both,legend style={draw=none,at={(0.03,0.97)},anchor=north west}]
+\addplot+[blue!75!black,solid,mark=*] coordinates {(0.187733333,0) (1.21173333,0) (3.36213333,0)};
+\addlegendentry{22 dBm}
+\addplot+[orange!90!black,dashed,mark=square*] coordinates {(0.187733333,0) (1.21173333,0) (3.36213333,0)};
+\addlegendentry{12 dBm}
+\addplot+[green!50!black,dashdotted,mark=triangle*] coordinates {(0.187733333,0) (1.21173333,0) (3.36213333,0)};
+\addlegendentry{2 dBm}
+\end{axis}
+\node[font=\footnotesize,align=center,text width=12cm] at (6.25,-1.45) {60 s per point, 64 B frames, 15 ms gap; SF7: 3.36 kbps, SF9: 1.21 kbps, SF12: 0.188 kbps.};
+\end{tikzpicture}
+\end{document}

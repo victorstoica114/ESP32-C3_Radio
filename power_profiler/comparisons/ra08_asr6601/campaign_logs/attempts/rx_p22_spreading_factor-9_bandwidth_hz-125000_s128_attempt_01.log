@@ -1,0 +1,12 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RA08_ASR6601 --direction rx --radio-port COM54 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=22 --axis spreading_factor=9 --axis bandwidth_hz=125000 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_201429_campaign_ra08_asr6601\packet_rx" --transmitter-port COM53 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Measured receiver: COM54, 115200 baud
+Peer transmitter: COM53, 115200 baud
+Configuring measured receiver (Ai-Thinker RA-08 (ASR6601 AT modem)) on COM54 ...
+Configuring peer transmitter on COM53 ...
+[   1/5] RX  128 B, {'tx_power_dbm': 22, 'spreading_factor': 9, 'bandwidth_hz': 125000}, rep 1: ok, peak=14648.6 uA, energy=28825.529 uJ
+[   2/5] RX  128 B, {'tx_power_dbm': 22, 'spreading_factor': 9, 'bandwidth_hz': 125000}, rep 2: ok, peak=14648.6 uA, energy=28812.123 uJ
+[   3/5] RX  128 B, {'tx_power_dbm': 22, 'spreading_factor': 9, 'bandwidth_hz': 125000}, rep 3: ok, peak=14555.2 uA, energy=28708.279 uJ
+[   4/5] RX  128 B, {'tx_power_dbm': 22, 'spreading_factor': 9, 'bandwidth_hz': 125000}, rep 4: ok, peak=14695.3 uA, energy=28839.752 uJ
+[   5/5] RX  128 B, {'tx_power_dbm': 22, 'spreading_factor': 9, 'bandwidth_hz': 125000}, rep 5: ok, peak=14555.2 uA, energy=28816.864 uJ
+Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_201429_campaign_ra08_asr6601\packet_rx\20260721_203310_ra08_asr6601_rx

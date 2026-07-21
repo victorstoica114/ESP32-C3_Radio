@@ -347,6 +347,31 @@ class SerialRadioTests(unittest.TestCase):
         )
         sleep.assert_called_once_with(0.515)
 
+    def test_host_paces_continuous_ra08_commands_by_airtime(self):
+        radio = SerialRadio.__new__(SerialRadio)
+        radio.command = Mock(return_value=CommandResult("AT+SEND=00", ("OK",)))
+        radio.drain = Mock(return_value=())
+        profile = load_profile("RA08_ASR6601")
+
+        with (
+            patch(
+                "radio_power_profiler.serial_radio.time.monotonic",
+                side_effect=(0.0, 0.0, 0.0, 1.1, 1.1),
+            ),
+            patch("radio_power_profiler.serial_radio.time.sleep") as sleep,
+        ):
+            result = radio.send_continuous(
+                duration_ms=1000,
+                frame_bytes=64,
+                inter_frame_gap_ms=15,
+                drain_before=False,
+                profile=profile,
+                frame_airtime_s=0.5,
+            )
+
+        self.assertEqual(result.frames, 1)
+        sleep.assert_called_once_with(0.515)
+
 
 if __name__ == "__main__":
     unittest.main()

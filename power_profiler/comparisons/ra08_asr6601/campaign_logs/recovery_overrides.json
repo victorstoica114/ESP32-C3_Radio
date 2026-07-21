@@ -1,0 +1,9 @@
+{
+  "reason": "Targeted recovery after diagnosing host-driven RA-08 AT+SEND pacing; original continuous sweeps contained SERIAL_ERRORS and did not represent RF loss or continuous TX duty cycle.",
+  "steps": {
+    "continuous_tx_average": "recovery/continuous_tx/20260721_212450_ra08_asr6601_continuous_tx",
+    "continuous_rx_spreading_factor-7_bandwidth_hz-125000": "recovery/continuous_rx/sf7",
+    "continuous_rx_spreading_factor-9_bandwidth_hz-125000": "recovery/continuous_rx/sf9",
+    "continuous_rx_spreading_factor-12_bandwidth_hz-125000": "recovery/continuous_rx/sf12"
+  }
+}

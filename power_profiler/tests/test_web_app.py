@@ -617,7 +617,7 @@ class WebAppTests(unittest.TestCase):
         )
         with tempfile.TemporaryDirectory() as temporary:
             result_dir = Path(temporary)
-            fields = ["status", "sample_loss_percent"]
+            fields = ["status", "sample_loss_percent", "transmitter_response"]
             with (result_dir / "summary.csv").open(
                 "w", encoding="utf-8", newline=""
             ) as stream:
@@ -657,6 +657,21 @@ class WebAppTests(unittest.TestCase):
             continuous_loss = validate_result(continuous_step, result_dir)
             self.assertTrue(continuous_loss["valid"])
             self.assertTrue(continuous_loss["warnings"])
+
+            with (result_dir / "summary.csv").open(
+                "w", encoding="utf-8", newline=""
+            ) as stream:
+                writer = csv.DictWriter(stream, fieldnames=fields)
+                writer.writeheader()
+                writer.writerow(
+                    {
+                        "status": "ok",
+                        "sample_loss_percent": 0,
+                        "transmitter_response": "SERIAL_ERRORS=3",
+                    }
+                )
+            serial_failure = validate_result(continuous_step, result_dir)
+            self.assertFalse(serial_failure["valid"])
 
     def test_http_ui_and_status_are_available_without_hardware(self):
         with tempfile.TemporaryDirectory() as temporary:

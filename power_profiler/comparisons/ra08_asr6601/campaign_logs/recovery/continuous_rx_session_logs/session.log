@@ -1,0 +1,34 @@
+[21:05:06] START   Continuous_rx session: 3 steps - RA08_ASR6601
+[21:05:06] STEP    Average RX power and loss - SF7, bandwidth_hz=125000 - 60 s/power level - attempt 1
+[21:05:06] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RA08_ASR6601 --direction rx --powers=2,12,22 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM54 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_210506_continuous_rx_ra08_asr6601\continuous" --keep-power-on --axis spreading_factor=7 --axis bandwidth_hz=125000 --transmitter-port COM53 --save-raw
+[21:05:07] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[21:05:07] INFO    Continuous RX: 60 s per power, parameters={'spreading_factor': 7, 'bandwidth_hz': 125000}, 64 B frames, 15 ms gap
+[21:07:14] INFO    [1/3] RX 2 dBm: mean=12.865 mA, power=42.456 mW, status=ok
+[21:09:11] INFO    [2/3] RX 12 dBm: mean=12.899 mA, power=42.567 mW, status=ok
+[21:11:08] INFO    [3/3] RX 22 dBm: mean=12.901 mA, power=42.573 mW, status=ok
+[21:11:08] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_210506_continuous_rx_ra08_asr6601\continuous\20260721_210507_ra08_asr6601_continuous_rx
+[21:11:09] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[21:11:09] STEP    Average RX power and loss - SF9, bandwidth_hz=125000 - 60 s/power level - attempt 1
+[21:11:09] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RA08_ASR6601 --direction rx --powers=2,12,22 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM54 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_210506_continuous_rx_ra08_asr6601\continuous" --keep-power-on --axis spreading_factor=9 --axis bandwidth_hz=125000 --transmitter-port COM53 --save-raw
+[21:11:09] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[21:11:09] INFO    Continuous RX: 60 s per power, parameters={'spreading_factor': 9, 'bandwidth_hz': 125000}, 64 B frames, 15 ms gap
+[21:12:03] CALLBACK Codex conversation foreground requested
+[21:13:11] INFO    [1/3] RX 2 dBm: mean=12.826 mA, power=42.324 mW, status=ok
+[21:15:08] INFO    [2/3] RX 12 dBm: mean=12.853 mA, power=42.414 mW, status=ok
+[21:17:04] INFO    [3/3] RX 22 dBm: mean=12.848 mA, power=42.398 mW, status=ok
+[21:17:04] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_210506_continuous_rx_ra08_asr6601\continuous\20260721_211109_ra08_asr6601_continuous_rx
+[21:17:05] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[21:17:05] STEP    Average RX power and loss - SF12, bandwidth_hz=125000 - 60 s/power level - attempt 1
+[21:17:05] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RA08_ASR6601 --direction rx --powers=2,12,22 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM54 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_210506_continuous_rx_ra08_asr6601\continuous" --keep-power-on --axis spreading_factor=12 --axis bandwidth_hz=125000 --transmitter-port COM53 --save-raw
+[21:17:05] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[21:17:05] INFO    Continuous RX: 60 s per power, parameters={'spreading_factor': 12, 'bandwidth_hz': 125000}, 64 B frames, 15 ms gap
+[21:19:11] INFO    [1/3] RX 2 dBm: mean=12.794 mA, power=42.221 mW, status=ok
+[21:21:11] INFO    [2/3] RX 12 dBm: mean=12.830 mA, power=42.338 mW, status=ok
+[21:23:11] INFO    [3/3] RX 22 dBm: mean=12.830 mA, power=42.340 mW, status=ok
+[21:23:12] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_210506_continuous_rx_ra08_asr6601\continuous\20260721_211705_ra08_asr6601_continuous_rx
+[21:23:12] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[21:23:12] FINISH  Test completed successfully
+[21:23:12] CALLBACK Codex completion callback started
+[21:23:40] CALLBACK Codex completion notification displayed; automatic result analysis started
+[21:24:50] WARNING PPK2 current-path guard released for an external diagnostic; VIN -> VOUT remains enabled
+[21:30:38] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
