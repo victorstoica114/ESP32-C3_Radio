@@ -1,0 +1,97 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{calc}
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{tikzpicture}
+\begin{groupplot}[/pgf/number format/use comma,
+  group style={group size=3 by 1, horizontal sep=1.25cm},
+  width=5.7cm, height=6.2cm,
+  xmode=log, log basis x={2}, ymode=log, log basis y={10},
+  ymin=1, ymax=100000,
+  xtick={8,32,58,128,512,1024}, xticklabels={8,32,58,128,512,1024},
+  x tick label style={rotate=45, anchor=east, font=\small},
+  y tick label style={font=\small},
+  grid=both, minor grid style={gray!15}, major grid style={gray!35},
+  xlabel={Logical transfer size [B]},
+  every axis plot/.append style={line width=1.05pt},
+  error bars/error bar style={line width=0.35pt},
+  legend style={font=\small, draw=none, fill=none, at={(0.5,-0.29)},
+    anchor=north, legend columns=-1},
+]
+\nextgroupplot[title={0.3 kbps}, ylabel={Mean total energy [mJ]}]
+\addplot+[color=blue!75!black, solid, mark=*, mark size=2.2pt,
+  error bars/.cd, y dir=both, y explicit,
+] coordinates {
+  (8,540.556196) +- (0,1.27202695)
+  (32,1025.92028) +- (0,0.943672525)
+  (58,1620.64119) +- (0,2.13478244)
+  (128,3832.24699) +- (0,5.7295439)
+  (512,14415.9061) +- (0,16.1951417)
+  (1024,28883.3701) +- (0,18.9440571)
+};
+\addplot+[color=red!75!black, dashed, mark=square*, mark size=2.2pt,
+  error bars/.cd, y dir=both, y explicit,
+] coordinates {
+  (8,55.2332423) +- (0,0.0411013088)
+  (32,120.71791) +- (0,0.0595243284)
+  (58,191.392031) +- (0,0.0905058704)
+  (128,449.105336) +- (0,0.264131388)
+  (512,1694.96339) +- (0,0.852694019)
+  (1024,3390.94379) +- (0,1.31752797)
+};
+\nextgroupplot[title={4.8 kbps}]
+\addplot+[color=blue!75!black, solid, mark=*, mark size=2.2pt,
+  error bars/.cd, y dir=both, y explicit,
+] coordinates {
+  (8,21.2588305) +- (0,0.0661512523)
+  (32,45.7406402) +- (0,0.149573045)
+  (58,72.27787) +- (0,0.197643459)
+  (128,168.943662) +- (0,0.440621313)
+  (512,633.620614) +- (0,0.453536075)
+  (1024,1267.55694) +- (0,3.05789592)
+};
+\addlegendentry{TX at 20 dBm}
+\addplot+[color=red!75!black, dashed, mark=square*, mark size=2.2pt,
+  error bars/.cd, y dir=both, y explicit,
+] coordinates {
+  (8,3.18749859) +- (0,0.00304014138)
+  (32,5.97278943) +- (0,0.00616159365)
+  (58,8.98782946) +- (0,0.00196021636)
+  (128,21.6505136) +- (0,0.0228627229)
+  (512,79.7389858) +- (0,0.0612575784)
+  (1024,159.260594) +- (0,0.0796933557)
+};
+\addlegendentry{RX, stimulus at 20 dBm}
+\nextgroupplot[title={19.2 kbps}]
+\addplot+[color=blue!75!black, solid, mark=*, mark size=2.2pt,
+  error bars/.cd, y dir=both, y explicit,
+] coordinates {
+  (8,7.91021959) +- (0,0.0157846054)
+  (32,17.6592511) +- (0,0.068007509)
+  (58,28.3587974) +- (0,0.106785966)
+  (128,66.0457073) +- (0,0.171066716)
+  (512,248.884348) +- (0,0.602431846)
+  (1024,498.090636) +- (0,0.436479419)
+};
+\addplot+[color=red!75!black, dashed, mark=square*, mark size=2.2pt,
+  error bars/.cd, y dir=both, y explicit,
+] coordinates {
+  (8,1.92315039) +- (0,0.00437509357)
+  (32,3.08098117) +- (0,0.00532573528)
+  (58,4.32794178) +- (0,0.00531042059)
+  (128,10.817526) +- (0,0.0147027094)
+  (512,38.6408428) +- (0,0.0482126474)
+  (1024,77.1434774) +- (0,0.045885488)
+};
+\end{groupplot}
+\node[font=\bfseries\large] at ($(group c2r1.north)+(0,0.85cm)$)
+  {Ebyte E32-868T20D UART: TX--RX comparison};
+\node[font=\footnotesize, align=center, text width=18.5cm]
+  at ($(group c2r1.south)+(0,-3.15cm)$)
+  {Mean of 5 repetitions; error bars show standard deviation. RX energy includes receiver activation, reception, and processing of all physical frames.};
+\end{tikzpicture}
+\end{document}
