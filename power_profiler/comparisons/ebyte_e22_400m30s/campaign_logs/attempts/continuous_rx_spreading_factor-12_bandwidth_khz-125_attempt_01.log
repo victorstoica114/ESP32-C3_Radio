@@ -1,0 +1,7 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E22_SX1268 --direction rx --powers=-9,10,18 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\continuous" --keep-power-on --axis spreading_factor=12 --axis bandwidth_khz=125 --transmitter-port COM51 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Continuous RX: 60 s per power, parameters={'spreading_factor': 12, 'bandwidth_khz': 125}, 64 B frames, 15 ms gap
+[1/3] RX -9 dBm: mean=5.789 mA, power=19.105 mW, status=ok
+[2/3] RX 10 dBm: mean=5.607 mA, power=18.504 mW, status=ok
+[3/3] RX 18 dBm: mean=5.508 mA, power=18.176 mW, status=ok
+Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\continuous\20260721_135020_radio_ebyte_e22_sx1268_continuous_rx

@@ -1,0 +1,76 @@
+{
+  "module": "Ebyte E22-400M30S (SX1268)",
+  "authoritative_session": "C:\\Users\\Alexandru\\Desktop\\module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260721_130947_campaign_radio_ebyte_e22_sx1268",
+  "campaign": {
+    "steps": 40,
+    "completed_steps": 40,
+    "failed_steps": 0,
+    "attempts": 40,
+    "retried_steps": 0,
+    "measured_port": "COM52",
+    "peer_port": "COM51",
+    "ppk_port": "COM11",
+    "voltage_mv": 3300
+  },
+  "packet": {
+    "points": 36,
+    "runs": 180,
+    "events_detected": 180,
+    "status_ok": 169,
+    "status_rx_missing": 11,
+    "maximum_energy_cv_percent": 1.9704713419501152,
+    "maximum_energy_cv_step": "rx_p18_spreading_factor-7_bandwidth_khz-125_s128",
+    "maximum_ppk_sample_loss_percent": 0.5257142857142857,
+    "maximum_peak_current_mA": 68.92055064733032
+  },
+  "continuous": {
+    "points": 12,
+    "status_ok": 12,
+    "maximum_ppk_sample_loss_percent": 0.0036310024805307935,
+    "maximum_peak_current_mA": 69.67160260800419,
+    "rx_frames_transmitted": 1859,
+    "rx_frames_received": 1390,
+    "rx_frames_lost": 469
+  },
+  "raw_integrity": {
+    "authoritative_files": 192,
+    "authoritative_compressed_bytes": 1105290276,
+    "authoritative_uncompressed_bytes": 4242726782,
+    "diagnostic_files": 15,
+    "diagnostic_compressed_bytes": 87038930,
+    "diagnostic_uncompressed_bytes": 409910287,
+    "gzip_crc_failures": 0,
+    "empty_files": 0,
+    "metadata_mismatches": 0,
+    "nonfinite_numeric_tokens": 0
+  },
+  "packet_delivery_diagnostic": {
+    "condition": "COM52 TX to COM51 RX, 128 B, SF12, BW 125 kHz",
+    "campaign_losses_by_front_stage_power": {
+      "-9": "1/5",
+      "10": "5/5",
+      "18": "5/5"
+    },
+    "targeted_repeat_delivery": {
+      "-9": "5/5",
+      "10": "0/5",
+      "18": "0/5"
+    },
+    "reverse_direction_control": "COM51 TX to COM52 RX delivered 5/5 at the 18 dBm front-stage setting",
+    "conclusion": "The high-power long-packet loss is reproducible and direction-specific. The TX current events and integration windows are complete and stable, so the energy data remain authoritative."
+  },
+  "recovery_overrides": {},
+  "diagnostic_recovery_summaries": [
+    "recovery\\packet_tx\\20260721_140053_radio_ebyte_e22_sx1268\\summary.csv",
+    "recovery\\packet_tx\\20260721_140237_radio_ebyte_e22_sx1268\\summary.csv",
+    "recovery\\packet_tx\\20260721_140403_radio_ebyte_e22_sx1268\\summary.csv"
+  ],
+  "plot_visual_review": "passed",
+  "xlsx_validation": "passed",
+  "notes": [
+    "AT+PWR is the SX1268 front-stage setting; 18 corresponds to approximately 30 dBm at the E22-400M30S module output.",
+    "RX packet energy uses a deterministic integration window equal to calculated LoRa airtime.",
+    "Measured RF losses are retained; no delivery result was cherry-picked away.",
+    "No additional hardware measurement is required for electrical-energy comparison."
+  ]
+}

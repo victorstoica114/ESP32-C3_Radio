@@ -1,0 +1,554 @@
+[13:09:47] START   Campaign session: 40 steps - RADIO_EBYTE_E22_SX1268
+[13:09:47] STEP    TX 8 B - -9 dBm - SF7, BW 125 kHz - attempt 1
+[13:09:47] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-9 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:09:47] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:09:47] INFO    Measured transmitter: COM52, 9600 baud
+[13:09:47] INFO    Peer receiver: COM51, 9600 baud
+[13:09:51] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:09:53] INFO    Configuring peer receiver on COM51 ...
+[13:09:58] INFO    [   1/5] TX    8 B, {'tx_power_dbm': -9, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=16337.2 uA, energy=1805.706 uJ
+[13:10:01] INFO    [   2/5] TX    8 B, {'tx_power_dbm': -9, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=16479.3 uA, energy=1800.171 uJ
+[13:10:05] INFO    [   3/5] TX    8 B, {'tx_power_dbm': -9, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=16715.2 uA, energy=1802.170 uJ
+[13:10:08] INFO    [   4/5] TX    8 B, {'tx_power_dbm': -9, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=16277.0 uA, energy=1795.459 uJ
+[13:10:12] INFO    [   5/5] TX    8 B, {'tx_power_dbm': -9, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=16480.0 uA, energy=1799.209 uJ
+[13:10:12] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_130947_radio_ebyte_e22_sx1268
+[13:10:12] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:10:12] STEP    TX 32 B - -9 dBm - SF7, BW 125 kHz - attempt 1
+[13:10:12] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-9 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:10:12] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:10:12] INFO    Measured transmitter: COM52, 9600 baud
+[13:10:12] INFO    Peer receiver: COM51, 9600 baud
+[13:10:16] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:10:18] INFO    Configuring peer receiver on COM51 ...
+[13:10:23] INFO    [   1/5] TX   32 B, {'tx_power_dbm': -9, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=16468.8 uA, energy=3426.398 uJ
+[13:10:26] INFO    [   2/5] TX   32 B, {'tx_power_dbm': -9, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=16208.0 uA, energy=3418.822 uJ
+[13:10:30] INFO    [   3/5] TX   32 B, {'tx_power_dbm': -9, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=17156.5 uA, energy=3415.934 uJ
+[13:10:31] CALLBACK Codex conversation foreground requested
+[13:10:33] INFO    [   4/5] TX   32 B, {'tx_power_dbm': -9, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=16916.7 uA, energy=3417.500 uJ
+[13:10:37] INFO    [   5/5] TX   32 B, {'tx_power_dbm': -9, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=16193.8 uA, energy=3412.538 uJ
+[13:10:37] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_131012_radio_ebyte_e22_sx1268
+[13:10:37] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:10:37] STEP    TX 128 B - -9 dBm - SF7, BW 125 kHz - attempt 1
+[13:10:37] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-9 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:10:38] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:10:38] INFO    Measured transmitter: COM52, 9600 baud
+[13:10:38] INFO    Peer receiver: COM51, 9600 baud
+[13:10:41] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:10:43] INFO    Configuring peer receiver on COM51 ...
+[13:10:48] INFO    [   1/5] TX  128 B, {'tx_power_dbm': -9, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=16498.4 uA, energy=9899.548 uJ
+[13:10:52] INFO    [   2/5] TX  128 B, {'tx_power_dbm': -9, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=16863.5 uA, energy=9866.034 uJ
+[13:10:56] INFO    [   3/5] TX  128 B, {'tx_power_dbm': -9, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=16597.2 uA, energy=9867.138 uJ
+[13:11:00] INFO    [   4/5] TX  128 B, {'tx_power_dbm': -9, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=17186.4 uA, energy=9868.569 uJ
+[13:11:03] INFO    [   5/5] TX  128 B, {'tx_power_dbm': -9, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=16759.7 uA, energy=9873.295 uJ
+[13:11:03] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_131038_radio_ebyte_e22_sx1268
+[13:11:04] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:11:04] STEP    TX 8 B - -9 dBm - SF9, BW 125 kHz - attempt 1
+[13:11:04] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-9 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:11:04] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:11:04] INFO    Measured transmitter: COM52, 9600 baud
+[13:11:04] INFO    Peer receiver: COM51, 9600 baud
+[13:11:08] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:11:10] INFO    Configuring peer receiver on COM51 ...
+[13:11:15] INFO    [   1/5] TX    8 B, {'tx_power_dbm': -9, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=16903.0 uA, energy=6122.970 uJ
+[13:11:18] INFO    [   2/5] TX    8 B, {'tx_power_dbm': -9, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=16582.9 uA, energy=6090.244 uJ
+[13:11:21] INFO    [   3/5] TX    8 B, {'tx_power_dbm': -9, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=16761.8 uA, energy=6099.074 uJ
+[13:11:25] INFO    [   4/5] TX    8 B, {'tx_power_dbm': -9, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=16478.5 uA, energy=6100.985 uJ
+[13:11:28] INFO    [   5/5] TX    8 B, {'tx_power_dbm': -9, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=16831.9 uA, energy=6099.824 uJ
+[13:11:28] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_131104_radio_ebyte_e22_sx1268
+[13:11:29] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:11:29] STEP    TX 32 B - -9 dBm - SF9, BW 125 kHz - attempt 1
+[13:11:29] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-9 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:11:29] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:11:29] INFO    Measured transmitter: COM52, 9600 baud
+[13:11:29] INFO    Peer receiver: COM51, 9600 baud
+[13:11:33] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:11:35] INFO    Configuring peer receiver on COM51 ...
+[13:11:40] INFO    [   1/5] TX   32 B, {'tx_power_dbm': -9, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=16810.8 uA, energy=11670.492 uJ
+[13:11:44] INFO    [   2/5] TX   32 B, {'tx_power_dbm': -9, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=16432.7 uA, energy=11641.564 uJ
+[13:11:48] INFO    [   3/5] TX   32 B, {'tx_power_dbm': -9, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=16855.8 uA, energy=11649.828 uJ
+[13:11:52] INFO    [   4/5] TX   32 B, {'tx_power_dbm': -9, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=16661.4 uA, energy=11655.569 uJ
+[13:11:55] INFO    [   5/5] TX   32 B, {'tx_power_dbm': -9, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=16734.5 uA, energy=11646.151 uJ
+[13:11:55] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_131129_radio_ebyte_e22_sx1268
+[13:11:56] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:11:56] STEP    TX 128 B - -9 dBm - SF9, BW 125 kHz - attempt 1
+[13:11:56] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-9 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:11:56] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:11:56] INFO    Measured transmitter: COM52, 9600 baud
+[13:11:56] INFO    Peer receiver: COM51, 9600 baud
+[13:12:00] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:12:02] INFO    Configuring peer receiver on COM51 ...
+[13:12:08] INFO    [   1/5] TX  128 B, {'tx_power_dbm': -9, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=16619.9 uA, energy=31030.426 uJ
+[13:12:13] INFO    [   2/5] TX  128 B, {'tx_power_dbm': -9, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=17044.7 uA, energy=31003.421 uJ
+[13:12:18] INFO    [   3/5] TX  128 B, {'tx_power_dbm': -9, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=16667.0 uA, energy=30979.542 uJ
+[13:12:23] INFO    [   4/5] TX  128 B, {'tx_power_dbm': -9, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=17186.4 uA, energy=30982.410 uJ
+[13:12:27] INFO    [   5/5] TX  128 B, {'tx_power_dbm': -9, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=16809.7 uA, energy=30969.872 uJ
+[13:12:28] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_131156_radio_ebyte_e22_sx1268
+[13:12:28] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:12:28] STEP    TX 8 B - -9 dBm - SF12, BW 125 kHz - attempt 1
+[13:12:28] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-9 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:12:28] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:12:28] INFO    Measured transmitter: COM52, 9600 baud
+[13:12:28] INFO    Peer receiver: COM51, 9600 baud
+[13:12:32] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:12:34] INFO    Configuring peer receiver on COM51 ...
+[13:12:41] INFO    [   1/5] TX    8 B, {'tx_power_dbm': -9, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=17536.3 uA, energy=48285.167 uJ
+[13:12:47] INFO    [   2/5] TX    8 B, {'tx_power_dbm': -9, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=17091.9 uA, energy=48223.107 uJ
+[13:12:52] INFO    [   3/5] TX    8 B, {'tx_power_dbm': -9, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=17186.4 uA, energy=48193.739 uJ
+[13:12:58] INFO    [   4/5] TX    8 B, {'tx_power_dbm': -9, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=17233.7 uA, energy=48274.521 uJ
+[13:13:04] INFO    [   5/5] TX    8 B, {'tx_power_dbm': -9, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=17186.4 uA, energy=48204.409 uJ
+[13:13:04] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_131228_radio_ebyte_e22_sx1268
+[13:13:05] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:13:05] STEP    TX 32 B - -9 dBm - SF12, BW 125 kHz - attempt 1
+[13:13:05] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-9 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:13:05] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:13:05] INFO    Measured transmitter: COM52, 9600 baud
+[13:13:05] INFO    Peer receiver: COM51, 9600 baud
+[13:13:09] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:13:11] INFO    Configuring peer receiver on COM51 ...
+[13:13:20] INFO    [   1/5] TX   32 B, {'tx_power_dbm': -9, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=17044.7 uA, energy=77634.455 uJ
+[13:13:28] INFO    [   2/5] TX   32 B, {'tx_power_dbm': -9, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=17233.7 uA, energy=77679.118 uJ
+[13:13:36] INFO    [   3/5] TX   32 B, {'tx_power_dbm': -9, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=17186.4 uA, energy=77631.260 uJ
+[13:13:44] INFO    [   4/5] TX   32 B, {'tx_power_dbm': -9, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=16972.7 uA, energy=77672.712 uJ
+[13:13:52] INFO    [   5/5] TX   32 B, {'tx_power_dbm': -9, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=17470.3 uA, energy=77798.765 uJ
+[13:13:52] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_131305_radio_ebyte_e22_sx1268
+[13:13:52] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:13:52] STEP    TX 128 B - -9 dBm - SF12, BW 125 kHz - attempt 1
+[13:13:52] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=-9 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:13:52] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:13:52] INFO    Measured transmitter: COM52, 9600 baud
+[13:13:52] INFO    Peer receiver: COM51, 9600 baud
+[13:13:56] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:13:58] INFO    Configuring peer receiver on COM51 ...
+[13:14:15] INFO    [   1/5] TX  128 B, {'tx_power_dbm': -9, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=17233.7 uA, energy=195653.018 uJ
+[13:14:31] INFO    [   2/5] TX  128 B, {'tx_power_dbm': -9, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=17517.6 uA, energy=195481.520 uJ
+[13:14:46] INFO    [   3/5] TX  128 B, {'tx_power_dbm': -9, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=17754.5 uA, energy=195785.799 uJ
+[13:15:02] INFO    [   4/5] TX  128 B, {'tx_power_dbm': -9, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=17139.2 uA, energy=195790.244 uJ
+[13:15:17] INFO    [   5/5] TX  128 B, {'tx_power_dbm': -9, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: rx_missing, peak=16903.0 uA, energy=195870.708 uJ
+[13:15:17] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_131352_radio_ebyte_e22_sx1268
+[13:15:18] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:15:18] WARNING TX 128 B - -9 dBm - SF12, BW 125 kHz: 1 transfers have missing packets or fragments
+[13:15:18] STEP    TX 8 B - 10 dBm - SF7, BW 125 kHz - attempt 1
+[13:15:18] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:15:18] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:15:18] INFO    Measured transmitter: COM52, 9600 baud
+[13:15:18] INFO    Peer receiver: COM51, 9600 baud
+[13:15:22] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:15:24] INFO    Configuring peer receiver on COM51 ...
+[13:15:29] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=37278.7 uA, energy=5329.403 uJ
+[13:15:32] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=37793.8 uA, energy=5324.732 uJ
+[13:15:35] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=37433.1 uA, energy=5327.879 uJ
+[13:15:39] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=37278.7 uA, energy=5323.581 uJ
+[13:15:42] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=37433.1 uA, energy=5325.881 uJ
+[13:15:42] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_131518_radio_ebyte_e22_sx1268
+[13:15:43] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:15:43] STEP    TX 32 B - 10 dBm - SF7, BW 125 kHz - attempt 1
+[13:15:43] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:15:43] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:15:43] INFO    Measured transmitter: COM52, 9600 baud
+[13:15:43] INFO    Peer receiver: COM51, 9600 baud
+[13:15:47] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:15:49] INFO    Configuring peer receiver on COM51 ...
+[13:15:54] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=37793.8 uA, energy=10205.064 uJ
+[13:15:57] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=37845.3 uA, energy=10195.963 uJ
+[13:16:00] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=37278.7 uA, energy=10198.875 uJ
+[13:16:04] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=38568.4 uA, energy=10192.406 uJ
+[13:16:07] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=38051.7 uA, energy=10200.741 uJ
+[13:16:07] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_131543_radio_ebyte_e22_sx1268
+[13:16:08] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:16:08] STEP    TX 128 B - 10 dBm - SF7, BW 125 kHz - attempt 1
+[13:16:08] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:16:08] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:16:08] INFO    Measured transmitter: COM52, 9600 baud
+[13:16:08] INFO    Peer receiver: COM51, 9600 baud
+[13:16:12] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:16:14] INFO    Configuring peer receiver on COM51 ...
+[13:16:19] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=38155.0 uA, energy=29679.996 uJ
+[13:16:23] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=39189.7 uA, energy=29651.451 uJ
+[13:16:26] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=38413.3 uA, energy=29652.813 uJ
+[13:16:30] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=37639.1 uA, energy=29639.575 uJ
+[13:16:34] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=37948.5 uA, energy=29612.030 uJ
+[13:16:34] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_131608_radio_ebyte_e22_sx1268
+[13:16:34] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:16:34] STEP    TX 8 B - 10 dBm - SF9, BW 125 kHz - attempt 1
+[13:16:34] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:16:34] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:16:34] INFO    Measured transmitter: COM52, 9600 baud
+[13:16:34] INFO    Peer receiver: COM51, 9600 baud
+[13:16:38] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:16:40] INFO    Configuring peer receiver on COM51 ...
+[13:16:45] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=37433.1 uA, energy=18247.139 uJ
+[13:16:48] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=37536.1 uA, energy=18281.026 uJ
+[13:16:52] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=37484.6 uA, energy=18262.636 uJ
+[13:16:55] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=37433.1 uA, energy=18260.710 uJ
+[13:16:59] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=37536.1 uA, energy=18258.553 uJ
+[13:16:59] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_131634_radio_ebyte_e22_sx1268
+[13:16:59] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:16:59] STEP    TX 32 B - 10 dBm - SF9, BW 125 kHz - attempt 1
+[13:16:59] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:17:00] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:17:00] INFO    Measured transmitter: COM52, 9600 baud
+[13:17:00] INFO    Peer receiver: COM51, 9600 baud
+[13:17:03] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:17:06] INFO    Configuring peer receiver on COM51 ...
+[13:17:10] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=38051.7 uA, energy=35002.458 uJ
+[13:17:14] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=38258.2 uA, energy=34947.514 uJ
+[13:17:18] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=37587.6 uA, energy=34953.301 uJ
+[13:17:22] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=37587.6 uA, energy=34947.352 uJ
+[13:17:25] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=38155.0 uA, energy=34955.888 uJ
+[13:17:25] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_131700_radio_ebyte_e22_sx1268
+[13:17:26] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:17:26] STEP    TX 128 B - 10 dBm - SF9, BW 125 kHz - attempt 1
+[13:17:26] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:17:26] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:17:26] INFO    Measured transmitter: COM52, 9600 baud
+[13:17:26] INFO    Peer receiver: COM51, 9600 baud
+[13:17:30] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:17:32] INFO    Configuring peer receiver on COM51 ...
+[13:17:38] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=38206.6 uA, energy=93369.252 uJ
+[13:17:43] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=38413.3 uA, energy=93298.595 uJ
+[13:17:48] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=38000.1 uA, energy=93307.782 uJ
+[13:17:53] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=38000.1 uA, energy=93319.321 uJ
+[13:17:58] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=37948.5 uA, energy=93277.756 uJ
+[13:17:58] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_131726_radio_ebyte_e22_sx1268
+[13:17:58] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:17:58] STEP    TX 8 B - 10 dBm - SF12, BW 125 kHz - attempt 1
+[13:17:58] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:17:58] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:17:58] INFO    Measured transmitter: COM52, 9600 baud
+[13:17:58] INFO    Peer receiver: COM51, 9600 baud
+[13:18:02] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:18:04] INFO    Configuring peer receiver on COM51 ...
+[13:18:11] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=38206.6 uA, energy=145529.373 uJ
+[13:18:17] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=38568.4 uA, energy=145490.452 uJ
+[13:18:22] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=38464.9 uA, energy=145427.150 uJ
+[13:18:28] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=37793.8 uA, energy=145413.457 uJ
+[13:18:34] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=37639.1 uA, energy=145305.710 uJ
+[13:18:34] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_131758_radio_ebyte_e22_sx1268
+[13:18:34] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:18:34] STEP    TX 32 B - 10 dBm - SF12, BW 125 kHz - attempt 1
+[13:18:34] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:18:35] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:18:35] INFO    Measured transmitter: COM52, 9600 baud
+[13:18:35] INFO    Peer receiver: COM51, 9600 baud
+[13:18:38] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:18:40] INFO    Configuring peer receiver on COM51 ...
+[13:18:49] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=38568.4 uA, energy=234216.988 uJ
+[13:18:57] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=38464.9 uA, energy=234108.990 uJ
+[13:19:05] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=38206.6 uA, energy=234262.106 uJ
+[13:19:13] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=38723.6 uA, energy=234252.596 uJ
+[13:19:21] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=38723.6 uA, energy=234164.475 uJ
+[13:19:21] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_131835_radio_ebyte_e22_sx1268
+[13:19:21] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:19:21] STEP    TX 128 B - 10 dBm - SF12, BW 125 kHz - attempt 1
+[13:19:21] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:19:22] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:19:22] INFO    Measured transmitter: COM52, 9600 baud
+[13:19:22] INFO    Peer receiver: COM51, 9600 baud
+[13:19:25] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:19:27] INFO    Configuring peer receiver on COM51 ...
+[13:19:44] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: rx_missing, peak=38516.6 uA, energy=589359.151 uJ
+[13:20:00] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: rx_missing, peak=38464.9 uA, energy=589557.651 uJ
+[13:20:15] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: rx_missing, peak=38671.8 uA, energy=589245.321 uJ
+[13:20:31] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: rx_missing, peak=38568.4 uA, energy=588879.909 uJ
+[13:20:47] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: rx_missing, peak=38361.6 uA, energy=589120.877 uJ
+[13:20:47] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_131922_radio_ebyte_e22_sx1268
+[13:20:47] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:20:47] WARNING TX 128 B - 10 dBm - SF12, BW 125 kHz: 5 transfers have missing packets or fragments
+[13:20:47] STEP    TX 8 B - 18 dBm - SF7, BW 125 kHz - attempt 1
+[13:20:47] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=18 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:20:47] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:20:47] INFO    Measured transmitter: COM52, 9600 baud
+[13:20:47] INFO    Peer receiver: COM51, 9600 baud
+[13:20:51] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:20:53] INFO    Configuring peer receiver on COM51 ...
+[13:20:58] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=67418.7 uA, energy=9281.876 uJ
+[13:21:01] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=65917.2 uA, energy=9243.281 uJ
+[13:21:05] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=65917.2 uA, energy=9251.717 uJ
+[13:21:08] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=65917.2 uA, energy=9252.104 uJ
+[13:21:12] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=65917.2 uA, energy=9230.488 uJ
+[13:21:12] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_132047_radio_ebyte_e22_sx1268
+[13:21:12] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:21:12] STEP    TX 32 B - 18 dBm - SF7, BW 125 kHz - attempt 1
+[13:21:12] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=18 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:21:12] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:21:12] INFO    Measured transmitter: COM52, 9600 baud
+[13:21:12] INFO    Peer receiver: COM51, 9600 baud
+[13:21:16] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:21:18] INFO    Configuring peer receiver on COM51 ...
+[13:21:23] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=66667.9 uA, energy=17802.056 uJ
+[13:21:26] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=65917.2 uA, energy=17716.015 uJ
+[13:21:30] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=67418.7 uA, energy=17727.404 uJ
+[13:21:33] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=67418.7 uA, energy=17722.382 uJ
+[13:21:37] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=66667.9 uA, energy=17741.811 uJ
+[13:21:37] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_132112_radio_ebyte_e22_sx1268
+[13:21:37] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:21:37] STEP    TX 128 B - 18 dBm - SF7, BW 125 kHz - attempt 1
+[13:21:37] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=18 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:21:37] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:21:37] INFO    Measured transmitter: COM52, 9600 baud
+[13:21:37] INFO    Peer receiver: COM51, 9600 baud
+[13:21:41] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:21:43] INFO    Configuring peer receiver on COM51 ...
+[13:21:48] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=67418.7 uA, energy=51823.977 uJ
+[13:21:52] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=66667.9 uA, energy=51583.200 uJ
+[13:21:55] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=66667.9 uA, energy=51595.222 uJ
+[13:21:59] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=66667.9 uA, energy=51693.812 uJ
+[13:22:03] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=66667.9 uA, energy=51624.327 uJ
+[13:22:03] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_132137_radio_ebyte_e22_sx1268
+[13:22:03] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:22:03] STEP    TX 8 B - 18 dBm - SF9, BW 125 kHz - attempt 1
+[13:22:03] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=18 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:22:04] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:22:04] INFO    Measured transmitter: COM52, 9600 baud
+[13:22:04] INFO    Peer receiver: COM51, 9600 baud
+[13:22:07] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:22:09] INFO    Configuring peer receiver on COM51 ...
+[13:22:14] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=68920.6 uA, energy=31942.186 uJ
+[13:22:18] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=66667.9 uA, energy=31848.562 uJ
+[13:22:21] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=66667.9 uA, energy=31789.253 uJ
+[13:22:24] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=66667.9 uA, energy=31765.770 uJ
+[13:22:28] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=65917.2 uA, energy=31673.474 uJ
+[13:22:28] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_132204_radio_ebyte_e22_sx1268
+[13:22:29] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:22:29] STEP    TX 32 B - 18 dBm - SF9, BW 125 kHz - attempt 1
+[13:22:29] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=18 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:22:29] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:22:29] INFO    Measured transmitter: COM52, 9600 baud
+[13:22:29] INFO    Peer receiver: COM51, 9600 baud
+[13:22:32] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:22:35] INFO    Configuring peer receiver on COM51 ...
+[13:22:39] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=66667.9 uA, energy=61014.619 uJ
+[13:22:43] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=66667.9 uA, energy=60803.167 uJ
+[13:22:47] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=67418.7 uA, energy=60859.952 uJ
+[13:22:51] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=65917.2 uA, energy=60676.597 uJ
+[13:22:54] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=67418.7 uA, energy=60671.792 uJ
+[13:22:54] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_132229_radio_ebyte_e22_sx1268
+[13:22:55] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:22:55] STEP    TX 128 B - 18 dBm - SF9, BW 125 kHz - attempt 1
+[13:22:55] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=18 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:22:55] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:22:55] INFO    Measured transmitter: COM52, 9600 baud
+[13:22:55] INFO    Peer receiver: COM51, 9600 baud
+[13:22:59] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:23:01] INFO    Configuring peer receiver on COM51 ...
+[13:23:07] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=66667.9 uA, energy=161798.016 uJ
+[13:23:12] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=66667.9 uA, energy=161438.366 uJ
+[13:23:17] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=67418.7 uA, energy=161628.534 uJ
+[13:23:22] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=66667.9 uA, energy=161742.638 uJ
+[13:23:26] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=66667.9 uA, energy=161257.514 uJ
+[13:23:26] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_132255_radio_ebyte_e22_sx1268
+[13:23:27] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:23:27] STEP    TX 8 B - 18 dBm - SF12, BW 125 kHz - attempt 1
+[13:23:27] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=18 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:23:27] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:23:27] INFO    Measured transmitter: COM52, 9600 baud
+[13:23:27] INFO    Peer receiver: COM51, 9600 baud
+[13:23:31] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:23:33] INFO    Configuring peer receiver on COM51 ...
+[13:23:40] INFO    [   1/5] TX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=67418.7 uA, energy=252090.332 uJ
+[13:23:46] INFO    [   2/5] TX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=68920.6 uA, energy=251167.054 uJ
+[13:23:51] INFO    [   3/5] TX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=65917.2 uA, energy=251297.395 uJ
+[13:23:57] INFO    [   4/5] TX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=65917.2 uA, energy=250761.359 uJ
+[13:24:02] INFO    [   5/5] TX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=66667.9 uA, energy=251069.570 uJ
+[13:24:02] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_132327_radio_ebyte_e22_sx1268
+[13:24:03] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:24:03] STEP    TX 32 B - 18 dBm - SF12, BW 125 kHz - attempt 1
+[13:24:03] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=18 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:24:03] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:24:03] INFO    Measured transmitter: COM52, 9600 baud
+[13:24:03] INFO    Peer receiver: COM51, 9600 baud
+[13:24:07] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:24:09] INFO    Configuring peer receiver on COM51 ...
+[13:24:18] INFO    [   1/5] TX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=66667.9 uA, energy=404744.736 uJ
+[13:24:26] INFO    [   2/5] TX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=66667.9 uA, energy=404773.498 uJ
+[13:24:33] INFO    [   3/5] TX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=67418.7 uA, energy=404667.043 uJ
+[13:24:41] INFO    [   4/5] TX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=67418.7 uA, energy=405011.883 uJ
+[13:24:49] INFO    [   5/5] TX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=66667.9 uA, energy=404086.416 uJ
+[13:24:49] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_132403_radio_ebyte_e22_sx1268
+[13:24:50] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:24:50] STEP    TX 128 B - 18 dBm - SF12, BW 125 kHz - attempt 1
+[13:24:50] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=18 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+[13:24:50] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:24:50] INFO    Measured transmitter: COM52, 9600 baud
+[13:24:50] INFO    Peer receiver: COM51, 9600 baud
+[13:24:53] INFO    Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:24:56] INFO    Configuring peer receiver on COM51 ...
+[13:25:12] INFO    [   1/5] TX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: rx_missing, peak=68920.6 uA, energy=1016651.903 uJ
+[13:25:27] INFO    [   2/5] TX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: rx_missing, peak=66667.9 uA, energy=1018671.859 uJ
+[13:25:43] INFO    [   3/5] TX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: rx_missing, peak=67418.7 uA, energy=1016930.437 uJ
+[13:25:58] INFO    [   4/5] TX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: rx_missing, peak=67418.7 uA, energy=1017286.661 uJ
+[13:26:13] INFO    [   5/5] TX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: rx_missing, peak=68920.6 uA, energy=1018069.069 uJ
+[13:26:13] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_132450_radio_ebyte_e22_sx1268
+[13:26:14] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:26:14] WARNING TX 128 B - 18 dBm - SF12, BW 125 kHz: 5 transfers have missing packets or fragments
+[13:26:14] STEP    RX 8 B - TX 18 dBm - SF7, BW 125 kHz - attempt 1
+[13:26:14] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction rx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=18 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_rx" --transmitter-port COM51 --save-raw
+[13:26:14] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:26:14] INFO    Measured receiver: COM52, 9600 baud
+[13:26:14] INFO    Peer transmitter: COM51, 9600 baud
+[13:26:18] INFO    Configuring measured receiver (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:26:20] INFO    Configuring peer transmitter on COM51 ...
+[13:26:25] INFO    [   1/5] RX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=12945.7 uA, energy=676.944 uJ
+[13:26:28] INFO    [   2/5] RX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=13000.6 uA, energy=673.711 uJ
+[13:26:32] INFO    [   3/5] RX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=12810.2 uA, energy=671.849 uJ
+[13:26:35] INFO    [   4/5] RX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=12617.8 uA, energy=666.539 uJ
+[13:26:39] INFO    [   5/5] RX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=13386.5 uA, energy=672.969 uJ
+[13:26:39] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_rx\20260721_132614_radio_ebyte_e22_sx1268_rx
+[13:26:40] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:26:40] STEP    RX 32 B - TX 18 dBm - SF7, BW 125 kHz - attempt 1
+[13:26:40] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction rx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=18 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_rx" --transmitter-port COM51 --save-raw
+[13:26:40] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:26:40] INFO    Measured receiver: COM52, 9600 baud
+[13:26:40] INFO    Peer transmitter: COM51, 9600 baud
+[13:26:43] INFO    Configuring measured receiver (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:26:46] INFO    Configuring peer transmitter on COM51 ...
+[13:26:50] INFO    [   1/5] RX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=12743.6 uA, energy=1328.335 uJ
+[13:26:54] INFO    [   2/5] RX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=13723.8 uA, energy=1326.671 uJ
+[13:26:57] INFO    [   3/5] RX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=12859.3 uA, energy=1331.732 uJ
+[13:27:01] INFO    [   4/5] RX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=12845.9 uA, energy=1321.798 uJ
+[13:27:05] INFO    [   5/5] RX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=12793.1 uA, energy=1324.809 uJ
+[13:27:05] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_rx\20260721_132640_radio_ebyte_e22_sx1268_rx
+[13:27:05] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:27:05] STEP    RX 128 B - TX 18 dBm - SF7, BW 125 kHz - attempt 1
+[13:27:05] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction rx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=18 --axis spreading_factor=7 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_rx" --transmitter-port COM51 --save-raw
+[13:27:05] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:27:05] INFO    Measured receiver: COM52, 9600 baud
+[13:27:05] INFO    Peer transmitter: COM51, 9600 baud
+[13:27:09] INFO    Configuring measured receiver (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:27:11] INFO    Configuring peer transmitter on COM51 ...
+[13:27:16] INFO    [   1/5] RX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 1: ok, peak=13584.1 uA, energy=4118.519 uJ
+[13:27:20] INFO    [   2/5] RX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 2: ok, peak=13065.9 uA, energy=3944.761 uJ
+[13:27:24] INFO    [   3/5] RX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 3: ok, peak=13732.5 uA, energy=3943.029 uJ
+[13:27:28] INFO    [   4/5] RX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 4: ok, peak=13694.1 uA, energy=3945.249 uJ
+[13:27:32] INFO    [   5/5] RX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 7, 'bandwidth_khz': 125}, rep 5: ok, peak=13546.3 uA, energy=3940.111 uJ
+[13:27:32] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_rx\20260721_132705_radio_ebyte_e22_sx1268_rx
+[13:27:33] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:27:33] STEP    RX 8 B - TX 18 dBm - SF9, BW 125 kHz - attempt 1
+[13:27:33] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction rx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=18 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_rx" --transmitter-port COM51 --save-raw
+[13:27:33] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:27:33] INFO    Measured receiver: COM52, 9600 baud
+[13:27:33] INFO    Peer transmitter: COM51, 9600 baud
+[13:27:37] INFO    Configuring measured receiver (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:27:39] INFO    Configuring peer transmitter on COM51 ...
+[13:27:44] INFO    [   1/5] RX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=13322.9 uA, energy=2276.937 uJ
+[13:27:47] INFO    [   2/5] RX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=13526.8 uA, energy=2266.101 uJ
+[13:27:51] INFO    [   3/5] RX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=12682.3 uA, energy=2252.291 uJ
+[13:27:55] INFO    [   4/5] RX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=13365.4 uA, energy=2271.332 uJ
+[13:27:58] INFO    [   5/5] RX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=13527.5 uA, energy=2275.632 uJ
+[13:27:58] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_rx\20260721_132733_radio_ebyte_e22_sx1268_rx
+[13:27:59] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:27:59] STEP    RX 32 B - TX 18 dBm - SF9, BW 125 kHz - attempt 1
+[13:27:59] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction rx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=18 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_rx" --transmitter-port COM51 --save-raw
+[13:27:59] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:27:59] INFO    Measured receiver: COM52, 9600 baud
+[13:27:59] INFO    Peer transmitter: COM51, 9600 baud
+[13:28:03] INFO    Configuring measured receiver (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:28:05] INFO    Configuring peer transmitter on COM51 ...
+[13:28:10] INFO    [   1/5] RX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=14286.2 uA, energy=4513.748 uJ
+[13:28:14] INFO    [   2/5] RX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=13623.0 uA, energy=4504.554 uJ
+[13:28:18] INFO    [   3/5] RX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=13268.8 uA, energy=4491.332 uJ
+[13:28:22] INFO    [   4/5] RX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=13380.9 uA, energy=4505.461 uJ
+[13:28:26] INFO    [   5/5] RX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=13132.0 uA, energy=4492.529 uJ
+[13:28:26] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_rx\20260721_132759_radio_ebyte_e22_sx1268_rx
+[13:28:27] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:28:27] STEP    RX 128 B - TX 18 dBm - SF9, BW 125 kHz - attempt 1
+[13:28:27] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction rx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=18 --axis spreading_factor=9 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_rx" --transmitter-port COM51 --save-raw
+[13:28:27] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:28:27] INFO    Measured receiver: COM52, 9600 baud
+[13:28:27] INFO    Peer transmitter: COM51, 9600 baud
+[13:28:31] INFO    Configuring measured receiver (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:28:33] INFO    Configuring peer transmitter on COM51 ...
+[13:28:39] INFO    [   1/5] RX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 1: ok, peak=13504.0 uA, energy=12319.850 uJ
+[13:28:44] INFO    [   2/5] RX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 2: ok, peak=13688.2 uA, energy=12323.788 uJ
+[13:28:49] INFO    [   3/5] RX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 3: ok, peak=13370.6 uA, energy=12340.788 uJ
+[13:28:54] INFO    [   4/5] RX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 4: ok, peak=13350.7 uA, energy=12273.760 uJ
+[13:28:59] INFO    [   5/5] RX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 9, 'bandwidth_khz': 125}, rep 5: ok, peak=13488.7 uA, energy=12301.435 uJ
+[13:28:59] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_rx\20260721_132827_radio_ebyte_e22_sx1268_rx
+[13:29:00] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:29:00] STEP    RX 8 B - TX 18 dBm - SF12, BW 125 kHz - attempt 1
+[13:29:00] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction rx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 8 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=18 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_rx" --transmitter-port COM51 --save-raw
+[13:29:00] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:29:00] INFO    Measured receiver: COM52, 9600 baud
+[13:29:00] INFO    Peer transmitter: COM51, 9600 baud
+[13:29:04] INFO    Configuring measured receiver (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:29:06] INFO    Configuring peer transmitter on COM51 ...
+[13:29:13] INFO    [   1/5] RX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=13412.3 uA, energy=18036.895 uJ
+[13:29:19] INFO    [   2/5] RX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=13289.1 uA, energy=17968.743 uJ
+[13:29:25] INFO    [   3/5] RX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=13761.5 uA, energy=18024.375 uJ
+[13:29:30] INFO    [   4/5] RX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=13811.9 uA, energy=18037.841 uJ
+[13:29:36] INFO    [   5/5] RX    8 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=13707.9 uA, energy=18001.589 uJ
+[13:29:36] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_rx\20260721_132900_radio_ebyte_e22_sx1268_rx
+[13:29:37] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:29:37] STEP    RX 32 B - TX 18 dBm - SF12, BW 125 kHz - attempt 1
+[13:29:37] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction rx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 32 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=18 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_rx" --transmitter-port COM51 --save-raw
+[13:29:37] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:29:37] INFO    Measured receiver: COM52, 9600 baud
+[13:29:37] INFO    Peer transmitter: COM51, 9600 baud
+[13:29:41] INFO    Configuring measured receiver (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:29:43] INFO    Configuring peer transmitter on COM51 ...
+[13:29:52] INFO    [   1/5] RX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=13910.7 uA, energy=32940.532 uJ
+[13:30:00] INFO    [   2/5] RX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=13570.8 uA, energy=32862.642 uJ
+[13:30:08] INFO    [   3/5] RX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=13862.2 uA, energy=32900.088 uJ
+[13:30:16] INFO    [   4/5] RX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=13575.9 uA, energy=32913.661 uJ
+[13:30:24] INFO    [   5/5] RX   32 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=13584.0 uA, energy=32986.357 uJ
+[13:30:24] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_rx\20260721_132937_radio_ebyte_e22_sx1268_rx
+[13:30:25] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:30:25] STEP    RX 128 B - TX 18 dBm - SF12, BW 125 kHz - attempt 1
+[13:30:25] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction rx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=18 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_rx" --transmitter-port COM51 --save-raw
+[13:30:25] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:30:25] INFO    Measured receiver: COM52, 9600 baud
+[13:30:25] INFO    Peer transmitter: COM51, 9600 baud
+[13:30:29] INFO    Configuring measured receiver (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+[13:30:31] INFO    Configuring peer transmitter on COM51 ...
+[13:30:48] INFO    [   1/5] RX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: ok, peak=13755.6 uA, energy=89990.648 uJ
+[13:31:04] INFO    [   2/5] RX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: ok, peak=14132.4 uA, energy=89739.079 uJ
+[13:31:20] INFO    [   3/5] RX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: ok, peak=13840.3 uA, energy=89804.990 uJ
+[13:31:36] INFO    [   4/5] RX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: ok, peak=13644.5 uA, energy=89972.549 uJ
+[13:31:51] INFO    [   5/5] RX  128 B, {'tx_power_dbm': 18, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: ok, peak=13819.8 uA, energy=89779.569 uJ
+[13:31:51] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_rx\20260721_133025_radio_ebyte_e22_sx1268_rx
+[13:31:52] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:31:52] STEP    Average TX power - SF9, BW 125 kHz - 60 s/power level - attempt 1
+[13:31:52] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E22_SX1268 --direction tx --powers=-9,10,18 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\continuous" --keep-power-on --axis spreading_factor=9 --axis bandwidth_khz=125 --save-raw
+[13:31:52] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:31:52] INFO    Continuous TX: 60 s per power, parameters={'spreading_factor': 9, 'bandwidth_khz': 125}, 64 B frames, 15 ms gap
+[13:33:53] INFO    [1/3] TX -9 dBm: mean=11.185 mA, power=36.909 mW, status=ok
+[13:35:57] INFO    [2/3] TX 10 dBm: mean=33.625 mA, power=110.961 mW, status=ok
+[13:37:59] INFO    [3/3] TX 18 dBm: mean=58.162 mA, power=191.934 mW, status=ok
+[13:38:00] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\continuous\20260721_133152_radio_ebyte_e22_sx1268_continuous_tx
+[13:38:00] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:38:00] STEP    Average RX power and loss - SF7, BW 125 kHz - 60 s/power level - attempt 1
+[13:38:00] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E22_SX1268 --direction rx --powers=-9,10,18 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\continuous" --keep-power-on --axis spreading_factor=7 --axis bandwidth_khz=125 --transmitter-port COM51 --save-raw
+[13:38:01] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:38:01] INFO    Continuous RX: 60 s per power, parameters={'spreading_factor': 7, 'bandwidth_khz': 125}, 64 B frames, 15 ms gap
+[13:40:04] INFO    [1/3] RX -9 dBm: mean=5.690 mA, power=18.777 mW, status=ok
+[13:42:02] INFO    [2/3] RX 10 dBm: mean=5.517 mA, power=18.208 mW, status=ok
+[13:44:00] INFO    [3/3] RX 18 dBm: mean=5.514 mA, power=18.196 mW, status=ok
+[13:44:00] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\continuous\20260721_133801_radio_ebyte_e22_sx1268_continuous_rx
+[13:44:01] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:44:01] STEP    Average RX power and loss - SF9, BW 125 kHz - 60 s/power level - attempt 1
+[13:44:01] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E22_SX1268 --direction rx --powers=-9,10,18 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\continuous" --keep-power-on --axis spreading_factor=9 --axis bandwidth_khz=125 --transmitter-port COM51 --save-raw
+[13:44:01] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:44:01] INFO    Continuous RX: 60 s per power, parameters={'spreading_factor': 9, 'bandwidth_khz': 125}, 64 B frames, 15 ms gap
+[13:46:06] INFO    [1/3] RX -9 dBm: mean=5.762 mA, power=19.015 mW, status=ok
+[13:48:12] INFO    [2/3] RX 10 dBm: mean=5.591 mA, power=18.449 mW, status=ok
+[13:50:19] INFO    [3/3] RX 18 dBm: mean=5.500 mA, power=18.150 mW, status=ok
+[13:50:19] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\continuous\20260721_134401_radio_ebyte_e22_sx1268_continuous_rx
+[13:50:20] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:50:20] STEP    Average RX power and loss - SF12, BW 125 kHz - 60 s/power level - attempt 1
+[13:50:20] COMMAND $ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler continuous --module RADIO_EBYTE_E22_SX1268 --direction rx --powers=-9,10,18 --frame-bytes 64 --gap-ms 15 --duration-s 60 --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\continuous" --keep-power-on --axis spreading_factor=12 --axis bandwidth_khz=125 --transmitter-port COM51 --save-raw
+[13:50:20] INFO    PPK2: COM11, mode=ampere, input voltage=3300 mV
+[13:50:20] INFO    Continuous RX: 60 s per power, parameters={'spreading_factor': 12, 'bandwidth_khz': 125}, 64 B frames, 15 ms gap
+[13:52:29] INFO    [1/3] RX -9 dBm: mean=5.789 mA, power=19.105 mW, status=ok
+[13:54:31] INFO    [2/3] RX 10 dBm: mean=5.607 mA, power=18.504 mW, status=ok
+[13:56:34] INFO    [3/3] RX 18 dBm: mean=5.508 mA, power=18.176 mW, status=ok
+[13:56:34] INFO    Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\continuous\20260721_135020_radio_ebyte_e22_sx1268_continuous_rx
+[13:56:35] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[13:56:35] FINISH  Test completed successfully
+[13:56:35] CALLBACK Codex completion callback started
+[13:57:00] CALLBACK Codex completion notification displayed; automatic result analysis started
+[14:00:23] WARNING PPK2 current-path guard released for an external diagnostic; VIN -> VOUT remains enabled
+[14:00:23] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[14:00:53] WARNING PPK2 current-path guard released for an external diagnostic; VIN -> VOUT remains enabled
+[14:02:20] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)
+[14:02:37] WARNING PPK2 current-path guard released for an external diagnostic; VIN -> VOUT remains enabled
+[14:05:28] INFO    PPK2 current path enabled and guarded (external VIN -> VOUT)

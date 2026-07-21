@@ -1,0 +1,119 @@
+{
+  "created_utc": "2026-07-21T11:04:03+00:00",
+  "profile": {
+    "profile_id": "RADIO_EBYTE_E22_SX1268",
+    "display_name": "Ebyte E22 direct SPI (SX1268)",
+    "firmware_selection": "RADIO_EBYTE_E22_SX1268 + AT_COMMANDS",
+    "baudrate": 9600,
+    "setup_commands": [
+      "AT",
+      "AT+RESET",
+      "AT+DEBUG=OFF",
+      "AT+RX=OFF",
+      "AT+CRC=ON",
+      "AT+HEADER=EXPLICIT"
+    ],
+    "post_config_commands": [
+      "AT+RX=OFF"
+    ],
+    "receiver_enable_commands": [
+      "AT+RX=ON"
+    ],
+    "payload_sizes": [
+      128
+    ],
+    "repetitions": 5,
+    "cooldown_s": 2.0,
+    "axes": [
+      {
+        "name": "tx_power_dbm",
+        "values": [
+          18
+        ],
+        "command": "AT+PWR={value}",
+        "commands": {},
+        "expected_responses": {},
+        "label": "SX1268 front-stage TX power (dBm)"
+      },
+      {
+        "name": "spreading_factor",
+        "values": [
+          12
+        ],
+        "command": "AT+SF={value}",
+        "commands": {},
+        "expected_responses": {},
+        "label": "LoRa spreading factor"
+      },
+      {
+        "name": "bandwidth_khz",
+        "values": [
+          125
+        ],
+        "command": "AT+BW={value}",
+        "commands": {},
+        "expected_responses": {},
+        "label": "LoRa bandwidth (kHz)"
+      }
+    ],
+    "transmit": {
+      "mode": "text_line",
+      "command": null,
+      "line_overhead_bytes": 0,
+      "max_payload_bytes": 255,
+      "frame_payload_bytes": null,
+      "wait_for_ok": false
+    },
+    "receive": {
+      "inter_frame_gap_ms": 0.0,
+      "post_receive_s": 0.25
+    },
+    "capture": {
+      "pre_s": 0.2,
+      "post_s": 0.25,
+      "minimum_after_trigger_s": 0.5,
+      "max_after_trigger_s": 15.0,
+      "threshold_margin_uA": 500.0,
+      "merge_gap_ms": 0.5,
+      "minimum_event_ms": 0.05,
+      "search_window_margin_s": 0.15,
+      "align_tx_airtime_window": false
+    },
+    "airtime": {
+      "kind": "lora",
+      "sf_axis": "spreading_factor",
+      "bw_axis": "bandwidth_khz",
+      "bw_multiplier": 1000,
+      "coding_rate_denominator": 5,
+      "preamble_symbols": 8,
+      "crc": true,
+      "implicit_header": false
+    },
+    "inter_run_commands": [],
+    "power_cycle_between_runs": false,
+    "power_cycle_min_airtime_s": 0.0,
+    "power_cycle_off_s": 1.0,
+    "restore_after_receive": true,
+    "warmup_transfers": 0,
+    "reopen_continuous_between_powers": false,
+    "continuous_inter_power_commands": [],
+    "continuous_reopen_setup_commands": [],
+    "parameter_verification_command": null,
+    "notes": [
+      "AT+PWR controls the SX1268 front-stage setting; on the E22-400M30S, the maximum accepted value of 18 corresponds to approximately 30 dBm module output.",
+      "The 250 ms receive tail allows a complete 128-byte packet report to leave the ESP32 at 9600 baud before packet-delivery validation."
+    ]
+  },
+  "measurement_direction": "tx",
+  "measured_port": "COM52",
+  "radio_port": "COM52",
+  "transmitter_port": "COM52",
+  "receiver_port": "COM51",
+  "peer_port": "COM51",
+  "ppk_port": "COM11",
+  "ppk_mode": "ampere",
+  "voltage_mv": 3300,
+  "sample_rate_hz": 100000,
+  "save_raw": true,
+  "test_count": 5
+}

@@ -37,6 +37,16 @@ class PlanningTests(unittest.TestCase):
         )
         self.assertAlmostEqual(airtime, 0.056576, places=6)
 
+    def test_e22_profile_waits_for_full_128_byte_uart_confirmation(self):
+        profile = load_profile("RADIO_EBYTE_E22_SX1268")
+
+        self.assertIn("E22-400M30S", profile.display_name)
+        self.assertEqual(profile.receiver_enable_commands, ("AT+RX=ON",))
+        self.assertGreater(
+            profile.receive.post_receive_s,
+            128 * 10 / profile.baudrate,
+        )
+
     def test_xl1276_profile_supports_controlled_rx_and_continuous_sweeps(self):
         profile = load_profile("RADIO_XL1276_D01_SX1276")
         self.assertIn("AT+CR=5", profile.setup_commands)

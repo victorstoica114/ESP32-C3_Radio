@@ -383,7 +383,7 @@ class SerialRadio:
             for fragment in axis.expected_responses_for(parameters[axis.name])
         )
         if not verification_command or not expected:
-            return self.configure(commands, attempts=attempts)
+            return self.configure(changed_commands, attempts=attempts)
 
         last_error: RadioCommandError | None = None
         for attempt in range(1, attempts + 1):

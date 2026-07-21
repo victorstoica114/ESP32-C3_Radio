@@ -68,6 +68,27 @@ class SerialRadioTests(unittest.TestCase):
 
         self.assertEqual(radio.command.call_count, 2)
 
+    def test_unverified_profile_configures_changed_parameter_commands(self):
+        radio = SerialRadio.__new__(SerialRadio)
+        radio.configure = Mock(return_value=[])
+        profile = load_profile("RADIO_EBYTE_E22_SX1268")
+
+        radio.configure_profile_parameters(
+            profile,
+            {
+                "tx_power_dbm": 18,
+                "spreading_factor": 7,
+                "bandwidth_khz": 125,
+            },
+            previous_parameters={
+                "tx_power_dbm": 10,
+                "spreading_factor": 7,
+                "bandwidth_khz": 125,
+            },
+        )
+
+        radio.configure.assert_called_once_with(["AT+PWR=18"], attempts=3)
+
     def test_verified_parameters_retry_full_selection_after_readback_mismatch(self):
         radio = SerialRadio.__new__(SerialRadio)
         radio.configure = Mock(

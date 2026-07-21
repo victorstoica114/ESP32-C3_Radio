@@ -382,6 +382,30 @@ class WebAppTests(unittest.TestCase):
             all("bandwidth_khz=125" in step.command for step in continuous)
         )
 
+    def test_e22_campaign_uses_firmware_valid_front_stage_power(self):
+        config = WebConfig(
+            profile_id="RADIO_EBYTE_E22_SX1268",
+            measured_port="COM52",
+            peer_port="COM51",
+            ppk_port="COM11",
+        )
+        config.validate()
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            quick = build_quick_steps(config, root / "quick")
+            campaign = build_campaign_steps(config, root / "campaign")
+
+        self.assertTrue(
+            any("tx_power_dbm=18" in step.command for step in quick)
+        )
+        self.assertFalse(
+            any("tx_power_dbm=22" in step.command for step in quick)
+        )
+        continuous = [step for step in campaign if step.result_kind == "continuous"]
+        self.assertTrue(
+            all("--powers=-9,10,18" in step.command for step in continuous)
+        )
+
     def test_hc12_campaign_uses_datasheet_safe_continuous_gaps(self):
         config = WebConfig(
             profile_id="RADIO_HC12",

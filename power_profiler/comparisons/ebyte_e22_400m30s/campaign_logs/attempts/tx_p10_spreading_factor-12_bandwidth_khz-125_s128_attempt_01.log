@@ -1,0 +1,12 @@
+$ "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\.venv\Scripts\python.exe" -u -m radio_power_profiler run --module RADIO_EBYTE_E22_SX1268 --direction tx --radio-port COM52 --ppk-port COM11 --voltage-mv 3300 --sizes 128 --repetitions 5 --cooldown-s 2 --keep-power-on --axis tx_power_dbm=10 --axis spreading_factor=12 --axis bandwidth_khz=125 --output "C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx" --receiver-port COM51 --save-raw
+PPK2: COM11, mode=ampere, input voltage=3300 mV
+Measured transmitter: COM52, 9600 baud
+Peer receiver: COM51, 9600 baud
+Configuring measured transmitter (Ebyte E22 direct SPI (SX1268)) on COM52 ...
+Configuring peer receiver on COM51 ...
+[   1/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 1: rx_missing, peak=38516.6 uA, energy=589359.151 uJ
+[   2/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 2: rx_missing, peak=38464.9 uA, energy=589557.651 uJ
+[   3/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 3: rx_missing, peak=38671.8 uA, energy=589245.321 uJ
+[   4/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 4: rx_missing, peak=38568.4 uA, energy=588879.909 uJ
+[   5/5] TX  128 B, {'tx_power_dbm': 10, 'spreading_factor': 12, 'bandwidth_khz': 125}, rep 5: rx_missing, peak=38361.6 uA, energy=589120.877 uJ
+Results: C:\Users\Alexandru\Desktop\module radio\ESP32-C3_Radio\power_profiler\web_sessions\20260721_130947_campaign_radio_ebyte_e22_sx1268\packet_tx\20260721_131922_radio_ebyte_e22_sx1268

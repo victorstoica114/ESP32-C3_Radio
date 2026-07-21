@@ -543,10 +543,20 @@ def _copy_provenance(manifest_path: Path, output: Path) -> None:
                 shutil.copy2(source, target)
 
 
-def generate(manifest_path: Path, output: Path, base_name: str) -> list[Path]:
+def generate(
+    manifest_path: Path,
+    output: Path,
+    base_name: str,
+    module_name: str | None = None,
+) -> list[Path]:
     manifest = _manifest(manifest_path)
     packet, raw = _packet_rows(manifest)
     continuous = _continuous_rows(manifest)
+    if module_name:
+        for row in packet:
+            row["module"] = module_name
+        for row in continuous:
+            row["module"] = module_name
     loss = _loss_rows(continuous)
     output.mkdir(parents=True, exist_ok=True)
     base = output / base_name
@@ -604,8 +614,14 @@ def main() -> int:
     parser.add_argument("manifest", type=Path)
     parser.add_argument("output_dir", type=Path)
     parser.add_argument("--base-name", required=True)
+    parser.add_argument("--module-name")
     args = parser.parse_args()
-    for output in generate(args.manifest, args.output_dir, args.base_name):
+    for output in generate(
+        args.manifest,
+        args.output_dir,
+        args.base_name,
+        module_name=args.module_name,
+    ):
         print(output.resolve())
     return 0
 
