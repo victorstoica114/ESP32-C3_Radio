@@ -31,6 +31,10 @@ CYAN = (0.05, 0.56, 0.62)
 GRAY = (0.42, 0.45, 0.49)
 YELLOW = (0.88, 0.66, 0.04)
 PALETTE = (BLUE, RED, GREEN, ORANGE, PURPLE, CYAN, YELLOW, GRAY)
+TICK_FONT_SIZE = 18.0
+LEGEND_FONT_SIZE = 18.0
+AXIS_FONT_SIZE = 20.0
+DATA_LABEL_FONT_SIZE = 16.0
 
 
 @dataclass(frozen=True)
@@ -441,19 +445,20 @@ def write_tables(
     tables = STUDY_DIR / "tables"
     tables.mkdir(parents=True, exist_ok=True)
     catalog_lines = [
-        r"\begin{longtable}{@{}p{0.065\linewidth}p{0.17\linewidth}p{0.105\linewidth}p{0.065\linewidth}p{0.065\linewidth}p{0.17\linewidth}p{0.14\linewidth}p{0.12\linewidth}@{}}",
+        r"\captionsetup{justification=raggedright,singlelinecheck=false}",
+        r"\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.11\linewidth}>{\raggedright\arraybackslash}p{0.075\linewidth}>{\raggedright\arraybackslash}p{0.075\linewidth}>{\raggedright\arraybackslash}p{0.18\linewidth}>{\raggedright\arraybackslash}p{0.15\linewidth}>{\raggedright\arraybackslash}p{0.14\linewidth}@{}}",
         r"\caption{Measured module and hardware-variant catalog. Rates and powers are the settings exercised in this campaign, not the full capabilities of each chipset.}\label{tab:catalog}\\",
         r"\toprule",
-        r"ID & Module/variant & Radio IC & Band & I/F & Tested PHY/modulation & Tested rates & Tested power \\ \midrule",
+        r"Module/variant & Radio IC & Band & I/F & Tested PHY/modulation & Tested rates & Tested power \\ \midrule",
         r"\endfirsthead",
-        r"\toprule ID & Module/variant & Radio IC & Band & I/F & Tested PHY/modulation & Tested rates & Tested power \\ \midrule",
+        r"\toprule Module/variant & Radio IC & Band & I/F & Tested PHY/modulation & Tested rates & Tested power \\ \midrule",
         r"\endhead",
     ]
     for row in summary:
         catalog_lines.append(
             " & ".join(
                 latex_escape(row[key])
-                for key in ("code", "label", "chip", "band", "interface", "modulation", "configured_rates", "tested_powers")
+                for key in ("label", "chip", "band", "interface", "modulation", "configured_rates", "tested_powers")
             )
             + r" \\"
         )
@@ -518,11 +523,11 @@ def write_tables(
 
 
 def title(canvas: PdfCanvas, value: str, subtitle: str = "") -> None:
-    size = min(17.0, (canvas.width - 50) / max(1.0, len(value) * 0.58))
-    canvas.text(max(25.0, (canvas.width - len(value) * size * 0.58) / 2.0), canvas.height - 35, value, size=size, bold=True)
+    size = min(24.0, (canvas.width - 60) / max(1.0, len(value) * 0.68))
+    canvas.text(max(30.0, (canvas.width - len(value) * size * 0.68) / 2.0), canvas.height - 35, value, size=size, bold=True)
     if subtitle:
-        sub_size = min(9.0, (canvas.width - 50) / max(1.0, len(subtitle) * 0.58))
-        canvas.text(max(25.0, (canvas.width - len(subtitle) * sub_size * 0.58) / 2.0), canvas.height - 56, subtitle, size=sub_size, color=GRAY)
+        sub_size = min(12.0, (canvas.width - 60) / max(1.0, len(subtitle) * 0.68))
+        canvas.text(max(30.0, (canvas.width - len(subtitle) * sub_size * 0.68) / 2.0), canvas.height - 56, subtitle, size=sub_size, color=GRAY)
 
 
 def log_ticks(low: float, high: float) -> list[float]:
@@ -539,6 +544,8 @@ def log_ticks(low: float, high: float) -> list[float]:
 
 def fmt_tick(value: float) -> str:
     if value >= 1000:
+        if math.isclose(value, 1024.0):
+            return "1k"
         return f"{value / 1000:g}k"
     if value >= 1:
         return f"{value:g}"
@@ -583,21 +590,21 @@ def dot_comparison(
     for tick in ticks:
         px = _map(tick, low, high, box[0], box[2], log_x)
         canvas.line(px, box[1], px, box[1] + box[3], color=GRID, width=0.7)
-        canvas.text(px - 10, box[1] - 21, fmt_tick(tick), size=8)
+        canvas.text(px - 18, box[1] - 28, fmt_tick(tick), size=TICK_FONT_SIZE, bold=True)
     for index, row in enumerate(ordered):
         py = box[1] + (index + 0.5) * box[3] / len(ordered)
-        canvas.text(20, py - 3, str(row["code"]), size=8, bold=True)
+        canvas.text(20, py - 6, str(row["code"]), size=TICK_FONT_SIZE, bold=True)
         first = _map(float(row[left_key]), low, high, box[0], box[2], log_x)
         second = _map(float(row[right_key]), low, high, box[0], box[2], log_x)
         canvas.line(first, py, second, py, color=GRAY, width=1.2)
         canvas.marker(first, py, color=BLUE, kind=2, radius=4)
         canvas.marker(second, py, color=RED, kind=0, radius=4)
     canvas.line(box[0], box[1], box[0] + box[2], box[1], width=1.2)
-    canvas.text(460, 35, unit, size=9, bold=True)
-    canvas.marker(420, 678, color=BLUE, kind=2, radius=4)
-    canvas.text(430, 674, left_label, size=9)
-    canvas.marker(620, 678, color=RED, kind=0, radius=4)
-    canvas.text(630, 674, right_label, size=9)
+    canvas.text(380, 27, unit, size=AXIS_FONT_SIZE, bold=True)
+    canvas.marker(385, 678, color=BLUE, kind=2, radius=5)
+    canvas.text(399, 670, left_label, size=LEGEND_FONT_SIZE, bold=True)
+    canvas.marker(620, 678, color=RED, kind=0, radius=5)
+    canvas.text(634, 670, right_label, size=LEGEND_FONT_SIZE, bold=True)
     canvas.save(path)
 
 
@@ -612,11 +619,11 @@ def scatter_rate_energy(path: Path, rows: Sequence[dict[str, object]]) -> None:
     for tick in log_ticks(*x_range):
         px = _map(tick, *x_range, box[0], box[2], True)
         canvas.line(px, box[1], px, box[1] + box[3], color=GRID, width=0.7)
-        canvas.text(px - 12, box[1] - 20, fmt_tick(tick), size=8)
+        canvas.text(px - 18, box[1] - 28, fmt_tick(tick), size=TICK_FONT_SIZE, bold=True)
     for tick in log_ticks(*y_range):
         py = _map(tick, *y_range, box[1], box[3], True)
         canvas.line(box[0], py, box[0] + box[2], py, color=GRID, width=0.7)
-        canvas.text(box[0] - 43, py - 3, fmt_tick(tick), size=8)
+        canvas.text(box[0] - 62, py - 6, fmt_tick(tick), size=TICK_FONT_SIZE, bold=True)
     families = {family: index for index, family in enumerate(sorted({str(row["family"]) for row in rows}))}
     plotted: list[tuple[int, dict[str, object], float, float, tuple[float, float, float]]] = []
     for index, row in enumerate(rows):
@@ -632,21 +639,21 @@ def scatter_rate_energy(path: Path, rows: Sequence[dict[str, object]]) -> None:
         points.sort(key=lambda point: point[3])
         if len(points) > 2:
             center = sum(point[3] for point in points) / len(points)
-            start = center - (len(points) - 1) * 5.5
-            label_x = points[0][2] + 12 if points[0][2] < box[0] + box[2] * 0.55 else points[0][2] - 66
+            start = center - (len(points) - 1) * 8.5
+            label_x = points[0][2] + 12 if points[0][2] < box[0] + box[2] * 0.55 else points[0][2] - 104
             for offset, (_, row, px, py, color) in enumerate(points):
-                label_y = start + offset * 11
+                label_y = start + offset * 17
                 canvas.line(px, py, label_x, label_y + 2, color=color, width=0.5)
-                canvas.text(label_x, label_y, str(row["code"]), size=7, color=color, bold=True)
+                canvas.text(label_x, label_y, str(row["code"]), size=DATA_LABEL_FONT_SIZE, color=color, bold=True)
         else:
             for index, row, px, py, color in points:
-                dx = 7 if px < box[0] + box[2] * 0.75 else -42
-                dy = 8 if index % 2 == 0 else -13
-                canvas.text(px + dx, py + dy, str(row["code"]), size=7, color=color, bold=True)
+                dx = 9 if px < box[0] + box[2] * 0.75 else -78
+                dy = 10 if index % 2 == 0 else -17
+                canvas.text(px + dx, py + dy, str(row["code"]), size=DATA_LABEL_FONT_SIZE, color=color, bold=True)
     canvas.line(box[0], box[1], box[0] + box[2], box[1], width=1.2)
     canvas.line(box[0], box[1], box[0], box[1] + box[3], width=1.2)
-    canvas.text(440, 48, "Configured gross rate [kbps]", size=9, bold=True)
-    canvas.text(18, 558, "32-byte TX energy [mJ]", size=8, bold=True)
+    canvas.text(340, 38, "Configured gross rate [kbps]", size=AXIS_FONT_SIZE, bold=True)
+    canvas.text(100, 538, "32-byte TX energy [mJ]", size=AXIS_FONT_SIZE, bold=True)
     canvas.save(path)
 
 
@@ -675,72 +682,78 @@ def payload_energy_figure(
         ),
     )
     selected_rows = [row for row in payload_rows if row["direction"] == direction]
-    canvas = PdfCanvas(1120, 820)
     direction_name = direction.upper()
-    title(
-        canvas,
-        f"{direction_name} energy versus measured logical payload size",
-        "Fastest tested mode and highest tested configured power per module; logarithmic energy axis",
-    )
-    panel_origins = ((65.0, 430.0), (615.0, 430.0), (65.0, 75.0), (615.0, 75.0))
-    plot_width = 440.0
-    plot_height = 225.0
     payload_index = {payload: index for index, payload in enumerate(payload_sizes)}
 
-    for panel_index, ((panel_title, slugs), (left, bottom)) in enumerate(zip(groups, panel_origins)):
-        panel_rows = [row for row in selected_rows if row["slug"] in slugs]
-        energies = [float(row["energy_mJ"]) for row in panel_rows]
-        y_range = (min(energies) * 0.65, max(energies) * 1.65)
-        canvas.text(left, bottom + plot_height + 65, panel_title, size=10, bold=True)
-        canvas.text(left, bottom + plot_height + 50, f"{direction_name} packet energy [mJ]", size=7, bold=True)
+    for sheet_index, sheet_groups in enumerate((groups[:2], groups[2:])):
+        canvas = PdfCanvas(1120, 1200)
+        continuation = " (continued)" if sheet_index else ""
+        title(
+            canvas,
+            f"{direction_name} energy versus measured logical payload size{continuation}",
+            "Fastest tested mode and highest tested configured power per module; logarithmic energy axis",
+        )
+        panel_origins = ((105.0, 650.0), (105.0, 100.0))
+        plot_width = 910.0
+        plot_height = 340.0
 
-        module_codes = sorted({str(row["code"]) for row in panel_rows})
-        code_style = {
-            code: (PALETTE[index % len(PALETTE)], index)
-            for index, code in enumerate(module_codes)
-        }
-        for index, code in enumerate(module_codes):
-            color, marker = code_style[code]
-            legend_column = index % 4
-            legend_row = index // 4
-            lx = left + legend_column * 108
-            ly = bottom + plot_height + 34 - legend_row * 13
-            canvas.line(lx, ly + 2, lx + 15, ly + 2, color=color, width=1.3)
-            canvas.marker(lx + 7.5, ly + 2, color=color, kind=marker, radius=2.8)
-            canvas.text(lx + 19, ly - 1, code, size=6.5, color=color, bold=True)
+        for local_index, ((panel_title, slugs), (left, bottom)) in enumerate(zip(sheet_groups, panel_origins)):
+            panel_index = sheet_index * 2 + local_index
+            panel_rows = [row for row in selected_rows if row["slug"] in slugs]
+            energies = [float(row["energy_mJ"]) for row in panel_rows]
+            y_range = (min(energies) * 0.65, max(energies) * 1.65)
+            canvas.text(left, bottom + plot_height + 94, panel_title, size=19, bold=True)
+            canvas.text(left, bottom + plot_height + 70, f"{direction_name} packet energy [mJ]", size=AXIS_FONT_SIZE, bold=True)
 
-        for tick in log_ticks(*y_range):
-            py = _map(tick, *y_range, bottom, plot_height, True)
-            canvas.line(left, py, left + plot_width, py, color=GRID, width=0.55)
-            canvas.text(left - 34, py - 3, fmt_tick(tick), size=6.5)
-        for payload in payload_sizes:
-            index = payload_index[payload]
-            px = left + index * plot_width / max(1, len(payload_sizes) - 1)
-            canvas.line(px, bottom, px, bottom + plot_height, color=GRID, width=0.4)
-            canvas.text(px - (8 if payload < 100 else 12), bottom - 15, str(payload), size=6.5)
+            module_codes = sorted({str(row["code"]) for row in panel_rows})
+            code_style = {
+                code: (PALETTE[index % len(PALETTE)], index)
+                for index, code in enumerate(module_codes)
+            }
+            for index, code in enumerate(module_codes):
+                color, marker = code_style[code]
+                legend_column = index % 4
+                legend_row = index // 4
+                lx = left + legend_column * 225
+                ly = bottom + plot_height + 48 - legend_row * 22
+                canvas.line(lx, ly + 4, lx + 20, ly + 4, color=color, width=1.6)
+                canvas.marker(lx + 10, ly + 4, color=color, kind=marker, radius=4.0)
+                canvas.text(lx + 27, ly - 3, code, size=LEGEND_FONT_SIZE, color=color, bold=True)
 
-        for code in module_codes:
-            series = sorted(
-                (row for row in panel_rows if row["code"] == code),
-                key=lambda row: int(row["payload_bytes"]),
-            )
-            color, marker = code_style[code]
-            mapped = [
-                (
-                    left + payload_index[int(row["payload_bytes"])] * plot_width / max(1, len(payload_sizes) - 1),
-                    _map(float(row["energy_mJ"]), *y_range, bottom, plot_height, True),
+            for tick in log_ticks(*y_range):
+                py = _map(tick, *y_range, bottom, plot_height, True)
+                canvas.line(left, py, left + plot_width, py, color=GRID, width=0.65)
+                canvas.text(left - 64, py - 6, fmt_tick(tick), size=TICK_FONT_SIZE, bold=True)
+            for payload in payload_sizes:
+                index = payload_index[payload]
+                px = left + index * plot_width / max(1, len(payload_sizes) - 1)
+                canvas.line(px, bottom, px, bottom + plot_height, color=GRID, width=0.5)
+                canvas.text(px - (14 if payload < 100 else 24), bottom - 28, str(payload), size=TICK_FONT_SIZE, bold=True)
+
+            for code in module_codes:
+                series = sorted(
+                    (row for row in panel_rows if row["code"] == code),
+                    key=lambda row: int(row["payload_bytes"]),
                 )
-                for row in series
-            ]
-            canvas.polyline(mapped, color=color, width=1.4)
-            for px, py in mapped:
-                canvas.marker(px, py, color=color, kind=marker, radius=3.2)
+                color, marker = code_style[code]
+                mapped = [
+                    (
+                        left + payload_index[int(row["payload_bytes"])] * plot_width / max(1, len(payload_sizes) - 1),
+                        _map(float(row["energy_mJ"]), *y_range, bottom, plot_height, True),
+                    )
+                    for row in series
+                ]
+                canvas.polyline(mapped, color=color, width=1.7)
+                for px, py in mapped:
+                    canvas.marker(px, py, color=color, kind=marker, radius=4.0)
 
-        canvas.line(left, bottom, left + plot_width, bottom, width=1.0)
-        canvas.line(left, bottom, left, bottom + plot_height, width=1.0)
-        canvas.text(left + 178, bottom - 31, "Logical payload [bytes]", size=7, bold=True)
-        canvas.text(left + plot_width - 35, bottom + plot_height + 3, chr(ord("A") + panel_index), size=9, bold=True)
-    canvas.save(path)
+            canvas.line(left, bottom, left + plot_width, bottom, width=1.1)
+            canvas.line(left, bottom, left, bottom + plot_height, width=1.1)
+            canvas.text(left + 325, bottom - 52, "Logical payload [bytes]", size=AXIS_FONT_SIZE, bold=True)
+            canvas.text(left + plot_width - 22, bottom + plot_height + 5, chr(ord("A") + panel_index), size=16, bold=True)
+
+        output_path = path if sheet_index == 0 else path.with_name(f"{path.stem}_continued{path.suffix}")
+        canvas.save(output_path)
 
 
 def linear_axis(maximum: float, divisions: int = 4) -> tuple[float, list[float]]:
@@ -786,18 +799,18 @@ def two_board_panel(
         x_low -= margin
         x_high += margin
 
-    canvas.text(left, bottom + height + 32, panel_title, size=9.5, bold=True)
-    canvas.text(left, bottom + height + 18, y_label, size=7, bold=True)
-    canvas.text(left + width - 16, bottom + height + 7, letter, size=9, bold=True)
+    canvas.text(left, bottom + height + 43, panel_title, size=19, bold=True)
+    canvas.text(left, bottom + height + 19, y_label, size=AXIS_FONT_SIZE, bold=True)
+    canvas.text(left + width - 16, bottom + height + 7, letter, size=15, bold=True)
     for tick in y_ticks:
         py = _map(tick, *y_range, bottom, height, y_log)
         canvas.line(left, py, left + width, py, color=GRID, width=0.55)
-        canvas.text(left - 34, py - 3, fmt_tick(tick), size=6.5)
+        canvas.text(left - 58, py - 6, fmt_tick(tick), size=TICK_FONT_SIZE, bold=True)
     for tick in x_ticks:
         px = _map(tick, x_low, x_high, left, width, x_log)
         canvas.line(px, bottom, px, bottom + height, color=GRID, width=0.45)
         label = fmt_tick(tick)
-        canvas.text(px - len(label) * 2.0, bottom - 15, label, size=6.5)
+        canvas.text(px - len(label) * 4.8, bottom - 27, label, size=TICK_FONT_SIZE, bold=True)
 
     styles = {
         "V1 433 MHz": (BLUE, 2),
@@ -818,7 +831,7 @@ def two_board_panel(
 
     canvas.line(left, bottom, left + width, bottom, width=1.0)
     canvas.line(left, bottom, left, bottom + height, width=1.0)
-    canvas.text(left + width / 2.0 - len(x_label) * 2.1, bottom - 31, x_label, size=7, bold=True)
+    canvas.text(left + width / 2.0 - len(x_label) * 5.5, bottom - 51, x_label, size=AXIS_FONT_SIZE, bold=True)
 
 
 def cc1101_legend(canvas: PdfCanvas, y: float) -> None:
@@ -828,7 +841,7 @@ def cc1101_legend(canvas: PdfCanvas, y: float) -> None:
         left = 345 + index * 245
         canvas.line(left, y, left + 24, y, color=color, width=1.8)
         canvas.marker(left + 12, y, color=color, kind=marker, radius=4)
-        canvas.text(left + 32, y - 4, label, size=8, color=color, bold=True)
+        canvas.text(left + 32, y - 8, label, size=LEGEND_FONT_SIZE, color=color, bold=True)
 
 
 def cc1101_continuous_figure(path: Path, rows: Sequence[dict[str, object]]) -> None:
@@ -947,6 +960,7 @@ def continuous_power_pair_figure(
                     "baseline_mean_uA": number(row, "baseline_mean_uA"),
                     "frames_transmitted": round(number(row, "frames_transmitted")),
                     "frames_received": round(number(row, "frames_received")),
+                    "status": row.get("status", ""),
                 }
             )
 
@@ -963,19 +977,18 @@ def continuous_power_pair_figure(
 
     for (metric, panel_title, panel_code), box in zip(panels, boxes):
         upper, ticks = linear_ticks(max(float(row[metric]) for row in normalized) * 1.05)
-        canvas.text(box[0], 516, panel_title, size=11, bold=True)
-        canvas.text(box[0] + box[2] - 12, 516, panel_code, size=10, bold=True)
+        canvas.text(box[0], 516, panel_title, size=18, bold=True)
+        canvas.text(box[0] + box[2] - 12, 516, panel_code, size=15, bold=True)
         for tick in ticks:
             py = _map(tick, 0.0, upper, box[1], box[3], False)
             canvas.line(box[0], py, box[0] + box[2], py, color=GRID, width=0.6)
-            canvas.text(box[0] - 38, py - 3, fmt_tick(tick), size=7)
+            canvas.text(box[0] - 62, py - 6, fmt_tick(tick), size=TICK_FONT_SIZE, bold=True)
         for power in powers:
             px = _map(power, *x_range, box[0], box[2], False)
             canvas.line(px, box[1], px, box[1] + box[3], color=GRID, width=0.5)
-            canvas.text(px - 10, box[1] - 19, f"{power:g}", size=7)
+            canvas.text(px - 16, box[1] - 29, f"{power:g}", size=TICK_FONT_SIZE, bold=True)
 
-        legend_items = []
-        for variant_index, (_, variant_label) in enumerate(variants):
+        for variant_index, _ in enumerate(variants):
             for direction in ("tx", "rx"):
                 color = BLUE if direction == "tx" else RED
                 dash = "[] 0" if variant_index == 0 else "[6 4] 0"
@@ -997,29 +1010,162 @@ def continuous_power_pair_figure(
                 canvas.polyline(points, color=color, width=1.8, dash=dash)
                 for px, py in points:
                     canvas.marker(px, py, color=color, kind=variant_index, radius=4.2)
-                legend_items.append((variant_label, direction.upper(), color, variant_index, dash))
-
-        for index, (variant_label, direction, color, marker, dash) in enumerate(legend_items):
-            column = index % 2
-            row_index = index // 2
-            lx = box[0] + column * 205
-            ly = 490 - row_index * 17
-            canvas.line(lx, ly, lx + 24, ly, color=color, width=1.8, dash=dash)
-            canvas.marker(lx + 12, ly, color=color, kind=marker, radius=3.5)
-            canvas.text(lx + 31, ly - 3, f"{variant_label} {direction}", size=7.5, color=color, bold=True)
 
         canvas.line(box[0], box[1], box[0] + box[2], box[1], width=1.1)
         canvas.line(box[0], box[1], box[0], box[1] + box[3], width=1.1)
-        canvas.text(box[0] + 158, 55, "Configured RF power [dBm]", size=8, bold=True)
-        canvas.text(box[0] - 8, 455, "Power [mW]", size=7.5, bold=True)
+        canvas.text(box[0] + 74, 42, "Configured RF power [dBm]", size=AXIS_FONT_SIZE, bold=True)
+        canvas.text(box[0] - 8, 451, "Power [mW]", size=AXIS_FONT_SIZE, bold=True)
+
+    legend_items = [
+        (variant_label, direction.upper(), BLUE if direction == "tx" else RED, variant_index)
+        for variant_index, (_, variant_label) in enumerate(variants)
+        for direction in ("tx", "rx")
+    ]
+    for index, (variant_label, direction, color, marker) in enumerate(legend_items):
+        lx = 100 + index * 235
+        dash = "[] 0" if marker == 0 else "[6 4] 0"
+        canvas.line(lx, 486, lx + 24, 486, color=color, width=1.8, dash=dash)
+        canvas.marker(lx + 12, 486, color=color, kind=marker, radius=3.5)
+        canvas.text(lx + 31, 479, f"{variant_label} {direction}", size=LEGEND_FONT_SIZE, color=color, bold=True)
+
     canvas.text(
         250,
         24,
         "Each point is a 60 s mean at 3.3 V; the excess metric is clipped at zero by the campaign pipeline.",
-        size=7.5,
+        size=12,
         color=GRAY,
     )
     canvas.save(path)
+    return normalized
+
+
+def continuous_power_family_figure(
+    path: Path,
+    continued_path: Path,
+    comparison_id: str,
+    heading: str,
+    subtitle: str,
+    variants: Sequence[tuple[str, str]],
+    mode_field: str,
+    mode_value: float,
+) -> list[dict[str, object]]:
+    normalized: list[dict[str, object]] = []
+    accepted_statuses = {"ok", "no_rx_data"}
+    for variant_index, (slug, variant_label) in enumerate(variants):
+        source = read_csv(COMPARISONS_DIR / slug / f"{slug}_continuous.csv")
+        selected = [
+            row
+            for row in source
+            if row.get("status") in accepted_statuses
+            and row.get("measurement_direction") in {"tx", "rx"}
+            and abs(number(row, mode_field) - mode_value) < 0.001
+        ]
+        if len(selected) != 6:
+            raise ValueError(
+                f"Expected 6 continuous rows for {slug} at {mode_field}={mode_value}, got {len(selected)}"
+            )
+        for row in selected:
+            normalized.append(
+                {
+                    "comparison": comparison_id,
+                    "slug": slug,
+                    "variant": variant_label,
+                    "variant_index": variant_index,
+                    "direction": row["measurement_direction"],
+                    "mode_field": mode_field,
+                    "mode_value": mode_value,
+                    "power_dbm": number(row, "tx_power_dbm"),
+                    "mean_power_mW": number(row, "mean_power_mW"),
+                    "mean_excess_power_mW": number(row, "mean_excess_power_mW"),
+                    "baseline_mean_uA": number(row, "baseline_mean_uA"),
+                    "frames_transmitted": round(number(row, "frames_transmitted")),
+                    "frames_received": round(number(row, "frames_received")),
+                    "status": row.get("status", ""),
+                }
+            )
+
+    powers = sorted({float(row["power_dbm"]) for row in normalized})
+    power_span = max(powers) - min(powers)
+    x_range = (min(powers) - power_span * 0.08, max(powers) + power_span * 0.08)
+
+    def render_sheet(
+        output_path: Path,
+        sheet_heading: str,
+        panels: Sequence[tuple[str, str, str, str]],
+    ) -> None:
+        canvas = PdfCanvas(1080, 760)
+        title(canvas, sheet_heading, subtitle)
+        for variant_index, (_, variant_label) in enumerate(variants):
+            row_index, column_index = divmod(variant_index, 3)
+            lx = 78 + column_index * 335
+            ly = 656 - row_index * 32
+            color = PALETTE[variant_index % len(PALETTE)]
+            canvas.line(lx, ly, lx + 28, ly, color=color, width=2.0)
+            canvas.marker(lx + 14, ly, color=color, kind=variant_index, radius=4.3)
+            canvas.text(lx + 38, ly - 7, variant_label, size=LEGEND_FONT_SIZE, color=color, bold=True)
+
+        boxes = ((120.0, 355.0, 880.0, 185.0), (120.0, 78.0, 880.0, 185.0))
+        for (direction, metric, panel_title, panel_code), box in zip(panels, boxes):
+            panel_rows = [row for row in normalized if row["direction"] == direction]
+            upper, ticks = linear_ticks(max(float(row[metric]) for row in panel_rows) * 1.05)
+            canvas.text(box[0], box[1] + box[3] + 17, panel_title, size=AXIS_FONT_SIZE, bold=True)
+            canvas.text(box[0] + box[2] - 14, box[1] + box[3] + 17, panel_code, size=18, bold=True)
+            for tick in ticks:
+                py = _map(tick, 0.0, upper, box[1], box[3], False)
+                canvas.line(box[0], py, box[0] + box[2], py, color=GRID, width=0.6)
+                canvas.text(box[0] - 66, py - 6, fmt_tick(tick), size=TICK_FONT_SIZE, bold=True)
+            for power in powers:
+                px = _map(power, *x_range, box[0], box[2], False)
+                canvas.line(px, box[1], px, box[1] + box[3], color=GRID, width=0.5)
+                canvas.text(px - 17, box[1] - 29, f"{power:g}", size=TICK_FONT_SIZE, bold=True)
+
+            for variant_index, _ in enumerate(variants):
+                rows = sorted(
+                    (
+                        row
+                        for row in panel_rows
+                        if int(row["variant_index"]) == variant_index
+                    ),
+                    key=lambda row: float(row["power_dbm"]),
+                )
+                color = PALETTE[variant_index % len(PALETTE)]
+                points = [
+                    (
+                        _map(float(row["power_dbm"]), *x_range, box[0], box[2], False),
+                        _map(float(row[metric]), 0.0, upper, box[1], box[3], False),
+                    )
+                    for row in rows
+                ]
+                canvas.polyline(points, color=color, width=2.0)
+                for row, (px, py) in zip(rows, points):
+                    canvas.marker(px, py, color=color, kind=variant_index, radius=4.5)
+                    if row["status"] != "ok":
+                        canvas.line(px - 7, py - 7, px + 7, py + 7, color=BLACK, width=1.6)
+                        canvas.line(px - 7, py + 7, px + 7, py - 7, color=BLACK, width=1.6)
+
+            canvas.line(box[0], box[1], box[0] + box[2], box[1], width=1.1)
+            canvas.line(box[0], box[1], box[0], box[1] + box[3], width=1.1)
+            canvas.text(box[0] + 300, box[1] - 62, "Configured RF power [dBm]", size=AXIS_FONT_SIZE, bold=True)
+            canvas.text(box[0], box[1] + box[3] + 1, "Power [mW]", size=AXIS_FONT_SIZE, bold=True)
+
+        canvas.save(output_path)
+
+    render_sheet(
+        path,
+        heading,
+        (
+            ("tx", "mean_power_mW", "TX total average power", "A"),
+            ("rx", "mean_power_mW", "RX total average power", "B"),
+        ),
+    )
+    render_sheet(
+        continued_path,
+        f"{heading} (continued)",
+        (
+            ("tx", "mean_excess_power_mW", "TX mean power above standby", "C"),
+            ("rx", "mean_excess_power_mW", "RX mean power above standby", "D"),
+        ),
+    )
     return normalized
 
 
@@ -1061,6 +1207,28 @@ def variant_figure(path: Path, rows: Sequence[dict[str, object]]) -> None:
     )
 
 
+def sx1276_variant_figure(path: Path, rows: Sequence[dict[str, object]]) -> None:
+    expected_slugs = {spec.slug for spec in MODULES if spec.chip.startswith("SX1276")}
+    selected = [row for row in rows if str(row["chip"]).startswith("SX1276")]
+    selected_slugs = {str(row["slug"]) for row in selected}
+    if selected_slugs != expected_slugs:
+        raise ValueError(
+            "SX1276 figure/catalog mismatch: "
+            f"expected {sorted(expected_slugs)}, selected {sorted(selected_slugs)}"
+        )
+    dot_comparison(
+        path,
+        selected,
+        "tx_energy_mJ",
+        "rx_energy_mJ",
+        "TX",
+        "RX",
+        "SX1276-based module comparison",
+        "Packet energy [mJ]",
+        "32 B canonical points; direct-SPI pair is matched, E32 modules use transparent UART/FEC",
+    )
+
+
 def nrf_figure(path: Path, packet_data: dict[str, list[dict[str, str]]]) -> None:
     canvas = PdfCanvas(1080, 600)
     title(canvas, "nRF24L01 module versus PA/LNA variant", "32-byte TX packet at 0 dBm radio drive; auto-ack disabled")
@@ -1088,24 +1256,24 @@ def nrf_figure(path: Path, packet_data: dict[str, list[dict[str, str]]]) -> None
     for tick in rates:
         px = _map(tick, *x_range, box[0], box[2], True)
         canvas.line(px, box[1], px, box[1] + box[3], color=GRID, width=0.7)
-        canvas.text(px - 18, box[1] - 20, f"{tick:g}", size=8)
+        canvas.text(px - 28, box[1] - 30, f"{tick:g}", size=TICK_FONT_SIZE, bold=True)
     for tick in log_ticks(*y_range):
         py = _map(tick, *y_range, box[1], box[3], True)
         canvas.line(box[0], py, box[0] + box[2], py, color=GRID, width=0.7)
-        canvas.text(box[0] - 42, py - 3, fmt_tick(tick), size=8)
+        canvas.text(box[0] - 64, py - 6, fmt_tick(tick), size=TICK_FONT_SIZE, bold=True)
     for label, points, color, marker in series:
         mapped = [(_map(x, *x_range, box[0], box[2], True), _map(y, *y_range, box[1], box[3], True)) for x, y in points]
         canvas.polyline(mapped, color=color, width=2)
         for px, py in mapped:
             canvas.marker(px, py, color=color, kind=marker, radius=5)
         legend_x = 390 + marker * 190
-        canvas.line(legend_x, 535, legend_x + 28, 535, color=color, width=2)
-        canvas.marker(legend_x + 14, 535, color=color, kind=marker, radius=4)
-        canvas.text(legend_x + 35, 531, label, size=9)
+        canvas.line(legend_x, 516, legend_x + 28, 516, color=color, width=2)
+        canvas.marker(legend_x + 14, 516, color=color, kind=marker, radius=4)
+        canvas.text(legend_x + 35, 508, label, size=LEGEND_FONT_SIZE, bold=True)
     canvas.line(box[0], box[1], box[0] + box[2], box[1], width=1.2)
     canvas.line(box[0], box[1], box[0], box[1] + box[3], width=1.2)
-    canvas.text(440, 56, "Configured rate [kbps]", size=9, bold=True)
-    canvas.text(22, 525, "TX energy [mJ]", size=8, bold=True)
+    canvas.text(355, 42, "Configured rate [kbps]", size=AXIS_FONT_SIZE, bold=True)
+    canvas.text(22, 505, "TX energy [mJ]", size=AXIS_FONT_SIZE, bold=True)
     canvas.save(path)
 
 
@@ -1141,11 +1309,11 @@ def e79_figure(path: Path, packet_data: dict[str, list[dict[str, str]]]) -> list
     for tick in log_ticks(*x_range):
         px = _map(tick, *x_range, box[0], box[2], True)
         canvas.line(px, box[1], px, box[1] + box[3], color=GRID, width=0.7)
-        canvas.text(px - 12, box[1] - 20, fmt_tick(tick), size=8)
+        canvas.text(px - 18, box[1] - 30, fmt_tick(tick), size=TICK_FONT_SIZE, bold=True)
     for tick in log_ticks(*y_range):
         py = _map(tick, *y_range, box[1], box[3], True)
         canvas.line(box[0], py, box[0] + box[2], py, color=GRID, width=0.7)
-        canvas.text(box[0] - 40, py - 3, fmt_tick(tick), size=8)
+        canvas.text(box[0] - 64, py - 6, fmt_tick(tick), size=TICK_FONT_SIZE, bold=True)
     plotted = []
     for index, row in enumerate(profiles):
         px = _map(float(row["rate_kbps"]), *x_range, box[0], box[2], True)
@@ -1153,23 +1321,22 @@ def e79_figure(path: Path, packet_data: dict[str, list[dict[str, str]]]) -> list
         color = PALETTE[index % len(PALETTE)]
         canvas.marker(px, py, color=color, kind=index, radius=6)
         plotted.append((index, row, px, py, color))
-    rate_groups: dict[float, list[tuple[int, dict[str, object], float, float, tuple[float, float, float]]]] = {}
-    for point in plotted:
-        rate_groups.setdefault(float(point[1]["rate_kbps"]), []).append(point)
-    for points in rate_groups.values():
-        points.sort(key=lambda point: point[3])
-        for offset, (index, row, px, py, color) in enumerate(points):
-            if len(points) > 1:
-                label_y = py + (-15 if offset == 0 else 10)
-                label_x = px + (-75 if offset == 0 else 10)
-            else:
-                label_x = px + (8 if px < box[0] + box[2] * 0.8 else -58)
-                label_y = py + (10 if index % 2 else -16)
-            canvas.text(label_x, label_y, str(row["profile"]), size=8, bold=True, color=color)
+    profile_offsets = {
+        "SLR2K5": (8.0, -22.0),
+        "OOK4K8": (-108.0, -22.0),
+        "GFSK4K8": (10.0, 18.0),
+        "SLR5": (18.0, -28.0),
+        "GFSK50": (-108.0, -22.0),
+        "IEEE154G50": (10.0, 12.0),
+        "GFSK200": (-112.0, -22.0),
+    }
+    for _, row, px, py, color in plotted:
+        dx, dy = profile_offsets[str(row["profile"])]
+        canvas.text(px + dx, py + dy, str(row["profile"]), size=LEGEND_FONT_SIZE, bold=True, color=color)
     canvas.line(box[0], box[1], box[0] + box[2], box[1], width=1.2)
     canvas.line(box[0], box[1], box[0], box[1] + box[3], width=1.2)
-    canvas.text(420, 52, "Configured PHY rate [kbps]", size=9, bold=True)
-    canvas.text(14, 542, "32-byte TX energy [mJ]", size=8, bold=True)
+    canvas.text(325, 39, "Configured PHY rate [kbps]", size=AXIS_FONT_SIZE, bold=True)
+    canvas.text(110, 522, "32-byte TX energy [mJ]", size=AXIS_FONT_SIZE, bold=True)
     canvas.save(path)
     return profiles
 
@@ -1247,6 +1414,7 @@ def main() -> int:
     payload_energy_figure(figures / "rx_energy_by_payload.pdf", payload_rows, payload_sizes, "rx")
     packet_continuous_delivery(figures / "delivery_comparison.pdf", summary)
     variant_figure(figures / "sx1278_variant_comparison.pdf", summary)
+    sx1276_variant_figure(figures / "sx1276_variant_comparison.pdf", summary)
     nrf_figure(figures / "nrf24_pa_comparison.pdf", packet_data)
     e79_profiles = e79_figure(figures / "e79_profile_frontier.pdf", packet_data)
     cc1101_continuous_figure(figures / "cc1101_continuous_power_comparison.pdf", cc1101_rows)
@@ -1275,12 +1443,31 @@ def main() -> int:
         )
     )
     matched_continuous_rows.extend(
-        continuous_power_pair_figure(
-            figures / "ra02_capacitor_continuous_power_comparison.pdf",
-            "ra02_capacitors",
-            "RA-02 classic versus two-capacitor variant",
+        continuous_power_family_figure(
+            figures / "sx1278_continuous_power_comparison.pdf",
+            figures / "sx1278_continuous_power_comparison_continued.pdf",
+            "sx1278_implementations",
+            "SX1278 physical-implementation comparison",
             "Matched 60 s workload: 32-byte frames, SF9/BW125, 15 ms host gap, 3.3 V",
-            (("ra02_sx1278", "RA-02"), ("ra02_sx1278_2cap", "RA-02+2C")),
+            (
+                ("ra02_sx1278", "RA-02"),
+                ("ra02_sx1278_2cap", "RA-02+2C"),
+                ("sx1278_adafruit_level_shifter", "Level shifter"),
+                ("sx1278_naked", "Naked board"),
+                ("sx1278_pcb_2cap", "PCB+2C"),
+                ("sx1278_shielded", "Shielded"),
+            ),
+            "spreading_factor",
+            9.0,
+        )
+    )
+    matched_continuous_rows.extend(
+        continuous_power_pair_figure(
+            figures / "sx1276_continuous_power_comparison.pdf",
+            "sx1276_implementations",
+            "SX1276 direct-SPI continuous comparison",
+            "SF9/BW125, 32-byte frames, 15 ms host gap; low-power endpoints differ",
+            (("ra01h_sx1276", "RA-01H 868"), ("xl1276_d01_sx1276", "XL1276 433")),
             "spreading_factor",
             9.0,
         )
@@ -1291,7 +1478,7 @@ def main() -> int:
     print(
         f"Generated {len(summary)} module summaries, {len(payload_rows)} payload-energy rows, "
         f"{len(cc1101_rows)} controlled CC1101 points, {len(matched_continuous_rows)} matched "
-        f"continuous-power points, and 14 figures in {STUDY_DIR}"
+        f"continuous-power points, and 16 numbered figures across 19 plot sheets in {STUDY_DIR}"
     )
     return 0
 

@@ -9,10 +9,10 @@ This directory contains a reproducible comparison of the 23 measured radio modul
 - `data/module_summary.csv`: normalized cross-module metrics and row-selection metadata.
 - `data/payload_energy_summary.csv`: measured TX/RX energy for every tested logical payload size at the selected per-module mode and power.
 - `data/cc1101_controlled_summary.csv`: matched CC1101 V1/V2 payload, rate, and continuous-power points.
-- `data/matched_continuous_power_summary.csv`: matched E32-band, nRF24L01 PA/LNA, and RA-02 capacitor-variant sweeps.
+- `data/matched_continuous_power_summary.csv`: matched E32-band, nRF24L01 PA/LNA, six-board SX1278, and two-board SX1276 continuous sweeps.
 - `data/module_catalog.csv`: module, interface, modulation, rate, and power registry.
 - `data/e79_profile_summary.csv`: controlled seven-PHY E79 comparison.
-- `figures/`: 14 publication-ready plots in PDF and PNG formats, including payload scaling and controlled power-versus-RF-setting comparisons.
+- `figures/`: 16 numbered figures delivered as 19 publication-ready plot sheets in PDF and PNG formats; the TX payload, RX payload, and SX1278 continuous-power figures each span two sheets for legibility.
 - `tables/`: generated LaTeX tables.
 
 ## Regenerate

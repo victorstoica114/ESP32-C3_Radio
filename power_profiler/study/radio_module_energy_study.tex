@@ -12,6 +12,7 @@
 \usepackage{array}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{caption}
 \usepackage{xcolor}
 \usepackage{hyperref}
 
@@ -162,16 +163,32 @@ TX and RX are not symmetric. Fast direct radios such as nRF24L01, E28, and E79 h
 \begin{figure}[p]
   \centering
   \includegraphics[width=\linewidth]{figures/tx_energy_by_payload.pdf}
-  \caption{Measured TX event energy versus logical payload size. Lines connect measured points only; absent sizes are not interpolated in the numerical tables. Energy uses a logarithmic axis independently in each panel.}
+  \caption{Measured TX event energy versus logical payload size, panels A--B. Lines connect measured points only; absent sizes are not interpolated in the numerical tables. Energy uses a logarithmic axis independently in each panel.}
   \label{fig:tx-payload}
 \end{figure}
 
 \begin{figure}[p]
   \centering
+  \ContinuedFloat
+  \includegraphics[width=\linewidth]{figures/tx_energy_by_payload_continued.pdf}
+  \caption{Measured TX event energy versus logical payload size, panels C--D (continued).}
+\end{figure}
+\clearpage
+
+\begin{figure}[p]
+  \centering
   \includegraphics[width=\linewidth]{figures/rx_energy_by_payload.pdf}
-  \caption{Measured RX event energy versus logical payload size under the same per-module mode and configured-power rule as the TX matrix.}
+  \caption{Measured RX event energy versus logical payload size, panels A--B, under the same per-module mode and configured-power rule as the TX matrix.}
   \label{fig:rx-payload}
 \end{figure}
+
+\begin{figure}[p]
+  \centering
+  \ContinuedFloat
+  \includegraphics[width=\linewidth]{figures/rx_energy_by_payload_continued.pdf}
+  \caption{Measured RX event energy versus logical payload size, panels C--D (continued).}
+\end{figure}
+\clearpage
 
 Absolute packet energy increases with payload size for every measured TX series. It does not increase in direct proportion to application bytes because each event contains fixed startup, synchronization, command, and receive-window costs. Comparing each module's smallest and largest measured payload, the TX energy per application byte at the largest point falls to 17--57\% of its 8-byte value; the corresponding RX range is 4--40\%. These ranges summarize different payload limits and must not be interpreted as equal-size rankings.
 
@@ -264,14 +281,43 @@ This is a controlled workload comparison, not a pure PCB-revision experiment: V1
 
 The RA-02 with two added capacitors uses \SI{16.17}{mJ} versus \SI{16.67}{mJ} for the classic RA-02, a \SI{3.0}{\percent} reduction at this point. The custom naked board and its two-capacitor version differ by less than \SI{1}{\percent} in TX energy. Shielding and the level-shifter implementation are higher at \SI{22.32}{mJ} and \SI{23.27}{mJ}, respectively, compared with \SI{19.36}{mJ} for the naked board. These are module-boundary observations; the experiment does not isolate regulator quiescent current, RF matching loss, logic translation, and oscillator behavior sufficiently to assign a single cause.
 
-\begin{figure}[htbp]
+\begin{figure}[p]
   \centering
-  \includegraphics[width=0.96\linewidth]{figures/ra02_capacitor_continuous_power_comparison.pdf}
-  \caption{Matched RA-02 continuous-power comparison at SF9/BW125. Marker shape distinguishes the classic and two-capacitor boards; color distinguishes TX and RX.}
-  \label{fig:ra02-continuous}
+  \includegraphics[width=\linewidth]{figures/sx1278_continuous_power_comparison.pdf}
+  \caption{Matched continuous total-power comparison for all six SX1278 implementations from Figure~\ref{fig:sx1278}. The TX and RX panels use independent vertical scales so that board-level differences remain visible.}
+  \label{fig:sx1278-continuous}
 \end{figure}
 
-The continuous TX reduction from the two added capacitors is \SI{0.36}{\percent} at $-4$ dBm, \SI{3.71}{\percent} at +10 dBm, and \SI{3.31}{\percent} at +20 dBm. At +20 dBm, this corresponds to \SI{196.94}{mW} versus \SI{203.69}{mW}. RX total power differs by at most \SI{0.3}{\percent}, so the added capacitors do not produce a meaningful receive-power advantage in this workload. The repeated few-percent TX effect at the two higher settings is measurable, but the experiment does not establish whether it comes from supply impedance, PA behavior, or RF matching.
+\begin{figure}[p]
+  \ContinuedFloat
+  \centering
+  \includegraphics[width=\linewidth]{figures/sx1278_continuous_power_comparison_continued.pdf}
+  \caption[]{Matched continuous-power comparison for all six SX1278 implementations (continued): standby-subtracted TX and RX power. A black cross marks the S1278-2C RX window at $-4$ dBm, whose power trace is valid but whose receiver-delivery telemetry is missing.}
+\end{figure}
+
+Figure~\ref{fig:sx1278-continuous} extends the packet-only comparison to every available 60-second SF9/BW125 window. At +20 dBm, total TX power ranges from \SI{196.94}{mW} for RA-02+2C to \SI{255.33}{mW} for the level-shifter board, while total RX power occupies a narrower \SI{37.75--41.37}{mW} interval. The S1278-2C RX point at $-4$ dBm is retained only as a power observation: zero received frames prevent it from supporting a useful-delivery conclusion.
+
+Within this six-board view, the continuous TX reduction from adding two capacitors to RA-02 is \SI{0.36}{\percent} at $-4$ dBm, \SI{3.71}{\percent} at +10 dBm, and \SI{3.31}{\percent} at +20 dBm. At +20 dBm, this corresponds to \SI{196.94}{mW} versus \SI{203.69}{mW}. RX total power differs by at most \SI{0.3}{\percent}, so the added capacitors do not produce a meaningful receive-power advantage in this workload. The repeated few-percent TX effect at the two higher settings is measurable, but the experiment does not establish whether it comes from supply impedance, PA behavior, or RF matching.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{figures/sx1276_variant_comparison.pdf}
+  \caption{All four measured SX1276-based modules at their canonical 32-byte points. RA-01H and XL1276-D01 use direct SPI, SF7/BW125/CR4/5, and +20 dBm. E32-868T20D and E32-868T30D use transparent UART/FEC at \SI{19.2}{kbps} and +20 dBm or +30 dBm, respectively. The latter includes an external PA, so the four points are a complete system-level inventory, not a single controlled operating condition.}
+  \label{fig:sx1276}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=0.96\linewidth]{figures/sx1276_continuous_power_comparison.pdf}
+  \caption{Controlled continuous-power comparison of the direct-SPI SX1276 subset, RA-01H and XL1276-D01, at SF9/BW125. Both include +10 and +20 dBm; the low endpoint is +2 dBm for RA-01H and $-4$ dBm for XL1276-D01.}
+  \label{fig:sx1276-continuous}
+\end{figure}
+
+The repository audit identifies four measured SX1276-based implementations: RA-01H, XL1276-D01, E32-868T20D, and E32-868T30D. Figure~\ref{fig:sx1276} retains all four. At their canonical points, packet TX energy is \SI{17.66}{mJ}, \SI{21.35}{mJ}, \SI{30.24}{mJ}, and \SI{91.65}{mJ} for E32-868T20D, XL1276-D01, RA-01H, and E32-868T30D, respectively. RX spans a much narrower \SI{2.860--4.884}{mJ}. These values are useful module-level operating points, but the E32 transparent-UART framing, higher nominal rate, and the T30D external PA prevent a controlled four-way PHY comparison.
+
+Within the matched direct-SPI subset, XL1276-D01 uses \SI{21.35}{mJ} TX versus \SI{30.24}{mJ} for RA-01H, a \SI{29.4}{\percent} reduction, while RX is \SI{2.934}{mJ} versus \SI{2.860}{mJ}. In continuous operation at +20 dBm, XL1276-D01 averages \SI{282.87}{mW} TX versus \SI{367.36}{mW} for RA-01H; RX reverses the ordering at \SI{40.78}{mW} versus \SI{35.87}{mW}. These are same-chip, same-LoRa-setting observations, but not a pure PCB comparison because the RF bands, matching networks, and individual units differ.
+
+The same audit found no additional measured SX1276 modules: RA-01 and the 433-MHz E32 units are SX1278 implementations, while RFM9x and inAir9 occur only as KiCad library footprints without campaigns. E28 and E280 both use SX1280 but expose direct-SPI LoRa and vendor transparent-UART PHYs, respectively. Their results remain valid system-level measurements, but their framing and control paths prevent attribution of a difference to the radio board alone.
 
 The newer RA-01SH/SX1262 is notable: at its canonical +22 dBm point it uses \SI{18.03}{mJ} TX and \SI{1.185}{mJ} RX, versus \SI{30.24}{mJ} and \SI{2.860}{mJ} for the RA-01H/SX1276 at +20 dBm. Its matched continuous RX power is \SI{14.76}{mW} versus \SI{35.87}{mW}. The measured reduction is consistent with, but does not independently prove, the SX1262's newer low-power receiver and DC--DC architecture.
 
