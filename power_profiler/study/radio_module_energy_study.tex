@@ -8,7 +8,6 @@
 \usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{longtable}
-\usepackage{pdflscape}
 \usepackage{array}
 \usepackage{graphicx}
 \usepackage{float}
@@ -133,18 +132,14 @@ Modern consolidated files contain explicit attempted and received counters. Olde
 Tables~\ref{tab:packet-tx-matrix} and~\ref{tab:packet-rx-matrix} report the measured mean energy of one logical packet for every payload size available in each module campaign. Each populated cell is backed by five packet repetitions at the stated mode and power. The tables deliberately retain different payload limits instead of extrapolating modules beyond the tested workload.
 
 \clearpage
-\begin{landscape}
-{\footnotesize\setlength{\tabcolsep}{6pt}
+{\scriptsize\setlength{\tabcolsep}{2.5pt}
 \input{tables/tx_packet_energy_by_payload.tex}
 }
-\end{landscape}
 
 \clearpage
-\begin{landscape}
-{\footnotesize\setlength{\tabcolsep}{6pt}
+{\scriptsize\setlength{\tabcolsep}{2.5pt}
 \input{tables/rx_packet_energy_by_payload.tex}
 }
-\end{landscape}
 \clearpage
 
 At the common 32-byte point, TX energy spans more than four orders of magnitude: \SI{0.0187}{mJ} for the nRF24L01 at \SI{2}{Mbps} and \SI{0}{dBm}, versus \SI{160.35}{mJ} for the E32-433T33D at its \SI{19.2}{kbps}, \SI{30}{dBm} setting. This is not a same-link-budget comparison. It quantifies the cost of each module's fastest measured, maximum-power operating point for an actual 32-byte application message.

@@ -1,12 +1,12 @@
-\begin{longtable}{@{}llrrrrrrrrrr@{}}
-\caption{Measured TX energy per logical packet at each module's fastest tested mode and highest tested configured power. Payload columns are bytes; a dash means that payload size was not measured.}\label{tab:packet-tx-matrix}\\
+\begin{table}[p]
+\centering
+\caption{Measured TX energy per logical packet at each module's fastest tested mode and highest tested configured power. Payload columns are bytes; a dash means that payload size was not measured.}
+\label{tab:packet-tx-matrix}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}llrrrrrrrrrr@{}}
 \toprule
 ID & Mode & dBm & 8 & 16 & 32 & 58 & 60 & 64 & 128 & 512 & 1024 \\
  & & & [mJ] & [mJ] & [mJ] & [mJ] & [mJ] & [mJ] & [mJ] & [mJ] & [mJ] \\ \midrule
-\endfirsthead
-\toprule
-ID & Mode & dBm & 8 & 16 & 32 & 58 & 60 & 64 & 128 & 512 & 1024 \\ \midrule
-\endhead
 C11-433 & 250 kbps & 10.00 & 0.19 & \textemdash & 0.32 & \textemdash & \textemdash & 0.729 & 1.536 & 6.390 & 12.87 \\
 C11-868 & 250 kbps & 10.00 & 0.122 & \textemdash & 0.201 & \textemdash & \textemdash & 0.478 & 1.037 & 4.397 & 8.874 \\
 E28 & SF5 & 13.00 & 0.212 & \textemdash & 0.417 & \textemdash & \textemdash & \textemdash & 1.306 & \textemdash & \textemdash \\
@@ -31,4 +31,6 @@ S1278-2C & SF7 & 20.00 & 10.51 & \textemdash & 19.20 & \textemdash & \textemdash
 S1278-S & SF7 & 20.00 & 11.57 & \textemdash & 22.32 & \textemdash & \textemdash & \textemdash & 65.11 & \textemdash & \textemdash \\
 XL1276 & SF7 & 20.00 & 10.71 & \textemdash & 21.35 & \textemdash & \textemdash & \textemdash & 63.61 & \textemdash & \textemdash \\
 \bottomrule
-\end{longtable}
+\end{tabular}%
+}
+\end{table}

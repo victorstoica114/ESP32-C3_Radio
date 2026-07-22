@@ -478,15 +478,15 @@ def write_tables(
         header = "ID & Mode & dBm & " + " & ".join(str(size) for size in payload_sizes) + r" \\"
         units = r" & & & " + " & ".join("[mJ]" for _ in payload_sizes) + r" \\ \midrule"
         matrix_lines = [
-            rf"\begin{{longtable}}{{{column_spec}}}",
-            rf"\caption{{Measured {direction_name} energy per logical packet at each module's fastest tested mode and highest tested configured power. Payload columns are bytes; a dash means that payload size was not measured.}}\label{{{label}}}\\",
+            r"\begin{table}[p]",
+            r"\centering",
+            rf"\caption{{Measured {direction_name} energy per logical packet at each module's fastest tested mode and highest tested configured power. Payload columns are bytes; a dash means that payload size was not measured.}}",
+            rf"\label{{{label}}}",
+            r"\resizebox{\textwidth}{!}{%",
+            rf"\begin{{tabular}}{{{column_spec}}}",
             r"\toprule",
             header,
             units,
-            r"\endfirsthead",
-            r"\toprule",
-            header + r" \midrule",
-            r"\endhead",
         ]
         for module in summary:
             values = []
@@ -497,7 +497,7 @@ def write_tables(
                 f"{latex_escape(module['code'])} & {latex_escape(module['canonical_mode'])} & "
                 f"{fmt(module['canonical_power_dbm'])} & " + " & ".join(values) + r" \\"
             )
-        matrix_lines.extend((r"\bottomrule", r"\end{longtable}"))
+        matrix_lines.extend((r"\bottomrule", r"\end{tabular}%", r"}", r"\end{table}"))
         (tables / filename).write_text("\n".join(matrix_lines) + "\n", encoding="utf-8")
 
     benchmark_lines = [
