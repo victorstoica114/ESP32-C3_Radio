@@ -1,0 +1,24 @@
+slug,code,label,chip,band,interface,modulation,configured_rates,tested_powers,family,validation
+cc1101_v1_433,C11-433,CC1101 V1 433 MHz,CC1101,433 MHz,SPI,2-FSK,1.2/38.4/250 kbps,-30/0/10 dBm,Narrowband FSK,Validated
+cc1101_v2_868,C11-868,CC1101 V2 868 MHz,CC1101,868 MHz,SPI,2-FSK,1.2/38.4/250 kbps,-30/0/10 dBm,Narrowband FSK,Validated
+e28_sx1280,E28,E28 direct SPI,SX1280,2.4 GHz,SPI,"LoRa, CR 4/6","SF5/8/12, BW 812.5 kHz",-18/0/13 dBm,LoRa 2.4 GHz,Validated
+e280,E280,Ebyte E280-2G4T12S,SX1280,2.4 GHz,UART,Vendor transparent PHY,1/100/2000 kbps presets,4/7/12 dBm,Transparent UART,Validated
+ebyte_e22_400m30s,E22,Ebyte E22-400M30S,SX1268 + PA,433 MHz,SPI,"LoRa, CR 4/5","SF7/9/12, BW 125 kHz",-9/10/18 dBm front stage,LoRa sub-GHz,Validated
+ebyte_e32_433t20d,E32-43-20,Ebyte E32-433T20D,SX1278,433 MHz,UART,"LoRa transparent, FEC",0.3/4.8/19.2 kbps,10/14/20 dBm,Transparent UART,Validated
+ebyte_e32_433t33d,E32-43-33,Ebyte E32-433T33D,SX1278 + PA,433 MHz,UART,"LoRa transparent, FEC",0.3/4.8/19.2 kbps,24/27/30 dBm,Transparent UART,Validated
+ebyte_e32_868t20d,E32-86-20,Ebyte E32-868T20D,SX1276,868 MHz,UART,"LoRa transparent, FEC",0.3/4.8/19.2 kbps,10/14/20 dBm,Transparent UART,Validated
+ebyte_e32_868t30d,E32-86-30,Ebyte E32-868T30D,SX1276 + PA,868 MHz,UART,"LoRa transparent, FEC",0.3/4.8/19.2 kbps,21/27/30 dBm,Transparent UART,Legacy accepted
+ebyte_e79_400dm2005s,E79,Ebyte E79-400DM2005S,CC1352P,433 MHz,UART AT,"2-GFSK, OOK, SLR, 802.15.4g",2.5--200 kbps (7 PHYs),-20/0/13 dBm,Multi-PHY sub-GHz,Validated
+hc12,HC-12,HC-12,Si4463,433 MHz,UART,Transparent (G)FSK,0.5/15/250 kbps presets,-1/8/20 dBm,Transparent UART,Validated
+nrf24l01,NRF,nRF24L01,nRF24L01+,2.4 GHz,SPI,"GFSK, ESB framing",250/1000/2000 kbps,-18/-6/0 dBm,2.4 GHz GFSK,Validated
+nrf24l01_pa,NRF-PA,nRF24L01+PA/LNA,nRF24L01+ + PA/LNA,2.4 GHz,SPI,"GFSK, ESB framing",250/1000/2000 kbps,-18/-6/0 dBm drive,2.4 GHz GFSK,Validated
+ra01h_sx1276,RA-01H,Ai-Thinker RA-01H,SX1276,868 MHz,SPI,"LoRa, CR 4/5","SF7/9/12, BW 125 kHz",2/10/20 dBm,LoRa sub-GHz,Validated
+ra01sh_sx1262,RA-01SH,Ai-Thinker RA-01SH,SX1262,868 MHz,SPI,"LoRa, CR 4/5","SF7/9/12, BW 125 kHz",-9/10/22 dBm,LoRa sub-GHz,Validated
+ra02_sx1278,RA-02,Ai-Thinker RA-02,SX1278,433 MHz,SPI,"LoRa, CR 4/5","SF7/9/12, BW 125 kHz",-4/10/20 dBm,SX1278 variant,Validated
+ra02_sx1278_2cap,RA-02-2C,Ai-Thinker RA-02 + 2 capacitors,SX1278,433 MHz,SPI,"LoRa, CR 4/5","SF7/9/12, BW 125 kHz",-4/10/20 dBm,SX1278 variant,Validated
+ra08_asr6601,RA-08,Ai-Thinker RA-08,ASR6601,433 MHz,UART AT,"LoRa, CR 4/5","SF7/9/12, BW 125 kHz",2/12/22 dBm,LoRa SoC modem,Validated
+sx1278_adafruit_level_shifter,S1278-LS,SX1278 + level shifter,SX1278,433 MHz,SPI,"LoRa, CR 4/5","SF7/9/12, BW 125 kHz",-4/10/20 dBm,SX1278 variant,Accepted; no validation memo
+sx1278_naked,S1278-N,SX1278 naked board,SX1278,433 MHz,SPI,"LoRa, CR 4/5","SF7/9/12, BW 125 kHz",-4/10/20 dBm,SX1278 variant,Validated
+sx1278_pcb_2cap,S1278-2C,SX1278 PCB + 2 capacitors,SX1278,433 MHz,SPI,"LoRa, CR 4/5","SF7/9/12, BW 125 kHz",-4/10/20 dBm,SX1278 variant,Validated
+sx1278_shielded,S1278-S,SX1278 shielded board,SX1278,433 MHz,SPI,"LoRa, CR 4/5","SF7/9/12, BW 125 kHz",-4/10/20 dBm,SX1278 variant,Validated
+xl1276_d01_sx1276,XL1276,XL1276-D01,SX1276,433 MHz,SPI,"LoRa, CR 4/5","SF7/9/12, BW 125 kHz",-4/10/20 dBm,LoRa sub-GHz,Validated
