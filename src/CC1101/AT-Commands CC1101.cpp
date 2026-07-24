@@ -37,8 +37,28 @@
 #define CC1101_DEF_FREQUENCY_MHZ 433.92f
 #endif
 
+#ifndef CC1101_MIN_FREQUENCY_MHZ
+#define CC1101_MIN_FREQUENCY_MHZ 300.0f
+#endif
+
+#ifndef CC1101_MAX_FREQUENCY_MHZ
+#define CC1101_MAX_FREQUENCY_MHZ 928.0f
+#endif
+
 #ifndef CC1101_DEF_TX_POWER_DBM
 #define CC1101_DEF_TX_POWER_DBM 10
+#endif
+
+#ifndef CC1101_DEF_PREAMBLE_BITS
+#define CC1101_DEF_PREAMBLE_BITS 16
+#endif
+
+#ifndef CC1101_DEF_MOD_MODE
+#define CC1101_DEF_MOD_MODE 0
+#endif
+
+#ifndef CC1101_DEF_SYNC_MAX_ERR_BITS
+#define CC1101_DEF_SYNC_MAX_ERR_BITS 0
 #endif
 
 #ifndef CC1101_NOMINAL_TX_POWER_DBM
@@ -47,6 +67,14 @@
 
 #ifndef CC1101_EEPROM_MAGIC
 #define CC1101_EEPROM_MAGIC 0x43433031UL
+#endif
+
+#ifndef CC1101_GDO0_GPIO
+#define CC1101_GDO0_GPIO 10
+#endif
+
+#ifndef CC1101_GDO2_GPIO
+#define CC1101_GDO2_GPIO 3
 #endif
 
 /*
@@ -84,8 +112,8 @@ static void drawCentered(const char* text, int baselineY, const uint8_t* font) {
 // HW PINS (ESP32-C3)
 // =============================================================================
 static const int CC1101_CS_PIN   = 7;
-static const int CC1101_GDO0_PIN = 10;
-static const int CC1101_GDO2_PIN = 3;
+static const int CC1101_GDO0_PIN = CC1101_GDO0_GPIO;
+static const int CC1101_GDO2_PIN = CC1101_GDO2_GPIO;
 static const int LED_PIN         = 8;
 static const int SPI_SCK_PIN     = 4;
 static const int SPI_MISO_PIN    = 5;
@@ -101,11 +129,13 @@ static const uint32_t USB_BAUD = 115200;
 // DEFAULT RADIO CONFIG
 // =============================================================================
 static const float    DEF_FREQUENCY    = CC1101_DEF_FREQUENCY_MHZ; // MHz
+static const float    MIN_FREQUENCY    = CC1101_MIN_FREQUENCY_MHZ; // MHz
+static const float    MAX_FREQUENCY    = CC1101_MAX_FREQUENCY_MHZ; // MHz
 static const float    DEF_BITRATE      = 4.8;      // kbps
 static const float    DEF_FREQ_DEV     = 5.2;      // kHz
 static const float    DEF_RX_BW        = 135.0;    // kHz
 static const int8_t   DEF_TX_POWER     = CC1101_DEF_TX_POWER_DBM;   // dBm
-static const uint8_t  DEF_PREAMBLE     = 16;       // bits
+static const uint8_t  DEF_PREAMBLE     = CC1101_DEF_PREAMBLE_BITS; // bits
 static const uint8_t  DEF_SYNC_WORD_H  = 0xD3;
 static const uint8_t  DEF_SYNC_WORD_L  = 0x91;
 
@@ -191,6 +221,7 @@ static RadioConfig cfgCurrent;
 
 static bool bridgeEnabled = true;
 static bool debugEnabled  = false;
+static int16_t lastRadioConfigError = RADIOLIB_ERR_NONE;
 
 // Serial buffer
 #define SERIAL_BUFFER_SIZE 64
@@ -377,6 +408,7 @@ static void startReceive() {
 }
 
 static bool applyConfig(const RadioConfig& cfg) {
+  lastRadioConfigError = RADIOLIB_ERR_NONE;
   beginRadioSpiBus();
 
   // Opreste receptia si pune in standby
@@ -404,6 +436,7 @@ static bool applyConfig(const RadioConfig& cfg) {
       cfg.preambleLen
     );
   }
+  lastRadioConfigError = state;
   
   if (state != RADIOLIB_ERR_NONE) {
     if (debugEnabled) {
@@ -415,6 +448,7 @@ static bool applyConfig(const RadioConfig& cfg) {
   
   if (cfg.modMode != 3) {
     state = radio.setOOK(cfg.modMode == 2);
+    lastRadioConfigError = state;
     if (state != RADIOLIB_ERR_NONE) {
       if (debugEnabled) {
         Serial.print(F("[DEBUG] setOOK() failed: "));
@@ -426,6 +460,7 @@ static bool applyConfig(const RadioConfig& cfg) {
 
   uint8_t shaping = (cfg.modMode == 1) ? RADIOLIB_SHAPING_0_5 : cfg.dataShaping;
   state = radio.setDataShaping(shaping);
+  lastRadioConfigError = state;
   if (state != RADIOLIB_ERR_NONE) {
     if (debugEnabled) {
       Serial.print(F("[DEBUG] setDataShaping() failed: "));
@@ -435,6 +470,7 @@ static bool applyConfig(const RadioConfig& cfg) {
   }
 
   state = radio.setEncoding(cfg.encoding);
+  lastRadioConfigError = state;
   if (state != RADIOLIB_ERR_NONE) {
     if (debugEnabled) {
       Serial.print(F("[DEBUG] setEncoding() failed: "));
@@ -445,6 +481,7 @@ static bool applyConfig(const RadioConfig& cfg) {
 
   if (cfg.promiscuous) {
     state = radio.setPromiscuousMode(true, cfg.requireCarrierSense);
+    lastRadioConfigError = state;
     if (state != RADIOLIB_ERR_NONE) {
       if (debugEnabled) {
         Serial.print(F("[DEBUG] setPromiscuousMode() failed: "));
@@ -456,6 +493,7 @@ static bool applyConfig(const RadioConfig& cfg) {
     // Set sync word and optional carrier-sense requirement.
     uint8_t syncWord[] = { cfg.syncWordH, cfg.syncWordL };
     state = radio.setSyncWord(syncWord, 2, cfg.syncMaxErrBits, cfg.requireCarrierSense);
+    lastRadioConfigError = state;
     if (state != RADIOLIB_ERR_NONE) {
       if (debugEnabled) {
         Serial.print(F("[DEBUG] setSyncWord() failed: "));
@@ -466,6 +504,7 @@ static bool applyConfig(const RadioConfig& cfg) {
 
     // Set CRC
     state = radio.setCrcFiltering(cfg.crcEnabled);
+    lastRadioConfigError = state;
     if (state != RADIOLIB_ERR_NONE) {
       if (debugEnabled) {
         Serial.print(F("[DEBUG] setCrcFiltering() failed: "));
@@ -479,6 +518,7 @@ static bool applyConfig(const RadioConfig& cfg) {
     } else {
       state = radio.disableAddressFiltering();
     }
+    lastRadioConfigError = state;
     if (state != RADIOLIB_ERR_NONE) {
       if (debugEnabled) {
         Serial.print(F("[DEBUG] address filtering failed: "));
@@ -493,6 +533,7 @@ static bool applyConfig(const RadioConfig& cfg) {
   } else {
     state = radio.variablePacketLengthMode(cfg.packetLen);
   }
+  lastRadioConfigError = state;
   if (state != RADIOLIB_ERR_NONE) {
     if (debugEnabled) {
       Serial.print(F("[DEBUG] packet length mode failed: "));
@@ -671,7 +712,7 @@ static RadioConfig makeDefaultConfig() {
   c.syncWordH   = DEF_SYNC_WORD_H;
   c.syncWordL   = DEF_SYNC_WORD_L;
   c.crcEnabled  = true;
-  c.modMode = 0;
+  c.modMode = CC1101_DEF_MOD_MODE;
   c.dataShaping = RADIOLIB_SHAPING_NONE;
   c.encoding = RADIOLIB_ENCODING_NRZ;
   c.fixedPacketLen = false;
@@ -681,7 +722,7 @@ static RadioConfig makeDefaultConfig() {
   c.broadcastAddrs = 1;
   c.promiscuous = false;
   c.requireCarrierSense = false;
-  c.syncMaxErrBits = 0;
+  c.syncMaxErrBits = CC1101_DEF_SYNC_MAX_ERR_BITS;
   return c;
 }
 
@@ -897,7 +938,11 @@ static void printHelp() {
   Serial.println(F("  AT+DEBUG=ON/OFF  -> Enable/disable debug output"));
   Serial.println(F(""));
   Serial.println(F("Radio Parameters:"));
-  Serial.println(F("  AT+FREQ=<MHz>    / AT+FREQ?    (300-928 MHz)"));
+  Serial.print(F("  AT+FREQ=<MHz>    / AT+FREQ?    ("));
+  Serial.print(MIN_FREQUENCY, 3);
+  Serial.print('-');
+  Serial.print(MAX_FREQUENCY, 3);
+  Serial.println(F(" MHz)"));
   Serial.println(F("  AT+BR=<kbps>     / AT+BR?      (0.6-500 kbps)"));
   Serial.println(F("  AT+DEV=<kHz>     / AT+DEV?"));
   Serial.println(F("  AT+BW=<kHz>      / AT+BW?"));
@@ -936,7 +981,9 @@ static void printHelp() {
   Serial.println(F(""));
   Serial.println(F("Set All (one command):"));
   Serial.println(F("  AT+SETRADIO=FREQ,BR,DEV,BW,PWR,PRE,SYNC,CRC"));
-  Serial.println(F("    Example: AT+SETRADIO=433.0,4.8,5.2,135,10,16,D391,1"));
+  Serial.print(F("    Example: AT+SETRADIO="));
+  Serial.print(DEF_FREQUENCY, 3);
+  Serial.println(F(",4.8,5.2,135,10,16,D391,1"));
   Serial.println(F(""));
   Serial.println(F("Info:"));
   Serial.println(F("  AT+STATUS?       -> Chip/status + current RSSI/LQI"));
@@ -1342,7 +1389,7 @@ static bool handleAT(const String& lineRaw) {
   if (u.startsWith("AT+FREQ=")) {
     float v;
     if (!parseFloat(line.substring(8), v)) { serialERR(); return true; }
-    if (v < 300.0 || v > 928.0) { serialERR(); return true; }
+    if (v < MIN_FREQUENCY || v > MAX_FREQUENCY) { serialERR(); return true; }
     cfgCurrent.frequency = v;
     bool ok = applyConfig(cfgCurrent);
     if (ok) { eepromSave(cfgCurrent); startReceive(); }
@@ -1502,7 +1549,7 @@ static bool handleAT(const String& lineRaw) {
     uint8_t syncH, syncL;
     bool crc;
 
-    if (!parseFloat(parts[0], freq) || freq < 300.0 || freq > 928.0) { serialERR(); return true; }
+    if (!parseFloat(parts[0], freq) || freq < MIN_FREQUENCY || freq > MAX_FREQUENCY) { serialERR(); return true; }
     if (!parseFloat(parts[1], br) || br < 0.3 || br > 600.0) { serialERR(); return true; }
     if (!parseFloat(parts[2], dev) || dev < 1.0 || dev > 380.0) { serialERR(); return true; }
     if (!parseFloat(parts[3], bw)) { serialERR(); return true; }
@@ -1596,9 +1643,13 @@ void setup() {
     Serial.println(F("OK"));
   } else {
     Serial.println(F("FAILED"));
+    Serial.print(F("[RADIO] RadioLib error: "));
+    Serial.println(lastRadioConfigError);
     Serial.println(F("[WARN] Using defaults"));
     cfgCurrent = cfgDefault;
     if (!applyConfig(cfgCurrent)) {
+      Serial.print(F("[RADIO] RadioLib error: "));
+      Serial.println(lastRadioConfigError);
       serialError(F("Radio init failed"));
       while (true) delay(1000);
     }

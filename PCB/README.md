@@ -12,7 +12,7 @@ the ESP32-C3 Radio project.
   These archives are kept in Git because they are useful for quick
   manufacturing checks and sharing without opening KiCad.
 - `KiCad/Pictures/`: board renders/images, shown below.
-- `KiCad/Gerbers/Librarys/`: project symbols, footprints, and 3D models.
+- `KiCad/Librarys/`: project symbols, footprints, and 3D models.
 
 Local KiCad-generated files such as `fp-info-cache`, `*.kicad_prl`,
 `untitled.kicad_sch`, and `desktop.ini` are ignored.
@@ -21,7 +21,7 @@ Local KiCad-generated files such as `fp-info-cache`, `*.kicad_prl`,
 
 | Module | Image |
 | --- | --- |
-| Ai-Thinker-Ra-01 | <img src="KiCad/Pictures/Ai-Thinker-Ra-01.png" width="220" alt="Ai-Thinker-Ra-01"> |
+| RA-01' | <img src="KiCad/Pictures/RA-01'.png" width="220" alt="RA-01'"> |
 | Ai-Thinker-Ra-02 | <img src="KiCad/Pictures/Ai-Thinker-Ra-02.png" width="220" alt="Ai-Thinker-Ra-02"> |
 | CC1101 | <img src="KiCad/Pictures/CC1101.png" width="220" alt="CC1101"> |
 | E07_400M10S | <img src="KiCad/Pictures/E07_400M10S.png" width="220" alt="E07_400M10S"> |
@@ -30,12 +30,10 @@ Local KiCad-generated files such as `fp-info-cache`, `*.kicad_prl`,
 | E22 (SX1262) | <img src="KiCad/Pictures/E22%20(SX1262).png" width="220" alt="E22 (SX1262)"> |
 | E280 | <img src="KiCad/Pictures/E280.png" width="220" alt="E280"> |
 | E32-433T20D | <img src="KiCad/Pictures/E32-433T20D.png" width="220" alt="E32-433T20D"> |
-| E32-433T20D_V2 | <img src="KiCad/Pictures/E32-433T20D_V2.png" width="220" alt="E32-433T20D_V2"> |
 | E32-433T33D | <img src="KiCad/Pictures/E32-433T33D.png" width="220" alt="E32-433T33D"> |
 | E79-400DM2005S | <img src="KiCad/Pictures/E79-400DM2005S.png" width="220" alt="E79-400DM2005S"> |
 | E79-400DM2005S_V2.0 | <img src="KiCad/Pictures/E79-400DM2005S_V2.0.png" width="220" alt="E79-400DM2005S_V2.0"> |
-| Ebyte-E28 | <img src="KiCad/Pictures/Ebyte-E28.png" width="220" alt="Ebyte-E28"> |
-| Ebyte-E79 | <img src="KiCad/Pictures/Ebyte-E79.png" width="220" alt="Ebyte-E79"> |
+| E28-2G4M12XX | <img src="KiCad/Pictures/E28-2G4M12XX.png" width="220" alt="E28-2G4M12XX"> |
 | HC-12 | <img src="KiCad/Pictures/HC-12.png" width="220" alt="HC-12"> |
 | NRF24L01 | <img src="KiCad/Pictures/NRF24L01.png" width="220" alt="NRF24L01"> |
 | nRF24L01-PA-LNA | <img src="KiCad/Pictures/nRF24L01-PA-LNA.png" width="220" alt="nRF24L01-PA-LNA"> |
