@@ -43,7 +43,7 @@
     "display_name": "Ebyte E07-400M10S (CC1101)",
     "firmware_selection": "RADIO_EBYTE_E07_400M10S + AT_COMMANDS",
     "baudrate": 115200,
-    "setup_commands": ["AT", "AT+RESET", "AT+DEBUG=OFF", "AT+BRIDGE=ON", "AT+CS=OFF", "AT+RX=OFF"],
+    "setup_commands": ["AT", "AT+DEFAULT", "AT+DEBUG=OFF", "AT+BRIDGE=ON", "AT+CS=OFF", "AT+FREQ=433.92", "AT+MOD=GFSK", "AT+PRE=64", "AT+SYNCERR=1", "AT+CRC=ON", "AT+RX=OFF"],
     "post_config_commands": ["AT+RX=OFF"],
     "receiver_enable_commands": ["AT+RX=ON"],
     "payload_sizes": [8, 32, 64],
@@ -53,9 +53,11 @@
       {"name": "cc1101_drive_dbm", "label": "CC1101 drive (dBm)", "command": "AT+PWR={value}", "values": [-30, 0, 10]},
       {"name": "bit_rate_kbps", "label": "Bit rate (kbps)", "commands": {"1.2": ["AT+BR=1.2", "AT+DEV=5.2", "AT+BW=58.03"], "38.4": ["AT+BR=38.4", "AT+DEV=20", "AT+BW=101.56"], "250": ["AT+BR=250", "AT+DEV=127", "AT+BW=541.67"]}, "values": [1.2, 38.4, 250]}
     ],
-    "transmit": {"mode": "text_line", "line_overhead_bytes": 2, "max_payload_bytes": 64},
-    "airtime": {"kind": "fsk", "rate_axis": "bit_rate_kbps", "rate_multiplier": 1000, "overhead_bytes": 8, "ramp_s": 0.003},
-    "notes": ["AT+PWR controls the CC1101 PATABLE drive setting, not a separate external-PA gain."]
+    "transmit": {"mode": "burst_command", "command": "AT+TXBURST={payload_bytes},{frame_payload_bytes}", "line_overhead_bytes": 2, "max_payload_bytes": 64, "frame_payload_bytes": 32},
+    "receive": {"inter_frame_gap_ms": 15, "post_receive_s": 0.05},
+    "airtime": {"kind": "fsk", "rate_axis": "bit_rate_kbps", "rate_multiplier": 1000, "overhead_bytes": 13, "ramp_s": 0.003},
+    "capture": {"merge_gap_ms": 20.0, "max_after_trigger_s": 20.0},
+    "notes": ["The campaign uses the pair-validated 433.920 MHz GFSK PHY with a 64-bit preamble, one accepted sync-bit error, and CRC enabled.", "Logical transfers are fragmented into physical frames of at most 32 bytes for reliable RX FIFO servicing up to 250 kbps.", "AT+PWR controls the CC1101 PATABLE drive setting. Closely spaced modules may overload the receiver at higher drive settings; add separation or attenuation if packet loss appears."]
   },
   "RADIO_EBYTE_E07_400MM10S": {
     "display_name": "Ebyte E07-400MM10S (CC1101)",
@@ -75,11 +77,31 @@
     "airtime": {"kind": "fsk", "rate_axis": "bit_rate_kbps", "rate_multiplier": 1000, "overhead_bytes": 8, "ramp_s": 0.003},
     "notes": ["AT+PWR controls the CC1101 PATABLE drive setting, not a separate external-PA gain."]
   },
+  "RADIO_EBYTE_E07_900MM10S": {
+    "display_name": "Ebyte E07-900MM10S (CC1101)",
+    "firmware_selection": "RADIO_EBYTE_E07_900MM10S + AT_COMMANDS",
+    "baudrate": 115200,
+    "setup_commands": ["AT", "AT+DEFAULT", "AT+DEBUG=OFF", "AT+BRIDGE=ON", "AT+CS=OFF", "AT+FREQ=915", "AT+MOD=GFSK", "AT+PRE=64", "AT+SYNCERR=1", "AT+CRC=ON", "AT+RX=OFF"],
+    "post_config_commands": ["AT+RX=OFF"],
+    "receiver_enable_commands": ["AT+RX=ON"],
+    "payload_sizes": [8, 32, 64],
+    "repetitions": 5,
+    "cooldown_s": 0.5,
+    "axes": [
+      {"name": "cc1101_drive_dbm", "label": "CC1101 drive (dBm)", "command": "AT+PWR={value}", "values": [-30, 0, 10]},
+      {"name": "bit_rate_kbps", "label": "Bit rate (kbps)", "commands": {"1.2": ["AT+BR=1.2", "AT+DEV=5.2", "AT+BW=58.03"], "38.4": ["AT+BR=38.4", "AT+DEV=20", "AT+BW=101.56"], "250": ["AT+BR=250", "AT+DEV=127", "AT+BW=541.67"]}, "values": [1.2, 38.4, 250]}
+    ],
+    "transmit": {"mode": "burst_command", "command": "AT+TXBURST={payload_bytes},{frame_payload_bytes}", "line_overhead_bytes": 2, "max_payload_bytes": 64, "frame_payload_bytes": 32},
+    "receive": {"inter_frame_gap_ms": 15, "post_receive_s": 0.05},
+    "airtime": {"kind": "fsk", "rate_axis": "bit_rate_kbps", "rate_multiplier": 1000, "overhead_bytes": 13, "ramp_s": 0.003},
+    "capture": {"merge_gap_ms": 20.0, "max_after_trigger_s": 20.0},
+    "notes": ["The campaign uses the pair-validated 915 MHz GFSK PHY with a 64-bit preamble, one accepted sync-bit error, and CRC enabled.", "Logical transfers are fragmented into physical frames of at most 32 bytes for reliable RX FIFO servicing up to 250 kbps.", "AT+PWR controls the CC1101 PATABLE drive setting. Closely spaced modules may overload the receiver at higher drive settings; add separation or attenuation if packet loss appears."]
+  },
   "RADIO_EBYTE_E07_433M20S": {
     "display_name": "Ebyte E07-433M20S (CC1101 + PA/LNA)",
     "firmware_selection": "RADIO_EBYTE_E07_433M20S + AT_COMMANDS",
     "baudrate": 115200,
-    "setup_commands": ["AT", "AT+RESET", "AT+DEBUG=OFF", "AT+BRIDGE=ON", "AT+CS=OFF", "AT+RX=OFF"],
+    "setup_commands": ["AT", "AT+DEFAULT", "AT+DEBUG=OFF", "AT+BRIDGE=ON", "AT+CS=OFF", "AT+FREQ=433.92", "AT+MOD=GFSK", "AT+PRE=64", "AT+SYNCERR=1", "AT+CRC=ON", "AT+RX=OFF"],
     "post_config_commands": ["AT+RX=OFF"],
     "receiver_enable_commands": ["AT+RX=ON"],
     "payload_sizes": [8, 32, 64],
@@ -89,9 +111,11 @@
       {"name": "cc1101_drive_dbm", "label": "CC1101 drive (dBm)", "command": "AT+PWR={value}", "values": [-30, 0, 10]},
       {"name": "bit_rate_kbps", "label": "Bit rate (kbps)", "commands": {"1.2": ["AT+BR=1.2", "AT+DEV=5.2", "AT+BW=58.03"], "38.4": ["AT+BR=38.4", "AT+DEV=20", "AT+BW=101.56"], "250": ["AT+BR=250", "AT+DEV=127", "AT+BW=541.67"]}, "values": [1.2, 38.4, 250]}
     ],
-    "transmit": {"mode": "text_line", "line_overhead_bytes": 2, "max_payload_bytes": 64},
-    "airtime": {"kind": "fsk", "rate_axis": "bit_rate_kbps", "rate_multiplier": 1000, "overhead_bytes": 8, "ramp_s": 0.003},
-    "notes": ["The module contains an external PA/LNA; AT+PWR still changes only the exposed CC1101 drive preset."]
+    "transmit": {"mode": "burst_command", "command": "AT+TXBURST={payload_bytes},{frame_payload_bytes}", "line_overhead_bytes": 2, "max_payload_bytes": 64, "frame_payload_bytes": 32},
+    "receive": {"inter_frame_gap_ms": 15, "post_receive_s": 0.05},
+    "airtime": {"kind": "fsk", "rate_axis": "bit_rate_kbps", "rate_multiplier": 1000, "overhead_bytes": 13, "ramp_s": 0.003},
+    "capture": {"merge_gap_ms": 20.0, "max_after_trigger_s": 20.0},
+    "notes": ["The campaign uses the pair-validated 433.920 MHz GFSK PHY with a 64-bit preamble, one accepted sync-bit error, and CRC enabled.", "Logical transfers are fragmented into physical frames of at most 32 bytes for reliable RX FIFO servicing up to 250 kbps.", "The module contains an external PA/LNA with firmware-controlled TXEN/RXEN. AT+PWR changes the CC1101 PATABLE drive preset, not a separate PA gain setting.", "Closely spaced modules may overload the receiver at higher drive settings; packet loss is retained as a campaign result."]
   },
   "RADIO_HC12": {
     "display_name": "HC-12 UART radio",
@@ -513,7 +537,7 @@
   "RADIO_EBYTE_E79_CC1352P": {
     "display_name": "Ebyte E79-400DM2005S (CC1352P AT modem)",
     "firmware_selection": "RADIO_EBYTE_E79_CC1352P + AT_COMMANDS; E79 modem firmware 0.3.0 required",
-    "baudrate": 115200,
+    "baudrate": 1000000,
     "setup_commands": ["AT", "AT+DEFAULT", "AT+DEBUG=OFF", "AT+RX=OFF"],
     "warmup_transfers": 1,
     "post_config_commands": ["AT+RX=OFF"],
@@ -569,5 +593,29 @@
     "transmit": {"mode": "hex_command", "command": "AT+SEND={payload_hex}", "line_overhead_bytes": 0, "max_payload_bytes": 255, "continuous_pacing_includes_airtime": true},
     "airtime": {"kind": "lora", "sf_axis": "spreading_factor", "bw_axis": "bandwidth_hz", "bw_multiplier": 1, "coding_rate_denominator": 5, "preamble_symbols": 8, "crc": true, "implicit_header": false},
     "notes": ["Profile verified against standalone RA-08 AT modem firmware 0.1.3; that firmware intentionally does not expose an AT+DEBUG command.", "Host-driven continuous AT+SEND traffic is paced by modeled LoRa airtime because firmware 0.1.3 rejects a new command while the preceding frame is still on air."]
+  },
+  "RA09_STM32WLE5": {
+    "display_name": "Ai-Thinker RA-09 (STM32WLE5 AT modem)",
+    "firmware_selection": "Standalone RA-09 AT modem firmware 0.1.0",
+    "baudrate": 115200,
+    "serial_dtr": true,
+    "serial_rts": false,
+    "serial_reset_on_open": true,
+    "setup_commands": ["AT", "AT+DEFAULT", "AT+DEBUG=OFF", "AT+FREQ=433000000", "AT+CR=4/5", "AT+PREAMBLE=8", "AT+CRC=ON", "AT+IQ=NORMAL", "AT+NETWORK=PRIVATE", "AT+RX=OFF"],
+    "post_config_commands": ["AT+RX=OFF"],
+    "receiver_enable_commands": ["AT+RX=ON"],
+    "parameter_verification_command": "AT+CFG?",
+    "parameter_verification_wait_for_ok": false,
+    "payload_sizes": [8, 32, 128],
+    "repetitions": 5,
+    "cooldown_s": 1.0,
+    "axes": [
+      {"name": "tx_power_dbm", "label": "TX power (dBm)", "command": "AT+PWR={value}", "values": [-9, 10, 22], "expected_responses": {"-9": "PWR=-9", "10": "PWR=10", "22": "PWR=22"}},
+      {"name": "spreading_factor", "label": "LoRa spreading factor", "command": "AT+SF={value}", "values": [7, 9, 12], "expected_responses": {"7": "SF=7", "9": "SF=9", "12": "SF=12"}},
+      {"name": "bandwidth_hz", "label": "LoRa bandwidth (Hz)", "command": "AT+BW={value}", "values": [125000], "expected_responses": {"125000": "BW=125000"}}
+    ],
+    "transmit": {"mode": "hex_command", "command": "AT+SEND={payload_hex}", "line_overhead_bytes": 0, "max_payload_bytes": 255, "continuous_pacing_includes_airtime": true},
+    "airtime": {"kind": "lora", "sf_axis": "spreading_factor", "bw_axis": "bandwidth_hz", "bw_multiplier": 1, "coding_rate_denominator": 5, "preamble_symbols": 8, "crc": true, "implicit_header": false},
+    "notes": ["Profile matched to standalone RA-09 STM32WLE5 AT modem firmware 0.1.0 at 433 MHz with private-network sync, normal IQ, explicit header, coding rate 4/5, 8-symbol preamble, and CRC.", "AT+SEND uses hexadecimal payloads and acknowledges accepted transmissions with OK. Host-driven continuous traffic is paced by modeled LoRa airtime."]
   }
 }

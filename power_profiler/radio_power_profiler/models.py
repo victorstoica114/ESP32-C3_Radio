@@ -127,6 +127,10 @@ class Profile:
     continuous_inter_power_commands: tuple[str, ...] = ()
     continuous_reopen_setup_commands: tuple[str, ...] = ()
     parameter_verification_command: str | None = None
+    parameter_verification_wait_for_ok: bool = True
+    serial_dtr: bool | None = None
+    serial_rts: bool | None = None
+    serial_reset_on_open: bool = False
     notes: tuple[str, ...] = ()
 
 

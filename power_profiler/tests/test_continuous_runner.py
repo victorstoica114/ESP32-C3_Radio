@@ -81,7 +81,22 @@ class ContinuousRunnerTests(unittest.TestCase):
         sleep.assert_called_once_with(1.0)
         self.assertEqual(
             constructor.call_args_list,
-            [call("COM22", 9600), call("COM21", 9600)],
+            [
+                call(
+                    "COM22",
+                    9600,
+                    dtr=None,
+                    rts=None,
+                    reset_on_open=False,
+                ),
+                call(
+                    "COM21",
+                    9600,
+                    dtr=None,
+                    rts=None,
+                    reset_on_open=False,
+                ),
+            ],
         )
         self.assertIs(reopened_radio, new_radio)
         self.assertIs(reopened_peer, new_peer)

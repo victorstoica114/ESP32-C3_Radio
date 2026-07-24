@@ -4,10 +4,41 @@ import unittest
 from pathlib import Path
 
 from radio_power_profiler.results import ResultWriter
-from tools.generate_transfer_report import build_report
+from tools.generate_transfer_report import _bit_rate_kbps, _tx_power_dbm, build_report
 
 
 class ResultTests(unittest.TestCase):
+    def test_transfer_report_derives_nominal_lora_bit_rate(self):
+        metadata = {
+            "profile": {
+                "airtime": {
+                    "kind": "lora",
+                    "sf_axis": "spreading_factor",
+                    "bw_axis": "bandwidth_hz",
+                    "bw_multiplier": 1,
+                    "coding_rate_denominator": 5,
+                }
+            }
+        }
+
+        self.assertEqual(
+            _bit_rate_kbps(
+                {
+                    "spreading_factor": 7,
+                    "bandwidth_hz": 125000,
+                    "tx_power_dbm": -9,
+                },
+                metadata,
+            ),
+            5.46875,
+        )
+
+    def test_transfer_report_normalizes_cc1101_drive_power_axis(self):
+        self.assertEqual(_tx_power_dbm({"cc1101_drive_dbm": -30}), -30.0)
+        self.assertEqual(_tx_power_dbm({"tx_power_dbm": 10}), 10.0)
+        with self.assertRaises(ValueError):
+            _tx_power_dbm({"bit_rate_kbps": 38.4})
+
     def test_rx_direction_and_metrics_reach_aggregate_and_report(self):
         with tempfile.TemporaryDirectory() as temporary:
             result_dir = Path(temporary) / "rx_session"

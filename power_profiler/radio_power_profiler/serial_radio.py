@@ -45,18 +45,37 @@ class SerialRadio:
         *,
         command_timeout_s: float = 8.0,
         open_wait_s: float = 1.5,
+        dtr: bool | None = None,
+        rts: bool | None = None,
+        reset_on_open: bool = False,
     ):
         import serial
 
         self.port = port
         self.baudrate = baudrate
         self.command_timeout_s = command_timeout_s
-        self.serial = serial.Serial(
-            port=port,
-            baudrate=baudrate,
-            timeout=0.03,
-            write_timeout=5.0,
-        )
+        # Configure modem-control lines while the port is still closed. Some
+        # USB-UART carriers route DTR/RTS into the module's reset/boot circuit,
+        # so changing them only after opening can already have reset the DUT.
+        self.serial = serial.Serial()
+        self.serial.port = port
+        self.serial.baudrate = baudrate
+        self.serial.timeout = 0.03
+        self.serial.write_timeout = 5.0
+        if dtr is not None:
+            self.serial.dtr = dtr
+        if rts is not None:
+            self.serial.rts = rts
+        self.serial.open()
+        if reset_on_open:
+            if rts is not False:
+                self.close()
+                raise ValueError(
+                    "Serial reset-on-open requires an inactive RTS steady state"
+                )
+            self.serial.rts = True
+            time.sleep(0.10)
+            self.serial.rts = False
         self._bounded_partial = bytearray()
         # Opening an ESP32-C3 USB CDC port can reset the controller.  Wait for
         # its AT firmware to finish setup before discarding the boot banner;
@@ -178,6 +197,15 @@ class SerialRadio:
             )
         rendered = " | ".join(lines) if lines else "no response"
         raise RadioCommandError(f"Timeout waiting for OK after {text!r}: {rendered}")
+
+    def query(self, text: str, *, idle_wait_s: float = 0.10) -> CommandResult:
+        """Collect a read-only reply terminated by UART idle instead of ``OK``."""
+        self.drain(wait_s=0.02)
+        self._write_line(text)
+        lines = self.drain(wait_s=idle_wait_s)
+        if not lines:
+            raise RadioCommandError(f"No response after {text!r}")
+        return CommandResult(text, lines)
 
     def send_continuous(
         self,
@@ -403,7 +431,10 @@ class SerialRadio:
                 readback: CommandResult | None = None
                 for readback_attempt in range(1, readback_attempts + 1):
                     try:
-                        readback = self.command(verification_command)
+                        if profile.parameter_verification_wait_for_ok:
+                            readback = self.command(verification_command)
+                        else:
+                            readback = self.query(verification_command)
                         break
                     except RadioCommandError:
                         if readback_attempt == readback_attempts:

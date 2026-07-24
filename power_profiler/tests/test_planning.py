@@ -224,6 +224,82 @@ class PlanningTests(unittest.TestCase):
             ),
         )
 
+    def test_e07_900mm10s_profile_matches_validated_915mhz_phy(self):
+        profile = load_profile("RADIO_EBYTE_E07_900MM10S")
+
+        for command in (
+            "AT+DEFAULT",
+            "AT+FREQ=915",
+            "AT+MOD=GFSK",
+            "AT+PRE=64",
+            "AT+SYNCERR=1",
+            "AT+CRC=ON",
+        ):
+            self.assertIn(command, profile.setup_commands)
+        self.assertEqual(profile.receiver_enable_commands, ("AT+RX=ON",))
+        self.assertEqual(profile.post_config_commands, ("AT+RX=OFF",))
+        self.assertEqual(profile.payload_sizes, (8, 32, 64))
+        self.assertEqual(profile.transmit.frame_sizes(64), (32, 32))
+        self.assertEqual(profile.receive.inter_frame_gap_ms, 15)
+        self.assertEqual(profile.airtime["overhead_bytes"], 13)
+        power_axis = next(axis for axis in profile.axes if axis.name == "cc1101_drive_dbm")
+        rate_axis = next(axis for axis in profile.axes if axis.name == "bit_rate_kbps")
+        self.assertEqual(power_axis.values, (-30, 0, 10))
+        self.assertEqual(rate_axis.values, (1.2, 38.4, 250))
+        self.assertEqual(len(build_cases(profile, "tx")), 135)
+        self.assertEqual(len(build_cases(profile, "rx")), 135)
+
+    def test_e07_400m10s_profile_matches_validated_433mhz_phy(self):
+        profile = load_profile("RADIO_EBYTE_E07_400M10S")
+
+        for command in (
+            "AT+DEFAULT",
+            "AT+FREQ=433.92",
+            "AT+MOD=GFSK",
+            "AT+PRE=64",
+            "AT+SYNCERR=1",
+            "AT+CRC=ON",
+        ):
+            self.assertIn(command, profile.setup_commands)
+        self.assertEqual(profile.receiver_enable_commands, ("AT+RX=ON",))
+        self.assertEqual(profile.post_config_commands, ("AT+RX=OFF",))
+        self.assertEqual(profile.payload_sizes, (8, 32, 64))
+        self.assertEqual(profile.transmit.frame_sizes(64), (32, 32))
+        self.assertEqual(profile.receive.inter_frame_gap_ms, 15)
+        self.assertEqual(profile.airtime["overhead_bytes"], 13)
+        power_axis = next(axis for axis in profile.axes if axis.name == "cc1101_drive_dbm")
+        rate_axis = next(axis for axis in profile.axes if axis.name == "bit_rate_kbps")
+        self.assertEqual(power_axis.values, (-30, 0, 10))
+        self.assertEqual(rate_axis.values, (1.2, 38.4, 250))
+        self.assertEqual(len(build_cases(profile, "tx")), 135)
+        self.assertEqual(len(build_cases(profile, "rx")), 135)
+
+    def test_e07_433m20s_profile_matches_validated_pa_lna_phy(self):
+        profile = load_profile("RADIO_EBYTE_E07_433M20S")
+
+        for command in (
+            "AT+DEFAULT",
+            "AT+FREQ=433.92",
+            "AT+MOD=GFSK",
+            "AT+PRE=64",
+            "AT+SYNCERR=1",
+            "AT+CRC=ON",
+        ):
+            self.assertIn(command, profile.setup_commands)
+        self.assertIn("PA/LNA", profile.display_name)
+        self.assertEqual(profile.receiver_enable_commands, ("AT+RX=ON",))
+        self.assertEqual(profile.post_config_commands, ("AT+RX=OFF",))
+        self.assertEqual(profile.payload_sizes, (8, 32, 64))
+        self.assertEqual(profile.transmit.frame_sizes(64), (32, 32))
+        self.assertEqual(profile.receive.inter_frame_gap_ms, 15)
+        self.assertEqual(profile.airtime["overhead_bytes"], 13)
+        power_axis = next(axis for axis in profile.axes if axis.name == "cc1101_drive_dbm")
+        rate_axis = next(axis for axis in profile.axes if axis.name == "bit_rate_kbps")
+        self.assertEqual(power_axis.values, (-30, 0, 10))
+        self.assertEqual(rate_axis.values, (1.2, 38.4, 250))
+        self.assertEqual(len(build_cases(profile, "tx")), 135)
+        self.assertEqual(len(build_cases(profile, "rx")), 135)
+
     def test_e79_profile_supports_fragmented_tx_and_controlled_rx(self):
         profile = load_profile("RADIO_EBYTE_E79_CC1352P")
 
@@ -408,6 +484,47 @@ class PlanningTests(unittest.TestCase):
         self.assertTrue(profile.transmit.continuous_pacing_includes_airtime)
         self.assertNotIn("AT+DEBUG=OFF", profile.setup_commands)
         self.assertEqual(len(build_cases(profile, "rx")), 135)
+
+    def test_ra09_profile_matches_stm32wle5_modem_and_controlled_rx(self):
+        profile = load_profile("RA09_STM32WLE5")
+
+        for command in (
+            "AT+DEFAULT",
+            "AT+DEBUG=OFF",
+            "AT+FREQ=433000000",
+            "AT+CR=4/5",
+            "AT+PREAMBLE=8",
+            "AT+CRC=ON",
+            "AT+IQ=NORMAL",
+            "AT+NETWORK=PRIVATE",
+        ):
+            self.assertIn(command, profile.setup_commands)
+        self.assertEqual(profile.baudrate, 115200)
+        self.assertIs(profile.serial_dtr, True)
+        self.assertIs(profile.serial_rts, False)
+        self.assertTrue(profile.serial_reset_on_open)
+        self.assertEqual(profile.receiver_enable_commands, ("AT+RX=ON",))
+        self.assertEqual(profile.post_config_commands, ("AT+RX=OFF",))
+        self.assertEqual(profile.parameter_verification_command, "AT+CFG?")
+        self.assertFalse(profile.parameter_verification_wait_for_ok)
+        self.assertEqual(profile.payload_sizes, (8, 32, 128))
+        self.assertEqual(profile.transmit.mode, "hex_command")
+        self.assertEqual(profile.transmit.max_payload_bytes, 255)
+        self.assertTrue(profile.transmit.continuous_pacing_includes_airtime)
+        power_axis = next(axis for axis in profile.axes if axis.name == "tx_power_dbm")
+        sf_axis = next(axis for axis in profile.axes if axis.name == "spreading_factor")
+        bandwidth_axis = next(axis for axis in profile.axes if axis.name == "bandwidth_hz")
+        self.assertEqual(power_axis.values, (-9, 10, 22))
+        self.assertEqual(sf_axis.values, (7, 9, 12))
+        self.assertEqual(bandwidth_axis.values, (125000,))
+        self.assertEqual(len(build_cases(profile, "tx")), 135)
+        self.assertEqual(len(build_cases(profile, "rx")), 135)
+
+        overridden = override_profile(profile, sizes=(8,), repetitions=1)
+        self.assertIs(overridden.serial_dtr, True)
+        self.assertIs(overridden.serial_rts, False)
+        self.assertTrue(overridden.serial_reset_on_open)
+        self.assertFalse(overridden.parameter_verification_wait_for_ok)
 
 
 if __name__ == "__main__":

@@ -1,4 +1,5 @@
 import unittest
+from types import SimpleNamespace
 from unittest.mock import Mock, patch
 
 from radio_power_profiler.profiles import load_profile
@@ -37,6 +38,77 @@ class TimedFakeSerial:
 
 
 class SerialRadioTests(unittest.TestCase):
+    def test_query_accepts_a_reply_without_ok_terminator(self):
+        radio = SerialRadio.__new__(SerialRadio)
+        radio.drain = Mock(
+            side_effect=(
+                (),
+                (
+                    "+CFG:FREQ=433000000,PWR=-9,SF=7,BW=125000,"
+                    "CR=4/5,PREAMBLE=8",
+                ),
+            )
+        )
+        radio._write_line = Mock()
+
+        result = radio.query("AT+CFG?")
+
+        self.assertEqual(result.command, "AT+CFG?")
+        self.assertEqual(result.lines[0][:5], "+CFG:")
+        radio._write_line.assert_called_once_with("AT+CFG?")
+        self.assertEqual(
+            radio.drain.call_args_list,
+            [unittest.mock.call(wait_s=0.02), unittest.mock.call(wait_s=0.10)],
+        )
+
+    def test_control_lines_are_set_before_opening_port(self):
+        opened_states = []
+        rts_transitions = []
+
+        class ClosedSerial:
+            def __init__(self):
+                self.is_open = False
+                self.dtr = True
+                self._rts = True
+
+            @property
+            def rts(self):
+                return self._rts
+
+            @rts.setter
+            def rts(self, value):
+                self._rts = value
+                if self.is_open:
+                    rts_transitions.append(value)
+
+            def open(self):
+                opened_states.append((self.dtr, self.rts))
+                self.is_open = True
+
+            def close(self):
+                self.is_open = False
+
+        with (
+            patch.dict(
+                "sys.modules",
+                {"serial": SimpleNamespace(Serial=ClosedSerial)},
+            ),
+            patch.object(SerialRadio, "drain", return_value=()),
+            patch.object(SerialRadio, "_synchronize_after_open"),
+            patch("radio_power_profiler.serial_radio.time.sleep"),
+        ):
+            radio = SerialRadio(
+                "COM63",
+                115200,
+                dtr=True,
+                rts=False,
+                reset_on_open=True,
+            )
+
+        self.assertEqual(opened_states, [(True, False)])
+        self.assertEqual(rts_transitions, [True, False])
+        radio.close()
+
     def test_configure_retries_transient_modem_error(self):
         radio = SerialRadio.__new__(SerialRadio)
         radio.command = Mock(

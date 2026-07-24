@@ -217,12 +217,24 @@ def _reopen_continuous_radios(
     reopen_setup = (
         profile.continuous_reopen_setup_commands or profile.setup_commands
     )
-    reopened_radio = SerialRadio(radio_port, profile.baudrate)
+    reopened_radio = SerialRadio(
+        radio_port,
+        profile.baudrate,
+        dtr=profile.serial_dtr,
+        rts=profile.serial_rts,
+        reset_on_open=profile.serial_reset_on_open,
+    )
     reopened_radio.configure(reopen_setup)
     reopened_radio.configure(profile.post_config_commands)
     reopened_peer: SerialRadio | None = None
     if transmitter_port is not None:
-        reopened_peer = SerialRadio(transmitter_port, profile.baudrate)
+        reopened_peer = SerialRadio(
+            transmitter_port,
+            profile.baudrate,
+            dtr=profile.serial_dtr,
+            rts=profile.serial_rts,
+            reset_on_open=profile.serial_reset_on_open,
+        )
         reopened_peer.configure(reopen_setup)
         reopened_peer.configure(profile.post_config_commands)
     return reopened_radio, reopened_peer
@@ -351,11 +363,23 @@ def run_continuous_profile(
         sampler = Ppk2Sampler(ppk_port, voltage_mv=voltage_mv)
         sampler.power_on()
         time.sleep(boot_wait_s)
-        radio = SerialRadio(radio_port, profile.baudrate)
+        radio = SerialRadio(
+            radio_port,
+            profile.baudrate,
+            dtr=profile.serial_dtr,
+            rts=profile.serial_rts,
+            reset_on_open=profile.serial_reset_on_open,
+        )
         radio.configure(profile.setup_commands)
         radio.configure(profile.post_config_commands)
         if measurement_direction == "rx":
-            peer = SerialRadio(str(transmitter_port), profile.baudrate)
+            peer = SerialRadio(
+                str(transmitter_port),
+                profile.baudrate,
+                dtr=profile.serial_dtr,
+                rts=profile.serial_rts,
+                reset_on_open=profile.serial_reset_on_open,
+            )
             peer.configure(profile.setup_commands)
             peer.configure(profile.post_config_commands)
 

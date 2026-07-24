@@ -74,6 +74,26 @@ def _bit_rate_kbps(params: dict[str, Any], metadata: dict[str, Any]) -> float:
     if params.get("bit_rate_kbps") is not None:
         return float(params["bit_rate_kbps"])
     airtime = metadata["profile"].get("airtime", {})
+    if airtime.get("kind") == "lora":
+        sf_axis = airtime.get("sf_axis")
+        bw_axis = airtime.get("bw_axis")
+        if sf_axis not in params or bw_axis not in params:
+            raise ValueError(f"Cannot derive LoRa bit rate from parameters: {params}")
+        spreading_factor = float(params[sf_axis])
+        bandwidth_hz = (
+            float(params[bw_axis]) * float(airtime.get("bw_multiplier", 1000.0))
+        )
+        coding_rate_denominator = float(
+            airtime.get("coding_rate_denominator", 5)
+        )
+        # Nominal coded payload bit rate: symbol rate times SF times 4/CR.
+        return (
+            bandwidth_hz
+            * spreading_factor
+            / (2.0**spreading_factor)
+            * (4.0 / coding_rate_denominator)
+            / 1000.0
+        )
     rate_axis = airtime.get("rate_axis")
     if rate_axis not in params:
         raise ValueError(f"Cannot derive bit rate from parameters: {params}")
@@ -85,6 +105,13 @@ def _bit_rate_kbps(params: dict[str, Any], metadata: dict[str, Any]) -> float:
         except KeyError as exc:
             raise ValueError(f"No bit-rate mapping for {rate_value!r}") from exc
     return float(rate_value) * float(airtime.get("rate_multiplier", 1000.0)) / 1000.0
+
+
+def _tx_power_dbm(params: dict[str, Any]) -> float:
+    for axis_name in ("tx_power_dbm", "cc1101_drive_dbm"):
+        if params.get(axis_name) is not None:
+            return float(params[axis_name])
+    raise ValueError(f"Cannot derive TX power from parameters: {params}")
 
 
 def build_report(result_dir: Path) -> tuple[list[dict[str, Any]], list[dict[str, str]], dict[str, Any]]:
@@ -116,7 +143,7 @@ def build_report(result_dir: Path) -> tuple[list[dict[str, Any]], list[dict[str,
                 "payload_bytes": payload_bytes,
                 "frame_count": int(aggregate["frame_count"]),
                 "max_frame_payload_bytes": int(aggregate["max_frame_payload_bytes"]),
-                "tx_power_dbm": params["tx_power_dbm"],
+                "tx_power_dbm": _tx_power_dbm(params),
                 "bit_rate_kbps": _bit_rate_kbps(params, metadata),
                 "rf_profile": params.get("rf_profile", ""),
                 "runs": int(aggregate["runs"]),

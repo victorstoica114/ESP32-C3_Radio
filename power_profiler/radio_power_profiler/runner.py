@@ -249,7 +249,13 @@ def run_profile(
         sampler = Ppk2Sampler(ppk_port, voltage_mv=voltage_mv)
         sampler.power_on()
         time.sleep(boot_wait_s)
-        radio = SerialRadio(radio_port, profile.baudrate)
+        radio = SerialRadio(
+            radio_port,
+            profile.baudrate,
+            dtr=profile.serial_dtr,
+            rts=profile.serial_rts,
+            reset_on_open=profile.serial_reset_on_open,
+        )
         measured_role = "transmitter" if measurement_direction == "tx" else "receiver"
         print(
             f"Configuring measured {measured_role} "
@@ -261,7 +267,13 @@ def run_profile(
                 raise ValueError(
                     f"Profile {profile.profile_id} does not define receiver-enable commands"
                 )
-            peer = SerialRadio(peer_port, profile.baudrate)
+            peer = SerialRadio(
+                peer_port,
+                profile.baudrate,
+                dtr=profile.serial_dtr,
+                rts=profile.serial_rts,
+                reset_on_open=profile.serial_reset_on_open,
+            )
             peer_role = "receiver" if measurement_direction == "tx" else "transmitter"
             print(f"Configuring peer {peer_role} on {peer_port} ...")
             peer.configure(profile.setup_commands)

@@ -120,6 +120,12 @@ def load_profile(profile_id: str) -> Profile:
             raw.get("continuous_reopen_setup_commands", [])
         ),
         parameter_verification_command=raw.get("parameter_verification_command"),
+        parameter_verification_wait_for_ok=bool(
+            raw.get("parameter_verification_wait_for_ok", True)
+        ),
+        serial_dtr=raw.get("serial_dtr"),
+        serial_rts=raw.get("serial_rts"),
+        serial_reset_on_open=bool(raw.get("serial_reset_on_open", False)),
         notes=tuple(raw.get("notes", [])),
     )
 
@@ -175,5 +181,11 @@ def override_profile(
         continuous_inter_power_commands=profile.continuous_inter_power_commands,
         continuous_reopen_setup_commands=profile.continuous_reopen_setup_commands,
         parameter_verification_command=profile.parameter_verification_command,
+        parameter_verification_wait_for_ok=(
+            profile.parameter_verification_wait_for_ok
+        ),
+        serial_dtr=profile.serial_dtr,
+        serial_rts=profile.serial_rts,
+        serial_reset_on_open=profile.serial_reset_on_open,
         notes=profile.notes,
     )
