@@ -99,6 +99,7 @@ Standalone module-side radio firmware:
 | Firmware | Primary repository | Local reference | Radio/module | Status |
 | --- | --- | --- | --- | --- |
 | RA08 AT modem | [victorstoica114/RA-08_AT-Commands](https://github.com/victorstoica114/RA-08_AT-Commands) | `src/RA-08(ASR6601)` | Ai-Thinker RA-08, ASR6601 LPWAN SoC | Functional and tested with two modules |
+| RA09 AT modem | [victorstoica114/RA-09_AT-Commands](https://github.com/victorstoica114/RA-09_AT-Commands) | `src/RA-09(STM32WLE5)` | Ai-Thinker RA-09, STM32WLE5CCU6 Sub-GHz wireless MCU | Functional and tested with two modules; 20/20 bidirectional frames |
 | E79 AT modem | [victorstoica114/Ebyte-E79-CC1352P-_AT_Modem_Firmware](https://github.com/victorstoica114/Ebyte-E79-CC1352P-_AT_Modem_Firmware) | `src/Ebyte E79(CC1352P)/CC1352P_AT_Modem_Firmware` | Ebyte E79-400DM2005S, TI CC1352P wireless MCU | Firmware 0.3.0; seven RF profiles; 343/0 hardware tests |
 
 ## Firmware variants
@@ -139,18 +140,10 @@ Availability by module:
 | `RADIO_EBYTE_E07_433M20S` | yes | no | no | no | no | no |
 | `RADIO_XL1276_D01_SX1276` | yes | no | yes | yes | yes | no |
 | RA08 AT modem | yes | no | no | no | no | no |
+| RA09 AT modem | yes | no | no | no | no | no |
 
 If a module/program combination is not available, compilation stops with a clear
 `#error` message from `src/module_selection.h`.
-
-## Planned / In Development Modules
-
-These modules still need their own module-side firmware or are planned for future
-support:
-
-| Module | Chipset | Status / expected approach |
-| --- | --- | --- |
-| Ai-Thinker RA-09 | STM32WLE5CCU6 wireless MCU | Planned; separate module firmware, then UART modem/AT bridge from ESP32 |
 
 ## External Module Firmware
 
@@ -170,6 +163,25 @@ belong in the separate RA-08 firmware repository.
 The RA-08 modem was validated on two modules over USB serial at `115200` baud,
 including AT command parsing, parameter validation, sleep/wake guardrails,
 manual frequency mode, channel mode, and bidirectional packet exchange.
+
+### Ai-Thinker RA-09
+
+The RA-09 STM32WLE5CCU6 AT modem firmware lives in its own repository:
+[victorstoica114/RA-09_AT-Commands](https://github.com/victorstoica114/RA-09_AT-Commands).
+The application uses LPUART1 on PA2/PA3, exposed by the module as
+`TX2`/`RX2`, and receives continuously after boot. Plain UART messages are
+transmitted transparently, so `AT+SEND` is optional.
+
+This repository keeps the modem application, LPUART1 setup, interrupt glue,
+and RA-09 RF interface as a compact source reference under
+`src/RA-09(STM32WLE5)`. The complete STM32 HAL, CMSIS, radio middleware,
+startup code, linker script, CMake build, and flashing tools remain in the
+dedicated firmware repository.
+
+The validated image was programmed through the STM32 UART bootloader on two
+carriers, one using CH340C and one using CH9340C. Both passed modem identity
+and configuration checks, followed by 10 of 10 transparent-data frames in
+each direction without corruption.
 
 ## Build
 
