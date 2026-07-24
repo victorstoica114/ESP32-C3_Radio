@@ -3368,18 +3368,18 @@
 						)
 					)
 				)
-				(pin no_connect line
-					(at -6.35 -31.75 90)
+				(pin bidirectional line
+					(at 6.35 -31.75 90)
 					(length 2.54)
 					(hide yes)
-					(name "NC"
+					(name "GND"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "44"
+					(number "45"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3390,14 +3390,14 @@
 				(pin bidirectional line
 					(at 15.24 -21.59 180)
 					(length 2.54)
-					(name "H3"
+					(name "PH3"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "45"
+					(number "44"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3999,16 +3999,6 @@
 	)
 	(wire
 		(pts
-			(xy 182.88 36.83) (xy 187.96 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "38b84d47-448e-4693-ba61-21a326bef8cd")
-	)
-	(wire
-		(pts
 			(xy 114.3 45.72) (xy 106.68 45.72)
 		)
 		(stroke
@@ -4026,16 +4016,6 @@
 			(type default)
 		)
 		(uuid "3a64f10b-f315-4cb5-93ed-8f4630acc3ca")
-	)
-	(wire
-		(pts
-			(xy 177.8 34.29) (xy 187.96 34.29)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3cb8a26b-33f8-4ec5-bf8d-0ac483457262")
 	)
 	(wire
 		(pts
@@ -4296,16 +4276,6 @@
 			(type default)
 		)
 		(uuid "76af0357-0dee-43d8-a969-1ed603383eb8")
-	)
-	(wire
-		(pts
-			(xy 182.88 31.75) (xy 187.96 31.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7d7571f8-34c8-4603-b61b-31f0cfe8c77c")
 	)
 	(wire
 		(pts
@@ -4977,16 +4947,6 @@
 		)
 		(uuid "43a81e60-4825-4ce9-9e5a-56f4422afa72")
 	)
-	(label "RX2"
-		(at 182.88 36.83 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "4449c2de-9733-48de-84c1-1e46fc78104e")
-	)
 	(label "TX2"
 		(at 146.05 36.83 0)
 		(effects
@@ -5077,7 +5037,7 @@
 		)
 		(uuid "8150b947-5550-466a-9381-6c55e839c537")
 	)
-	(label "RX1"
+	(label "TX"
 		(at 69.85 68.58 0)
 		(effects
 			(font
@@ -5097,7 +5057,7 @@
 		)
 		(uuid "843feb6e-f997-4363-b7f1-1a7b73324f5b")
 	)
-	(label "RX2"
+	(label "TX2"
 		(at 114.3 45.72 180)
 		(effects
 			(font
@@ -5207,16 +5167,6 @@
 		)
 		(uuid "d9dccabd-8b6a-4a35-8f69-e840a60c97d2")
 	)
-	(label "RX1"
-		(at 182.88 31.75 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "db2921c0-159e-4405-bd2e-82855b06e4ca")
-	)
 	(label "+3V3"
 		(at 134.62 171.45 180)
 		(effects
@@ -5247,7 +5197,7 @@
 		)
 		(uuid "f50e1056-b93f-41ee-bfbf-f9cddc7a19d9")
 	)
-	(label "TX2"
+	(label "TX"
 		(at 114.3 48.26 180)
 		(effects
 			(font
@@ -8835,89 +8785,6 @@
 			(project "module_radio"
 				(path "/9790d703-fd6a-40c9-8b52-2dd780028164/243ab3ae-c770-4132-a7f2-2763056a5d01"
 					(reference "U44")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:Conn_01x03_Pin")
-		(at 193.04 34.29 0)
-		(mirror y)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "fe192dbc-534e-4e62-bfaf-9769ff8b15e0")
-		(property "Reference" "J11"
-			(at 193.04 24.638 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Conn_01x03_Pin"
-			(at 193.04 27.178 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
-			(at 193.04 34.29 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 193.04 34.29 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x03, script generated"
-			(at 193.04 34.29 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "aa8dd309-9836-40c7-b7f0-5723fb0b1ad0")
-		)
-		(pin "3"
-			(uuid "3503901f-0ffb-4473-a8eb-76af685bb0fd")
-		)
-		(pin "2"
-			(uuid "37344c3b-e505-415a-a318-f08a781e6dc8")
-		)
-		(instances
-			(project "module_radio"
-				(path "/9790d703-fd6a-40c9-8b52-2dd780028164/243ab3ae-c770-4132-a7f2-2763056a5d01"
-					(reference "J11")
 					(unit 1)
 				)
 			)
