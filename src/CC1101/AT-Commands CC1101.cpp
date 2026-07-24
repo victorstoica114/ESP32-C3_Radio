@@ -77,6 +77,14 @@
 #define CC1101_GDO2_GPIO 3
 #endif
 
+#ifndef CC1101_TXEN_GPIO
+#define CC1101_TXEN_GPIO -1
+#endif
+
+#ifndef CC1101_RXEN_GPIO
+#define CC1101_RXEN_GPIO -1
+#endif
+
 /*
   CC1101 AT Bridge - Comunicatie bidirectionala cu comenzi AT
   
@@ -114,6 +122,8 @@ static void drawCentered(const char* text, int baselineY, const uint8_t* font) {
 static const int CC1101_CS_PIN   = 7;
 static const int CC1101_GDO0_PIN = CC1101_GDO0_GPIO;
 static const int CC1101_GDO2_PIN = CC1101_GDO2_GPIO;
+static const int CC1101_TXEN_PIN = CC1101_TXEN_GPIO;
+static const int CC1101_RXEN_PIN = CC1101_RXEN_GPIO;
 static const int LED_PIN         = 8;
 static const int SPI_SCK_PIN     = 4;
 static const int SPI_MISO_PIN    = 5;
@@ -383,6 +393,28 @@ static void pollReceivePins() {
 // =============================================================================
 // Radio Functions
 // =============================================================================
+static void setRfFrontend(bool txEnabled, bool rxEnabled) {
+  if (CC1101_TXEN_PIN < 0 && CC1101_RXEN_PIN < 0) return;
+
+  // Both enable inputs are active HIGH and must never overlap.
+  if (CC1101_TXEN_PIN >= 0) digitalWrite(CC1101_TXEN_PIN, LOW);
+  if (CC1101_RXEN_PIN >= 0) digitalWrite(CC1101_RXEN_PIN, LOW);
+  delayMicroseconds(10);
+
+  if (txEnabled && CC1101_TXEN_PIN >= 0) {
+    digitalWrite(CC1101_TXEN_PIN, HIGH);
+  } else if (rxEnabled && CC1101_RXEN_PIN >= 0) {
+    digitalWrite(CC1101_RXEN_PIN, HIGH);
+  }
+  delayMicroseconds(100);
+}
+
+static void setupRfFrontend() {
+  if (CC1101_TXEN_PIN >= 0) pinMode(CC1101_TXEN_PIN, OUTPUT);
+  if (CC1101_RXEN_PIN >= 0) pinMode(CC1101_RXEN_PIN, OUTPUT);
+  setRfFrontend(false, false);
+}
+
 static void startReceive() {
   // Clear orice flag anterior
   radioReceived = false;
@@ -392,7 +424,8 @@ static void startReceive() {
   SPI.transfer(0x3A);  // SFRX - Flush RX FIFO
   digitalWrite(CC1101_CS_PIN, HIGH);
   delayMicroseconds(100);
-  
+
+  setRfFrontend(false, true);
   int state = radio.startReceive();
   
   if (debugEnabled && state != RADIOLIB_ERR_NONE) {
@@ -402,9 +435,11 @@ static void startReceive() {
 
   if (state == RADIOLIB_ERR_NONE) {
     attachReceiveActions();
+    inReceiveMode = true;
+  } else {
+    setRfFrontend(false, false);
+    inReceiveMode = false;
   }
-  
-  inReceiveMode = true;
 }
 
 static bool applyConfig(const RadioConfig& cfg) {
@@ -412,6 +447,7 @@ static bool applyConfig(const RadioConfig& cfg) {
   beginRadioSpiBus();
 
   // Opreste receptia si pune in standby
+  setRfFrontend(false, false);
   radio.standby();
   radioSleeping = false;
   delay(10);
@@ -560,6 +596,7 @@ static bool transmitData(const char* data, int length) {
 
   const bool restoreReceive = inReceiveMode;
   inReceiveMode = false;
+  setRfFrontend(true, false);
 
   // Some CC1101 V1 boards do not route GDO2 to the ESP32. RadioLib's
   // blocking transmit() waits for that pin and therefore adds a 5x-airtime
@@ -581,6 +618,7 @@ static bool transmitData(const char* data, int length) {
     if (radio.marcState() == RADIOLIB_CC1101_MARC_STATE_IDLE) {
       state = radio.finishTransmit();
     } else {
+      setRfFrontend(false, false);
       radio.standby();
       state = RADIOLIB_ERR_TX_TIMEOUT;
     }
@@ -601,6 +639,7 @@ static bool transmitData(const char* data, int length) {
   } else {
     detachReceiveActions();
     radioReceived = false;
+    setRfFrontend(false, false);
     radio.standby();
     inReceiveMode = false;
   }
@@ -1003,6 +1042,7 @@ static bool putRadioToSleep() {
   inReceiveMode = false;
   radioReceived = false;
   detachReceiveActions();
+  setRfFrontend(false, false);
 
   int state = radio.sleep();
   if (state != RADIOLIB_ERR_NONE) return false;
@@ -1029,6 +1069,7 @@ static bool wakeRadioFromSleep() {
   if (receiveModeBeforeSleep) {
     startReceive();
   } else {
+    setRfFrontend(false, false);
     inReceiveMode = false;
   }
 
@@ -1166,6 +1207,7 @@ static bool handleAT(const String& lineRaw) {
     inReceiveMode = false;
     radioReceived = false;
     detachReceiveActions();
+    setRfFrontend(false, false);
     int state = radio.standby();
     radioSleeping = false;
     (state == RADIOLIB_ERR_NONE) ? serialOK() : serialERR();
@@ -1604,6 +1646,7 @@ void setup() {
   // oled_setup();
   pinMode(LED_PIN, OUTPUT);
   digitalWrite(LED_PIN, LOW);
+  setupRfFrontend();
 
   Serial.begin(USB_BAUD);
   delay(1000);
@@ -1663,11 +1706,13 @@ void setup() {
   oled_setup();
   beginRadioSpiBus();
   
+  setRfFrontend(false, false);
   radio.standby();
   delay(10);
   bool ok = applyConfig(cfgCurrent);
   delay(100);
   
+  setRfFrontend(false, false);
   radio.standby();
   delay(10);
   // Reinitializeaza complet modulul

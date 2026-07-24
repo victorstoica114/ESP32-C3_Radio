@@ -88,10 +88,10 @@ Use these values for `RADIO_MODULE` in the ESP32 PlatformIO firmware:
 | `RADIO_EBYTE_E22_SX1268` | `src/Ebyte E22(SX1268)` | Ebyte E22 SPI LoRa module, SX1268 |
 | `RADIO_EBYTE_E280_SX1280` | `src/Ebyte E280(SX1280)` | Ebyte E280-2G4T12S UART/TTL module, SX1280 |
 | `RADIO_EBYTE_E79_CC1352P` | `src/Ebyte E79(CC1352P)` | Ebyte E79-400DM2005S, TI CC1352P wireless MCU |
-| `RADIO_EBYTE_E07_400M10S` | `src/CC1101` | Ebyte E07-400M10S, CC1101, 10 dBm nominal |
+| `RADIO_EBYTE_E07_400M10S` | `src/CC1101` | Ebyte E07-400M10S, CC1101, 410-450 MHz, 10 dBm nominal |
 | `RADIO_EBYTE_E07_400MM10S` | `src/CC1101` | Ebyte E07-400MM10S, CC1101, 10 dBm nominal |
 | `RADIO_EBYTE_E07_900MM10S` | `src/CC1101` | Ebyte E07-900MM10S, CC1101, 855-925 MHz, 10 dBm nominal |
-| `RADIO_EBYTE_E07_433M20S` | `src/CC1101` | Ebyte E07-433M20S, CC1101 + PA/LNA, 20 dBm nominal |
+| `RADIO_EBYTE_E07_433M20S` | `src/CC1101` | Ebyte E07-433M20S, CC1101 + PA/LNA, 425-450.5 MHz, 20 dBm nominal |
 | `RADIO_XL1276_D01_SX1276` | `src/XL1276-D01 (SX1276)` | XL1276-D01, SX1276 |
 
 Standalone module-side radio firmware:
@@ -222,10 +222,13 @@ virtual and is not used as the radio-module baud reference.
 The Ebyte E07-400M10S, E07-400MM10S, E07-900MM10S, and E07-433M20S variants
 use the same CC1101 AT firmware. Select the exact module with `RADIO_MODULE` so
 the splash, configuration printout, allowed RF range, and EEPROM namespace
-match the hardware. The E07-900MM10S selection defaults to `915.000 MHz` and
-limits `AT+FREQ` to the module's `855-925 MHz` RF range. On the local
-E07-900MM10S carrier, `GD00` is connected to ESP32-C3 `GPIO1`, `GD02` to
-`GPIO3`, and module power passes through the `JP23` current-measurement jumper.
+match the hardware. The E07-400M10S selection defaults to `433.920 MHz` and
+limits `AT+FREQ` to its `410-450 MHz` RF range. The E07-900MM10S selection
+defaults to `915.000 MHz` and limits `AT+FREQ` to its `855-925 MHz` RF range.
+The E07-433M20S selection defaults to `433.920 MHz` and limits `AT+FREQ` to
+its `425-450.5 MHz` RF range. On the local carriers, `GD00` is connected to
+ESP32-C3 `GPIO1`, `GD02` to `GPIO3`, and module power passes through the
+current-measurement jumper.
 
 The local E07-900MM10S pair was hardware-validated at `915.000 MHz` using GFSK,
 a 64-bit preamble, one tolerated sync-word bit error, CRC, and `-30 dBm`.
@@ -233,6 +236,15 @@ Those values are the firmware defaults and passed 20/20 isolated packets in
 both directions. The modules support up to `10 dBm`, but the closely spaced
 bench setup showed packet loss at higher power, consistent with receiver
 overload; use more separation or RF attenuation for high-power tests.
+
+The local E07-400M10S pair was hardware-validated at `433.920 MHz` with the
+same conservative GFSK packet profile and `-30 dBm` TX power. Plain bridge
+messages, without `AT+SEND`, passed 20/20 packets in both directions.
+
+The local E07-433M20S pair was hardware-validated at `433.920 MHz`, GFSK, a
+64-bit preamble, CRC, and the conservative `-30 dBm` CC1101 drive setting.
+Automatic PA/LNA direction control and plain bridge traffic passed 20/20
+packets in both directions.
 
 Use `RADIO_CC1101_V1_433` for the local V1 CC1101 boards. Its firmware default
 is `433.920 MHz`, the tested stable center frequency for the local 433 MHz
@@ -243,11 +255,13 @@ bands, but the RF matching network, antenna, and any external PA/LNA are
 band-specific. In the local test set, the V2 pair on COM39/COM40 was unreliable
 at 433.920 MHz but passed cleanly at 868/869 MHz.
 
-The remaining E07 selections compile but still await equivalent paired-radio
+The E07-400MM10S selection compiles but still awaits equivalent paired-radio
 hardware validation.
 
 `E07-433M20S` includes an external PA/LNA and is rated around 20 dBm at module
-level. `AT+PWR` still controls the CC1101 drive/PATABLE preset exposed by
+level. Its active-HIGH `TXEN` and `RXEN` inputs are connected to ESP32-C3
+`GPIO21` and `GPIO20`; the firmware switches them automatically and prevents
+overlap. `AT+PWR` still controls the CC1101 drive/PATABLE preset exposed by
 RadioLib, not a separate PA gain setting.
 
 | Command | Meaning |

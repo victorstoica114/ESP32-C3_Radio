@@ -34,9 +34,9 @@
 //   BRIDGE
 
 // Change these two defines when switching what you want to test.
-// E07 CC1101 AT commands: RADIO_EBYTE_E07_900MM10S + AT_COMMANDS.
+// E07 CC1101 AT commands: RADIO_EBYTE_E07_433M20S + AT_COMMANDS.
 #ifndef RADIO_MODULE
-#define RADIO_MODULE  RADIO_EBYTE_E07_900MM10S
+#define RADIO_MODULE  RADIO_EBYTE_E07_433M20S
 #endif
 
 #ifndef RADIO_PROGRAM
