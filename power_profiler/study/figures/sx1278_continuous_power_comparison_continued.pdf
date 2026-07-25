@@ -7,7 +7,7 @@ endobj
 << /Type /Pages /Kids [3 0 R] /Count 1 >>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 1080 760] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 1080 760] /Resources << /Font << /F1 4 0 R /F2 5 0 R /F3 6 0 R /F4 7 0 R >> >> /Contents 8 0 R >>
 endobj
 4 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
@@ -16,44 +16,50 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
 6 0 obj
-<< /Length 10402 >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-BoldOblique >>
+endobj
+8 0 obj
+<< /Length 10092 >>
 stream
-q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 107.52 725.00 Td (SX1278 physical-implementation comparison \(continued\)) Tj ET Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 156.60 700.00 Td (Matched 60 s workload: 32-byte frames, SF9/BW125, 15 ms host gap, 3.3 V) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 28.00 Tf 170.32 725.00 Td (SX1278 physical-implementation comparison \(continued\)) Tj ET Q
+q 0.420 0.450 0.490 rg BT /F3 23.00 Tf 125.76 700.00 Td (Matched 60 s workload: 32-byte frames, SF9/BW125, 15 ms host gap, 3.3 V) Tj ET Q
 q 0.080 0.320 0.680 RG 2.00 w [] 0 d 78.00 656.00 m 106.00 656.00 l S Q
 q 0.080 0.320 0.680 rg 87.70 651.70 8.60 8.60 re f Q
-q 0.080 0.320 0.680 rg BT /F2 15.00 Tf 116.00 649.00 Td (Ai-Thinker RA-02 \(SX1278\)) Tj ET Q
+q 0.080 0.320 0.680 rg BT /F2 24.00 Tf 116.00 649.00 Td (Ai-Thinker RA-02) Tj ET Q
 q 0.720 0.120 0.120 RG 2.00 w [] 0 d 578.00 656.00 m 606.00 656.00 l S Q
 q 0.720 0.120 0.120 rg 592.00 660.30 m 587.70 651.70 l 596.30 651.70 l h f Q
-q 0.720 0.120 0.120 rg BT /F2 15.00 Tf 616.00 649.00 Td (Ai-Thinker RA-02 with 2 Cap \(SX1278\)) Tj ET Q
+q 0.720 0.120 0.120 rg BT /F2 24.00 Tf 616.00 649.00 Td (RA-02 + 2 capacitors) Tj ET Q
 q 0.080 0.520 0.200 RG 2.00 w [] 0 d 78.00 626.00 m 106.00 626.00 l S Q
 q 0.080 0.520 0.200 rg 96.30 626.00 m 96.30 628.37 94.37 630.30 92.00 630.30 c 89.63 630.30 87.70 628.37 87.70 626.00 c 87.70 623.63 89.63 621.70 92.00 621.70 c 94.37 621.70 96.30 623.63 96.30 626.00 c f Q
-q 0.080 0.520 0.200 rg BT /F2 15.00 Tf 116.00 619.00 Td (Adafruit board with level shifter \(SX1278\)) Tj ET Q
+q 0.080 0.520 0.200 rg BT /F2 24.00 Tf 116.00 619.00 Td (Adafruit level-shifter board) Tj ET Q
 q 0.920 0.480 0.040 RG 2.00 w [] 0 d 578.00 626.00 m 606.00 626.00 l S Q
 q 0.920 0.480 0.040 rg 587.70 621.70 8.60 8.60 re f Q
-q 0.920 0.480 0.040 rg BT /F2 15.00 Tf 616.00 619.00 Td (Unshielded radio module \(SX1278\)) Tj ET Q
+q 0.920 0.480 0.040 rg BT /F2 24.00 Tf 616.00 619.00 Td (Unshielded radio module) Tj ET Q
 q 0.440 0.230 0.620 RG 2.00 w [] 0 d 78.00 596.00 m 106.00 596.00 l S Q
 q 0.440 0.230 0.620 rg 92.00 600.30 m 87.70 591.70 l 96.30 591.70 l h f Q
-q 0.440 0.230 0.620 rg BT /F2 15.00 Tf 116.00 589.00 Td (Carrier PCB with 2 Cap \(SX1278\)) Tj ET Q
+q 0.440 0.230 0.620 rg BT /F2 24.00 Tf 116.00 589.00 Td (Carrier PCB + 2 capacitors) Tj ET Q
 q 0.050 0.560 0.620 RG 2.00 w [] 0 d 578.00 596.00 m 606.00 596.00 l S Q
 q 0.050 0.560 0.620 rg 596.30 596.00 m 596.30 598.37 594.37 600.30 592.00 600.30 c 589.63 600.30 587.70 598.37 587.70 596.00 c 587.70 593.63 589.63 591.70 592.00 591.70 c 594.37 591.70 596.30 593.63 596.30 596.00 c f Q
-q 0.050 0.560 0.620 rg BT /F2 15.00 Tf 616.00 589.00 Td (Shielded radio module \(SX1278\)) Tj ET Q
-q 0.080 0.090 0.120 rg BT /F2 20.00 Tf 120.00 557.00 Td (TX mean power above standby) Tj ET Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 986.00 557.00 Td (C) Tj ET Q
+q 0.050 0.560 0.620 rg BT /F2 24.00 Tf 616.00 589.00 Td (Shielded radio module) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 26.00 Tf 343.94 552.00 Td (TX mean power above standby [mW]) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 20.00 Tf 982.00 557.00 Td (C) Tj ET Q
 q 0.820 0.840 0.880 RG 0.60 w [] 0 d 120.00 355.00 m 1000.00 355.00 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 54.00 349.00 Td (0) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 54.00 349.00 Td (0) Tj ET Q
 q 0.820 0.840 0.880 RG 0.60 w [] 0 d 120.00 416.67 m 1000.00 416.67 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 54.00 410.67 Td (100) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 54.00 410.67 Td (100) Tj ET Q
 q 0.820 0.840 0.880 RG 0.60 w [] 0 d 120.00 478.33 m 1000.00 478.33 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 54.00 472.33 Td (200) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 54.00 472.33 Td (200) Tj ET Q
 q 0.820 0.840 0.880 RG 0.60 w [] 0 d 120.00 540.00 m 1000.00 540.00 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 54.00 534.00 Td (300) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 54.00 534.00 Td (300) Tj ET Q
 q 0.820 0.840 0.880 RG 0.50 w [] 0 d 180.69 355.00 m 180.69 540.00 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 163.69 326.00 Td (-4) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 163.69 326.00 Td (-4) Tj ET Q
 q 0.820 0.840 0.880 RG 0.50 w [] 0 d 623.22 355.00 m 623.22 540.00 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 606.22 326.00 Td (10) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 606.22 326.00 Td (10) Tj ET Q
 q 0.820 0.840 0.880 RG 0.50 w [] 0 d 939.31 355.00 m 939.31 540.00 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 922.31 326.00 Td (20) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 922.31 326.00 Td (20) Tj ET Q
 q 0.080 0.320 0.680 RG 2.00 w [] 0 d 180.69 373.71 m 623.22 405.37 l 939.31 476.72 l S Q
 q 0.080 0.320 0.680 rg 176.19 369.21 9.00 9.00 re f Q
 q 0.080 0.320 0.680 rg 618.72 400.87 9.00 9.00 re f Q
@@ -80,26 +86,24 @@ q 0.050 0.560 0.620 rg 627.72 463.83 m 627.72 466.31 625.70 468.33 623.22 468.33
 q 0.050 0.560 0.620 rg 943.81 501.48 m 943.81 503.96 941.80 505.98 939.31 505.98 c 936.83 505.98 934.81 503.96 934.81 501.48 c 934.81 498.99 936.83 496.98 939.31 496.98 c 941.80 496.98 943.81 498.99 943.81 501.48 c f Q
 q 0.080 0.090 0.120 RG 1.10 w [] 0 d 120.00 355.00 m 1000.00 355.00 l S Q
 q 0.080 0.090 0.120 RG 1.10 w [] 0 d 120.00 355.00 m 120.00 540.00 l S Q
-q 0.080 0.090 0.120 rg BT /F2 20.00 Tf 420.00 293.00 Td (Configured RF power [dBm]) Tj ET Q
-q 0.080 0.090 0.120 rg BT /F2 20.00 Tf 120.00 541.00 Td (Power [mW]) Tj ET Q
-q 0.080 0.090 0.120 rg BT /F2 20.00 Tf 120.00 280.00 Td (RX mean power above standby) Tj ET Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 986.00 280.00 Td (D) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 26.00 Tf 343.94 275.00 Td (RX mean power above standby [mW]) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 20.00 Tf 982.00 280.00 Td (D) Tj ET Q
 q 0.820 0.840 0.880 RG 0.60 w [] 0 d 120.00 78.00 m 1000.00 78.00 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 54.00 72.00 Td (0) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 54.00 72.00 Td (0) Tj ET Q
 q 0.820 0.840 0.880 RG 0.60 w [] 0 d 120.00 124.25 m 1000.00 124.25 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 54.00 118.25 Td (1) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 54.00 118.25 Td (1) Tj ET Q
 q 0.820 0.840 0.880 RG 0.60 w [] 0 d 120.00 170.50 m 1000.00 170.50 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 54.00 164.50 Td (2) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 54.00 164.50 Td (2) Tj ET Q
 q 0.820 0.840 0.880 RG 0.60 w [] 0 d 120.00 216.75 m 1000.00 216.75 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 54.00 210.75 Td (3) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 54.00 210.75 Td (3) Tj ET Q
 q 0.820 0.840 0.880 RG 0.60 w [] 0 d 120.00 263.00 m 1000.00 263.00 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 54.00 257.00 Td (4) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 54.00 257.00 Td (4) Tj ET Q
 q 0.820 0.840 0.880 RG 0.50 w [] 0 d 180.69 78.00 m 180.69 263.00 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 163.69 49.00 Td (-4) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 163.69 49.00 Td (-4) Tj ET Q
 q 0.820 0.840 0.880 RG 0.50 w [] 0 d 623.22 78.00 m 623.22 263.00 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 606.22 49.00 Td (10) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 606.22 49.00 Td (10) Tj ET Q
 q 0.820 0.840 0.880 RG 0.50 w [] 0 d 939.31 78.00 m 939.31 263.00 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 922.31 49.00 Td (20) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 922.31 49.00 Td (20) Tj ET Q
 q 0.080 0.320 0.680 RG 2.00 w [] 0 d 180.69 78.00 m 623.22 187.45 l 939.31 231.96 l S Q
 q 0.080 0.320 0.680 rg 176.19 73.50 9.00 9.00 re f Q
 q 0.080 0.320 0.680 rg 618.72 182.95 9.00 9.00 re f Q
@@ -128,20 +132,21 @@ q 0.050 0.560 0.620 rg 627.72 211.44 m 627.72 213.93 625.70 215.94 623.22 215.94
 q 0.050 0.560 0.620 rg 943.81 199.44 m 943.81 201.93 941.80 203.94 939.31 203.94 c 936.83 203.94 934.81 201.93 934.81 199.44 c 934.81 196.96 936.83 194.94 939.31 194.94 c 941.80 194.94 943.81 196.96 943.81 199.44 c f Q
 q 0.080 0.090 0.120 RG 1.10 w [] 0 d 120.00 78.00 m 1000.00 78.00 l S Q
 q 0.080 0.090 0.120 RG 1.10 w [] 0 d 120.00 78.00 m 120.00 263.00 l S Q
-q 0.080 0.090 0.120 rg BT /F2 20.00 Tf 420.00 16.00 Td (Configured RF power [dBm]) Tj ET Q
-q 0.080 0.090 0.120 rg BT /F2 20.00 Tf 120.00 264.00 Td (Power [mW]) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 26.00 Tf 395.24 16.00 Td (Configured RF power [dBm]) Tj ET Q
 endstream
 endobj
 xref
-0 7
+0 9
 0000000000 65535 f 
 0000000015 00000 n 
 0000000064 00000 n 
 0000000121 00000 n 
-0000000258 00000 n 
-0000000328 00000 n 
-0000000403 00000 n 
-trailer << /Size 7 /Root 1 0 R >>
+0000000278 00000 n 
+0000000348 00000 n 
+0000000423 00000 n 
+0000000501 00000 n 
+0000000583 00000 n 
+trailer << /Size 9 /Root 1 0 R >>
 startxref
-10857
+10727
 %%EOF

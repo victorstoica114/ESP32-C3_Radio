@@ -32,11 +32,12 @@ CYAN = (0.05, 0.56, 0.62)
 GRAY = (0.42, 0.45, 0.49)
 YELLOW = (0.88, 0.66, 0.04)
 PALETTE = (BLUE, RED, GREEN, ORANGE, PURPLE, CYAN, YELLOW, GRAY)
-TICK_FONT_SIZE = 18.0
-LEGEND_FONT_SIZE = 18.0
-AXIS_FONT_SIZE = 20.0
-DATA_LABEL_FONT_SIZE = 16.0
-SUBTITLE_FONT_SIZE = 18.0
+TICK_FONT_SIZE = 24.0
+LEGEND_FONT_SIZE = 24.0
+AXIS_FONT_SIZE = 26.0
+DATA_LABEL_FONT_SIZE = 21.0
+SUBTITLE_FONT_SIZE = 23.0
+NOTE_FONT_SIZE = 22.0
 
 
 @dataclass(frozen=True)
@@ -844,21 +845,96 @@ def title(
     subtitle: str = "",
     subtitle_font_size: float | None = None,
 ) -> None:
-    size = min(24.0, (canvas.width - 60) / max(1.0, len(value) * 0.68))
-    canvas.text(max(30.0, (canvas.width - len(value) * size * 0.68) / 2.0), canvas.height - 35, value, size=size, bold=True)
+    size = fitted_font_size(canvas, value, 28.0, canvas.width - 60.0)
+    canvas.centered_text(canvas.height - 35, value, size=size, bold=True)
     if subtitle:
-        sub_size = min(
+        sub_size = fitted_font_size(
+            canvas,
+            subtitle,
             subtitle_font_size or SUBTITLE_FONT_SIZE,
-            (canvas.width - 80) / max(1.0, len(subtitle) * 0.60),
+            canvas.width - 80.0,
         )
-        canvas.text(
-            max(40.0, (canvas.width - len(subtitle) * sub_size * 0.60) / 2.0),
+        canvas.centered_text(
             canvas.height - 60,
             subtitle,
             size=sub_size,
-            color=BLACK,
-            bold=True,
+            color=GRAY,
+            italic=True,
         )
+
+
+def fitted_font_size(
+    canvas: PdfCanvas,
+    value: str,
+    preferred_size: float,
+    available_width: float,
+    minimum_size: float = 16.0,
+) -> float:
+    measured_width = canvas.text_width(value, preferred_size)
+    if measured_width <= available_width:
+        return preferred_size
+    return max(minimum_size, preferred_size * available_width / measured_width)
+
+
+def gray_note(canvas: PdfCanvas, value: str, y: float) -> None:
+    size = fitted_font_size(
+        canvas,
+        value,
+        NOTE_FONT_SIZE,
+        canvas.width - 80.0,
+        minimum_size=17.0,
+    )
+    canvas.centered_text(
+        y,
+        value,
+        size=size,
+        italic=True,
+        color=GRAY,
+    )
+
+
+def centered_axis_label(
+    canvas: PdfCanvas,
+    y: float,
+    value: str,
+    *,
+    left: float,
+    width: float,
+    size: float = AXIS_FONT_SIZE,
+) -> None:
+    canvas.centered_text(
+        y,
+        value,
+        size=size,
+        bold=True,
+        left=left,
+        width=width,
+    )
+
+
+def compact_plot_label(value: str) -> str:
+    compact = value.rsplit(" (", 1)[0] if value.endswith(")") else value
+    aliases = {
+        "Adafruit board with level shifter": "Adafruit level-shifter board",
+        "Ai-Thinker RA-02 with 2 Cap": "RA-02 + 2 capacitors",
+        "Carrier PCB with 2 Cap": "Carrier PCB + 2 capacitors",
+        "Ebyte E32-433T20D": "E32-433T20D",
+        "Ebyte E32-868T20D": "E32-868T20D",
+        "Ebyte E79-400DM2005S via CH9340C": "E79 via CH9340C",
+        "Ebyte E79-400DM2005S via ESP32": "E79 via ESP32",
+    }
+    return aliases.get(compact, compact)
+
+
+def wrap_plot_label(value: str, max_chars: int = 28) -> tuple[str, ...]:
+    words = value.split()
+    if len(value) <= max_chars or len(words) == 1:
+        return (value,)
+    lines = ["", ""]
+    for word in words:
+        target = 0 if len(lines[0]) + len(word) + bool(lines[0]) <= max_chars else 1
+        lines[target] = f"{lines[target]} {word}".strip()
+    return tuple(line for line in lines if line)
 
 
 def log_ticks(low: float, high: float) -> list[float]:
@@ -907,13 +983,23 @@ def dot_comparison(
     log_x: bool = True,
     radio_ic_column: bool = False,
     expanded_layout: bool = False,
+    expanded_plot_left: float = 540.0,
+    expanded_plot_height: float = 985.0,
     subtitle_font_size: float | None = None,
 ) -> None:
     ordered = sorted(rows, key=lambda row: max(float(row[left_key]), float(row[right_key])))
-    canvas = PdfCanvas(1360, 1210 if expanded_layout else 760)
+    canvas = PdfCanvas(
+        1360,
+        expanded_plot_height + 225.0 if expanded_layout else 760,
+    )
     title(canvas, heading, subtitle, subtitle_font_size)
     if expanded_layout:
-        box = (370.0, 100.0, 930.0, 985.0)
+        box = (
+            expanded_plot_left,
+            100.0,
+            1300.0 - expanded_plot_left,
+            expanded_plot_height,
+        )
     else:
         box = (500.0, 75.0, 800.0, 585.0) if radio_ic_column else (430.0, 75.0, 870.0, 585.0)
     values = [float(row[key]) for row in ordered for key in (left_key, right_key) if float(row[key]) > 0]
@@ -971,16 +1057,18 @@ def dot_comparison(
             label_lines = expanded_labels[index]
             label_size = TICK_FONT_SIZE
             if len(label_lines) == 2:
-                canvas.text(40, py + 3, label_lines[0], size=label_size, bold=True)
-                canvas.text(40, py - 15, label_lines[1], size=label_size, bold=True)
+                canvas.text(40, py + 7, label_lines[0], size=label_size, bold=True)
+                canvas.text(40, py - 18, label_lines[1], size=label_size, bold=True)
             else:
                 canvas.text(40, py - 6, label_lines[0], size=label_size, bold=True)
         else:
-            label_size = min(
-                TICK_FONT_SIZE,
-                390.0 / max(1.0, len(label) * 0.68),
-            )
-            canvas.text(20, py - 6, label, size=label_size, bold=True)
+            plot_label = compact_plot_label(label)
+            label_lines = wrap_plot_label(plot_label)
+            if len(label_lines) == 2:
+                canvas.text(20, py + 7, label_lines[0], size=TICK_FONT_SIZE, bold=True)
+                canvas.text(20, py - 18, label_lines[1], size=TICK_FONT_SIZE, bold=True)
+            else:
+                canvas.text(20, py - 6, label_lines[0], size=TICK_FONT_SIZE, bold=True)
         first = _map(float(row[left_key]), low, high, box[0], box[2], log_x)
         second = _map(float(row[right_key]), low, high, box[0], box[2], log_x)
         canvas.line(first, py, second, py, color=GRAY, width=1.2)
@@ -988,7 +1076,14 @@ def dot_comparison(
         canvas.marker(second, py, color=RED, kind=0, radius=4)
     canvas.line(box[0], box[1], box[0] + box[2], box[1], width=1.2)
     axis_label_y = 25.0 if expanded_layout else 27.0
-    canvas.text(690, axis_label_y, unit, size=AXIS_FONT_SIZE, bold=True)
+    canvas.centered_text(
+        axis_label_y,
+        unit,
+        size=AXIS_FONT_SIZE,
+        bold=True,
+        left=box[0],
+        width=box[2],
+    )
     legend_y = box[1] + box[3] + 18.0
     left_legend_x = 700.0 if radio_ic_column or expanded_layout else 620.0
     right_legend_x = 930.0 if radio_ic_column or expanded_layout else 875.0
@@ -1035,8 +1130,8 @@ def scatter_rate_energy(path: Path, rows: Sequence[dict[str, object]]) -> None:
         canvas.marker(px, py, color=color, kind=number - 1, radius=5)
         plotted.append((number, row, px, py, color))
 
-    number_size = 17.0
-    number_gap = 25.0
+    number_size = 22.0
+    number_gap = 30.0
     x_group_gap = 32.0
     label_bottom = box[1] + 8.0
     label_top = box[1] + box[3] - number_size
@@ -1094,12 +1189,12 @@ def scatter_rate_energy(path: Path, rows: Sequence[dict[str, object]]) -> None:
     canvas.text(515, 582, "Configured gross rate [kbps]", size=AXIS_FONT_SIZE, bold=True)
     canvas.text(box[0], box[1] + box[3] + 15.0, "32-byte TX energy [mJ]", size=AXIS_FONT_SIZE, bold=True)
 
-    canvas.text(60, 532, "Module index", size=22.0, bold=True)
+    canvas.text(60, 532, "Module index", size=26.0, bold=True)
     key_columns = 2
     rows_per_column = math.ceil(len(plotted) / key_columns)
     key_top = 490.0
-    key_line_height = 29.0
-    key_font_size = 20.0
+    key_line_height = 32.0
+    key_font_size = 24.0
     key_column_x = (60.0, 700.0)
     for index, (number, row, _, _, color) in enumerate(plotted):
         column = index // rows_per_column
@@ -1152,24 +1247,43 @@ def payload_energy_figure(
 
     sheets = [groups[index:index + 2] for index in range(0, len(groups), 2)]
     for sheet_index, sheet_groups in enumerate(sheets):
-        canvas = PdfCanvas(1120, 1200)
+        single_panel_sheet = len(sheet_groups) == 1
+        canvas = PdfCanvas(1120, 740 if single_panel_sheet else 1260)
         continuation = " (continued)" if sheet_index else ""
         title(
             canvas,
             f"{direction_name} energy versus measured logical payload size{continuation}",
             "Fastest tested mode and highest tested configured power per module; logarithmic energy axis",
         )
-        panel_origins = ((105.0, 650.0), (105.0, 100.0))
+        panel_origins = (
+            ((105.0, 105.0),)
+            if single_panel_sheet
+            else ((105.0, 690.0), (105.0, 100.0))
+        )
         plot_width = 910.0
-        plot_height = 340.0
+        plot_height = 310.0
 
         for local_index, ((panel_title, slugs), (left, bottom)) in enumerate(zip(sheet_groups, panel_origins)):
             panel_index = sheet_index * 2 + local_index
             panel_rows = [row for row in selected_rows if row["slug"] in slugs]
             energies = [float(row["energy_mJ"]) for row in panel_rows]
             y_range = (min(energies) * 0.65, max(energies) * 1.65)
-            canvas.text(left, bottom + plot_height + 115, panel_title, size=19, bold=True)
-            canvas.text(left, bottom + plot_height + 5, f"{direction_name} packet energy [mJ]", size=AXIS_FONT_SIZE, bold=True)
+            canvas.centered_text(
+                bottom + plot_height + 163,
+                panel_title,
+                size=23,
+                bold=True,
+                left=left,
+                width=plot_width,
+            )
+            canvas.centered_text(
+                bottom + plot_height + 5,
+                f"{direction_name} packet energy [mJ]",
+                size=AXIS_FONT_SIZE,
+                bold=True,
+                left=left,
+                width=plot_width,
+            )
 
             module_codes = sorted({str(row["code"]) for row in panel_rows})
             code_style = {
@@ -1181,14 +1295,18 @@ def payload_energy_figure(
                 legend_column = index % 2
                 legend_row = index // 2
                 lx = left + legend_column * 455
-                ly = bottom + plot_height + 88 - legend_row * 20
-                label_size = min(
-                    15.0,
-                    405.0 / max(1.0, len(code) * 0.68),
-                )
+                ly = bottom + plot_height + 128 - legend_row * 30
+                plot_code = compact_plot_label(code)
                 canvas.line(lx, ly + 4, lx + 20, ly + 4, color=color, width=1.6)
                 canvas.marker(lx + 10, ly + 4, color=color, kind=marker, radius=4.0)
-                canvas.text(lx + 27, ly - 3, code, size=label_size, color=color, bold=True)
+                canvas.text(
+                    lx + 27,
+                    ly - 3,
+                    plot_code,
+                    size=LEGEND_FONT_SIZE,
+                    color=color,
+                    bold=True,
+                )
 
             for tick in log_ticks(*y_range):
                 py = _map(tick, *y_range, bottom, plot_height, True)
@@ -1219,8 +1337,15 @@ def payload_energy_figure(
 
             canvas.line(left, bottom, left + plot_width, bottom, width=1.1)
             canvas.line(left, bottom, left, bottom + plot_height, width=1.1)
-            canvas.text(left + 325, bottom - 52, "Logical payload [bytes]", size=AXIS_FONT_SIZE, bold=True)
-            canvas.text(left + plot_width - 22, bottom + plot_height + 5, chr(ord("A") + panel_index), size=16, bold=True)
+            canvas.centered_text(
+                bottom - 52,
+                "Logical payload [bytes]",
+                size=AXIS_FONT_SIZE,
+                bold=True,
+                left=left,
+                width=plot_width,
+            )
+            canvas.text(left + plot_width - 22, bottom + plot_height + 5, chr(ord("A") + panel_index), size=20, bold=True)
 
         if sheet_index == 0:
             output_path = path
@@ -1276,9 +1401,23 @@ def two_board_panel(
         x_low -= margin
         x_high += margin
 
-    canvas.text(left, bottom + height + 43, panel_title, size=19, bold=True)
-    canvas.text(left, bottom + height + 19, y_label, size=AXIS_FONT_SIZE, bold=True)
-    canvas.text(left + width - 16, bottom + height + 7, letter, size=15, bold=True)
+    canvas.centered_text(
+        bottom + height + 43,
+        panel_title,
+        size=22,
+        bold=True,
+        left=left,
+        width=width,
+    )
+    canvas.centered_text(
+        bottom + height + 19,
+        y_label,
+        size=AXIS_FONT_SIZE,
+        bold=True,
+        left=left,
+        width=width,
+    )
+    canvas.text(left + width - 16, bottom + height + 7, letter, size=20, bold=True)
     for tick in y_ticks:
         py = _map(tick, *y_range, bottom, height, y_log)
         canvas.line(left, py, left + width, py, color=GRID, width=0.55)
@@ -1308,7 +1447,13 @@ def two_board_panel(
 
     canvas.line(left, bottom, left + width, bottom, width=1.0)
     canvas.line(left, bottom, left, bottom + height, width=1.0)
-    canvas.text(left + width / 2.0 - len(x_label) * 5.5, bottom - 51, x_label, size=AXIS_FONT_SIZE, bold=True)
+    centered_axis_label(
+        canvas,
+        bottom - 51,
+        x_label,
+        left=left,
+        width=width,
+    )
 
 
 def stacked_packet_series_figure(
@@ -1332,13 +1477,17 @@ def stacked_packet_series_figure(
         left = 105.0 + column * 455.0
         y = 718.0 - row_index * 30.0
         color = PALETTE[index % len(PALETTE)]
-        label_size = min(
-            LEGEND_FONT_SIZE,
-            400.0 / max(1.0, len(label) * 0.68),
-        )
+        plot_label = compact_plot_label(label)
         canvas.line(left, y, left + 28, y, color=color, width=2.0)
         canvas.marker(left + 14, y, color=color, kind=index, radius=4.5)
-        canvas.text(left + 38, y - 7, label, size=label_size, color=color, bold=True)
+        canvas.text(
+            left + 38,
+            y - 7,
+            plot_label,
+            size=LEGEND_FONT_SIZE,
+            color=color,
+            bold=True,
+        )
 
     panels = (("tx", "TX packet energy", "A"), ("rx", "RX packet energy", "B"))
     boxes = ((110.0, 405.0, 880.0, 190.0), (110.0, 95.0, 880.0, 190.0))
@@ -1351,7 +1500,7 @@ def stacked_packet_series_figure(
         x_range = (x_min - margin, x_max + margin)
 
     has_delivery_warning = False
-    for (direction, panel_title, panel_code), box in zip(panels, boxes):
+    for panel_index, ((direction, panel_title, panel_code), box) in enumerate(zip(panels, boxes)):
         panel_rows = [
             row
             for row in rows
@@ -1360,22 +1509,29 @@ def stacked_packet_series_figure(
         values = [float(row["energy_mJ"]) for row in panel_rows]
         y_range = (min(values) * 0.70, max(values) * 1.45)
         y_ticks = log_ticks(*y_range)
-        canvas.text(box[0], box[1] + box[3] + 24, panel_title, size=AXIS_FONT_SIZE, bold=True)
-        canvas.text(box[0] + box[2] - 16, box[1] + box[3] + 24, panel_code, size=18, bold=True)
-        canvas.text(box[0], box[1] + box[3] + 2, "Energy [mJ]", size=AXIS_FONT_SIZE, bold=True)
+        canvas.centered_text(
+            box[1] + box[3] + 16,
+            f"{panel_title} [mJ]",
+            size=AXIS_FONT_SIZE,
+            bold=True,
+            left=box[0],
+            width=box[2],
+        )
+        canvas.text(box[0] + box[2] - 18, box[1] + box[3] + 24, panel_code, size=20, bold=True)
 
         for tick in y_ticks:
             py = _map(tick, *y_range, box[1], box[3], True)
             canvas.line(box[0], py, box[0] + box[2], py, color=GRID, width=0.6)
             canvas.text(box[0] - 68, py - 6, fmt_tick(tick), size=TICK_FONT_SIZE, bold=True)
+        x_tick_font_size = min(TICK_FONT_SIZE, 22.0)
         for tick, label in zip(x_ticks, x_labels):
             px = _map(tick, *x_range, box[0], box[2], x_log)
             canvas.line(px, box[1], px, box[1] + box[3], color=GRID, width=0.5)
             canvas.text(
-                px - max(14.0, len(label) * 4.8),
+                px - max(14.0, len(label) * x_tick_font_size * 0.30),
                 box[1] - 29,
                 label,
-                size=TICK_FONT_SIZE,
+                size=x_tick_font_size,
                 bold=True,
             )
 
@@ -1403,40 +1559,45 @@ def stacked_packet_series_figure(
 
         canvas.line(box[0], box[1], box[0] + box[2], box[1], width=1.1)
         canvas.line(box[0], box[1], box[0], box[1] + box[3], width=1.1)
-        canvas.text(
-            box[0] + box[2] / 2.0 - len(x_label) * 5.4,
-            box[1] - 57,
-            x_label,
-            size=AXIS_FONT_SIZE,
-            bold=True,
-        )
+        if panel_index == len(panels) - 1:
+            centered_axis_label(
+                canvas,
+                box[1] - 57,
+                x_label,
+                left=box[0],
+                width=box[2],
+            )
 
     if has_delivery_warning:
-        canvas.text(
-            110,
-            14,
+        gray_note(
+            canvas,
             "Black cross: at least one of five packets was not delivered at this point.",
-            size=15,
-            bold=True,
+            14,
         )
     canvas.save(path)
 
 
 def cc1101_legend(canvas: PdfCanvas, y: float) -> None:
+    panel_centers = (75.0 + 425.0 / 2.0, 620.0 + 425.0 / 2.0)
     for index, (label, color, marker) in enumerate(
         (
             (module_name("cc1101_v1_433"), BLUE, 2),
             (module_name("cc1101_v2_868"), RED, 0),
         )
     ):
-        left = 215 + index * 500
+        plot_label = compact_plot_label(label)
+        item_width = 32.0 + canvas.text_width(plot_label, LEGEND_FONT_SIZE)
+        left = panel_centers[index] - item_width / 2.0
         canvas.line(left, y, left + 24, y, color=color, width=1.8)
         canvas.marker(left + 12, y, color=color, kind=marker, radius=4)
-        label_size = min(
-            LEGEND_FONT_SIZE,
-            390.0 / max(1.0, len(label) * 0.68),
+        canvas.text(
+            left + 32,
+            y - 8,
+            plot_label,
+            size=LEGEND_FONT_SIZE,
+            color=color,
+            bold=True,
         )
-        canvas.text(left + 32, y - 8, label, size=label_size, color=color, bold=True)
 
 
 def cc1101_continuous_figure(path: Path, rows: Sequence[dict[str, object]]) -> None:
@@ -1559,21 +1720,28 @@ def continuous_power_pair_figure(
                 }
             )
 
-    canvas = PdfCanvas(1080, 620)
+    canvas = PdfCanvas(1080, 720)
     title(canvas, heading, subtitle)
     panels = (
         ("mean_power_mW", "Total average power", "A"),
         ("mean_excess_power_mW", "Mean power above standby", "B"),
     )
-    boxes = ((82.0, 100.0, 420.0, 340.0), (578.0, 100.0, 420.0, 340.0))
+    boxes = ((82.0, 145.0, 420.0, 315.0), (578.0, 145.0, 420.0, 315.0))
     powers = sorted({float(row["power_dbm"]) for row in normalized})
     power_span = max(powers) - min(powers)
     x_range = (min(powers) - power_span * 0.08, max(powers) + power_span * 0.08)
 
     for (metric, panel_title, panel_code), box in zip(panels, boxes):
         upper, ticks = linear_ticks(max(float(row[metric]) for row in normalized) * 1.05)
-        canvas.text(box[0], 516, panel_title, size=18, bold=True)
-        canvas.text(box[0] + box[2] - 12, 516, panel_code, size=15, bold=True)
+        canvas.centered_text(
+            536,
+            panel_title,
+            size=22,
+            bold=True,
+            left=box[0],
+            width=box[2],
+        )
+        canvas.text(box[0] + box[2] - 16, 516, panel_code, size=20, bold=True)
         for tick in ticks:
             py = _map(tick, 0.0, upper, box[1], box[3], False)
             canvas.line(box[0], py, box[0] + box[2], py, color=GRID, width=0.6)
@@ -1608,8 +1776,21 @@ def continuous_power_pair_figure(
 
         canvas.line(box[0], box[1], box[0] + box[2], box[1], width=1.1)
         canvas.line(box[0], box[1], box[0], box[1] + box[3], width=1.1)
-        canvas.text(box[0] + 74, 42, "Configured RF power [dBm]", size=AXIS_FONT_SIZE, bold=True)
-        canvas.text(box[0] - 8, 451, "Power [mW]", size=AXIS_FONT_SIZE, bold=True)
+        centered_axis_label(
+            canvas,
+            84,
+            "Configured RF power [dBm]",
+            left=box[0],
+            width=box[2],
+        )
+        canvas.centered_text(
+            471,
+            "Power [mW]",
+            size=AXIS_FONT_SIZE,
+            bold=True,
+            left=box[0],
+            width=box[2],
+        )
 
     legend_items = [
         (variant_label, direction.upper(), BLUE if direction == "tx" else RED, variant_index)
@@ -1619,24 +1800,26 @@ def continuous_power_pair_figure(
     for index, (variant_label, direction, color, marker) in enumerate(legend_items):
         row_index, column_index = divmod(index, 2)
         lx = 90 + column_index * 500
-        ly = 500 - row_index * 26
+        ly = 605 - row_index * 28
         dash = "[] 0" if marker == 0 else "[6 4] 0"
-        label = f"{variant_label} {direction}"
-        label_size = min(
-            15.0,
-            430.0 / max(1.0, len(label) * 0.68),
-        )
+        label = f"{compact_plot_label(variant_label)} {direction}"
         canvas.line(lx, ly, lx + 24, ly, color=color, width=1.8, dash=dash)
         canvas.marker(lx + 12, ly, color=color, kind=marker, radius=3.5)
-        canvas.text(lx + 31, ly - 7, label, size=label_size, color=color, bold=True)
+        canvas.text(
+            lx + 31,
+            ly - 7,
+            label,
+            size=LEGEND_FONT_SIZE,
+            color=color,
+            bold=True,
+        )
 
-    canvas.text(
-        250,
-        24,
-        "Each point is a 60 s mean at 3.3 V; the excess metric is clipped at zero by the campaign pipeline.",
-        size=12,
-        color=GRAY,
+    note_lines = (
+        "Negative excess values are clipped to zero by the campaign pipeline.",
+        "Each point is a 60 s mean at 3.3 V.",
     )
+    for note_index, note_line in enumerate(note_lines):
+        gray_note(canvas, note_line, 18 + note_index * 25)
     canvas.save(path)
     return normalized
 
@@ -1702,20 +1885,31 @@ def continuous_power_family_figure(
             lx = 78 + column_index * 500
             ly = 656 - row_index * 30
             color = PALETTE[variant_index % len(PALETTE)]
-            label_size = min(
-                15.0,
-                435.0 / max(1.0, len(variant_label) * 0.68),
-            )
+            plot_label = compact_plot_label(variant_label)
             canvas.line(lx, ly, lx + 28, ly, color=color, width=2.0)
             canvas.marker(lx + 14, ly, color=color, kind=variant_index, radius=4.3)
-            canvas.text(lx + 38, ly - 7, variant_label, size=label_size, color=color, bold=True)
+            canvas.text(
+                lx + 38,
+                ly - 7,
+                plot_label,
+                size=LEGEND_FONT_SIZE,
+                color=color,
+                bold=True,
+            )
 
         boxes = ((120.0, 355.0, 880.0, 185.0), (120.0, 78.0, 880.0, 185.0))
-        for (direction, metric, panel_title, panel_code), box in zip(panels, boxes):
+        for panel_index, ((direction, metric, panel_title, panel_code), box) in enumerate(zip(panels, boxes)):
             panel_rows = [row for row in normalized if row["direction"] == direction]
             upper, ticks = linear_ticks(max(float(row[metric]) for row in panel_rows) * 1.05)
-            canvas.text(box[0], box[1] + box[3] + 17, panel_title, size=AXIS_FONT_SIZE, bold=True)
-            canvas.text(box[0] + box[2] - 14, box[1] + box[3] + 17, panel_code, size=18, bold=True)
+            canvas.centered_text(
+                box[1] + box[3] + 12,
+                f"{panel_title} [mW]",
+                size=AXIS_FONT_SIZE,
+                bold=True,
+                left=box[0],
+                width=box[2],
+            )
+            canvas.text(box[0] + box[2] - 18, box[1] + box[3] + 17, panel_code, size=20, bold=True)
             for tick in ticks:
                 py = _map(tick, 0.0, upper, box[1], box[3], False)
                 canvas.line(box[0], py, box[0] + box[2], py, color=GRID, width=0.6)
@@ -1751,8 +1945,14 @@ def continuous_power_family_figure(
 
             canvas.line(box[0], box[1], box[0] + box[2], box[1], width=1.1)
             canvas.line(box[0], box[1], box[0], box[1] + box[3], width=1.1)
-            canvas.text(box[0] + 300, box[1] - 62, "Configured RF power [dBm]", size=AXIS_FONT_SIZE, bold=True)
-            canvas.text(box[0], box[1] + box[3] + 1, "Power [mW]", size=AXIS_FONT_SIZE, bold=True)
+            if panel_index == len(panels) - 1:
+                centered_axis_label(
+                    canvas,
+                    box[1] - 62,
+                    "Configured RF power [dBm]",
+                    left=box[0],
+                    width=box[2],
+                )
 
         canvas.save(output_path)
 
@@ -1882,15 +2082,32 @@ def nrf_figure(path: Path, packet_data: dict[str, list[dict[str, str]]]) -> None
         legend_x = 220 + marker * 440
         canvas.line(legend_x, 516, legend_x + 28, 516, color=color, width=2)
         canvas.marker(legend_x + 14, 516, color=color, kind=marker, radius=4)
-        label_size = min(
-            LEGEND_FONT_SIZE,
-            350.0 / max(1.0, len(label) * 0.68),
+        plot_label = compact_plot_label(label)
+        canvas.text(
+            legend_x + 35,
+            508,
+            plot_label,
+            size=LEGEND_FONT_SIZE,
+            bold=True,
         )
-        canvas.text(legend_x + 35, 508, label, size=label_size, bold=True)
     canvas.line(box[0], box[1], box[0] + box[2], box[1], width=1.2)
     canvas.line(box[0], box[1], box[0], box[1] + box[3], width=1.2)
-    canvas.text(355, 42, "Configured rate [kbps]", size=AXIS_FONT_SIZE, bold=True)
-    canvas.text(22, 505, "TX energy [mJ]", size=AXIS_FONT_SIZE, bold=True)
+    canvas.centered_text(
+        42,
+        "Configured rate [kbps]",
+        size=AXIS_FONT_SIZE,
+        bold=True,
+        left=box[0],
+        width=box[2],
+    )
+    canvas.centered_text(
+        505,
+        "TX energy [mJ]",
+        size=AXIS_FONT_SIZE,
+        bold=True,
+        left=box[0],
+        width=box[2],
+    )
     canvas.save(path)
 
 
@@ -2256,6 +2473,7 @@ def main() -> int:
         "Energy for one 32-byte payload [mJ]",
         "",
         expanded_layout=True,
+        expanded_plot_height=1220.0,
     )
     dot_comparison(
         figures / "continuous_power_comparison.pdf",
@@ -2268,6 +2486,7 @@ def main() -> int:
         "Average module power at 3.3 V [mW]",
         "",
         expanded_layout=True,
+        expanded_plot_left=470.0,
     )
     scatter_rate_energy(figures / "rate_energy_design_space.pdf", summary)
     payload_energy_figure(figures / "tx_energy_by_payload.pdf", payload_rows, payload_sizes, "tx")

@@ -7,7 +7,7 @@ endobj
 << /Type /Pages /Kids [3 0 R] /Count 1 >>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 1080 820] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 1080 820] /Resources << /Font << /F1 4 0 R /F2 5 0 R /F3 6 0 R /F4 7 0 R >> >> /Contents 8 0 R >>
 endobj
 4 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
@@ -16,40 +16,45 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
 6 0 obj
-<< /Length 8818 >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-BoldOblique >>
+endobj
+8 0 obj
+<< /Length 8512 >>
 stream
-q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 205.44 785.00 Td (CC1101 and E07 module-boundary comparison) Tj ET Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 124.20 760.00 Td (Common point: 32-byte packet, 38.4 kbps; E07-433 includes its external PA/LNA) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 28.00 Tf 234.91 785.00 Td (CC1101 and E07 module-boundary comparison) Tj ET Q
+q 0.420 0.450 0.490 rg BT /F3 23.00 Tf 100.79 760.00 Td (Common point: 32-byte packet, 38.4 kbps; E07-433 includes its external PA/LNA) Tj ET Q
 q 0.080 0.320 0.680 RG 2.00 w [] 0 d 105.00 718.00 m 133.00 718.00 l S Q
 q 0.080 0.320 0.680 rg 114.50 713.50 9.00 9.00 re f Q
-q 0.080 0.320 0.680 rg BT /F2 18.00 Tf 143.00 711.00 Td (CC1101 V1 433 MHz \(CC1101\)) Tj ET Q
+q 0.080 0.320 0.680 rg BT /F2 24.00 Tf 143.00 711.00 Td (CC1101 V1 433 MHz) Tj ET Q
 q 0.720 0.120 0.120 RG 2.00 w [] 0 d 560.00 718.00 m 588.00 718.00 l S Q
 q 0.720 0.120 0.120 rg 574.00 722.50 m 569.50 713.50 l 578.50 713.50 l h f Q
-q 0.720 0.120 0.120 rg BT /F2 18.00 Tf 598.00 711.00 Td (CC1101 V2 868 MHz \(CC1101\)) Tj ET Q
+q 0.720 0.120 0.120 rg BT /F2 24.00 Tf 598.00 711.00 Td (CC1101 V2 868 MHz) Tj ET Q
 q 0.080 0.520 0.200 RG 2.00 w [] 0 d 105.00 688.00 m 133.00 688.00 l S Q
 q 0.080 0.520 0.200 rg 123.50 688.00 m 123.50 690.49 121.49 692.50 119.00 692.50 c 116.51 692.50 114.50 690.49 114.50 688.00 c 114.50 685.51 116.51 683.50 119.00 683.50 c 121.49 683.50 123.50 685.51 123.50 688.00 c f Q
-q 0.080 0.520 0.200 rg BT /F2 18.00 Tf 143.00 681.00 Td (Ebyte E07-400M10S \(CC1101\)) Tj ET Q
+q 0.080 0.520 0.200 rg BT /F2 24.00 Tf 143.00 681.00 Td (Ebyte E07-400M10S) Tj ET Q
 q 0.920 0.480 0.040 RG 2.00 w [] 0 d 560.00 688.00 m 588.00 688.00 l S Q
 q 0.920 0.480 0.040 rg 569.50 683.50 9.00 9.00 re f Q
-q 0.920 0.480 0.040 rg BT /F2 16.81 Tf 598.00 681.00 Td (Ebyte E07-433M20S \(CC1101 + PA/LNA\)) Tj ET Q
+q 0.920 0.480 0.040 rg BT /F2 24.00 Tf 598.00 681.00 Td (Ebyte E07-433M20S) Tj ET Q
 q 0.440 0.230 0.620 RG 2.00 w [] 0 d 105.00 658.00 m 133.00 658.00 l S Q
 q 0.440 0.230 0.620 rg 119.00 662.50 m 114.50 653.50 l 123.50 653.50 l h f Q
-q 0.440 0.230 0.620 rg BT /F2 18.00 Tf 143.00 651.00 Td (Ebyte E07-900MM10S \(CC1101\)) Tj ET Q
-q 0.080 0.090 0.120 rg BT /F2 20.00 Tf 110.00 619.00 Td (TX packet energy) Tj ET Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 974.00 619.00 Td (A) Tj ET Q
-q 0.080 0.090 0.120 rg BT /F2 20.00 Tf 110.00 597.00 Td (Energy [mJ]) Tj ET Q
+q 0.440 0.230 0.620 rg BT /F2 24.00 Tf 143.00 651.00 Td (Ebyte E07-900MM10S) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 26.00 Tf 417.02 611.00 Td (TX packet energy [mJ]) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 20.00 Tf 972.00 619.00 Td (A) Tj ET Q
 q 0.820 0.840 0.880 RG 0.60 w [] 0 d 110.00 446.97 m 990.00 446.97 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 42.00 440.97 Td (0.5) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 42.00 440.97 Td (0.5) Tj ET Q
 q 0.820 0.840 0.880 RG 0.60 w [] 0 d 110.00 492.37 m 990.00 492.37 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 42.00 486.37 Td (1) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 42.00 486.37 Td (1) Tj ET Q
 q 0.820 0.840 0.880 RG 0.60 w [] 0 d 110.00 537.77 m 990.00 537.77 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 42.00 531.77 Td (2) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 42.00 531.77 Td (2) Tj ET Q
 q 0.820 0.840 0.880 RG 0.50 w [] 0 d 170.69 405.00 m 170.69 595.00 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 156.29 376.00 Td (-30) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 22.00 Tf 150.89 376.00 Td (-30) Tj ET Q
 q 0.820 0.840 0.880 RG 0.50 w [] 0 d 739.66 405.00 m 739.66 595.00 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 725.66 376.00 Td (0) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 22.00 Tf 725.66 376.00 Td (0) Tj ET Q
 q 0.820 0.840 0.880 RG 0.50 w [] 0 d 929.31 405.00 m 929.31 595.00 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 914.91 376.00 Td (+10) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 22.00 Tf 909.51 376.00 Td (+10) Tj ET Q
 q 0.080 0.320 0.680 RG 2.00 w [] 0 d 170.69 438.65 m 739.66 464.91 l 929.31 533.12 l S Q
 q 0.080 0.320 0.680 rg 165.99 433.95 9.40 9.40 re f Q
 q 0.080 0.320 0.680 rg 734.96 460.21 9.40 9.40 re f Q
@@ -78,24 +83,22 @@ q 0.080 0.090 0.120 RG 1.60 w [] 0 d 922.31 475.86 m 936.31 489.86 l S Q
 q 0.080 0.090 0.120 RG 1.60 w [] 0 d 922.31 489.86 m 936.31 475.86 l S Q
 q 0.080 0.090 0.120 RG 1.10 w [] 0 d 110.00 405.00 m 990.00 405.00 l S Q
 q 0.080 0.090 0.120 RG 1.10 w [] 0 d 110.00 405.00 m 110.00 595.00 l S Q
-q 0.080 0.090 0.120 rg BT /F2 20.00 Tf 393.40 348.00 Td (Configured CC1101 drive [dBm]) Tj ET Q
-q 0.080 0.090 0.120 rg BT /F2 20.00 Tf 110.00 309.00 Td (RX packet energy) Tj ET Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 974.00 309.00 Td (B) Tj ET Q
-q 0.080 0.090 0.120 rg BT /F2 20.00 Tf 110.00 287.00 Td (Energy [mJ]) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 26.00 Tf 417.02 301.00 Td (RX packet energy [mJ]) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 20.00 Tf 972.00 309.00 Td (B) Tj ET Q
 q 0.820 0.840 0.880 RG 0.60 w [] 0 d 110.00 100.75 m 990.00 100.75 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 42.00 94.75 Td (0.5) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 42.00 94.75 Td (0.5) Tj ET Q
 q 0.820 0.840 0.880 RG 0.60 w [] 0 d 110.00 144.02 m 990.00 144.02 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 42.00 138.02 Td (1) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 42.00 138.02 Td (1) Tj ET Q
 q 0.820 0.840 0.880 RG 0.60 w [] 0 d 110.00 187.30 m 990.00 187.30 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 42.00 181.30 Td (2) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 42.00 181.30 Td (2) Tj ET Q
 q 0.820 0.840 0.880 RG 0.60 w [] 0 d 110.00 244.51 m 990.00 244.51 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 42.00 238.51 Td (5) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 24.00 Tf 42.00 238.51 Td (5) Tj ET Q
 q 0.820 0.840 0.880 RG 0.50 w [] 0 d 170.69 95.00 m 170.69 285.00 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 156.29 66.00 Td (-30) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 22.00 Tf 150.89 66.00 Td (-30) Tj ET Q
 q 0.820 0.840 0.880 RG 0.50 w [] 0 d 739.66 95.00 m 739.66 285.00 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 725.66 66.00 Td (0) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 22.00 Tf 725.66 66.00 Td (0) Tj ET Q
 q 0.820 0.840 0.880 RG 0.50 w [] 0 d 929.31 95.00 m 929.31 285.00 l S Q
-q 0.080 0.090 0.120 rg BT /F2 18.00 Tf 914.91 66.00 Td (+10) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 22.00 Tf 909.51 66.00 Td (+10) Tj ET Q
 q 0.080 0.320 0.680 RG 2.00 w [] 0 d 929.31 261.80 m S Q
 q 0.080 0.320 0.680 rg 924.61 257.10 9.40 9.40 re f Q
 q 0.720 0.120 0.120 RG 2.00 w [] 0 d 929.31 258.27 m S Q
@@ -120,20 +123,22 @@ q 0.080 0.090 0.120 RG 1.60 w [] 0 d 922.31 110.27 m 936.31 124.27 l S Q
 q 0.080 0.090 0.120 RG 1.60 w [] 0 d 922.31 124.27 m 936.31 110.27 l S Q
 q 0.080 0.090 0.120 RG 1.10 w [] 0 d 110.00 95.00 m 990.00 95.00 l S Q
 q 0.080 0.090 0.120 RG 1.10 w [] 0 d 110.00 95.00 m 110.00 285.00 l S Q
-q 0.080 0.090 0.120 rg BT /F2 20.00 Tf 393.40 38.00 Td (Configured CC1101 drive [dBm]) Tj ET Q
-q 0.080 0.090 0.120 rg BT /F2 15.00 Tf 110.00 14.00 Td (Black cross: at least one of five packets was not delivered at this point.) Tj ET Q
+q 0.080 0.090 0.120 rg BT /F2 26.00 Tf 362.10 38.00 Td (Configured CC1101 drive [dBm]) Tj ET Q
+q 0.420 0.450 0.490 rg BT /F3 22.00 Tf 177.95 14.00 Td (Black cross: at least one of five packets was not delivered at this point.) Tj ET Q
 endstream
 endobj
 xref
-0 7
+0 9
 0000000000 65535 f 
 0000000015 00000 n 
 0000000064 00000 n 
 0000000121 00000 n 
-0000000258 00000 n 
-0000000328 00000 n 
-0000000403 00000 n 
-trailer << /Size 7 /Root 1 0 R >>
+0000000278 00000 n 
+0000000348 00000 n 
+0000000423 00000 n 
+0000000501 00000 n 
+0000000583 00000 n 
+trailer << /Size 9 /Root 1 0 R >>
 startxref
-9272
+9146
 %%EOF

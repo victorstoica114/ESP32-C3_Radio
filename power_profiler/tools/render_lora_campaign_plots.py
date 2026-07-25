@@ -95,6 +95,49 @@ class PdfCanvas:
     def _rgb(color: tuple[float, float, float]) -> str:
         return " ".join(f"{part:.3f}" for part in color)
 
+    @staticmethod
+    def text_width(value: str, size: float) -> float:
+        """Approximate Helvetica text width using standard glyph classes."""
+        narrow = set(" !'(),.:;I[]`ijlrt|")
+        wide = set("%&@GMOQWmw")
+        medium = set("ABCDEFGHKNPRSTUVXYZ023456789")
+        width = 0.0
+        for char in value:
+            if char in narrow:
+                factor = 0.278
+            elif char in wide:
+                factor = 0.833
+            elif char in medium:
+                factor = 0.667
+            else:
+                factor = 0.556
+            width += factor * size
+        return width
+
+    def centered_text(
+        self,
+        y: float,
+        value: str,
+        *,
+        size: float = 10,
+        bold: bool = False,
+        italic: bool = False,
+        color: tuple[float, float, float] = BLACK,
+        left: float = 0.0,
+        width: float | None = None,
+    ) -> None:
+        area_width = self.width if width is None else width
+        x = left + max(0.0, (area_width - self.text_width(value, size)) / 2.0)
+        self.text(
+            x,
+            y,
+            value,
+            size=size,
+            bold=bold,
+            italic=italic,
+            color=color,
+        )
+
     def line(
         self,
         x1: float,
@@ -139,10 +182,16 @@ class PdfCanvas:
         *,
         size: float = 10,
         bold: bool = False,
+        italic: bool = False,
         color: tuple[float, float, float] = BLACK,
     ) -> None:
-        self.raster_ops.append(("text", x, y, value, size, bold, color))
-        font = "F2" if bold else "F1"
+        self.raster_ops.append(("text", x, y, value, size, bold, italic, color))
+        if bold and italic:
+            font = "F4"
+        elif italic:
+            font = "F3"
+        else:
+            font = "F2" if bold else "F1"
         self.commands.append(
             f"q {self._rgb(color)} rg BT /{font} {size:.2f} Tf "
             f"{x:.2f} {y:.2f} Td ({_escape(value)}) Tj ET Q"
@@ -188,10 +237,13 @@ class PdfCanvas:
             b"<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
             (
                 f"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 {self.width:g} {self.height:g}] "
-                "/Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>"
+                "/Resources << /Font << /F1 4 0 R /F2 5 0 R /F3 6 0 R /F4 7 0 R >> >> "
+                "/Contents 8 0 R >>"
             ).encode("ascii"),
             b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>",
             b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>",
+            b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>",
+            b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-BoldOblique >>",
             f"<< /Length {len(content)} >>\nstream\n".encode("ascii")
             + content
             + b"endstream",
@@ -337,7 +389,7 @@ class PdfCanvas:
                 _, x, y, color, marker_kind, radius = operation
                 draw_marker(x, y, color, marker_kind, radius)  # type: ignore[arg-type]
             elif kind == "text":
-                _, x, y, value, size, bold, color = operation
+                _, x, y, value, size, bold, _italic, color = operation
                 draw_text(x, y, value, size, bold, color)  # type: ignore[arg-type]
 
         scanlines = bytearray()
