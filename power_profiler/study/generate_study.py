@@ -36,6 +36,7 @@ TICK_FONT_SIZE = 18.0
 LEGEND_FONT_SIZE = 18.0
 AXIS_FONT_SIZE = 20.0
 DATA_LABEL_FONT_SIZE = 16.0
+SUBTITLE_FONT_SIZE = 18.0
 
 
 @dataclass(frozen=True)
@@ -841,8 +842,18 @@ def title(canvas: PdfCanvas, value: str, subtitle: str = "") -> None:
     size = min(24.0, (canvas.width - 60) / max(1.0, len(value) * 0.68))
     canvas.text(max(30.0, (canvas.width - len(value) * size * 0.68) / 2.0), canvas.height - 35, value, size=size, bold=True)
     if subtitle:
-        sub_size = min(12.0, (canvas.width - 60) / max(1.0, len(subtitle) * 0.68))
-        canvas.text(max(30.0, (canvas.width - len(subtitle) * sub_size * 0.68) / 2.0), canvas.height - 56, subtitle, size=sub_size, color=GRAY)
+        sub_size = min(
+            SUBTITLE_FONT_SIZE,
+            (canvas.width - 80) / max(1.0, len(subtitle) * 0.60),
+        )
+        canvas.text(
+            max(40.0, (canvas.width - len(subtitle) * sub_size * 0.60) / 2.0),
+            canvas.height - 60,
+            subtitle,
+            size=sub_size,
+            color=BLACK,
+            bold=True,
+        )
 
 
 def log_ticks(low: float, high: float) -> list[float]:
