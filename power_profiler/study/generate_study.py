@@ -838,12 +838,17 @@ def write_tables(
     (tables / "benchmark_summary.tex").write_text("\n".join(benchmark_lines) + "\n", encoding="utf-8")
 
 
-def title(canvas: PdfCanvas, value: str, subtitle: str = "") -> None:
+def title(
+    canvas: PdfCanvas,
+    value: str,
+    subtitle: str = "",
+    subtitle_font_size: float | None = None,
+) -> None:
     size = min(24.0, (canvas.width - 60) / max(1.0, len(value) * 0.68))
     canvas.text(max(30.0, (canvas.width - len(value) * size * 0.68) / 2.0), canvas.height - 35, value, size=size, bold=True)
     if subtitle:
         sub_size = min(
-            SUBTITLE_FONT_SIZE,
+            subtitle_font_size or SUBTITLE_FONT_SIZE,
             (canvas.width - 80) / max(1.0, len(subtitle) * 0.60),
         )
         canvas.text(
@@ -902,10 +907,11 @@ def dot_comparison(
     log_x: bool = True,
     radio_ic_column: bool = False,
     expanded_layout: bool = False,
+    subtitle_font_size: float | None = None,
 ) -> None:
     ordered = sorted(rows, key=lambda row: max(float(row[left_key]), float(row[right_key])))
     canvas = PdfCanvas(1360, 1210 if expanded_layout else 760)
-    title(canvas, heading, subtitle)
+    title(canvas, heading, subtitle, subtitle_font_size)
     if expanded_layout:
         box = (370.0, 100.0, 930.0, 985.0)
     else:
@@ -1805,6 +1811,7 @@ def variant_figure(path: Path, rows: Sequence[dict[str, object]]) -> None:
         "SX1278 physical-implementation comparison",
         "Packet energy [mJ]",
         "Identical 32 B, SF7/BW125/CR4/5, +20 dBm configuration",
+        subtitle_font_size=23.0,
     )
 
 
