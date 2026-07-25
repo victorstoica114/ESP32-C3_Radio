@@ -44,3 +44,13 @@ Local KiCad-generated files such as `fp-info-cache`, `*.kicad_prl`,
 | SX127X | <img src="KiCad/Pictures/SX127X.png" width="220" alt="SX127X"> |
 | TI-CC1101 | <img src="KiCad/Pictures/TI-CC1101.png" width="220" alt="TI-CC1101"> |
 | XL1276-D01 | <img src="KiCad/Pictures/XL1276-D01.png" width="220" alt="XL1276-D01"> |
+
+## Assembled Test Hardware
+
+| Module | Assembled board |
+| --- | --- |
+| Ebyte E07-400M10S | <img src="KiCad/Pictures/E07-400M10S.jpg" width="420" alt="Assembled Ebyte E07-400M10S test board"> |
+| Ebyte E07-433M20S | <img src="KiCad/Pictures/E07-433M20S.jpg" width="420" alt="Assembled Ebyte E07-433M20S test board"> |
+| Ebyte E07-900MM10S | <img src="KiCad/Pictures/E07-900MM10S.jpg" width="420" alt="Assembled Ebyte E07-900MM10S test board"> |
+| Ebyte E79-400DM2005S | <img src="KiCad/Pictures/E79.jpg" width="420" alt="Assembled Ebyte E79-400DM2005S test board"> |
+| Ai-Thinker RA-09 | <img src="KiCad/Pictures/RA-09.jpg" width="420" alt="Assembled Ai-Thinker RA-09 test board"> |
