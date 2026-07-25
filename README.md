@@ -7,6 +7,16 @@ The project is organized as a single PlatformIO application. The active radio
 module and firmware variant are selected from `src/main.cpp`, and the matching
 source file is included by `src/module_selection.h`.
 
+## Measured radio energy
+
+The repository includes a measured comparison of TX and RX event energy across
+28 radio-module and board variants for a common 32-byte application payload.
+The logarithmic scale makes the full range visible, from NRF24L01 devices to
+high-power E32 and LoRa implementations. Click the chart to open the complete
+35-page comparative study.
+
+[![Measured TX and RX packet energy across all tested radio modules](power_profiler/study/figures/packet_energy_comparison.png)](power_profiler/study/radio_module_energy_study.pdf)
+
 See `CHANGELOG.md` for notable project changes.
 
 Hardware PDFs are collected temporarily under `Datasheets/`. Review the notes in
