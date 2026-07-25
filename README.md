@@ -102,6 +102,56 @@ Standalone module-side radio firmware:
 | RA09 AT modem | [victorstoica114/RA-09_AT-Commands](https://github.com/victorstoica114/RA-09_AT-Commands) | `src/RA-09(STM32WLE5)` | Ai-Thinker RA-09, STM32WLE5CCU6 Sub-GHz wireless MCU | Functional and tested with two modules; 20/20 bidirectional frames |
 | E79 AT modem | [victorstoica114/Ebyte-E79-CC1352P-_AT_Modem_Firmware](https://github.com/victorstoica114/Ebyte-E79-CC1352P-_AT_Modem_Firmware) | `src/Ebyte E79(CC1352P)/CC1352P_AT_Modem_Firmware` | Ebyte E79-400DM2005S, TI CC1352P wireless MCU | Firmware 0.3.0; seven RF profiles; 343/0 hardware tests |
 
+## Radio module gallery
+
+The photographs below show the carrier boards and physical module
+implementations used by this project and its power-measurement campaigns.
+
+<table>
+  <tr>
+    <td align="center"><img src="PCB/KiCad/Pictures/CC1101-V1.jpg" width="220" alt="CC1101 V1 carrier"><br><strong>CC1101 V1</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/CC1101-V2.jpg" width="220" alt="CC1101 V2 carrier"><br><strong>CC1101 V2</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/E07-400M10S.jpg" width="220" alt="Ebyte E07-400M10S carrier"><br><strong>E07-400M10S</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/E07-433M20S.jpg" width="220" alt="Ebyte E07-433M20S carrier"><br><strong>E07-433M20S</strong></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="PCB/KiCad/Pictures/E07-900MM10S.jpg" width="220" alt="Ebyte E07-900MM10S carrier"><br><strong>E07-900MM10S</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/E22.jpg" width="220" alt="Ebyte E22 carrier"><br><strong>E22</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/E28.jpg" width="220" alt="Ebyte E28 carrier"><br><strong>E28</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/E280.jpg" width="220" alt="Ebyte E280 carrier"><br><strong>E280</strong></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="PCB/KiCad/Pictures/E32-433T20D.jpg" width="220" alt="Ebyte E32-433T20D carrier"><br><strong>E32-433T20D</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/E32-433T33D.jpg" width="220" alt="Ebyte E32-433T33D carrier"><br><strong>E32-433T33D</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/E32-868T20D.jpg" width="220" alt="Ebyte E32-868T20D carrier"><br><strong>E32-868T20D</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/E32-868T30D.jpg" width="220" alt="Ebyte E32-868T30D carrier"><br><strong>E32-868T30D</strong></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="PCB/KiCad/Pictures/E79-ESP32-bridge.jpg" width="220" alt="Ebyte E79 ESP32 bridge carrier"><br><strong>E79 ESP32 bridge</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/E79.jpg" width="220" alt="Ebyte E79 direct USB UART carrier"><br><strong>E79 direct UART</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/HC-12.jpg" width="220" alt="HC-12 carrier"><br><strong>HC-12</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/NRF24L01.jpg" width="220" alt="nRF24L01 carrier"><br><strong>nRF24L01</strong></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="PCB/KiCad/Pictures/NRF24L01-LNA.jpg" width="220" alt="nRF24L01 PA LNA carrier"><br><strong>nRF24L01 PA/LNA</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/RA-01H.jpg" width="220" alt="Ai-Thinker RA-01H carrier"><br><strong>RA-01H</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/RA-01SH.jpg" width="220" alt="Ai-Thinker RA-01SH carrier"><br><strong>RA-01SH</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/RA-02.jpg" width="220" alt="Ai-Thinker RA-02 carrier"><br><strong>RA-02</strong></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="PCB/KiCad/Pictures/RA-02-cap.jpg" width="220" alt="Ai-Thinker RA-02 carrier with capacitor"><br><strong>RA-02 capacitor variant</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/RA-08.jpg" width="220" alt="Ai-Thinker RA-08 carrier"><br><strong>RA-08</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/RA-09.jpg" width="220" alt="Ai-Thinker RA-09 carrier"><br><strong>RA-09</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/XL1276.jpg" width="220" alt="XL1276-D01 carrier"><br><strong>XL1276-D01</strong></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="PCB/KiCad/Pictures/SX1278-naked.jpg" width="220" alt="SX1278 naked implementation"><br><strong>SX1278 naked</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/SX1278-shield.jpg" width="220" alt="SX1278 shielded implementation"><br><strong>SX1278 shielded</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/SX1278-cap.jpg" width="220" alt="SX1278 capacitor implementation"><br><strong>SX1278 capacitor</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/SX1278-level-shifter.jpg" width="220" alt="SX1278 level shifter implementation"><br><strong>SX1278 level shifter</strong></td>
+  </tr>
+</table>
+
 ## Firmware variants
 
 Use these values for `RADIO_PROGRAM`:
