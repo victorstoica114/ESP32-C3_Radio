@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import math
+import statistics
 import sys
 from dataclasses import asdict, dataclass
 from pathlib import Path
@@ -53,35 +54,87 @@ class ModuleSpec:
 
 
 MODULES = (
-    ModuleSpec("cc1101_v1_433", "C11-433", "CC1101 V1 433 MHz", "CC1101", "433 MHz", "SPI", "2-FSK", "1.2/38.4/250 kbps", "-30/0/10 dBm", "Narrowband FSK"),
-    ModuleSpec("cc1101_v2_868", "C11-868", "CC1101 V2 868 MHz", "CC1101", "868 MHz", "SPI", "2-FSK", "1.2/38.4/250 kbps", "-30/0/10 dBm", "Narrowband FSK"),
-    ModuleSpec("e28_sx1280", "E28", "E28 direct SPI", "SX1280", "2.4 GHz", "SPI", "LoRa, CR 4/6", "SF5/8/12, BW 812.5 kHz", "-18/0/13 dBm", "LoRa 2.4 GHz"),
-    ModuleSpec("e280", "E280", "Ebyte E280-2G4T12S", "SX1280", "2.4 GHz", "UART", "Vendor transparent PHY", "1/100/2000 kbps presets", "4/7/12 dBm", "Transparent UART"),
-    ModuleSpec("ebyte_e22_400m30s", "E22", "Ebyte E22-400M30S", "SX1268 + PA", "433 MHz", "SPI", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "-9/10/18 dBm front stage", "LoRa sub-GHz"),
-    ModuleSpec("ebyte_e32_433t20d", "E32-43-20", "Ebyte E32-433T20D", "SX1278", "433 MHz", "UART", "LoRa transparent, FEC", "0.3/4.8/19.2 kbps", "10/14/20 dBm", "Transparent UART"),
-    ModuleSpec("ebyte_e32_433t33d", "E32-43-33", "Ebyte E32-433T33D", "SX1278 + PA", "433 MHz", "UART", "LoRa transparent, FEC", "0.3/4.8/19.2 kbps", "24/27/30 dBm", "Transparent UART"),
-    ModuleSpec("ebyte_e32_868t20d", "E32-86-20", "Ebyte E32-868T20D", "SX1276", "868 MHz", "UART", "LoRa transparent, FEC", "0.3/4.8/19.2 kbps", "10/14/20 dBm", "Transparent UART"),
-    ModuleSpec("ebyte_e32_868t30d", "E32-86-30", "Ebyte E32-868T30D", "SX1276 + PA", "868 MHz", "UART", "LoRa transparent, FEC", "0.3/4.8/19.2 kbps", "21/27/30 dBm", "Transparent UART", "Legacy accepted"),
-    ModuleSpec("ebyte_e79_400dm2005s", "E79", "Ebyte E79-400DM2005S", "CC1352P", "433 MHz", "UART AT", "2-GFSK, OOK, SLR, 802.15.4g", "2.5--200 kbps (7 PHYs)", "-20/0/13 dBm", "Multi-PHY sub-GHz"),
-    ModuleSpec("hc12", "HC-12", "HC-12", "Si4463", "433 MHz", "UART", "Transparent (G)FSK", "0.5/15/250 kbps presets", "-1/8/20 dBm", "Transparent UART"),
-    ModuleSpec("nrf24l01", "NRF", "nRF24L01", "nRF24L01+", "2.4 GHz", "SPI", "GFSK, ESB framing", "250/1000/2000 kbps", "-18/-6/0 dBm", "2.4 GHz GFSK"),
-    ModuleSpec("nrf24l01_pa", "NRF-PA", "nRF24L01+PA/LNA", "nRF24L01+ + PA/LNA", "2.4 GHz", "SPI", "GFSK, ESB framing", "250/1000/2000 kbps", "-18/-6/0 dBm drive", "2.4 GHz GFSK"),
-    ModuleSpec("ra01h_sx1276", "RA-01H", "Ai-Thinker RA-01H", "SX1276", "868 MHz", "SPI", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "2/10/20 dBm", "LoRa sub-GHz"),
-    ModuleSpec("ra01sh_sx1262", "RA-01SH", "Ai-Thinker RA-01SH", "SX1262", "868 MHz", "SPI", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "-9/10/22 dBm", "LoRa sub-GHz"),
-    ModuleSpec("ra02_sx1278", "RA-02", "Ai-Thinker RA-02", "SX1278", "433 MHz", "SPI", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "-4/10/20 dBm", "SX1278 variant"),
-    ModuleSpec("ra02_sx1278_2cap", "RA-02-2C", "Ai-Thinker RA-02 + 2 capacitors", "SX1278", "433 MHz", "SPI", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "-4/10/20 dBm", "SX1278 variant"),
-    ModuleSpec("ra08_asr6601", "RA-08", "Ai-Thinker RA-08", "ASR6601", "433 MHz", "UART AT", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "2/12/22 dBm", "LoRa SoC modem"),
-    ModuleSpec("sx1278_adafruit_level_shifter", "S1278-LS", "SX1278 + level shifter", "SX1278", "433 MHz", "SPI", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "-4/10/20 dBm", "SX1278 variant", "Accepted; no validation memo"),
-    ModuleSpec("sx1278_naked", "S1278-N", "SX1278 naked board", "SX1278", "433 MHz", "SPI", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "-4/10/20 dBm", "SX1278 variant"),
-    ModuleSpec("sx1278_pcb_2cap", "S1278-2C", "SX1278 PCB + 2 capacitors", "SX1278", "433 MHz", "SPI", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "-4/10/20 dBm", "SX1278 variant"),
-    ModuleSpec("sx1278_shielded", "S1278-S", "SX1278 shielded board", "SX1278", "433 MHz", "SPI", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "-4/10/20 dBm", "SX1278 variant"),
-    ModuleSpec("xl1276_d01_sx1276", "XL1276", "XL1276-D01", "SX1276", "433 MHz", "SPI", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "-4/10/20 dBm", "LoRa sub-GHz"),
+    ModuleSpec("cc1101_v1_433", "CC1101 V1 433 MHz (CC1101)", "CC1101 V1 433 MHz (CC1101)", "CC1101", "433 MHz", "SPI", "2-FSK", "1.2/38.4/250 kbps", "-30/0/10 dBm", "Narrowband FSK"),
+    ModuleSpec("cc1101_v2_868", "CC1101 V2 868 MHz (CC1101)", "CC1101 V2 868 MHz (CC1101)", "CC1101", "868 MHz", "SPI", "2-FSK", "1.2/38.4/250 kbps", "-30/0/10 dBm", "Narrowband FSK"),
+    ModuleSpec("ebyte_e07_400m10s", "Ebyte E07-400M10S (CC1101)", "Ebyte E07-400M10S (CC1101)", "CC1101", "410--450 MHz", "SPI", "GFSK", "1.2/38.4/250 kbps", "-30/0/10 dBm", "CC1101 module"),
+    ModuleSpec("ebyte_e07_433m20s", "Ebyte E07-433M20S (CC1101 + PA/LNA)", "Ebyte E07-433M20S (CC1101 + PA/LNA)", "CC1101 + PA/LNA", "425--450.5 MHz", "SPI", "GFSK", "1.2/38.4/250 kbps", "-30/0/10 dBm drive", "CC1101 module"),
+    ModuleSpec("ebyte_e07_900mm10s", "Ebyte E07-900MM10S (CC1101)", "Ebyte E07-900MM10S (CC1101)", "CC1101", "855--925 MHz", "SPI", "GFSK", "1.2/38.4/250 kbps", "-30/0/10 dBm", "CC1101 module"),
+    ModuleSpec("e28_sx1280", "Ebyte E28 (SX1280)", "Ebyte E28 (SX1280)", "SX1280", "2.4 GHz", "SPI", "LoRa, CR 4/6", "SF5/8/12, BW 812.5 kHz", "-18/0/13 dBm", "LoRa 2.4 GHz"),
+    ModuleSpec("e280", "Ebyte E280-2G4T12S (SX1280)", "Ebyte E280-2G4T12S (SX1280)", "SX1280", "2.4 GHz", "UART", "Vendor transparent PHY", "1/100/2000 kbps presets", "4/7/12 dBm", "Transparent UART"),
+    ModuleSpec("ebyte_e22_400m30s", "Ebyte E22-400M30S (SX1268 + PA)", "Ebyte E22-400M30S (SX1268 + PA)", "SX1268 + PA", "433 MHz", "SPI", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "-9/10/18 dBm front stage", "LoRa sub-GHz"),
+    ModuleSpec("ebyte_e32_433t20d", "Ebyte E32-433T20D (SX1278)", "Ebyte E32-433T20D (SX1278)", "SX1278", "433 MHz", "UART", "LoRa transparent, FEC", "0.3/4.8/19.2 kbps", "10/14/20 dBm", "Transparent UART"),
+    ModuleSpec("ebyte_e32_433t33d", "Ebyte E32-433T33D (SX1278 + PA)", "Ebyte E32-433T33D (SX1278 + PA)", "SX1278 + PA", "433 MHz", "UART", "LoRa transparent, FEC", "0.3/4.8/19.2 kbps", "24/27/30 dBm", "Transparent UART"),
+    ModuleSpec("ebyte_e32_868t20d", "Ebyte E32-868T20D (SX1276)", "Ebyte E32-868T20D (SX1276)", "SX1276", "868 MHz", "UART", "LoRa transparent, FEC", "0.3/4.8/19.2 kbps", "10/14/20 dBm", "Transparent UART"),
+    ModuleSpec("ebyte_e32_868t30d", "Ebyte E32-868T30D (SX1276 + PA)", "Ebyte E32-868T30D (SX1276 + PA)", "SX1276 + PA", "868 MHz", "UART", "LoRa transparent, FEC", "0.3/4.8/19.2 kbps", "21/27/30 dBm", "Transparent UART", "Legacy accepted"),
+    ModuleSpec("ebyte_e79_400dm2005s", "Ebyte E79-400DM2005S via ESP32 (CC1352P)", "Ebyte E79-400DM2005S via ESP32 (CC1352P)", "CC1352P", "433 MHz", "UART AT via ESP32", "2-GFSK, OOK, SLR, 802.15.4g", "2.5--200 kbps (7 PHYs)", "-20/0/13 dBm", "Multi-PHY sub-GHz"),
+    ModuleSpec("ebyte_e79_ch9340", "Ebyte E79-400DM2005S via CH9340C (CC1352P)", "Ebyte E79-400DM2005S via CH9340C (CC1352P)", "CC1352P", "433 MHz", "UART AT via CH9340C", "2-GFSK, OOK, SLR, 802.15.4g", "2.5--200 kbps (7 PHYs)", "-20/0/13 dBm", "Multi-PHY sub-GHz"),
+    ModuleSpec("hc12", "HC-12 (Si4463)", "HC-12 (Si4463)", "Si4463", "433 MHz", "UART", "Transparent (G)FSK", "0.5/15/250 kbps presets", "-1/8/20 dBm", "Transparent UART"),
+    ModuleSpec("nrf24l01", "NRF24L01 (nRF24L01+)", "NRF24L01 (nRF24L01+)", "nRF24L01+", "2.4 GHz", "SPI", "GFSK, ESB framing", "250/1000/2000 kbps", "-18/-6/0 dBm", "2.4 GHz GFSK"),
+    ModuleSpec("nrf24l01_pa", "NRF24L01 PA/LNA (nRF24L01+)", "NRF24L01 PA/LNA (nRF24L01+)", "nRF24L01+", "2.4 GHz", "SPI", "GFSK, ESB framing", "250/1000/2000 kbps", "-18/-6/0 dBm drive", "2.4 GHz GFSK"),
+    ModuleSpec("ra01h_sx1276", "Ai-Thinker RA-01H (SX1276)", "Ai-Thinker RA-01H (SX1276)", "SX1276", "868 MHz", "SPI", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "2/10/20 dBm", "LoRa sub-GHz"),
+    ModuleSpec("ra01sh_sx1262", "Ai-Thinker RA-01SH (SX1262)", "Ai-Thinker RA-01SH (SX1262)", "SX1262", "868 MHz", "SPI", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "-9/10/22 dBm", "LoRa sub-GHz"),
+    ModuleSpec("ra02_sx1278", "Ai-Thinker RA-02 (SX1278)", "Ai-Thinker RA-02 (SX1278)", "SX1278", "433 MHz", "SPI", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "-4/10/20 dBm", "SX1278 variant"),
+    ModuleSpec("ra02_sx1278_2cap", "Ai-Thinker RA-02 with 2 Cap (SX1278)", "Ai-Thinker RA-02 with 2 Cap (SX1278)", "SX1278", "433 MHz", "SPI", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "-4/10/20 dBm", "SX1278 variant"),
+    ModuleSpec("ra08_asr6601", "Ai-Thinker RA-08 (ASR6601)", "Ai-Thinker RA-08 (ASR6601)", "ASR6601", "433 MHz", "UART AT", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "2/12/22 dBm", "LoRa SoC modem"),
+    ModuleSpec("ra09_stm32wle5", "Ai-Thinker RA-09 (STM32WLE5)", "Ai-Thinker RA-09 (STM32WLE5)", "STM32WLE5", "433 MHz", "UART AT", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "-9/10/22 dBm", "LoRa SoC modem"),
+    ModuleSpec("sx1278_adafruit_level_shifter", "Adafruit board with level shifter (SX1278)", "Adafruit board with level shifter (SX1278)", "SX1278", "433 MHz", "SPI", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "-4/10/20 dBm", "SX1278 variant", "Accepted; no validation memo"),
+    ModuleSpec("sx1278_naked", "Unshielded radio module (SX1278)", "Unshielded radio module (SX1278)", "SX1278", "433 MHz", "SPI", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "-4/10/20 dBm", "SX1278 variant"),
+    ModuleSpec("sx1278_pcb_2cap", "Carrier PCB with 2 Cap (SX1278)", "Carrier PCB with 2 Cap (SX1278)", "SX1278", "433 MHz", "SPI", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "-4/10/20 dBm", "SX1278 variant"),
+    ModuleSpec("sx1278_shielded", "Shielded radio module (SX1278)", "Shielded radio module (SX1278)", "SX1278", "433 MHz", "SPI", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "-4/10/20 dBm", "SX1278 variant"),
+    ModuleSpec("xl1276_d01_sx1276", "XL1276-D01 (SX1276)", "XL1276-D01 (SX1276)", "SX1276", "433 MHz", "SPI", "LoRa, CR 4/5", "SF7/9/12, BW 125 kHz", "-4/10/20 dBm", "LoRa sub-GHz"),
 )
+
+MODULE_BY_SLUG = {spec.slug: spec for spec in MODULES}
+
+
+def module_name(slug: str) -> str:
+    return MODULE_BY_SLUG[slug].code
+
+
+PACKET_SOURCES = {
+    "ebyte_e07_400m10s": (
+        "ebyte_e07_400m10s_20260724/e07_400m10s_tx.csv",
+        "ebyte_e07_400m10s_20260724/e07_400m10s_rx.csv",
+    ),
+    "ebyte_e07_433m20s": (
+        "ebyte_e07_433m20s_20260725/e07_433m20s_tx.csv",
+        "ebyte_e07_433m20s_20260725/e07_433m20s_rx.csv",
+    ),
+    "ebyte_e07_900mm10s": (
+        "ebyte_e07_900mm10s_20260725/e07_900mm10s_tx.csv",
+        "ebyte_e07_900mm10s_20260725/e07_900mm10s_rx.csv",
+    ),
+    "ebyte_e79_ch9340": (
+        "ebyte_e79_400dm2005s_20260724/e79_tx.csv",
+        "ebyte_e79_400dm2005s_20260724/e79_rx.csv",
+    ),
+    "ra09_stm32wle5": (
+        "ai_thinker_ra09_20260725/ra09_tx.csv",
+        "ai_thinker_ra09_20260725/ra09_rx.csv",
+    ),
+}
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
     with path.open(newline="", encoding="utf-8-sig") as stream:
         return list(csv.DictReader(stream))
+
+
+def load_packet_rows(spec: ModuleSpec) -> list[dict[str, str]]:
+    sources = PACKET_SOURCES.get(
+        spec.slug,
+        (f"{spec.slug}/{spec.slug}_data.csv",),
+    )
+    return [
+        row
+        for source in sources
+        for row in read_csv(COMPARISONS_DIR / source)
+    ]
+
+
+def load_continuous_rows(spec: ModuleSpec) -> list[dict[str, str]]:
+    path = COMPARISONS_DIR / spec.slug / f"{spec.slug}_continuous.csv"
+    return read_csv(path) if path.exists() else []
 
 
 def number(row: dict[str, str], key: str, default: float = 0.0) -> float:
@@ -150,9 +203,59 @@ def packet_mode_label(row: dict[str, str]) -> str:
         return row["rf_profile"]
     if number(row, "spreading_factor"):
         return f"SF{number(row, 'spreading_factor'):g}"
+    if row.get("module", "").startswith("Ai-Thinker RA-09"):
+        rate = field_rate(row)
+        for candidate, sf in ((0.29296875, 12), (1.7578125, 9), (5.46875, 7)):
+            if math.isclose(rate, candidate, rel_tol=0.0, abs_tol=1e-6):
+                return f"SF{sf}"
     if row.get("air_rate"):
         return row["air_rate"]
     return f"{field_rate(row):g} kbps"
+
+
+def packet_lora_sf(row: dict[str, str]) -> int:
+    direct = round(number(row, "spreading_factor"))
+    if direct:
+        return direct
+    if row.get("module", "").startswith("Ai-Thinker RA-09"):
+        rate = field_rate(row)
+        for candidate, sf in ((0.29296875, 12), (1.7578125, 9), (5.46875, 7)):
+            if math.isclose(rate, candidate, rel_tol=0.0, abs_tol=1e-6):
+                return sf
+    return 0
+
+
+def packet_delivery_percent(row: dict[str, str]) -> float | str:
+    attempted = round(number(row, "packets_attempted")) or round(number(row, "runs"))
+    received_value = row.get("packets_received", "")
+    if not attempted or received_value in ("", None):
+        return ""
+    if not row.get("packets_attempted") and number(row, "packets_received") == 0:
+        return ""
+    return 100.0 * number(row, "packets_received") / attempted
+
+
+def normalize_packet_point(
+    row: dict[str, str],
+    spec: ModuleSpec,
+    series: str,
+    comparison: str,
+) -> dict[str, object]:
+    return {
+        "comparison": comparison,
+        "slug": spec.slug,
+        "series": series,
+        "direction": row.get("measurement_direction", ""),
+        "payload_bytes": round(number(row, "payload_bytes")),
+        "rate_kbps": configured_rate(row, spec),
+        "spreading_factor": packet_lora_sf(row),
+        "profile": row.get("rf_profile", ""),
+        "power_dbm": number(row, "tx_power_dbm"),
+        "energy_mJ": number(row, "energy_total_mJ_mean"),
+        "duration_ms": number(row, "event_duration_ms_mean"),
+        "delivery_percent": packet_delivery_percent(row),
+        "runs": round(number(row, "runs")),
+    }
 
 
 def build_payload_summary(
@@ -222,8 +325,8 @@ def build_cc1101_comparison(
 ) -> list[dict[str, object]]:
     rows: list[dict[str, object]] = []
     modules = (
-        ("cc1101_v1_433", "V1 433 MHz"),
-        ("cc1101_v2_868", "V2 868 MHz"),
+        ("cc1101_v1_433", module_name("cc1101_v1_433")),
+        ("cc1101_v2_868", module_name("cc1101_v2_868")),
     )
     empty_metric = {
         "energy_mJ": "",
@@ -289,6 +392,112 @@ def build_cc1101_comparison(
     return rows
 
 
+def build_e07_comparison(
+    packet_data: dict[str, list[dict[str, str]]]
+) -> list[dict[str, object]]:
+    specs = {
+        spec.slug: spec
+        for spec in MODULES
+        if spec.slug in {
+            "ebyte_e07_400m10s",
+            "ebyte_e07_433m20s",
+            "ebyte_e07_900mm10s",
+        }
+    }
+    labels = {slug: module_name(slug) for slug in specs}
+    output: list[dict[str, object]] = []
+    for slug, spec in specs.items():
+        for row in packet_data[slug]:
+            at_common_power = math.isclose(number(row, "tx_power_dbm"), -30.0)
+            if (
+                at_common_power
+                and math.isclose(field_rate(row), 38.4)
+            ):
+                output.append(
+                    normalize_packet_point(row, spec, labels[slug], "payload")
+                )
+            if (
+                at_common_power
+                and round(number(row, "payload_bytes")) == 32
+            ):
+                output.append(
+                    normalize_packet_point(row, spec, labels[slug], "rate")
+                )
+    return output
+
+
+def build_cc1101_family_comparison(
+    packet_data: dict[str, list[dict[str, str]]]
+) -> list[dict[str, object]]:
+    labels = {
+        slug: module_name(slug)
+        for slug in (
+            "cc1101_v1_433",
+            "cc1101_v2_868",
+            "ebyte_e07_400m10s",
+            "ebyte_e07_433m20s",
+            "ebyte_e07_900mm10s",
+        )
+    }
+    specs = {spec.slug: spec for spec in MODULES}
+    output: list[dict[str, object]] = []
+    for slug, label in labels.items():
+        spec = specs[slug]
+        for row in packet_data[slug]:
+            if (
+                round(number(row, "payload_bytes")) == 32
+                and math.isclose(field_rate(row), 38.4)
+            ):
+                output.append(
+                    normalize_packet_point(row, spec, label, "power")
+                )
+    return output
+
+
+def build_e79_interface_comparison(
+    packet_data: dict[str, list[dict[str, str]]]
+) -> list[dict[str, object]]:
+    specs = {spec.slug: spec for spec in MODULES}
+    labels = {
+        "ebyte_e79_400dm2005s": "ESP32 bridge",
+        "ebyte_e79_ch9340": "CH9340C",
+    }
+    output: list[dict[str, object]] = []
+    for slug, label in labels.items():
+        spec = specs[slug]
+        for row in packet_data[slug]:
+            output.append(
+                normalize_packet_point(row, spec, label, "interface")
+            )
+    return output
+
+
+def build_ra_modem_comparison(
+    packet_data: dict[str, list[dict[str, str]]]
+) -> list[dict[str, object]]:
+    specs = {spec.slug: spec for spec in MODULES}
+    labels = {
+        "ra08_asr6601": module_name("ra08_asr6601"),
+        "ra09_stm32wle5": module_name("ra09_stm32wle5"),
+    }
+    output: list[dict[str, object]] = []
+    for slug, label in labels.items():
+        spec = specs[slug]
+        for row in packet_data[slug]:
+            if not math.isclose(number(row, "tx_power_dbm"), 22.0):
+                continue
+            sf = packet_lora_sf(row)
+            if sf == 7:
+                output.append(
+                    normalize_packet_point(row, spec, label, "payload")
+                )
+            if round(number(row, "payload_bytes")) == 32:
+                output.append(
+                    normalize_packet_point(row, spec, label, "spreading_factor")
+                )
+    return output
+
+
 def choose_continuous(rows: Sequence[dict[str, str]], spec: ModuleSpec, direction: str) -> dict[str, str]:
     candidates = [row for row in rows if row.get("measurement_direction") == direction]
     if not candidates:
@@ -350,51 +559,73 @@ def load_summary() -> tuple[list[dict[str, object]], dict[str, list[dict[str, st
     summary: list[dict[str, object]] = []
     packet_data: dict[str, list[dict[str, str]]] = {}
     for spec in MODULES:
-        folder = COMPARISONS_DIR / spec.slug
-        packets = read_csv(folder / f"{spec.slug}_data.csv")
-        continuous = read_csv(folder / f"{spec.slug}_continuous.csv")
+        packets = load_packet_rows(spec)
+        continuous = load_continuous_rows(spec)
         packet_data[spec.slug] = packets
         tx = choose_packet(packets, spec, "tx")
         rx = choose_packet(packets, spec, "rx")
-        ctx = choose_continuous(continuous, spec, "tx")
-        crx = matching_continuous_rx(continuous, spec, ctx)
         received, attempted, packet_percent, packet_scope = packet_delivery(packets)
-        c_received, c_attempted, continuous_percent = continuous_delivery(continuous)
         payload = number(tx, "payload_bytes")
         tx_energy = number(tx, "energy_total_mJ_mean")
         rx_energy = number(rx, "energy_total_mJ_mean")
-        summary.append(
-            {
-                **asdict(spec),
-                "packet_payload_bytes": payload,
-                "canonical_rate_kbps": configured_rate(tx, spec),
-                "canonical_mode": packet_mode_label(tx),
-                "canonical_power_dbm": number(tx, "tx_power_dbm"),
-                "tx_energy_mJ": tx_energy,
-                "rx_energy_mJ": rx_energy,
-                "tx_energy_per_bit_uJ": tx_energy * 1000.0 / (payload * 8.0),
-                "rx_energy_per_bit_uJ": rx_energy * 1000.0 / (payload * 8.0),
-                "tx_duration_ms": number(tx, "event_duration_ms_mean"),
-                "rx_duration_ms": number(rx, "event_duration_ms_mean"),
-                "continuous_rate_kbps": configured_rate(ctx, spec),
-                "continuous_mode": ctx.get("rf_profile") or (f"SF{number(ctx, 'spreading_factor'):g}" if number(ctx, "spreading_factor") else f"{field_rate(ctx):g} kbps"),
-                "continuous_power_dbm": number(ctx, "tx_power_dbm"),
-                "continuous_tx_power_mW": number(ctx, "mean_power_mW"),
-                "continuous_rx_power_mW": number(crx, "mean_power_mW"),
-                "continuous_goodput_kbps": goodput_kbps(crx),
-                "packet_received": received,
-                "packet_attempted": attempted,
-                "packet_campaign_runs": sum(round(number(row, "runs")) for row in packets),
-                "packet_points": len(packets),
-                "packet_delivery_scope": packet_scope,
-                "packet_delivery_percent": packet_percent,
-                "continuous_received": c_received,
-                "continuous_attempted": c_attempted,
-                "continuous_delivery_percent": continuous_percent,
-                "continuous_non_ok": sum(1 for row in continuous if row.get("status") != "ok"),
-                "continuous_windows": len(continuous),
-            }
-        )
+        result: dict[str, object] = {
+            **asdict(spec),
+            "packet_payload_bytes": payload,
+            "canonical_rate_kbps": configured_rate(tx, spec),
+            "canonical_mode": packet_mode_label(tx),
+            "canonical_power_dbm": number(tx, "tx_power_dbm"),
+            "tx_energy_mJ": tx_energy,
+            "rx_energy_mJ": rx_energy,
+            "tx_energy_per_bit_uJ": tx_energy * 1000.0 / (payload * 8.0),
+            "rx_energy_per_bit_uJ": rx_energy * 1000.0 / (payload * 8.0),
+            "tx_duration_ms": number(tx, "event_duration_ms_mean"),
+            "rx_duration_ms": number(rx, "event_duration_ms_mean"),
+            "packet_received": received,
+            "packet_attempted": attempted,
+            "packet_campaign_runs": sum(round(number(row, "runs")) for row in packets),
+            "packet_points": len(packets),
+            "packet_delivery_scope": packet_scope,
+            "packet_delivery_percent": packet_percent,
+            "continuous_available": bool(continuous),
+            "continuous_rate_kbps": "",
+            "continuous_mode": "",
+            "continuous_power_dbm": "",
+            "continuous_tx_power_mW": "",
+            "continuous_rx_power_mW": "",
+            "continuous_goodput_kbps": "",
+            "continuous_received": 0,
+            "continuous_attempted": 0,
+            "continuous_delivery_percent": "",
+            "continuous_non_ok": 0,
+            "continuous_windows": 0,
+        }
+        if continuous:
+            ctx = choose_continuous(continuous, spec, "tx")
+            crx = matching_continuous_rx(continuous, spec, ctx)
+            c_received, c_attempted, continuous_percent = continuous_delivery(continuous)
+            result.update(
+                {
+                    "continuous_rate_kbps": configured_rate(ctx, spec),
+                    "continuous_mode": ctx.get("rf_profile")
+                    or (
+                        f"SF{number(ctx, 'spreading_factor'):g}"
+                        if number(ctx, "spreading_factor")
+                        else f"{field_rate(ctx):g} kbps"
+                    ),
+                    "continuous_power_dbm": number(ctx, "tx_power_dbm"),
+                    "continuous_tx_power_mW": number(ctx, "mean_power_mW"),
+                    "continuous_rx_power_mW": number(crx, "mean_power_mW"),
+                    "continuous_goodput_kbps": goodput_kbps(crx),
+                    "continuous_received": c_received,
+                    "continuous_attempted": c_attempted,
+                    "continuous_delivery_percent": continuous_percent,
+                    "continuous_non_ok": sum(
+                        1 for row in continuous if row.get("status") != "ok"
+                    ),
+                    "continuous_windows": len(continuous),
+                }
+            )
+        summary.append(result)
     return summary, packet_data
 
 
@@ -445,8 +676,11 @@ def write_tables(
     tables = STUDY_DIR / "tables"
     tables.mkdir(parents=True, exist_ok=True)
     catalog_lines = [
+        r"\begingroup",
         r"\captionsetup{justification=raggedright,singlelinecheck=false}",
-        r"\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.19\linewidth}>{\raggedright\arraybackslash}p{0.11\linewidth}>{\raggedright\arraybackslash}p{0.075\linewidth}>{\raggedright\arraybackslash}p{0.075\linewidth}>{\raggedright\arraybackslash}p{0.18\linewidth}>{\raggedright\arraybackslash}p{0.15\linewidth}>{\raggedright\arraybackslash}p{0.14\linewidth}@{}}",
+        r"\setlength{\LTleft}{0pt}",
+        r"\setlength{\LTright}{\fill}",
+        r"\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.24\linewidth}>{\raggedright\arraybackslash}p{0.11\linewidth}>{\raggedright\arraybackslash}p{0.07\linewidth}>{\raggedright\arraybackslash}p{0.08\linewidth}>{\raggedright\arraybackslash}p{0.15\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}@{}}",
         r"\caption{Measured module and hardware-variant catalog. Rates and powers are the settings exercised in this campaign, not the full capabilities of each chipset.}\label{tab:catalog}\\",
         r"\toprule",
         r"Module/variant & Radio IC & Band & I/F & Tested PHY/modulation & Tested rates & Tested power \\ \midrule",
@@ -455,14 +689,23 @@ def write_tables(
         r"\endhead",
     ]
     for row in summary:
+        catalog_name = str(row["label"]).rsplit(" (", 1)[0]
         catalog_lines.append(
             " & ".join(
-                latex_escape(row[key])
-                for key in ("label", "chip", "band", "interface", "modulation", "configured_rates", "tested_powers")
+                latex_escape(value)
+                for value in (
+                    catalog_name,
+                    row["chip"],
+                    row["band"],
+                    row["interface"],
+                    row["modulation"],
+                    row["configured_rates"],
+                    row["tested_powers"],
+                )
             )
             + r" \\"
         )
-    catalog_lines.extend((r"\bottomrule", r"\end{longtable}"))
+    catalog_lines.extend((r"\bottomrule", r"\end{longtable}", r"\endgroup"))
     (tables / "module_catalog.tex").write_text("\n".join(catalog_lines) + "\n", encoding="utf-8")
 
     matrix = {
@@ -474,49 +717,121 @@ def write_tables(
         ("rx", "rx_packet_energy_by_payload.tex", "tab:packet-rx-matrix"),
     ):
         direction_name = direction.upper()
-        column_spec = "@{}llr" + "r" * len(payload_sizes) + "@{}"
-        header = "ID & Mode & dBm & " + " & ".join(str(size) for size in payload_sizes) + r" \\"
-        units = r" & & & " + " & ".join("[mJ]" for _ in payload_sizes) + r" \\ \midrule"
-        matrix_lines = [
-            r"\begin{table}[p]",
-            r"\centering",
-            rf"\caption{{Measured {direction_name} energy per logical packet at each module's fastest tested mode and highest tested configured power. Payload columns are bytes; a dash means that payload size was not measured.}}",
-            rf"\label{{{label}}}",
-            r"\resizebox{\textwidth}{!}{%",
-            rf"\begin{{tabular}}{{{column_spec}}}",
-            r"\toprule",
-            header,
-            units,
-        ]
+        include_radio_ic = direction == "rx"
+        if include_radio_ic:
+            column_spec = (
+                r"@{}>{\raggedright\arraybackslash}p{0.17\linewidth}"
+                r">{\raggedright\arraybackslash}p{0.10\linewidth}"
+                r">{\raggedright\arraybackslash}p{0.09\linewidth}"
+                r">{\raggedright\arraybackslash}p{0.08\linewidth}"
+                + "l" * len(payload_sizes)
+                + "@{}"
+            )
+            header = (
+                r"Module/\newline variant & Radio IC & Mode & Configured & "
+                rf"\multicolumn{{{len(payload_sizes)}}}{{l}}{{Logical payload size [bytes]}} \\"
+            )
+            payload_header = r" & & & power & " + " & ".join(str(size) for size in payload_sizes) + r" \\"
+            units = r" & & & [dBm] & " + " & ".join("[mJ]" for _ in payload_sizes) + r" \\ \midrule"
+        else:
+            column_spec = "@{}" + "l" * (3 + len(payload_sizes)) + "@{}"
+            header = (
+                r"Module/variant & Mode & Configured & "
+                rf"\multicolumn{{{len(payload_sizes)}}}{{l}}{{Logical payload size [bytes]}} \\"
+            )
+            payload_header = r" & & power & " + " & ".join(str(size) for size in payload_sizes) + r" \\"
+            units = r" & & [dBm] & " + " & ".join("[mJ]" for _ in payload_sizes) + r" \\ \midrule"
+        caption_text = (
+            f"Measured {direction_name} energy per logical packet at each module's fastest tested "
+            "mode and highest tested configured power. Payload columns are bytes; a dash means "
+            "that payload size was not measured."
+        )
+        if include_radio_ic:
+            matrix_lines = [
+                r"\begingroup",
+                r"\captionsetup{justification=raggedright,singlelinecheck=false}",
+                r"\setlength{\LTleft}{0pt}",
+                r"\setlength{\LTright}{\fill}",
+                rf"\begin{{longtable}}{{{column_spec}}}",
+                rf"\caption{{{caption_text}}}\label{{{label}}}\\",
+                r"\toprule",
+                header,
+                payload_header,
+                units,
+                r"\endfirsthead",
+                r"\toprule",
+                header,
+                payload_header,
+                units,
+                r"\endhead",
+            ]
+        else:
+            matrix_lines = [
+                r"\captionsetup{justification=raggedright,singlelinecheck=false}",
+                r"\begin{table}[p]",
+                r"\centering",
+                rf"\caption{{{caption_text}}}",
+                rf"\label{{{label}}}",
+                r"\resizebox{\textwidth}{!}{%",
+                rf"\begin{{tabular}}{{{column_spec}}}",
+                r"\toprule",
+                header,
+                payload_header,
+                units,
+            ]
         for module in summary:
             values = []
             for payload_bytes in payload_sizes:
                 point = matrix.get((str(module["slug"]), direction, payload_bytes))
-                values.append(fmt(point["energy_mJ"]) if point else r"\textemdash")
-            matrix_lines.append(
-                f"{latex_escape(module['code'])} & {latex_escape(module['canonical_mode'])} & "
-                f"{fmt(module['canonical_power_dbm'])} & " + " & ".join(values) + r" \\"
-            )
-        matrix_lines.extend((r"\bottomrule", r"\end{tabular}%", r"}", r"\end{table}"))
+                values.append(f"{float(point['energy_mJ']):.2f}" if point else r"\textemdash")
+            if include_radio_ic:
+                module_name = str(module["code"]).rsplit(" (", 1)[0]
+                module_cell = latex_escape(module_name)
+                row_prefix = (
+                    f"{module_cell} & {latex_escape(module['chip'])} & "
+                    f"{latex_escape(module['canonical_mode'])} & "
+                    f"{float(module['canonical_power_dbm']):.0f} & "
+                )
+            else:
+                row_prefix = (
+                    f"{latex_escape(module['code'])} & {latex_escape(module['canonical_mode'])} & "
+                    f"{float(module['canonical_power_dbm']):.0f} & "
+                )
+            matrix_lines.append(row_prefix + " & ".join(values) + r" \\")
+        if include_radio_ic:
+            matrix_lines.extend((r"\bottomrule", r"\end{longtable}", r"\endgroup"))
+        else:
+            matrix_lines.extend((r"\bottomrule", r"\end{tabular}", r"}", r"\end{table}"))
         (tables / filename).write_text("\n".join(matrix_lines) + "\n", encoding="utf-8")
 
     benchmark_lines = [
-        r"\begin{longtable}{@{}llrrrrrrr@{}}",
-        r"\caption{Sustained-traffic and delivery benchmark. Continuous values use the fastest mode available in each 60-second campaign. PDR and CDR aggregate the complete packet and continuous matrices, respectively.}\label{tab:benchmark}\\",
+        r"\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.30\linewidth}>{\raggedright\arraybackslash}p{0.10\linewidth}rrrrrrr@{}}",
+        r"\caption{Sustained-traffic and delivery benchmark. Continuous values use the fastest mode available in each 60-second campaign. PDR and CDR aggregate the complete packet and continuous matrices, respectively; a dash denotes that no continuous campaign was measured.}\label{tab:benchmark}\\",
         r"\toprule",
-        r"ID & Mode & Rate & dBm & $P_{TX}$ & $P_{RX}$ & Goodput & PDR & CDR \\",
+        r"Module/variant & Mode & Rate & dBm & $P_{TX}$ & $P_{RX}$ & Goodput & PDR & CDR \\",
         r" & & [kbps] & & [mW] & [mW] & [kbps] & [\%] & [\%] \\ \midrule",
         r"\endfirsthead",
-        r"\toprule ID & Mode & Rate & dBm & $P_{TX}$ & $P_{RX}$ & Goodput & PDR & CDR \\ \midrule",
+        r"\toprule Module/variant & Mode & Rate & dBm & $P_{TX}$ & $P_{RX}$ & Goodput & PDR & CDR \\ \midrule",
         r"\endhead",
     ]
     for row in summary:
+        if row["continuous_available"]:
+            continuous_cells = (
+                latex_escape(row["continuous_mode"]),
+                fmt(row["continuous_rate_kbps"]),
+                fmt(row["continuous_power_dbm"]),
+                fmt(row["continuous_tx_power_mW"]),
+                fmt(row["continuous_rx_power_mW"]),
+                fmt(row["continuous_goodput_kbps"]),
+                f"{float(row['continuous_delivery_percent']):.1f}",
+            )
+        else:
+            continuous_cells = (r"\textemdash",) * 7
         benchmark_lines.append(
-            f"{latex_escape(row['code'])} & {latex_escape(row['continuous_mode'])} & {fmt(row['continuous_rate_kbps'])} & "
-            f"{fmt(row['continuous_power_dbm'])} & {fmt(row['continuous_tx_power_mW'])} & "
-            f"{fmt(row['continuous_rx_power_mW'])} & {fmt(row['continuous_goodput_kbps'])} & "
-            f"{float(row['packet_delivery_percent']):.1f} & "
-            f"{float(row['continuous_delivery_percent']):.1f} \\\\"
+            f"{latex_escape(row['code'])} & {continuous_cells[0]} & {continuous_cells[1]} & "
+            f"{continuous_cells[2]} & {continuous_cells[3]} & {continuous_cells[4]} & "
+            f"{continuous_cells[5]} & "
+            f"{float(row['packet_delivery_percent']):.1f} & {continuous_cells[6]} \\\\"
         )
     benchmark_lines.extend((r"\bottomrule", r"\end{longtable}"))
     (tables / "benchmark_summary.tex").write_text("\n".join(benchmark_lines) + "\n", encoding="utf-8")
@@ -574,11 +889,16 @@ def dot_comparison(
     unit: str,
     subtitle: str,
     log_x: bool = True,
+    radio_ic_column: bool = False,
+    expanded_layout: bool = False,
 ) -> None:
     ordered = sorted(rows, key=lambda row: max(float(row[left_key]), float(row[right_key])))
-    canvas = PdfCanvas(1080, 760)
+    canvas = PdfCanvas(1360, 1210 if expanded_layout else 760)
     title(canvas, heading, subtitle)
-    box = (190.0, 75.0, 830.0, 585.0)
+    if expanded_layout:
+        box = (370.0, 100.0, 930.0, 985.0)
+    else:
+        box = (500.0, 75.0, 800.0, 585.0) if radio_ic_column else (430.0, 75.0, 870.0, 585.0)
     values = [float(row[key]) for row in ordered for key in (left_key, right_key) if float(row[key]) > 0]
     low = min(values) * (0.72 if log_x else 0.0)
     high = max(values) * 1.28
@@ -587,31 +907,88 @@ def dot_comparison(
         if unit.endswith("[%]"):
             high = 100.0
     ticks = log_ticks(low, high) if log_x else [high * index / 5.0 for index in range(6)]
+    expanded_labels: list[tuple[str, ...]] = []
+    if expanded_layout:
+        for row in ordered:
+            label = str(row["code"])
+            if len(label) > 34 and " (" in label and label.endswith(")"):
+                module_name, radio_ic = label.rsplit(" (", 1)
+                expanded_labels.append((module_name, f"({radio_ic}"))
+            else:
+                expanded_labels.append((label,))
+        row_weights = [1.35 if len(lines) == 2 else 1.0 for lines in expanded_labels]
+        row_height = box[3] / sum(row_weights)
+        row_centers: list[float] = []
+        row_cursor = box[1]
+        for weight in row_weights:
+            band_height = row_height * weight
+            row_centers.append(row_cursor + band_height / 2.0)
+            row_cursor += band_height
+    else:
+        row_centers = [
+            box[1] + (index + 0.5) * box[3] / len(ordered)
+            for index in range(len(ordered))
+        ]
     for tick in ticks:
         px = _map(tick, low, high, box[0], box[2], log_x)
         canvas.line(px, box[1], px, box[1] + box[3], color=GRID, width=0.7)
-        canvas.text(px - 18, box[1] - 28, fmt_tick(tick), size=TICK_FONT_SIZE, bold=True)
+        tick_offset = 31.0 if expanded_layout else 28.0
+        canvas.text(px - 18, box[1] - tick_offset, fmt_tick(tick), size=TICK_FONT_SIZE, bold=True)
     for index, row in enumerate(ordered):
-        py = box[1] + (index + 0.5) * box[3] / len(ordered)
-        canvas.text(20, py - 6, str(row["code"]), size=TICK_FONT_SIZE, bold=True)
+        py = row_centers[index]
+        label = str(row["code"])
+        if radio_ic_column:
+            variant = label.rsplit(" (", 1)[0] if label.endswith(")") else label
+            chip = str(row["chip"])
+            variant_size = min(
+                TICK_FONT_SIZE,
+                310.0 / max(1.0, len(variant) * 0.68),
+            )
+            chip_size = min(
+                TICK_FONT_SIZE,
+                130.0 / max(1.0, len(chip) * 0.68),
+            )
+            canvas.text(20, py - 6, variant, size=variant_size, bold=True)
+            canvas.text(350, py - 6, chip, size=chip_size, bold=True)
+        elif expanded_layout:
+            label_lines = expanded_labels[index]
+            label_size = TICK_FONT_SIZE
+            if len(label_lines) == 2:
+                canvas.text(40, py + 3, label_lines[0], size=label_size, bold=True)
+                canvas.text(40, py - 15, label_lines[1], size=label_size, bold=True)
+            else:
+                canvas.text(40, py - 6, label_lines[0], size=label_size, bold=True)
+        else:
+            label_size = min(
+                TICK_FONT_SIZE,
+                390.0 / max(1.0, len(label) * 0.68),
+            )
+            canvas.text(20, py - 6, label, size=label_size, bold=True)
         first = _map(float(row[left_key]), low, high, box[0], box[2], log_x)
         second = _map(float(row[right_key]), low, high, box[0], box[2], log_x)
         canvas.line(first, py, second, py, color=GRAY, width=1.2)
         canvas.marker(first, py, color=BLUE, kind=2, radius=4)
         canvas.marker(second, py, color=RED, kind=0, radius=4)
     canvas.line(box[0], box[1], box[0] + box[2], box[1], width=1.2)
-    canvas.text(380, 27, unit, size=AXIS_FONT_SIZE, bold=True)
-    canvas.marker(385, 678, color=BLUE, kind=2, radius=5)
-    canvas.text(399, 670, left_label, size=LEGEND_FONT_SIZE, bold=True)
-    canvas.marker(620, 678, color=RED, kind=0, radius=5)
-    canvas.text(634, 670, right_label, size=LEGEND_FONT_SIZE, bold=True)
+    axis_label_y = 25.0 if expanded_layout else 27.0
+    canvas.text(690, axis_label_y, unit, size=AXIS_FONT_SIZE, bold=True)
+    legend_y = box[1] + box[3] + 18.0
+    left_legend_x = 700.0 if radio_ic_column or expanded_layout else 620.0
+    right_legend_x = 930.0 if radio_ic_column or expanded_layout else 875.0
+    if radio_ic_column:
+        canvas.text(20, legend_y - 8, "Module/variant", size=LEGEND_FONT_SIZE, bold=True)
+        canvas.text(350, legend_y - 8, "Radio IC", size=LEGEND_FONT_SIZE, bold=True)
+    canvas.marker(left_legend_x, legend_y, color=BLUE, kind=2, radius=5)
+    canvas.text(left_legend_x + 14, legend_y - 8, left_label, size=LEGEND_FONT_SIZE, bold=True)
+    canvas.marker(right_legend_x, legend_y, color=RED, kind=0, radius=5)
+    canvas.text(right_legend_x + 14, legend_y - 8, right_label, size=LEGEND_FONT_SIZE, bold=True)
     canvas.save(path)
 
 
 def scatter_rate_energy(path: Path, rows: Sequence[dict[str, object]]) -> None:
-    canvas = PdfCanvas(1080, 620)
-    title(canvas, "Packet energy--rate design space", "Measured 32-byte TX packet; fastest tested mode; highest tested power")
-    box = (100.0, 95.0, 900.0, 440.0)
+    canvas = PdfCanvas(1400, 1570)
+    title(canvas, "Packet energy versus rate design space", "")
+    box = (110.0, 650.0, 1190.0, 760.0)
     xs = [float(row["canonical_rate_kbps"]) for row in rows]
     ys = [float(row["tx_energy_mJ"]) for row in rows]
     x_range = (min(xs) * 0.65, max(xs) * 1.55)
@@ -625,35 +1002,102 @@ def scatter_rate_energy(path: Path, rows: Sequence[dict[str, object]]) -> None:
         canvas.line(box[0], py, box[0] + box[2], py, color=GRID, width=0.7)
         canvas.text(box[0] - 62, py - 6, fmt_tick(tick), size=TICK_FONT_SIZE, bold=True)
     families = {family: index for index, family in enumerate(sorted({str(row["family"]) for row in rows}))}
+    indexed_rows = sorted(
+        rows,
+        key=lambda row: (
+            float(row["canonical_rate_kbps"]),
+            -float(row["tx_energy_mJ"]),
+            str(row["code"]),
+        ),
+    )
     plotted: list[tuple[int, dict[str, object], float, float, tuple[float, float, float]]] = []
-    for index, row in enumerate(rows):
+    for number, row in enumerate(indexed_rows, start=1):
         px = _map(float(row["canonical_rate_kbps"]), *x_range, box[0], box[2], True)
         py = _map(float(row["tx_energy_mJ"]), *y_range, box[1], box[3], True)
         color = PALETTE[families[str(row["family"])] % len(PALETTE)]
-        canvas.marker(px, py, color=color, kind=index, radius=5)
-        plotted.append((index, row, px, py, color))
-    groups: dict[float, list[tuple[int, dict[str, object], float, float, tuple[float, float, float]]]] = {}
-    for point in plotted:
-        groups.setdefault(round(float(point[1]["canonical_rate_kbps"]), 3), []).append(point)
-    for points in groups.values():
-        points.sort(key=lambda point: point[3])
-        if len(points) > 2:
-            center = sum(point[3] for point in points) / len(points)
-            start = center - (len(points) - 1) * 8.5
-            label_x = points[0][2] + 12 if points[0][2] < box[0] + box[2] * 0.55 else points[0][2] - 104
-            for offset, (_, row, px, py, color) in enumerate(points):
-                label_y = start + offset * 17
-                canvas.line(px, py, label_x, label_y + 2, color=color, width=0.5)
-                canvas.text(label_x, label_y, str(row["code"]), size=DATA_LABEL_FONT_SIZE, color=color, bold=True)
+        canvas.marker(px, py, color=color, kind=number - 1, radius=5)
+        plotted.append((number, row, px, py, color))
+
+    number_size = 17.0
+    number_gap = 25.0
+    x_group_gap = 32.0
+    label_bottom = box[1] + 8.0
+    label_top = box[1] + box[3] - number_size
+    x_groups: list[list[tuple[int, dict[str, object], float, float, tuple[float, float, float]]]] = []
+    for point in sorted(plotted, key=lambda item: item[2]):
+        if not x_groups or point[2] - x_groups[-1][-1][2] > x_group_gap:
+            x_groups.append([point])
         else:
-            for index, row, px, py, color in points:
-                dx = 9 if px < box[0] + box[2] * 0.75 else -78
-                dy = 10 if index % 2 == 0 else -17
-                canvas.text(px + dx, py + dy, str(row["code"]), size=DATA_LABEL_FONT_SIZE, color=color, bold=True)
+            x_groups[-1].append(point)
+
+    label_y_by_number: dict[int, float] = {}
+    for group in x_groups:
+        vertical_points = sorted(group, key=lambda point: point[3])
+        label_positions: list[float] = []
+        for _, _, _, py, _ in vertical_points:
+            preferred = max(label_bottom, py - number_size * 0.35)
+            if label_positions:
+                preferred = max(preferred, label_positions[-1] + number_gap)
+            label_positions.append(preferred)
+        if label_positions[-1] > label_top:
+            label_positions[-1] = label_top
+            for index in range(len(label_positions) - 2, -1, -1):
+                label_positions[index] = min(
+                    label_positions[index],
+                    label_positions[index + 1] - number_gap,
+                )
+        for point, label_y in zip(vertical_points, label_positions):
+            label_y_by_number[point[0]] = label_y
+
+    compact_label_slugs = {
+        "ebyte_e32_433t20d",
+        "ebyte_e32_433t33d",
+        "ebyte_e32_868t20d",
+        "ebyte_e32_868t30d",
+    }
+    for number, row, px, py, color in plotted:
+        label_y = label_y_by_number[number]
+        label_offset = (
+            18.0
+            if str(row["slug"]) in compact_label_slugs
+            else 60.0 if float(row["canonical_rate_kbps"]) <= 20.0 else 18.0
+        )
+        if px < box[0] + box[2] - label_offset - 27.0:
+            label_x = px + label_offset
+            leader_x = label_x - 5.0
+        else:
+            label_x = px - 25.0
+            leader_x = label_x + 20.0
+        if abs(label_y + 5.0 - py) > 5.0:
+            canvas.line(px, py, leader_x, label_y + 5.0, color=color, width=0.7)
+        canvas.text(label_x, label_y, str(number), size=number_size, color=BLACK, bold=True)
+
     canvas.line(box[0], box[1], box[0] + box[2], box[1], width=1.2)
     canvas.line(box[0], box[1], box[0], box[1] + box[3], width=1.2)
-    canvas.text(340, 38, "Configured gross rate [kbps]", size=AXIS_FONT_SIZE, bold=True)
-    canvas.text(100, 538, "32-byte TX energy [mJ]", size=AXIS_FONT_SIZE, bold=True)
+    canvas.text(515, 582, "Configured gross rate [kbps]", size=AXIS_FONT_SIZE, bold=True)
+    canvas.text(box[0], box[1] + box[3] + 15.0, "32-byte TX energy [mJ]", size=AXIS_FONT_SIZE, bold=True)
+
+    canvas.text(60, 532, "Module index", size=22.0, bold=True)
+    key_columns = 2
+    rows_per_column = math.ceil(len(plotted) / key_columns)
+    key_top = 490.0
+    key_line_height = 29.0
+    key_font_size = 20.0
+    key_column_x = (60.0, 700.0)
+    for index, (number, row, _, _, color) in enumerate(plotted):
+        column = index // rows_per_column
+        row_index = index % rows_per_column
+        key_y = key_top - row_index * key_line_height
+        key_x = key_column_x[column]
+        canvas.marker(key_x, key_y + 6.0, color=color, kind=number - 1, radius=5)
+        canvas.text(
+            key_x + 14.0,
+            key_y - 2.0,
+            f"{number}. {row['code']}",
+            size=key_font_size,
+            color=BLACK,
+            bold=True,
+        )
     canvas.save(path)
 
 
@@ -665,12 +1109,16 @@ def payload_energy_figure(
 ) -> None:
     groups = (
         (
+            "CC1101 boards and E07 modules",
+            {"cc1101_v1_433", "cc1101_v2_868", "ebyte_e07_400m10s", "ebyte_e07_433m20s", "ebyte_e07_900mm10s"},
+        ),
+        (
             "FSK and transparent high-rate modules",
-            {"cc1101_v1_433", "cc1101_v2_868", "e280", "ebyte_e79_400dm2005s", "hc12", "nrf24l01", "nrf24l01_pa"},
+            {"e280", "ebyte_e79_400dm2005s", "ebyte_e79_ch9340", "hc12", "nrf24l01", "nrf24l01_pa"},
         ),
         (
             "Direct LoRa and modem implementations",
-            {"e28_sx1280", "ebyte_e22_400m30s", "ra01h_sx1276", "ra01sh_sx1262", "ra08_asr6601", "xl1276_d01_sx1276"},
+            {"e28_sx1280", "ebyte_e22_400m30s", "ra01h_sx1276", "ra01sh_sx1262", "ra08_asr6601", "ra09_stm32wle5", "xl1276_d01_sx1276"},
         ),
         (
             "SX1278 physical variants",
@@ -685,7 +1133,8 @@ def payload_energy_figure(
     direction_name = direction.upper()
     payload_index = {payload: index for index, payload in enumerate(payload_sizes)}
 
-    for sheet_index, sheet_groups in enumerate((groups[:2], groups[2:])):
+    sheets = [groups[index:index + 2] for index in range(0, len(groups), 2)]
+    for sheet_index, sheet_groups in enumerate(sheets):
         canvas = PdfCanvas(1120, 1200)
         continuation = " (continued)" if sheet_index else ""
         title(
@@ -702,8 +1151,8 @@ def payload_energy_figure(
             panel_rows = [row for row in selected_rows if row["slug"] in slugs]
             energies = [float(row["energy_mJ"]) for row in panel_rows]
             y_range = (min(energies) * 0.65, max(energies) * 1.65)
-            canvas.text(left, bottom + plot_height + 94, panel_title, size=19, bold=True)
-            canvas.text(left, bottom + plot_height + 70, f"{direction_name} packet energy [mJ]", size=AXIS_FONT_SIZE, bold=True)
+            canvas.text(left, bottom + plot_height + 115, panel_title, size=19, bold=True)
+            canvas.text(left, bottom + plot_height + 5, f"{direction_name} packet energy [mJ]", size=AXIS_FONT_SIZE, bold=True)
 
             module_codes = sorted({str(row["code"]) for row in panel_rows})
             code_style = {
@@ -712,13 +1161,17 @@ def payload_energy_figure(
             }
             for index, code in enumerate(module_codes):
                 color, marker = code_style[code]
-                legend_column = index % 4
-                legend_row = index // 4
-                lx = left + legend_column * 225
-                ly = bottom + plot_height + 48 - legend_row * 22
+                legend_column = index % 2
+                legend_row = index // 2
+                lx = left + legend_column * 455
+                ly = bottom + plot_height + 88 - legend_row * 20
+                label_size = min(
+                    15.0,
+                    405.0 / max(1.0, len(code) * 0.68),
+                )
                 canvas.line(lx, ly + 4, lx + 20, ly + 4, color=color, width=1.6)
                 canvas.marker(lx + 10, ly + 4, color=color, kind=marker, radius=4.0)
-                canvas.text(lx + 27, ly - 3, code, size=LEGEND_FONT_SIZE, color=color, bold=True)
+                canvas.text(lx + 27, ly - 3, code, size=label_size, color=color, bold=True)
 
             for tick in log_ticks(*y_range):
                 py = _map(tick, *y_range, bottom, plot_height, True)
@@ -752,7 +1205,14 @@ def payload_energy_figure(
             canvas.text(left + 325, bottom - 52, "Logical payload [bytes]", size=AXIS_FONT_SIZE, bold=True)
             canvas.text(left + plot_width - 22, bottom + plot_height + 5, chr(ord("A") + panel_index), size=16, bold=True)
 
-        output_path = path if sheet_index == 0 else path.with_name(f"{path.stem}_continued{path.suffix}")
+        if sheet_index == 0:
+            output_path = path
+        elif sheet_index == 1:
+            output_path = path.with_name(f"{path.stem}_continued{path.suffix}")
+        else:
+            output_path = path.with_name(
+                f"{path.stem}_continued_{sheet_index}{path.suffix}"
+            )
         canvas.save(output_path)
 
 
@@ -813,8 +1273,8 @@ def two_board_panel(
         canvas.text(px - len(label) * 4.8, bottom - 27, label, size=TICK_FONT_SIZE, bold=True)
 
     styles = {
-        "V1 433 MHz": (BLUE, 2),
-        "V2 868 MHz": (RED, 0),
+        module_name("cc1101_v1_433"): (BLUE, 2),
+        module_name("cc1101_v2_868"): (RED, 0),
     }
     for code, (color, marker) in styles.items():
         series = sorted((row for row in rows if row["code"] == code), key=lambda row: float(row[x_key]))
@@ -834,14 +1294,132 @@ def two_board_panel(
     canvas.text(left + width / 2.0 - len(x_label) * 5.5, bottom - 51, x_label, size=AXIS_FONT_SIZE, bold=True)
 
 
+def stacked_packet_series_figure(
+    path: Path,
+    rows: Sequence[dict[str, object]],
+    heading: str,
+    subtitle: str,
+    series_order: Sequence[str],
+    x_key: str,
+    x_ticks: Sequence[float],
+    x_labels: Sequence[str],
+    x_label: str,
+    x_log: bool,
+) -> None:
+    canvas = PdfCanvas(1080, 820)
+    title(canvas, heading, subtitle)
+    legend_columns = 2
+    for index, label in enumerate(series_order):
+        column = index % legend_columns
+        row_index = index // legend_columns
+        left = 105.0 + column * 455.0
+        y = 718.0 - row_index * 30.0
+        color = PALETTE[index % len(PALETTE)]
+        label_size = min(
+            LEGEND_FONT_SIZE,
+            400.0 / max(1.0, len(label) * 0.68),
+        )
+        canvas.line(left, y, left + 28, y, color=color, width=2.0)
+        canvas.marker(left + 14, y, color=color, kind=index, radius=4.5)
+        canvas.text(left + 38, y - 7, label, size=label_size, color=color, bold=True)
+
+    panels = (("tx", "TX packet energy", "A"), ("rx", "RX packet energy", "B"))
+    boxes = ((110.0, 405.0, 880.0, 190.0), (110.0, 95.0, 880.0, 190.0))
+    x_min = min(x_ticks)
+    x_max = max(x_ticks)
+    if x_log:
+        x_range = (x_min * 0.78, x_max * 1.28)
+    else:
+        margin = max(0.5, (x_max - x_min) * 0.08)
+        x_range = (x_min - margin, x_max + margin)
+
+    has_delivery_warning = False
+    for (direction, panel_title, panel_code), box in zip(panels, boxes):
+        panel_rows = [
+            row
+            for row in rows
+            if row["direction"] == direction and float(row["energy_mJ"]) > 0
+        ]
+        values = [float(row["energy_mJ"]) for row in panel_rows]
+        y_range = (min(values) * 0.70, max(values) * 1.45)
+        y_ticks = log_ticks(*y_range)
+        canvas.text(box[0], box[1] + box[3] + 24, panel_title, size=AXIS_FONT_SIZE, bold=True)
+        canvas.text(box[0] + box[2] - 16, box[1] + box[3] + 24, panel_code, size=18, bold=True)
+        canvas.text(box[0], box[1] + box[3] + 2, "Energy [mJ]", size=AXIS_FONT_SIZE, bold=True)
+
+        for tick in y_ticks:
+            py = _map(tick, *y_range, box[1], box[3], True)
+            canvas.line(box[0], py, box[0] + box[2], py, color=GRID, width=0.6)
+            canvas.text(box[0] - 68, py - 6, fmt_tick(tick), size=TICK_FONT_SIZE, bold=True)
+        for tick, label in zip(x_ticks, x_labels):
+            px = _map(tick, *x_range, box[0], box[2], x_log)
+            canvas.line(px, box[1], px, box[1] + box[3], color=GRID, width=0.5)
+            canvas.text(
+                px - max(14.0, len(label) * 4.8),
+                box[1] - 29,
+                label,
+                size=TICK_FONT_SIZE,
+                bold=True,
+            )
+
+        for series_index, series_label in enumerate(series_order):
+            series = sorted(
+                (row for row in panel_rows if row["series"] == series_label),
+                key=lambda row: float(row[x_key]),
+            )
+            color = PALETTE[series_index % len(PALETTE)]
+            points = [
+                (
+                    _map(float(row[x_key]), *x_range, box[0], box[2], x_log),
+                    _map(float(row["energy_mJ"]), *y_range, box[1], box[3], True),
+                )
+                for row in series
+            ]
+            canvas.polyline(points, color=color, width=2.0)
+            for row, (px, py) in zip(series, points):
+                canvas.marker(px, py, color=color, kind=series_index, radius=4.7)
+                delivery = row["delivery_percent"]
+                if delivery != "" and float(delivery) < 99.999:
+                    has_delivery_warning = True
+                    canvas.line(px - 7, py - 7, px + 7, py + 7, color=BLACK, width=1.6)
+                    canvas.line(px - 7, py + 7, px + 7, py - 7, color=BLACK, width=1.6)
+
+        canvas.line(box[0], box[1], box[0] + box[2], box[1], width=1.1)
+        canvas.line(box[0], box[1], box[0], box[1] + box[3], width=1.1)
+        canvas.text(
+            box[0] + box[2] / 2.0 - len(x_label) * 5.4,
+            box[1] - 57,
+            x_label,
+            size=AXIS_FONT_SIZE,
+            bold=True,
+        )
+
+    if has_delivery_warning:
+        canvas.text(
+            110,
+            14,
+            "Black cross: at least one of five packets was not delivered at this point.",
+            size=15,
+            bold=True,
+        )
+    canvas.save(path)
+
+
 def cc1101_legend(canvas: PdfCanvas, y: float) -> None:
     for index, (label, color, marker) in enumerate(
-        (("CC1101 V1 433 MHz", BLUE, 2), ("CC1101 V2 868 MHz", RED, 0))
+        (
+            (module_name("cc1101_v1_433"), BLUE, 2),
+            (module_name("cc1101_v2_868"), RED, 0),
+        )
     ):
-        left = 345 + index * 245
+        left = 215 + index * 500
         canvas.line(left, y, left + 24, y, color=color, width=1.8)
         canvas.marker(left + 12, y, color=color, kind=marker, radius=4)
-        canvas.text(left + 32, y - 8, label, size=LEGEND_FONT_SIZE, color=color, bold=True)
+        label_size = min(
+            LEGEND_FONT_SIZE,
+            390.0 / max(1.0, len(label) * 0.68),
+        )
+        canvas.text(left + 32, y - 8, label, size=label_size, color=color, bold=True)
 
 
 def cc1101_continuous_figure(path: Path, rows: Sequence[dict[str, object]]) -> None:
@@ -1022,11 +1600,18 @@ def continuous_power_pair_figure(
         for direction in ("tx", "rx")
     ]
     for index, (variant_label, direction, color, marker) in enumerate(legend_items):
-        lx = 100 + index * 235
+        row_index, column_index = divmod(index, 2)
+        lx = 90 + column_index * 500
+        ly = 500 - row_index * 26
         dash = "[] 0" if marker == 0 else "[6 4] 0"
-        canvas.line(lx, 486, lx + 24, 486, color=color, width=1.8, dash=dash)
-        canvas.marker(lx + 12, 486, color=color, kind=marker, radius=3.5)
-        canvas.text(lx + 31, 479, f"{variant_label} {direction}", size=LEGEND_FONT_SIZE, color=color, bold=True)
+        label = f"{variant_label} {direction}"
+        label_size = min(
+            15.0,
+            430.0 / max(1.0, len(label) * 0.68),
+        )
+        canvas.line(lx, ly, lx + 24, ly, color=color, width=1.8, dash=dash)
+        canvas.marker(lx + 12, ly, color=color, kind=marker, radius=3.5)
+        canvas.text(lx + 31, ly - 7, label, size=label_size, color=color, bold=True)
 
     canvas.text(
         250,
@@ -1096,13 +1681,17 @@ def continuous_power_family_figure(
         canvas = PdfCanvas(1080, 760)
         title(canvas, sheet_heading, subtitle)
         for variant_index, (_, variant_label) in enumerate(variants):
-            row_index, column_index = divmod(variant_index, 3)
-            lx = 78 + column_index * 335
-            ly = 656 - row_index * 32
+            row_index, column_index = divmod(variant_index, 2)
+            lx = 78 + column_index * 500
+            ly = 656 - row_index * 30
             color = PALETTE[variant_index % len(PALETTE)]
+            label_size = min(
+                15.0,
+                435.0 / max(1.0, len(variant_label) * 0.68),
+            )
             canvas.line(lx, ly, lx + 28, ly, color=color, width=2.0)
             canvas.marker(lx + 14, ly, color=color, kind=variant_index, radius=4.3)
-            canvas.text(lx + 38, ly - 7, variant_label, size=LEGEND_FONT_SIZE, color=color, bold=True)
+            canvas.text(lx + 38, ly - 7, variant_label, size=label_size, color=color, bold=True)
 
         boxes = ((120.0, 355.0, 880.0, 185.0), (120.0, 78.0, 880.0, 185.0))
         for (direction, metric, panel_title, panel_code), box in zip(panels, boxes):
@@ -1179,8 +1768,9 @@ def packet_continuous_delivery(path: Path, rows: Sequence[dict[str, object]]) ->
         "60 s continuous",
         "Delivery ratio across campaigns",
         "Delivered frames [%]",
-        "Continuous loss includes bridge pacing and receiver re-arm behavior",
+        "",
         log_x=False,
+        expanded_layout=True,
     )
 
 
@@ -1231,12 +1821,17 @@ def sx1276_variant_figure(path: Path, rows: Sequence[dict[str, object]]) -> None
 
 def nrf_figure(path: Path, packet_data: dict[str, list[dict[str, str]]]) -> None:
     canvas = PdfCanvas(1080, 600)
-    title(canvas, "nRF24L01 module versus PA/LNA variant", "32-byte TX packet at 0 dBm radio drive; auto-ack disabled")
+    title(canvas, "NRF24L01 module versus PA/LNA variant", "32-byte TX packet at 0 dBm radio drive; auto-ack disabled")
     box = (120.0, 105.0, 850.0, 400.0)
     rates = (250.0, 1000.0, 2000.0)
     all_values: list[float] = []
     series: list[tuple[str, list[tuple[float, float]], tuple[float, float, float], int]] = []
-    for index, (slug, label, color) in enumerate((("nrf24l01", "nRF24L01", BLUE), ("nrf24l01_pa", "nRF24L01+PA/LNA", RED))):
+    for index, (slug, label, color) in enumerate(
+        (
+            ("nrf24l01", module_name("nrf24l01"), BLUE),
+            ("nrf24l01_pa", module_name("nrf24l01_pa"), RED),
+        )
+    ):
         points = []
         for rate in rates:
             row = next(
@@ -1266,10 +1861,14 @@ def nrf_figure(path: Path, packet_data: dict[str, list[dict[str, str]]]) -> None
         canvas.polyline(mapped, color=color, width=2)
         for px, py in mapped:
             canvas.marker(px, py, color=color, kind=marker, radius=5)
-        legend_x = 390 + marker * 190
+        legend_x = 220 + marker * 440
         canvas.line(legend_x, 516, legend_x + 28, 516, color=color, width=2)
         canvas.marker(legend_x + 14, 516, color=color, kind=marker, radius=4)
-        canvas.text(legend_x + 35, 508, label, size=LEGEND_FONT_SIZE, bold=True)
+        label_size = min(
+            LEGEND_FONT_SIZE,
+            350.0 / max(1.0, len(label) * 0.68),
+        )
+        canvas.text(legend_x + 35, 508, label, size=label_size, bold=True)
     canvas.line(box[0], box[1], box[0] + box[2], box[1], width=1.2)
     canvas.line(box[0], box[1], box[0], box[1] + box[3], width=1.2)
     canvas.text(355, 42, "Configured rate [kbps]", size=AXIS_FONT_SIZE, bold=True)
@@ -1341,18 +1940,238 @@ def e79_figure(path: Path, packet_data: dict[str, list[dict[str, str]]]) -> list
     return profiles
 
 
-def write_findings(summary: Sequence[dict[str, object]], e79_profiles: Sequence[dict[str, object]]) -> None:
+def e79_interface_figure(
+    path: Path,
+    rows: Sequence[dict[str, object]],
+) -> None:
+    profile_order = (
+        "SLR2K5",
+        "GFSK4K8",
+        "OOK4K8",
+        "SLR5",
+        "GFSK50",
+        "IEEE154G50",
+        "GFSK200",
+    )
+    profile_index = {profile: index for index, profile in enumerate(profile_order)}
+    selected = []
+    for row in rows:
+        if (
+            int(row["payload_bytes"]) == 32
+            and math.isclose(float(row["power_dbm"]), 13.0)
+        ):
+            selected.append({**row, "profile_index": profile_index[str(row["profile"])]})
+    stacked_packet_series_figure(
+        path,
+        selected,
+        "E79 interface-context comparison",
+        "Same CC1352P matrix point: 32-byte packet, +13 dBm; converter power is outside the PPK2 boundary",
+        ("ESP32 bridge", "CH9340C"),
+        "profile_index",
+        tuple(float(index) for index in range(len(profile_order))),
+        profile_order,
+        "RF profile",
+        False,
+    )
+
+
+def e07_figures(
+    payload_path: Path,
+    rate_path: Path,
+    rows: Sequence[dict[str, object]],
+) -> None:
+    series = tuple(
+        module_name(slug)
+        for slug in (
+            "ebyte_e07_400m10s",
+            "ebyte_e07_433m20s",
+            "ebyte_e07_900mm10s",
+        )
+    )
+    stacked_packet_series_figure(
+        payload_path,
+        [row for row in rows if row["comparison"] == "payload"],
+        "E07 family: packet energy versus payload",
+        "Controlled GFSK point: 38.4 kbps, -30 dBm; all measured packets delivered",
+        series,
+        "payload_bytes",
+        (8.0, 32.0, 64.0),
+        ("8", "32", "64"),
+        "Logical payload [bytes]",
+        True,
+    )
+    stacked_packet_series_figure(
+        rate_path,
+        [row for row in rows if row["comparison"] == "rate"],
+        "E07 family: packet energy versus rate",
+        "Controlled 32-byte point at -30 dBm; all measured packets delivered",
+        series,
+        "rate_kbps",
+        (1.2, 38.4, 250.0),
+        ("1.2", "38.4", "250"),
+        "Configured rate [kbps]",
+        True,
+    )
+
+
+def cc1101_family_figure(
+    path: Path,
+    rows: Sequence[dict[str, object]],
+) -> None:
+    stacked_packet_series_figure(
+        path,
+        rows,
+        "CC1101 and E07 module-boundary comparison",
+        "Common point: 32-byte packet, 38.4 kbps; E07-433 includes its external PA/LNA",
+        (
+            module_name("cc1101_v1_433"),
+            module_name("cc1101_v2_868"),
+            module_name("ebyte_e07_400m10s"),
+            module_name("ebyte_e07_433m20s"),
+            module_name("ebyte_e07_900mm10s"),
+        ),
+        "power_dbm",
+        (-30.0, 0.0, 10.0),
+        ("-30", "0", "+10"),
+        "Configured CC1101 drive [dBm]",
+        False,
+    )
+
+
+def ra_modem_figures(
+    payload_path: Path,
+    sf_path: Path,
+    rows: Sequence[dict[str, object]],
+) -> None:
+    series = (module_name("ra08_asr6601"), module_name("ra09_stm32wle5"))
+    stacked_packet_series_figure(
+        payload_path,
+        [row for row in rows if row["comparison"] == "payload"],
+        "Ai-Thinker RA-08 (ASR6601) versus Ai-Thinker RA-09 (STM32WLE5): energy versus payload",
+        "Matched LoRa point: SF7/BW125/CR4/5 and +22 dBm",
+        series,
+        "payload_bytes",
+        (8.0, 32.0, 128.0),
+        ("8", "32", "128"),
+        "Logical payload [bytes]",
+        True,
+    )
+    stacked_packet_series_figure(
+        sf_path,
+        [row for row in rows if row["comparison"] == "spreading_factor"],
+        "Ai-Thinker RA-08 (ASR6601) versus Ai-Thinker RA-09 (STM32WLE5): energy versus SF",
+        "Matched 32-byte LoRa point at BW125/CR4/5 and +22 dBm",
+        series,
+        "spreading_factor",
+        (7.0, 9.0, 12.0),
+        ("SF7", "SF9", "SF12"),
+        "LoRa spreading factor",
+        False,
+    )
+
+
+def write_findings(
+    summary: Sequence[dict[str, object]],
+    e79_profiles: Sequence[dict[str, object]],
+    e79_interface_rows: Sequence[dict[str, object]],
+    e07_rows: Sequence[dict[str, object]],
+    ra_rows: Sequence[dict[str, object]],
+) -> None:
     by_energy = sorted(summary, key=lambda row: float(row["tx_energy_mJ"]))
-    by_rx = sorted(summary, key=lambda row: float(row["continuous_rx_power_mW"]))
-    by_tx_power = sorted(summary, key=lambda row: float(row["continuous_tx_power_mW"]))
-    by_goodput = sorted(summary, key=lambda row: float(row["continuous_goodput_kbps"]), reverse=True)
+    continuous_summary = [row for row in summary if row["continuous_available"]]
+    by_rx = sorted(continuous_summary, key=lambda row: float(row["continuous_rx_power_mW"]))
+    by_tx_power = sorted(continuous_summary, key=lambda row: float(row["continuous_tx_power_mW"]))
+    by_goodput = sorted(continuous_summary, key=lambda row: float(row["continuous_goodput_kbps"]), reverse=True)
     best_e79 = min(e79_profiles, key=lambda row: float(row["tx_energy_mJ"]))
     slow_e79 = next(row for row in e79_profiles if row["profile"] == "SLR2K5")
     fast_e79 = next(row for row in e79_profiles if row["profile"] == "GFSK200")
+
+    interface_matrix = {
+        (
+            str(row["series"]),
+            str(row["direction"]),
+            int(row["payload_bytes"]),
+            str(row["profile"]),
+            float(row["power_dbm"]),
+        ): row
+        for row in e79_interface_rows
+    }
+    interface_ratios: dict[str, list[float]] = {"tx": [], "rx": []}
+    for key, old_row in interface_matrix.items():
+        setup, direction, payload, profile, power = key
+        if setup != "ESP32 bridge":
+            continue
+        new_row = interface_matrix.get(
+            ("CH9340C", direction, payload, profile, power)
+        )
+        if new_row:
+            interface_ratios[direction].append(
+                float(new_row["energy_mJ"]) / float(old_row["energy_mJ"])
+            )
+
+    def selected_value(
+        rows: Sequence[dict[str, object]],
+        *,
+        series: str,
+        comparison: str,
+        direction: str,
+        payload: int,
+        power: float,
+        rate: float | None = None,
+        sf: int | None = None,
+    ) -> float:
+        return float(
+            next(
+                row["energy_mJ"]
+                for row in rows
+                if row["series"] == series
+                and row["comparison"] == comparison
+                and row["direction"] == direction
+                and int(row["payload_bytes"]) == payload
+                and math.isclose(float(row["power_dbm"]), power)
+                and (rate is None or math.isclose(float(row["rate_kbps"]), rate))
+                and (sf is None or int(row["spreading_factor"]) == sf)
+            )
+        )
+
+    e07_values = {
+        (series, direction): selected_value(
+            e07_rows,
+            series=series,
+            comparison="rate",
+            direction=direction,
+            payload=32,
+            power=-30.0,
+            rate=38.4,
+        )
+        for series in (
+            module_name("ebyte_e07_400m10s"),
+            module_name("ebyte_e07_433m20s"),
+            module_name("ebyte_e07_900mm10s"),
+        )
+        for direction in ("tx", "rx")
+    }
+    ra_values = {
+        (series, direction): selected_value(
+            ra_rows,
+            series=series,
+            comparison="spreading_factor",
+            direction=direction,
+            payload=32,
+            power=22.0,
+            sf=7,
+        )
+        for series in (module_name("ra08_asr6601"), module_name("ra09_stm32wle5"))
+        for direction in ("tx", "rx")
+    }
     macro_lines = [
         "% Generated by generate_study.py; do not edit by hand.",
+        f"\\newcommand{{\\TotalModules}}{{{len(summary)}}}",
+        f"\\newcommand{{\\TotalContinuousModules}}{{{len(continuous_summary)}}}",
         f"\\newcommand{{\\BestPacketEnergyModule}}{{{latex_escape(by_energy[0]['label'])}}}",
         f"\\newcommand{{\\BestPacketEnergy}}{{{fmt(by_energy[0]['tx_energy_mJ'])}}}",
+        f"\\newcommand{{\\WorstPacketEnergyModule}}{{{latex_escape(by_energy[-1]['label'])}}}",
+        f"\\newcommand{{\\WorstPacketEnergy}}{{{fmt(by_energy[-1]['tx_energy_mJ'])}}}",
         f"\\newcommand{{\\LowestRxModule}}{{{latex_escape(by_rx[0]['label'])}}}",
         f"\\newcommand{{\\LowestRxPower}}{{{fmt(by_rx[0]['continuous_rx_power_mW'])}}}",
         f"\\newcommand{{\\LowestTxModule}}{{{latex_escape(by_tx_power[0]['label'])}}}",
@@ -1364,6 +2183,18 @@ def write_findings(summary: Sequence[dict[str, object]], e79_profiles: Sequence[
         f"\\newcommand{{\\ESeventyNineSlowEnergy}}{{{fmt(slow_e79['tx_energy_mJ'])}}}",
         f"\\newcommand{{\\ESeventyNineFastEnergy}}{{{fmt(fast_e79['tx_energy_mJ'])}}}",
         f"\\newcommand{{\\ESeventyNineImprovement}}{{{float(slow_e79['tx_energy_mJ']) / float(fast_e79['tx_energy_mJ']):.1f}}}",
+        f"\\newcommand{{\\ESeventyNineInterfaceTxRatio}}{{{statistics.median(interface_ratios['tx']):.3f}}}",
+        f"\\newcommand{{\\ESeventyNineInterfaceRxRatio}}{{{statistics.median(interface_ratios['rx']):.3f}}}",
+        f"\\newcommand{{\\ESevenFourTx}}{{{fmt(e07_values[(module_name('ebyte_e07_400m10s'), 'tx')])}}}",
+        f"\\newcommand{{\\ESevenFourRx}}{{{fmt(e07_values[(module_name('ebyte_e07_400m10s'), 'rx')])}}}",
+        f"\\newcommand{{\\ESevenFourThreeTx}}{{{fmt(e07_values[(module_name('ebyte_e07_433m20s'), 'tx')])}}}",
+        f"\\newcommand{{\\ESevenFourThreeRx}}{{{fmt(e07_values[(module_name('ebyte_e07_433m20s'), 'rx')])}}}",
+        f"\\newcommand{{\\ESevenNineTx}}{{{fmt(e07_values[(module_name('ebyte_e07_900mm10s'), 'tx')])}}}",
+        f"\\newcommand{{\\ESevenNineRx}}{{{fmt(e07_values[(module_name('ebyte_e07_900mm10s'), 'rx')])}}}",
+        f"\\newcommand{{\\RAEightTx}}{{{fmt(ra_values[(module_name('ra08_asr6601'), 'tx')])}}}",
+        f"\\newcommand{{\\RAEightRx}}{{{fmt(ra_values[(module_name('ra08_asr6601'), 'rx')])}}}",
+        f"\\newcommand{{\\RANineTx}}{{{fmt(ra_values[(module_name('ra09_stm32wle5'), 'tx')])}}}",
+        f"\\newcommand{{\\RANineRx}}{{{fmt(ra_values[(module_name('ra09_stm32wle5'), 'rx')])}}}",
         f"\\newcommand{{\\TotalPacketRuns}}{{{sum(int(row['packet_campaign_runs']) for row in summary)}}}",
         f"\\newcommand{{\\TotalPacketEvaluated}}{{{sum(int(row['packet_attempted']) for row in summary)}}}",
         f"\\newcommand{{\\TotalPacketPoints}}{{{sum(int(row['packet_points']) for row in summary)}}}",
@@ -1379,12 +2210,21 @@ def main() -> int:
     for folder in (STUDY_DIR / "data", STUDY_DIR / "figures", STUDY_DIR / "tables"):
         folder.mkdir(parents=True, exist_ok=True)
     summary, packet_data = load_summary()
+    continuous_summary = [row for row in summary if row["continuous_available"]]
     payload_rows, payload_sizes = build_payload_summary(packet_data)
     cc1101_rows = build_cc1101_comparison(packet_data)
+    e07_rows = build_e07_comparison(packet_data)
+    cc1101_family_rows = build_cc1101_family_comparison(packet_data)
+    e79_interface_rows = build_e79_interface_comparison(packet_data)
+    ra_modem_rows = build_ra_modem_comparison(packet_data)
     write_csv(STUDY_DIR / "data" / "module_catalog.csv", [asdict(spec) for spec in MODULES])
     write_csv(STUDY_DIR / "data" / "module_summary.csv", summary)
     write_csv(STUDY_DIR / "data" / "payload_energy_summary.csv", payload_rows)
     write_csv(STUDY_DIR / "data" / "cc1101_controlled_summary.csv", cc1101_rows)
+    write_csv(STUDY_DIR / "data" / "e07_controlled_summary.csv", e07_rows)
+    write_csv(STUDY_DIR / "data" / "cc1101_family_summary.csv", cc1101_family_rows)
+    write_csv(STUDY_DIR / "data" / "e79_interface_summary.csv", e79_interface_rows)
+    write_csv(STUDY_DIR / "data" / "ra08_ra09_summary.csv", ra_modem_rows)
     write_tables(summary, payload_rows, payload_sizes)
     figures = STUDY_DIR / "figures"
     dot_comparison(
@@ -1396,27 +2236,47 @@ def main() -> int:
         "RX",
         "Packet energy across all measured modules",
         "Energy for one 32-byte payload [mJ]",
-        "Fastest tested mode and highest tested power per module; logarithmic scale",
+        "",
+        expanded_layout=True,
     )
     dot_comparison(
         figures / "continuous_power_comparison.pdf",
-        summary,
+        continuous_summary,
         "continuous_tx_power_mW",
         "continuous_rx_power_mW",
         "TX",
         "RX",
         "Continuous average power",
         "Average module power at 3.3 V [mW]",
-        "Fastest mode present in each 60 s continuous campaign; logarithmic scale",
+        "",
+        expanded_layout=True,
     )
     scatter_rate_energy(figures / "rate_energy_design_space.pdf", summary)
     payload_energy_figure(figures / "tx_energy_by_payload.pdf", payload_rows, payload_sizes, "tx")
     payload_energy_figure(figures / "rx_energy_by_payload.pdf", payload_rows, payload_sizes, "rx")
-    packet_continuous_delivery(figures / "delivery_comparison.pdf", summary)
+    packet_continuous_delivery(figures / "delivery_comparison.pdf", continuous_summary)
     variant_figure(figures / "sx1278_variant_comparison.pdf", summary)
     sx1276_variant_figure(figures / "sx1276_variant_comparison.pdf", summary)
     nrf_figure(figures / "nrf24_pa_comparison.pdf", packet_data)
     e79_profiles = e79_figure(figures / "e79_profile_frontier.pdf", packet_data)
+    e79_interface_figure(
+        figures / "e79_interface_comparison.pdf",
+        e79_interface_rows,
+    )
+    e07_figures(
+        figures / "e07_payload_comparison.pdf",
+        figures / "e07_rate_comparison.pdf",
+        e07_rows,
+    )
+    cc1101_family_figure(
+        figures / "cc1101_e07_power_comparison.pdf",
+        cc1101_family_rows,
+    )
+    ra_modem_figures(
+        figures / "ra08_ra09_payload_comparison.pdf",
+        figures / "ra08_ra09_sf_comparison.pdf",
+        ra_modem_rows,
+    )
     cc1101_continuous_figure(figures / "cc1101_continuous_power_comparison.pdf", cc1101_rows)
     cc1101_packet_figure(figures / "cc1101_packet_comparison.pdf", cc1101_rows)
     matched_continuous_rows: list[dict[str, object]] = []
@@ -1424,9 +2284,12 @@ def main() -> int:
         continuous_power_pair_figure(
             figures / "e32_band_continuous_power_comparison.pdf",
             "e32_band",
-            "E32-433T20D versus E32-868T20D",
+            "Ebyte E32-433T20D versus Ebyte E32-868T20D",
             "Matched 60 s workload: 58-byte frames, 4.8 kbps, 15 ms host gap, 3.3 V",
-            (("ebyte_e32_433t20d", "433T20D"), ("ebyte_e32_868t20d", "868T20D")),
+            (
+                ("ebyte_e32_433t20d", module_name("ebyte_e32_433t20d")),
+                ("ebyte_e32_868t20d", module_name("ebyte_e32_868t20d")),
+            ),
             "bit_rate_kbps",
             4.8,
         )
@@ -1435,9 +2298,12 @@ def main() -> int:
         continuous_power_pair_figure(
             figures / "nrf24_pa_continuous_power_comparison.pdf",
             "nrf24_pa",
-            "nRF24L01 versus PA/LNA module",
+            "NRF24L01 versus NRF24L01 PA/LNA",
             "Matched 60 s workload: 32-byte frames, 1 Mbps, 15 ms host gap, 3.3 V",
-            (("nrf24l01", "nRF24"), ("nrf24l01_pa", "nRF24+PA")),
+            (
+                ("nrf24l01", module_name("nrf24l01")),
+                ("nrf24l01_pa", module_name("nrf24l01_pa")),
+            ),
             "bit_rate_kbps",
             1000.0,
         )
@@ -1450,12 +2316,15 @@ def main() -> int:
             "SX1278 physical-implementation comparison",
             "Matched 60 s workload: 32-byte frames, SF9/BW125, 15 ms host gap, 3.3 V",
             (
-                ("ra02_sx1278", "RA-02"),
-                ("ra02_sx1278_2cap", "RA-02+2C"),
-                ("sx1278_adafruit_level_shifter", "Level shifter"),
-                ("sx1278_naked", "Naked board"),
-                ("sx1278_pcb_2cap", "PCB+2C"),
-                ("sx1278_shielded", "Shielded"),
+                ("ra02_sx1278", module_name("ra02_sx1278")),
+                ("ra02_sx1278_2cap", module_name("ra02_sx1278_2cap")),
+                (
+                    "sx1278_adafruit_level_shifter",
+                    module_name("sx1278_adafruit_level_shifter"),
+                ),
+                ("sx1278_naked", module_name("sx1278_naked")),
+                ("sx1278_pcb_2cap", module_name("sx1278_pcb_2cap")),
+                ("sx1278_shielded", module_name("sx1278_shielded")),
             ),
             "spreading_factor",
             9.0,
@@ -1467,18 +2336,27 @@ def main() -> int:
             "sx1276_implementations",
             "SX1276 direct-SPI continuous comparison",
             "SF9/BW125, 32-byte frames, 15 ms host gap; low-power endpoints differ",
-            (("ra01h_sx1276", "RA-01H 868"), ("xl1276_d01_sx1276", "XL1276 433")),
+            (
+                ("ra01h_sx1276", module_name("ra01h_sx1276")),
+                ("xl1276_d01_sx1276", module_name("xl1276_d01_sx1276")),
+            ),
             "spreading_factor",
             9.0,
         )
     )
     write_csv(STUDY_DIR / "data" / "e79_profile_summary.csv", e79_profiles)
     write_csv(STUDY_DIR / "data" / "matched_continuous_power_summary.csv", matched_continuous_rows)
-    write_findings(summary, e79_profiles)
+    write_findings(
+        summary,
+        e79_profiles,
+        e79_interface_rows,
+        e07_rows,
+        ra_modem_rows,
+    )
     print(
         f"Generated {len(summary)} module summaries, {len(payload_rows)} payload-energy rows, "
         f"{len(cc1101_rows)} controlled CC1101 points, {len(matched_continuous_rows)} matched "
-        f"continuous-power points, and 16 numbered figures across 19 plot sheets in {STUDY_DIR}"
+        f"continuous-power points, and 22 numbered figures across 27 plot sheets in {STUDY_DIR}"
     )
     return 0
 

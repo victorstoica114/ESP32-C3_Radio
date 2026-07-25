@@ -1,36 +1,47 @@
-\begin{table}[p]
-\centering
-\caption{Measured RX energy per logical packet at each module's fastest tested mode and highest tested configured power. Payload columns are bytes; a dash means that payload size was not measured.}
-\label{tab:packet-rx-matrix}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}llrrrrrrrrrr@{}}
+\begingroup
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{\fill}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.17\linewidth}>{\raggedright\arraybackslash}p{0.10\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.08\linewidth}lllllllll@{}}
+\caption{Measured RX energy per logical packet at each module's fastest tested mode and highest tested configured power. Payload columns are bytes; a dash means that payload size was not measured.}\label{tab:packet-rx-matrix}\\
 \toprule
-ID & Mode & dBm & 8 & 16 & 32 & 58 & 60 & 64 & 128 & 512 & 1024 \\
- & & & [mJ] & [mJ] & [mJ] & [mJ] & [mJ] & [mJ] & [mJ] & [mJ] & [mJ] \\ \midrule
-C11-433 & 250 kbps & 10.00 & 5.898 & \textemdash & 6.177 & \textemdash & \textemdash & 6.942 & 8.648 & 18.78 & 32.21 \\
-C11-868 & 250 kbps & 10.00 & 5.731 & \textemdash & 5.990 & \textemdash & \textemdash & 6.781 & 8.394 & 18.31 & 31.69 \\
-E28 & SF5 & 13.00 & 0.0466 & \textemdash & 0.0998 & \textemdash & \textemdash & \textemdash & 0.295 & \textemdash & \textemdash \\
-E280 & 2000 kbps & 12.00 & 0.589 & \textemdash & 0.594 & \textemdash & \textemdash & 0.602 & \textemdash & \textemdash & \textemdash \\
-E22 & SF7 & 18.00 & 0.672 & \textemdash & 1.327 & \textemdash & \textemdash & \textemdash & 3.978 & \textemdash & \textemdash \\
-E32-43-20 & 19.2 kbps & 20.00 & 1.926 & \textemdash & 3.081 & 4.327 & \textemdash & \textemdash & 10.80 & 38.65 & 77.06 \\
-E32-43-33 & 19.2 kbps & 30.00 & 5.644 & \textemdash & 10.37 & 15.57 & \textemdash & \textemdash & 37.48 & 136.5 & 274.4 \\
-E32-86-20 & 19.2 kbps & 20.00 & 1.923 & \textemdash & 3.081 & 4.328 & \textemdash & \textemdash & 10.82 & 38.64 & 77.14 \\
-E32-86-30 & 19.2 kbps & 30.00 & 2.995 & \textemdash & 4.884 & 6.921 & \textemdash & \textemdash & 19.46 & 70.34 & 141.6 \\
-E79 & GFSK200 & 13.00 & 0.0895 & \textemdash & 0.112 & \textemdash & \textemdash & 0.142 & 0.285 & 1.136 & 2.276 \\
-HC-12 & 250 kbps & 20.00 & 0.337 & \textemdash & 0.358 & \textemdash & 0.398 & \textemdash & \textemdash & \textemdash & \textemdash \\
-NRF & 2000 kbps & 0 & 0.0524 & 0.0539 & 0.0567 & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash \\
-NRF-PA & 2000 kbps & 0 & 0.0864 & 0.0884 & 0.0937 & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash \\
-RA-01H & SF7 & 20.00 & 1.562 & \textemdash & 2.860 & \textemdash & \textemdash & \textemdash & 8.042 & \textemdash & \textemdash \\
-RA-01SH & SF7 & 22.00 & 0.654 & \textemdash & 1.185 & \textemdash & \textemdash & \textemdash & 3.316 & \textemdash & \textemdash \\
-RA-02 & SF7 & 20.00 & 1.757 & \textemdash & 3.238 & \textemdash & \textemdash & \textemdash & 9.157 & \textemdash & \textemdash \\
-RA-02-2C & SF7 & 20.00 & 1.761 & \textemdash & 3.245 & \textemdash & \textemdash & \textemdash & 9.183 & \textemdash & \textemdash \\
-RA-08 & SF7 & 22.00 & 1.554 & \textemdash & 3.087 & \textemdash & \textemdash & \textemdash & 9.219 & \textemdash & \textemdash \\
-S1278-LS & SF7 & 20.00 & 1.454 & \textemdash & 2.917 & \textemdash & \textemdash & \textemdash & 8.777 & \textemdash & \textemdash \\
-S1278-N & SF7 & 20.00 & 1.366 & \textemdash & 2.729 & \textemdash & \textemdash & \textemdash & 8.169 & \textemdash & \textemdash \\
-S1278-2C & SF7 & 20.00 & 1.398 & \textemdash & 2.790 & \textemdash & \textemdash & \textemdash & 8.354 & \textemdash & \textemdash \\
-S1278-S & SF7 & 20.00 & 1.478 & \textemdash & 2.972 & \textemdash & \textemdash & \textemdash & 8.936 & \textemdash & \textemdash \\
-XL1276 & SF7 & 20.00 & 1.459 & \textemdash & 2.934 & \textemdash & \textemdash & \textemdash & 8.826 & \textemdash & \textemdash \\
+Module/\newline variant & Radio IC & Mode & Configured & \multicolumn{9}{l}{Logical payload size [bytes]} \\
+ & & & power & 8 & 16 & 32 & 58 & 60 & 64 & 128 & 512 & 1024 \\
+ & & & [dBm] & [mJ] & [mJ] & [mJ] & [mJ] & [mJ] & [mJ] & [mJ] & [mJ] & [mJ] \\ \midrule
+\endfirsthead
+\toprule
+Module/\newline variant & Radio IC & Mode & Configured & \multicolumn{9}{l}{Logical payload size [bytes]} \\
+ & & & power & 8 & 16 & 32 & 58 & 60 & 64 & 128 & 512 & 1024 \\
+ & & & [dBm] & [mJ] & [mJ] & [mJ] & [mJ] & [mJ] & [mJ] & [mJ] & [mJ] & [mJ] \\ \midrule
+\endhead
+CC1101 V1 433 MHz & CC1101 & 250 kbps & 10 & 5.90 & \textemdash & 6.18 & \textemdash & \textemdash & 6.94 & 8.65 & 18.78 & 32.21 \\
+CC1101 V2 868 MHz & CC1101 & 250 kbps & 10 & 5.73 & \textemdash & 5.99 & \textemdash & \textemdash & 6.78 & 8.39 & 18.31 & 31.69 \\
+Ebyte E07-400M10S & CC1101 & 250 kbps & 10 & 0.21 & \textemdash & 0.26 & \textemdash & \textemdash & 0.52 & \textemdash & \textemdash & \textemdash \\
+Ebyte E07-433M20S & CC1101 + PA/LNA & 250 kbps & 10 & 0.22 & \textemdash & 0.27 & \textemdash & \textemdash & 0.53 & \textemdash & \textemdash & \textemdash \\
+Ebyte E07-900MM10S & CC1101 & 250 kbps & 10 & 0.19 & \textemdash & 0.23 & \textemdash & \textemdash & 0.47 & \textemdash & \textemdash & \textemdash \\
+Ebyte E28 & SX1280 & SF5 & 13 & 0.05 & \textemdash & 0.10 & \textemdash & \textemdash & \textemdash & 0.30 & \textemdash & \textemdash \\
+Ebyte E280-2G4T12S & SX1280 & 2000 kbps & 12 & 0.59 & \textemdash & 0.59 & \textemdash & \textemdash & 0.60 & \textemdash & \textemdash & \textemdash \\
+Ebyte E22-400M30S & SX1268 + PA & SF7 & 18 & 0.67 & \textemdash & 1.33 & \textemdash & \textemdash & \textemdash & 3.98 & \textemdash & \textemdash \\
+Ebyte E32-433T20D & SX1278 & 19.2 kbps & 20 & 1.93 & \textemdash & 3.08 & 4.33 & \textemdash & \textemdash & 10.80 & 38.65 & 77.06 \\
+Ebyte E32-433T33D & SX1278 + PA & 19.2 kbps & 30 & 5.64 & \textemdash & 10.37 & 15.57 & \textemdash & \textemdash & 37.48 & 136.49 & 274.38 \\
+Ebyte E32-868T20D & SX1276 & 19.2 kbps & 20 & 1.92 & \textemdash & 3.08 & 4.33 & \textemdash & \textemdash & 10.82 & 38.64 & 77.14 \\
+Ebyte E32-868T30D & SX1276 + PA & 19.2 kbps & 30 & 3.00 & \textemdash & 4.88 & 6.92 & \textemdash & \textemdash & 19.46 & 70.34 & 141.65 \\
+Ebyte E79-400DM2005S via ESP32 & CC1352P & GFSK200 & 13 & 0.09 & \textemdash & 0.11 & \textemdash & \textemdash & 0.14 & 0.29 & 1.14 & 2.28 \\
+Ebyte E79-400DM2005S via CH9340C & CC1352P & GFSK200 & 13 & 0.09 & \textemdash & 0.11 & \textemdash & \textemdash & 0.15 & 0.29 & 1.16 & 2.33 \\
+HC-12 & Si4463 & 250 kbps & 20 & 0.34 & \textemdash & 0.36 & \textemdash & 0.40 & \textemdash & \textemdash & \textemdash & \textemdash \\
+NRF24L01 & nRF24L01+ & 2000 kbps & 0 & 0.05 & 0.05 & 0.06 & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash \\
+NRF24L01 PA/LNA & nRF24L01+ & 2000 kbps & 0 & 0.09 & 0.09 & 0.09 & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash \\
+Ai-Thinker RA-01H & SX1276 & SF7 & 20 & 1.56 & \textemdash & 2.86 & \textemdash & \textemdash & \textemdash & 8.04 & \textemdash & \textemdash \\
+Ai-Thinker RA-01SH & SX1262 & SF7 & 22 & 0.65 & \textemdash & 1.19 & \textemdash & \textemdash & \textemdash & 3.32 & \textemdash & \textemdash \\
+Ai-Thinker RA-02 & SX1278 & SF7 & 20 & 1.76 & \textemdash & 3.24 & \textemdash & \textemdash & \textemdash & 9.16 & \textemdash & \textemdash \\
+Ai-Thinker RA-02 with 2 Cap & SX1278 & SF7 & 20 & 1.76 & \textemdash & 3.24 & \textemdash & \textemdash & \textemdash & 9.18 & \textemdash & \textemdash \\
+Ai-Thinker RA-08 & ASR6601 & SF7 & 22 & 1.55 & \textemdash & 3.09 & \textemdash & \textemdash & \textemdash & 9.22 & \textemdash & \textemdash \\
+Ai-Thinker RA-09 & STM32WLE5 & SF7 & 22 & 0.73 & \textemdash & 1.46 & \textemdash & \textemdash & \textemdash & 4.36 & \textemdash & \textemdash \\
+Adafruit board with level shifter & SX1278 & SF7 & 20 & 1.45 & \textemdash & 2.92 & \textemdash & \textemdash & \textemdash & 8.78 & \textemdash & \textemdash \\
+Unshielded radio module & SX1278 & SF7 & 20 & 1.37 & \textemdash & 2.73 & \textemdash & \textemdash & \textemdash & 8.17 & \textemdash & \textemdash \\
+Carrier PCB with 2 Cap & SX1278 & SF7 & 20 & 1.40 & \textemdash & 2.79 & \textemdash & \textemdash & \textemdash & 8.35 & \textemdash & \textemdash \\
+Shielded radio module & SX1278 & SF7 & 20 & 1.48 & \textemdash & 2.97 & \textemdash & \textemdash & \textemdash & 8.94 & \textemdash & \textemdash \\
+XL1276-D01 & SX1276 & SF7 & 20 & 1.46 & \textemdash & 2.93 & \textemdash & \textemdash & \textemdash & 8.83 & \textemdash & \textemdash \\
 \bottomrule
-\end{tabular}%
-}
-\end{table}
+\end{longtable}
+\endgroup

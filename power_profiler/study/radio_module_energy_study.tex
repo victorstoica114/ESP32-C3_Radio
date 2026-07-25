@@ -35,7 +35,7 @@
 \input{generated_findings.tex}
 
 \title{Measurement-Based Energy and Throughput Characterization\\
-of 23 Embedded Radio Modules and Hardware Variants}
+of \TotalModules{} Embedded Radio Modules and Hardware Variants}
 \author{Victor Stoica\\Radio Power Profiler Project}
 \date{July 2026}
 
@@ -43,27 +43,29 @@ of 23 Embedded Radio Modules and Hardware Variants}
 \maketitle
 
 \begin{abstract}
-This work compares 23 embedded radio modules and physical implementations using a common measurement pipeline and a Nordic Power Profiler Kit II (PPK2). The campaign contains \TotalPacketPoints{} packet-level operating points, \TotalPacketRuns{} packet repetitions, and \TotalContinuousWindows{} 60-second traffic windows. It spans sub-GHz and \SI{2.4}{GHz} radios, direct-SPI transceivers, transparent UART modems, integrated radio microcontrollers, LoRa, 2-(G)FSK, OOK, SimpleLink Long Range, and IEEE 802.15.4g-derived profiles. Absolute TX and RX energy is reported for every logical payload size exercised by each campaign: 8, 16, 32, 58, 60, 64, 128, 512, or 1024 bytes. The common 32-byte point remains useful for a cross-module comparison, but it no longer substitutes for the measured payload curves. Matched sub-studies compare CC1101 revisions and bands, E32 bands, SX1278 board implementations, RA-02 capacitor variants, nRF24L01 PA/LNA integration, and seven CC1352P PHY profiles. Measured transmit energy spans \SI{0.0187}{mJ} to \SI{160.35}{mJ} at the common 32-byte point. Larger-payload results reveal both fixed-cost amortization and the absolute cost of fragmentation. Continuous delivery results are reported as end-to-end system behavior and are not treated as standalone RF sensitivity measurements.
+This work compares \TotalModules{} embedded radio modules and physical implementations using a common measurement pipeline and a Nordic Power Profiler Kit II (PPK2). The campaign contains \TotalPacketPoints{} packet-level operating points, \TotalPacketRuns{} packet repetitions, and \TotalContinuousWindows{} 60-second traffic windows for \TotalContinuousModules{} of the entries. It spans sub-GHz and \SI{2.4}{GHz} radios, direct-SPI transceivers, transparent UART modems, integrated radio microcontrollers, LoRa, 2-(G)FSK, OOK, SimpleLink Long Range, and IEEE 802.15.4g-derived profiles. Absolute TX and RX energy is reported for every logical payload size exercised by each campaign: 8, 16, 32, 58, 60, 64, 128, 512, or 1024 bytes. The common 32-byte point remains useful for a cross-module comparison, but it no longer substitutes for the measured payload curves. Matched sub-studies compare three E07 (CC1101) implementations, the E07 family against two earlier CC1101 boards, E79 (CC1352P) measurements made through ESP32 and CH9340C UART paths, Ai-Thinker RA-08 (ASR6601) against Ai-Thinker RA-09 (STM32WLE5), CC1101 revisions and bands, E32 bands, SX1278 board implementations, Ai-Thinker RA-02 (SX1278) capacitor variants, NRF24L01 (nRF24L01+) PA/LNA integration, and seven CC1352P PHY profiles. At the common 32-byte point, measured transmit energy spans \SI{\BestPacketEnergy}{mJ} to \SI{\WorstPacketEnergy}{mJ}. Larger-payload results reveal both fixed-cost amortization and the absolute cost of fragmentation. Continuous delivery results are reported as end-to-end system behavior and are not treated as standalone RF sensitivity measurements.
 \end{abstract}
 
 \section{Introduction}
 
 Selecting a radio for a battery-powered embedded system is not a one-dimensional choice. Nominal transmit power, data rate, receiver current, modulation, host interface, packet framing, buffering, and firmware latency all influence the energy needed to move an application payload. Datasheet currents are indispensable for design, but they do not include every module-level regulator, level shifter, external PA/LNA, transparent-UART queue, or firmware decision. Conversely, a bench measurement without a controlled workload can make two radios look comparable when their payload, airtime, or reliability differs.
 
-This study treats the measured module as the system boundary and asks four questions:
+This study treats the measured module as the system boundary and asks six questions:
 
 \begin{enumerate}
   \item How widely do packet TX/RX energy and sustained-traffic power vary across the tested modules?
   \item How do logical payload size and configured rate trade against packet energy and delivered throughput?
   \item How much variation remains when the radio IC and LoRa parameters are held constant but the physical implementation changes?
   \item What changes when a single programmable radio, the E79/CC1352P, is moved among GFSK, OOK, SimpleLink Long Range (SLR), and IEEE 802.15.4g profiles?
+  \item How do the E07 CC1101 modules compare with one another and with the two earlier CC1101 boards under common packet settings?
+  \item How do Ai-Thinker RA-08 (ASR6601) and Ai-Thinker RA-09 (STM32WLE5) compare under matched LoRa settings?
 \end{enumerate}
 
 The contribution is an artifact-backed comparison rather than a catalog ranking. Every plotted point is generated from the consolidated CSV files in \dataset; the normalized data, plotting script, and LaTeX tables are included beside this manuscript.
 
 \section{Devices and Tested Configuration Space}
 
-The set includes CC1101 boards at 433 and \SI{868}{MHz}; direct-SPI and transparent-UART SX127x/SX126x/SX1280 implementations; nRF24L01 modules with and without PA/LNA; an HC-12; the E79 programmable modem; and an ASR6601-based RA-08. LoRa-capable chips frequently support additional modulations that were not exercised in their corresponding campaign. Therefore, Table~\ref{tab:catalog} lists the tested PHY, not every mode advertised by the silicon vendor. For example, the SX1276 family can also implement FSK, GFSK, MSK, GMSK, and OOK, while the SX1262 family supports LoRa, (G)FSK, and LR-FHSS \cite{semtech_sx1276,semtech_sx1262}. The SX1280 additionally supports FLRC and (G)FSK \cite{semtech_sx1280}.
+The set includes two earlier CC1101 boards and three Ebyte E07 (CC1101) implementations; direct-SPI and transparent-UART SX127x/SX126x/SX1280 implementations; NRF24L01 (nRF24L01+) modules with and without PA/LNA; an HC-12 (Si4463); the Ebyte E79-400DM2005S (CC1352P) programmable modem under two host-interface contexts; and the Ai-Thinker RA-08 (ASR6601) and Ai-Thinker RA-09 (STM32WLE5) LoRa modems. LoRa-capable chips frequently support additional modulations that were not exercised in their corresponding campaign. Therefore, Table~\ref{tab:catalog} lists the tested PHY, not every mode advertised by the silicon vendor. For example, the SX1276 family can also implement FSK, GFSK, MSK, GMSK, and OOK, while the SX1262 family supports LoRa, (G)FSK, and LR-FHSS \cite{semtech_sx1276,semtech_sx1262}. The SX1280 additionally supports FLRC and (G)FSK \cite{semtech_sx1280}.
 
 {\footnotesize\setlength{\tabcolsep}{2pt}
 \input{tables/module_catalog.tex}
@@ -77,11 +79,13 @@ The E79 campaign is intentionally broader than the others. Its CC1352P supports 
 
 Current was measured with a Nordic PPK2 in ampere-meter mode at a recorded DUT supply of \SI{3.3}{V} and a sampling rate of \SI{100}{kSa.s^{-1}}. The PPK2 supports \SI{100}{kSa.s^{-1}} acquisition and automatically switches current ranges; its documented average-current accuracy is better than $\pm 20\%$ \cite{nordic_ppk2}. The latter is an instrument-level bound, not the uncertainty of the sample mean, and should be retained when using small differences for design decisions.
 
-The measured boundary is the powered radio module or radio board under test. Consequently, a result may include the radio IC, module regulator, TCXO, level shifter, onboard MCU, or external PA/LNA, depending on the implementation. USB bridges and the host PC are outside that power boundary. This is deliberate: the goal is deployable module energy, not transistor-level RF-core current.
+The measured boundary is the powered radio module or radio board under test. Consequently, a result may include the radio IC, module regulator, TCXO, level shifter, onboard MCU, or external PA/LNA, depending on the implementation. USB bridges and the host PC are outside that power boundary. This is deliberate: the goal is deployable module energy, not transistor-level RF-core current. In particular, the E79 ESP32-versus-CH9340C comparison does not measure either bridge's own supply energy. It tests whether the different UART host path and acquisition session alter the energy observed at the powered E79 boundary.
 
 \subsection{Packet campaign}
 
 Each packet operating point was repeated five times. Payload matrices were module-appropriate, but all devices include a 32-byte payload. Across the complete dataset, the measured logical payload sizes are 8, 16, 32, 58, 60, 64, 128, 512, and 1024 bytes. The 58-byte E32 and 60-byte HC-12 points reflect campaign-validated frame boundaries; they must not be silently treated as 64-byte observations. The campaign records total event energy, event duration, mean and peak current, sample loss, configuration, status, and packet-delivery telemetry. Larger logical payloads are fragmented when a module has a smaller physical FIFO or validated frame size. Total event energy is used here because it captures startup, framing, transparent-modem latency, and the active receive window. Baseline-subtracted metrics remain available in the source artifacts for analyses focused specifically on incremental RF activity.
+
+The Ebyte E07-400M10S (CC1101), Ebyte E07-433M20S (CC1101 + PA/LNA), Ebyte E07-900MM10S (CC1101), Ebyte E79-400DM2005S via CH9340C (CC1352P), and Ai-Thinker RA-09 (STM32WLE5) additions currently contain packet campaigns only. They are included in the packet tables and matched packet figures, while sustained-power and continuous-delivery fields are shown as not measured. No zero-valued continuous observations are synthesized.
 
 For a current trace $I(t)$ at supply voltage $V$, total event energy is
 \begin{equation}
@@ -132,7 +136,7 @@ Modern consolidated files contain explicit attempted and received counters. Olde
 Tables~\ref{tab:packet-tx-matrix} and~\ref{tab:packet-rx-matrix} report the measured mean energy of one logical packet for every payload size available in each module campaign. Each populated cell is backed by five packet repetitions at the stated mode and power. The tables deliberately retain different payload limits instead of extrapolating modules beyond the tested workload.
 
 \clearpage
-{\scriptsize\setlength{\tabcolsep}{2.5pt}
+{\footnotesize\setlength{\tabcolsep}{1.5pt}
 \input{tables/tx_packet_energy_by_payload.tex}
 }
 
@@ -142,7 +146,7 @@ Tables~\ref{tab:packet-tx-matrix} and~\ref{tab:packet-rx-matrix} report the meas
 }
 \clearpage
 
-At the common 32-byte point, TX energy spans more than four orders of magnitude: \SI{0.0187}{mJ} for the nRF24L01 at \SI{2}{Mbps} and \SI{0}{dBm}, versus \SI{160.35}{mJ} for the E32-433T33D at its \SI{19.2}{kbps}, \SI{30}{dBm} setting. This is not a same-link-budget comparison. It quantifies the cost of each module's fastest measured, maximum-power operating point for an actual 32-byte application message.
+At the common 32-byte point, TX energy spans more than four orders of magnitude: \SI{0.0187}{mJ} for NRF24L01 (nRF24L01+) at \SI{2}{Mbps} and \SI{0}{dBm}, versus \SI{160.35}{mJ} for Ebyte E32-433T33D (SX1278 + PA) at its \SI{19.2}{kbps}, \SI{30}{dBm} setting. This is not a same-link-budget comparison. It quantifies the cost of each module's fastest measured, maximum-power operating point for an actual 32-byte application message.
 
 \begin{figure}[htbp]
   \centering
@@ -151,7 +155,7 @@ At the common 32-byte point, TX energy spans more than four orders of magnitude:
   \label{fig:packet-energy}
 \end{figure}
 
-TX and RX are not symmetric. Fast direct radios such as nRF24L01, E28, and E79 have sub-millijoule packet points, while receive integration windows make CC1101 RX energy much larger than its TX event at the fastest rate. The transparent E32 modules show the opposite pattern at high output power: their long, high-current TX path dominates. These differences caution against estimating bidirectional node lifetime from a TX-current headline alone.
+TX and RX are not symmetric. Fast direct radios such as NRF24L01 (nRF24L01+), Ebyte E28 (SX1280), and Ebyte E79-400DM2005S (CC1352P) have sub-millijoule packet points, while receive integration windows make CC1101 RX energy much larger than its TX event at the fastest rate. The transparent E32 modules show the opposite pattern at high output power: their long, high-current TX path dominates. These differences caution against estimating bidirectional node lifetime from a TX-current headline alone.
 
 \subsection{Payload scaling and fragmentation}
 
@@ -168,6 +172,13 @@ TX and RX are not symmetric. Fast direct radios such as nRF24L01, E28, and E79 h
   \includegraphics[width=\linewidth]{figures/tx_energy_by_payload_continued.pdf}
   \caption{Measured TX event energy versus logical payload size, panels C--D (continued).}
 \end{figure}
+
+\begin{figure}[p]
+  \centering
+  \ContinuedFloat
+  \includegraphics[width=\linewidth]{figures/tx_energy_by_payload_continued_2.pdf}
+  \caption{Measured TX event energy versus logical payload size, panel E (continued).}
+\end{figure}
 \clearpage
 
 \begin{figure}[p]
@@ -183,17 +194,24 @@ TX and RX are not symmetric. Fast direct radios such as nRF24L01, E28, and E79 h
   \includegraphics[width=\linewidth]{figures/rx_energy_by_payload_continued.pdf}
   \caption{Measured RX event energy versus logical payload size, panels C--D (continued).}
 \end{figure}
+
+\begin{figure}[p]
+  \centering
+  \ContinuedFloat
+  \includegraphics[width=\linewidth]{figures/rx_energy_by_payload_continued_2.pdf}
+  \caption{Measured RX event energy versus logical payload size, panel E (continued).}
+\end{figure}
 \clearpage
 
 Absolute packet energy increases with payload size for every measured TX series. It does not increase in direct proportion to application bytes because each event contains fixed startup, synchronization, command, and receive-window costs. Comparing each module's smallest and largest measured payload, the TX energy per application byte at the largest point falls to 17--57\% of its 8-byte value; the corresponding RX range is 4--40\%. These ranges summarize different payload limits and must not be interpreted as equal-size rankings.
 
-The long-payload campaigns make the practical scale visible. E79/GFSK200 rises from \SI{0.0757}{mJ} at 8 bytes to \SI{1.660}{mJ} at 1024 bytes: a 128-fold payload increase costs 21.9 times more event energy. The E32-433T33D rises from \SI{78.92}{mJ} to \SI{3820.3}{mJ} over the same logical sizes. At the opposite extreme, the nRF24L01 hardware payload ends at 32 bytes; its measured TX event rises only from \SI{0.0125}{mJ} at 8 bytes to \SI{0.0187}{mJ} at 32 bytes. Application messages larger than the tested native payload limit would require a separate multi-packet experiment and are not extrapolated here.
+The long-payload campaigns make the practical scale visible. Ebyte E79-400DM2005S via ESP32 (CC1352P), using GFSK200, rises from \SI{0.0757}{mJ} at 8 bytes to \SI{1.660}{mJ} at 1024 bytes: a 128-fold payload increase costs 21.9 times more event energy. Ebyte E32-433T33D (SX1278 + PA) rises from \SI{78.92}{mJ} to \SI{3820.3}{mJ} over the same logical sizes. At the opposite extreme, the NRF24L01 (nRF24L01+) hardware payload ends at 32 bytes; its measured TX event rises only from \SI{0.0125}{mJ} at 8 bytes to \SI{0.0187}{mJ} at 32 bytes. Application messages larger than the tested native payload limit would require a separate multi-packet experiment and are not extrapolated here.
 
 The 58-, 60-, and 64-byte columns are also intentionally separate. They correspond to E32, HC-12, and other campaign-specific boundaries. Likewise, the 128-, 512-, and 1024-byte values are logical-message totals produced by the tested firmware's fragmentation behavior, not single over-the-air frames for every radio. This is precisely why absolute message energy is more useful for battery budgeting than a lone per-bit value.
 
 \subsection{Sustained-traffic power and useful rate}
 
-Table~\ref{tab:benchmark} separates sustained power, delivered goodput, and aggregate delivery from the packet-size matrices. The configured rate and mode columns belong to the selected continuous window. PDR is the aggregate packet delivery ratio; CDR is the aggregate 60-second continuous delivery ratio.
+Table~\ref{tab:benchmark} separates sustained power, delivered goodput, and aggregate delivery from the packet-size matrices. The configured rate and mode columns belong to the selected continuous window. PDR is the aggregate packet delivery ratio; CDR is the aggregate 60-second continuous delivery ratio. The five packet-only additions retain their measured PDR and use dashes for continuous quantities.
 
 {\scriptsize\setlength{\tabcolsep}{3pt}
 \input{tables/benchmark_summary.tex}
@@ -206,14 +224,14 @@ Table~\ref{tab:benchmark} separates sustained power, delivered goodput, and aggr
   \label{fig:continuous-power}
 \end{figure}
 
-The minimum selected TX average is \SI{\LowestTxPower}{mW} for \LowestTxModule, while the E32-433T33D reaches approximately \SI{2.525}{W}. The low nRF24L01 value reflects brief transmissions and idle gaps rather than a permanently enabled carrier. On RX, \LowestRxModule{} is lowest at \SI{\LowestRxPower}{mW}; this agrees directionally with the lower active-RX architecture of the SX1262 generation, whose vendor specification lists a substantially lower receiver current than the SX1276 generation \cite{semtech_sx1262,semtech_sx1276}.
+The minimum selected TX average is \SI{\LowestTxPower}{mW} for \LowestTxModule, while Ebyte E32-433T33D (SX1278 + PA) reaches approximately \SI{2.525}{W}. The low NRF24L01 (nRF24L01+) value reflects brief transmissions and idle gaps rather than a permanently enabled carrier. On RX, \LowestRxModule{} is lowest at \SI{\LowestRxPower}{mW}; this agrees directionally with the lower active-RX architecture of the SX1262 generation, whose vendor specification lists a substantially lower receiver current than the SX1276 generation \cite{semtech_sx1262,semtech_sx1276}.
 
 The highest measured useful goodput in the selected matched windows is \SI{\HighestGoodput}{kbps} for \HighestGoodputModule. This is far below the radio's configured \SI{1}{Mbps} rate because the workload includes a fixed host gap and framing. The result is therefore useful for this bridge and firmware stack, but not a statement about the maximum ESB PHY throughput.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\linewidth]{figures/rate_energy_design_space.pdf}
-  \caption{Configured packet-mode rate versus measured TX energy for one 32-byte application packet. Points farther right and lower are preferable for this short-range workload, but the plot does not encode sensitivity, range, interference tolerance, or regulatory limits.}
+  \caption{Configured packet-mode rate versus measured TX energy for one 32-byte application packet. Numbered point identifiers correspond to the module index below the plot. Points farther right and lower are preferable for this short-range workload, but the plot does not encode sensitivity, range, interference tolerance, or regulatory limits.}
   \label{fig:design-space}
 \end{figure}
 
@@ -224,11 +242,11 @@ The design space separates into visible regimes. The \SI{2.4}{GHz} GFSK/transpar
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\linewidth]{figures/delivery_comparison.pdf}
-  \caption{Aggregate packet and continuous delivery ratios. The continuous ratio is an end-to-end bridge/modem/receiver result and is not a packet-error-rate sensitivity test.}
+  \caption{Aggregate packet and continuous delivery ratios for the \TotalContinuousModules{} entries with both campaign types. The continuous ratio is an end-to-end bridge/modem/receiver result and is not a packet-error-rate sensitivity test.}
   \label{fig:delivery}
 \end{figure}
 
-Most packet campaigns exceed \SI{98}{\percent}, but several hardware/settings combinations are lower: nRF24L01+PA/LNA (\SI{64.4}{\percent}), nRF24L01 (\SI{78.9}{\percent}), E32-433T33D (\SI{83.1}{\percent}), SX1278 PCB + 2 capacitors (\SI{85.0}{\percent}), and the level-shifter SX1278 board (\SI{88.9}{\percent}). The campaign audits retain these observations because sample loss was not sufficient to explain them.
+Most packet campaigns exceed \SI{98}{\percent}, but several hardware/settings combinations are lower: NRF24L01 PA/\allowbreak LNA (nRF24L01+) (\SI{64.4}{\percent}), NRF24L01 (nRF24L01+) (\SI{78.9}{\percent}), Ebyte E32-433T33D (SX1278 + PA) (\SI{83.1}{\percent}), Carrier PCB with 2 Cap (SX1278) (\SI{85.0}{\percent}), and Adafruit board with level shifter (SX1278) (\SI{88.9}{\percent}). The campaign audits retain these observations because sample loss was not sufficient to explain them.
 
 Continuous delivery is often lower than packet delivery. The E280 reaches only \SI{40.3}{\percent} over its full continuous matrix despite complete packet delivery. Prior controlled checks in the campaign artifacts show that additional receiver/host gap can dramatically reduce loss for slow LoRa configurations. Thus, the continuous metric answers ``how did this complete test stack sustain traffic?'' rather than ``what is the intrinsic RF PER at a specified input level?''
 
@@ -242,6 +260,39 @@ Continuous delivery is often lower than packet delivery. The E280 reaches only \
 \end{figure}
 
 The E79 result provides the strongest evidence that airtime is a first-order energy term. A measured 32-byte GFSK200 transmission requires \SI{\ESeventyNineFastEnergy}{mJ}, while SLR2K5 requires \SI{\ESeventyNineSlowEnergy}{mJ}, a \ESeventyNineImprovement-fold difference on the same hardware, payload, supply, and power setting. At the shared \SI{4.8}{kbps} nominal rate, OOK4K8 uses \SI{1.763}{mJ} and GFSK4K8 uses \SI{2.399}{mJ}. At \SI{50}{kbps}, GFSK50 and IEEE154G50 are close at \SI{0.270}{mJ} and \SI{0.283}{mJ}. Energy alone cannot select among them: SLR trades airtime for coding gain and robustness, while IEEE 802.15.4g and GFSK differ in framing and interoperability.
+
+\subsection{E79 host-interface context}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth]{figures/e79_interface_comparison.pdf}
+  \caption{E79 packet energy measured through the original ESP32 UART bridge and the newer CH9340C path. The plotted 32-byte, +13-dBm points use identical PHY settings and modeled event durations. Bridge power is outside the PPK2 boundary.}
+  \label{fig:e79-interface}
+\end{figure}
+
+The two E79 acquisitions contain a complete matched TX matrix of 126 points: seven PHY profiles, six payload sizes, and three configured powers. The legacy RX campaign contains 42 points at +13 dBm, all of which have matching CH9340C-context observations; the newer campaign additionally includes RX sweeps at $-20$ and 0 dBm. Across the actual paired points, the CH9340C-context to ESP32-context median energy ratio is \ESeventyNineInterfaceTxRatio{} for TX and \ESeventyNineInterfaceRxRatio{} for RX. At the plotted GFSK200 point, TX changes from \SI{0.108}{mJ} to \SI{0.113}{mJ}, while RX changes from \SI{0.112}{mJ} to \SI{0.114}{mJ}. The modeled capture durations are identical within each matched pair, and Figure~\ref{fig:e79-interface} preserves the PHY ordering.
+
+This small systematic offset is useful as a repeatability and integration-context result, but it is not the energy cost of either USB converter. The ESP32 and CH9340C supplies were not inside the measured boundary, and the two campaigns were collected in different sessions. UART edge timing, modem state before the trigger, supply connection, instrument range history, and unit/session variation remain possible causes. Given the PPK2 instrument bound and absence of repeated bridge-swapping trials, the data support ``similar with a small session-dependent offset,'' not a claim that one USB bridge reduces E79 radio energy.
+
+\subsection{E07 family comparison}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth]{figures/e07_payload_comparison.pdf}
+  \caption{Controlled E07 packet-energy scaling with payload at \SI{38.4}{kbps} and $-30$ dBm. Every plotted point delivered all five packets.}
+  \label{fig:e07-payload}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth]{figures/e07_rate_comparison.pdf}
+  \caption{Controlled E07 packet-energy scaling with configured rate for a 32-byte payload at $-30$ dBm. Every plotted point delivered all five packets.}
+  \label{fig:e07-rate}
+\end{figure}
+
+Figures~\ref{fig:e07-payload} and~\ref{fig:e07-rate} isolate the three E07 implementations at a fully delivered common setting. For a 32-byte packet at \SI{38.4}{kbps} and $-30$ dBm, Ebyte E07-400M10S (CC1101) and Ebyte E07-900MM10S (CC1101) are nearly identical in TX at \SI{\ESevenFourTx}{mJ} and \SI{\ESevenNineTx}{mJ}; their RX energies are \SI{\ESevenFourRx}{mJ} and \SI{\ESevenNineRx}{mJ}. Ebyte E07-433M20S (CC1101 + PA/LNA) uses \SI{\ESevenFourThreeTx}{mJ} TX and \SI{\ESevenFourThreeRx}{mJ} RX. Its approximately 3.6-fold TX increase relative to the two 10-dBm modules is consistent with measuring the complete module boundary including its external PA/LNA control path, even at a low CC1101 drive command. It does not establish conducted RF output or PA efficiency.
+
+Payload growth increases total event energy for all three modules, while increasing the configured rate sharply reduces airtime and energy. Ebyte E07-400M10S (CC1101) and Ebyte E07-900MM10S (CC1101) track closely over both controlled axes despite their different RF bands. Ebyte E07-433M20S (CC1101 + PA/LNA) remains TX-dominated because its external output stage is part of the powered device, whereas the three RX curves remain much closer.
 
 \subsection{CC1101 revision and band comparison}
 
@@ -265,6 +316,41 @@ The continuous result is consistent with the packet result at high configured po
 
 This is a controlled workload comparison, not a pure PCB-revision experiment: V1 operates at 433 MHz and V2 at 868 MHz. Frequency-dependent matching, configuration, board revision, and unit variation are confounded. The figures establish measured module-level behavior but do not assign its cause.
 
+\subsection{E07 modules versus the earlier CC1101 boards}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth]{figures/cc1101_e07_power_comparison.pdf}
+  \caption{Module-boundary packet-energy comparison at a common 32-byte, \SI{38.4}{kbps} GFSK/2-FSK workload. TX contains the full $-30/0/+10$-dBm sweep for all five implementations. The legacy CC1101 RX campaigns contain only +10-dBm peer points. A black cross marks an E07 point with incomplete delivery.}
+  \label{fig:cc1101-e07}
+\end{figure}
+
+The TX panel provides the strongest cross-campaign comparison because its event durations remain close: approximately 11--13 ms at $-30$ dBm. At that setting, Ebyte E07-400M10S (CC1101) and Ebyte E07-900MM10S (CC1101) use \SI{0.376}{mJ} and \SI{0.379}{mJ}, compared with \SI{0.440}{mJ} and \SI{0.444}{mJ} for CC1101 V1 433 MHz (CC1101) and CC1101 V2 868 MHz (CC1101). Ebyte E07-433M20S (CC1101 + PA/LNA) is substantially higher at \SI{1.358}{mJ}, reflecting its module-level PA/LNA implementation. At +10 dBm the ordering persists, but the Ebyte E07-400M10S (CC1101) and Ebyte E07-900MM10S (CC1101) points do not represent useful delivery in this close-range setup.
+
+The RX panel must be interpreted more cautiously. The E07 event windows are about \SI{12.37}{ms}, whereas the legacy CC1101 RX windows are about \SI{119}{ms}; therefore, their absolute RX event energies are not normalized to a common capture duration. The figure retains both because they are real application-level measurements, but it does not attribute the roughly order-of-magnitude energy difference to silicon or PCB efficiency. A future remeasurement with one trigger and receive-window policy would turn this into a controlled five-board RX comparison.
+
+Delivery behavior also constrains the power sweep. Ebyte E07-400M10S (CC1101) lost all packets at the \SI{38.4}{kbps} 0- and +10-dBm points, while Ebyte E07-900MM10S (CC1101) lost all at +10 dBm; Ebyte E07-433M20S (CC1101 + PA/LNA) delivered this particular matrix slice. The broader Ebyte E07-433M20S campaign contains one lost packet outside the plotted slice. Because low-power $-30$-dBm points delivered completely, the failures are consistent with close-range overload or setup interaction rather than insufficient link budget, but conducted attenuation is required to establish the cause.
+
+\subsection{Ai-Thinker RA-08 (ASR6601) versus Ai-Thinker RA-09 (STM32WLE5)}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth]{figures/ra08_ra09_payload_comparison.pdf}
+  \caption{Matched Ai-Thinker RA-08 (ASR6601) and Ai-Thinker RA-09 (STM32WLE5) packet energy versus payload at SF7/BW125/CR4/5 and +22 dBm.}
+  \label{fig:ra08-ra09-payload}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth]{figures/ra08_ra09_sf_comparison.pdf}
+  \caption{Matched Ai-Thinker RA-08 (ASR6601) and Ai-Thinker RA-09 (STM32WLE5) packet energy versus spreading factor for a 32-byte payload at BW125/CR4/5 and +22 dBm.}
+  \label{fig:ra08-ra09-sf}
+\end{figure}
+
+The two modem campaigns share payloads of 8, 32, and 128 bytes, SF7/SF9/SF12, BW125, CR4/5, and an exact +22-dBm point. Event durations are also matched on RX and differ only slightly on TX, making this one of the stronger cross-chip comparisons in the study. At 32 bytes and SF7, Ai-Thinker RA-09 (STM32WLE5) uses \SI{\RANineTx}{mJ} TX versus \SI{\RAEightTx}{mJ} for Ai-Thinker RA-08 (ASR6601), a difference of only about 2.4\%. Ai-Thinker RA-09 (STM32WLE5) RX is \SI{\RANineRx}{mJ} versus \SI{\RAEightRx}{mJ} for Ai-Thinker RA-08 (ASR6601), approximately 53\% lower over the same \SI{71.93}{ms} receive window.
+
+The pattern persists across spreading factors. At SF12, TX energy is \SI{829.53}{mJ} for Ai-Thinker RA-09 (STM32WLE5) and \SI{817.93}{mJ} for Ai-Thinker RA-08 (ASR6601), while RX is \SI{36.64}{mJ} and \SI{77.02}{mJ}, respectively. Thus, the measured distinction is not lower LoRa airtime: the RX integration windows are equal. It is a module-boundary current difference under the tested firmware and supply. Range, sensitivity, and sleep-state transition energy remain outside this comparison.
+
 \subsection{Physical implementation effects}
 
 \begin{figure}[htbp]
@@ -274,7 +360,7 @@ This is a controlled workload comparison, not a pure PCB-revision experiment: V1
   \label{fig:sx1278}
 \end{figure}
 
-The RA-02 with two added capacitors uses \SI{16.17}{mJ} versus \SI{16.67}{mJ} for the classic RA-02, a \SI{3.0}{\percent} reduction at this point. The custom naked board and its two-capacitor version differ by less than \SI{1}{\percent} in TX energy. Shielding and the level-shifter implementation are higher at \SI{22.32}{mJ} and \SI{23.27}{mJ}, respectively, compared with \SI{19.36}{mJ} for the naked board. These are module-boundary observations; the experiment does not isolate regulator quiescent current, RF matching loss, logic translation, and oscillator behavior sufficiently to assign a single cause.
+Ai-Thinker RA-02 with 2 Cap (SX1278) uses \SI{16.17}{mJ} versus \SI{16.67}{mJ} for Ai-Thinker RA-02 (SX1278), a \SI{3.0}{\percent} reduction at this point. Unshielded radio module (SX1278) and Carrier PCB with 2 Cap (SX1278) differ by less than \SI{1}{\percent} in TX energy. Shielded radio module (SX1278) and Adafruit board with level shifter (SX1278) are higher at \SI{22.32}{mJ} and \SI{23.27}{mJ}, respectively, compared with \SI{19.36}{mJ} for Unshielded radio module (SX1278). These are module-boundary observations; the experiment does not isolate regulator quiescent current, RF matching loss, logic translation, and oscillator behavior sufficiently to assign a single cause.
 
 \begin{figure}[p]
   \centering
@@ -287,17 +373,17 @@ The RA-02 with two added capacitors uses \SI{16.17}{mJ} versus \SI{16.67}{mJ} fo
   \ContinuedFloat
   \centering
   \includegraphics[width=\linewidth]{figures/sx1278_continuous_power_comparison_continued.pdf}
-  \caption[]{Matched continuous-power comparison for all six SX1278 implementations (continued): standby-subtracted TX and RX power. A black cross marks the S1278-2C RX window at $-4$ dBm, whose power trace is valid but whose receiver-delivery telemetry is missing.}
+  \caption[]{Matched continuous-power comparison for all six SX1278 implementations (continued): standby-subtracted TX and RX power. A black cross marks the Carrier PCB with 2 Cap (SX1278) RX window at $-4$ dBm, whose power trace is valid but whose receiver-delivery telemetry is missing.}
 \end{figure}
 
-Figure~\ref{fig:sx1278-continuous} extends the packet-only comparison to every available 60-second SF9/BW125 window. At +20 dBm, total TX power ranges from \SI{196.94}{mW} for RA-02+2C to \SI{255.33}{mW} for the level-shifter board, while total RX power occupies a narrower \SI{37.75--41.37}{mW} interval. The S1278-2C RX point at $-4$ dBm is retained only as a power observation: zero received frames prevent it from supporting a useful-delivery conclusion.
+Figure~\ref{fig:sx1278-continuous} extends the packet-only comparison to every available 60-second SF9/BW125 window. At +20 dBm, total TX power ranges from \SI{196.94}{mW} for Ai-Thinker RA-02 with 2 Cap (SX1278) to \SI{255.33}{mW} for Adafruit board with level shifter (SX1278), while total RX power occupies a narrower \SI{37.75--41.37}{mW} interval. The Carrier PCB with 2 Cap (SX1278) RX point at $-4$ dBm is retained only as a power observation: zero received frames prevent it from supporting a useful-delivery conclusion.
 
 Within this six-board view, the continuous TX reduction from adding two capacitors to RA-02 is \SI{0.36}{\percent} at $-4$ dBm, \SI{3.71}{\percent} at +10 dBm, and \SI{3.31}{\percent} at +20 dBm. At +20 dBm, this corresponds to \SI{196.94}{mW} versus \SI{203.69}{mW}. RX total power differs by at most \SI{0.3}{\percent}, so the added capacitors do not produce a meaningful receive-power advantage in this workload. The repeated few-percent TX effect at the two higher settings is measurable, but the experiment does not establish whether it comes from supply impedance, PA behavior, or RF matching.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\linewidth]{figures/sx1276_variant_comparison.pdf}
-  \caption{All four measured SX1276-based modules at their canonical 32-byte points. RA-01H and XL1276-D01 use direct SPI, SF7/BW125/CR4/5, and +20 dBm. E32-868T20D and E32-868T30D use transparent UART/FEC at \SI{19.2}{kbps} and +20 dBm or +30 dBm, respectively. The latter includes an external PA, so the four points are a complete system-level inventory, not a single controlled operating condition.}
+  \caption{All four measured SX1276-based modules at their canonical 32-byte points. Ai-Thinker RA-01H (SX1276) and XL1276-D01 (SX1276) use direct SPI, SF7/BW125/CR4/5, and +20 dBm. Ebyte E32-868T20D (SX1276) and Ebyte E32-868T30D (SX1276 + PA) use transparent UART/FEC at \SI{19.2}{kbps} and +20 dBm or +30 dBm, respectively. The latter includes an external PA, so the four points are a complete system-level inventory, not a single controlled operating condition.}
   \label{fig:sx1276}
 \end{figure}
 
@@ -308,7 +394,7 @@ Within this six-board view, the continuous TX reduction from adding two capacito
   \label{fig:sx1276-continuous}
 \end{figure}
 
-The repository audit identifies four measured SX1276-based implementations: RA-01H, XL1276-D01, E32-868T20D, and E32-868T30D. Figure~\ref{fig:sx1276} retains all four. At their canonical points, packet TX energy is \SI{17.66}{mJ}, \SI{21.35}{mJ}, \SI{30.24}{mJ}, and \SI{91.65}{mJ} for E32-868T20D, XL1276-D01, RA-01H, and E32-868T30D, respectively. RX spans a much narrower \SI{2.860--4.884}{mJ}. These values are useful module-level operating points, but the E32 transparent-UART framing, higher nominal rate, and the T30D external PA prevent a controlled four-way PHY comparison.
+The repository audit identifies four measured SX1276-based implementations: Ai-Thinker RA-01H (SX1276), XL1276-D01 (SX1276), Ebyte E32-868T20D (SX1276), and Ebyte E32-868T30D (SX1276 + PA). Figure~\ref{fig:sx1276} retains all four. At their canonical points, packet TX energy is \SI{17.66}{mJ}, \SI{21.35}{mJ}, \SI{30.24}{mJ}, and \SI{91.65}{mJ} for Ebyte E32-868T20D (SX1276), XL1276-D01 (SX1276), Ai-Thinker RA-01H (SX1276), and Ebyte E32-868T30D (SX1276 + PA), respectively. RX spans a much narrower \SI{2.860--4.884}{mJ}. These values are useful module-level operating points, but the E32 transparent-UART framing, higher nominal rate, and the E32-868T30D external PA prevent a controlled four-way PHY comparison.
 
 Within the matched direct-SPI subset, XL1276-D01 uses \SI{21.35}{mJ} TX versus \SI{30.24}{mJ} for RA-01H, a \SI{29.4}{\percent} reduction, while RX is \SI{2.934}{mJ} versus \SI{2.860}{mJ}. In continuous operation at +20 dBm, XL1276-D01 averages \SI{282.87}{mW} TX versus \SI{367.36}{mW} for RA-01H; RX reverses the ordering at \SI{40.78}{mW} versus \SI{35.87}{mW}. These are same-chip, same-LoRa-setting observations, but not a pure PCB comparison because the RF bands, matching networks, and individual units differ.
 
@@ -319,14 +405,14 @@ The newer RA-01SH/SX1262 is notable: at its canonical +22 dBm point it uses \SI{
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.93\linewidth]{figures/nrf24_pa_comparison.pdf}
-  \caption{nRF24L01 packet TX energy versus rate with and without the module-level PA/LNA. Both use the same 0 dBm radio-drive command.}
+  \caption{NRF24L01 (nRF24L01+) packet TX energy versus rate with and without the module-level PA/LNA. Both use the same 0 dBm radio-drive command.}
   \label{fig:nrf-pa}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.96\linewidth]{figures/nrf24_pa_continuous_power_comparison.pdf}
-  \caption{Matched nRF24L01 continuous-power comparison at \SI{1}{Mbps}. The PA/LNA module increases both TX and RX module-boundary power across all three configured radio-drive settings.}
+  \caption{Matched NRF24L01 (nRF24L01+) continuous-power comparison at \SI{1}{Mbps}. NRF24L01 PA/LNA (nRF24L01+) increases both TX and RX module-boundary power across all three configured radio-drive settings.}
   \label{fig:nrf-pa-continuous}
 \end{figure}
 
@@ -335,26 +421,26 @@ At \SI{2}{Mbps}, the PA/LNA board uses \SI{0.0935}{mJ} per TX event versus \SI{0
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.96\linewidth]{figures/e32_band_continuous_power_comparison.pdf}
-  \caption{Matched continuous-power comparison of the E32-433T20D and E32-868T20D. The nearly coincident curves show that these two measured modules behave alike under the common \SI{4.8}{kbps} workload.}
+  \caption{Matched continuous-power comparison of Ebyte E32-433T20D (SX1278) and Ebyte E32-868T20D (SX1276). The nearly coincident curves show that these two measured modules behave alike under the common \SI{4.8}{kbps} workload.}
   \label{fig:e32-band-continuous}
 \end{figure}
 
-The E32 20-dBm pair is the closest hardware match in the continuous campaign. At +20 dBm, E32-433T20D and E32-868T20D average \SI{275.86}{mW} and \SI{276.37}{mW} TX, while RX is \SI{43.441}{mW} and \SI{43.438}{mW}. Across all three power settings, the maximum TX difference is \SI{0.52}{\percent} and the maximum RX difference is \SI{0.11}{\percent}. The RX standby-subtracted curve is clipped to zero by the campaign pipeline because the active-window mean falls below its separate standby estimate; it must not be interpreted as a zero-power receiver. Total RX power is the valid comparison in this case.
+The E32 20-dBm pair is the closest hardware match in the continuous campaign. At +20 dBm, Ebyte E32-433T20D (SX1278) and Ebyte E32-868T20D (SX1276) average \SI{275.86}{mW} and \SI{276.37}{mW} TX, while RX is \SI{43.441}{mW} and \SI{43.438}{mW}. Across all three power settings, the maximum TX difference is \SI{0.52}{\percent} and the maximum RX difference is \SI{0.11}{\percent}. The RX standby-subtracted curve is clipped to zero by the campaign pipeline because the active-window mean falls below its separate standby estimate; it must not be interpreted as a zero-power receiver. Total RX power is the valid comparison in this case.
 
 \clearpage
 \section{Discussion}
 
 \subsection{Design implications}
 
-For short, frequent, nearby transfers, the measured high-rate nRF24L01 and E79 GFSK profiles minimize packet airtime and absolute event energy at the common 32-byte workload. Payload curves show why application batching matters: a larger message costs more total energy but generally less energy per application byte. E79 is especially flexible because one firmware image can trade GFSK speed for SLR robustness, OOK behavior, or IEEE 802.15.4g framing. For long-range low-duty-cycle sensing, the SX1262 implementation provides a strong measured RX-power advantage over SX1276/SX1278 boards while retaining a high output-power setting. High-power E32 UART modules simplify integration and provide substantial nominal output power, but their energy and buffering behavior make them a poor fit for frequent battery-powered traffic unless the link budget requires them.
+For short, frequent, nearby transfers, the measured high-rate NRF24L01 (nRF24L01+) and Ebyte E79-400DM2005S (CC1352P) GFSK profiles minimize packet airtime and absolute event energy at the common 32-byte workload. Payload curves show why application batching matters: a larger message costs more total energy but generally less energy per application byte. Ebyte E79-400DM2005S (CC1352P) is especially flexible because one firmware image can trade GFSK speed for SLR robustness, OOK behavior, or IEEE 802.15.4g framing. The bridge-context repetition shows that this PHY ordering is robust to the tested host-interface change, while the few-percent absolute offset should be treated as session variability until repeated bridge-swapping measurements are available. For long-range low-duty-cycle sensing, both Ai-Thinker RA-01SH (SX1262) and Ai-Thinker RA-09 (STM32WLE5) show strong measured RX-energy advantages over older LoRa implementations, while their TX behavior remains workload- and output-stage-dependent. High-power E32 UART modules simplify integration and provide substantial nominal output power, but their energy and buffering behavior make them a poor fit for frequent battery-powered traffic unless the link budget requires them.
 
-The matched-pair curves sharpen two different lessons. E32-433T20D and E32-868T20D remain nearly indistinguishable under the tested workload, whereas the two CC1101 modules diverge strongly on TX despite sharing the same radio IC. A chipset name is therefore insufficient to predict module energy, but neither should every band or board revision be assumed to matter equally. Antenna size, propagation, legal channels, and interference remain consequential outside these energy traces.
+The matched-pair curves sharpen several lessons. Ebyte E32-433T20D (SX1278) and Ebyte E32-868T20D (SX1276) remain nearly indistinguishable under the tested workload; Ebyte E07-400M10S (CC1101) and Ebyte E07-900MM10S (CC1101) likewise track closely at the fully delivered low-power point. In contrast, the Ebyte E07-433M20S (CC1101 + PA/LNA) external output stage changes TX energy substantially, and the two earlier CC1101 boards diverge at high TX drive despite sharing the same radio IC. A chipset name is therefore insufficient to predict module energy, but neither should every band or board revision be assumed to matter equally. Antenna size, propagation, legal channels, and interference remain consequential outside these energy traces.
 
 \subsection{What this study does not measure}
 
 No RF power meter, calibrated attenuator chain, conducted sensitivity setup, spectrum analyzer, or controlled-distance range course is part of this dataset. Configured dBm is a command or front-stage setting, not verified conducted output or EIRP. The study cannot compute joules per successfully delivered bit at equal range or equal fade margin. It also cannot rank coexistence, adjacent-channel rejection, antenna efficiency, spectral compliance, or immunity to real interference.
 
-Temperature, unit-to-unit variation, battery internal resistance, and supply voltage were not swept. Five packet repetitions characterize repeatability at each point but are not a production tolerance study. Some continuous campaigns intentionally retain no-RX scenarios and receiver re-arm limitations. Instrument accuracy, automatic range switching, event segmentation, modeled capture windows, and serial telemetry are additional uncertainty sources.
+Temperature, unit-to-unit variation, battery internal resistance, and supply voltage were not swept. Five packet repetitions characterize repeatability at each point but are not a production tolerance study. The E79 bridge comparison was not collected as an alternating A/B/A/B experiment, so session drift is confounded with host-interface context. The five new entries do not yet have 60-second continuous campaigns. Some existing continuous campaigns intentionally retain no-RX scenarios and receiver re-arm limitations. Instrument accuracy, automatic range switching, event segmentation, modeled capture windows, and serial telemetry are additional uncertainty sources.
 
 Finally, total event energy is workload-dependent. It is the appropriate quantity for battery budgeting with the tested firmware, but a silicon-only comparison should instead use conducted RF instrumentation and carefully separated idle, synthesizer, ramp, TX, RX, and host-processing intervals.
 
@@ -366,11 +452,11 @@ python power_profiler/study/generate_study.py
 pdflatex -interaction=nonstopmode radio_module_energy_study.tex
 pdflatex -interaction=nonstopmode radio_module_energy_study.tex
 \end{verbatim}
-Run the LaTeX commands from \code{power\_profiler/study}. The generated \code{data/module\_summary.csv} records the common 32-byte row selection, delivery scope, packet counts, selected modes, and derived metrics. The companion \code{data/payload\_energy\_summary.csv} records every TX/RX payload point used by Tables~\ref{tab:packet-tx-matrix} and~\ref{tab:packet-rx-matrix}, including the secondary per-bit normalization. The controlled CC1101 points and the E32, nRF24L01, and RA-02 continuous sweeps are exported separately as \code{data/cc1101\_controlled\_summary.csv} and \code{data/matched\_continuous\_power\_summary.csv}. Individual campaign validation notes and audit JSON files remain authoritative for accepted recoveries and known anomalies.
+Run the LaTeX commands from \code{power\_profiler/study}. The generated \code{data/module\_summary.csv} records the common 32-byte row selection, delivery scope, packet counts, selected modes, and derived metrics. The companion \code{data/payload\_energy\_summary.csv} records every TX/RX payload point used by Tables~\ref{tab:packet-tx-matrix} and~\ref{tab:packet-rx-matrix}, including the secondary per-bit normalization. The new controlled packet exports are \code{data/e07\_controlled\_summary.csv}, \code{data/cc1101\_family\_summary.csv}, \code{data/e79\_interface\_summary.csv}, and \code{data/ra08\_ra09\_summary.csv}. The earlier CC1101 points remain available in \path{data/cc1101_controlled_summary.csv}. The E32, NRF24L01 (nRF24L01+), and Ai-Thinker RA-02 (SX1278) continuous sweeps are in \path{data/matched_continuous_power_summary.csv}. Individual campaign validation notes and audit JSON files remain authoritative for accepted recoveries and known anomalies.
 
 \section{Conclusion}
 
-The measurements show that payload size, radio choice, PHY rate, module implementation, and output stage each materially affect energy. Across the common 32-byte points, fast GFSK devices minimize measured event energy, while high-output transparent LoRa modules incur the greatest cost. The payload matrices show the absolute energy of realistic messages and expose campaign-specific frame and fragmentation boundaries. The E79 within-device study demonstrates a \ESeventyNineImprovement-fold 32-byte packet-energy swing from SLR2K5 to GFSK200 without changing hardware. The SX1278 and nRF24L01 sub-studies show that board-level components can shift energy even when the nominal radio settings are held constant.
+The measurements show that payload size, radio choice, PHY rate, module implementation, output stage, and receive-window current each materially affect energy. Across the common 32-byte points, fast GFSK devices minimize measured event energy, while high-output transparent LoRa modules incur the greatest cost. The payload matrices show the absolute energy of realistic messages and expose campaign-specific frame and fragmentation boundaries. The Ebyte E79-400DM2005S (CC1352P) within-device study demonstrates a \ESeventyNineImprovement-fold 32-byte packet-energy swing from SLR2K5 to GFSK200 without changing hardware, and the repeated bridge-context matrix preserves that conclusion. The E07 comparison isolates the cost of the PA/LNA implementation, while the matched Ai-Thinker RA-08 (ASR6601) and Ai-Thinker RA-09 (STM32WLE5) comparison finds similar TX energy but roughly half the Ai-Thinker RA-09 RX energy over equal LoRa windows. The SX1278 and NRF24L01 (nRF24L01+) sub-studies likewise show that board-level components can shift energy even when nominal radio settings are held constant.
 
 The practical conclusion is not that one module wins every application. It is that module selection should be made with a workload-specific point containing payload, rate, output power, receive duty, required link margin, and delivered traffic behavior. This dataset supplies the energy half of that decision and identifies the next necessary experiment: conducted or distance-controlled link-budget and packet-error-rate testing under equal reliability targets.
 
