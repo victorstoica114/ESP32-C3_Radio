@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import csv
 import math
+import shutil
 import statistics
+import subprocess
 import sys
 from dataclasses import asdict, dataclass
 from pathlib import Path
@@ -38,6 +40,49 @@ AXIS_FONT_SIZE = 26.0
 DATA_LABEL_FONT_SIZE = 21.0
 SUBTITLE_FONT_SIZE = 23.0
 NOTE_FONT_SIZE = 22.0
+
+
+PDF_FONT_COMMANDS = ("mgs", "gswin64c", "gswin32c", "gs")
+
+
+def embed_figure_fonts(figures_dir: Path) -> int:
+    """Rewrite generated PDFs with embedded font subsets."""
+    executable = next(
+        (path for command in PDF_FONT_COMMANDS if (path := shutil.which(command))),
+        None,
+    )
+    if executable is None:
+        raise RuntimeError(
+            "Ghostscript is required to embed fonts in the generated study figures."
+        )
+
+    sources = sorted(figures_dir.glob("*.pdf"))
+    for source in sources:
+        temporary = source.with_name(f".{source.stem}.embedded.pdf")
+        command = [
+            executable,
+            "-q",
+            "-dNOPAUSE",
+            "-dBATCH",
+            "-sDEVICE=pdfwrite",
+            "-dCompatibilityLevel=1.4",
+            "-dPDFSETTINGS=/prepress",
+            "-dEmbedAllFonts=true",
+            "-dSubsetFonts=true",
+            "-dCompressFonts=true",
+            f"-sOutputFile={temporary}",
+            str(source),
+        ]
+        try:
+            subprocess.run(command, check=True)
+            if not temporary.is_file() or temporary.stat().st_size == 0:
+                raise RuntimeError(f"Ghostscript produced no output for {source.name}")
+            temporary.replace(source)
+        except Exception:
+            temporary.unlink(missing_ok=True)
+            raise
+
+    return len(sources)
 
 
 @dataclass(frozen=True)
@@ -2590,10 +2635,12 @@ def main() -> int:
         e07_rows,
         ra_modem_rows,
     )
+    embedded_figure_count = embed_figure_fonts(figures)
     print(
         f"Generated {len(summary)} module summaries, {len(payload_rows)} payload-energy rows, "
         f"{len(cc1101_rows)} controlled CC1101 points, {len(matched_continuous_rows)} matched "
-        f"continuous-power points, and 22 numbered figures across 27 plot sheets in {STUDY_DIR}"
+        f"continuous-power points, and 22 numbered figures across "
+        f"{embedded_figure_count} plot sheets in {STUDY_DIR}"
     )
     return 0
 
