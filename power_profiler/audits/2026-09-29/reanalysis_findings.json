@@ -1,0 +1,82 @@
+{
+  "scope": "Read-only recovery assessment of P1 event integration and RX baseline interpretation; no production data or code modified and no hardware accessed.",
+  "date": "2026-09-29",
+  "e79_esp32_accepted_session": "20260719_003026_campaign_radio_ebyte_e79_cc1352p",
+  "e79_esp32_raw_coverage": {
+    "accepted_packet_tx": 630,
+    "accepted_packet_rx": 210,
+    "accepted_continuous_tx": 3,
+    "accepted_continuous_rx": 21,
+    "missing_raw": 0,
+    "fragmented_packet_tx_directly_affected_by_P1": 315,
+    "fragmented_packet_rx_directly_affected_by_P1": 105,
+    "fragmented_payload_bytes": [128, 512, 1024],
+    "phy_count": 7,
+    "tx_power_dbm": [-20, 0, 13],
+    "rx_peer_power_dbm": [13],
+    "repetitions": 5,
+    "note": "Coverage is file presence. Exhaustive gzip integrity is audited separately by Tesla. All accepted RX packet rows were successful. One accepted TX 64-byte IEEE154G50/-20 dBm repetition has rx_missing, retained as observed loss."
+  },
+  "actual_trace_checks": {
+    "trace_count": 8,
+    "e79_packet_tx": 4,
+    "e79_packet_rx": 2,
+    "sx1278_naked_packet_rx": 1,
+    "e32_433t20d_packet_rx": 1,
+    "methods": [
+      "Decompress full gzip and parse every CSV sample and trigger marker.",
+      "Reintegrate original summary window; original total energies reproduced.",
+      "For TX E79, identify high-charge pulse groups and inspect cadence, expected frame count, and quiet tail.",
+      "For RX, do not interpret threshold/noise groups as frame boundaries; combine retained sample span with acquisition control flow and received-payload evidence."
+    ],
+    "raw_report": "reanalysis_traces.json",
+    "reproducer": "reanalysis_ppk.py",
+    "examples": [
+      {
+        "step": "tx_p13_rf_profile-GFSK200_s128",
+        "run_id": "run_00001",
+        "pulse_intervals_ms_after_trigger": [[27.63, 33.15], [59.20, 65.00]],
+        "original_integration_ms_after_trigger": [54.98, 67.06],
+        "raw_end_ms_after_trigger": 757.76
+      },
+      {
+        "step": "tx_p13_rf_profile-GFSK200_s1024",
+        "run_id": "run_00001",
+        "observed_pulse_groups": 16,
+        "first_pulse_start_ms_after_trigger": 28.97,
+        "last_pulse_end_ms_after_trigger": 521.70,
+        "original_integration_ms_after_trigger": [98.09, 194.73],
+        "raw_end_ms_after_trigger": 757.76
+      },
+      {
+        "step": "tx_p13_rf_profile-SLR2K5_s1024",
+        "run_id": "run_00001",
+        "observed_pulse_groups": 16,
+        "first_pulse_start_ms_after_trigger": 28.46,
+        "last_pulse_end_ms_after_trigger": 4092.93,
+        "raw_end_ms_after_trigger": 5672.96
+      },
+      {
+        "step": "tx_p-20_rf_profile-GFSK200_s1024",
+        "run_id": "run_00001",
+        "observed_pulse_groups": 16,
+        "last_pulse_end_ms_after_trigger": 518.17,
+        "raw_end_ms_after_trigger": 752.64
+      }
+    ]
+  },
+  "software_reanalysis": {
+    "recommendation": "Prioritize reanalysis of retained complete traces, rather than physically repeating the archived campaigns solely because P1 exists.",
+    "e79_fragmented_tx": "Raw samples contain the omitted transmissions in the checked fast, slow, high-power and low-power examples. Integrate all frame windows, or a declared full transaction window including gaps, and regenerate derived reports.",
+    "packet_rx": "Reanalysis over a declared receive-workload window is possible from retained raw traces. Correct omitted inter-frame and host-command delays. Whole transaction boundaries are not automatically identifiable in a nearly flat RX-current waveform.",
+    "acquisition_contract": "runner._execute_receive_transfer completes transmission and receiver draining within the trigger callback. Ppk2Sampler.capture requires callback termination, reads final PPK data, and then stops measurement. A successful saved RX capture therefore spans the callback's receptions; individual lost PPK samples remain a separate sample-loss limitation.",
+    "not_done": "This audit does not choose a new scientific integration definition and does not publish corrected campaign energies. Representative checks are not an exhaustive reconstruction of every packet."
+  },
+  "baseline": {
+    "current_mean_total_power": "Existing continuous mean current and total power do not require repetition merely because the baseline was labeled standby.",
+    "rename": "For RX sessions whose receiver is enabled before pre-trigger, label baseline as RX idle/listening before traffic, not standby. Corresponding excess is above that state.",
+    "standby_option": "If a true standby-referenced quantity is wanted, acquire a separate controlled standby baseline at matching module, voltage, radio configuration and conditions. Repeating every 60-second traffic window is not automatically necessary.",
+    "full_startup_option": "If the desired packet quantity is exact standby-to-RX-to-standby transaction energy, acquire new synchronized traces with receiver-state transitions and per-frame/RF markers inside the capture. Existing traces begin after RX enable and end before RX disable, so missing startup/shutdown energy and exact flat-waveform boundaries cannot be recovered from those files."
+  },
+  "physical_recapture_recommendation": "No additional mandatory physical recapture was demonstrated by these eight complete traces. Recapture is needed for genuinely missing/unrecoverable authoritative raw files when exact reanalysis is required, or for newly requested standby/startup/synchronized timing measurements. Missing-file and full-integrity inventories are produced separately by root/Faraday/Tesla."
+}

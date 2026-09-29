@@ -4,3 +4,15 @@
 *.pdf binary
 *.png binary
 *.xlsx binary
+
+# Preserve byte-level audit evidence and derived trace provenance across clones.
+power_profiler/audits/** -text whitespace=trailing-space,space-before-tab,cr-at-eol
+power_profiler/comparisons/ebyte_e79_400dm2005s/reanalysis/** -text whitespace=trailing-space,space-before-tab,cr-at-eol
+power_profiler/comparisons/ebyte_e79_400dm2005s/*.csv text eol=crlf
+power_profiler/comparisons/ebyte_e79_400dm2005s/*.tex text eol=crlf
+power_profiler/comparisons/ebyte_e79_400dm2005s/*_reanalysis_manifest.json -text whitespace=trailing-space,space-before-tab,cr-at-eol
+# These source files are fingerprinted in the published reanalysis manifest.
+power_profiler/tools/publish_e79_reanalysis.py -text
+power_profiler/tools/reanalyze_e79_tx.py -text whitespace=trailing-space,space-before-tab,cr-at-eol
+power_profiler/radio_power_profiler/frame_detection.py -text
+power_profiler/radio_power_profiler/frame_windows.py -text

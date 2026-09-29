@@ -1,0 +1,590 @@
+{
+  "module_count": 7,
+  "missing_packet_runs": 3060,
+  "missing_packet_conditions": 612,
+  "source_to_published_matrix_and_energy_checks": "passed for all 14 packet sessions",
+  "modules": [
+    {
+      "slug": "cc1101_v1_433",
+      "directions": {
+        "tx": {
+          "source_session": "20260717_154721_radio_cc1101_v1_433",
+          "published_export": "power_profiler\\comparisons\\cc1101_v1_433\\cc1101_v1_433_data.csv",
+          "points": 54,
+          "missing_raw_captures": 270,
+          "sizes": [
+            8,
+            32,
+            64,
+            128,
+            512,
+            1024
+          ],
+          "powers": [
+            -30.0,
+            0.0,
+            10.0
+          ],
+          "parameters": {
+            "tx_power_dbm": [
+              -30,
+              0,
+              10
+            ],
+            "bit_rate_kbps": [
+              1.2,
+              250.0,
+              38.4
+            ]
+          },
+          "repetitions_per_condition": [
+            5
+          ],
+          "save_raw": false,
+          "reason_counts": {
+            "archive_completeness_only_no_invalidity_proven": 270
+          },
+          "published_matrix_and_mean_energy_matched": true
+        },
+        "rx": {
+          "source_session": "20260717_160417_radio_cc1101_v1_433_rx",
+          "published_export": "power_profiler\\comparisons\\cc1101_v1_433\\cc1101_v1_433_data.csv",
+          "points": 18,
+          "missing_raw_captures": 90,
+          "sizes": [
+            8,
+            32,
+            64,
+            128,
+            512,
+            1024
+          ],
+          "powers": [
+            10.0
+          ],
+          "parameters": {
+            "tx_power_dbm": [
+              10
+            ],
+            "bit_rate_kbps": [
+              1.2,
+              250.0,
+              38.4
+            ]
+          },
+          "repetitions_per_condition": [
+            5
+          ],
+          "save_raw": false,
+          "reason_counts": {
+            "archive_completeness_only_no_invalidity_proven": 90
+          },
+          "published_matrix_and_mean_energy_matched": true
+        }
+      }
+    },
+    {
+      "slug": "cc1101_v2_868",
+      "directions": {
+        "tx": {
+          "source_session": "20260717_124046_radio_cc1101_v2_868",
+          "published_export": "power_profiler\\comparisons\\cc1101_v2_868\\cc1101_v2_868_data.csv",
+          "points": 54,
+          "missing_raw_captures": 270,
+          "sizes": [
+            8,
+            32,
+            64,
+            128,
+            512,
+            1024
+          ],
+          "powers": [
+            -30.0,
+            0.0,
+            10.0
+          ],
+          "parameters": {
+            "tx_power_dbm": [
+              -30,
+              0,
+              10
+            ],
+            "bit_rate_kbps": [
+              1.2,
+              250,
+              38.4
+            ]
+          },
+          "repetitions_per_condition": [
+            5
+          ],
+          "save_raw": false,
+          "reason_counts": {
+            "archive_completeness_only_no_invalidity_proven": 270
+          },
+          "published_matrix_and_mean_energy_matched": true
+        },
+        "rx": {
+          "source_session": "20260717_125628_radio_cc1101_v2_868_rx",
+          "published_export": "power_profiler\\comparisons\\cc1101_v2_868\\cc1101_v2_868_data.csv",
+          "points": 18,
+          "missing_raw_captures": 90,
+          "sizes": [
+            8,
+            32,
+            64,
+            128,
+            512,
+            1024
+          ],
+          "powers": [
+            10.0
+          ],
+          "parameters": {
+            "tx_power_dbm": [
+              10
+            ],
+            "bit_rate_kbps": [
+              1.2,
+              250,
+              38.4
+            ]
+          },
+          "repetitions_per_condition": [
+            5
+          ],
+          "save_raw": false,
+          "reason_counts": {
+            "archive_completeness_only_no_invalidity_proven": 90
+          },
+          "published_matrix_and_mean_energy_matched": true
+        }
+      }
+    },
+    {
+      "slug": "ebyte_e07_400m10s",
+      "directions": {
+        "tx": {
+          "source_session": "20260724_234518_radio_ebyte_e07_400m10s",
+          "published_export": "power_profiler\\comparisons\\ebyte_e07_400m10s_20260724\\e07_400m10s_tx.csv",
+          "points": 27,
+          "missing_raw_captures": 135,
+          "sizes": [
+            8,
+            32,
+            64
+          ],
+          "powers": [
+            -30.0,
+            0.0,
+            10.0
+          ],
+          "parameters": {
+            "cc1101_drive_dbm": [
+              -30,
+              0,
+              10
+            ],
+            "bit_rate_kbps": [
+              1.2,
+              250,
+              38.4
+            ]
+          },
+          "repetitions_per_condition": [
+            5
+          ],
+          "save_raw": false,
+          "reason_counts": {
+            "archive_completeness_only_no_invalidity_proven": 135
+          },
+          "published_matrix_and_mean_energy_matched": true
+        },
+        "rx": {
+          "source_session": "20260724_234941_radio_ebyte_e07_400m10s_rx",
+          "published_export": "power_profiler\\comparisons\\ebyte_e07_400m10s_20260724\\e07_400m10s_rx.csv",
+          "points": 27,
+          "missing_raw_captures": 135,
+          "sizes": [
+            8,
+            32,
+            64
+          ],
+          "powers": [
+            -30.0,
+            0.0,
+            10.0
+          ],
+          "parameters": {
+            "cc1101_drive_dbm": [
+              -30,
+              0,
+              10
+            ],
+            "bit_rate_kbps": [
+              1.2,
+              250,
+              38.4
+            ]
+          },
+          "repetitions_per_condition": [
+            5
+          ],
+          "save_raw": false,
+          "reason_counts": {
+            "RX_fixed_window_reanalysis_requires_new_RAW": 135
+          },
+          "published_matrix_and_mean_energy_matched": true
+        }
+      }
+    },
+    {
+      "slug": "ebyte_e07_433m20s",
+      "directions": {
+        "tx": {
+          "source_session": "20260725_001453_radio_ebyte_e07_433m20s",
+          "published_export": "power_profiler\\comparisons\\ebyte_e07_433m20s_20260725\\e07_433m20s_tx.csv",
+          "points": 27,
+          "missing_raw_captures": 135,
+          "sizes": [
+            8,
+            32,
+            64
+          ],
+          "powers": [
+            -30.0,
+            0.0,
+            10.0
+          ],
+          "parameters": {
+            "cc1101_drive_dbm": [
+              -30,
+              0,
+              10
+            ],
+            "bit_rate_kbps": [
+              1.2,
+              250,
+              38.4
+            ]
+          },
+          "repetitions_per_condition": [
+            5
+          ],
+          "save_raw": false,
+          "reason_counts": {
+            "archive_completeness_only_no_invalidity_proven": 135
+          },
+          "published_matrix_and_mean_energy_matched": true
+        },
+        "rx": {
+          "source_session": "20260725_002027_radio_ebyte_e07_433m20s_rx",
+          "published_export": "power_profiler\\comparisons\\ebyte_e07_433m20s_20260725\\e07_433m20s_rx.csv",
+          "points": 27,
+          "missing_raw_captures": 135,
+          "sizes": [
+            8,
+            32,
+            64
+          ],
+          "powers": [
+            -30.0,
+            0.0,
+            10.0
+          ],
+          "parameters": {
+            "cc1101_drive_dbm": [
+              -30,
+              0,
+              10
+            ],
+            "bit_rate_kbps": [
+              1.2,
+              250,
+              38.4
+            ]
+          },
+          "repetitions_per_condition": [
+            5
+          ],
+          "save_raw": false,
+          "reason_counts": {
+            "RX_fixed_window_reanalysis_requires_new_RAW": 135
+          },
+          "published_matrix_and_mean_energy_matched": true
+        }
+      }
+    },
+    {
+      "slug": "ebyte_e07_900mm10s",
+      "directions": {
+        "tx": {
+          "source_session": "20260725_105024_radio_ebyte_e07_900mm10s",
+          "published_export": "power_profiler\\comparisons\\ebyte_e07_900mm10s_20260725\\e07_900mm10s_tx.csv",
+          "points": 27,
+          "missing_raw_captures": 135,
+          "sizes": [
+            8,
+            32,
+            64
+          ],
+          "powers": [
+            -30.0,
+            0.0,
+            10.0
+          ],
+          "parameters": {
+            "cc1101_drive_dbm": [
+              -30,
+              0,
+              10
+            ],
+            "bit_rate_kbps": [
+              1.2,
+              250,
+              38.4
+            ]
+          },
+          "repetitions_per_condition": [
+            5
+          ],
+          "save_raw": false,
+          "reason_counts": {
+            "archive_completeness_only_no_invalidity_proven": 135
+          },
+          "published_matrix_and_mean_energy_matched": true
+        },
+        "rx": {
+          "source_session": "20260725_105431_radio_ebyte_e07_900mm10s_rx",
+          "published_export": "power_profiler\\comparisons\\ebyte_e07_900mm10s_20260725\\e07_900mm10s_rx.csv",
+          "points": 27,
+          "missing_raw_captures": 135,
+          "sizes": [
+            8,
+            32,
+            64
+          ],
+          "powers": [
+            -30.0,
+            0.0,
+            10.0
+          ],
+          "parameters": {
+            "cc1101_drive_dbm": [
+              -30,
+              0,
+              10
+            ],
+            "bit_rate_kbps": [
+              1.2,
+              250,
+              38.4
+            ]
+          },
+          "repetitions_per_condition": [
+            5
+          ],
+          "save_raw": false,
+          "reason_counts": {
+            "RX_fixed_window_reanalysis_requires_new_RAW": 135
+          },
+          "published_matrix_and_mean_energy_matched": true
+        }
+      }
+    },
+    {
+      "slug": "ebyte_e79_ch9340",
+      "directions": {
+        "tx": {
+          "source_session": "20260724_214430_radio_ebyte_e79_cc1352p",
+          "published_export": "power_profiler\\comparisons\\ebyte_e79_400dm2005s_20260724\\e79_tx.csv",
+          "points": 126,
+          "missing_raw_captures": 630,
+          "sizes": [
+            8,
+            32,
+            64,
+            128,
+            512,
+            1024
+          ],
+          "powers": [
+            -20.0,
+            0.0,
+            13.0
+          ],
+          "parameters": {
+            "rf_profile": [
+              "GFSK200",
+              "GFSK4K8",
+              "GFSK50",
+              "IEEE154G50",
+              "OOK4K8",
+              "SLR2K5",
+              "SLR5"
+            ],
+            "tx_power_dbm": [
+              -20,
+              0,
+              13
+            ]
+          },
+          "repetitions_per_condition": [
+            5
+          ],
+          "save_raw": false,
+          "reason_counts": {
+            "archive_completeness_only_no_invalidity_proven": 315,
+            "TX_fragmented_fixed_window_requires_new_RAW": 315
+          },
+          "published_matrix_and_mean_energy_matched": true
+        },
+        "rx": {
+          "source_session": "20260724_221207_radio_ebyte_e79_cc1352p_rx",
+          "published_export": "power_profiler\\comparisons\\ebyte_e79_400dm2005s_20260724\\e79_rx.csv",
+          "points": 126,
+          "missing_raw_captures": 630,
+          "sizes": [
+            8,
+            32,
+            64,
+            128,
+            512,
+            1024
+          ],
+          "powers": [
+            -20.0,
+            0.0,
+            13.0
+          ],
+          "parameters": {
+            "rf_profile": [
+              "GFSK200",
+              "GFSK4K8",
+              "GFSK50",
+              "IEEE154G50",
+              "OOK4K8",
+              "SLR2K5",
+              "SLR5"
+            ],
+            "tx_power_dbm": [
+              -20,
+              0,
+              13
+            ]
+          },
+          "repetitions_per_condition": [
+            5
+          ],
+          "save_raw": false,
+          "reason_counts": {
+            "RX_fixed_window_reanalysis_requires_new_RAW": 630
+          },
+          "published_matrix_and_mean_energy_matched": true
+        }
+      }
+    },
+    {
+      "slug": "ra09_stm32wle5",
+      "directions": {
+        "tx": {
+          "source_session": "20260725_023012_ra09_stm32wle5",
+          "published_export": "power_profiler\\comparisons\\ai_thinker_ra09_20260725\\ra09_tx.csv",
+          "points": 27,
+          "missing_raw_captures": 135,
+          "sizes": [
+            8,
+            32,
+            128
+          ],
+          "powers": [
+            -9.0,
+            10.0,
+            22.0
+          ],
+          "parameters": {
+            "tx_power_dbm": [
+              -9,
+              10,
+              22
+            ],
+            "spreading_factor": [
+              12,
+              7,
+              9
+            ],
+            "bandwidth_hz": [
+              125000
+            ]
+          },
+          "repetitions_per_condition": [
+            5
+          ],
+          "save_raw": false,
+          "reason_counts": {
+            "archive_completeness_only_no_invalidity_proven": 135
+          },
+          "published_matrix_and_mean_energy_matched": true
+        },
+        "rx": {
+          "source_session": "20260725_023839_ra09_stm32wle5_rx",
+          "published_export": "power_profiler\\comparisons\\ai_thinker_ra09_20260725\\ra09_rx.csv",
+          "points": 27,
+          "missing_raw_captures": 135,
+          "sizes": [
+            8,
+            32,
+            128
+          ],
+          "powers": [
+            -9.0,
+            10.0,
+            22.0
+          ],
+          "parameters": {
+            "tx_power_dbm": [
+              -9,
+              10,
+              22
+            ],
+            "spreading_factor": [
+              12,
+              7,
+              9
+            ],
+            "bandwidth_hz": [
+              125000
+            ]
+          },
+          "repetitions_per_condition": [
+            5
+          ],
+          "save_raw": false,
+          "reason_counts": {
+            "RX_fixed_window_reanalysis_requires_new_RAW": 135
+          },
+          "published_matrix_and_mean_energy_matched": true
+        }
+      }
+    }
+  ],
+  "packet_reason_counts": {
+    "archive_completeness_only_no_invalidity_proven": 1575,
+    "RX_fixed_window_reanalysis_requires_new_RAW": 1170,
+    "TX_fragmented_fixed_window_requires_new_RAW": 315
+  },
+  "missing_historical_continuous_windows": 27,
+  "continuous_by_module": {
+    "cc1101_v1_433": 12,
+    "cc1101_v2_868": 15
+  },
+  "continuously_unmeasured_modules": [
+    "ebyte_e07_400m10s",
+    "ebyte_e07_433m20s",
+    "ebyte_e07_900mm10s",
+    "ebyte_e79_ch9340",
+    "ra09_stm32wle5"
+  ],
+  "note": "Historical missing RAW is not itself proof of invalid summary values. Recapture counts reproduce the published matrix and include genuine RF losses without cherry-picking."
+}

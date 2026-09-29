@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import math
 import statistics
 
+from .frame_windows import locate_frame_windows
 from .models import CaptureSpec, Metrics
 
 
@@ -19,6 +21,57 @@ def _groups(active_indices: list[int], max_gap: int) -> list[tuple[int, int]]:
     return groups
 
 
+def _frame_sample_lengths(airtimes_s: tuple[float, ...], sample_rate_hz: int) -> tuple[int, ...]:
+    """Quantize each frame while preserving the modeled total sample count."""
+    if sample_rate_hz <= 0 or not airtimes_s or any(not math.isfinite(value) or value <= 0 for value in airtimes_s):
+        raise ValueError("Positive finite frame airtimes are required")
+    exact = [value * sample_rate_hz for value in airtimes_s]
+    lengths = [int(value) for value in exact]
+    # Accumulate in the sample domain: ordinary summation of e.g. eight
+    # 15.48-ms IEEE154G50 frames can otherwise yield 12383.999999 samples,
+    # smaller than the sum of their exact 1548-sample frame lengths.
+    total_samples = int(math.fsum(exact))
+    remainder = total_samples - sum(lengths)
+    # Largest remainders avoid treating a shorter final frame as a full frame.
+    order = sorted(range(len(lengths)), key=lambda index: exact[index] - lengths[index], reverse=True)
+    for index in order[:remainder]:
+        lengths[index] += 1
+    if min(lengths) < 1 or sum(lengths) != total_samples:
+        raise ValueError("Frame airtimes cannot be represented at this sample rate")
+    return tuple(lengths)
+
+
+def _integrate_windows(
+    samples_uA: list[float], windows: list[tuple[int, int]], *, trigger_index: int,
+    sample_rate_hz: int, voltage_mv: int, baseline: float, threshold: float,
+    method: str,
+) -> Metrics:
+    """Integrate disjoint half-open windows without including intervening gaps."""
+    event = [value for start, end in windows for value in samples_uA[start:end]]
+    charge_total_uC = sum(max(0.0, value) for value in event) / sample_rate_hz
+    charge_excess_uC = sum(max(0.0, value - baseline) for value in event) / sample_rate_hz
+    voltage_v = voltage_mv / 1000.0
+    return Metrics(
+        event_detected=True,
+        baseline_median_uA=baseline,
+        threshold_uA=threshold,
+        event_start_ms=(windows[0][0] - trigger_index) * 1000.0 / sample_rate_hz,
+        event_duration_ms=(len(event) / sample_rate_hz) * 1000.0,
+        tx_mean_uA=statistics.fmean(event),
+        tx_peak_uA=max(event),
+        charge_total_uC=charge_total_uC,
+        charge_excess_uC=charge_excess_uC,
+        energy_total_uJ=charge_total_uC * voltage_v,
+        energy_excess_uJ=charge_excess_uC * voltage_v,
+        integration_method=method,
+        integration_windows_ms=tuple(
+            ((start - trigger_index) * 1000.0 / sample_rate_hz,
+             (end - trigger_index) * 1000.0 / sample_rate_hz)
+            for start, end in windows
+        ),
+    )
+
+
 def analyze_capture(
     samples_uA: list[float],
     *,
@@ -31,9 +84,17 @@ def analyze_capture(
     fallback_window_s: float | None = None,
     integration_window_s: float | None = None,
     align_integration_window: bool = False,
+    frame_airtimes_s: tuple[float, ...] | None = None,
 ) -> Metrics:
-    if len(samples_uA) < 100 or trigger_index < 10:
-        raise ValueError("Capture is too short to calculate a baseline")
+    if len(samples_uA) < 100 or not 10 <= trigger_index < len(samples_uA) or sample_rate_hz <= 0:
+        error = "Capture is too short or has an invalid trigger/sample rate"
+        if frame_airtimes_s is not None:
+            return Metrics(
+                event_detected=False, baseline_median_uA=None, threshold_uA=None,
+                integration_method="per_frame_modeled_airtime_v1", analysis_error=error,
+                analysis_diagnostics={"frame_airtimes_s": list(frame_airtimes_s)},
+            )
+        raise ValueError(error)
 
     baseline_start = min(int(0.010 * sample_rate_hz), trigger_index // 4)
     baseline_end = max(baseline_start + 1, trigger_index - int(0.005 * sample_rate_hz))
@@ -43,6 +104,42 @@ def analyze_capture(
     mad = statistics.median(absolute_deviations)
     robust_noise = 1.4826 * mad
     threshold = baseline + max(capture_spec.threshold_margin_uA, 8.0 * robust_noise)
+
+    if frame_airtimes_s is not None:
+        method = "per_frame_modeled_airtime_v1"
+        diagnostics = {"frame_airtimes_s": list(frame_airtimes_s)}
+        try:
+            if len(frame_airtimes_s) != expected_event_count:
+                raise ValueError("Modeled frame count does not match transmission metadata")
+            frame_lengths = _frame_sample_lengths(frame_airtimes_s, sample_rate_hz)
+            # Search the complete RAW capture: host/UART/ACK gaps are not airtime
+            # and can put later physical frames beyond the old search cutoff.
+            located = locate_frame_windows(
+                samples_uA, trigger_index=trigger_index, sample_rate_hz=sample_rate_hz,
+                baseline_uA=baseline, frame_lengths=frame_lengths,
+            )
+            diagnostics.update(located["diagnostics"])
+            if not located["valid"]:
+                raise ValueError("; ".join(located["reasons"]) or "Frame windows could not be validated")
+            windows = located["windows"]
+            if len(windows) != len(frame_lengths) or any(
+                start < trigger_index or end > len(samples_uA) or end - start != length
+                for (start, end), length in zip(windows, frame_lengths)
+            ) or any(a[1] > b[0] for a, b in zip(windows, windows[1:])):
+                raise ValueError("Invalid or overlapping modeled frame windows")
+        except ValueError as exc:
+            return Metrics(
+                event_detected=False, baseline_median_uA=baseline, threshold_uA=threshold,
+                integration_method=method, analysis_error=str(exc),
+                analysis_diagnostics=diagnostics,
+            )
+        metrics = _integrate_windows(
+            samples_uA, windows, trigger_index=trigger_index,
+            sample_rate_hz=sample_rate_hz, voltage_mv=voltage_mv,
+            baseline=baseline, threshold=threshold, method=method,
+        )
+        metrics.analysis_diagnostics = diagnostics
+        return metrics
 
     search_start = max(baseline_end, trigger_index - int(0.002 * sample_rate_hz))
     search_end = len(samples_uA)
@@ -130,27 +227,13 @@ def analyze_capture(
             padded[-1] = (padded[-1][0], max(padded[-1][1], end))
         else:
             padded.append((start, end))
-    event_start = padded[0][0]
-    event = [
-        value
-        for start, end in padded
-        for value in samples_uA[start : end + 1]
-    ]
-    duration_s = len(event) / sample_rate_hz
-    charge_total_uC = sum(max(0.0, value) for value in event) / sample_rate_hz
-    charge_excess_uC = sum(max(0.0, value - baseline) for value in event) / sample_rate_hz
-    voltage_v = voltage_mv / 1000.0
-
-    return Metrics(
-        event_detected=True,
-        baseline_median_uA=baseline,
-        threshold_uA=threshold,
-        event_start_ms=(event_start - trigger_index) * 1000.0 / sample_rate_hz,
-        event_duration_ms=duration_s * 1000.0,
-        tx_mean_uA=statistics.fmean(event),
-        tx_peak_uA=max(event),
-        charge_total_uC=charge_total_uC,
-        charge_excess_uC=charge_excess_uC,
-        energy_total_uJ=charge_total_uC * voltage_v,
-        energy_excess_uJ=charge_excess_uC * voltage_v,
+    return _integrate_windows(
+        samples_uA, [(start, end + 1) for start, end in padded],
+        trigger_index=trigger_index, sample_rate_hz=sample_rate_hz,
+        voltage_mv=voltage_mv, baseline=baseline, threshold=threshold,
+        method=(
+            "aligned_modeled_airtime" if using_fixed_window and align_integration_window
+            else "fixed_modeled_airtime" if using_fixed_window
+            else "bounded_fallback" if using_bounded_window else "threshold_events"
+        ),
     )

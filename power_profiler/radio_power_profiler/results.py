@@ -8,6 +8,7 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
+from .models import Metrics
 from .ppk import Capture, SAMPLE_RATE_HZ
 
 
@@ -48,6 +49,9 @@ FIELDS = [
     "charge_excess_uC",
     "energy_total_uJ",
     "energy_excess_uJ",
+    "integration_method",
+    "integration_windows_ms",
+    "analysis_error",
     "radio_response",
     "transmitter_response",
     "receiver_port",
@@ -102,6 +106,21 @@ class ResultWriter:
     def save_raw(self, run_id: str, capture: Capture) -> Path:
         return save_raw_capture(self.raw_dir / f"{run_id}.csv.gz", capture)
 
+    def save_analysis(self, run_id: str, metrics: Metrics) -> Path:
+        path = self.output_dir / "analysis" / f"{run_id}.json"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(
+            json.dumps({
+                "run_id": run_id,
+                "integration_method": metrics.integration_method,
+                "integration_windows_ms": metrics.integration_windows_ms,
+                "analysis_error": metrics.analysis_error,
+                "raw_retained": (self.raw_dir / f"{run_id}.csv.gz").is_file(),
+                "diagnostics": metrics.analysis_diagnostics,
+            }, indent=2) + "\n", encoding="utf-8",
+        )
+        return path
+
     def write_aggregates(self) -> Path:
         path = self.output_dir / "aggregates.csv"
         grouped: dict[tuple[Any, ...], list[dict[str, Any]]] = defaultdict(list)
@@ -143,6 +162,8 @@ class ResultWriter:
             "ppk_mode",
             "runs",
             "events_detected",
+            "analysis_valid_runs",
+            "analysis_error_runs",
             "packets_attempted",
             "packets_received",
             "packets_lost",
@@ -155,6 +176,11 @@ class ResultWriter:
             writer = csv.DictWriter(stream, fieldnames=fields)
             writer.writeheader()
             for key, rows in grouped.items():
+                analysis_error_runs = sum(
+                    bool(row["analysis_error"])
+                    or row["status"] == "analysis_review_required"
+                    for row in rows
+                )
                 packets_attempted = sum(
                     row["packet_received"] not in (None, "") for row in rows
                 )
@@ -175,6 +201,13 @@ class ResultWriter:
                     "events_detected": sum(
                         str(row["event_detected"]).lower() == "true" for row in rows
                     ),
+                    "analysis_valid_runs": sum(
+                        not row["analysis_error"]
+                        and row["status"] != "analysis_review_required"
+                        and str(row["event_detected"]).lower() == "true"
+                        for row in rows
+                    ),
+                    "analysis_error_runs": analysis_error_runs,
                     "packets_attempted": packets_attempted,
                     "packets_received": packets_received,
                     "packets_lost": packets_lost,
@@ -185,6 +218,12 @@ class ResultWriter:
                     ),
                 }
                 for metric in metric_names:
+                    if analysis_error_runs and metric != "baseline_median_uA":
+                        # A mean of only the accepted subset could look like a
+                        # complete result. Keep incomplete metrology explicit.
+                        aggregate[f"{metric}_mean"] = ""
+                        aggregate[f"{metric}_stdev"] = ""
+                        continue
                     values = [
                         float(row[metric])
                         for row in rows

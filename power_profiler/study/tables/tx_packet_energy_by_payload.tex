@@ -1,7 +1,7 @@
 \captionsetup{justification=raggedright,singlelinecheck=false}
 \begin{table}[p]
 \centering
-\caption{Measured TX energy per logical packet at each module's fastest tested mode and highest tested configured power. Payload columns are bytes; a dash means that payload size was not measured.}
+\caption{Measured TX integration-window energy at each module's fastest tested mode and highest tested configured power. Payload columns are bytes; a dash means that payload size was not measured. A star marks historical E79 CH9340C fragmented-TX windows: full-transfer energy is pending new measurements.}
 \label{tab:packet-tx-matrix}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}llllllllllll@{}}
@@ -21,8 +21,8 @@ Ebyte E32-433T20D (SX1278) & 19.2 kbps & 20 & 7.91 & \textemdash & 17.69 & 28.47
 Ebyte E32-433T33D (SX1278 + PA) & 19.2 kbps & 30 & 78.92 & \textemdash & 160.35 & 241.27 & \textemdash & \textemdash & 515.97 & 1902.12 & 3820.31 \\
 Ebyte E32-868T20D (SX1276) & 19.2 kbps & 20 & 7.91 & \textemdash & 17.66 & 28.36 & \textemdash & \textemdash & 66.05 & 248.88 & 498.09 \\
 Ebyte E32-868T30D (SX1276 + PA) & 19.2 kbps & 30 & 41.75 & \textemdash & 91.65 & 146.89 & \textemdash & \textemdash & 343.36 & 1298.43 & 2590.62 \\
-Ebyte E79-400DM2005S via ESP32 (CC1352P) & GFSK200 & 13 & 0.08 & \textemdash & 0.11 & \textemdash & \textemdash & 0.15 & 0.25 & 0.86 & 1.66 \\
-Ebyte E79-400DM2005S via CH9340C (CC1352P) & GFSK200 & 13 & 0.08 & \textemdash & 0.11 & \textemdash & \textemdash & 0.16 & 0.26 & 0.89 & 1.72 \\
+Ebyte E79-400DM2005S via ESP32 (CC1352P) & GFSK200 & 13 & 0.08 & \textemdash & 0.11 & \textemdash & \textemdash & 0.15 & 0.30 & 1.20 & 2.41 \\
+Ebyte E79-400DM2005S via CH9340C (CC1352P) & GFSK200 & 13 & 0.08 & \textemdash & 0.11 & \textemdash & \textemdash & 0.16 & 0.26\textsuperscript{*} & 0.89\textsuperscript{*} & 1.72\textsuperscript{*} \\
 HC-12 (Si4463) & 250 kbps & 20 & 3.56 & \textemdash & 5.41 & \textemdash & 9.19 & \textemdash & \textemdash & \textemdash & \textemdash \\
 NRF24L01 (nRF24L01+) & 2000 kbps & 0 & 0.01 & 0.01 & 0.02 & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash \\
 NRF24L01 PA/LNA (nRF24L01+) & 2000 kbps & 0 & 0.05 & 0.07 & 0.09 & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash \\

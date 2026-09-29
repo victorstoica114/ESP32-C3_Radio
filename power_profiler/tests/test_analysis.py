@@ -1,10 +1,103 @@
 import unittest
+from unittest.mock import patch
 
-from radio_power_profiler.analysis import analyze_capture
+from radio_power_profiler.analysis import _frame_sample_lengths, analyze_capture
 from radio_power_profiler.models import CaptureSpec
 
 
 class AnalysisTests(unittest.TestCase):
+    def test_ieee154_integer_frame_lengths_do_not_lose_a_sample_to_float_sum(self):
+        for frames in (8, 16):
+            with self.subTest(frames=frames):
+                self.assertEqual(_frame_sample_lengths((0.01548,) * frames, 100_000),
+                                 (1548,) * frames)
+
+    def test_fragmented_tx_finds_late_frame_and_excludes_idle_gap(self):
+        samples = [1_000.0] * 15_000
+        samples[2_200:2_400] = [6_000.0] * 200
+        samples[12_000:12_200] = [6_000.0] * 200
+        metrics = analyze_capture(
+            samples, trigger_index=2_000, sample_rate_hz=10_000,
+            voltage_mv=3_300, capture_spec=CaptureSpec(),
+            expected_event_count=2, search_window_s=0.1,
+            integration_window_s=0.04, align_integration_window=True,
+            frame_airtimes_s=(0.02, 0.02),
+        )
+        self.assertTrue(metrics.event_detected, metrics.analysis_error)
+        self.assertEqual(metrics.integration_windows_ms, ((20.0, 40.0), (1000.0, 1020.0)))
+        self.assertAlmostEqual(metrics.event_duration_ms, 40.0)
+        self.assertAlmostEqual(metrics.energy_total_uJ, 792.0)
+        self.assertEqual(metrics.integration_method, "per_frame_modeled_airtime_v1")
+
+    def test_fragmented_tx_rejects_extra_or_missing_frames_without_energy(self):
+        for detected in (1, 3):
+            with self.subTest(detected=detected):
+                samples = [1_000.0] * 10_000
+                for start in (2_200, 4_200, 6_200)[:detected]:
+                    samples[start:start + 200] = [6_000.0] * 200
+                metrics = analyze_capture(
+                    samples, trigger_index=2_000, sample_rate_hz=10_000,
+                    voltage_mv=3_300, capture_spec=CaptureSpec(),
+                    expected_event_count=2, frame_airtimes_s=(0.02, 0.02),
+                )
+                self.assertFalse(metrics.event_detected)
+                self.assertIn("detected_frame_count_mismatch", metrics.analysis_error)
+                self.assertIsNone(metrics.energy_total_uJ)
+                self.assertIsNone(metrics.energy_excess_uJ)
+                self.assertIsNone(metrics.event_duration_ms)
+                self.assertEqual(metrics.integration_windows_ms, ())
+
+    def test_fragmented_tx_integrates_a_shorter_final_frame(self):
+        samples = [1_000.0] * 10_000
+        samples[2_200:2_400] = [6_000.0] * 200
+        samples[6_000:6_080] = [9_000.0] * 80
+        metrics = analyze_capture(
+            samples, trigger_index=2_000, sample_rate_hz=10_000,
+            voltage_mv=3_300, capture_spec=CaptureSpec(),
+            expected_event_count=2, frame_airtimes_s=(0.02, 0.008),
+        )
+        self.assertTrue(metrics.event_detected, metrics.analysis_error)
+        self.assertEqual(metrics.integration_windows_ms, ((20.0, 40.0), (400.0, 408.0)))
+        self.assertAlmostEqual(metrics.event_duration_ms, 28.0)
+        self.assertAlmostEqual(metrics.energy_total_uJ, (200 * 6000 + 80 * 9000) / 10000 * 3.3)
+
+    def test_per_frame_quantization_preserves_total_for_unequal_durations(self):
+        airtimes = (0.01516, 0.01068)
+        lengths = _frame_sample_lengths(airtimes, 10_000)
+        self.assertEqual(lengths, (151, 107))
+        self.assertEqual(sum(lengths), int(sum(airtimes) * 10_000))
+        equal_frames = (0.1296666666667,) * 16
+        self.assertEqual(sum(_frame_sample_lengths(equal_frames, 100_000)), int(sum(equal_frames) * 100_000))
+        with self.assertRaises(ValueError):
+            _frame_sample_lengths((0.000001, 0.01), 1_000)
+
+    def test_fragmented_tx_rejects_clipped_or_overlapping_windows(self):
+        for windows in ([(2200, 2400), (9900, 10100)], [(2200, 2400), (2300, 2500)]):
+            with self.subTest(windows=windows), patch(
+                "radio_power_profiler.analysis.locate_frame_windows",
+                return_value={"valid": True, "windows": windows, "reasons": [], "diagnostics": {}},
+            ):
+                metrics = analyze_capture(
+                    [1_000.0] * 10_000, trigger_index=2_000,
+                    sample_rate_hz=10_000, voltage_mv=3_300,
+                    capture_spec=CaptureSpec(), expected_event_count=2,
+                    frame_airtimes_s=(0.02, 0.02),
+                )
+                self.assertFalse(metrics.event_detected)
+                self.assertIn("Invalid or overlapping", metrics.analysis_error)
+                self.assertIsNone(metrics.energy_total_uJ)
+
+    def test_short_fragmented_capture_returns_analysis_error(self):
+        metrics = analyze_capture(
+            [1000.0] * 50, trigger_index=5, sample_rate_hz=100_000,
+            voltage_mv=3300, capture_spec=CaptureSpec(), expected_event_count=2,
+            frame_airtimes_s=(0.02, 0.02),
+        )
+        self.assertFalse(metrics.event_detected)
+        self.assertTrue(metrics.analysis_error)
+        self.assertIsNone(metrics.energy_total_uJ)
+        self.assertIsNone(metrics.baseline_median_uA)
+
     def test_uses_bounded_fallback_window_for_quiet_rx(self):
         samples = [20_000.0] * 2_000
         metrics = analyze_capture(

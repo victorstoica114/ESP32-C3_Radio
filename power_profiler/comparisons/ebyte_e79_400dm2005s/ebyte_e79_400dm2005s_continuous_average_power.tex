@@ -1,5 +1,6 @@
 \documentclass[tikz,border=6pt]{standalone}
 \usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage[utf8]{inputenc}
 \usepackage{pgfplots}
 \usepgfplotslibrary{groupplots}
@@ -22,7 +23,7 @@
 \addlegendentry{TX}
 \addplot+[red!75!black, dashed, mark=square*] coordinates {(-20,22.767812) (0,22.744323) (13,22.7528962)};
 \addlegendentry{RX}
-\nextgroupplot[title={Putere peste standby}, ylabel={Puterea medie suplimentară [mW]}]
+\nextgroupplot[title={Putere peste baseline pretrigger}, ylabel={Puterea medie suplimentară [mW]}]
 \addplot+[blue!75!black, mark=*] coordinates {(-20,12.0703338) (0,8.19122086) (13,14.2580557)};
 \addlegendentry{TX}
 \addplot+[red!75!black, dashed, mark=square*] coordinates {(-20,0) (0,0) (13,0)};

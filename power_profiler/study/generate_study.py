@@ -46,7 +46,7 @@ PDF_FONT_COMMANDS = ("mgs", "gswin64c", "gswin32c", "gs")
 
 
 def embed_figure_fonts(figures_dir: Path) -> int:
-    """Rewrite generated PDFs with embedded font subsets."""
+    """Embed PDF fonts and render matching PNGs with the same typography."""
     executable = next(
         (path for command in PDF_FONT_COMMANDS if (path := shutil.which(command))),
         None,
@@ -78,6 +78,14 @@ def embed_figure_fonts(figures_dir: Path) -> int:
             if not temporary.is_file() or temporary.stat().st_size == 0:
                 raise RuntimeError(f"Ghostscript produced no output for {source.name}")
             temporary.replace(source)
+            # The fallback bitmap alphabet has different text widths. Render
+            # the finalized PDF so PNG labels and line breaks match the paper.
+            subprocess.run([
+                executable, "-q", "-dSAFER", "-dBATCH", "-dNOPAUSE",
+                "-sDEVICE=png16m", "-r150", "-dTextAlphaBits=4",
+                "-dGraphicsAlphaBits=4", f"-sOutputFile={source.with_suffix('.png')}",
+                str(source),
+            ], check=True)
         except Exception:
             temporary.unlink(missing_ok=True)
             raise
@@ -789,10 +797,20 @@ def write_tables(
             payload_header = r" & & power & " + " & ".join(str(size) for size in payload_sizes) + r" \\"
             units = r" & & [dBm] & " + " & ".join("[mJ]" for _ in payload_sizes) + r" \\ \midrule"
         caption_text = (
-            f"Measured {direction_name} energy per logical packet at each module's fastest tested "
+            f"Measured {direction_name} integration-window energy at each module's fastest tested "
             "mode and highest tested configured power. Payload columns are bytes; a dash means "
             "that payload size was not measured."
         )
+        if direction == "rx":
+            caption_text += (
+                " RX uses the campaign's receive-window policy; modeled airtime windows "
+                "exclude receiver wake-up and shutdown."
+            )
+        else:
+            caption_text += (
+                " A star marks historical E79 CH9340C fragmented-TX windows: full-transfer "
+                "energy is pending new measurements."
+            )
         if include_radio_ic:
             matrix_lines = [
                 r"\begingroup",
@@ -830,7 +848,15 @@ def write_tables(
             values = []
             for payload_bytes in payload_sizes:
                 point = matrix.get((str(module["slug"]), direction, payload_bytes))
-                values.append(f"{float(point['energy_mJ']):.2f}" if point else r"\textemdash")
+                value = f"{float(point['energy_mJ']):.2f}" if point else r"\textemdash"
+                if (
+                    point
+                    and direction == "tx"
+                    and module["slug"] == "ebyte_e79_ch9340"
+                    and payload_bytes > 64
+                ):
+                    value += r"\textsuperscript{*}"
+                values.append(value)
             if include_radio_ic:
                 module_name = str(module["code"]).rsplit(" (", 1)[0]
                 module_cell = latex_escape(module_name)
@@ -1323,7 +1349,7 @@ def payload_energy_figure(
             )
             canvas.centered_text(
                 bottom + plot_height + 5,
-                f"{direction_name} packet energy [mJ]",
+                f"{direction_name} window energy [mJ]",
                 size=AXIS_FONT_SIZE,
                 bold=True,
                 left=left,
@@ -1342,6 +1368,11 @@ def payload_energy_figure(
                 lx = left + legend_column * 455
                 ly = bottom + plot_height + 128 - legend_row * 30
                 plot_code = compact_plot_label(code)
+                if direction == "tx" and any(
+                    row["code"] == code and row["slug"] == "ebyte_e79_ch9340"
+                    for row in panel_rows
+                ):
+                    plot_code += " *"
                 canvas.line(lx, ly + 4, lx + 20, ly + 4, color=color, width=1.6)
                 canvas.marker(lx + 10, ly + 4, color=color, kind=marker, radius=4.0)
                 canvas.text(
@@ -1399,6 +1430,14 @@ def payload_energy_figure(
         else:
             output_path = path.with_name(
                 f"{path.stem}_continued_{sheet_index}{path.suffix}"
+            )
+        if direction == "tx" and any(
+            "ebyte_e79_ch9340" in slugs for _, slugs in sheet_groups
+        ):
+            gray_note(
+                canvas,
+                "* CH9340C TX above 64 B: historical window only; full-transfer energy awaits new measurements.",
+                14,
             )
         canvas.save(output_path)
 
@@ -1534,7 +1573,7 @@ def stacked_packet_series_figure(
             bold=True,
         )
 
-    panels = (("tx", "TX packet energy", "A"), ("rx", "RX packet energy", "B"))
+    panels = (("tx", "TX event energy", "A"), ("rx", "RX window energy", "B"))
     boxes = ((110.0, 405.0, 880.0, 190.0), (110.0, 95.0, 880.0, 190.0))
     x_min = min(x_ticks)
     x_max = max(x_ticks)
@@ -1656,8 +1695,8 @@ def cc1101_continuous_figure(path: Path, rows: Sequence[dict[str, object]]) -> N
     panels = (
         ("Total TX power", "tx", "total_power_mW", "Mean power [mW]"),
         ("Total RX power", "rx", "total_power_mW", "Mean power [mW]"),
-        ("TX power above standby", "tx", "excess_power_mW", "Excess power [mW]"),
-        ("RX power above standby", "rx", "excess_power_mW", "Excess power [mW]"),
+        ("TX above pre-trigger baseline", "tx", "excess_power_mW", "Excess power [mW]"),
+        ("RX above pre-trigger baseline", "rx", "excess_power_mW", "Excess power [mW]"),
     )
     origins = ((75.0, 410.0), (620.0, 410.0), (75.0, 65.0), (620.0, 65.0))
     for index, ((panel_title, direction, y_key, y_label), (left, bottom)) in enumerate(zip(panels, origins)):
@@ -1769,7 +1808,7 @@ def continuous_power_pair_figure(
     title(canvas, heading, subtitle)
     panels = (
         ("mean_power_mW", "Total average power", "A"),
-        ("mean_excess_power_mW", "Mean power above standby", "B"),
+        ("mean_excess_power_mW", "Power above pre-trigger baseline", "B"),
     )
     boxes = ((82.0, 145.0, 420.0, 315.0), (578.0, 145.0, 420.0, 315.0))
     powers = sorted({float(row["power_dbm"]) for row in normalized})
@@ -2013,8 +2052,8 @@ def continuous_power_family_figure(
         continued_path,
         f"{heading} (continued)",
         (
-            ("tx", "mean_excess_power_mW", "TX mean power above standby", "C"),
-            ("rx", "mean_excess_power_mW", "RX mean power above standby", "D"),
+            ("tx", "mean_excess_power_mW", "TX power above pre-trigger baseline", "C"),
+            ("rx", "mean_excess_power_mW", "RX power above pre-trigger baseline", "D"),
         ),
     )
     return normalized
@@ -2380,6 +2419,10 @@ def write_findings(
     for key, old_row in interface_matrix.items():
         setup, direction, payload, profile, power = key
         if setup != "ESP32 bridge":
+            continue
+        # CH9340C fragmented TX still has historical partial-window energies;
+        # a ratio against corrected ESP32 all-frame windows is not comparable.
+        if direction == "tx" and payload > 64:
             continue
         new_row = interface_matrix.get(
             ("CH9340C", direction, payload, profile, power)

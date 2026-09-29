@@ -1,0 +1,74 @@
+{
+  "started_utc": "2026-09-29T12:35:32.581173+00:00",
+  "updated_utc": "2026-09-29T12:41:49.443488+00:00",
+  "complete": true,
+  "workers": 4,
+  "total_raw_files": 6278,
+  "total_compressed_bytes": 33235292883,
+  "completed_files": 6278,
+  "completed_compressed_bytes": 33235292883,
+  "decompressed_bytes_checked": 188188276772,
+  "data_rows_counted": 4769930208,
+  "elapsed_s": 352.73,
+  "counts": {
+    "valid": 6277,
+    "gzip_valid_True": 6277,
+    "header_valid_True": 6278,
+    "sample_count_matches_summary_True": 6277,
+    "boundary_indices_valid_True": 6278,
+    "invalid": 1,
+    "gzip_valid_False": 1,
+    "sample_count_matches_summary_False": 1
+  },
+  "issues": [
+    {
+      "path": "web_sessions/20260719_155301_campaign_radio_ra01h_sx1276/packet_tx/20260719_155333_radio_ra01h_sx1276/raw/run_00004.csv.gz",
+      "compressed_bytes": 275078,
+      "gzip_valid": false,
+      "header_valid": true,
+      "summary": {
+        "path": "web_sessions/20260719_155301_campaign_radio_ra01h_sx1276/packet_tx/20260719_155333_radio_ra01h_sx1276/summary.csv",
+        "run_id": "run_00004",
+        "captured_samples": 70144,
+        "status": "ok",
+        "profile_id": "RADIO_RA01H_SX1276",
+        "measurement_direction": "tx",
+        "parameters_json": "{\"bandwidth_khz\": 125, \"spreading_factor\": 7, \"tx_power_dbm\": 2}",
+        "payload_bytes": "32",
+        "frame_bytes": null,
+        "repetition": "4"
+      },
+      "errors": [
+        "gzip: EOFError: Compressed file ended before the end-of-stream marker was reached",
+        "trailing partial CSV record",
+        "data row count differs from summary captured_samples"
+      ],
+      "warnings": [],
+      "sha256_compressed": "7a428cdabc3d413295c8ddc8092677aea3bf376ac35fa6500caa7a515cb15b6a",
+      "compressed_bytes_hashed": 275078,
+      "decompressed_bytes": 1798577,
+      "newline_count": 49713,
+      "ends_with_newline": false,
+      "data_rows": 49712,
+      "trailing_partial_record": "49",
+      "header": [
+        "sample_index",
+        "time_ms",
+        "current_uA",
+        "logic_bits",
+        "trigger"
+      ],
+      "first_sample_index": 0,
+      "last_sample_index": 49711,
+      "boundary_indices_valid": true,
+      "sample_count_matches_summary": false,
+      "source_unchanged": true,
+      "valid": false,
+      "elapsed_s": 0.015
+    }
+  ],
+  "summary_read_errors": [],
+  "scope": "All gzip bytes CRC/trailer-validated; compressed SHA256; exact header; newline sample count; first/last sample index. Interior CSV values are not parsed.",
+  "exception_details_refreshed": 1,
+  "exception_detail_note": "Invalid gzip files re-read with read1 to retain recoverable prefixes and count only complete CSV records."
+}

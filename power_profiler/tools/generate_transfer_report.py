@@ -117,6 +117,10 @@ def _tx_power_dbm(params: dict[str, Any]) -> float:
 def build_report(result_dir: Path) -> tuple[list[dict[str, Any]], list[dict[str, str]], dict[str, Any]]:
     metadata = json.loads((result_dir / "metadata.json").read_text(encoding="utf-8"))
     summary = _read_csv(result_dir / "summary.csv")
+    invalid = [row["run_id"] for row in summary
+               if row.get("analysis_error") or row.get("status") == "analysis_review_required"]
+    if invalid:
+        raise ValueError(f"Analysis review required before exporting {result_dir}: {invalid}")
     aggregates = _read_csv(result_dir / "aggregates.csv")
     summary_groups: dict[tuple[int, int, int, str], list[dict[str, str]]] = defaultdict(list)
     for row in summary:
@@ -246,18 +250,22 @@ def write_xlsx(
 
     matrix_sheet = workbook.create_sheet("energy_matrix_mJ")
     payloads = sorted({int(row["payload_bytes"]) for row in report})
-    matrix_fields = ["tx_power_dbm", "bit_rate_kbps"] + [f"{size}_B" for size in payloads]
+    # PHYs with the same nominal rate (GFSK/OOK, GFSK/IEEE154) are distinct
+    # measurements. A rate-only key silently overwrote one in the matrix.
+    matrix_keys = ["tx_power_dbm", "bit_rate_kbps"]
+    if any(row.get("rf_profile") for row in report):
+        matrix_keys.append("rf_profile")
+    matrix_fields = matrix_keys + [f"{size}_B" for size in payloads]
     matrix_rows = []
-    for power, rate in sorted({(row["tx_power_dbm"], row["bit_rate_kbps"]) for row in report}):
+    for setting in sorted({tuple(row.get(key, "") for key in matrix_keys) for row in report}):
         values = {
             int(row["payload_bytes"]): row["energy_total_mJ_mean"]
             for row in report
-            if row["tx_power_dbm"] == power and row["bit_rate_kbps"] == rate
+            if tuple(row.get(key, "") for key in matrix_keys) == setting
         }
         matrix_rows.append(
             {
-                "tx_power_dbm": power,
-                "bit_rate_kbps": rate,
+                **dict(zip(matrix_keys, setting)),
                 **{f"{size}_B": values.get(size, "") for size in payloads},
             }
         )

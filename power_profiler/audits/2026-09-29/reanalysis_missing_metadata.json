@@ -1,0 +1,294 @@
+[
+  {
+    "slug": "cc1101_v1_433",
+    "direction": "tx",
+    "source": "module radio\\ESP32-C3_Radio\\power_profiler\\results\\20260717_154721_radio_cc1101_v1_433",
+    "rows": 270,
+    "align_tx_airtime_window": null,
+    "frame_payload_bytes": 32,
+    "transmit_mode": "burst_command",
+    "wait_for_ok": null,
+    "receive": {
+      "inter_frame_gap_ms": 15.0,
+      "post_receive_s": 0.05
+    },
+    "save_raw": false,
+    "fixed_duration_exact_airtime_rows": 0,
+    "fragment_rows": 180,
+    "fragment_sizes": [
+      64,
+      128,
+      512,
+      1024
+    ]
+  },
+  {
+    "slug": "cc1101_v1_433",
+    "direction": "rx",
+    "source": "module radio\\ESP32-C3_Radio\\power_profiler\\results\\20260717_160417_radio_cc1101_v1_433_rx",
+    "rows": 90,
+    "align_tx_airtime_window": null,
+    "frame_payload_bytes": 32,
+    "transmit_mode": "burst_command",
+    "wait_for_ok": null,
+    "receive": {
+      "inter_frame_gap_ms": 15.0,
+      "post_receive_s": 0.05
+    },
+    "save_raw": false,
+    "fixed_duration_exact_airtime_rows": 0,
+    "fragment_rows": 60,
+    "fragment_sizes": [
+      64,
+      128,
+      512,
+      1024
+    ]
+  },
+  {
+    "slug": "cc1101_v2_868",
+    "direction": "tx",
+    "source": "module radio\\ESP32-C3_Radio\\power_profiler\\results\\20260717_124046_radio_cc1101_v2_868",
+    "rows": 270,
+    "align_tx_airtime_window": null,
+    "frame_payload_bytes": 32,
+    "transmit_mode": "burst_command",
+    "wait_for_ok": null,
+    "receive": {
+      "inter_frame_gap_ms": 15.0,
+      "post_receive_s": 0.05
+    },
+    "save_raw": false,
+    "fixed_duration_exact_airtime_rows": 0,
+    "fragment_rows": 180,
+    "fragment_sizes": [
+      64,
+      128,
+      512,
+      1024
+    ]
+  },
+  {
+    "slug": "cc1101_v2_868",
+    "direction": "rx",
+    "source": "module radio\\ESP32-C3_Radio\\power_profiler\\results\\20260717_125628_radio_cc1101_v2_868_rx",
+    "rows": 90,
+    "align_tx_airtime_window": null,
+    "frame_payload_bytes": 32,
+    "transmit_mode": "burst_command",
+    "wait_for_ok": null,
+    "receive": {
+      "inter_frame_gap_ms": 15.0,
+      "post_receive_s": 0.05
+    },
+    "save_raw": false,
+    "fixed_duration_exact_airtime_rows": 0,
+    "fragment_rows": 60,
+    "fragment_sizes": [
+      64,
+      128,
+      512,
+      1024
+    ]
+  },
+  {
+    "slug": "ebyte_e07_400m10s",
+    "direction": "tx",
+    "source": "module radio\\ESP32-C3_Radio\\power_profiler\\results\\20260724_234518_radio_ebyte_e07_400m10s",
+    "rows": 135,
+    "align_tx_airtime_window": false,
+    "frame_payload_bytes": 32,
+    "transmit_mode": "burst_command",
+    "wait_for_ok": false,
+    "receive": {
+      "inter_frame_gap_ms": 15.0,
+      "post_receive_s": 0.05
+    },
+    "save_raw": false,
+    "fixed_duration_exact_airtime_rows": 0,
+    "fragment_rows": 45,
+    "fragment_sizes": [
+      64
+    ]
+  },
+  {
+    "slug": "ebyte_e07_400m10s",
+    "direction": "rx",
+    "source": "module radio\\ESP32-C3_Radio\\power_profiler\\results\\20260724_234941_radio_ebyte_e07_400m10s_rx",
+    "rows": 135,
+    "align_tx_airtime_window": false,
+    "frame_payload_bytes": 32,
+    "transmit_mode": "burst_command",
+    "wait_for_ok": false,
+    "receive": {
+      "inter_frame_gap_ms": 15.0,
+      "post_receive_s": 0.05
+    },
+    "save_raw": false,
+    "fixed_duration_exact_airtime_rows": 135,
+    "fragment_rows": 45,
+    "fragment_sizes": [
+      64
+    ]
+  },
+  {
+    "slug": "ebyte_e07_433m20s",
+    "direction": "tx",
+    "source": "module radio\\ESP32-C3_Radio\\power_profiler\\results\\20260725_001453_radio_ebyte_e07_433m20s",
+    "rows": 135,
+    "align_tx_airtime_window": false,
+    "frame_payload_bytes": 32,
+    "transmit_mode": "burst_command",
+    "wait_for_ok": false,
+    "receive": {
+      "inter_frame_gap_ms": 15.0,
+      "post_receive_s": 0.05
+    },
+    "save_raw": false,
+    "fixed_duration_exact_airtime_rows": 0,
+    "fragment_rows": 45,
+    "fragment_sizes": [
+      64
+    ]
+  },
+  {
+    "slug": "ebyte_e07_433m20s",
+    "direction": "rx",
+    "source": "module radio\\ESP32-C3_Radio\\power_profiler\\results\\20260725_002027_radio_ebyte_e07_433m20s_rx",
+    "rows": 135,
+    "align_tx_airtime_window": false,
+    "frame_payload_bytes": 32,
+    "transmit_mode": "burst_command",
+    "wait_for_ok": false,
+    "receive": {
+      "inter_frame_gap_ms": 15.0,
+      "post_receive_s": 0.05
+    },
+    "save_raw": false,
+    "fixed_duration_exact_airtime_rows": 135,
+    "fragment_rows": 45,
+    "fragment_sizes": [
+      64
+    ]
+  },
+  {
+    "slug": "ebyte_e07_900mm10s",
+    "direction": "tx",
+    "source": "module radio\\ESP32-C3_Radio\\power_profiler\\results\\20260725_105024_radio_ebyte_e07_900mm10s",
+    "rows": 135,
+    "align_tx_airtime_window": false,
+    "frame_payload_bytes": 32,
+    "transmit_mode": "burst_command",
+    "wait_for_ok": false,
+    "receive": {
+      "inter_frame_gap_ms": 15.0,
+      "post_receive_s": 0.05
+    },
+    "save_raw": false,
+    "fixed_duration_exact_airtime_rows": 0,
+    "fragment_rows": 45,
+    "fragment_sizes": [
+      64
+    ]
+  },
+  {
+    "slug": "ebyte_e07_900mm10s",
+    "direction": "rx",
+    "source": "module radio\\ESP32-C3_Radio\\power_profiler\\results\\20260725_105431_radio_ebyte_e07_900mm10s_rx",
+    "rows": 135,
+    "align_tx_airtime_window": false,
+    "frame_payload_bytes": 32,
+    "transmit_mode": "burst_command",
+    "wait_for_ok": false,
+    "receive": {
+      "inter_frame_gap_ms": 15.0,
+      "post_receive_s": 0.05
+    },
+    "save_raw": false,
+    "fixed_duration_exact_airtime_rows": 135,
+    "fragment_rows": 45,
+    "fragment_sizes": [
+      64
+    ]
+  },
+  {
+    "slug": "ebyte_e79_ch9340",
+    "direction": "tx",
+    "source": "module radio\\ESP32-C3_Radio\\power_profiler\\results\\20260724_214430_radio_ebyte_e79_cc1352p",
+    "rows": 630,
+    "align_tx_airtime_window": true,
+    "frame_payload_bytes": 64,
+    "transmit_mode": "text_command",
+    "wait_for_ok": true,
+    "receive": {
+      "inter_frame_gap_ms": 0.0,
+      "post_receive_s": 0.08
+    },
+    "save_raw": false,
+    "fixed_duration_exact_airtime_rows": 630,
+    "fragment_rows": 315,
+    "fragment_sizes": [
+      128,
+      512,
+      1024
+    ]
+  },
+  {
+    "slug": "ebyte_e79_ch9340",
+    "direction": "rx",
+    "source": "module radio\\ESP32-C3_Radio\\power_profiler\\results\\20260724_221207_radio_ebyte_e79_cc1352p_rx",
+    "rows": 630,
+    "align_tx_airtime_window": true,
+    "frame_payload_bytes": 64,
+    "transmit_mode": "text_command",
+    "wait_for_ok": true,
+    "receive": {
+      "inter_frame_gap_ms": 0.0,
+      "post_receive_s": 0.08
+    },
+    "save_raw": false,
+    "fixed_duration_exact_airtime_rows": 630,
+    "fragment_rows": 315,
+    "fragment_sizes": [
+      128,
+      512,
+      1024
+    ]
+  },
+  {
+    "slug": "ra09_stm32wle5",
+    "direction": "tx",
+    "source": "module radio\\ESP32-C3_Radio\\power_profiler\\results\\20260725_023012_ra09_stm32wle5",
+    "rows": 135,
+    "align_tx_airtime_window": false,
+    "frame_payload_bytes": null,
+    "transmit_mode": "hex_command",
+    "wait_for_ok": false,
+    "receive": {
+      "inter_frame_gap_ms": 0.0,
+      "post_receive_s": 0.05
+    },
+    "save_raw": false,
+    "fixed_duration_exact_airtime_rows": 0,
+    "fragment_rows": 0,
+    "fragment_sizes": []
+  },
+  {
+    "slug": "ra09_stm32wle5",
+    "direction": "rx",
+    "source": "module radio\\ESP32-C3_Radio\\power_profiler\\results\\20260725_023839_ra09_stm32wle5_rx",
+    "rows": 135,
+    "align_tx_airtime_window": false,
+    "frame_payload_bytes": null,
+    "transmit_mode": "hex_command",
+    "wait_for_ok": false,
+    "receive": {
+      "inter_frame_gap_ms": 0.0,
+      "post_receive_s": 0.05
+    },
+    "save_raw": false,
+    "fixed_duration_exact_airtime_rows": 135,
+    "fragment_rows": 0,
+    "fragment_sizes": []
+  }
+]

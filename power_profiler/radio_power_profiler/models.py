@@ -148,8 +148,8 @@ class TestCase:
 @dataclass
 class Metrics:
     event_detected: bool
-    baseline_median_uA: float
-    threshold_uA: float
+    baseline_median_uA: float | None
+    threshold_uA: float | None
     event_start_ms: float | None = None
     event_duration_ms: float | None = None
     tx_mean_uA: float | None = None
@@ -158,3 +158,7 @@ class Metrics:
     charge_excess_uC: float | None = None
     energy_total_uJ: float | None = None
     energy_excess_uJ: float | None = None
+    integration_method: str = ""
+    integration_windows_ms: tuple[tuple[float, float], ...] = ()
+    analysis_error: str = ""
+    analysis_diagnostics: dict[str, Any] = field(default_factory=dict)

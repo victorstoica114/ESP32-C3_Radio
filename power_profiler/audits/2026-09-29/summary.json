@@ -1,0 +1,39 @@
+{
+  "study_module_variants": 28,
+  "published_packet_captures": 8220,
+  "raw_archive_files_checked": 6278,
+  "gzip_and_sample_structure_valid": 6277,
+  "invalid_raw_paths": [
+    "web_sessions/20260719_155301_campaign_radio_ra01h_sx1276/packet_tx/20260719_155333_radio_ra01h_sx1276/raw/run_00004.csv.gz"
+  ],
+  "accepted_raw_files_present_and_valid": 5424,
+  "accepted_raw_files_missing": 0,
+  "accepted_raw_files_invalid": 0,
+  "missing_published_packet_raw": 3060,
+  "missing_historical_continuous_raw": 27,
+  "unique_missing_continuous_conditions": 24,
+  "note": "The user selected new E79 CH9340C TX measurements to recover the all-frame window metric. Existing ESP32 RAW supports complete software reanalysis. Retain the other source observations under their declared protocol; do not transfer correction factors across host contexts.",
+  "current_plan": "NECESAR_REVIZUIT.md",
+  "missing_packet_raw_observations_retained_without_specific_recalculation_requirement": 2745,
+  "e79_ch9340_fragmented_tx_window_only_observations": 315,
+  "retired_conservative_plan_captures": 765,
+  "retired_optional_rx_metric_change_captures": 720,
+  "e79_esp32_tx_raw_for_software_reanalysis": 630,
+  "completed_e79_tx_reanalysis": {
+    "processed_runs": 630,
+    "accepted_runs": 630,
+    "single_frame_original_windows_verified": 315,
+    "fragmented_runs_recalculated": 315,
+    "accepted_conditions_with_all_five_repetitions": 126,
+    "accepted_fragmented_conditions": 63,
+    "review_required_runs": 0,
+    "review_required_fragmented_runs": 0,
+    "current_artifacts": "e79-tx-corrected",
+    "initial_screening": "e79-tx-reanalysis"
+  },
+  "current_planned_hardware_scope": "E79 CH9340C fragmented TX only; no hardware acquisition performed by the agent",
+  "current_planned_hardware_configurations": 63,
+  "current_planned_hardware_captures": 315,
+  "software_test_count_passed": 140,
+  "publication_manifest": "../../../power_profiler/comparisons/ebyte_e79_400dm2005s/ebyte_e79_400dm2005s_reanalysis_manifest.json"
+}

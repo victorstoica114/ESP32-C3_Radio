@@ -557,10 +557,13 @@ def validate_result(step: CommandStep, result_dir: Path) -> dict[str, Any]:
         errors.append(f"Found {len(rows)} rows; expected {step.expected_rows}")
     statuses = [row.get("status", "") for row in rows]
     if step.result_kind == "packet":
-        hard_statuses = {"no_event_detected", "radio_error"}
+        hard_statuses = {"no_event_detected", "radio_error", "analysis_review_required"}
         invalid = [status for status in statuses if status in hard_statuses]
         if invalid:
             errors.append("Invalid hardware status: " + ", ".join(invalid))
+        analysis_errors = [row["analysis_error"] for row in rows if row.get("analysis_error")]
+        if analysis_errors:
+            errors.append("Invalid capture analysis: " + "; ".join(analysis_errors))
         missing = sum(status == "rx_missing" for status in statuses)
         if missing:
             warnings.append(f"{missing} transfers have missing packets or fragments")

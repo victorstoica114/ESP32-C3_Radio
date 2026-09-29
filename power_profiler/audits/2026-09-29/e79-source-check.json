@@ -1,0 +1,3011 @@
+{
+  "scope": "Published E79 ESP32 TX only; source/metadata/export analysis. No RAW reread or new CRC audit.",
+  "session": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p",
+  "published_csv": "power_profiler/comparisons/ebyte_e79_400dm2005s/ebyte_e79_400dm2005s_tx.csv",
+  "published_csv_sha256": "7ce2fd6afbce96e488cb6ae1479f013a51c51b6b39dc9247f5e9f918010f8a57",
+  "baseline_copy": ".tmp/recapture-audit-20260929/e79-original-esp32-tx-aggregates.csv",
+  "warning_other_interface": "comparisons/ebyte_e79_400dm2005s_20260724/e79_tx.csv is CH9340C, per study/generate_study.py:154-156; do not mix with this ESP32 baseline.",
+  "accepted_tx_conditions": 126,
+  "accepted_tx_runs": 630,
+  "mono_frame_runs": 315,
+  "fragmented_runs": 315,
+  "powers_dbm": [
+    -20.0,
+    0.0,
+    13.0
+  ],
+  "payloads_bytes": [
+    8,
+    32,
+    64,
+    128,
+    512,
+    1024
+  ],
+  "unique_metadata_capture_transmit_airtime_specs": 1,
+  "frozen_metadata": {
+    "measurement_direction": "tx",
+    "measured_port": "COM5",
+    "peer_port": "COM13",
+    "ppk_port": "COM11",
+    "ppk_mode": "ampere",
+    "voltage_mv": 3300,
+    "sample_rate_hz": 100000
+  },
+  "frozen_profile": {
+    "firmware_selection": "RADIO_EBYTE_E79_CC1352P + AT_COMMANDS; E79 modem firmware 0.3.0 required",
+    "transmit": {
+      "mode": "text_command",
+      "command": "AT+SEND={payload_text}",
+      "line_overhead_bytes": 0,
+      "max_payload_bytes": 1024,
+      "frame_payload_bytes": 64,
+      "wait_for_ok": true
+    },
+    "receive": {
+      "inter_frame_gap_ms": 0.0,
+      "post_receive_s": 0.08
+    },
+    "capture": {
+      "pre_s": 0.2,
+      "post_s": 0.25,
+      "minimum_after_trigger_s": 0.75,
+      "max_after_trigger_s": 6.0,
+      "threshold_margin_uA": 500.0,
+      "merge_gap_ms": 0.5,
+      "minimum_event_ms": 0.05,
+      "align_tx_airtime_window": true
+    },
+    "airtime": {
+      "kind": "fsk",
+      "rate_axis": "rf_profile",
+      "rate_bps_by_value": {
+        "GFSK4K8": 4800,
+        "GFSK50": 50000,
+        "GFSK200": 200000,
+        "SLR2K5": 2500,
+        "SLR5": 5000,
+        "OOK4K8": 4800,
+        "IEEE154G50": 50000
+      },
+      "overhead_bytes": 12,
+      "overhead_bytes_by_value": {
+        "IEEE154G50": 14
+      },
+      "ramp_s": 0.003
+    },
+    "warmup_transfers": 1
+  },
+  "modeled_duration_formula": "Each physical frame: 1000 * ((physical_bytes + overhead_bytes) * 8 / rate_bps + 0.003). Transfer = sum(frame durations); this does not include measured host/UART/ACK gaps.",
+  "duration_csv": ".tmp/recapture-audit-20260929/e79-modeled-frame-durations.csv",
+  "modeled_durations": [
+    {
+      "rf_profile": "SLR2K5",
+      "bit_rate_kbps": 2.5,
+      "logical_payload_bytes": 8,
+      "frame_count": 1,
+      "physical_frame_bytes": [
+        8
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        67.0
+      ],
+      "modeled_transfer_ms": 67.0
+    },
+    {
+      "rf_profile": "SLR2K5",
+      "bit_rate_kbps": 2.5,
+      "logical_payload_bytes": 32,
+      "frame_count": 1,
+      "physical_frame_bytes": [
+        32
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        143.8
+      ],
+      "modeled_transfer_ms": 143.8
+    },
+    {
+      "rf_profile": "SLR2K5",
+      "bit_rate_kbps": 2.5,
+      "logical_payload_bytes": 64,
+      "frame_count": 1,
+      "physical_frame_bytes": [
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        246.2
+      ],
+      "modeled_transfer_ms": 246.2
+    },
+    {
+      "rf_profile": "SLR2K5",
+      "bit_rate_kbps": 2.5,
+      "logical_payload_bytes": 128,
+      "frame_count": 2,
+      "physical_frame_bytes": [
+        64,
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        246.2,
+        246.2
+      ],
+      "modeled_transfer_ms": 492.4
+    },
+    {
+      "rf_profile": "SLR2K5",
+      "bit_rate_kbps": 2.5,
+      "logical_payload_bytes": 512,
+      "frame_count": 8,
+      "physical_frame_bytes": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        246.2,
+        246.2,
+        246.2,
+        246.2,
+        246.2,
+        246.2,
+        246.2,
+        246.2
+      ],
+      "modeled_transfer_ms": 1969.6000000000001
+    },
+    {
+      "rf_profile": "SLR2K5",
+      "bit_rate_kbps": 2.5,
+      "logical_payload_bytes": 1024,
+      "frame_count": 16,
+      "physical_frame_bytes": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        246.2,
+        246.2,
+        246.2,
+        246.2,
+        246.2,
+        246.2,
+        246.2,
+        246.2,
+        246.2,
+        246.2,
+        246.2,
+        246.2,
+        246.2,
+        246.2,
+        246.2,
+        246.2
+      ],
+      "modeled_transfer_ms": 3939.199999999999
+    },
+    {
+      "rf_profile": "GFSK4K8",
+      "bit_rate_kbps": 4.8,
+      "logical_payload_bytes": 8,
+      "frame_count": 1,
+      "physical_frame_bytes": [
+        8
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        36.333333333333336
+      ],
+      "modeled_transfer_ms": 36.333333333333336
+    },
+    {
+      "rf_profile": "GFSK4K8",
+      "bit_rate_kbps": 4.8,
+      "logical_payload_bytes": 32,
+      "frame_count": 1,
+      "physical_frame_bytes": [
+        32
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        76.33333333333334
+      ],
+      "modeled_transfer_ms": 76.33333333333334
+    },
+    {
+      "rf_profile": "GFSK4K8",
+      "bit_rate_kbps": 4.8,
+      "logical_payload_bytes": 64,
+      "frame_count": 1,
+      "physical_frame_bytes": [
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        129.66666666666669
+      ],
+      "modeled_transfer_ms": 129.66666666666669
+    },
+    {
+      "rf_profile": "GFSK4K8",
+      "bit_rate_kbps": 4.8,
+      "logical_payload_bytes": 128,
+      "frame_count": 2,
+      "physical_frame_bytes": [
+        64,
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        129.66666666666669,
+        129.66666666666669
+      ],
+      "modeled_transfer_ms": 259.33333333333337
+    },
+    {
+      "rf_profile": "GFSK4K8",
+      "bit_rate_kbps": 4.8,
+      "logical_payload_bytes": 512,
+      "frame_count": 8,
+      "physical_frame_bytes": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669
+      ],
+      "modeled_transfer_ms": 1037.3333333333337
+    },
+    {
+      "rf_profile": "GFSK4K8",
+      "bit_rate_kbps": 4.8,
+      "logical_payload_bytes": 1024,
+      "frame_count": 16,
+      "physical_frame_bytes": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669
+      ],
+      "modeled_transfer_ms": 2074.6666666666674
+    },
+    {
+      "rf_profile": "OOK4K8",
+      "bit_rate_kbps": 4.8,
+      "logical_payload_bytes": 8,
+      "frame_count": 1,
+      "physical_frame_bytes": [
+        8
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        36.333333333333336
+      ],
+      "modeled_transfer_ms": 36.333333333333336
+    },
+    {
+      "rf_profile": "OOK4K8",
+      "bit_rate_kbps": 4.8,
+      "logical_payload_bytes": 32,
+      "frame_count": 1,
+      "physical_frame_bytes": [
+        32
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        76.33333333333334
+      ],
+      "modeled_transfer_ms": 76.33333333333334
+    },
+    {
+      "rf_profile": "OOK4K8",
+      "bit_rate_kbps": 4.8,
+      "logical_payload_bytes": 64,
+      "frame_count": 1,
+      "physical_frame_bytes": [
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        129.66666666666669
+      ],
+      "modeled_transfer_ms": 129.66666666666669
+    },
+    {
+      "rf_profile": "OOK4K8",
+      "bit_rate_kbps": 4.8,
+      "logical_payload_bytes": 128,
+      "frame_count": 2,
+      "physical_frame_bytes": [
+        64,
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        129.66666666666669,
+        129.66666666666669
+      ],
+      "modeled_transfer_ms": 259.33333333333337
+    },
+    {
+      "rf_profile": "OOK4K8",
+      "bit_rate_kbps": 4.8,
+      "logical_payload_bytes": 512,
+      "frame_count": 8,
+      "physical_frame_bytes": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669
+      ],
+      "modeled_transfer_ms": 1037.3333333333337
+    },
+    {
+      "rf_profile": "OOK4K8",
+      "bit_rate_kbps": 4.8,
+      "logical_payload_bytes": 1024,
+      "frame_count": 16,
+      "physical_frame_bytes": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669,
+        129.66666666666669
+      ],
+      "modeled_transfer_ms": 2074.6666666666674
+    },
+    {
+      "rf_profile": "SLR5",
+      "bit_rate_kbps": 5.0,
+      "logical_payload_bytes": 8,
+      "frame_count": 1,
+      "physical_frame_bytes": [
+        8
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        35.0
+      ],
+      "modeled_transfer_ms": 35.0
+    },
+    {
+      "rf_profile": "SLR5",
+      "bit_rate_kbps": 5.0,
+      "logical_payload_bytes": 32,
+      "frame_count": 1,
+      "physical_frame_bytes": [
+        32
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        73.4
+      ],
+      "modeled_transfer_ms": 73.4
+    },
+    {
+      "rf_profile": "SLR5",
+      "bit_rate_kbps": 5.0,
+      "logical_payload_bytes": 64,
+      "frame_count": 1,
+      "physical_frame_bytes": [
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        124.60000000000001
+      ],
+      "modeled_transfer_ms": 124.60000000000001
+    },
+    {
+      "rf_profile": "SLR5",
+      "bit_rate_kbps": 5.0,
+      "logical_payload_bytes": 128,
+      "frame_count": 2,
+      "physical_frame_bytes": [
+        64,
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        124.60000000000001,
+        124.60000000000001
+      ],
+      "modeled_transfer_ms": 249.20000000000002
+    },
+    {
+      "rf_profile": "SLR5",
+      "bit_rate_kbps": 5.0,
+      "logical_payload_bytes": 512,
+      "frame_count": 8,
+      "physical_frame_bytes": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        124.60000000000001,
+        124.60000000000001,
+        124.60000000000001,
+        124.60000000000001,
+        124.60000000000001,
+        124.60000000000001,
+        124.60000000000001,
+        124.60000000000001
+      ],
+      "modeled_transfer_ms": 996.8000000000001
+    },
+    {
+      "rf_profile": "SLR5",
+      "bit_rate_kbps": 5.0,
+      "logical_payload_bytes": 1024,
+      "frame_count": 16,
+      "physical_frame_bytes": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        124.60000000000001,
+        124.60000000000001,
+        124.60000000000001,
+        124.60000000000001,
+        124.60000000000001,
+        124.60000000000001,
+        124.60000000000001,
+        124.60000000000001,
+        124.60000000000001,
+        124.60000000000001,
+        124.60000000000001,
+        124.60000000000001,
+        124.60000000000001,
+        124.60000000000001,
+        124.60000000000001,
+        124.60000000000001
+      ],
+      "modeled_transfer_ms": 1993.5999999999995
+    },
+    {
+      "rf_profile": "GFSK50",
+      "bit_rate_kbps": 50.0,
+      "logical_payload_bytes": 8,
+      "frame_count": 1,
+      "physical_frame_bytes": [
+        8
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        6.200000000000001
+      ],
+      "modeled_transfer_ms": 6.200000000000001
+    },
+    {
+      "rf_profile": "GFSK50",
+      "bit_rate_kbps": 50.0,
+      "logical_payload_bytes": 32,
+      "frame_count": 1,
+      "physical_frame_bytes": [
+        32
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        10.040000000000001
+      ],
+      "modeled_transfer_ms": 10.040000000000001
+    },
+    {
+      "rf_profile": "GFSK50",
+      "bit_rate_kbps": 50.0,
+      "logical_payload_bytes": 64,
+      "frame_count": 1,
+      "physical_frame_bytes": [
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        15.16
+      ],
+      "modeled_transfer_ms": 15.16
+    },
+    {
+      "rf_profile": "GFSK50",
+      "bit_rate_kbps": 50.0,
+      "logical_payload_bytes": 128,
+      "frame_count": 2,
+      "physical_frame_bytes": [
+        64,
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        15.16,
+        15.16
+      ],
+      "modeled_transfer_ms": 30.32
+    },
+    {
+      "rf_profile": "GFSK50",
+      "bit_rate_kbps": 50.0,
+      "logical_payload_bytes": 512,
+      "frame_count": 8,
+      "physical_frame_bytes": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        15.16,
+        15.16,
+        15.16,
+        15.16,
+        15.16,
+        15.16,
+        15.16,
+        15.16
+      ],
+      "modeled_transfer_ms": 121.27999999999999
+    },
+    {
+      "rf_profile": "GFSK50",
+      "bit_rate_kbps": 50.0,
+      "logical_payload_bytes": 1024,
+      "frame_count": 16,
+      "physical_frame_bytes": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        15.16,
+        15.16,
+        15.16,
+        15.16,
+        15.16,
+        15.16,
+        15.16,
+        15.16,
+        15.16,
+        15.16,
+        15.16,
+        15.16,
+        15.16,
+        15.16,
+        15.16,
+        15.16
+      ],
+      "modeled_transfer_ms": 242.55999999999997
+    },
+    {
+      "rf_profile": "IEEE154G50",
+      "bit_rate_kbps": 50.0,
+      "logical_payload_bytes": 8,
+      "frame_count": 1,
+      "physical_frame_bytes": [
+        8
+      ],
+      "overhead_bytes_per_frame": 14,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        6.52
+      ],
+      "modeled_transfer_ms": 6.52
+    },
+    {
+      "rf_profile": "IEEE154G50",
+      "bit_rate_kbps": 50.0,
+      "logical_payload_bytes": 32,
+      "frame_count": 1,
+      "physical_frame_bytes": [
+        32
+      ],
+      "overhead_bytes_per_frame": 14,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        10.360000000000001
+      ],
+      "modeled_transfer_ms": 10.360000000000001
+    },
+    {
+      "rf_profile": "IEEE154G50",
+      "bit_rate_kbps": 50.0,
+      "logical_payload_bytes": 64,
+      "frame_count": 1,
+      "physical_frame_bytes": [
+        64
+      ],
+      "overhead_bytes_per_frame": 14,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        15.48
+      ],
+      "modeled_transfer_ms": 15.48
+    },
+    {
+      "rf_profile": "IEEE154G50",
+      "bit_rate_kbps": 50.0,
+      "logical_payload_bytes": 128,
+      "frame_count": 2,
+      "physical_frame_bytes": [
+        64,
+        64
+      ],
+      "overhead_bytes_per_frame": 14,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        15.48,
+        15.48
+      ],
+      "modeled_transfer_ms": 30.96
+    },
+    {
+      "rf_profile": "IEEE154G50",
+      "bit_rate_kbps": 50.0,
+      "logical_payload_bytes": 512,
+      "frame_count": 8,
+      "physical_frame_bytes": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "overhead_bytes_per_frame": 14,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        15.48,
+        15.48,
+        15.48,
+        15.48,
+        15.48,
+        15.48,
+        15.48,
+        15.48
+      ],
+      "modeled_transfer_ms": 123.84000000000002
+    },
+    {
+      "rf_profile": "IEEE154G50",
+      "bit_rate_kbps": 50.0,
+      "logical_payload_bytes": 1024,
+      "frame_count": 16,
+      "physical_frame_bytes": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "overhead_bytes_per_frame": 14,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        15.48,
+        15.48,
+        15.48,
+        15.48,
+        15.48,
+        15.48,
+        15.48,
+        15.48,
+        15.48,
+        15.48,
+        15.48,
+        15.48,
+        15.48,
+        15.48,
+        15.48,
+        15.48
+      ],
+      "modeled_transfer_ms": 247.67999999999995
+    },
+    {
+      "rf_profile": "GFSK200",
+      "bit_rate_kbps": 200.0,
+      "logical_payload_bytes": 8,
+      "frame_count": 1,
+      "physical_frame_bytes": [
+        8
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        3.8
+      ],
+      "modeled_transfer_ms": 3.8
+    },
+    {
+      "rf_profile": "GFSK200",
+      "bit_rate_kbps": 200.0,
+      "logical_payload_bytes": 32,
+      "frame_count": 1,
+      "physical_frame_bytes": [
+        32
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        4.760000000000001
+      ],
+      "modeled_transfer_ms": 4.760000000000001
+    },
+    {
+      "rf_profile": "GFSK200",
+      "bit_rate_kbps": 200.0,
+      "logical_payload_bytes": 64,
+      "frame_count": 1,
+      "physical_frame_bytes": [
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        6.04
+      ],
+      "modeled_transfer_ms": 6.04
+    },
+    {
+      "rf_profile": "GFSK200",
+      "bit_rate_kbps": 200.0,
+      "logical_payload_bytes": 128,
+      "frame_count": 2,
+      "physical_frame_bytes": [
+        64,
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        6.04,
+        6.04
+      ],
+      "modeled_transfer_ms": 12.08
+    },
+    {
+      "rf_profile": "GFSK200",
+      "bit_rate_kbps": 200.0,
+      "logical_payload_bytes": 512,
+      "frame_count": 8,
+      "physical_frame_bytes": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        6.04,
+        6.04,
+        6.04,
+        6.04,
+        6.04,
+        6.04,
+        6.04,
+        6.04
+      ],
+      "modeled_transfer_ms": 48.32
+    },
+    {
+      "rf_profile": "GFSK200",
+      "bit_rate_kbps": 200.0,
+      "logical_payload_bytes": 1024,
+      "frame_count": 16,
+      "physical_frame_bytes": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "overhead_bytes_per_frame": 12,
+      "ramp_ms_per_frame": 3.0,
+      "modeled_ms_per_frame": [
+        6.04,
+        6.04,
+        6.04,
+        6.04,
+        6.04,
+        6.04,
+        6.04,
+        6.04,
+        6.04,
+        6.04,
+        6.04,
+        6.04,
+        6.04,
+        6.04,
+        6.04,
+        6.04
+      ],
+      "modeled_transfer_ms": 96.64000000000003
+    }
+  ],
+  "airtime_mismatches": [],
+  "max_event_duration_difference_from_model_ms": 0.006666666667115351,
+  "published_numeric_aggregate_mismatches_against_summaries": [],
+  "source_aggregate_mismatches_against_summaries": [],
+  "sample_loss": {
+    "min_percent": 0.0,
+    "max_percent": 0.29473684210526313,
+    "mean_percent": 0.19764275502770695,
+    "runs_above_1_percent": 0,
+    "counts": {
+      "0.0": 135,
+      "0.006816725517730303": 15,
+      "0.012340499049781573": 15,
+      "0.0675219446320054": 15,
+      "0.06923719708726274": 27,
+      "0.10701878591303489": 14,
+      "0.11966493817311527": 4,
+      "0.29473684210526313": 405
+    }
+  },
+  "status_counts": {
+    "ok": 629,
+    "rx_missing": 1
+  },
+  "raw_integrity_reused_from_prior_full_audit": {
+    "checked": 630,
+    "invalid_or_sample_count_mismatch": 0
+  },
+  "exceptions": [
+    {
+      "type": "run_status",
+      "summary": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005108_radio_ebyte_e79_cc1352p/summary.csv",
+      "run_id": "run_00001",
+      "parameters": {
+        "rf_profile": "IEEE154G50",
+        "tx_power_dbm": -20
+      },
+      "payload_bytes": 64,
+      "status": "rx_missing",
+      "event_detected": "True",
+      "packet_received": "False",
+      "energy_total_uJ": 297.3194872696573,
+      "sample_loss_percent": 0.0
+    }
+  ],
+  "export_architecture": [
+    "manifest accepted_result -> per-step metadata.json, summary.csv and aggregates.csv -> generate_transfer_report.build_report -> merged *_tx.csv and XLSX aggregates/summary_runs/metadata; generator does not reread RAW.",
+    "Published CSV retains rf_profile so same-rate different PHYs remain distinct.",
+    "XLSX energy_matrix_mJ groups only by power and bit_rate_kbps (generate_transfer_report.py:250-259). Its 15 matrix rows omit PHY identity and overwrite GFSK4K8 with OOK4K8 and GFSK50 with IEEE154G50; use CSV or XLSX aggregates for reanalysis comparisons.",
+    "study/generate_study.py uses the ESP32 slug for the July 19 campaign; the July 24 e79_tx.csv is explicitly mapped to CH9340C."
+  ],
+  "xlsx_sheets": [
+    {
+      "sheet": "aggregates",
+      "range": "A1:AH127",
+      "rows_including_header": 127
+    },
+    {
+      "sheet": "energy_matrix_mJ",
+      "range": "A1:H16",
+      "rows_including_header": 16
+    },
+    {
+      "sheet": "summary_runs",
+      "range": "A1:AQ631",
+      "rows_including_header": 631
+    },
+    {
+      "sheet": "metadata",
+      "range": "A1:B14",
+      "rows_including_header": 14
+    }
+  ],
+  "single_frame_control_32B_13dBm": [
+    {
+      "profile_id": "RADIO_EBYTE_E79_CC1352P",
+      "module": "Ebyte E79-400DM2005S (CC1352P AT modem)",
+      "measurement_direction": "tx",
+      "payload_bytes": "32",
+      "frame_count": "1",
+      "max_frame_payload_bytes": "32",
+      "tx_power_dbm": "13",
+      "bit_rate_kbps": "2.5",
+      "rf_profile": "SLR2K5",
+      "runs": "5",
+      "events_detected": "5",
+      "packets_attempted": "5",
+      "packets_received": "5",
+      "packets_lost": "0",
+      "packet_loss_percent": "0.0",
+      "status_ok_runs": "5",
+      "event_duration_ms_mean": "143.8",
+      "event_duration_ms_stdev": "0.0",
+      "tx_mean_uA_mean": "8744.505437648855",
+      "tx_peak_uA_mean": "15297.140449369657",
+      "rx_mean_uA_mean": "0.0",
+      "rx_peak_uA_mean": "0.0",
+      "event_mean_uA_mean": "8744.505437648855",
+      "event_peak_uA_mean": "15297.140449369657",
+      "energy_total_uJ_mean": "4149.617610381888",
+      "energy_total_uJ_stdev": "6.435937847692541",
+      "energy_total_mJ_mean": "4.149617610381888",
+      "energy_excess_uJ_mean": "2041.164674730133",
+      "energy_per_byte_uJ": "129.675550324434",
+      "energy_excess_per_byte_uJ": "63.78639608531665",
+      "effective_payload_rate_kbps": "1.780250347705146",
+      "energy_cv_percent": "0.15509713067513814",
+      "sample_loss_percent_mean": "0.29473684210526313",
+      "sample_loss_percent_max": "0.29473684210526313"
+    },
+    {
+      "profile_id": "RADIO_EBYTE_E79_CC1352P",
+      "module": "Ebyte E79-400DM2005S (CC1352P AT modem)",
+      "measurement_direction": "tx",
+      "payload_bytes": "32",
+      "frame_count": "1",
+      "max_frame_payload_bytes": "32",
+      "tx_power_dbm": "13",
+      "bit_rate_kbps": "4.8",
+      "rf_profile": "GFSK4K8",
+      "runs": "5",
+      "events_detected": "5",
+      "packets_attempted": "5",
+      "packets_received": "5",
+      "packets_lost": "0",
+      "packet_loss_percent": "0.0",
+      "status_ok_runs": "5",
+      "event_duration_ms_mean": "76.33",
+      "event_duration_ms_stdev": "0.0",
+      "tx_mean_uA_mean": "9525.530179300278",
+      "tx_peak_uA_mean": "15280.698719363176",
+      "rx_mean_uA_mean": "0.0",
+      "rx_peak_uA_mean": "0.0",
+      "event_mean_uA_mean": "9525.530179300278",
+      "event_peak_uA_mean": "15280.698719363176",
+      "energy_total_uJ_mean": "2399.3762713337674",
+      "energy_total_uJ_stdev": "6.483372063471837",
+      "energy_total_mJ_mean": "2.399376271333767",
+      "energy_excess_uJ_mean": "1178.8134801127658",
+      "energy_per_byte_uJ": "74.98050847918023",
+      "energy_excess_per_byte_uJ": "36.83792125352393",
+      "effective_payload_rate_kbps": "3.3538582470850256",
+      "energy_cv_percent": "0.27021072688477715",
+      "sample_loss_percent_mean": "0.2357894736842105",
+      "sample_loss_percent_max": "0.29473684210526313"
+    },
+    {
+      "profile_id": "RADIO_EBYTE_E79_CC1352P",
+      "module": "Ebyte E79-400DM2005S (CC1352P AT modem)",
+      "measurement_direction": "tx",
+      "payload_bytes": "32",
+      "frame_count": "1",
+      "max_frame_payload_bytes": "32",
+      "tx_power_dbm": "13",
+      "bit_rate_kbps": "4.8",
+      "rf_profile": "OOK4K8",
+      "runs": "5",
+      "events_detected": "5",
+      "packets_attempted": "5",
+      "packets_received": "5",
+      "packets_lost": "0",
+      "packet_loss_percent": "0.0",
+      "status_ok_runs": "5",
+      "event_duration_ms_mean": "76.33",
+      "event_duration_ms_stdev": "0.0",
+      "tx_mean_uA_mean": "7000.155594196639",
+      "tx_peak_uA_mean": "14950.040666144345",
+      "rx_mean_uA_mean": "0.0",
+      "rx_peak_uA_mean": "0.0",
+      "event_mean_uA_mean": "7000.155594196639",
+      "event_peak_uA_mean": "14950.040666144345",
+      "energy_total_uJ_mean": "1763.2621924665975",
+      "energy_total_uJ_stdev": "6.7097256209063385",
+      "energy_total_mJ_mean": "1.7632621924665974",
+      "energy_excess_uJ_mean": "676.9987674715446",
+      "energy_per_byte_uJ": "55.10194351458117",
+      "energy_excess_per_byte_uJ": "21.15621148348577",
+      "effective_payload_rate_kbps": "3.3538582470850256",
+      "energy_cv_percent": "0.38052909258606726",
+      "sample_loss_percent_mean": "0.17684210526315786",
+      "sample_loss_percent_max": "0.29473684210526313"
+    },
+    {
+      "profile_id": "RADIO_EBYTE_E79_CC1352P",
+      "module": "Ebyte E79-400DM2005S (CC1352P AT modem)",
+      "measurement_direction": "tx",
+      "payload_bytes": "32",
+      "frame_count": "1",
+      "max_frame_payload_bytes": "32",
+      "tx_power_dbm": "13",
+      "bit_rate_kbps": "5.0",
+      "rf_profile": "SLR5",
+      "runs": "5",
+      "events_detected": "5",
+      "packets_attempted": "5",
+      "packets_received": "5",
+      "packets_lost": "0",
+      "packet_loss_percent": "0.0",
+      "status_ok_runs": "5",
+      "event_duration_ms_mean": "73.4",
+      "event_duration_ms_stdev": "0.0",
+      "tx_mean_uA_mean": "8983.761921331763",
+      "tx_peak_uA_mean": "15196.564694098288",
+      "rx_mean_uA_mean": "0.0",
+      "rx_peak_uA_mean": "0.0",
+      "event_mean_uA_mean": "8983.761921331763",
+      "event_peak_uA_mean": "15196.564694098288",
+      "energy_total_uJ_mean": "2176.0468125849793",
+      "energy_total_uJ_stdev": "3.1466066783798436",
+      "energy_total_mJ_mean": "2.1760468125849792",
+      "energy_excess_uJ_mean": "1098.3960225571434",
+      "energy_per_byte_uJ": "68.0014628932806",
+      "energy_excess_per_byte_uJ": "34.32487570491073",
+      "effective_payload_rate_kbps": "3.487738419618528",
+      "energy_cv_percent": "0.14460197548056938",
+      "sample_loss_percent_mean": "0.2357894736842105",
+      "sample_loss_percent_max": "0.29473684210526313"
+    },
+    {
+      "profile_id": "RADIO_EBYTE_E79_CC1352P",
+      "module": "Ebyte E79-400DM2005S (CC1352P AT modem)",
+      "measurement_direction": "tx",
+      "payload_bytes": "32",
+      "frame_count": "1",
+      "max_frame_payload_bytes": "32",
+      "tx_power_dbm": "13",
+      "bit_rate_kbps": "50.0",
+      "rf_profile": "GFSK50",
+      "runs": "5",
+      "events_detected": "5",
+      "packets_attempted": "5",
+      "packets_received": "5",
+      "packets_lost": "0",
+      "packet_loss_percent": "0.0",
+      "status_ok_runs": "5",
+      "event_duration_ms_mean": "10.040000000000001",
+      "event_duration_ms_stdev": "0.0",
+      "tx_mean_uA_mean": "8160.468872506773",
+      "tx_peak_uA_mean": "14031.51252054245",
+      "rx_mean_uA_mean": "0.0",
+      "rx_peak_uA_mean": "0.0",
+      "event_mean_uA_mean": "8160.468872506773",
+      "event_peak_uA_mean": "14031.51252054245",
+      "energy_total_uJ_mean": "270.3726546838944",
+      "energy_total_uJ_stdev": "1.1011289054135172",
+      "energy_total_mJ_mean": "0.2703726546838944",
+      "energy_excess_uJ_mean": "124.41613734488533",
+      "energy_per_byte_uJ": "8.4491454588717",
+      "energy_excess_per_byte_uJ": "3.8880042920276665",
+      "effective_payload_rate_kbps": "25.49800796812749",
+      "energy_cv_percent": "0.40726341452721976",
+      "sample_loss_percent_mean": "0.2357894736842105",
+      "sample_loss_percent_max": "0.29473684210526313"
+    },
+    {
+      "profile_id": "RADIO_EBYTE_E79_CC1352P",
+      "module": "Ebyte E79-400DM2005S (CC1352P AT modem)",
+      "measurement_direction": "tx",
+      "payload_bytes": "32",
+      "frame_count": "1",
+      "max_frame_payload_bytes": "32",
+      "tx_power_dbm": "13",
+      "bit_rate_kbps": "50.0",
+      "rf_profile": "IEEE154G50",
+      "runs": "5",
+      "events_detected": "5",
+      "packets_attempted": "5",
+      "packets_received": "5",
+      "packets_lost": "0",
+      "packet_loss_percent": "0.0",
+      "status_ok_runs": "5",
+      "event_duration_ms_mean": "10.36",
+      "event_duration_ms_stdev": "0.0",
+      "tx_mean_uA_mean": "8264.720778662242",
+      "tx_peak_uA_mean": "14084.620182761439",
+      "rx_mean_uA_mean": "0.0",
+      "rx_peak_uA_mean": "0.0",
+      "event_mean_uA_mean": "8264.720778662242",
+      "event_peak_uA_mean": "14084.620182761439",
+      "energy_total_uJ_mean": "282.5542739809048",
+      "energy_total_uJ_stdev": "1.9661636119555737",
+      "energy_total_mJ_mean": "0.28255427398090477",
+      "energy_excess_uJ_mean": "132.06604313231924",
+      "energy_per_byte_uJ": "8.829821061903274",
+      "energy_excess_per_byte_uJ": "4.127063847884976",
+      "effective_payload_rate_kbps": "24.71042471042471",
+      "energy_cv_percent": "0.6958534317157236",
+      "sample_loss_percent_mean": "0.29473684210526313",
+      "sample_loss_percent_max": "0.29473684210526313"
+    },
+    {
+      "profile_id": "RADIO_EBYTE_E79_CC1352P",
+      "module": "Ebyte E79-400DM2005S (CC1352P AT modem)",
+      "measurement_direction": "tx",
+      "payload_bytes": "32",
+      "frame_count": "1",
+      "max_frame_payload_bytes": "32",
+      "tx_power_dbm": "13",
+      "bit_rate_kbps": "200.0",
+      "rf_profile": "GFSK200",
+      "runs": "5",
+      "events_detected": "5",
+      "packets_attempted": "5",
+      "packets_received": "5",
+      "packets_lost": "0",
+      "packet_loss_percent": "0.0",
+      "status_ok_runs": "5",
+      "event_duration_ms_mean": "4.760000000000001",
+      "event_duration_ms_stdev": "0.0",
+      "tx_mean_uA_mean": "6867.940568695611",
+      "tx_peak_uA_mean": "13154.426691588995",
+      "rx_mean_uA_mean": "0.0",
+      "rx_peak_uA_mean": "0.0",
+      "event_mean_uA_mean": "6867.940568695611",
+      "event_peak_uA_mean": "13154.426691588995",
+      "energy_total_uJ_mean": "107.88161045307065",
+      "energy_total_uJ_stdev": "1.1810730593965761",
+      "energy_total_mJ_mean": "0.10788161045307065",
+      "energy_excess_uJ_mean": "39.213243985247246",
+      "energy_per_byte_uJ": "3.371300326658458",
+      "energy_excess_per_byte_uJ": "1.2254138745389764",
+      "effective_payload_rate_kbps": "53.78151260504201",
+      "energy_cv_percent": "1.0947862702794489",
+      "sample_loss_percent_mean": "0.2357894736842105",
+      "sample_loss_percent_max": "0.29473684210526313"
+    }
+  ],
+  "accepted_tx_steps": [
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK4K8_s8",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003026_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003026_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003026_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003026_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003026_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003026_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK4K8_s32",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003054_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003054_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003054_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003054_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003054_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003054_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK4K8_s64",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003122_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003122_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003122_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003122_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003122_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003122_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK4K8_s128",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003150_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003150_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003150_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003150_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003150_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003150_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK4K8_s512",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003219_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003219_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003219_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003219_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003219_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003219_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK4K8_s1024",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003257_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003257_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003257_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003257_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003257_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003257_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK50_s8",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003349_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003349_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003349_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003349_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003349_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003349_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK50_s32",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003417_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003417_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003417_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003417_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003417_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003417_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK50_s64",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003445_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003445_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003445_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003445_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003445_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003445_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK50_s128",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003513_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003513_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003513_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003513_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003513_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003513_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK50_s512",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003541_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003541_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003541_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003541_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003541_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003541_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK50_s1024",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003609_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003609_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003609_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003609_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003609_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003609_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK200_s8",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003638_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003638_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003638_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003638_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003638_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003638_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK200_s32",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003706_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003706_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003706_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003706_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003706_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003706_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK200_s64",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003734_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003734_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003734_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003734_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003734_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003734_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK200_s128",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003802_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003802_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003802_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003802_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003802_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003802_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK200_s512",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003829_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003829_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003829_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003829_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003829_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003829_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK200_s1024",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003858_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003858_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003858_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003858_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003858_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003858_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-SLR2K5_s8",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003926_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003926_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003926_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003926_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003926_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003926_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-SLR2K5_s32",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003954_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003954_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003954_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003954_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003954_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_003954_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-SLR2K5_s64",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004022_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004022_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004022_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004022_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004022_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004022_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-SLR2K5_s128",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004051_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004051_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004051_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004051_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004051_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004051_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-SLR2K5_s512",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004122_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004122_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004122_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004122_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004122_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004122_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-SLR2K5_s1024",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004212_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004212_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004212_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004212_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004212_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004212_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-SLR5_s8",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004329_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004329_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004329_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004329_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004329_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004329_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-SLR5_s32",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004357_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004357_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004357_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004357_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004357_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004357_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-SLR5_s64",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004425_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004425_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004425_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004425_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004425_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004425_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-SLR5_s128",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004453_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004453_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004453_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004453_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004453_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004453_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-SLR5_s512",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004521_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004521_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004521_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004521_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004521_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004521_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-SLR5_s1024",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004559_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004559_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004559_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004559_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004559_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004559_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-OOK4K8_s8",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004650_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004650_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004650_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004650_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004650_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004650_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-OOK4K8_s32",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004718_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004718_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004718_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004718_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004718_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004718_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-OOK4K8_s64",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004746_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004746_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004746_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004746_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004746_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004746_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-OOK4K8_s128",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004814_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004814_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004814_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004814_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004814_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004814_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-OOK4K8_s512",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004842_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004842_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004842_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004842_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004842_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004842_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-OOK4K8_s1024",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004921_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004921_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004921_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004921_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004921_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004921_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-IEEE154G50_s8",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005012_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005012_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005012_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005012_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005012_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005012_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-IEEE154G50_s32",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005040_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005040_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005040_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005040_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005040_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005040_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-IEEE154G50_s64",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005108_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005108_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005108_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005108_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005108_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005108_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-IEEE154G50_s128",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005136_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005136_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005136_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005136_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005136_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005136_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-IEEE154G50_s512",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005204_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005204_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005204_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005204_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005204_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005204_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-IEEE154G50_s1024",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005232_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005232_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005232_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005232_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005232_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005232_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK4K8_s8",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005301_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005301_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005301_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005301_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005301_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005301_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK4K8_s32",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005329_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005329_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005329_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005329_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005329_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005329_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK4K8_s64",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005357_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005357_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005357_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005357_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005357_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005357_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK4K8_s128",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005447_radio_ebyte_e79_cc1352p",
+      "attempt_count": 2,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005447_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005447_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005447_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005447_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005447_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK4K8_s512",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005516_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005516_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005516_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005516_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005516_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005516_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK4K8_s1024",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005554_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005554_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005554_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005554_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005554_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005554_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK50_s8",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005645_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005645_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005645_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005645_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005645_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005645_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK50_s32",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005713_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005713_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005713_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005713_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005713_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005713_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK50_s64",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005741_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005741_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005741_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005741_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005741_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005741_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK50_s128",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005809_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005809_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005809_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005809_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005809_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005809_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK50_s512",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005837_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005837_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005837_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005837_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005837_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005837_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK50_s1024",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005905_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005905_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005905_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005905_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005905_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005905_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK200_s8",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005934_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005934_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005934_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005934_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005934_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_005934_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK200_s32",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010002_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010002_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010002_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010002_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010002_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010002_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK200_s64",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010030_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010030_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010030_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010030_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010030_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010030_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK200_s128",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010058_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010058_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010058_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010058_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010058_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010058_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK200_s512",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010126_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010126_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010126_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010126_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010126_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010126_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK200_s1024",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010154_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010154_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010154_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010154_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010154_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010154_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-SLR2K5_s8",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010222_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010222_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010222_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010222_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010222_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010222_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-SLR2K5_s32",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010250_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010250_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010250_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010250_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010250_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010250_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-SLR2K5_s64",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010318_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010318_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010318_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010318_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010318_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010318_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-SLR2K5_s128",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010346_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010346_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010346_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010346_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010346_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010346_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-SLR2K5_s512",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010417_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010417_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010417_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010417_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010417_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010417_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-SLR2K5_s1024",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010507_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010507_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010507_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010507_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010507_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010507_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-SLR5_s8",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010622_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010622_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010622_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010622_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010622_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010622_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-SLR5_s32",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010650_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010650_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010650_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010650_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010650_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010650_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-SLR5_s64",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010718_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010718_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010718_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010718_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010718_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010718_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-SLR5_s128",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010747_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010747_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010747_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010747_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010747_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010747_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-SLR5_s512",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010815_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010815_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010815_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010815_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010815_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010815_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-SLR5_s1024",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010852_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010852_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010852_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010852_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010852_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010852_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-OOK4K8_s8",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010943_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010943_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010943_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010943_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010943_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010943_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-OOK4K8_s32",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011011_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011011_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011011_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011011_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011011_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011011_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-OOK4K8_s64",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011039_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011039_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011039_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011039_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011039_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011039_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-OOK4K8_s128",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011107_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011107_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011107_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011107_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011107_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011107_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-OOK4K8_s512",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011135_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011135_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011135_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011135_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011135_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011135_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-OOK4K8_s1024",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011214_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011214_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011214_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011214_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011214_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011214_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-IEEE154G50_s8",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011305_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011305_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011305_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011305_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011305_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011305_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-IEEE154G50_s32",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011333_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011333_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011333_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011333_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011333_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011333_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-IEEE154G50_s64",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011401_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011401_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011401_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011401_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011401_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011401_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-IEEE154G50_s128",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011429_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011429_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011429_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011429_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011429_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011429_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-IEEE154G50_s512",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011457_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011457_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011457_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011457_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011457_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011457_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-IEEE154G50_s1024",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011525_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011525_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011525_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011525_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011525_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011525_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK4K8_s8",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011554_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011554_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011554_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011554_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011554_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011554_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK4K8_s32",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011622_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011622_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011622_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011622_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011622_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011622_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK4K8_s64",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011650_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011650_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011650_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011650_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011650_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011650_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK4K8_s128",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011718_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011718_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011718_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011718_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011718_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011718_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK4K8_s512",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011746_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011746_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011746_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011746_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011746_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011746_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK4K8_s1024",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011824_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011824_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011824_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011824_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011824_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011824_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK50_s8",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011915_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011915_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011915_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011915_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011915_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011915_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK50_s32",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011943_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011943_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011943_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011943_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011943_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_011943_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK50_s64",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012011_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012011_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012011_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012011_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012011_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012011_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK50_s128",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012039_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012039_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012039_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012039_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012039_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012039_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK50_s512",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012106_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012106_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012106_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012106_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012106_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012106_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK50_s1024",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012135_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012135_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012135_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012135_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012135_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012135_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK200_s8",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012203_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012203_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012203_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012203_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012203_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012203_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK200_s32",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012230_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012230_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012230_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012230_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012230_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012230_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK200_s64",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012258_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012258_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012258_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012258_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012258_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012258_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK200_s128",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012326_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012326_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012326_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012326_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012326_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012326_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK200_s512",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012354_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012354_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012354_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012354_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012354_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012354_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK200_s1024",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012423_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012423_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012423_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012423_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012423_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012423_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-SLR2K5_s8",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012451_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012451_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012451_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012451_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012451_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012451_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-SLR2K5_s32",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012519_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012519_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012519_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012519_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012519_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012519_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-SLR2K5_s64",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012547_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012547_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012547_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012547_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012547_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012547_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-SLR2K5_s128",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012615_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012615_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012615_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012615_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012615_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012615_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-SLR2K5_s512",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012646_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012646_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012646_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012646_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012646_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012646_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-SLR2K5_s1024",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012735_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012735_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012735_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012735_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012735_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012735_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-SLR5_s8",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012850_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012850_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012850_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012850_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012850_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012850_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-SLR5_s32",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012918_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012918_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012918_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012918_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012918_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012918_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-SLR5_s64",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012946_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012946_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012946_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012946_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012946_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012946_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-SLR5_s128",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013014_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013014_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013014_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013014_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013014_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013014_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-SLR5_s512",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013042_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013042_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013042_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013042_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013042_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013042_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-SLR5_s1024",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013119_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013119_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013119_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013119_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013119_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013119_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-OOK4K8_s8",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013209_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013209_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013209_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013209_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013209_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013209_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-OOK4K8_s32",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013238_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013238_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013238_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013238_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013238_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013238_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-OOK4K8_s64",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013306_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013306_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013306_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013306_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013306_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013306_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-OOK4K8_s128",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013334_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013334_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013334_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013334_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013334_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013334_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-OOK4K8_s512",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013402_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013402_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013402_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013402_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013402_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013402_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-OOK4K8_s1024",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013440_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013440_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013440_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013440_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013440_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013440_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-IEEE154G50_s8",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013532_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013532_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013532_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013532_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013532_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013532_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-IEEE154G50_s32",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013559_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013559_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013559_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013559_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013559_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013559_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-IEEE154G50_s64",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013627_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013627_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013627_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013627_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013627_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013627_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-IEEE154G50_s128",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013655_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013655_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013655_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013655_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013655_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013655_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-IEEE154G50_s512",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013723_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013723_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013723_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013723_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013723_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013723_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-IEEE154G50_s1024",
+      "accepted_result": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013752_radio_ebyte_e79_cc1352p",
+      "attempt_count": 1,
+      "rows": 5,
+      "raw_paths": [
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013752_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013752_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013752_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013752_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+        "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_013752_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz"
+      ]
+    }
+  ],
+  "source_references": {
+    "airtime": "power_profiler/radio_power_profiler/planning.py:45-62",
+    "serial_per_frame_ack": "power_profiler/radio_power_profiler/serial_radio.py:528-555",
+    "one_window_model": "power_profiler/radio_power_profiler/runner.py:397-427; analysis.py:54-84",
+    "accepted_export_selection": "power_profiler/tools/generate_web_campaign_reports.py:139-163",
+    "aggregate_transform": "power_profiler/tools/generate_transfer_report.py:121-205",
+    "xlsx_phy_collision": "power_profiler/tools/generate_transfer_report.py:250-259",
+    "ch9340_mapping": "power_profiler/study/generate_study.py:154-156"
+  }
+}

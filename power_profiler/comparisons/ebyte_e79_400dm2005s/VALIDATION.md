@@ -2,11 +2,38 @@
 
 ## Verdict
 
-The campaign is accepted. All 176 planned steps completed and the measurements
-show no systematic RF or metrology anomaly. One packet was not observed by the
+The acquisition campaign is retained; its fragmented TX integration was corrected
+on 2026-09-29 from the complete archived RAW. All 176 planned steps completed.
+One packet was not observed by the
 peer at the weakest IEEE154G50 setting; a targeted 20-repetition control and a
 60-second continuous control both passed without loss, so the event is retained
 as an isolated packet loss rather than rewritten or hidden.
+
+## TX reanalysis, 29 September 2026
+
+All 630 TX traces were read and their historical window energies reproduced.
+The 315 single-frame results retain their exact source values. The 315 fragmented
+results now integrate one modeled-airtime window per independently detected
+sustained burst, excluding host gaps. All 126 conditions retain five repetitions;
+none were discarded. Segmentation checks at 3/4/5 baseline-derived MAD thresholds
+pass for every fragmented trace; maximum total-energy sensitivity is 0.002735%.
+This sensitivity is not a PPK uncertainty estimate or synchronized RF timing.
+
+At GFSK200/+13 dBm/1024 B, mean TX energy changes from 1.660322 to 2.410810 mJ
+(+45.201%). The total modeled integration duration is preserved. The original
+contiguous window omitted current bursts separated by UART/host delays.
+
+Current CSV/XLSX and TX graphs contain the recalculated values. The original
+captures, summaries, and metadata remain in the imported archive. Derived
+per-step summaries and aggregate records, source hashes, and the old-to-new
+comparison are listed in `ebyte_e79_400dm2005s_reanalysis_manifest.json`.
+The XLSX energy matrix now distinguishes PHYs sharing a nominal rate.
+RX/continuous numeric exports and RF delivery outcomes are unchanged. The
+continuous excess-power label refers to the session's pretrigger baseline.
+
+The ESP32 correction is not applied to CH9340C: fragmented CH9340C TX observations
+still await new RAW measurements. Full method and independent verification:
+[reanalysis report](../../audits/2026-09-29/e79-tx-corrected/README.md).
 
 ## Campaign identity and coverage
 
@@ -30,8 +57,8 @@ as an isolated packet loss rather than rewritten or hidden.
 - Current event detected: 840/840 packet captures
 - Packet-capture sample loss: at most 0.294737%
 - Continuous-capture sample loss: at most 0.002494%
-- Highest within-condition energy coefficient of variation: 1.610740%
-  (TX IEEE154G50, 0 dBm, 512 B)
+- Highest within-condition energy coefficient of variation after reanalysis: 1.535879%
+  (TX GFSK200, -20 dBm, 32 B)
 - No payload-energy inversion was found.
 - No TX-power energy inversion was found.
 - Continuous RF frame loss: 0% at every RF profile and TX power.

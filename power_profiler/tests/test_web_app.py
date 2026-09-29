@@ -673,6 +673,27 @@ class WebAppTests(unittest.TestCase):
             serial_failure = validate_result(continuous_step, result_dir)
             self.assertFalse(serial_failure["valid"])
 
+    def test_result_validation_rejects_analysis_failures_even_with_rx_loss(self):
+        step = CommandStep(
+            step_id="packet", label="packet", command=[],
+            result_kind="packet", expected_rows=1,
+        )
+        with tempfile.TemporaryDirectory() as temporary:
+            result_dir = Path(temporary)
+            for status, analysis_error in (
+                ("analysis_review_required", ""),
+                ("ok", "detected_frame_count_mismatch"),
+                ("rx_missing", "energy_sensitivity_above_1_percent"),
+            ):
+                with self.subTest(status=status, analysis_error=analysis_error):
+                    with (result_dir / "summary.csv").open("w", encoding="utf-8", newline="") as stream:
+                        writer = csv.DictWriter(stream, fieldnames=["status", "analysis_error"])
+                        writer.writeheader()
+                        writer.writerow({"status": status, "analysis_error": analysis_error})
+                    result = validate_result(step, result_dir)
+                    self.assertFalse(result["valid"])
+                    self.assertTrue(result["errors"])
+
     def test_http_ui_and_status_are_available_without_hardware(self):
         with tempfile.TemporaryDirectory() as temporary:
             manager = JobManager(Path(temporary))

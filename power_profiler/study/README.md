@@ -2,6 +2,8 @@
 
 This directory contains a reproducible comparison of the 28 measured radio modules, host-interface contexts, and physical variants in `../comparisons`. Twenty-three entries include packet and 60-second continuous campaigns; the five latest entries currently contain packet campaigns only.
 
+Reanalysis update, 29 September 2026: [all 630 E79 ESP32 TX traces were processed](../audits/2026-09-29/e79-tx-corrected/README.md). The 315 single-frame values are preserved, and the 315 fragmented values now sum the modeled-airtime windows of all detected frames, excluding host gaps. The figures, tables, and manuscript use these corrected ESP32 values. Fragmented E79 CH9340C TX values remain marked historical window observations pending new measurements; they are excluded from the TX interface-ratio calculation. Modern packet RX values describe the configured integration window, and the pre-trigger baseline state depends on the campaign. See the [current measurement plan and interpretation limits](../audits/2026-09-29/NECESAR_REVIZUIT.md).
+
 ## Outputs
 
 - `radio_module_energy_study.tex`: complete manuscript.

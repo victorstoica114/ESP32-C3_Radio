@@ -3,7 +3,7 @@
 \setlength{\LTleft}{0pt}
 \setlength{\LTright}{\fill}
 \begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.17\linewidth}>{\raggedright\arraybackslash}p{0.10\linewidth}>{\raggedright\arraybackslash}p{0.09\linewidth}>{\raggedright\arraybackslash}p{0.08\linewidth}lllllllll@{}}
-\caption{Measured RX energy per logical packet at each module's fastest tested mode and highest tested configured power. Payload columns are bytes; a dash means that payload size was not measured.}\label{tab:packet-rx-matrix}\\
+\caption{Measured RX integration-window energy at each module's fastest tested mode and highest tested configured power. Payload columns are bytes; a dash means that payload size was not measured. RX uses the campaign's receive-window policy; modeled airtime windows exclude receiver wake-up and shutdown.}\label{tab:packet-rx-matrix}\\
 \toprule
 Module/\newline variant & Radio IC & Mode & Configured & \multicolumn{9}{l}{Logical payload size [bytes]} \\
  & & & power & 8 & 16 & 32 & 58 & 60 & 64 & 128 & 512 & 1024 \\

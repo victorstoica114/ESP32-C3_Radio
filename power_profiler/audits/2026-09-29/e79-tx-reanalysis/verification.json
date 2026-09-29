@@ -1,0 +1,20 @@
+{
+  "raw_hashes_match_previous_full_integrity_audit": 630,
+  "original_mean_energy_max_error_uJ": 0.0,
+  "baseline_max_error_uA": 0.0,
+  "all_accepted_windows_nonoverlapping_and_total_duration_preserved": true,
+  "accepted_runs": 598,
+  "accepted_conditions_with_all_five_repetitions": 103,
+  "accepted_fragmented_conditions": 55,
+  "review_required_runs": 32,
+  "review_required_fragmented_runs": 11,
+  "unit_tests": {
+    "new_offline_tests_passed": 7,
+    "existing_integration_tests_passed": 6
+  },
+  "scripts_sha256": {
+    "power_profiler/tools/reanalyze_e79_tx.py": "85ff6ac1bea63dad44cdaba4aced5014901a4ed6193b5166ad975ae737d5b80e",
+    "power_profiler/tools/e79_frame_detection.py": "771b924fe2032ad52874c92802e2e2bb80e9617a24d491945b77a501c535ae9e",
+    "power_profiler/tests/test_e79_reanalysis.py": "893259cd9eb5b8d0c7132e100ccde30624738a7d9e8800714bbeca2c41a54e0e"
+  }
+}

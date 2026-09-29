@@ -1,0 +1,3392 @@
+{
+  "scope": "11 fragmented review_required captures only; original classifications are not changed",
+  "runs": [
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK50_s128",
+      "run_id": "run_00001",
+      "expected_frames": 2,
+      "published_quality_unchanged": "review_required",
+      "original_review_reasons": [
+        "unstable_detector_at_3_MAD"
+      ],
+      "raw_path": "module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_003026_campaign_radio_ebyte_e79_cc1352p\\packet_tx\\20260719_003513_radio_ebyte_e79_cc1352p\\raw\\run_00001.csv.gz",
+      "full_gzip_and_csv_read": "passed",
+      "sample_count": 95232,
+      "summary_sample_count": 95232,
+      "sample_count_matches_summary": true,
+      "sha256_matches_batch": true,
+      "sample_loss_percent_reported": 0.0,
+      "packet_received": "True",
+      "trigger_index": 19456,
+      "capture_end_ms_after_trigger": 757.76,
+      "baseline_1ms_mean_uA": 4642.479011982391,
+      "tail_50ms_mean_uA": 4629.5805496783905,
+      "detection_checks": [
+        {
+          "multiplier": 3,
+          "count": 2,
+          "valid": false,
+          "reasons": [
+            "overlong_group_may_merge_frames"
+          ],
+          "groups_ms": [
+            [
+              30.0,
+              54.0
+            ],
+            [
+              67.0,
+              83.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            735.3405880186265,
+            1192.9778917176027
+          ],
+          "overlong_group_indices": [
+            0
+          ],
+          "tail_after_last_group_ms": 674.76,
+          "pretrigger_frame_like_group_count": 0,
+          "overlong_group_local_bins_1ms": [
+            {
+              "group_index": 0,
+              "start_ms": 25,
+              "means_uA": [
+                4753.860835934497,
+                4686.637391881161,
+                4695.694478134335,
+                4705.038622853675,
+                4621.57894237048,
+                5679.318848914144,
+                5957.282196174084,
+                5938.234751653774,
+                5841.938459780064,
+                5273.700490148891,
+                5821.546465737837,
+                5548.500404858458,
+                5565.7586904430855,
+                5659.034513546747,
+                6219.083011867217,
+                5749.205902216398,
+                5965.676544033718,
+                5427.369797857958,
+                6090.92384310731,
+                5727.849748594386,
+                4677.666823983846,
+                4790.437788509781,
+                4775.715820182072,
+                4834.86899622349,
+                4600.377691597808,
+                4480.933251481827,
+                4848.632060115359,
+                4451.859654183617,
+                4843.337130305628,
+                4582.551011585764,
+                4668.109904841009,
+                4438.455644869487,
+                4656.128436503369,
+                4682.867530375579
+              ]
+            }
+          ]
+        },
+        {
+          "multiplier": 4,
+          "count": 2,
+          "valid": true,
+          "reasons": [],
+          "groups_ms": [
+            [
+              30.0,
+              45.0
+            ],
+            [
+              67.0,
+              83.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            1134.3166290510017,
+            1192.9778917176027
+          ],
+          "overlong_group_indices": [],
+          "tail_after_last_group_ms": 674.76,
+          "pretrigger_frame_like_group_count": 0
+        },
+        {
+          "multiplier": 5,
+          "count": 2,
+          "valid": true,
+          "reasons": [],
+          "groups_ms": [
+            [
+              30.0,
+              45.0
+            ],
+            [
+              67.0,
+              83.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            1134.3166290510017,
+            1192.9778917176027
+          ],
+          "overlong_group_indices": [],
+          "tail_after_last_group_ms": 674.76,
+          "pretrigger_frame_like_group_count": 0
+        }
+      ],
+      "assessment": "manual_segmentation_review_required; physical_recapture_not_demonstrated",
+      "do_not_promote_automatically": true,
+      "review_category": "eight_cases_low_threshold_gap_noise_extends_frame_anchor",
+      "manual_review_note": "At 3 MAD, one or more isolated low-amplitude 1 ms bins in the quiet interval are bridged into the adjacent burst by the unchanged 5 ms grouping rule. The 4 and 5 MAD detections retain the expected number of well separated stronger pulses. Batch energies at 4 and 5 MAD are identical. This is segmentation/QC ambiguity, not evidence of missing capture data."
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK50_s1024",
+      "run_id": "run_00003",
+      "expected_frames": 16,
+      "published_quality_unchanged": "review_required",
+      "original_review_reasons": [
+        "unstable_detector_at_3_MAD"
+      ],
+      "raw_path": "module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_003026_campaign_radio_ebyte_e79_cc1352p\\packet_tx\\20260719_003609_radio_ebyte_e79_cc1352p\\raw\\run_00003.csv.gz",
+      "full_gzip_and_csv_read": "passed",
+      "sample_count": 94720,
+      "summary_sample_count": 94720,
+      "sample_count_matches_summary": true,
+      "sha256_matches_batch": true,
+      "sample_loss_percent_reported": 0.29473684210526313,
+      "packet_received": "True",
+      "trigger_index": 19456,
+      "capture_end_ms_after_trigger": 752.64,
+      "baseline_1ms_mean_uA": 4626.319368247948,
+      "tail_50ms_mean_uA": 4639.042796164048,
+      "detection_checks": [
+        {
+          "multiplier": 3,
+          "count": 16,
+          "valid": false,
+          "reasons": [
+            "overlong_group_may_merge_frames"
+          ],
+          "groups_ms": [
+            [
+              28.0,
+              51.0
+            ],
+            [
+              65.0,
+              81.0
+            ],
+            [
+              104.0,
+              120.0
+            ],
+            [
+              143.0,
+              159.0
+            ],
+            [
+              181.0,
+              197.0
+            ],
+            [
+              219.0,
+              234.0
+            ],
+            [
+              257.0,
+              273.0
+            ],
+            [
+              296.0,
+              311.0
+            ],
+            [
+              334.0,
+              349.0
+            ],
+            [
+              371.0,
+              386.0
+            ],
+            [
+              409.0,
+              424.0
+            ],
+            [
+              446.0,
+              466.0
+            ],
+            [
+              484.0,
+              499.0
+            ],
+            [
+              519.0,
+              539.0
+            ],
+            [
+              561.0,
+              576.0
+            ],
+            [
+              599.0,
+              614.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            724.2468004026132,
+            943.6528801816612,
+            1022.4855565826283,
+            924.6751628378461,
+            944.1112140753248,
+            1041.7830393475078,
+            932.4319140465286,
+            1172.7715643810234,
+            1231.930472198861,
+            1034.9396893333196,
+            989.670685039915,
+            737.8332416980538,
+            1017.2785188936923,
+            744.4082467624448,
+            964.9025668310196,
+            1035.7653427226487
+          ],
+          "overlong_group_indices": [
+            0
+          ],
+          "tail_after_last_group_ms": 138.64,
+          "pretrigger_frame_like_group_count": 0,
+          "overlong_group_local_bins_1ms": [
+            {
+              "group_index": 0,
+              "start_ms": 23,
+              "means_uA": [
+                4610.265265621474,
+                4576.987433977227,
+                4619.152621732167,
+                4624.46205341573,
+                4644.077389971091,
+                5115.624768546902,
+                6068.644655900164,
+                5883.734851426635,
+                5845.744218594236,
+                5453.456975298241,
+                5728.3181104767245,
+                5549.249749832936,
+                5620.29208259477,
+                5434.918153908799,
+                5633.81337339501,
+                5780.72069845289,
+                5917.07939704537,
+                5704.209522653075,
+                5746.8293454773775,
+                5567.265994760819,
+                4931.6582975055635,
+                4523.036271683819,
+                4839.819568870805,
+                4706.133632998204,
+                4686.732030908583,
+                4695.114021968256,
+                4606.109147364178,
+                4954.671063926877,
+                4576.067056547982,
+                4624.946221701756,
+                4631.136824474085,
+                4570.965567869407,
+                4671.424459874661
+              ]
+            }
+          ]
+        },
+        {
+          "multiplier": 4,
+          "count": 16,
+          "valid": true,
+          "reasons": [],
+          "groups_ms": [
+            [
+              28.0,
+              44.0
+            ],
+            [
+              65.0,
+              81.0
+            ],
+            [
+              104.0,
+              120.0
+            ],
+            [
+              143.0,
+              159.0
+            ],
+            [
+              181.0,
+              197.0
+            ],
+            [
+              219.0,
+              234.0
+            ],
+            [
+              257.0,
+              273.0
+            ],
+            [
+              296.0,
+              311.0
+            ],
+            [
+              334.0,
+              349.0
+            ],
+            [
+              371.0,
+              386.0
+            ],
+            [
+              409.0,
+              424.0
+            ],
+            [
+              446.0,
+              461.0
+            ],
+            [
+              484.0,
+              499.0
+            ],
+            [
+              519.0,
+              538.0
+            ],
+            [
+              561.0,
+              576.0
+            ],
+            [
+              599.0,
+              614.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            1000.5649242274903,
+            943.6528801816612,
+            1022.4855565826283,
+            924.6751628378461,
+            944.1112140753248,
+            1041.7830393475078,
+            932.4319140465286,
+            1172.7715643810234,
+            1231.930472198861,
+            1034.9396893333196,
+            989.670685039915,
+            960.3863776505923,
+            1017.2785188936923,
+            772.5460784214656,
+            964.9025668310196,
+            1035.7653427226487
+          ],
+          "overlong_group_indices": [],
+          "tail_after_last_group_ms": 138.64,
+          "pretrigger_frame_like_group_count": 0
+        },
+        {
+          "multiplier": 5,
+          "count": 16,
+          "valid": true,
+          "reasons": [],
+          "groups_ms": [
+            [
+              28.0,
+              44.0
+            ],
+            [
+              65.0,
+              80.0
+            ],
+            [
+              104.0,
+              120.0
+            ],
+            [
+              143.0,
+              159.0
+            ],
+            [
+              181.0,
+              196.0
+            ],
+            [
+              219.0,
+              234.0
+            ],
+            [
+              257.0,
+              273.0
+            ],
+            [
+              296.0,
+              311.0
+            ],
+            [
+              334.0,
+              349.0
+            ],
+            [
+              371.0,
+              386.0
+            ],
+            [
+              409.0,
+              424.0
+            ],
+            [
+              446.0,
+              461.0
+            ],
+            [
+              484.0,
+              499.0
+            ],
+            [
+              523.0,
+              538.0
+            ],
+            [
+              561.0,
+              576.0
+            ],
+            [
+              599.0,
+              614.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            1000.5649242274903,
+            990.6395673584248,
+            1022.4855565826283,
+            924.6751628378461,
+            989.0103806003253,
+            1041.7830393475078,
+            932.4319140465286,
+            1172.7715643810234,
+            1231.930472198861,
+            1034.9396893333196,
+            989.670685039915,
+            960.3863776505923,
+            1017.2785188936923,
+            957.1046944693871,
+            964.9025668310196,
+            1035.7653427226487
+          ],
+          "overlong_group_indices": [],
+          "tail_after_last_group_ms": 138.64,
+          "pretrigger_frame_like_group_count": 0
+        }
+      ],
+      "assessment": "manual_segmentation_review_required; physical_recapture_not_demonstrated",
+      "do_not_promote_automatically": true,
+      "review_category": "eight_cases_low_threshold_gap_noise_extends_frame_anchor",
+      "manual_review_note": "At 3 MAD, one or more isolated low-amplitude 1 ms bins in the quiet interval are bridged into the adjacent burst by the unchanged 5 ms grouping rule. The 4 and 5 MAD detections retain the expected number of well separated stronger pulses. Batch energies at 4 and 5 MAD are identical. This is segmentation/QC ambiguity, not evidence of missing capture data."
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK50_s1024",
+      "run_id": "run_00005",
+      "expected_frames": 16,
+      "published_quality_unchanged": "review_required",
+      "original_review_reasons": [
+        "unstable_detector_at_3_MAD"
+      ],
+      "raw_path": "module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_003026_campaign_radio_ebyte_e79_cc1352p\\packet_tx\\20260719_003609_radio_ebyte_e79_cc1352p\\raw\\run_00005.csv.gz",
+      "full_gzip_and_csv_read": "passed",
+      "sample_count": 94720,
+      "summary_sample_count": 94720,
+      "sample_count_matches_summary": true,
+      "sha256_matches_batch": true,
+      "sample_loss_percent_reported": 0.29473684210526313,
+      "packet_received": "True",
+      "trigger_index": 19456,
+      "capture_end_ms_after_trigger": 752.64,
+      "baseline_1ms_mean_uA": 4638.219949705373,
+      "tail_50ms_mean_uA": 4622.669149457005,
+      "detection_checks": [
+        {
+          "multiplier": 3,
+          "count": 16,
+          "valid": false,
+          "reasons": [
+            "overlong_group_may_merge_frames"
+          ],
+          "groups_ms": [
+            [
+              28.0,
+              45.0
+            ],
+            [
+              62.0,
+              80.0
+            ],
+            [
+              102.0,
+              117.0
+            ],
+            [
+              134.0,
+              158.0
+            ],
+            [
+              178.0,
+              193.0
+            ],
+            [
+              216.0,
+              231.0
+            ],
+            [
+              250.0,
+              268.0
+            ],
+            [
+              291.0,
+              306.0
+            ],
+            [
+              329.0,
+              344.0
+            ],
+            [
+              367.0,
+              383.0
+            ],
+            [
+              405.0,
+              420.0
+            ],
+            [
+              443.0,
+              458.0
+            ],
+            [
+              481.0,
+              497.0
+            ],
+            [
+              518.0,
+              533.0
+            ],
+            [
+              556.0,
+              571.0
+            ],
+            [
+              594.0,
+              609.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            959.9092200451942,
+            875.5640505052006,
+            982.9385869454109,
+            714.4620435667757,
+            1127.431163578929,
+            1064.0527813168474,
+            872.5292975931188,
+            984.2463196300123,
+            1013.1845378279841,
+            944.4843372737878,
+            992.5130983021609,
+            1062.1513661789231,
+            1000.6838272428349,
+            984.9192773323584,
+            992.2991185195688,
+            969.0485543851773
+          ],
+          "overlong_group_indices": [
+            3
+          ],
+          "tail_after_last_group_ms": 143.64,
+          "pretrigger_frame_like_group_count": 0,
+          "overlong_group_local_bins_1ms": [
+            {
+              "group_index": 3,
+              "start_ms": 129,
+              "means_uA": [
+                4589.280832176327,
+                4667.651059912782,
+                4614.626567281746,
+                4639.60177079923,
+                4547.276092053577,
+                4827.044731475945,
+                4687.070422960053,
+                4608.882913003605,
+                4873.919212119744,
+                4717.075687022972,
+                4664.453607631955,
+                5512.21574693858,
+                6079.776340896139,
+                5982.174907395515,
+                5852.478426688833,
+                5983.38043060993,
+                5612.177572696411,
+                5378.981632353435,
+                5530.44787881311,
+                5979.1271005468025,
+                5570.996929915026,
+                5823.339426212799,
+                5804.594034657723,
+                5273.439756509664,
+                5572.750734233934,
+                5700.829586718002,
+                4629.323046903494,
+                4703.891446460426,
+                4872.133685923668,
+                4793.845012527192,
+                4616.043353185845,
+                4646.522710031327,
+                4685.463862406982,
+                4636.121977585065
+              ]
+            }
+          ]
+        },
+        {
+          "multiplier": 4,
+          "count": 16,
+          "valid": true,
+          "reasons": [],
+          "groups_ms": [
+            [
+              28.0,
+              43.0
+            ],
+            [
+              62.0,
+              80.0
+            ],
+            [
+              102.0,
+              117.0
+            ],
+            [
+              140.0,
+              155.0
+            ],
+            [
+              178.0,
+              193.0
+            ],
+            [
+              216.0,
+              231.0
+            ],
+            [
+              253.0,
+              268.0
+            ],
+            [
+              291.0,
+              306.0
+            ],
+            [
+              329.0,
+              344.0
+            ],
+            [
+              367.0,
+              382.0
+            ],
+            [
+              405.0,
+              420.0
+            ],
+            [
+              443.0,
+              458.0
+            ],
+            [
+              481.0,
+              497.0
+            ],
+            [
+              518.0,
+              533.0
+            ],
+            [
+              556.0,
+              571.0
+            ],
+            [
+              594.0,
+              609.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            1070.1049238991682,
+            875.5640505052006,
+            982.9385869454109,
+            1081.555024800513,
+            1127.431163578929,
+            1064.0527813168474,
+            1034.6057077440464,
+            984.2463196300123,
+            1013.1845378279841,
+            991.2011597246465,
+            992.5130983021609,
+            1062.1513661789231,
+            1000.6838272428349,
+            984.9192773323584,
+            992.2991185195688,
+            969.0485543851773
+          ],
+          "overlong_group_indices": [],
+          "tail_after_last_group_ms": 143.64,
+          "pretrigger_frame_like_group_count": 0
+        },
+        {
+          "multiplier": 5,
+          "count": 16,
+          "valid": true,
+          "reasons": [],
+          "groups_ms": [
+            [
+              28.0,
+              43.0
+            ],
+            [
+              62.0,
+              80.0
+            ],
+            [
+              102.0,
+              117.0
+            ],
+            [
+              140.0,
+              155.0
+            ],
+            [
+              178.0,
+              193.0
+            ],
+            [
+              216.0,
+              231.0
+            ],
+            [
+              253.0,
+              268.0
+            ],
+            [
+              291.0,
+              306.0
+            ],
+            [
+              329.0,
+              344.0
+            ],
+            [
+              367.0,
+              382.0
+            ],
+            [
+              405.0,
+              420.0
+            ],
+            [
+              443.0,
+              458.0
+            ],
+            [
+              481.0,
+              496.0
+            ],
+            [
+              518.0,
+              533.0
+            ],
+            [
+              556.0,
+              571.0
+            ],
+            [
+              594.0,
+              609.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            1070.1049238991682,
+            875.5640505052006,
+            982.9385869454109,
+            1081.555024800513,
+            1127.431163578929,
+            1064.0527813168474,
+            1034.6057077440464,
+            984.2463196300123,
+            1013.1845378279841,
+            991.2011597246465,
+            992.5130983021609,
+            1062.1513661789231,
+            1049.5243882588065,
+            984.9192773323584,
+            992.2991185195688,
+            969.0485543851773
+          ],
+          "overlong_group_indices": [],
+          "tail_after_last_group_ms": 143.64,
+          "pretrigger_frame_like_group_count": 0
+        }
+      ],
+      "assessment": "manual_segmentation_review_required; physical_recapture_not_demonstrated",
+      "do_not_promote_automatically": true,
+      "review_category": "eight_cases_low_threshold_gap_noise_extends_frame_anchor",
+      "manual_review_note": "At 3 MAD, one or more isolated low-amplitude 1 ms bins in the quiet interval are bridged into the adjacent burst by the unchanged 5 ms grouping rule. The 4 and 5 MAD detections retain the expected number of well separated stronger pulses. Batch energies at 4 and 5 MAD are identical. This is segmentation/QC ambiguity, not evidence of missing capture data."
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK200_s128",
+      "run_id": "run_00003",
+      "expected_frames": 2,
+      "published_quality_unchanged": "review_required",
+      "original_review_reasons": [
+        "frame_like_pretrigger_noise"
+      ],
+      "raw_path": "module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_003026_campaign_radio_ebyte_e79_cc1352p\\packet_tx\\20260719_003802_radio_ebyte_e79_cc1352p\\raw\\run_00003.csv.gz",
+      "full_gzip_and_csv_read": "passed",
+      "sample_count": 94720,
+      "summary_sample_count": 94720,
+      "sample_count_matches_summary": true,
+      "sha256_matches_batch": true,
+      "sample_loss_percent_reported": 0.29473684210526313,
+      "packet_received": "True",
+      "trigger_index": 19456,
+      "capture_end_ms_after_trigger": 752.64,
+      "baseline_1ms_mean_uA": 4780.241734452195,
+      "tail_50ms_mean_uA": 4751.48532589948,
+      "detection_checks": [
+        {
+          "multiplier": 3,
+          "count": 3,
+          "valid": false,
+          "reasons": [
+            "frame_like_pretrigger_noise"
+          ],
+          "groups_ms": [
+            [
+              27.0,
+              33.0
+            ],
+            [
+              59.0,
+              65.0
+            ],
+            [
+              250.0,
+              255.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            1093.9477584590668,
+            1045.7455134188313,
+            138.90312112616812
+          ],
+          "overlong_group_indices": [],
+          "tail_after_last_group_ms": 497.64,
+          "pretrigger_frame_like_group_count": 1,
+          "all_group_local_bins_1ms": [
+            {
+              "group_index": 0,
+              "start_ms": 25,
+              "means_uA": [
+                4788.452837318346,
+                4749.7809645670195,
+                5716.85839586031,
+                6123.186258441799,
+                6219.343595508641,
+                5925.9388945166875,
+                5938.087118937231,
+                5217.406304409186,
+                4655.043656876561,
+                4687.707384600424
+              ]
+            },
+            {
+              "group_index": 1,
+              "start_ms": 57,
+              "means_uA": [
+                4704.178007417238,
+                4778.679634052514,
+                5921.696895065198,
+                6093.959079380073,
+                6004.109908788298,
+                5823.408651286995,
+                5719.311055082524,
+                5289.121507829358,
+                4806.590158813089,
+                4766.845399322332
+              ]
+            },
+            {
+              "group_index": 2,
+              "start_ms": 248,
+              "means_uA": [
+                4753.72076587288,
+                4837.218377605508,
+                5121.970714074909,
+                4819.233114130852,
+                4792.775607387262,
+                4771.58535488239,
+                5003.229162588309,
+                4938.310798885508,
+                4742.351054078996
+              ]
+            }
+          ]
+        },
+        {
+          "multiplier": 4,
+          "count": 2,
+          "valid": false,
+          "reasons": [
+            "frame_like_pretrigger_noise"
+          ],
+          "groups_ms": [
+            [
+              27.0,
+              33.0
+            ],
+            [
+              59.0,
+              65.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            1093.9477584590668,
+            1045.7455134188313
+          ],
+          "overlong_group_indices": [],
+          "tail_after_last_group_ms": 687.64,
+          "pretrigger_frame_like_group_count": 1
+        },
+        {
+          "multiplier": 5,
+          "count": 2,
+          "valid": true,
+          "reasons": [],
+          "groups_ms": [
+            [
+              27.0,
+              33.0
+            ],
+            [
+              59.0,
+              65.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            1093.9477584590668,
+            1045.7455134188313
+          ],
+          "overlong_group_indices": [],
+          "tail_after_last_group_ms": 687.64,
+          "pretrigger_frame_like_group_count": 0
+        }
+      ],
+      "assessment": "manual_segmentation_review_required; physical_recapture_not_demonstrated",
+      "do_not_promote_automatically": true,
+      "review_category": "pretrigger_noise_and_weak_extra_group_at_3_MAD",
+      "manual_review_note": "Two strong pulses appear at 27-33 and 59-65 ms. Their means exceed baseline by 1093.95 and 1045.75 uA. At 3 MAD, a late 250-255 ms group averages only 138.9 uA over baseline; 3 and 4 MAD also find a frame-like pretrigger noise group. At 5 MAD only the two stronger pulses remain and the pretrigger warning disappears. Keep manual review; changing to 5 MAD just to achieve the expected count is not an acceptance rule."
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK200_s1024",
+      "run_id": "run_00003",
+      "expected_frames": 16,
+      "published_quality_unchanged": "review_required",
+      "original_review_reasons": [
+        "unstable_detector_at_3_MAD"
+      ],
+      "raw_path": "module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_003026_campaign_radio_ebyte_e79_cc1352p\\packet_tx\\20260719_003858_radio_ebyte_e79_cc1352p\\raw\\run_00003.csv.gz",
+      "full_gzip_and_csv_read": "passed",
+      "sample_count": 94720,
+      "summary_sample_count": 94720,
+      "sample_count_matches_summary": true,
+      "sha256_matches_batch": true,
+      "sample_loss_percent_reported": 0.29473684210526313,
+      "packet_received": "True",
+      "trigger_index": 19456,
+      "capture_end_ms_after_trigger": 752.64,
+      "baseline_1ms_mean_uA": 4778.201047884957,
+      "tail_50ms_mean_uA": 4747.276173803005,
+      "detection_checks": [
+        {
+          "multiplier": 3,
+          "count": 16,
+          "valid": false,
+          "reasons": [
+            "overlong_group_may_merge_frames"
+          ],
+          "groups_ms": [
+            [
+              28.0,
+              39.0
+            ],
+            [
+              61.0,
+              66.0
+            ],
+            [
+              93.0,
+              99.0
+            ],
+            [
+              126.0,
+              132.0
+            ],
+            [
+              157.0,
+              163.0
+            ],
+            [
+              190.0,
+              196.0
+            ],
+            [
+              223.0,
+              229.0
+            ],
+            [
+              255.0,
+              261.0
+            ],
+            [
+              282.0,
+              293.0
+            ],
+            [
+              318.0,
+              324.0
+            ],
+            [
+              350.0,
+              356.0
+            ],
+            [
+              383.0,
+              388.0
+            ],
+            [
+              411.0,
+              421.0
+            ],
+            [
+              446.0,
+              452.0
+            ],
+            [
+              479.0,
+              485.0
+            ],
+            [
+              512.0,
+              518.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            620.2550425033796,
+            1212.0276700128488,
+            1066.3055421179897,
+            1015.317031965079,
+            1105.5518832230837,
+            1138.2161980312167,
+            975.6230790129366,
+            963.0018332756472,
+            633.0063114273289,
+            976.1270010803692,
+            1014.8320863436438,
+            1052.3199449491185,
+            615.8115263719637,
+            1020.4911691666084,
+            969.2826401440516,
+            920.2845244512182
+          ],
+          "overlong_group_indices": [
+            0,
+            8
+          ],
+          "tail_after_last_group_ms": 234.64,
+          "pretrigger_frame_like_group_count": 0,
+          "overlong_group_local_bins_1ms": [
+            {
+              "group_index": 0,
+              "start_ms": 23,
+              "means_uA": [
+                4661.213768643544,
+                4771.851611602564,
+                4750.08202692342,
+                4783.468187426739,
+                4756.153429918736,
+                6001.676281295136,
+                6160.706158822366,
+                6125.804551435737,
+                5479.798382986741,
+                5793.1653422944455,
+                5589.745655139533,
+                4820.8086117594885,
+                4804.502700096357,
+                4813.723758968262,
+                4709.1560356149785,
+                5023.5691970190555,
+                4836.5831974749635,
+                4722.794918777298,
+                4722.107290526444,
+                4874.083052425668,
+                4780.858577166104
+              ]
+            },
+            {
+              "group_index": 8,
+              "start_ms": 277,
+              "means_uA": [
+                4716.278248243717,
+                4772.908532983562,
+                4948.790601854396,
+                4748.235364881113,
+                4704.737635523219,
+                5089.1367295675,
+                4757.916096653153,
+                4719.7897973712115,
+                4840.90292211461,
+                4740.499731776056,
+                6195.826072457166,
+                6034.110329659381,
+                6052.267569403635,
+                5624.144066297437,
+                5934.855863507038,
+                5473.471454788345,
+                4719.5368755822265,
+                4696.943225617098,
+                4820.399714915113,
+                4808.227150768372,
+                4703.680982898246
+              ]
+            }
+          ]
+        },
+        {
+          "multiplier": 4,
+          "count": 16,
+          "valid": true,
+          "reasons": [],
+          "groups_ms": [
+            [
+              28.0,
+              34.0
+            ],
+            [
+              61.0,
+              66.0
+            ],
+            [
+              93.0,
+              99.0
+            ],
+            [
+              126.0,
+              131.0
+            ],
+            [
+              157.0,
+              163.0
+            ],
+            [
+              190.0,
+              196.0
+            ],
+            [
+              223.0,
+              229.0
+            ],
+            [
+              255.0,
+              260.0
+            ],
+            [
+              287.0,
+              293.0
+            ],
+            [
+              318.0,
+              324.0
+            ],
+            [
+              350.0,
+              356.0
+            ],
+            [
+              383.0,
+              388.0
+            ],
+            [
+              415.0,
+              421.0
+            ],
+            [
+              447.0,
+              452.0
+            ],
+            [
+              479.0,
+              485.0
+            ],
+            [
+              512.0,
+              517.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            1085.7689824900608,
+            1212.0276700128488,
+            1066.3055421179897,
+            1155.754814253577,
+            1105.5518832230837,
+            1138.2161980312167,
+            975.6230790129366,
+            1097.0154718311642,
+            1113.0654798465685,
+            976.1270010803692,
+            1014.8320863436438,
+            1052.3199449491185,
+            1016.2381369586228,
+            1160.2088712933828,
+            969.2826401440516,
+            1046.4798199340385
+          ],
+          "overlong_group_indices": [],
+          "tail_after_last_group_ms": 235.64,
+          "pretrigger_frame_like_group_count": 0
+        },
+        {
+          "multiplier": 5,
+          "count": 16,
+          "valid": true,
+          "reasons": [],
+          "groups_ms": [
+            [
+              28.0,
+              34.0
+            ],
+            [
+              61.0,
+              66.0
+            ],
+            [
+              93.0,
+              99.0
+            ],
+            [
+              126.0,
+              131.0
+            ],
+            [
+              157.0,
+              163.0
+            ],
+            [
+              190.0,
+              196.0
+            ],
+            [
+              223.0,
+              228.0
+            ],
+            [
+              255.0,
+              260.0
+            ],
+            [
+              287.0,
+              293.0
+            ],
+            [
+              318.0,
+              324.0
+            ],
+            [
+              350.0,
+              356.0
+            ],
+            [
+              383.0,
+              388.0
+            ],
+            [
+              415.0,
+              421.0
+            ],
+            [
+              447.0,
+              452.0
+            ],
+            [
+              479.0,
+              485.0
+            ],
+            [
+              512.0,
+              517.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            1085.7689824900608,
+            1212.0276700128488,
+            1066.3055421179897,
+            1155.754814253577,
+            1105.5518832230837,
+            1138.2161980312167,
+            1089.1166476921426,
+            1097.0154718311642,
+            1113.0654798465685,
+            976.1270010803692,
+            1014.8320863436438,
+            1052.3199449491185,
+            1016.2381369586228,
+            1160.2088712933828,
+            969.2826401440516,
+            1046.4798199340385
+          ],
+          "overlong_group_indices": [],
+          "tail_after_last_group_ms": 235.64,
+          "pretrigger_frame_like_group_count": 0
+        }
+      ],
+      "assessment": "manual_segmentation_review_required; physical_recapture_not_demonstrated",
+      "do_not_promote_automatically": true,
+      "review_category": "eight_cases_low_threshold_gap_noise_extends_frame_anchor",
+      "manual_review_note": "At 3 MAD, one or more isolated low-amplitude 1 ms bins in the quiet interval are bridged into the adjacent burst by the unchanged 5 ms grouping rule. The 4 and 5 MAD detections retain the expected number of well separated stronger pulses. Batch energies at 4 and 5 MAD are identical. This is segmentation/QC ambiguity, not evidence of missing capture data."
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK200_s512",
+      "run_id": "run_00002",
+      "expected_frames": 8,
+      "published_quality_unchanged": "review_required",
+      "original_review_reasons": [
+        "detected_frame_count_mismatch"
+      ],
+      "raw_path": "module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_003026_campaign_radio_ebyte_e79_cc1352p\\packet_tx\\20260719_010126_radio_ebyte_e79_cc1352p\\raw\\run_00002.csv.gz",
+      "full_gzip_and_csv_read": "passed",
+      "sample_count": 94720,
+      "summary_sample_count": 94720,
+      "sample_count_matches_summary": true,
+      "sha256_matches_batch": true,
+      "sample_loss_percent_reported": 0.29473684210526313,
+      "packet_received": "True",
+      "trigger_index": 19456,
+      "capture_end_ms_after_trigger": 752.64,
+      "baseline_1ms_mean_uA": 4628.946446416915,
+      "tail_50ms_mean_uA": 4638.331182734272,
+      "detection_checks": [
+        {
+          "multiplier": 3,
+          "count": 9,
+          "valid": true,
+          "reasons": [],
+          "groups_ms": [
+            [
+              27.0,
+              34.0
+            ],
+            [
+              41.0,
+              45.0
+            ],
+            [
+              60.0,
+              66.0
+            ],
+            [
+              92.0,
+              98.0
+            ],
+            [
+              123.0,
+              130.0
+            ],
+            [
+              155.0,
+              164.0
+            ],
+            [
+              188.0,
+              194.0
+            ],
+            [
+              221.0,
+              227.0
+            ],
+            [
+              252.0,
+              259.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            1652.5196249180726,
+            187.3475315657779,
+            1976.672378455337,
+            2028.2890998911253,
+            1661.4730715662172,
+            1380.1661386888718,
+            2000.236665744832,
+            1883.4505911981687,
+            1724.9903874565043
+          ],
+          "overlong_group_indices": [],
+          "tail_after_last_group_ms": 493.64,
+          "pretrigger_frame_like_group_count": 0,
+          "all_group_local_bins_1ms": [
+            {
+              "group_index": 0,
+              "start_ms": 25,
+              "means_uA": [
+                4579.535439622072,
+                4699.375787383519,
+                5535.355381828176,
+                5859.057421730279,
+                4942.567249693763,
+                6367.033671274399,
+                7204.268497541635,
+                7160.142919482677,
+                6832.275464506409,
+                4581.427843863128,
+                4575.0035138059
+              ]
+            },
+            {
+              "group_index": 1,
+              "start_ms": 39,
+              "means_uA": [
+                4651.506407439257,
+                4666.443621235263,
+                4927.082445357094,
+                4571.7479548952915,
+                4658.3764595813045,
+                5068.2193987898945,
+                4552.937849299568,
+                4687.729094553437
+              ]
+            },
+            {
+              "group_index": 2,
+              "start_ms": 58,
+              "means_uA": [
+                4489.93534785916,
+                4709.5436899057595,
+                5979.445344423242,
+                6026.0165583094595,
+                6645.183937673619,
+                7367.300200213089,
+                7390.78968888576,
+                6165.352739767567,
+                4554.4616155661415,
+                4672.639908643149
+              ]
+            },
+            {
+              "group_index": 3,
+              "start_ms": 90,
+              "means_uA": [
+                4565.924513168706,
+                4709.438370789286,
+                5177.447723836101,
+                6030.415792589592,
+                6347.971268142099,
+                7479.230189013217,
+                7529.763374557653,
+                7318.960449748805,
+                4647.538925486606,
+                4531.249747326315
+              ]
+            },
+            {
+              "group_index": 4,
+              "start_ms": 121,
+              "means_uA": [
+                4679.319016919655,
+                4604.143867126102,
+                4879.03795223335,
+                6441.3820902339785,
+                5916.947377995381,
+                7139.20623232707,
+                7361.345363455832,
+                7267.828591880418,
+                4957.6271244683185,
+                4623.786178147746,
+                4704.1097515030615
+              ]
+            },
+            {
+              "group_index": 5,
+              "start_ms": 153,
+              "means_uA": [
+                4618.019749333139,
+                4659.044000458116,
+                5555.268008561617,
+                6078.026434410343,
+                6115.126948735615,
+                7555.792564056679,
+                7463.21695265805,
+                7187.237867070409,
+                4657.940698705952,
+                4532.785232333283,
+                4847.181839478959,
+                4580.009893122216,
+                4617.981367919141
+              ]
+            },
+            {
+              "group_index": 6,
+              "start_ms": 186,
+              "means_uA": [
+                4644.524672096563,
+                4675.563356735164,
+                5763.262818376268,
+                5773.388866738031,
+                6360.831539843985,
+                7389.252487284284,
+                7512.204228211103,
+                6916.53425255603,
+                4656.0868423263755,
+                4745.982138701758
+              ]
+            },
+            {
+              "group_index": 7,
+              "start_ms": 219,
+              "means_uA": [
+                4572.560292071729,
+                4755.823510578122,
+                5934.6723108684855,
+                5968.70772899555,
+                7297.571321515945,
+                7301.716268623372,
+                7202.188188931603,
+                5309.90192679477,
+                4590.117594610782,
+                4654.678070268953
+              ]
+            },
+            {
+              "group_index": 8,
+              "start_ms": 250,
+              "means_uA": [
+                4583.366592258921,
+                4601.467276191647,
+                5274.984890889406,
+                5965.664935871177,
+                6113.300059984127,
+                7280.63581169344,
+                7339.835274584225,
+                7317.418669144056,
+                5116.156301659929,
+                4689.035959932815,
+                4694.994493585725
+              ]
+            }
+          ]
+        },
+        {
+          "multiplier": 4,
+          "count": 9,
+          "valid": true,
+          "reasons": [],
+          "groups_ms": [
+            [
+              27.0,
+              34.0
+            ],
+            [
+              41.0,
+              45.0
+            ],
+            [
+              60.0,
+              66.0
+            ],
+            [
+              92.0,
+              98.0
+            ],
+            [
+              124.0,
+              130.0
+            ],
+            [
+              155.0,
+              161.0
+            ],
+            [
+              188.0,
+              194.0
+            ],
+            [
+              221.0,
+              227.0
+            ],
+            [
+              252.0,
+              259.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            1652.5196249180726,
+            187.3475315657779,
+            1976.672378455337,
+            2028.2890998911253,
+            1895.0470969700482,
+            2040.1024294919998,
+            2000.236665744832,
+            1883.4505911981687,
+            1724.9903874565043
+          ],
+          "overlong_group_indices": [],
+          "tail_after_last_group_ms": 493.64,
+          "pretrigger_frame_like_group_count": 0,
+          "all_group_local_bins_1ms": [
+            {
+              "group_index": 0,
+              "start_ms": 25,
+              "means_uA": [
+                4579.535439622072,
+                4699.375787383519,
+                5535.355381828176,
+                5859.057421730279,
+                4942.567249693763,
+                6367.033671274399,
+                7204.268497541635,
+                7160.142919482677,
+                6832.275464506409,
+                4581.427843863128,
+                4575.0035138059
+              ]
+            },
+            {
+              "group_index": 1,
+              "start_ms": 39,
+              "means_uA": [
+                4651.506407439257,
+                4666.443621235263,
+                4927.082445357094,
+                4571.7479548952915,
+                4658.3764595813045,
+                5068.2193987898945,
+                4552.937849299568,
+                4687.729094553437
+              ]
+            },
+            {
+              "group_index": 2,
+              "start_ms": 58,
+              "means_uA": [
+                4489.93534785916,
+                4709.5436899057595,
+                5979.445344423242,
+                6026.0165583094595,
+                6645.183937673619,
+                7367.300200213089,
+                7390.78968888576,
+                6165.352739767567,
+                4554.4616155661415,
+                4672.639908643149
+              ]
+            },
+            {
+              "group_index": 3,
+              "start_ms": 90,
+              "means_uA": [
+                4565.924513168706,
+                4709.438370789286,
+                5177.447723836101,
+                6030.415792589592,
+                6347.971268142099,
+                7479.230189013217,
+                7529.763374557653,
+                7318.960449748805,
+                4647.538925486606,
+                4531.249747326315
+              ]
+            },
+            {
+              "group_index": 4,
+              "start_ms": 122,
+              "means_uA": [
+                4604.143867126102,
+                4879.03795223335,
+                6441.3820902339785,
+                5916.947377995381,
+                7139.20623232707,
+                7361.345363455832,
+                7267.828591880418,
+                4957.6271244683185,
+                4623.786178147746,
+                4704.1097515030615
+              ]
+            },
+            {
+              "group_index": 5,
+              "start_ms": 153,
+              "means_uA": [
+                4618.019749333139,
+                4659.044000458116,
+                5555.268008561617,
+                6078.026434410343,
+                6115.126948735615,
+                7555.792564056679,
+                7463.21695265805,
+                7187.237867070409,
+                4657.940698705952,
+                4532.785232333283
+              ]
+            },
+            {
+              "group_index": 6,
+              "start_ms": 186,
+              "means_uA": [
+                4644.524672096563,
+                4675.563356735164,
+                5763.262818376268,
+                5773.388866738031,
+                6360.831539843985,
+                7389.252487284284,
+                7512.204228211103,
+                6916.53425255603,
+                4656.0868423263755,
+                4745.982138701758
+              ]
+            },
+            {
+              "group_index": 7,
+              "start_ms": 219,
+              "means_uA": [
+                4572.560292071729,
+                4755.823510578122,
+                5934.6723108684855,
+                5968.70772899555,
+                7297.571321515945,
+                7301.716268623372,
+                7202.188188931603,
+                5309.90192679477,
+                4590.117594610782,
+                4654.678070268953
+              ]
+            },
+            {
+              "group_index": 8,
+              "start_ms": 250,
+              "means_uA": [
+                4583.366592258921,
+                4601.467276191647,
+                5274.984890889406,
+                5965.664935871177,
+                6113.300059984127,
+                7280.63581169344,
+                7339.835274584225,
+                7317.418669144056,
+                5116.156301659929,
+                4689.035959932815,
+                4694.994493585725
+              ]
+            }
+          ]
+        },
+        {
+          "multiplier": 5,
+          "count": 8,
+          "valid": true,
+          "reasons": [],
+          "groups_ms": [
+            [
+              27.0,
+              34.0
+            ],
+            [
+              60.0,
+              66.0
+            ],
+            [
+              92.0,
+              98.0
+            ],
+            [
+              124.0,
+              129.0
+            ],
+            [
+              155.0,
+              161.0
+            ],
+            [
+              188.0,
+              194.0
+            ],
+            [
+              221.0,
+              227.0
+            ],
+            [
+              252.0,
+              259.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            1652.5196249180726,
+            1976.672378455337,
+            2028.2890998911253,
+            2206.332898088417,
+            2040.1024294919998,
+            2000.236665744832,
+            1883.4505911981687,
+            1724.9903874565043
+          ],
+          "overlong_group_indices": [],
+          "tail_after_last_group_ms": 493.64,
+          "pretrigger_frame_like_group_count": 0
+        }
+      ],
+      "assessment": "manual_segmentation_review_required; physical_recapture_not_demonstrated",
+      "do_not_promote_automatically": true,
+      "review_category": "weak_extra_group_in_interframe_gap",
+      "manual_review_note": "Eight stronger pulses have a regular approximately 32 ms cadence. An additional 41-45 ms group appears at 3 and 4 MAD, with only 187.35 uA mean excess compared with 1652.52-2040.10 uA in the eight stronger groups. Its local 1 ms means are 4927,4572,4658,5068 uA against a baseline near 4629 uA, i.e. isolated excursions separated by baseline bins. At 5 MAD it disappears. Evidence favors a noise grouping artifact; retain review status until manually justified boundaries are documented."
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK200_s512",
+      "run_id": "run_00005",
+      "expected_frames": 8,
+      "published_quality_unchanged": "review_required",
+      "original_review_reasons": [
+        "unstable_detector_at_3_MAD"
+      ],
+      "raw_path": "module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_003026_campaign_radio_ebyte_e79_cc1352p\\packet_tx\\20260719_010126_radio_ebyte_e79_cc1352p\\raw\\run_00005.csv.gz",
+      "full_gzip_and_csv_read": "passed",
+      "sample_count": 94720,
+      "summary_sample_count": 94720,
+      "sample_count_matches_summary": true,
+      "sha256_matches_batch": true,
+      "sample_loss_percent_reported": 0.29473684210526313,
+      "packet_received": "True",
+      "trigger_index": 19456,
+      "capture_end_ms_after_trigger": 752.64,
+      "baseline_1ms_mean_uA": 4628.757628853616,
+      "tail_50ms_mean_uA": 4628.81359250163,
+      "detection_checks": [
+        {
+          "multiplier": 3,
+          "count": 8,
+          "valid": false,
+          "reasons": [
+            "overlong_group_may_merge_frames"
+          ],
+          "groups_ms": [
+            [
+              27.0,
+              33.0
+            ],
+            [
+              59.0,
+              65.0
+            ],
+            [
+              91.0,
+              101.0
+            ],
+            [
+              123.0,
+              129.0
+            ],
+            [
+              154.0,
+              167.0
+            ],
+            [
+              189.0,
+              197.0
+            ],
+            [
+              222.0,
+              228.0
+            ],
+            [
+              255.0,
+              261.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            1936.8628939916816,
+            1897.3691723897828,
+            1192.1102914851854,
+            1961.966850198597,
+            934.1917030163331,
+            1589.4709756575267,
+            1904.0755782692277,
+            1940.4176238496175
+          ],
+          "overlong_group_indices": [
+            4
+          ],
+          "tail_after_last_group_ms": 491.64,
+          "pretrigger_frame_like_group_count": 0,
+          "overlong_group_local_bins_1ms": [
+            {
+              "group_index": 4,
+              "start_ms": 149,
+              "means_uA": [
+                4636.684560311636,
+                4673.817584877864,
+                4632.021199257639,
+                4588.312983274961,
+                4580.9951378004425,
+                4825.51104457443,
+                4681.631712620476,
+                5608.814594941115,
+                6016.930865266132,
+                6129.280583213985,
+                7421.021256851696,
+                7357.749159247451,
+                6939.643862729498,
+                4523.365685969115,
+                4727.0196194754,
+                4456.872797864705,
+                4695.243060046818,
+                4829.204009943339,
+                4577.70131305433,
+                4666.276345667897,
+                4607.521452977697,
+                4482.392482391125,
+                4728.985785867245
+              ]
+            }
+          ]
+        },
+        {
+          "multiplier": 4,
+          "count": 8,
+          "valid": true,
+          "reasons": [],
+          "groups_ms": [
+            [
+              27.0,
+              33.0
+            ],
+            [
+              59.0,
+              65.0
+            ],
+            [
+              91.0,
+              97.0
+            ],
+            [
+              123.0,
+              129.0
+            ],
+            [
+              156.0,
+              162.0
+            ],
+            [
+              189.0,
+              197.0
+            ],
+            [
+              222.0,
+              228.0
+            ],
+            [
+              255.0,
+              261.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            1936.8628939916816,
+            1897.3691723897828,
+            1969.2512139210012,
+            1961.966850198597,
+            1958.307019334071,
+            1589.4709756575267,
+            1904.0755782692277,
+            1940.4176238496175
+          ],
+          "overlong_group_indices": [],
+          "tail_after_last_group_ms": 491.64,
+          "pretrigger_frame_like_group_count": 0
+        },
+        {
+          "multiplier": 5,
+          "count": 8,
+          "valid": true,
+          "reasons": [],
+          "groups_ms": [
+            [
+              27.0,
+              33.0
+            ],
+            [
+              59.0,
+              65.0
+            ],
+            [
+              91.0,
+              97.0
+            ],
+            [
+              123.0,
+              129.0
+            ],
+            [
+              156.0,
+              162.0
+            ],
+            [
+              189.0,
+              197.0
+            ],
+            [
+              222.0,
+              228.0
+            ],
+            [
+              255.0,
+              261.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            1936.8628939916816,
+            1897.3691723897828,
+            1969.2512139210012,
+            1961.966850198597,
+            1958.307019334071,
+            1589.4709756575267,
+            1904.0755782692277,
+            1940.4176238496175
+          ],
+          "overlong_group_indices": [],
+          "tail_after_last_group_ms": 491.64,
+          "pretrigger_frame_like_group_count": 0
+        }
+      ],
+      "assessment": "manual_segmentation_review_required; physical_recapture_not_demonstrated",
+      "do_not_promote_automatically": true,
+      "review_category": "eight_cases_low_threshold_gap_noise_extends_frame_anchor",
+      "manual_review_note": "At 3 MAD, one or more isolated low-amplitude 1 ms bins in the quiet interval are bridged into the adjacent burst by the unchanged 5 ms grouping rule. The 4 and 5 MAD detections retain the expected number of well separated stronger pulses. Batch energies at 4 and 5 MAD are identical. This is segmentation/QC ambiguity, not evidence of missing capture data."
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK200_s1024",
+      "run_id": "run_00004",
+      "expected_frames": 16,
+      "published_quality_unchanged": "review_required",
+      "original_review_reasons": [
+        "unstable_detector_at_3_MAD"
+      ],
+      "raw_path": "module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_003026_campaign_radio_ebyte_e79_cc1352p\\packet_tx\\20260719_010154_radio_ebyte_e79_cc1352p\\raw\\run_00004.csv.gz",
+      "full_gzip_and_csv_read": "passed",
+      "sample_count": 94720,
+      "summary_sample_count": 94720,
+      "sample_count_matches_summary": true,
+      "sha256_matches_batch": true,
+      "sample_loss_percent_reported": 0.29473684210526313,
+      "packet_received": "True",
+      "trigger_index": 19456,
+      "capture_end_ms_after_trigger": 752.64,
+      "baseline_1ms_mean_uA": 4631.74810065963,
+      "tail_50ms_mean_uA": 4630.417648233537,
+      "detection_checks": [
+        {
+          "multiplier": 3,
+          "count": 16,
+          "valid": false,
+          "reasons": [
+            "overlong_group_may_merge_frames"
+          ],
+          "groups_ms": [
+            [
+              27.0,
+              34.0
+            ],
+            [
+              59.0,
+              65.0
+            ],
+            [
+              91.0,
+              101.0
+            ],
+            [
+              124.0,
+              130.0
+            ],
+            [
+              156.0,
+              162.0
+            ],
+            [
+              187.0,
+              194.0
+            ],
+            [
+              221.0,
+              227.0
+            ],
+            [
+              253.0,
+              259.0
+            ],
+            [
+              285.0,
+              292.0
+            ],
+            [
+              318.0,
+              324.0
+            ],
+            [
+              350.0,
+              357.0
+            ],
+            [
+              381.0,
+              388.0
+            ],
+            [
+              414.0,
+              420.0
+            ],
+            [
+              440.0,
+              452.0
+            ],
+            [
+              473.0,
+              485.0
+            ],
+            [
+              510.0,
+              516.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            1685.6895338580052,
+            2012.7642110824308,
+            1198.5164468170178,
+            2076.4161665489382,
+            1945.6700531020651,
+            1745.5720083009319,
+            1895.2882349310094,
+            1921.8521547608361,
+            1677.2865370939053,
+            1916.4658522993313,
+            1690.535724282542,
+            1658.8094162965335,
+            1837.3986710809886,
+            918.5198343621096,
+            987.313526413116,
+            1820.9760580362154
+          ],
+          "overlong_group_indices": [
+            13,
+            14
+          ],
+          "tail_after_last_group_ms": 236.64,
+          "pretrigger_frame_like_group_count": 0,
+          "overlong_group_local_bins_1ms": [
+            {
+              "group_index": 13,
+              "start_ms": 435,
+              "means_uA": [
+                4751.802656561401,
+                4556.120418201586,
+                4617.0257810510575,
+                4660.463395346233,
+                4613.527460075778,
+                4873.146583581842,
+                4638.759525693837,
+                4557.294725484569,
+                4577.756313436542,
+                4658.230336375193,
+                4896.2910564171,
+                5981.964397743857,
+                5948.55963061508,
+                6871.186074062654,
+                7115.598879041899,
+                7263.106437657477,
+                5099.3770906665,
+                4539.820098162319,
+                4615.074744117077,
+                4697.882266645917,
+                4613.68618309983,
+                4587.695739090677
+              ]
+            },
+            {
+              "group_index": 14,
+              "start_ms": 468,
+              "means_uA": [
+                4641.318574059412,
+                4549.870636918993,
+                4528.720055727142,
+                4830.197426534246,
+                4641.502632124681,
+                4917.323402086806,
+                4774.151292983398,
+                4556.651870265129,
+                4612.195692649845,
+                4675.31118694887,
+                5540.349336476798,
+                5872.219216962577,
+                4953.984893431544,
+                6149.8359049058045,
+                7456.951588325976,
+                7129.842505098038,
+                6667.978465253836,
+                4626.236481843838,
+                4838.951465924579,
+                4601.806322986845,
+                4556.710989075833,
+                4651.466622567061
+              ]
+            }
+          ]
+        },
+        {
+          "multiplier": 4,
+          "count": 16,
+          "valid": true,
+          "reasons": [],
+          "groups_ms": [
+            [
+              27.0,
+              34.0
+            ],
+            [
+              59.0,
+              65.0
+            ],
+            [
+              91.0,
+              101.0
+            ],
+            [
+              124.0,
+              130.0
+            ],
+            [
+              156.0,
+              162.0
+            ],
+            [
+              188.0,
+              194.0
+            ],
+            [
+              221.0,
+              227.0
+            ],
+            [
+              253.0,
+              259.0
+            ],
+            [
+              285.0,
+              292.0
+            ],
+            [
+              318.0,
+              324.0
+            ],
+            [
+              350.0,
+              357.0
+            ],
+            [
+              382.0,
+              388.0
+            ],
+            [
+              414.0,
+              420.0
+            ],
+            [
+              446.0,
+              452.0
+            ],
+            [
+              478.0,
+              485.0
+            ],
+            [
+              510.0,
+              516.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            1685.6895338580052,
+            2012.7642110824308,
+            1198.5164468170178,
+            2076.4161665489382,
+            1945.6700531020651,
+            1988.28798055659,
+            1895.2882349310094,
+            1921.8521547608361,
+            1677.2865370939053,
+            1916.4658522993313,
+            1690.535724282542,
+            1893.7953498535271,
+            1837.3986710809886,
+            1758.3793317619757,
+            1631.4370435290039,
+            1820.9760580362154
+          ],
+          "overlong_group_indices": [],
+          "tail_after_last_group_ms": 236.64,
+          "pretrigger_frame_like_group_count": 0
+        },
+        {
+          "multiplier": 5,
+          "count": 16,
+          "valid": true,
+          "reasons": [],
+          "groups_ms": [
+            [
+              27.0,
+              34.0
+            ],
+            [
+              59.0,
+              65.0
+            ],
+            [
+              91.0,
+              97.0
+            ],
+            [
+              124.0,
+              130.0
+            ],
+            [
+              156.0,
+              162.0
+            ],
+            [
+              188.0,
+              194.0
+            ],
+            [
+              221.0,
+              227.0
+            ],
+            [
+              253.0,
+              259.0
+            ],
+            [
+              285.0,
+              292.0
+            ],
+            [
+              318.0,
+              324.0
+            ],
+            [
+              350.0,
+              357.0
+            ],
+            [
+              382.0,
+              388.0
+            ],
+            [
+              414.0,
+              420.0
+            ],
+            [
+              446.0,
+              452.0
+            ],
+            [
+              478.0,
+              485.0
+            ],
+            [
+              510.0,
+              516.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            1685.6895338580052,
+            2012.7642110824308,
+            1918.996108898934,
+            2076.4161665489382,
+            1945.6700531020651,
+            1988.28798055659,
+            1895.2882349310094,
+            1921.8521547608361,
+            1677.2865370939053,
+            1916.4658522993313,
+            1690.535724282542,
+            1893.7953498535271,
+            1837.3986710809886,
+            1758.3793317619757,
+            1631.4370435290039,
+            1820.9760580362154
+          ],
+          "overlong_group_indices": [],
+          "tail_after_last_group_ms": 236.64,
+          "pretrigger_frame_like_group_count": 0
+        }
+      ],
+      "assessment": "manual_segmentation_review_required; physical_recapture_not_demonstrated",
+      "do_not_promote_automatically": true,
+      "review_category": "eight_cases_low_threshold_gap_noise_extends_frame_anchor",
+      "manual_review_note": "At 3 MAD, one or more isolated low-amplitude 1 ms bins in the quiet interval are bridged into the adjacent burst by the unchanged 5 ms grouping rule. The 4 and 5 MAD detections retain the expected number of well separated stronger pulses. Batch energies at 4 and 5 MAD are identical. This is segmentation/QC ambiguity, not evidence of missing capture data."
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK50_s128",
+      "run_id": "run_00001",
+      "expected_frames": 2,
+      "published_quality_unchanged": "review_required",
+      "original_review_reasons": [
+        "unstable_detector_at_3_MAD"
+      ],
+      "raw_path": "module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_003026_campaign_radio_ebyte_e79_cc1352p\\packet_tx\\20260719_012039_radio_ebyte_e79_cc1352p\\raw\\run_00001.csv.gz",
+      "full_gzip_and_csv_read": "passed",
+      "sample_count": 95232,
+      "summary_sample_count": 95232,
+      "sample_count_matches_summary": true,
+      "sha256_matches_batch": true,
+      "sample_loss_percent_reported": 0.0,
+      "packet_received": "True",
+      "trigger_index": 19456,
+      "capture_end_ms_after_trigger": 757.76,
+      "baseline_1ms_mean_uA": 4660.591559400083,
+      "tail_50ms_mean_uA": 4651.685448227046,
+      "detection_checks": [
+        {
+          "multiplier": 3,
+          "count": 2,
+          "valid": false,
+          "reasons": [
+            "overlong_group_may_merge_frames"
+          ],
+          "groups_ms": [
+            [
+              29.0,
+              53.0
+            ],
+            [
+              66.0,
+              81.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            2542.2316791144785,
+            3979.5233913770217
+          ],
+          "overlong_group_indices": [
+            0
+          ],
+          "tail_after_last_group_ms": 676.76,
+          "pretrigger_frame_like_group_count": 0,
+          "overlong_group_local_bins_1ms": [
+            {
+              "group_index": 0,
+              "start_ms": 24,
+              "means_uA": [
+                4724.759284316952,
+                4635.299492143898,
+                4688.016253485224,
+                4616.061773927933,
+                4611.430587951657,
+                5668.414359164993,
+                6196.0310771861605,
+                7684.4520586378685,
+                9378.867297642311,
+                9267.450482329235,
+                9433.42128501818,
+                9290.181328425793,
+                9354.475874185266,
+                9358.116277524045,
+                9548.46419690301,
+                9214.864006896876,
+                9170.333955716815,
+                9386.483930284043,
+                9411.826925335183,
+                7879.754762836761,
+                4737.425606707255,
+                4609.852355389356,
+                4640.5218478288625,
+                4659.885491706839,
+                5012.467677441099,
+                4624.512743885092,
+                4694.954695615275,
+                4572.1796436508685,
+                4874.344587998835,
+                4591.449643341694,
+                4724.455850878044,
+                4652.250201606278,
+                4678.740223670822,
+                4698.352985631489
+              ]
+            }
+          ]
+        },
+        {
+          "multiplier": 4,
+          "count": 2,
+          "valid": true,
+          "reasons": [],
+          "groups_ms": [
+            [
+              29.0,
+              49.0
+            ],
+            [
+              66.0,
+              81.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            3042.8427827928917,
+            3979.5233913770217
+          ],
+          "overlong_group_indices": [],
+          "tail_after_last_group_ms": 676.76,
+          "pretrigger_frame_like_group_count": 0
+        },
+        {
+          "multiplier": 5,
+          "count": 2,
+          "valid": true,
+          "reasons": [],
+          "groups_ms": [
+            [
+              29.0,
+              49.0
+            ],
+            [
+              66.0,
+              81.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            3042.8427827928917,
+            3979.5233913770217
+          ],
+          "overlong_group_indices": [],
+          "tail_after_last_group_ms": 676.76,
+          "pretrigger_frame_like_group_count": 0
+        }
+      ],
+      "assessment": "manual_segmentation_review_required; physical_recapture_not_demonstrated",
+      "do_not_promote_automatically": true,
+      "review_category": "eight_cases_low_threshold_gap_noise_extends_frame_anchor",
+      "manual_review_note": "At 3 MAD, one or more isolated low-amplitude 1 ms bins in the quiet interval are bridged into the adjacent burst by the unchanged 5 ms grouping rule. The 4 and 5 MAD detections retain the expected number of well separated stronger pulses. Batch energies at 4 and 5 MAD are identical. This is segmentation/QC ambiguity, not evidence of missing capture data."
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK200_s1024",
+      "run_id": "run_00002",
+      "expected_frames": 16,
+      "published_quality_unchanged": "review_required",
+      "original_review_reasons": [
+        "overlong_group_may_merge_frames"
+      ],
+      "raw_path": "module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_003026_campaign_radio_ebyte_e79_cc1352p\\packet_tx\\20260719_012423_radio_ebyte_e79_cc1352p\\raw\\run_00002.csv.gz",
+      "full_gzip_and_csv_read": "passed",
+      "sample_count": 94720,
+      "summary_sample_count": 94720,
+      "sample_count_matches_summary": true,
+      "sha256_matches_batch": true,
+      "sample_loss_percent_reported": 0.29473684210526313,
+      "packet_received": "True",
+      "trigger_index": 19456,
+      "capture_end_ms_after_trigger": 752.64,
+      "baseline_1ms_mean_uA": 4626.8129234862545,
+      "tail_50ms_mean_uA": 4617.527042822971,
+      "detection_checks": [
+        {
+          "multiplier": 3,
+          "count": 16,
+          "valid": false,
+          "reasons": [
+            "overlong_group_may_merge_frames",
+            "frame_like_pretrigger_noise"
+          ],
+          "groups_ms": [
+            [
+              28.0,
+              34.0
+            ],
+            [
+              60.0,
+              67.0
+            ],
+            [
+              93.0,
+              99.0
+            ],
+            [
+              125.0,
+              131.0
+            ],
+            [
+              157.0,
+              163.0
+            ],
+            [
+              186.0,
+              197.0
+            ],
+            [
+              222.0,
+              229.0
+            ],
+            [
+              254.0,
+              260.0
+            ],
+            [
+              281.0,
+              293.0
+            ],
+            [
+              318.0,
+              325.0
+            ],
+            [
+              351.0,
+              357.0
+            ],
+            [
+              383.0,
+              390.0
+            ],
+            [
+              416.0,
+              422.0
+            ],
+            [
+              449.0,
+              455.0
+            ],
+            [
+              482.0,
+              489.0
+            ],
+            [
+              515.0,
+              522.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            3012.576387640138,
+            2538.8710330839212,
+            2904.8519872046218,
+            2941.1154889304535,
+            2991.7134067992174,
+            1677.1748212729735,
+            2509.205342913893,
+            2856.8913887838735,
+            1520.1989886305319,
+            2602.367803746434,
+            2896.9873355165773,
+            2612.573707518851,
+            2939.490012544202,
+            2893.5701195326383,
+            2480.151296857688,
+            2563.038987192155
+          ],
+          "overlong_group_indices": [
+            5,
+            8
+          ],
+          "tail_after_last_group_ms": 230.64,
+          "pretrigger_frame_like_group_count": 1,
+          "overlong_group_local_bins_1ms": [
+            {
+              "group_index": 5,
+              "start_ms": 181,
+              "means_uA": [
+                4532.447173644825,
+                4690.568016331588,
+                4692.874294304521,
+                4575.530768641575,
+                4534.643970337503,
+                4878.097004457657,
+                4651.041596804958,
+                4656.533740060517,
+                4558.2471737907945,
+                5093.306160944535,
+                6054.955957068112,
+                6197.880624704536,
+                9011.994786991578,
+                9398.469899397327,
+                9401.693913377705,
+                5358.071272053366,
+                4592.735797823687,
+                4581.192239702306,
+                4672.489569281906,
+                4776.797604791461,
+                4627.36349619759
+              ]
+            },
+            {
+              "group_index": 8,
+              "start_ms": 276,
+              "means_uA": [
+                4557.565453115024,
+                4536.577855512427,
+                4700.1858655238575,
+                4599.677174646324,
+                4528.176197633212,
+                5048.012291475425,
+                4658.504273730427,
+                4601.140093185954,
+                4575.211586835926,
+                4698.623873011481,
+                5197.4662994225055,
+                6200.546879568249,
+                5277.796525921129,
+                5729.486019942197,
+                9379.831085324788,
+                9399.814354849246,
+                8906.53904827911,
+                4704.206946203831,
+                4638.543736203675,
+                4597.618956096991,
+                4612.797078244611,
+                4554.670702640885
+              ]
+            }
+          ]
+        },
+        {
+          "multiplier": 4,
+          "count": 16,
+          "valid": false,
+          "reasons": [
+            "overlong_group_may_merge_frames"
+          ],
+          "groups_ms": [
+            [
+              28.0,
+              34.0
+            ],
+            [
+              61.0,
+              67.0
+            ],
+            [
+              93.0,
+              99.0
+            ],
+            [
+              125.0,
+              131.0
+            ],
+            [
+              157.0,
+              163.0
+            ],
+            [
+              190.0,
+              197.0
+            ],
+            [
+              222.0,
+              229.0
+            ],
+            [
+              254.0,
+              260.0
+            ],
+            [
+              281.0,
+              293.0
+            ],
+            [
+              318.0,
+              325.0
+            ],
+            [
+              351.0,
+              357.0
+            ],
+            [
+              383.0,
+              390.0
+            ],
+            [
+              416.0,
+              422.0
+            ],
+            [
+              449.0,
+              455.0
+            ],
+            [
+              482.0,
+              489.0
+            ],
+            [
+              515.0,
+              522.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            3012.576387640138,
+            2922.3728979482976,
+            2904.8519872046218,
+            2941.1154889304535,
+            2991.7134067992174,
+            2597.4092868879234,
+            2509.205342913893,
+            2856.8913887838735,
+            1520.1989886305319,
+            2602.367803746434,
+            2896.9873355165773,
+            2612.573707518851,
+            2939.490012544202,
+            2893.5701195326383,
+            2480.151296857688,
+            2563.038987192155
+          ],
+          "overlong_group_indices": [
+            8
+          ],
+          "tail_after_last_group_ms": 230.64,
+          "pretrigger_frame_like_group_count": 0,
+          "overlong_group_local_bins_1ms": [
+            {
+              "group_index": 8,
+              "start_ms": 276,
+              "means_uA": [
+                4557.565453115024,
+                4536.577855512427,
+                4700.1858655238575,
+                4599.677174646324,
+                4528.176197633212,
+                5048.012291475425,
+                4658.504273730427,
+                4601.140093185954,
+                4575.211586835926,
+                4698.623873011481,
+                5197.4662994225055,
+                6200.546879568249,
+                5277.796525921129,
+                5729.486019942197,
+                9379.831085324788,
+                9399.814354849246,
+                8906.53904827911,
+                4704.206946203831,
+                4638.543736203675,
+                4597.618956096991,
+                4612.797078244611,
+                4554.670702640885
+              ]
+            }
+          ]
+        },
+        {
+          "multiplier": 5,
+          "count": 16,
+          "valid": false,
+          "reasons": [
+            "overlong_group_may_merge_frames"
+          ],
+          "groups_ms": [
+            [
+              28.0,
+              34.0
+            ],
+            [
+              61.0,
+              67.0
+            ],
+            [
+              93.0,
+              99.0
+            ],
+            [
+              125.0,
+              131.0
+            ],
+            [
+              157.0,
+              163.0
+            ],
+            [
+              190.0,
+              197.0
+            ],
+            [
+              223.0,
+              229.0
+            ],
+            [
+              254.0,
+              260.0
+            ],
+            [
+              281.0,
+              293.0
+            ],
+            [
+              318.0,
+              325.0
+            ],
+            [
+              351.0,
+              357.0
+            ],
+            [
+              383.0,
+              390.0
+            ],
+            [
+              416.0,
+              422.0
+            ],
+            [
+              449.0,
+              455.0
+            ],
+            [
+              482.0,
+              489.0
+            ],
+            [
+              515.0,
+              522.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            3012.576387640138,
+            2922.3728979482976,
+            2904.8519872046218,
+            2941.1154889304535,
+            2991.7134067992174,
+            2597.4092868879234,
+            2865.9056050987474,
+            2856.8913887838735,
+            1520.1989886305319,
+            2602.367803746434,
+            2896.9873355165773,
+            2612.573707518851,
+            2939.490012544202,
+            2893.5701195326383,
+            2480.151296857688,
+            2563.038987192155
+          ],
+          "overlong_group_indices": [
+            8
+          ],
+          "tail_after_last_group_ms": 230.64,
+          "pretrigger_frame_like_group_count": 0,
+          "overlong_group_local_bins_1ms": [
+            {
+              "group_index": 8,
+              "start_ms": 276,
+              "means_uA": [
+                4557.565453115024,
+                4536.577855512427,
+                4700.1858655238575,
+                4599.677174646324,
+                4528.176197633212,
+                5048.012291475425,
+                4658.504273730427,
+                4601.140093185954,
+                4575.211586835926,
+                4698.623873011481,
+                5197.4662994225055,
+                6200.546879568249,
+                5277.796525921129,
+                5729.486019942197,
+                9379.831085324788,
+                9399.814354849246,
+                8906.53904827911,
+                4704.206946203831,
+                4638.543736203675,
+                4597.618956096991,
+                4612.797078244611,
+                4554.670702640885
+              ]
+            }
+          ]
+        }
+      ],
+      "assessment": "manual_segmentation_review_required; physical_recapture_not_demonstrated",
+      "do_not_promote_automatically": true,
+      "review_category": "isolated_precursor_bin_extends_ninth_frame_anchor_at_all_tested_thresholds",
+      "manual_review_note": "All three unchanged thresholds detect 16 groups. The ninth anchor is 281-293 ms instead of the roughly 6-7 ms duration of its peers. The 281 ms bin is 5048 uA, followed by 4659,4601,4575,4699 uA near baseline; a stronger event begins around 286-287 ms and reaches approximately 9400 uA at 290-291 ms. The 5 ms merge rule bridges the isolated precursor bin to the event. Other frames retain approximately 32 ms cadence; last burst ends near 522 ms and RAW continues to 752.64 ms. This supports manual anchor review, not a claim that an RF frame or capture tail is absent."
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK200_s1024",
+      "run_id": "run_00003",
+      "expected_frames": 16,
+      "published_quality_unchanged": "review_required",
+      "original_review_reasons": [
+        "unstable_detector_at_3_MAD"
+      ],
+      "raw_path": "module radio\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260719_003026_campaign_radio_ebyte_e79_cc1352p\\packet_tx\\20260719_012423_radio_ebyte_e79_cc1352p\\raw\\run_00003.csv.gz",
+      "full_gzip_and_csv_read": "passed",
+      "sample_count": 94720,
+      "summary_sample_count": 94720,
+      "sample_count_matches_summary": true,
+      "sha256_matches_batch": true,
+      "sample_loss_percent_reported": 0.29473684210526313,
+      "packet_received": "True",
+      "trigger_index": 19456,
+      "capture_end_ms_after_trigger": 752.64,
+      "baseline_1ms_mean_uA": 4619.183217784295,
+      "tail_50ms_mean_uA": 4597.947342954162,
+      "detection_checks": [
+        {
+          "multiplier": 3,
+          "count": 16,
+          "valid": false,
+          "reasons": [
+            "overlong_group_may_merge_frames"
+          ],
+          "groups_ms": [
+            [
+              26.0,
+              38.0
+            ],
+            [
+              60.0,
+              66.0
+            ],
+            [
+              91.0,
+              97.0
+            ],
+            [
+              124.0,
+              131.0
+            ],
+            [
+              157.0,
+              163.0
+            ],
+            [
+              188.0,
+              196.0
+            ],
+            [
+              221.0,
+              228.0
+            ],
+            [
+              253.0,
+              259.0
+            ],
+            [
+              286.0,
+              292.0
+            ],
+            [
+              318.0,
+              325.0
+            ],
+            [
+              350.0,
+              356.0
+            ],
+            [
+              383.0,
+              389.0
+            ],
+            [
+              415.0,
+              421.0
+            ],
+            [
+              448.0,
+              455.0
+            ],
+            [
+              480.0,
+              486.0
+            ],
+            [
+              512.0,
+              519.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            1541.1671336650288,
+            3008.9123160401796,
+            2931.617643825739,
+            2503.1006967802778,
+            2900.31688147796,
+            2256.2194267336045,
+            2549.507991568228,
+            2844.2250421406015,
+            2950.509294749537,
+            2517.966620550914,
+            2891.984227371956,
+            2999.2907024066926,
+            2951.771566163571,
+            2477.5495205055076,
+            2915.397781906632,
+            2432.977685911387
+          ],
+          "overlong_group_indices": [
+            0
+          ],
+          "tail_after_last_group_ms": 233.64,
+          "pretrigger_frame_like_group_count": 0,
+          "overlong_group_local_bins_1ms": [
+            {
+              "group_index": 0,
+              "start_ms": 21,
+              "means_uA": [
+                4656.996478407444,
+                4733.028382808223,
+                4630.658940321131,
+                4644.086564342613,
+                4593.137335091756,
+                4939.591406778538,
+                5857.781069226494,
+                6130.028027968918,
+                8056.230930736577,
+                9474.751106253527,
+                9423.185430261012,
+                6633.204735945127,
+                4554.62183380004,
+                4660.5583926772115,
+                4626.519947781333,
+                4552.957306684937,
+                4869.629339340391,
+                4526.831070886353,
+                4543.844458302951,
+                4664.107779676687,
+                4688.879616521491,
+                4696.705616223729
+              ]
+            }
+          ]
+        },
+        {
+          "multiplier": 4,
+          "count": 16,
+          "valid": true,
+          "reasons": [],
+          "groups_ms": [
+            [
+              26.0,
+              33.0
+            ],
+            [
+              60.0,
+              66.0
+            ],
+            [
+              91.0,
+              97.0
+            ],
+            [
+              124.0,
+              131.0
+            ],
+            [
+              157.0,
+              163.0
+            ],
+            [
+              188.0,
+              196.0
+            ],
+            [
+              221.0,
+              228.0
+            ],
+            [
+              253.0,
+              259.0
+            ],
+            [
+              286.0,
+              292.0
+            ],
+            [
+              318.0,
+              325.0
+            ],
+            [
+              350.0,
+              356.0
+            ],
+            [
+              383.0,
+              389.0
+            ],
+            [
+              415.0,
+              421.0
+            ],
+            [
+              448.0,
+              455.0
+            ],
+            [
+              480.0,
+              486.0
+            ],
+            [
+              513.0,
+              519.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            2609.3082740681666,
+            3008.9123160401796,
+            2931.617643825739,
+            2503.1006967802778,
+            2900.31688147796,
+            2256.2194267336045,
+            2549.507991568228,
+            2844.2250421406015,
+            2950.509294749537,
+            2517.966620550914,
+            2891.984227371956,
+            2999.2907024066926,
+            2951.771566163571,
+            2477.5495205055076,
+            2915.397781906632,
+            2798.5196273459524
+          ],
+          "overlong_group_indices": [],
+          "tail_after_last_group_ms": 233.64,
+          "pretrigger_frame_like_group_count": 0
+        },
+        {
+          "multiplier": 5,
+          "count": 16,
+          "valid": true,
+          "reasons": [],
+          "groups_ms": [
+            [
+              27.0,
+              33.0
+            ],
+            [
+              60.0,
+              66.0
+            ],
+            [
+              91.0,
+              97.0
+            ],
+            [
+              124.0,
+              131.0
+            ],
+            [
+              157.0,
+              163.0
+            ],
+            [
+              188.0,
+              195.0
+            ],
+            [
+              221.0,
+              228.0
+            ],
+            [
+              253.0,
+              259.0
+            ],
+            [
+              286.0,
+              292.0
+            ],
+            [
+              318.0,
+              325.0
+            ],
+            [
+              350.0,
+              356.0
+            ],
+            [
+              383.0,
+              389.0
+            ],
+            [
+              415.0,
+              421.0
+            ],
+            [
+              448.0,
+              455.0
+            ],
+            [
+              480.0,
+              486.0
+            ],
+            [
+              513.0,
+              519.0
+            ]
+          ],
+          "excess_group_mean_uA": [
+            2988.775723109128,
+            3008.9123160401796,
+            2931.617643825739,
+            2503.1006967802778,
+            2900.31688147796,
+            2530.72031395052,
+            2549.507991568228,
+            2844.2250421406015,
+            2950.509294749537,
+            2517.966620550914,
+            2891.984227371956,
+            2999.2907024066926,
+            2951.771566163571,
+            2477.5495205055076,
+            2915.397781906632,
+            2798.5196273459524
+          ],
+          "overlong_group_indices": [],
+          "tail_after_last_group_ms": 233.64,
+          "pretrigger_frame_like_group_count": 0
+        }
+      ],
+      "assessment": "manual_segmentation_review_required; physical_recapture_not_demonstrated",
+      "do_not_promote_automatically": true,
+      "review_category": "eight_cases_low_threshold_gap_noise_extends_frame_anchor",
+      "manual_review_note": "At 3 MAD, one or more isolated low-amplitude 1 ms bins in the quiet interval are bridged into the adjacent burst by the unchanged 5 ms grouping rule. The 4 and 5 MAD detections retain the expected number of well separated stronger pulses. Batch energies at 4 and 5 MAD are identical. This is segmentation/QC ambiguity, not evidence of missing capture data."
+    }
+  ],
+  "summary": {
+    "reviewed_fragmented_runs": 11,
+    "full_gzip_csv_reads_passed": 11,
+    "sample_counts_match_source_summaries": 11,
+    "hashes_match_batch": 11,
+    "all_packets_received_as_recorded": true,
+    "minimum_tail_after_last_detected_group_ms": 138.64,
+    "maximum_absolute_last_50ms_vs_baseline_mean_difference_uA": 30.92487408195211,
+    "classification_counts": {
+      "eight_cases_low_threshold_gap_noise_extends_frame_anchor": 8,
+      "isolated_precursor_bin_extends_ninth_frame_anchor_at_all_tested_thresholds": 1,
+      "pretrigger_noise_and_weak_extra_group_at_3_MAD": 1,
+      "weak_extra_group_in_interframe_gap": 1
+    },
+    "original_review_status_preserved": true,
+    "physical_recaptures_demonstrated_necessary_by_this_review": 0,
+    "recommendation": "Review the retained raw traces and document segmentation boundaries for all 11 cases; do not relabel them accepted or demand new physical captures solely from the conservative detector flags.",
+    "sample_loss_caveat": "Nine traces retain the original 0.2947368421% sample-loss estimate. This review confirms intact archived files and captured activity/tails, not zero acquisition sample loss or precise location of any missing instrument samples.",
+    "scope_exclusion": "The 21 single-frame review_required cases were not analyzed."
+  }
+}

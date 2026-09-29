@@ -253,7 +253,7 @@ def write_power_tex(
         r"\addlegendentry{TX}",
         rf"\addplot+[red!75!black, dashed, mark=square*] coordinates {{{_coordinates(rx_rows, 'mean_power_mW')}}};",
         r"\addlegendentry{RX}",
-        r"\nextgroupplot[title={Putere peste standby}, ylabel={Puterea medie suplimentară [mW]}]",
+        r"\nextgroupplot[title={Putere peste baseline pretrigger}, ylabel={Puterea medie suplimentară [mW]}]",
         rf"\addplot+[blue!75!black, mark=*] coordinates {{{_coordinates(tx_rows, 'mean_excess_power_mW')}}};",
         r"\addlegendentry{TX}",
         rf"\addplot+[red!75!black, dashed, mark=square*] coordinates {{{_coordinates(rx_rows, 'mean_excess_power_mW')}}};",

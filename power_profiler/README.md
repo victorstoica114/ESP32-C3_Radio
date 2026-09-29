@@ -1,5 +1,9 @@
 # Măsurarea consumului modulelor radio cu Nordic PPK2
 
+Auditul și reanaliza din 29 septembrie 2026 sunt publicate în [audits/2026-09-29](audits/2026-09-29/README.md). [Planul curent](audits/2026-09-29/NECESAR_REVIZUIT.md) și [calculul E79 ESP32 final](audits/2026-09-29/e79-tx-corrected/README.md) documentează rezultatele folosite în exporturi. Arhiva RAW importată este externă Git; căile sale locale din rapoarte sunt păstrate pentru proveniență.
+
+Pentru cele 315 capturi rămase, urmați [instrucțiunile E79 CH9340C pentru PC-ul de măsurare](E79_CH9340C_RECAPTURE.md).
+
 Acest folder este un proiect separat de firmware-ul PlatformIO principal. Programul de pe PC folosește interfața AT existentă a plăcii ESP32-C3, comandă Nordic Power Profiler Kit II în modul Ampere Meter și rulează automat o matrice de teste pentru fiecare modul radio.
 
 Pentru fiecare combinație sunt variate:
@@ -197,13 +201,23 @@ python -m radio_power_profiler run `
   --voltage-mv 3300
 ```
 
-Pentru fiecare caz, receptorul măsurat pornește din standby, este trecut în RX,
-primește transferul și revine în standby înainte de terminarea capturii. Energia
-include pornirea receptorului, recepția și procesarea cadrelor. La transferurile
-CC1101 de 128/512/1024 B, emițătorul introduce implicit 15 ms între cadre pentru
-ca receptorul să se poată rearma; această perioadă face parte din fereastra RX.
+În protocolul curent, receptorul este activat înainte de captură, iar baseline-ul
+pretrigger este RX fără trafic. Energia RX este integrată într-o fereastră cu
+durata airtime modelată, începând la trigger; nu include automat pornirea,
+oprirea receptorului sau toate pauzele dintre cadre. Campaniile CC1101 istorice
+din 17 iulie foloseau activarea RX în trigger și un alt protocol de integrare;
+interpretarea lor se păstrează după versiunea și metadatele sesiunii.
 Puterea de transmisie din matrice este puterea modulului de stimul, nu o setare
 care ar modifica lanțul RX al dispozitivului măsurat.
+
+Pentru TX cu `align_tx_airtime_window`, transferurile fragmentate folosesc câte
+o fereastră de airtime modelat pentru fiecare cadru detectat în RAW-ul complet.
+Pauzele dintre comenzi nu sunt incluse în suma energiilor cadrelor. Numărul
+cadrelor, geometria și sensibilitatea segmentării trebuie să treacă verificările;
+altfel rezultatul este `analysis_review_required`, fără energie publicabilă.
+Ferestrele și diagnosticele sunt salvate pentru verificare. Folosiți `--save-raw`
+pentru campaniile noi; o captură cu eroare de analiză este păstrată automat și
+când opțiunea nu a fost activată.
 
 Pentru un test scurt, axele și dimensiunile pot fi suprascrise fără editarea catalogului:
 

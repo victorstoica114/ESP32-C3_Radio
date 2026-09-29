@@ -1,0 +1,29 @@
+﻿slug,module,published_packet_captures,packet_tx_raw_available,packet_rx_raw_available,packet_tx_raw_missing,packet_rx_raw_missing,continuous_raw_available,historical_continuous_raw_missing,continuous_campaign_published,recommended_fragmented_recaptures,additional_optional_RX_recaptures
+cc1101_v1_433,CC1101 V1 433 MHz (CC1101),360,0,0,270,90,0,12,True,0,0
+cc1101_v2_868,CC1101 V2 868 MHz (CC1101),360,0,0,270,90,0,15,True,0,0
+ebyte_e07_400m10s,Ebyte E07-400M10S (CC1101),270,0,0,135,135,0,0,False,45,90
+ebyte_e07_433m20s,Ebyte E07-433M20S (CC1101 + PA/LNA),270,0,0,135,135,0,0,False,45,90
+ebyte_e07_900mm10s,Ebyte E07-900MM10S (CC1101),270,0,0,135,135,0,0,False,45,90
+e28_sx1280,Ebyte E28 (SX1280),180,135,45,0,0,12,0,True,0,0
+e280,Ebyte E280-2G4T12S (SX1280),180,135,45,0,0,12,0,True,0,0
+ebyte_e22_400m30s,Ebyte E22-400M30S (SX1268 + PA),180,135,45,0,0,12,0,True,0,0
+ebyte_e32_433t20d,Ebyte E32-433T20D (SX1278),360,270,90,0,0,12,0,True,0,0
+ebyte_e32_433t33d,Ebyte E32-433T33D (SX1278 + PA),360,270,90,0,0,12,0,True,0,0
+ebyte_e32_868t20d,Ebyte E32-868T20D (SX1276),360,270,90,0,0,12,0,True,0,0
+ebyte_e32_868t30d,Ebyte E32-868T30D (SX1276 + PA),360,270,90,0,0,12,0,True,0,0
+ebyte_e79_400dm2005s,Ebyte E79-400DM2005S via ESP32 (CC1352P),840,630,210,0,0,24,0,True,0,0
+ebyte_e79_ch9340,Ebyte E79-400DM2005S via CH9340C (CC1352P),1260,0,0,630,630,0,0,False,630,315
+hc12,HC-12 (Si4463),180,135,45,0,0,12,0,True,0,0
+nrf24l01,NRF24L01 (nRF24L01+),180,135,45,0,0,12,0,True,0,0
+nrf24l01_pa,NRF24L01 PA/LNA (nRF24L01+),180,135,45,0,0,12,0,True,0,0
+ra01h_sx1276,Ai-Thinker RA-01H (SX1276),180,135,45,0,0,12,0,True,0,0
+ra01sh_sx1262,Ai-Thinker RA-01SH (SX1262),180,135,45,0,0,12,0,True,0,0
+ra02_sx1278,Ai-Thinker RA-02 (SX1278),180,135,45,0,0,12,0,True,0,0
+ra02_sx1278_2cap,Ai-Thinker RA-02 with 2 Cap (SX1278),180,135,45,0,0,12,0,True,0,0
+ra08_asr6601,Ai-Thinker RA-08 (ASR6601),180,135,45,0,0,12,0,True,0,0
+ra09_stm32wle5,Ai-Thinker RA-09 (STM32WLE5),270,0,0,135,135,0,0,False,0,135
+sx1278_adafruit_level_shifter,Adafruit board with level shifter (SX1278),180,135,45,0,0,12,0,True,0,0
+sx1278_naked,Unshielded radio module (SX1278),180,135,45,0,0,12,0,True,0,0
+sx1278_pcb_2cap,Carrier PCB with 2 Cap (SX1278),180,135,45,0,0,12,0,True,0,0
+sx1278_shielded,Shielded radio module (SX1278),180,135,45,0,0,12,0,True,0,0
+xl1276_d01_sx1276,XL1276-D01 (SX1276),180,135,45,0,0,12,0,True,0,0

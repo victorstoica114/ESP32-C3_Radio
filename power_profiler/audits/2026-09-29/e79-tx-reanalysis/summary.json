@@ -1,0 +1,246 @@
+{
+  "method": "Independent pulse detection; one charge-aligned modeled-airtime window per pulse; original total integration time retained.",
+  "interpretation": "Offline sensitivity analysis under the original airtime model, not synchronized RF timing or end-to-end energy. No original exports replaced; no correction transferred to CH9340C.",
+  "runs": 630,
+  "reanalyzed_runs": 598,
+  "review_required": [
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK50_s8",
+      "run_id": "run_00001",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK50_s32",
+      "run_id": "run_00002",
+      "reasons": [
+        "frame_like_pretrigger_noise"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK50_s128",
+      "run_id": "run_00001",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK50_s1024",
+      "run_id": "run_00003",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK50_s1024",
+      "run_id": "run_00005",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK200_s8",
+      "run_id": "run_00004",
+      "reasons": [
+        "frame_like_pretrigger_noise"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK200_s32",
+      "run_id": "run_00003",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK200_s32",
+      "run_id": "run_00005",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK200_s64",
+      "run_id": "run_00004",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK200_s128",
+      "run_id": "run_00003",
+      "reasons": [
+        "frame_like_pretrigger_noise"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-GFSK200_s1024",
+      "run_id": "run_00003",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-IEEE154G50_s8",
+      "run_id": "run_00003",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p-20_rf_profile-IEEE154G50_s32",
+      "run_id": "run_00003",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK200_s8",
+      "run_id": "run_00002",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK200_s512",
+      "run_id": "run_00002",
+      "reasons": [
+        "detected_frame_count_mismatch"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK200_s512",
+      "run_id": "run_00005",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-GFSK200_s1024",
+      "run_id": "run_00004",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p0_rf_profile-IEEE154G50_s8",
+      "run_id": "run_00005",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK50_s8",
+      "run_id": "run_00005",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK50_s64",
+      "run_id": "run_00004",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK50_s128",
+      "run_id": "run_00001",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK200_s8",
+      "run_id": "run_00001",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK200_s8",
+      "run_id": "run_00003",
+      "reasons": [
+        "overlong_group_may_merge_frames"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK200_s8",
+      "run_id": "run_00005",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK200_s64",
+      "run_id": "run_00005",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK200_s1024",
+      "run_id": "run_00002",
+      "reasons": [
+        "overlong_group_may_merge_frames"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-GFSK200_s1024",
+      "run_id": "run_00003",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-IEEE154G50_s8",
+      "run_id": "run_00001",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-IEEE154G50_s8",
+      "run_id": "run_00002",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-IEEE154G50_s8",
+      "run_id": "run_00004",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-IEEE154G50_s8",
+      "run_id": "run_00005",
+      "reasons": [
+        "unstable_detector_at_3_MAD"
+      ]
+    },
+    {
+      "step_id": "tx_p13_rf_profile-IEEE154G50_s32",
+      "run_id": "run_00004",
+      "reasons": [
+        "detected_frame_count_mismatch"
+      ]
+    }
+  ],
+  "original_energy_max_absolute_error_uJ": 7.412745617330074e-08,
+  "physical_captures_performed": 0,
+  "single_frame": {
+    "runs": 294,
+    "total_change_percent_min": -5.8619775700208265e-12,
+    "total_change_percent_max": 6.972200594645983e-12,
+    "total_change_percent_median": -4.9960036108132044e-14
+  },
+  "fragmented": {
+    "runs": 304,
+    "total_change_percent_min": -0.004306357871242117,
+    "total_change_percent_max": 45.98976837637703,
+    "total_change_percent_median": 5.14802248966566
+  }
+}

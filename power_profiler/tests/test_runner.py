@@ -1,12 +1,21 @@
+import csv
+import dataclasses
+import json
+import tempfile
 import unittest
+from pathlib import Path
+from unittest.mock import MagicMock, patch
 
-from radio_power_profiler.planning import build_cases
+from radio_power_profiler.analysis import analyze_capture
+from radio_power_profiler.planning import build_cases, estimate_airtime_s
+from radio_power_profiler.ppk import Capture
 from radio_power_profiler.profiles import load_profile, override_profile
 from radio_power_profiler.runner import (
     _execute_receive_transfer,
     _restore_after_reset,
     _should_reset_between_runs,
     _warm_up_radio_path,
+    run_profile,
 )
 from radio_power_profiler.serial_radio import SerialRadio, TransmissionResult
 
@@ -47,6 +56,83 @@ class FakeTransmitter:
 
 
 class RunnerTests(unittest.TestCase):
+    def _run_fragmented_case(self, root, *, save_raw, analysis):
+        profile = dataclasses.replace(override_profile(
+            load_profile("RADIO_EBYTE_E79_CC1352P"), sizes=(100,), repetitions=1,
+            axis_overrides={"rf_profile": ("GFSK50",), "tx_power_dbm": (13,)},
+        ), warmup_transfers=0)
+        transmission = TransmissionResult(
+            content_bytes=100, frame_payload_bytes=(64, 36),
+            expected_payloads=(b"A" * 64, b"A" * 36), response_lines=("OK",),
+        )
+        capture = Capture([1_000.0] * 100_000, [], 20_000, 1.0, 100_000)
+        radio = MagicMock()
+        radio.drain.return_value = ()
+        radio.send_packet.return_value = transmission
+        sampler = MagicMock()
+        def capture_and_trigger(**kwargs):
+            kwargs["trigger"]()
+            return capture
+        sampler.capture.side_effect = capture_and_trigger
+        with (
+            patch("radio_power_profiler.runner.Ppk2Sampler", return_value=sampler),
+            patch("radio_power_profiler.runner.SerialRadio", return_value=radio),
+            patch("radio_power_profiler.runner.time.sleep"),
+            patch("radio_power_profiler.runner.analyze_capture", side_effect=analysis) as analyze,
+        ):
+            result_dir = run_profile(
+                profile, radio_port="COM_FAKE_RADIO", receiver_port=None,
+                ppk_port="COM_FAKE_PPK", voltage_mv=3300, output_root=root,
+                save_raw=save_raw, keep_power_on=True, boot_wait_s=0,
+            )
+        return result_dir, analyze, profile
+
+    def test_fragmented_analysis_failure_retains_raw_when_save_raw_is_false(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            result_dir, analyze, profile = self._run_fragmented_case(
+                Path(temporary), save_raw=False, analysis=analyze_capture,
+            )
+            with (result_dir / "summary.csv").open(encoding="utf-8", newline="") as stream:
+                row = next(csv.DictReader(stream))
+            self.assertEqual(row["status"], "analysis_review_required")
+            self.assertEqual(row["energy_total_uJ"], "")
+            self.assertIn("detected_frame_count_mismatch", row["analysis_error"])
+            self.assertEqual(json.loads(row["integration_windows_ms"]), [])
+            self.assertTrue((result_dir / "raw" / "run_00001.csv.gz").is_file())
+            metadata = json.loads((result_dir / "metadata.json").read_text(encoding="utf-8"))
+            self.assertFalse(metadata["save_raw"])
+            self.assertIn("always_on_analysis_error", metadata["raw_retention_policy"])
+            diagnostic = json.loads((result_dir / "analysis" / "run_00001.json").read_text(encoding="utf-8"))
+            self.assertTrue(diagnostic["raw_retained"])
+            self.assertEqual(diagnostic["analysis_error"], row["analysis_error"])
+            arguments = analyze.call_args.kwargs
+            self.assertIsNone(arguments["search_window_s"])
+            self.assertEqual(arguments["frame_airtimes_s"], tuple(
+                estimate_airtime_s(profile, size, {"rf_profile": "GFSK50", "tx_power_dbm": 13})
+                for size in (64, 36)
+            ))
+            self.assertNotEqual(*arguments["frame_airtimes_s"])
+
+    def test_save_raw_precedes_an_unexpected_analysis_exception(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            with self.assertRaisesRegex(RuntimeError, "analysis failed"):
+                self._run_fragmented_case(root, save_raw=True, analysis=RuntimeError("analysis failed"))
+            self.assertEqual(len(list(root.glob("*/raw/run_00001.csv.gz"))), 1)
+
+    def test_unexpected_analysis_exception_retains_raw_when_save_raw_is_false(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            with self.assertRaisesRegex(RuntimeError, "analysis failed"):
+                self._run_fragmented_case(root, save_raw=False, analysis=RuntimeError("analysis failed"))
+            self.assertEqual(len(list(root.glob("*/raw/run_00001.csv.gz"))), 1)
+            diagnostics = list(root.glob("*/analysis/run_00001.json"))
+            self.assertEqual(len(diagnostics), 1)
+            detail = json.loads(diagnostics[0].read_text(encoding="utf-8"))
+            self.assertTrue(detail["raw_retained"])
+            self.assertTrue(detail["diagnostics"]["unexpected_exception"])
+            self.assertEqual(detail["analysis_error"], "RuntimeError: analysis failed")
+
     def test_e79_warmup_transfer_is_verified_and_unmeasured(self):
         profile = override_profile(
             load_profile("RADIO_EBYTE_E79_CC1352P"),

@@ -8,6 +8,40 @@ from tools.generate_transfer_report import _bit_rate_kbps, _tx_power_dbm, build_
 
 
 class ResultTests(unittest.TestCase):
+    def test_analysis_error_is_preserved_and_does_not_publish_a_partial_mean(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            result_dir = Path(temporary) / "session"
+            with ResultWriter(result_dir, {}) as writer:
+                common = {
+                    "profile_id": "RADIO_EBYTE_E79_CC1352P",
+                    "measurement_direction": "tx", "payload_bytes": 128,
+                    "frame_count": 2, "max_frame_payload_bytes": 64,
+                    "parameters_json": '{"rf_profile": "GFSK50", "tx_power_dbm": 13}',
+                    "voltage_mv": 3300, "ppk_mode": "ampere",
+                    "integration_method": "per_frame_modeled_airtime_v1",
+                    "baseline_median_uA": 1000.0,
+                }
+                writer.add(dict(common, run_id="run_00001", event_detected=True,
+                                status="ok", energy_total_uJ=1000.0,
+                                integration_windows_ms="[[10, 30], [100, 120]]"))
+                writer.add(dict(common, run_id="run_00002", event_detected=False,
+                                status="analysis_review_required", energy_total_uJ=None,
+                                analysis_error="detected_frame_count_mismatch",
+                                integration_windows_ms="[]"))
+                writer.write_aggregates()
+            with (result_dir / "summary.csv").open(encoding="utf-8", newline="") as stream:
+                rows = list(csv.DictReader(stream))
+            self.assertEqual(rows[1]["analysis_error"], "detected_frame_count_mismatch")
+            self.assertEqual(rows[1]["energy_total_uJ"], "")
+            self.assertEqual(rows[0]["integration_windows_ms"], "[[10, 30], [100, 120]]")
+            with (result_dir / "aggregates.csv").open(encoding="utf-8", newline="") as stream:
+                aggregate = next(csv.DictReader(stream))
+            self.assertEqual(aggregate["analysis_valid_runs"], "1")
+            self.assertEqual(aggregate["analysis_error_runs"], "1")
+            self.assertEqual(aggregate["energy_total_uJ_mean"], "")
+            self.assertEqual(aggregate["energy_total_uJ_stdev"], "")
+            self.assertEqual(float(aggregate["baseline_median_uA_mean"]), 1000.0)
+
     def test_transfer_report_derives_nominal_lora_bit_rate(self):
         metadata = {
             "profile": {

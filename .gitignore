@@ -21,6 +21,10 @@ compile_commands.json
 log/
 
 # Python power-profiler environment and generated measurements
+.tmp/
+# Local imported experiment archive (RAW data and a separate Git history).
+# Reviewed audit reports are published under power_profiler/audits/.
+/module radio/
 power_profiler/.venv/
 power_profiler/pilot_results/
 power_profiler/results/

@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from .analysis import analyze_capture
-from .models import Profile, TestCase
+from .models import Metrics, Profile, TestCase
 from .planning import build_cases, estimate_airtime_s, parameter_commands
 from .ppk import Ppk2Sampler, SAMPLE_RATE_HZ
 from .results import ResultWriter
@@ -237,6 +237,9 @@ def run_profile(
         "voltage_mv": voltage_mv,
         "sample_rate_hz": SAMPLE_RATE_HZ,
         "save_raw": save_raw,
+        "raw_retention_policy": "all_when_save_raw; always_on_analysis_error",
+        "fragmented_tx_integration_method": "per_frame_modeled_airtime_v1",
+        "analysis_diagnostics_directory": "analysis",
         "test_count": len(cases),
     }
 
@@ -357,6 +360,11 @@ def run_profile(
                 after_trigger_s=case.capture_after_trigger_s,
                 trigger=trigger,
             )
+            run_id = f"run_{case.case_index:05d}"
+            if save_raw:
+                # Preserve the evidence before analysis or response processing
+                # can fail. Analysis failures also retain RAW when opted out.
+                writer.save_raw(run_id, capture)
             measured_lines = radio.drain(wait_s=0.08)
             peer_lines = (
                 peer.drain(wait_s=profile.receive.post_receive_s)
@@ -390,45 +398,81 @@ def run_profile(
                 (line for line in transmitter_lines if line.upper().startswith("#ERROR")),
                 "",
             )
-            metrics = analyze_capture(
-                capture.samples_uA,
-                trigger_index=capture.trigger_index,
-                sample_rate_hz=SAMPLE_RATE_HZ,
-                voltage_mv=voltage_mv,
-                capture_spec=profile.capture,
-                expected_event_count=len(transmission.frame_payload_bytes),
-                search_window_s=min(
-                    case.capture_after_trigger_s,
-                    case.estimated_event_s * 1.5
-                    + profile.capture.search_window_margin_s,
-                ),
-                fallback_window_s=(
-                    max(
-                        0.001,
-                        case.estimated_event_s - profile.receive.post_receive_s,
-                    )
-                    if measurement_direction == "rx" and packet_received
-                    else None
-                ),
-                # RX current is nearly flat while the radio listens, so tiny
-                # noise spikes can otherwise win threshold-based event
-                # selection. Integrate one deterministic on-air window for RX;
-                # TX continues to use measured event boundaries.
-                integration_window_s=(
-                    case.estimated_airtime_s
-                    if (
-                        measurement_direction == "rx"
-                        or profile.capture.align_tx_airtime_window
-                    )
-                    else None
-                ),
-                align_integration_window=(
+            frame_airtimes_s = (
+                tuple(
+                    estimate_airtime_s(profile, frame_bytes, case.parameters)
+                    for frame_bytes in transmission.frame_payload_bytes
+                )
+                if (
                     measurement_direction == "tx"
                     and profile.capture.align_tx_airtime_window
-                ),
+                    and len(transmission.frame_payload_bytes) > 1
+                )
+                else None
             )
-            run_id = f"run_{case.case_index:05d}"
-            if radio_error:
+            try:
+                metrics = analyze_capture(
+                    capture.samples_uA,
+                    trigger_index=capture.trigger_index,
+                    sample_rate_hz=SAMPLE_RATE_HZ,
+                    voltage_mv=voltage_mv,
+                    capture_spec=profile.capture,
+                    expected_event_count=len(transmission.frame_payload_bytes),
+                    search_window_s=(
+                        None if frame_airtimes_s is not None else min(
+                            case.capture_after_trigger_s,
+                            case.estimated_event_s * 1.5
+                            + profile.capture.search_window_margin_s,
+                        )
+                    ),
+                    fallback_window_s=(
+                        max(
+                            0.001,
+                            case.estimated_event_s - profile.receive.post_receive_s,
+                        )
+                        if measurement_direction == "rx" and packet_received
+                        else None
+                    ),
+                    # RX uses one bounded listening window. Fragmented aligned
+                    # TX supplies separate modeled durations for its frames.
+                    integration_window_s=(
+                        case.estimated_airtime_s
+                        if (
+                            measurement_direction == "rx"
+                            or profile.capture.align_tx_airtime_window
+                        )
+                        else None
+                    ),
+                    align_integration_window=(
+                        measurement_direction == "tx"
+                        and profile.capture.align_tx_airtime_window
+                    ),
+                    frame_airtimes_s=frame_airtimes_s,
+                )
+            except Exception as exc:
+                # Keep evidence even for an unexpected analyzer failure, then
+                # propagate the original exception so it cannot look accepted.
+                if not save_raw:
+                    writer.save_raw(run_id, capture)
+                writer.save_analysis(run_id, Metrics(
+                    event_detected=False, baseline_median_uA=None, threshold_uA=None,
+                    integration_method=(
+                        "per_frame_modeled_airtime_v1" if frame_airtimes_s is not None else ""
+                    ),
+                    analysis_error=f"{type(exc).__name__}: {exc}",
+                    analysis_diagnostics={
+                        "unexpected_exception": True,
+                        "frame_airtimes_s": frame_airtimes_s,
+                    },
+                ))
+                raise
+            if metrics.analysis_error and not save_raw:
+                writer.save_raw(run_id, capture)
+            if metrics.analysis_diagnostics:
+                writer.save_analysis(run_id, metrics)
+            if metrics.analysis_error:
+                status = "analysis_review_required"
+            elif radio_error:
                 status = "radio_error"
             elif not metrics.event_detected:
                 status = "no_event_detected"
@@ -479,6 +523,9 @@ def run_profile(
                 "charge_excess_uC": metrics.charge_excess_uC,
                 "energy_total_uJ": metrics.energy_total_uJ,
                 "energy_excess_uJ": metrics.energy_excess_uJ,
+                "integration_method": metrics.integration_method,
+                "integration_windows_ms": json.dumps(metrics.integration_windows_ms),
+                "analysis_error": metrics.analysis_error,
                 "radio_response": response,
                 "transmitter_response": transmitter_response,
                 "receiver_port": (
@@ -492,8 +539,6 @@ def run_profile(
                 "status": status,
             }
             writer.add(row)
-            if save_raw:
-                writer.save_raw(run_id, capture)
             print(
                 f"[{case.case_index:>4}/{len(cases)}] {measurement_direction.upper()} "
                 f"{case.payload_bytes:>4} B, "

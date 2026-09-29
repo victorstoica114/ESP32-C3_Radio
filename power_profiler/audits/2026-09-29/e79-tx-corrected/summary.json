@@ -1,0 +1,21 @@
+{
+  "method": "Independent pulse detection; one charge-aligned modeled-airtime window per pulse; original total integration time retained.",
+  "interpretation": "Offline sensitivity analysis under the original airtime model, not synchronized RF timing or end-to-end energy. Publishing is a separate step; no correction transferred to CH9340C.",
+  "runs": 630,
+  "reanalyzed_runs": 630,
+  "review_required": [],
+  "original_energy_max_absolute_error_uJ": 7.412745617330074e-08,
+  "physical_captures_performed": 0,
+  "single_frame": {
+    "runs": 315,
+    "total_change_percent_min": 0.0,
+    "total_change_percent_max": 0.0,
+    "total_change_percent_median": 0.0
+  },
+  "fragmented": {
+    "runs": 315,
+    "total_change_percent_min": -0.0021449969135778346,
+    "total_change_percent_max": 45.98976837637703,
+    "total_change_percent_median": 5.386090739704286
+  }
+}
