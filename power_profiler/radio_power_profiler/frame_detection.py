@@ -1,6 +1,7 @@
 """Conservative offline E79 burst anchors; does not impose an expected count.
 
-1 ms means suppress PPK switching/noise spikes. A burst must contain at least
+Adaptive 1-2 ms means suppress PPK switching/noise spikes while retaining at
+least 64 bins across the shortest modeled frame. A burst must contain at least
 two consecutive above-threshold bins; isolated crossings cannot create a burst
 or extend its anchors. Calibration uses only pre-trigger samples. Independent
 burst count is a validation result, never an input. The returned groups are
@@ -68,7 +69,15 @@ def detect_frames(samples, trigger, rate, frame_window_samples, *, sensitivity=4
     )
     if maximum_frame_window_samples < frame_window_samples:
         raise ValueError('Maximum frame window must be at least the minimum')
-    bin_samples=max(1,round(rate*.001))
+    bin_samples = max(
+        1,
+        round(
+            max(
+                rate * .001,
+                min(rate * .002, frame_window_samples / 64.0),
+            )
+        ),
+    )
     pre_start=round(rate*.010)
     pre_stop=trigger-round(rate*.006)
     pre=[statistics.fmean(samples[i:i+bin_samples])
@@ -93,7 +102,11 @@ def detect_frames(samples, trigger, rate, frame_window_samples, *, sensitivity=4
         diagnostics.update(valid=False,reasons=['nonfinite_samples'])
         return [],diagnostics
     bin_ms=bin_samples*1000.0/rate
-    max_gap=max(1,round(merge_gap_ms/bin_ms))
+    # _groups compares the distance between active bin indices.  A distance of
+    # N+1 represents N inactive bins, so include that endpoint explicitly.
+    # This keeps merge_gap_ms in milliseconds when adaptive binning changes
+    # from 1 ms to 2 ms instead of accidentally halving the tolerated dip.
+    max_gap=max(1,math.floor(merge_gap_ms/bin_ms)+1)
     frame_ms=frame_window_samples*1000.0/rate
     maximum_frame_ms=maximum_frame_window_samples*1000.0/rate
     min_bins=max(2,math.ceil(max(2.0,frame_ms*minimum_width_fraction)/bin_ms))

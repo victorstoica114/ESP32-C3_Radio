@@ -147,6 +147,7 @@ def cmd_run(args) -> int:
         save_raw=args.save_raw,
         keep_power_on=args.keep_power_on,
         boot_wait_s=args.boot_wait_s,
+        stop_on_error_status=args.stop_on_error_status,
     )
     print(f"Results: {output.resolve()}")
     return 0
@@ -296,6 +297,14 @@ def make_parser() -> argparse.ArgumentParser:
         help="explicitly disable the PPK2 DUT path after the run",
     )
     run_parser.add_argument("--boot-wait-s", type=float, default=1.5)
+    run_parser.add_argument(
+        "--stop-on-error-status",
+        action="store_true",
+        help=(
+            "stop after persisting the first analysis_review_required, "
+            "radio_error, or no_event_detected result"
+        ),
+    )
     run_parser.set_defaults(func=cmd_run)
 
     continuous_parser = subparsers.add_parser(

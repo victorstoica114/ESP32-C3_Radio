@@ -17,7 +17,11 @@ from radio_power_profiler.runner import (
     _warm_up_radio_path,
     run_profile,
 )
-from radio_power_profiler.serial_radio import SerialRadio, TransmissionResult
+from radio_power_profiler.serial_radio import (
+    RadioCommandError,
+    SerialRadio,
+    TransmissionResult,
+)
 
 
 class FakeReceiver:
@@ -159,6 +163,60 @@ class RunnerTests(unittest.TestCase):
         self.assertEqual(len(transmitter.calls), 1)
         self.assertEqual(transmitter.drain_calls, [0.03])
         self.assertEqual(receiver.drain_calls, [0.03, profile.receive.post_receive_s])
+
+    @patch("radio_power_profiler.runner.time.sleep")
+    def test_warmup_retries_unmeasured_rf_loss(self, sleep):
+        profile = override_profile(
+            load_profile("RADIO_EBYTE_E79_CC1352P"),
+            sizes=(64,),
+            repetitions=1,
+            axis_overrides={"rf_profile": ("GFSK50",), "tx_power_dbm": (0,)},
+        )
+        case = build_cases(profile, "tx")[0]
+        payload = SerialRadio.make_payload(64)
+        result = TransmissionResult(
+            content_bytes=64,
+            frame_payload_bytes=(64,),
+            expected_payloads=(payload,),
+            response_lines=("OK",),
+        )
+        transmitter = FakeTransmitter(result)
+        receiver = FakeReceiver(())
+        receiver.drain = MagicMock(side_effect=[
+            (), (),
+            (), (payload.decode("ascii"),),
+        ])
+
+        _warm_up_radio_path(transmitter, receiver, profile, case, "tx")
+
+        self.assertEqual(len(transmitter.calls), 2)
+        self.assertEqual(receiver.drain.call_count, 4)
+        self.assertGreaterEqual(sleep.call_count, 2)
+
+    @patch("radio_power_profiler.runner.time.sleep")
+    def test_warmup_stops_after_three_unmeasured_losses(self, sleep):
+        profile = override_profile(
+            load_profile("RADIO_EBYTE_E79_CC1352P"),
+            sizes=(64,),
+            repetitions=1,
+            axis_overrides={"rf_profile": ("GFSK50",), "tx_power_dbm": (0,)},
+        )
+        case = build_cases(profile, "tx")[0]
+        payload = SerialRadio.make_payload(64)
+        result = TransmissionResult(
+            content_bytes=64,
+            frame_payload_bytes=(64,),
+            expected_payloads=(payload,),
+            response_lines=("OK",),
+        )
+        transmitter = FakeTransmitter(result)
+        receiver = FakeReceiver(())
+
+        with self.assertRaisesRegex(RadioCommandError, "after 3 attempts"):
+            _warm_up_radio_path(transmitter, receiver, profile, case, "tx")
+
+        self.assertEqual(len(transmitter.calls), 3)
+        self.assertGreaterEqual(sleep.call_count, 3)
 
     def test_e32_resets_only_long_runs_and_restores_full_configuration(self):
         profile = override_profile(

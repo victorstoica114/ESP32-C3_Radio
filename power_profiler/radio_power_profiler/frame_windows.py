@@ -55,15 +55,16 @@ def locate_frame_windows(
     expected = len(frame_lengths)
     diagnostics = {"expected_frames": expected, "frame_lengths": list(frame_lengths), "sensitivity": []}
     result = {"valid": False, "windows": [], "reasons": [], "diagnostics": diagnostics}
-    reference_windows = None
-    reference_energy = None
-    for multiplier in (4.0, 3.0, 5.0):
+    checks_by_multiplier = {}
+
+    def evaluate(multiplier):
         groups, detail = detect_frames(
             samples, trigger_index, sample_rate_hz, min(frame_lengths),
             maximum_frame_window_samples=max(frame_lengths), sensitivity=multiplier,
         )
         check = {"multiplier": multiplier, "detected_frames": len(groups), "groups": groups, "detector": detail}
         diagnostics["sensitivity"].append(check)
+        checks_by_multiplier[multiplier] = check
         reasons = []
         if len(groups) != expected:
             reasons.append("detected_frame_count_mismatch")
@@ -75,24 +76,138 @@ def locate_frame_windows(
                     reasons.append("pulse_too_long_for_its_modeled_frame")
         if reasons:
             check["reasons"] = reasons
-            result["reasons"].extend(f"{reason}_at_{multiplier:g}_MAD" for reason in reasons)
-            continue
+            return check
         try:
             windows = align_windows(samples, baseline_uA, trigger_index, groups, frame_lengths)
         except ValueError as exc:
-            result["reasons"].append(str(exc))
-            continue
+            check["reasons"] = [str(exc)]
+            return check
         total, excess = _integrals(samples, windows, baseline_uA)
         check.update(windows=windows, total_integral_uA_samples=total, excess_integral_uA_samples=excess)
-        if multiplier == 4.0:
-            reference_windows, reference_energy = windows, total
-            diagnostics["detected_frames"] = len(groups)
-            diagnostics["groups"] = groups
-        elif reference_energy is not None:
-            relative = 100.0 * (total / reference_energy - 1.0) if reference_energy > 0 else 0.0
+        return check
+
+    def consensus(reference_multiplier, candidate_multipliers, required_support_count, mode):
+        reference = checks_by_multiplier[reference_multiplier]
+        if "windows" not in reference:
+            return None, []
+        reference_energy = reference["total_integral_uA_samples"]
+        supporters = [reference_multiplier]
+        outliers = []
+        for multiplier in candidate_multipliers:
+            check = checks_by_multiplier[multiplier]
+            if "windows" not in check:
+                outliers.append(multiplier)
+                continue
+            relative = 100.0 * (
+                check["total_integral_uA_samples"] / reference_energy - 1.0
+            ) if reference_energy > 0 else 0.0
             check["total_difference_percent"] = relative
-            if abs(relative) > 1.0:
-                result["reasons"].append(f"energy_sensitivity_above_1_percent_at_{multiplier:g}_MAD")
-    if not result["reasons"] and reference_windows is not None:
-        result.update(valid=True, windows=reference_windows)
+            if abs(relative) <= 1.0:
+                supporters.append(multiplier)
+            else:
+                outliers.append(multiplier)
+                check.setdefault("reasons", []).append("energy_sensitivity_above_1_percent")
+        diagnostics["sensitivity_consensus"] = {
+            "mode": mode,
+            "reference_multiplier": reference_multiplier,
+            "supporting_multipliers": supporters,
+            "outlier_multipliers": outliers,
+            "required_support_count": required_support_count,
+        }
+        if len(supporters) >= required_support_count:
+            diagnostics["detected_frames"] = reference["detected_frames"]
+            diagnostics["groups"] = reference["groups"]
+            return reference["windows"], outliers
+        return None, outliers
+
+    for multiplier in (4.0, 3.0, 5.0):
+        evaluate(multiplier)
+
+    primary = checks_by_multiplier[4.0]
+    primary_windows, primary_outliers = consensus(
+        4.0, (3.0, 5.0), 2, "primary_4_MAD",
+    )
+    if primary_windows is not None:
+        result.update(valid=True, windows=primary_windows)
+        return result
+
+    # A strong frame can have a low-current setup shoulder that makes the
+    # 4-MAD anchor overlong.  Accept a high-side fallback only when the entire
+    # 4.5/5/5.5-MAD bracket independently passes count/QC and energy consensus.
+    high_outliers = []
+    if "windows" not in primary and "windows" in checks_by_multiplier[5.0]:
+        for multiplier in (4.5, 5.5):
+            evaluate(multiplier)
+        high_windows, high_outliers = consensus(
+            5.0, (4.5, 5.5), 3, "high_signal_5_MAD_fallback",
+        )
+        if high_windows is not None:
+            diagnostics["sensitivity_consensus"]["primary_4_MAD_reasons"] = primary.get(
+                "reasons", ["invalid_primary_sensitivity"]
+            )
+            result.update(valid=True, windows=high_windows)
+            return result
+
+    # Do not reinterpret a valid 4-MAD detection that merely lacks a confirming
+    # neighbor, and do not lower thresholds for short/1-ms-bin frames.  The
+    # fallback is specific to long, low-power plateaus using temporal averaging.
+    adaptive_bin_samples = primary["detector"].get("bin_samples", 0)
+    fallback_eligible = (
+        "windows" not in primary
+        and adaptive_bin_samples > round(sample_rate_hz * .001)
+    )
+    if not fallback_eligible:
+        if "windows" not in primary:
+            result["reasons"].extend(
+                f"{reason}_at_4_MAD"
+                for reason in primary.get("reasons", ["invalid_primary_sensitivity"])
+            )
+        for multiplier in primary_outliers:
+            check = checks_by_multiplier[multiplier]
+            result["reasons"].extend(
+                f"{reason}_at_{multiplier:g}_MAD"
+                for reason in check.get("reasons", ["sensitivity_did_not_confirm_primary"])
+            )
+        for multiplier in high_outliers:
+            check = checks_by_multiplier[multiplier]
+            result["reasons"].extend(
+                f"{reason}_at_{multiplier:g}_MAD"
+                for reason in check.get("reasons", ["high_sensitivity_did_not_confirm"])
+            )
+        result["reasons"].append("insufficient_sensitivity_consensus")
+        return result
+
+    # Every point in the 2.0-2.75-MAD bracket must independently find the exact
+    # modeled count, pass detector QC, and agree on integration energy within
+    # 1%.  The center of this stable low-threshold plateau supplies the windows.
+    for multiplier in (2.5, 2.0, 2.25, 2.75):
+        evaluate(multiplier)
+    fallback_windows, fallback_outliers = consensus(
+        2.5, (2.0, 2.25, 2.75), 4, "long_frame_low_signal_fallback",
+    )
+    if fallback_windows is not None:
+        diagnostics["sensitivity_consensus"]["primary_4_MAD_reasons"] = primary.get(
+            "reasons", ["invalid_primary_sensitivity"]
+        )
+        result.update(valid=True, windows=fallback_windows)
+        return result
+
+    result["reasons"].extend(
+        f"{reason}_at_4_MAD"
+        for reason in primary.get("reasons", ["invalid_primary_sensitivity"])
+    )
+    if "windows" not in checks_by_multiplier[2.5]:
+        result["reasons"].extend(
+            f"{reason}_at_2.5_MAD"
+            for reason in checks_by_multiplier[2.5].get(
+                "reasons", ["invalid_fallback_reference"]
+            )
+        )
+    for multiplier in fallback_outliers:
+        check = checks_by_multiplier[multiplier]
+        result["reasons"].extend(
+            f"{reason}_at_{multiplier:g}_MAD"
+            for reason in check.get("reasons", ["sensitivity_did_not_confirm_primary"])
+        )
+    result["reasons"].append("insufficient_low_signal_sensitivity_consensus")
     return result

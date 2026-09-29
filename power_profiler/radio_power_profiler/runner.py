@@ -101,47 +101,60 @@ def _warm_up_radio_path(
         f"Warming up RF path with {profile.warmup_transfers} "
         "unmeasured verified transfer(s) ..."
     )
+    maximum_attempts = 3 if peer is not None else 1
     for warmup_index in range(profile.warmup_transfers):
-        radio.drain(wait_s=0.03)
-        if peer is not None:
-            peer.drain(wait_s=0.03)
+        received = False
+        for attempt in range(1, maximum_attempts + 1):
+            radio.drain(wait_s=0.03)
+            if peer is not None:
+                peer.drain(wait_s=0.03)
 
-        if measurement_direction == "tx":
-            frame_count = len(profile.transmit.frame_sizes(case.payload_bytes))
-            pacing_ms = profile.receive.inter_frame_gap_ms
-            if profile.transmit.mode == "text_line" and frame_count > 1:
-                pacing_ms += max(
-                    estimate_airtime_s(profile, frame_size, case.parameters)
-                    for frame_size in profile.transmit.frame_sizes(case.payload_bytes)
-                ) * 1000.0
-            transmission = radio.send_packet(
-                profile,
-                case.payload_bytes,
-                inter_frame_gap_ms=pacing_ms,
-                completion_timeout_s=max(2.0, case.capture_after_trigger_s),
-            )
-            receiver_lines = (
-                peer.drain(wait_s=profile.receive.post_receive_s)
-                if peer is not None
-                else ()
-            )
-        else:
-            assert peer is not None
-            radio.configure(profile.receiver_enable_commands)
-            transmission, receiver_lines = _execute_receive_transfer(
-                radio,
-                peer,
-                profile,
-                case,
-            )
+            if measurement_direction == "tx":
+                frame_count = len(profile.transmit.frame_sizes(case.payload_bytes))
+                pacing_ms = profile.receive.inter_frame_gap_ms
+                if profile.transmit.mode == "text_line" and frame_count > 1:
+                    pacing_ms += max(
+                        estimate_airtime_s(profile, frame_size, case.parameters)
+                        for frame_size in profile.transmit.frame_sizes(case.payload_bytes)
+                    ) * 1000.0
+                transmission = radio.send_packet(
+                    profile,
+                    case.payload_bytes,
+                    inter_frame_gap_ms=pacing_ms,
+                    completion_timeout_s=max(2.0, case.capture_after_trigger_s),
+                )
+                receiver_lines = (
+                    peer.drain(wait_s=profile.receive.post_receive_s)
+                    if peer is not None
+                    else ()
+                )
+            else:
+                assert peer is not None
+                radio.configure(profile.receiver_enable_commands)
+                transmission, receiver_lines = _execute_receive_transfer(
+                    radio,
+                    peer,
+                    profile,
+                    case,
+                )
 
-        if peer is not None and not _received_all_frames(
-            transmission.expected_payloads,
-            receiver_lines,
-        ):
+            received = peer is None or _received_all_frames(
+                transmission.expected_payloads,
+                receiver_lines,
+            )
+            if received:
+                break
+            if attempt < maximum_attempts:
+                print(
+                    f"RF warm-up {warmup_index + 1}/{profile.warmup_transfers} "
+                    f"missed on attempt {attempt}/{maximum_attempts}; retrying ..."
+                )
+            time.sleep(0.05)
+
+        if not received:
             raise RadioCommandError(
                 f"RF warm-up {warmup_index + 1}/{profile.warmup_transfers} "
-                "was not received by the peer"
+                f"was not received after {maximum_attempts} attempts"
             )
         time.sleep(0.05)
 
@@ -193,6 +206,7 @@ def run_profile(
     save_raw: bool,
     keep_power_on: bool,
     boot_wait_s: float,
+    stop_on_error_status: bool = False,
 ) -> Path:
     if measurement_direction not in {"tx", "rx"}:
         raise ValueError("Measurement direction must be 'tx' or 'rx'")
@@ -240,6 +254,7 @@ def run_profile(
         "raw_retention_policy": "all_when_save_raw; always_on_analysis_error",
         "fragmented_tx_integration_method": "per_frame_modeled_airtime_v1",
         "analysis_diagnostics_directory": "analysis",
+        "stop_on_error_status": stop_on_error_status,
         "test_count": len(cases),
     }
 
@@ -250,7 +265,7 @@ def run_profile(
     previous_parameters: dict[str, Any] | None = None
     try:
         sampler = Ppk2Sampler(ppk_port, voltage_mv=voltage_mv)
-        sampler.power_on()
+        sampler.start_continuous()
         time.sleep(boot_wait_s)
         radio = SerialRadio(
             radio_port,
@@ -546,6 +561,11 @@ def run_profile(
                 f"peak={metrics.tx_peak_uA or 0:.1f} uA, "
                 f"energy={metrics.energy_total_uJ or 0:.3f} uJ"
             )
+            if stop_on_error_status and status in {
+                "analysis_review_required", "radio_error", "no_event_detected",
+            }:
+                print(f"Stopping campaign on terminal status: {status}")
+                break
             if case.case_index < len(cases):
                 time.sleep(profile.cooldown_s)
                 if _should_reset_between_runs(profile, case):

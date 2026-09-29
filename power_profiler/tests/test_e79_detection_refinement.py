@@ -88,6 +88,35 @@ class E79DetectionRefinementTests(unittest.TestCase):
         self.assertEqual(groups, pulses)
         self.assertTrue(diagnostic["valid"])
 
+    def test_long_frames_use_two_millisecond_noise_bins(self):
+        samples = self.trace([(22_000, 35_000, 6_000.0)])
+        groups, diagnostic = detect_frames(
+            samples,
+            self.trigger,
+            self.rate,
+            13_000,
+        )
+
+        self.assertEqual(diagnostic["bin_samples"], 200)
+        self.assertEqual(groups, [(22_000, 35_000)])
+        self.assertTrue(diagnostic["valid"])
+
+    def test_merge_gap_keeps_its_millisecond_meaning_with_two_ms_bins(self):
+        samples = self.trace(
+            [(22_000, 26_000, 6_000.0), (26_400, 35_000, 6_000.0)]
+        )
+        groups, diagnostic = detect_frames(
+            samples,
+            self.trigger,
+            self.rate,
+            13_000,
+            merge_gap_ms=5.0,
+        )
+
+        self.assertEqual(diagnostic["bin_samples"], 200)
+        self.assertEqual(groups, [(22_000, 35_000)])
+        self.assertTrue(diagnostic["valid"])
+
 
 if __name__ == "__main__":
     unittest.main()

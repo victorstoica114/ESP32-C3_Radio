@@ -34,6 +34,7 @@ class Ppk2Sampler:
 
         self.mode = "ampere"
         self.voltage_mv = voltage_mv
+        self._continuous_hold = False
         self.api = PPK2_API(port, timeout=0)
         self._stop_and_drain()
         self._read_modifiers_with_retry()
@@ -94,7 +95,16 @@ class Ppk2Sampler:
         self.api.ser.flush()
         time.sleep(0.02)
 
+    def start_continuous(self) -> None:
+        """Keep the PPK2 sampling between captures so its DUT path stays blue."""
+        self._stop_and_drain()
+        self.power_on()
+        self.api.start_measuring()
+        self.api.ser.flush()
+        self._continuous_hold = True
+
     def close(self, *, keep_power_on: bool = True) -> None:
+        self._continuous_hold = False
         try:
             self.api.stop_measuring()
         except Exception:
@@ -128,56 +138,65 @@ class Ppk2Sampler:
         if pre_s <= 0 or after_trigger_s <= 0:
             raise ValueError("Capture durations must be positive")
 
-        while self.api.get_data():
-            pass
+        resume_continuous = self._continuous_hold
+        if resume_continuous:
+            self._stop_and_drain()
+        else:
+            while self.api.get_data():
+                pass
         self.api.remainder = {"sequence": b"", "len": 0}
         self.api.rolling_avg = None
         self.api.rolling_avg4 = None
         self.api.prev_range = None
         self.api.after_spike = 0
 
-        chunks: list[bytes] = []
-        trigger_errors: list[BaseException] = []
-
-        def run_trigger() -> None:
-            try:
-                trigger()
-            except BaseException as exc:
-                trigger_errors.append(exc)
-
-        start = time.perf_counter()
-        self.api.start_measuring()
-        trigger_thread: threading.Thread | None = None
         try:
-            self._drain_for(pre_s, chunks)
-            queued_bytes = sum(len(chunk) for chunk in chunks)
-            queued_bytes += int(getattr(self.api.ser, "in_waiting", 0))
-            trigger_index = queued_bytes // 4
-            # Serial.flush() can block for more than 100 ms at 9600 baud. Keep
-            # draining the PPK2 port concurrently so its USB buffers do not fill.
-            trigger_thread = threading.Thread(target=run_trigger, daemon=True)
-            trigger_thread.start()
-            self._drain_for(after_trigger_s, chunks)
-            trigger_thread.join(timeout=1.0)
-            if trigger_thread.is_alive():
-                raise RuntimeError("Radio serial transmission did not finish in time")
-            if trigger_errors:
-                raise trigger_errors[0]
-            final = self.api.get_data()
-            if final:
-                chunks.append(final)
-        finally:
-            self.api.stop_measuring()
+            chunks: list[bytes] = []
+            trigger_errors: list[BaseException] = []
 
-        time.sleep(0.01)
-        tail = self.api.get_data()
-        if tail:
-            chunks.append(tail)
-        elapsed = time.perf_counter() - start
-        raw = b"".join(chunks)
-        if not raw:
-            raise RuntimeError("PPK2 returned no measurement data")
-        samples, logic_bits = self.api.get_samples(raw)
-        expected = int((pre_s + after_trigger_s) * SAMPLE_RATE_HZ)
-        trigger_index = min(trigger_index, max(0, len(samples) - 1))
-        return Capture(samples, logic_bits, trigger_index, elapsed, expected)
+            def run_trigger() -> None:
+                try:
+                    trigger()
+                except BaseException as exc:
+                    trigger_errors.append(exc)
+
+            start = time.perf_counter()
+            self.api.start_measuring()
+            trigger_thread: threading.Thread | None = None
+            try:
+                self._drain_for(pre_s, chunks)
+                queued_bytes = sum(len(chunk) for chunk in chunks)
+                queued_bytes += int(getattr(self.api.ser, "in_waiting", 0))
+                trigger_index = queued_bytes // 4
+                # Serial.flush() can block for more than 100 ms at 9600 baud. Keep
+                # draining the PPK2 port concurrently so its USB buffers do not fill.
+                trigger_thread = threading.Thread(target=run_trigger, daemon=True)
+                trigger_thread.start()
+                self._drain_for(after_trigger_s, chunks)
+                trigger_thread.join(timeout=1.0)
+                if trigger_thread.is_alive():
+                    raise RuntimeError("Radio serial transmission did not finish in time")
+                if trigger_errors:
+                    raise trigger_errors[0]
+                final = self.api.get_data()
+                if final:
+                    chunks.append(final)
+            finally:
+                self.api.stop_measuring()
+
+            time.sleep(0.01)
+            tail = self.api.get_data()
+            if tail:
+                chunks.append(tail)
+            elapsed = time.perf_counter() - start
+            raw = b"".join(chunks)
+            if not raw:
+                raise RuntimeError("PPK2 returned no measurement data")
+            samples, logic_bits = self.api.get_samples(raw)
+            expected = int((pre_s + after_trigger_s) * SAMPLE_RATE_HZ)
+            trigger_index = min(trigger_index, max(0, len(samples) - 1))
+            return Capture(samples, logic_bits, trigger_index, elapsed, expected)
+        finally:
+            if resume_continuous and self.api.ser.is_open:
+                self.api.start_measuring()
+                self.api.ser.flush()

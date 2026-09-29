@@ -361,7 +361,7 @@ def run_continuous_profile(
     stream.flush()
     try:
         sampler = Ppk2Sampler(ppk_port, voltage_mv=voltage_mv)
-        sampler.power_on()
+        sampler.start_continuous()
         time.sleep(boot_wait_s)
         radio = SerialRadio(
             radio_port,

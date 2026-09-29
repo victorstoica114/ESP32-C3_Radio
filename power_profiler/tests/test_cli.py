@@ -41,6 +41,20 @@ class CliTests(unittest.TestCase):
 
         self.assertFalse(args.keep_power_on)
 
+    def test_run_can_stop_on_first_error_status(self):
+        args = make_parser().parse_args(
+            [
+                "run",
+                "--module",
+                "RADIO_CC1101_V2_868",
+                "--radio-port",
+                "COM4",
+                "--stop-on-error-status",
+            ]
+        )
+
+        self.assertTrue(args.stop_on_error_status)
+
     def test_continuous_defaults_define_one_minute_power_sweep(self):
         args = make_parser().parse_args(
             [
