@@ -1,6 +1,6 @@
 """Prove a marker total without baseline or stateful-decoder assumptions.
 
-This is a sufficient, deliberately narrow proof for ppk2-api 0.9.2. Its
+This is a sufficient, deliberately narrow proof for ppk2-api. Its
 range-change filter substitutes an IIR output for a range transition and the
 following two samples. A constant valid range from start-3 to stop-1 therefore
 makes every integrated sample a direct calibrated ADC value, independently of
@@ -48,7 +48,7 @@ def prove_marker_total(
     proof = {
         "schema_version": 1,
         "method": "direct_adc_constant_range_marker_total",
-        "decoder_reference": "ppk2-api 0.9.2; three samples affected per range change",
+        "decoder_reference": "ppk2-api; three samples affected per range change",
         "valid": False, "reasons": [], "warnings": [],
         "window_samples": None, "guard_window_samples": None,
         "guard_qa_includes_stop": True,

@@ -1,0 +1,164 @@
+{
+  "profile_id": "RADIO_EBYTE_E32_868T20D",
+  "parameters": {
+    "tx_power_dbm": 20,
+    "bit_rate_kbps": 19.2
+  },
+  "payload_bytes": 32,
+  "voltage_mv": 5000,
+  "voltage_provenance": "Operator connected E32-868T20D fixtures after agreed 5 V setup instruction; physical voltage not independently recorded",
+  "physical_voltage_measured": false,
+  "measured_rail": "E32-868T20D only; ESP32 excluded",
+  "ppk_mode": "ampere",
+  "synchronization": "host coordinated, independent PPK clocks",
+  "rx_scope": "Fixed modeled listening interval starting at host trigger; not exclusive RF reception",
+  "tx_scope": "Current-threshold TX event",
+  "estimated_airtime_s": 0.064,
+  "endpoints": {
+    "tx": {
+      "radio_port": "COM42",
+      "ppk_port": "COM10",
+      "config_readback": [
+        "====== E32 CONFIGURATION ======",
+        "ADDH: 0",
+        "ADDL: 0",
+        "CHAN: 6",
+        "--- SPEED ---",
+        "UART Baud: 115200bps",
+        "UART Parity: 8N1",
+        "Air Data Rate: 19.2kbps",
+        "--- OPTION ---",
+        "Fixed Transmission: Transparent",
+        "FEC: Enable",
+        "TX Power: code 0 (20 dBm)",
+        "WOR timing: 250ms",
+        "IO mode: PushPull",
+        "Runtime mode: NORMAL",
+        "Bridge: ON",
+        "AUX: HIGH",
+        "================================",
+        "====== E32 MODULE INFO ======",
+        "HEAD: C3",
+        "Freq: 45",
+        "Vers: C",
+        "Feat: 14",
+        "=============================",
+        "OK"
+      ]
+    },
+    "rx": {
+      "radio_port": "COM43",
+      "ppk_port": "COM11",
+      "config_readback": [
+        "====== E32 CONFIGURATION ======",
+        "ADDH: 0",
+        "ADDL: 0",
+        "CHAN: 6",
+        "--- SPEED ---",
+        "UART Baud: 115200bps",
+        "UART Parity: 8N1",
+        "Air Data Rate: 19.2kbps",
+        "--- OPTION ---",
+        "Fixed Transmission: Transparent",
+        "FEC: Enable",
+        "TX Power: code 0 (20 dBm)",
+        "WOR timing: 250ms",
+        "IO mode: PushPull",
+        "Runtime mode: NORMAL",
+        "Bridge: ON",
+        "AUX: HIGH",
+        "================================",
+        "====== E32 MODULE INFO ======",
+        "HEAD: C3",
+        "Freq: 45",
+        "Vers: C",
+        "Feat: 14",
+        "=============================",
+        "OK"
+      ]
+    }
+  },
+  "usb": {
+    "COM42": {
+      "serial": "B8:F8:62:38:61:44",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM43": {
+      "serial": "B8:F8:62:38:65:70",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM10": {
+      "serial": "E753C4E81F3D",
+      "vid": 6421,
+      "pid": 49162
+    },
+    "COM11": {
+      "serial": "CD2D332DB09A",
+      "vid": 6421,
+      "pid": 49162
+    }
+  },
+  "aggregates": [
+    {
+      "role": "tx",
+      "trial_count": 5,
+      "scope": "Current-threshold TX event",
+      "energy_total_uJ_mean": 24351.00657904156,
+      "energy_total_uJ_sd": 49.0956153696573,
+      "energy_excess_uJ_mean": 20639.5283231319,
+      "energy_excess_uJ_sd": 47.024308517628576,
+      "charge_total_uC_mean": 4870.201315808313,
+      "charge_total_uC_sd": 9.81912307393144,
+      "event_duration_ms_mean": 53.052,
+      "event_duration_ms_sd": 0.004472135955001867,
+      "tx_mean_uA_mean": 91800.51986561272,
+      "tx_mean_uA_sd": 183.33213229909182
+    },
+    {
+      "role": "rx",
+      "trial_count": 5,
+      "scope": "Fixed modeled listening interval starting at host trigger; not exclusive RF reception",
+      "energy_total_uJ_mean": 4161.658170558073,
+      "energy_total_uJ_sd": 4.757298956099789,
+      "energy_excess_uJ_mean": 326.7207461177838,
+      "energy_excess_uJ_sd": 7.030156551924637,
+      "charge_total_uC_mean": 832.3316341116146,
+      "charge_total_uC_sd": 0.9514597912199094,
+      "event_duration_ms_mean": 64.0,
+      "event_duration_ms_sd": 0.0,
+      "tx_mean_uA_mean": 13005.18178299397,
+      "tx_mean_uA_sd": 14.866559237810575
+    }
+  ],
+  "status": "complete_five_trial_numeric_batch",
+  "accepted_pairs": 5,
+  "accepted_captures": 10,
+  "acquisition_attempts": 1,
+  "source_session": "measurements\\raw\\sessions\\20261003_154605_466799_paired_reference_radio_ebyte_e32_868t20d",
+  "validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      "RX measures modeled listening; no exclusive RF reception energy claim."
+    ]
+  },
+  "captured_samples_verified": 1021440,
+  "source_report_sha256": "559f3fbaf7f60f286208c4f589a5f8809639998b5ffc48a244703dce2635de86",
+  "serial_content_bytes": 30,
+  "line_overhead_bytes": 2,
+  "tx_confirmation": "UART write/flush and exact RX payload; transparent modem has no per-packet TX acknowledgment",
+  "replacement_scope": "Only the agreed 32-byte reference point; not other historical energy curves.",
+  "rf_reliability_scope": "Five accepted transfers, not a statistical RF reliability estimate.",
+  "frequency_mhz": 868,
+  "frequency_provenance": {
+    "method": "Physical configuration readback and manufacturer channel plan",
+    "channel": 6,
+    "base_mhz": 862,
+    "channel_step_mhz": 1,
+    "rf_frequency_independently_measured": false,
+    "source_title": "Chengdu Ebyte E32-868T20D User Manual, section 7.5",
+    "source_url": "https://manualzz.com/doc/69984414/ebyte-e32-868t20d-user-manual"
+  }
+}

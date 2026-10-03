@@ -14,7 +14,7 @@ numerice nu au fost rescrise.
 
 Au fost eliminate copia importată a proiectului, după păstrarea datelor și
 verificarea că istoricul principal conține commit-ul sursă `11f296e`, pachetele
-locale de actualizare PPK, notele despre versiunile PPK și logurile/snapshoturile
+locale de actualizare PPK, notele auxiliare și logurile/snapshoturile
 temporare ale browserului. Documentația marcajelor E79 și dovezile relevante
 au fost mutate în `audits/2026-10-01/e79-markers/`.
 

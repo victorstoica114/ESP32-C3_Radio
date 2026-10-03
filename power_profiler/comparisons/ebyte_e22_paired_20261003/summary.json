@@ -1,0 +1,150 @@
+{
+  "profile_id": "RADIO_EBYTE_E22_SX1268",
+  "parameters": {
+    "tx_power_dbm": 18,
+    "spreading_factor": 7,
+    "bandwidth_khz": 125
+  },
+  "payload_bytes": 32,
+  "voltage_mv": 5000,
+  "voltage_provenance": "Operator connected E22 fixtures after agreed 5 V setup instruction; physical voltage not independently recorded",
+  "physical_voltage_measured": false,
+  "measured_rail": "E22 only; ESP32 excluded",
+  "ppk_mode": "ampere",
+  "synchronization": "host coordinated, independent PPK clocks",
+  "rx_scope": "Fixed modeled listening interval starting at host trigger; not exclusive RF reception",
+  "tx_scope": "Current-threshold TX event",
+  "estimated_airtime_s": 0.071936,
+  "endpoints": {
+    "tx": {
+      "radio_port": "COM34",
+      "ppk_port": "COM10",
+      "config_readback": [
+        "CFG:",
+        "FREQ=433.000 MHz",
+        "BW=125.0 kHz",
+        "SF=7",
+        "CR=5",
+        "SYNC=0x14",
+        "PWR=18 dBm",
+        "CURR=0.0 mA (0=skip)",
+        "PREAMBLE=8",
+        "GAIN=1",
+        "RX=OFF",
+        "SLEEP=NO",
+        "CRC=ON",
+        "TCXO=2.2 V (0=XTAL)",
+        "REG=DCDC",
+        "DIO2_RF=ON",
+        "RXBOOST=OFF",
+        "HEADER=EXPLICIT",
+        "IMPLEN=32",
+        "IQ=NORMAL",
+        "LDRO=AUTO/OFF",
+        "DEBUG=ON",
+        "OK"
+      ]
+    },
+    "rx": {
+      "radio_port": "COM35",
+      "ppk_port": "COM11",
+      "config_readback": [
+        "CFG:",
+        "FREQ=433.000 MHz",
+        "BW=125.0 kHz",
+        "SF=7",
+        "CR=5",
+        "SYNC=0x14",
+        "PWR=18 dBm",
+        "CURR=0.0 mA (0=skip)",
+        "PREAMBLE=8",
+        "GAIN=1",
+        "RX=ON",
+        "SLEEP=NO",
+        "CRC=ON",
+        "TCXO=2.2 V (0=XTAL)",
+        "REG=DCDC",
+        "DIO2_RF=ON",
+        "RXBOOST=OFF",
+        "HEADER=EXPLICIT",
+        "IMPLEN=32",
+        "IQ=NORMAL",
+        "LDRO=AUTO/OFF",
+        "DEBUG=OFF",
+        "OK"
+      ]
+    }
+  },
+  "usb": {
+    "COM34": {
+      "serial": "08:92:72:9A:C1:F8",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM35": {
+      "serial": "08:92:72:9A:C4:00",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM10": {
+      "serial": "E753C4E81F3D",
+      "vid": 6421,
+      "pid": 49162
+    },
+    "COM11": {
+      "serial": "CD2D332DB09A",
+      "vid": 6421,
+      "pid": 49162
+    }
+  },
+  "aggregates": [
+    {
+      "role": "tx",
+      "trial_count": 5,
+      "scope": "Current-threshold TX event",
+      "energy_total_uJ_mean": 21180.75016659104,
+      "energy_total_uJ_sd": 4.169216552796109,
+      "energy_excess_uJ_mean": 21026.61086362594,
+      "energy_excess_uJ_sd": 4.34637158994222,
+      "charge_total_uC_mean": 4236.1500333182075,
+      "charge_total_uC_sd": 0.833843310559343,
+      "event_duration_ms_mean": 72.66,
+      "event_duration_ms_sd": 0.01870828693386978,
+      "tx_mean_uA_mean": 58300.99529707506,
+      "tx_mean_uA_sd": 21.86210493490361
+    },
+    {
+      "role": "rx",
+      "trial_count": 5,
+      "scope": "Fixed modeled listening interval starting at host trigger; not exclusive RF reception",
+      "energy_total_uJ_mean": 1938.5967231718248,
+      "energy_total_uJ_sd": 7.22680776306144,
+      "energy_excess_uJ_mean": 337.07748133297645,
+      "energy_excess_uJ_sd": 6.263070375449295,
+      "charge_total_uC_mean": 387.71934463436503,
+      "charge_total_uC_sd": 1.4453615526122896,
+      "event_duration_ms_mean": 71.92999999999999,
+      "event_duration_ms_sd": 0.0,
+      "tx_mean_uA_mean": 5390.23140044996,
+      "tx_mean_uA_sd": 20.094001843633848
+    }
+  ],
+  "status": "complete_five_trial_numeric_batch",
+  "accepted_pairs": 5,
+  "accepted_captures": 10,
+  "acquisition_attempts": 1,
+  "completed_utc": "2026-10-03T11:53:21.252669+00:00",
+  "source_session": "measurements\\raw\\sessions\\20261003_145111_308226_paired_reference_radio_ebyte_e22_sx1268",
+  "validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      "RX measures modeled listening; no exclusive RF reception energy claim."
+    ]
+  },
+  "captured_samples_verified": 1019904,
+  "source_report_sha256": "5541d7944ad2db9697589b87dc73217243b14582a5113da30c955de321ab38cb",
+  "tests_passed": 436,
+  "full_campaign_scope": "This replaces only the agreed 32-byte reference condition.",
+  "rf_reliability_scope": "Five accepted transfers; not a statistical RF reliability estimate."
+}

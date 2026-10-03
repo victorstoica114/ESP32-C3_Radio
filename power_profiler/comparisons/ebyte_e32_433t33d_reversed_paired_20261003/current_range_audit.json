@@ -1,0 +1,195 @@
+{
+  "status": "reviewed_primary_batch_with_roles_reversed",
+  "current_limit_uA": 1000000,
+  "largest_peak_uA": 917223.5122865221,
+  "largest_full_capture_peak_uA": 917223.5122865221,
+  "headroom_uA": 82776.48771347792,
+  "rows": [
+    {
+      "run_id": "run_00001",
+      "peak_uA": 916372.3557728054,
+      "full_capture_peak_uA": 916372.3557728054,
+      "samples_at_or_above_1A": 0,
+      "adc_max": 1193,
+      "adc_max_code_count": 2,
+      "adc_full_scale_count": 0,
+      "range_counts": {
+        "2": 60047,
+        "3": 36576,
+        "1": 107,
+        "4": 6182
+      },
+      "most_common_adc_codes": [
+        [
+          1144,
+          643
+        ],
+        [
+          1143,
+          593
+        ],
+        [
+          1145,
+          591
+        ],
+        [
+          1148,
+          567
+        ],
+        [
+          1146,
+          545
+        ]
+      ]
+    },
+    {
+      "run_id": "run_00002",
+      "peak_uA": 917223.5122865221,
+      "full_capture_peak_uA": 917223.5122865221,
+      "samples_at_or_above_1A": 0,
+      "adc_max": 1194,
+      "adc_max_code_count": 1,
+      "adc_full_scale_count": 0,
+      "range_counts": {
+        "2": 59940,
+        "3": 36633,
+        "4": 6181,
+        "1": 53,
+        "0": 105
+      },
+      "most_common_adc_codes": [
+        [
+          1143,
+          627
+        ],
+        [
+          1144,
+          605
+        ],
+        [
+          1147,
+          597
+        ],
+        [
+          1148,
+          593
+        ],
+        [
+          1145,
+          576
+        ]
+      ]
+    },
+    {
+      "run_id": "run_00003",
+      "peak_uA": 916372.3557728054,
+      "full_capture_peak_uA": 916372.3557728054,
+      "samples_at_or_above_1A": 0,
+      "adc_max": 1195,
+      "adc_max_code_count": 1,
+      "adc_full_scale_count": 0,
+      "range_counts": {
+        "3": 35773,
+        "2": 60445,
+        "4": 6182
+      },
+      "most_common_adc_codes": [
+        [
+          1144,
+          619
+        ],
+        [
+          1146,
+          592
+        ],
+        [
+          1147,
+          574
+        ],
+        [
+          1143,
+          572
+        ],
+        [
+          1145,
+          570
+        ]
+      ]
+    },
+    {
+      "run_id": "run_00004",
+      "peak_uA": 916372.3557728054,
+      "full_capture_peak_uA": 916372.3557728054,
+      "samples_at_or_above_1A": 0,
+      "adc_max": 1195,
+      "adc_max_code_count": 1,
+      "adc_full_scale_count": 0,
+      "range_counts": {
+        "2": 60166,
+        "3": 36052,
+        "4": 6182
+      },
+      "most_common_adc_codes": [
+        [
+          1148,
+          609
+        ],
+        [
+          1143,
+          607
+        ],
+        [
+          1144,
+          596
+        ],
+        [
+          1147,
+          581
+        ],
+        [
+          1146,
+          573
+        ]
+      ]
+    },
+    {
+      "run_id": "run_00005",
+      "peak_uA": 916372.3557728054,
+      "full_capture_peak_uA": 916372.3557728054,
+      "samples_at_or_above_1A": 0,
+      "adc_max": 1260,
+      "adc_max_code_count": 1,
+      "adc_full_scale_count": 0,
+      "range_counts": {
+        "2": 59840,
+        "3": 36585,
+        "1": 305,
+        "4": 6182
+      },
+      "most_common_adc_codes": [
+        [
+          1143,
+          605
+        ],
+        [
+          1145,
+          599
+        ],
+        [
+          1146,
+          596
+        ],
+        [
+          1144,
+          577
+        ],
+        [
+          1148,
+          573
+        ]
+      ]
+    }
+  ],
+  "scope": "ADC full-scale codes detect one clipping signature; their absence does not validate analog behavior near the 1 A instrument limit.",
+  "decision": "Use this complete five-pair batch as the primary reference point. Observed peak has approximately 83 mA headroom below the nominal 1 A limit. The first complete batch remains provisional; do not pool the two TX units."
+}

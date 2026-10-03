@@ -1,0 +1,122 @@
+{
+  "checks": [
+    {
+      "run_id": "run_00001",
+      "candidate_count": 1,
+      "candidates_ms": [
+        [
+          140.55,
+          140.8
+        ]
+      ],
+      "excess_energy_uJ": [
+        23.791167128606393
+      ],
+      "candidate_widths_ms": [
+        0.25
+      ],
+      "selected_windows_ms": [
+        [
+          140.45,
+          140.9
+        ]
+      ]
+    },
+    {
+      "run_id": "run_00002",
+      "candidate_count": 2,
+      "candidates_ms": [
+        [
+          103.15,
+          103.36
+        ],
+        [
+          142.32,
+          142.58
+        ]
+      ],
+      "excess_energy_uJ": [
+        0.4578043537491506,
+        23.92369161164112
+      ],
+      "candidate_widths_ms": [
+        0.21,
+        0.26
+      ],
+      "selected_windows_ms": [
+        [
+          142.22,
+          142.68
+        ]
+      ]
+    },
+    {
+      "run_id": "run_00003",
+      "candidate_count": 1,
+      "candidates_ms": [
+        [
+          143.05,
+          143.3
+        ]
+      ],
+      "excess_energy_uJ": [
+        23.695513891554075
+      ],
+      "candidate_widths_ms": [
+        0.25
+      ],
+      "selected_windows_ms": [
+        [
+          142.95,
+          143.4
+        ]
+      ]
+    },
+    {
+      "run_id": "run_00004",
+      "candidate_count": 1,
+      "candidates_ms": [
+        [
+          142.62,
+          143.2
+        ]
+      ],
+      "excess_energy_uJ": [
+        24.45294129612996
+      ],
+      "candidate_widths_ms": [
+        0.58
+      ],
+      "selected_windows_ms": [
+        [
+          142.52,
+          143.3
+        ]
+      ]
+    },
+    {
+      "run_id": "run_00005",
+      "candidate_count": 1,
+      "candidates_ms": [
+        [
+          142.52,
+          142.77
+        ]
+      ],
+      "excess_energy_uJ": [
+        23.843957905762558
+      ],
+      "candidate_widths_ms": [
+        0.25
+      ],
+      "selected_windows_ms": [
+        [
+          142.42,
+          142.87
+        ]
+      ]
+    }
+  ],
+  "method": "All above-threshold groups in the recorded TX search window",
+  "scope": "Acquisition uses the largest threshold event, matching the historical TX definition. Other transients are documented; this is not whole UART-to-RF transaction energy."
+}

@@ -1,0 +1,150 @@
+{
+  "profile_id": "RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER",
+  "parameters": {
+    "tx_power_dbm": 20,
+    "spreading_factor": 7,
+    "bandwidth_khz": 125
+  },
+  "payload_bytes": 32,
+  "voltage_mv": 5000,
+  "frequency_mhz": 433,
+  "voltage_provenance": "Operator connected SX1278 Adafruit level shifter fixtures after agreed 5 V setup instruction; physical voltage not independently recorded",
+  "physical_voltage_measured": false,
+  "measured_rail": "SX1278-Adafruit only; ESP32 excluded",
+  "ppk_mode": "ampere",
+  "synchronization": "host coordinated, independent PPK clocks",
+  "rx_scope": "Fixed modeled listening interval starting at host trigger; not exclusive RF reception",
+  "tx_scope": "Current-threshold TX event",
+  "estimated_airtime_s": 0.071936,
+  "endpoints": {
+    "tx": {
+      "radio_port": "COM48",
+      "ppk_port": "COM11",
+      "config_readback": [
+        "CFG:",
+        "FREQ=433.000 MHz",
+        "BW=125.0 kHz",
+        "SF=7",
+        "CR=5",
+        "SYNC=0x14",
+        "PWR=20 dBm",
+        "CURR=0.0 mA (0=skip)",
+        "PREAMBLE=8",
+        "GAIN=1",
+        "RX=OFF",
+        "SLEEP=NO",
+        "CRC=ON",
+        "HEADER=EXPLICIT",
+        "IMPLEN=32",
+        "IQ=NORMAL",
+        "FHSS=0",
+        "DEBUG=ON",
+        "OK"
+      ]
+    },
+    "rx": {
+      "radio_port": "COM49",
+      "ppk_port": "COM10",
+      "config_readback": [
+        "CFG:",
+        "FREQ=433.000 MHz",
+        "BW=125.0 kHz",
+        "SF=7",
+        "CR=5",
+        "SYNC=0x14",
+        "PWR=20 dBm",
+        "CURR=0.0 mA (0=skip)",
+        "PREAMBLE=8",
+        "GAIN=1",
+        "RX=ON",
+        "SLEEP=NO",
+        "CRC=ON",
+        "HEADER=EXPLICIT",
+        "IMPLEN=32",
+        "IQ=NORMAL",
+        "FHSS=0",
+        "DEBUG=OFF",
+        "OK"
+      ]
+    }
+  },
+  "usb": {
+    "COM48": {
+      "serial": "B8:F8:62:38:63:34",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM49": {
+      "serial": "0C:4E:A0:66:F5:C8",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM10": {
+      "serial": "E753C4E81F3D",
+      "vid": 6421,
+      "pid": 49162
+    },
+    "COM11": {
+      "serial": "CD2D332DB09A",
+      "vid": 6421,
+      "pid": 49162
+    }
+  },
+  "aggregates": [
+    {
+      "role": "tx",
+      "trial_count": 5,
+      "scope": "Current-threshold TX event",
+      "energy_total_uJ_mean": 21564.300932920647,
+      "energy_total_uJ_sd": 49.41177013422661,
+      "energy_excess_uJ_mean": 20884.773454296388,
+      "energy_excess_uJ_sd": 48.68799173588104,
+      "charge_total_uC_mean": 4312.860186584129,
+      "charge_total_uC_sd": 9.882354026845457,
+      "event_duration_ms_mean": 72.526,
+      "event_duration_ms_sd": 0.011401754250987864,
+      "tx_mean_uA_mean": 59466.393846167965,
+      "tx_mean_uA_sd": 132.06423347421557
+    },
+    {
+      "role": "rx",
+      "trial_count": 5,
+      "scope": "Fixed modeled listening interval starting at host trigger; not exclusive RF reception",
+      "energy_total_uJ_mean": 4207.520407628924,
+      "energy_total_uJ_sd": 6.592922496242775,
+      "energy_excess_uJ_mean": 252.33624369791647,
+      "energy_excess_uJ_sd": 10.663034526131959,
+      "charge_total_uC_mean": 841.5040815257847,
+      "charge_total_uC_sd": 1.3185844992484956,
+      "event_duration_ms_mean": 71.92999999999999,
+      "event_duration_ms_sd": 0.0,
+      "tx_mean_uA_mean": 11698.93064821061,
+      "tx_mean_uA_sd": 18.3314958883549
+    }
+  ],
+  "status": "complete_five_trial_numeric_batch",
+  "accepted_pairs": 5,
+  "accepted_captures": 10,
+  "acquisition_attempts": 1,
+  "source_session": "measurements\\raw\\sessions\\20261003_161631_880029_paired_reference_radio_sx1278_adafruit_level_shifter",
+  "validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      "RX measures modeled listening; no exclusive RF reception energy claim."
+    ]
+  },
+  "captured_samples_verified": 1018880,
+  "source_report_sha256": "0e279e252c629996b0c4a39cd95dc41f051d12be9fe8eea1a64af2b33c9ba0a1",
+  "serial_content_bytes": 32,
+  "line_overhead_bytes": 0,
+  "tx_confirmation": "Modem success report and exact RX payload",
+  "replacement_scope": "Only the agreed 32-byte reference point; not other historical energy curves.",
+  "rf_reliability_scope": "Five accepted transfers, not a statistical RF reliability estimate.",
+  "coding_rate_denominator": 5,
+  "preamble_symbols": 8,
+  "frequency_provenance": {
+    "method": "Requested firmware setting and AT+CFG readback",
+    "rf_frequency_independently_measured": false
+  }
+}

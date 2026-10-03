@@ -37,7 +37,7 @@
   "failed_rx_proof": {
     "schema_version": 1,
     "method": "bounded_filter_replay_marker_total",
-    "decoder_reference": "ppk2-api 0.9.2 / Nordic serialDevice.ts getAdcResult",
+    "decoder_reference": "ppk2-api / Nordic serialDevice.ts getAdcResult",
     "valid": false,
     "reasons": [
       "Replay error plus uncertain-history width exceeds 1e-6 uA"
@@ -132,7 +132,7 @@
   },
   "independent_audit": {
     "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261001_185824_162955_paired_pilot_radio_ebyte_e79_cc1352p\\diagnostics\\filter-independent-audit.json",
-    "sha256": "340a90801e4f02b889cc1a1ce54af233ea54a3584aa42cd8146377ffbfeba272",
+    "sha256": "50d5a192bae51f04115f1aa876c62690785efc0bcf4974927901ef427eaa0aa1",
     "captures": 6,
     "matching_role_verdicts": 6,
     "replay_max_difference_uA": 0,
@@ -149,7 +149,7 @@
     "power_profiler/requirements.txt": "89d9eec22dec9df4b6eb6345a7d3faaa540547cf294a147673a6e9cc14be6fa4",
     "power_profiler/firmware/e79_tx_marker_dio17/esp32-20261001/software-tests-396.log": "94df39d12ee624abc87a207823f7003787297ca8d91155e29a4a18b849a78362"
   },
-  "pairing_sha256": "e534dc55aef65a20a61db83e7b2656e6c07064cc7988ac29611a1cbeae9a7c22",
+  "pairing_sha256": "04092cbc55434a8cf89fe9da5ec6d46b8fed4425200ea2fea8d4821f29956cfd",
   "manifest_sha256": "920c44582badb6a655486659ac187e01e2ab069063468eb587c6e058fa6a0f52",
   "ppk_guard_observed_after_completion": {
     "active": true,

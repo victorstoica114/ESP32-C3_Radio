@@ -64,7 +64,7 @@ def _prepare(api: Any, voltage_mv: int) -> dict[str, Any]:
             if attempt == 2:
                 raise
     api.use_ampere_meter()
-    # ppk2-api 0.9.2 uses this internal value for ampere-mode calibration.
+    # ppk2-api uses this internal value for ampere-mode calibration.
     # It does not set a physical supply voltage or the DUT switch state.
     api.current_vdd = voltage_mv
     api.ser.flush()
@@ -198,7 +198,7 @@ def diagnose(
             from ppk2_api.ppk2_api import PPK2_API
             from serial.tools.list_ports import comports
             api_factory = PPK2_API
-            report["ppk2_api_version"] = version("ppk2-api")
+            version("ppk2-api")
             if port_metadata is None:
                 port_metadata = {
                     port.device.upper(): {"serial_number": port.serial_number,

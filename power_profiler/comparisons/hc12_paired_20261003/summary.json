@@ -1,0 +1,175 @@
+{
+  "profile_id": "RADIO_HC12",
+  "parameters": {
+    "tx_power_dbm": 20,
+    "bit_rate_kbps": 250
+  },
+  "payload_bytes": 32,
+  "voltage_mv": 5000,
+  "frequency_mhz": 437.0,
+  "voltage_provenance": "Operator connected HC-12 fixtures after agreed 5 V setup instruction; physical voltage not independently recorded",
+  "physical_voltage_measured": false,
+  "measured_rail": "HC-12 only; ESP32 excluded",
+  "ppk_mode": "ampere",
+  "synchronization": "host coordinated, independent PPK clocks",
+  "rx_scope": "Fixed modeled listening interval starting at host trigger; not exclusive RF reception",
+  "tx_scope": "Current-threshold TX event",
+  "estimated_airtime_s": 0.021024,
+  "endpoints": {
+    "tx": {
+      "radio_port": "COM46",
+      "ppk_port": "COM11",
+      "config_readback": [
+        "CFG:",
+        "USB_BAUD=115200",
+        "HC_BAUD=9600",
+        "CHANNEL=10",
+        "POWER=8",
+        "FU=1",
+        "UART=8N1",
+        "BRIDGE=ON",
+        "SLEEP=NO",
+        "FREQ\u2248 437.4 MHz",
+        "OK"
+      ],
+      "physical_readbacks": {
+        "AT+RAW=AT+RB": [
+          "OK+B9600",
+          "OK"
+        ],
+        "AT+RAW=AT+RF": [
+          "OK+FU1",
+          "OK"
+        ],
+        "AT+RAW=AT+RP": [
+          "OK+RP:+20dBm",
+          "OK"
+        ],
+        "AT+RAW=AT+RC": [
+          "OK+RC010",
+          "OK"
+        ]
+      }
+    },
+    "rx": {
+      "radio_port": "COM47",
+      "ppk_port": "COM10",
+      "config_readback": [
+        "CFG:",
+        "USB_BAUD=115200",
+        "HC_BAUD=9600",
+        "CHANNEL=10",
+        "POWER=8",
+        "FU=1",
+        "UART=8N1",
+        "BRIDGE=ON",
+        "SLEEP=NO",
+        "FREQ\u2248 437.4 MHz",
+        "OK"
+      ],
+      "physical_readbacks": {
+        "AT+RAW=AT+RB": [
+          "OK+B9600",
+          "OK"
+        ],
+        "AT+RAW=AT+RF": [
+          "OK+FU1",
+          "OK"
+        ],
+        "AT+RAW=AT+RP": [
+          "OK+RP:+20dBm",
+          "OK"
+        ],
+        "AT+RAW=AT+RC": [
+          "OK+RC010",
+          "OK"
+        ]
+      }
+    }
+  },
+  "usb": {
+    "COM46": {
+      "serial": "08:92:72:9A:C2:7C",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM47": {
+      "serial": "08:92:72:9A:C0:80",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM10": {
+      "serial": "E753C4E81F3D",
+      "vid": 6421,
+      "pid": 49162
+    },
+    "COM11": {
+      "serial": "CD2D332DB09A",
+      "vid": 6421,
+      "pid": 49162
+    }
+  },
+  "aggregates": [
+    {
+      "role": "tx",
+      "trial_count": 5,
+      "scope": "Current-threshold TX event",
+      "energy_total_uJ_mean": 7643.79121494422,
+      "energy_total_uJ_sd": 17.606551991714852,
+      "energy_excess_uJ_mean": 7209.980199935808,
+      "energy_excess_uJ_sd": 14.918848501629178,
+      "charge_total_uC_mean": 1528.7582429888441,
+      "charge_total_uC_sd": 3.521310398342996,
+      "event_duration_ms_mean": 58.612,
+      "event_duration_ms_sd": 0.24097717734258658,
+      "tx_mean_uA_mean": 26082.87049985025,
+      "tx_mean_uA_sd": 65.88724103993579
+    },
+    {
+      "role": "rx",
+      "trial_count": 5,
+      "scope": "Fixed modeled listening interval starting at host trigger; not exclusive RF reception",
+      "energy_total_uJ_mean": 422.8695260513499,
+      "energy_total_uJ_sd": 89.28594287678474,
+      "energy_excess_uJ_mean": 262.78495470036717,
+      "energy_excess_uJ_sd": 88.47093236187195,
+      "charge_total_uC_mean": 84.57390521026998,
+      "charge_total_uC_sd": 17.857188575356947,
+      "event_duration_ms_mean": 21.02,
+      "event_duration_ms_sd": 0.0,
+      "tx_mean_uA_mean": 4023.49691771027,
+      "tx_mean_uA_sd": 849.5332338419088
+    }
+  ],
+  "status": "complete_five_trial_numeric_batch",
+  "accepted_pairs": 5,
+  "accepted_captures": 10,
+  "acquisition_attempts": 1,
+  "source_session": "measurements\\raw\\sessions\\20261003_161045_338790_paired_reference_radio_hc12",
+  "validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      "RX measures modeled listening; no exclusive RF reception energy claim."
+    ]
+  },
+  "captured_samples_verified": 1025024,
+  "source_report_sha256": "a22f4decd7eccd07a8a401426cad74ac4cac41081aa14a83ce63082bc75e1bf7",
+  "serial_content_bytes": 30,
+  "line_overhead_bytes": 2,
+  "tx_confirmation": "UART write/flush and exact RX payload; transparent modem has no per-packet TX acknowledgment",
+  "replacement_scope": "Only the agreed 32-byte reference point; not other historical energy curves.",
+  "rf_reliability_scope": "Five accepted transfers, not a statistical RF reliability estimate.",
+  "frequency_provenance": {
+    "method": "Direct module AT+RC reply and manufacturer channel plan",
+    "channel": 10,
+    "channel_one_mhz": 433.4,
+    "channel_step_mhz": 0.4,
+    "rf_frequency_independently_measured": false,
+    "source_url": "https://www.hc01.com/downloads/HC-12%20english%20datasheets.pdf",
+    "bridge_display_mhz": 437.4,
+    "bridge_display_offset_mhz": 0.4,
+    "original_replies_preserved": true
+  },
+  "rx_window_note": "The historical 21.020 ms modeled window starts at the host trigger; it does not track the observed 58.612 ms mean TX event or exclusive RF reception."
+}

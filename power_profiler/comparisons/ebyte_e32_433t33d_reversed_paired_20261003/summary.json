@@ -1,0 +1,169 @@
+{
+  "profile_id": "RADIO_EBYTE_E32_433T33D",
+  "parameters": {
+    "tx_power_dbm": 30,
+    "bit_rate_kbps": 19.2
+  },
+  "payload_bytes": 32,
+  "voltage_mv": 5000,
+  "voltage_provenance": "Operator connected E32-433T33D fixtures after agreed 5 V setup instruction; physical voltage not independently recorded",
+  "physical_voltage_measured": false,
+  "measured_rail": "E32-433T33D only; ESP32 excluded",
+  "ppk_mode": "ampere",
+  "synchronization": "host coordinated, independent PPK clocks",
+  "rx_scope": "Fixed modeled listening interval starting at host trigger; not exclusive RF reception",
+  "tx_scope": "Current-threshold TX event",
+  "estimated_airtime_s": 0.064,
+  "endpoints": {
+    "tx": {
+      "radio_port": "COM41",
+      "ppk_port": "COM11",
+      "config_readback": [
+        "====== E32 CONFIGURATION ======",
+        "ADDH: 0",
+        "ADDL: 0",
+        "CHAN: 23",
+        "--- SPEED ---",
+        "UART Baud: 115200bps",
+        "UART Parity: 8N1",
+        "Air Data Rate: 19.2kbps",
+        "--- OPTION ---",
+        "Fixed Transmission: Transparent",
+        "FEC: Enable",
+        "TX Power: code 1 (30 dBm)",
+        "WOR timing: 250ms",
+        "IO mode: PushPull",
+        "Runtime mode: NORMAL",
+        "Bridge: ON",
+        "AUX: HIGH",
+        "================================",
+        "====== E32 MODULE INFO ======",
+        "HEAD: C3",
+        "Freq: 32",
+        "Vers: 10",
+        "Feat: 21",
+        "=============================",
+        "OK"
+      ]
+    },
+    "rx": {
+      "radio_port": "COM40",
+      "ppk_port": "COM10",
+      "config_readback": [
+        "====== E32 CONFIGURATION ======",
+        "ADDH: 0",
+        "ADDL: 0",
+        "CHAN: 23",
+        "--- SPEED ---",
+        "UART Baud: 115200bps",
+        "UART Parity: 8N1",
+        "Air Data Rate: 19.2kbps",
+        "--- OPTION ---",
+        "Fixed Transmission: Transparent",
+        "FEC: Enable",
+        "TX Power: code 1 (30 dBm)",
+        "WOR timing: 250ms",
+        "IO mode: PushPull",
+        "Runtime mode: NORMAL",
+        "Bridge: ON",
+        "AUX: HIGH",
+        "================================",
+        "====== E32 MODULE INFO ======",
+        "HEAD: C3",
+        "Freq: 32",
+        "Vers: 10",
+        "Feat: 21",
+        "=============================",
+        "OK"
+      ]
+    }
+  },
+  "usb": {
+    "COM41": {
+      "serial": "B8:F8:62:38:B0:E4",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM40": {
+      "serial": "0C:4E:A0:69:46:10",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM10": {
+      "serial": "E753C4E81F3D",
+      "vid": 6421,
+      "pid": 49162
+    },
+    "COM11": {
+      "serial": "CD2D332DB09A",
+      "vid": 6421,
+      "pid": 49162
+    }
+  },
+  "aggregates": [
+    {
+      "role": "tx",
+      "trial_count": 5,
+      "scope": "Current-threshold TX event",
+      "energy_total_uJ_mean": 270855.7407202452,
+      "energy_total_uJ_sd": 67.83382754836373,
+      "energy_excess_uJ_mean": 269390.74859218125,
+      "energy_excess_uJ_sd": 68.0739438734404,
+      "charge_total_uC_mean": 54171.14814404903,
+      "charge_total_uC_sd": 13.566765509672596,
+      "event_duration_ms_mean": 62.074,
+      "event_duration_ms_sd": 0.026076809620814535,
+      "tx_mean_uA_mean": 872686.7146939145,
+      "tx_mean_uA_sd": 398.5679927274386
+    },
+    {
+      "role": "rx",
+      "trial_count": 5,
+      "scope": "Fixed modeled listening interval starting at host trigger; not exclusive RF reception",
+      "energy_total_uJ_mean": 13697.576636462574,
+      "energy_total_uJ_sd": 459.00112230529476,
+      "energy_excess_uJ_mean": 12163.756947520462,
+      "energy_excess_uJ_sd": 452.2191841880838,
+      "charge_total_uC_mean": 2739.515327292515,
+      "charge_total_uC_sd": 91.80022446105897,
+      "event_duration_ms_mean": 64.0,
+      "event_duration_ms_sd": 0.0,
+      "tx_mean_uA_mean": 42804.926988944564,
+      "tx_mean_uA_sd": 1434.3785072039698
+    }
+  ],
+  "status": "complete_five_trial_numeric_batch",
+  "accepted_pairs": 5,
+  "accepted_captures": 10,
+  "acquisition_attempts": 1,
+  "source_session": "measurements\\raw\\sessions\\20261003_153305_475972_paired_reference_radio_ebyte_e32_433t33d",
+  "validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      "RX measures modeled listening; no exclusive RF reception energy claim."
+    ]
+  },
+  "captured_samples_verified": 1027072,
+  "source_report_sha256": "20c2f8e8d0e2f9e0ff7b23389c71e77564d85dfd4029c965930a59ef2081e4e2",
+  "serial_content_bytes": 30,
+  "line_overhead_bytes": 2,
+  "tx_confirmation": "UART write/flush and exact RX payload; transparent modem has no per-packet TX acknowledgment",
+  "replacement_scope": "Only the agreed 32-byte reference point; not other historical energy curves.",
+  "rf_reliability_scope": "Five accepted transfers, not a statistical RF reliability estimate.",
+  "energy_review_status": "primary_reference_point_with_roles_reversed",
+  "current_range_review": {
+    "audit": "current_range_audit.json",
+    "tx_full_capture_peak_uA": 917223.5122865221,
+    "current_limit_uA": 1000000,
+    "first_batch": "../ebyte_e32_433t33d_paired_20261003/summary.json",
+    "first_batch_status": "tx_provisional_near_instrument_current_limit",
+    "selection_reason": "Greater measured headroom; original TX/PPK association peaked at 997.218 mA. Different TX fixtures and PPKs; do not attribute the difference solely to the radio or pool the trials."
+  },
+  "operator_retention_decision": {
+    "date": "2026-10-03",
+    "decision": "keep_both_complete_batches",
+    "confirmation": "e ok. pastram datele",
+    "scope": "Retention confirmed; recorded numerical results and measurement limitations are unchanged."
+  }
+}

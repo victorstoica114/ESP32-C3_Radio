@@ -6,6 +6,23 @@ All notable changes to this project will be documented here.
 
 ### Added
 
+- Added the completed SX1278 Adafruit level-shifter 32-byte reference point at 5 V: five paired transfers from the first batch, 1,018,880 independently replayed samples, numeric aggregates and capture fingerprints; marked all eight first-stage reference points complete (40 pairs/80 captures, plus the separately retained T33D batch).
+- Extended the paired reference runner and UI to SX1278 Adafruit level-shifter at SF7/BW125/CR4/5/+20 dBm, with an explicit eight-symbol preamble, TX standby between packets, and mandatory TX success/RX payload confirmation; tested the shared SPI role setup for SX1278 and E22.
+- Added the completed HC-12 32-byte reference point at 5 V: five paired transfers from the first batch, 1,025,024 independently replayed samples, numeric aggregates, capture fingerprints, and channel-frequency provenance; updated the measurement checklist.
+- Extended the paired reference runner and UI to HC-12 FU1/250 kbps/+20 dBm, requiring direct module replies for baud, FU mode, power, and channel rather than accepting the bridge's cached configuration alone.
+- Added the completed E32-868T30D 32-byte reference point at 5 V: five paired transfers, 1,019,904 independently replayed samples, numeric aggregates, capture fingerprints, and channel-to-frequency provenance; updated the measurement checklist.
+- Extended the paired 5 V reference runner and UI to E32-868T30D at 19.2 kbps/+30 dBm, checking power code 0, the T30 module identifier, and channel 6 before acquisition.
+- Added the completed E32-868T20D 32-byte reference point at 5 V: five paired transfers, 1,021,440 samples verified by independent replay, numeric aggregates, capture fingerprints, and documented channel-to-frequency provenance; updated the measurement checklist.
+- Extended the paired 5 V reference runner and UI to E32-868T20D at 19.2 kbps/+20 dBm, checking the 868 MHz band identifier and channel 6 from the physical configuration readback.
+- Added the E32-433T33D 32-byte reference point at 5 V with five complete paired transfers and 1,027,072 independently replayed samples. Selected the reversed-role batch with a 917.224 mA TX peak; retained the first complete batch as provisional near the PPK current limit, without pooling TX units.
+- Extended the paired 5 V reference runner and UI to E32-433T33D at 19.2 kbps/+30 dBm, using power index 2 and checking the physical readback before acquisition.
+- Added the completed E32-433T20D 32-byte reference point at 5 V: five paired transfers, 1,019,904 samples verified by independent replay, numeric aggregates, and capture fingerprints; updated the measurement checklist.
+- Extended the paired 5 V reference runner and UI to E32-433T20D at 19.2 kbps/+20 dBm, with physical configuration readback, sleep/wake supply mapping, and 32 UART bytes including the modem's CRLF.
+- Added the completed E280 32-byte reference point at 5 V: five paired transfers from the first batch, numeric aggregates, verified capture fingerprints, and a TX window audit; updated the measurement checklist.
+- Extended the paired 5 V reference runner and UI to E280 at the 2 Mbps/+12 dBm preset, with sleep/wake supply mapping, 30 ASCII bytes plus the modem's CRLF, and explicit transparent-modem TX confirmation limits.
+- Added the completed E22 32-byte reference point at 5 V: five paired TX/RX transfers, verified capture fingerprints, numeric aggregates, and a modeled RX listening definition; updated the measurement checklist.
+- Added an unattended E22 5 V reference batch in the acquisition UI: simultaneous TX/RX, automatic PPK-to-radio current mapping, five whole transfers, independent WIRE replay, and bounded whole-batch retries with failed capture cleanup.
+- Added a two-PPK2 power button to the acquisition interface, independent of radio initialization, with detected data-port validation and external VIN-to-VOUT conduction maintained until port handoff.
 - Added `measurements/README.md` and a repository layout guide for capture storage, acquisition code, analysis tools, reviewed results, and the study.
 - Added a local relocation inventory and a path resolver so historical manifests can be read without rewriting their source paths or byte-level evidence.
 - Added storage tests covering relocated paths, command arguments, and default capture directories.
@@ -55,6 +72,10 @@ All notable changes to this project will be documented here.
 
 ### Changed
 
+- Simplified Radio Power Profiler by removing the temporary E79 paired panel, its pilot/campaign/resume routes, workflow builders, marker configuration switches, and obsolete workflow tests. Kept PPK power controls, paired reference points, and independent validation of archived E79 data in a separate module.
+- Replaced the completed measurement checklist with links to the eight 5 V reference reports in the measurement directory guide.
+- Recorded the operator's decision to retain both complete E32-433T33D batches, preserving their separate aggregates, local RAW/WIRE, and current-range observations.
+- Updated `MASURATORI_DE_FACUT.md` with the current remeasurement queue for eight 5 V fixtures, a proposed 32-byte paired TX/RX first stage, and the remaining offline analysis tasks.
 - Centralized all local PPK RAW CSV and WIRE files under `measurements/raw/`, with separate `archive/`, `sessions/`, `packet/`, `continuous/`, and `diagnostics/` directories.
 - Excluded capture files and the local relocation inventory from Git, including the five RAW files previously tracked in comparison exports.
 - Updated the acquisition UI, CLI defaults, offline analysis tools, and documentation to use the centralized storage independently of the shell working directory.
@@ -113,9 +134,11 @@ All notable changes to this project will be documented here.
 
 ### Removed
 
+- Removed the completed `MASURATORI_DE_FACUT.md` checklist, obsolete E79 recapture instructions, and seven tracked Codex callback logs; preserved measurement results and local RAW/WIRE captures.
+- Removed obsolete instrument annotations from measurement documentation, capture identities, diagnostic names, and metadata; updated dependent fingerprints.
 - Removed the imported project snapshot after preserving its measurement data and verifying that its source commit is retained in the main Git history.
 - Removed five temporary capture copies after SHA-256 verification against the retained files.
-- Removed local PPK firmware update packages and notes about PPK firmware versions.
+- Removed obsolete local instrument update packages and auxiliary notes.
 - Removed the unused `Datasheets/` reference directory and the standard PlatformIO README-only `include/` and `lib/` directories.
 - Removed 24 duplicate metadata/summary files from `power_profiler/continuous_results/` and `power_profiler/loss_results/`; byte-identical copies remain in the centralized archive.
 - Removed temporary browser snapshots and obsolete debug logs.

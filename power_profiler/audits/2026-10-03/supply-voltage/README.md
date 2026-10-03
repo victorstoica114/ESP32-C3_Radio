@@ -67,7 +67,7 @@ tentative respinse și nu se schimbă selecția capturilor.
    Aceeași operație există în [codul actual](../../../radio_power_profiler/ppk.py).
    Parametrul este transmis decodorului; nu constituie o citire a tensiunii
    externe și nu comandă 3,3 V la ieșire în modul ampermetru.
-3. Biblioteca `ppk2-api 0.9.2` include termenul `S[r] × V + I[r]` în
+3. Biblioteca `ppk2-api` include termenul `S[r] × V + I[r]` în
    calibrarea curentului, urmat de filtrarea dependentă de istoricul gamelor.
    Prin urmare, tensiunea influențează și curentul salvat, înainte de
    integrarea energiei. Versiunea mediului importat este păstrată în

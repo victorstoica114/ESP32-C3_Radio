@@ -9,7 +9,7 @@
   "sample_rate_hz": 100000,
   "current_tolerance_uA": 1e-06,
   "method": "Independent calibrated ADC integration with a constant-range three-sample dependency guard; no IIR correction, baseline subtraction, clipping or reindexing.",
-  "decoder_reference": "ppk2-api 0.9.2 get_adc_result: stateful outputs on range change and the following two samples; direct ADC otherwise.",
+  "decoder_reference": "ppk2-api get_adc_result: stateful outputs on range change and the following two samples; direct ADC otherwise.",
   "edge_convention": "[first HIGH, first following LOW); QA includes the following LOW word and its incoming counter transition.",
   "limitations": [
     "This report does not accept a failed pair or establish delivery from a pulse.",
@@ -23,8 +23,8 @@
   "sources": {
     "pairing": {
       "path": "pairing.json",
-      "bytes": 23982,
-      "sha256": "835e9adf20d381f8679763a71b21649c2fa458e8b9caee5f8c42364dec817a79"
+      "bytes": 23970,
+      "sha256": "5c2cf92087aa48f2b63de6bc8e7f49d42d8018fe16600c2721a749080d084d50"
     }
   },
   "runs": [
@@ -937,16 +937,16 @@
       "sha256": "e9fa7b2835e6926bb84fbaf9c186e1abd22672d15bb335a742335c8cb00e5674"
     },
     "paired_result/20261001_183050_771790_e79_paired_pilot/pairing.json": {
-      "bytes": 23982,
-      "sha256": "835e9adf20d381f8679763a71b21649c2fa458e8b9caee5f8c42364dec817a79"
+      "bytes": 23970,
+      "sha256": "5c2cf92087aa48f2b63de6bc8e7f49d42d8018fe16600c2721a749080d084d50"
     },
     "paired_result/20261001_183050_771790_e79_paired_pilot/rx/aggregates.csv": {
       "bytes": 875,
       "sha256": "ea0addc3ea5aba683d4d1764388d52d5d1d9ae663bd622e2c599756a62b25c65"
     },
     "paired_result/20261001_183050_771790_e79_paired_pilot/rx/analysis/run_00001.json": {
-      "bytes": 11620,
-      "sha256": "2542cc589b59d6ec52d0afdb9c37f734c55f8f44bb1a1575150341f8bccf6419"
+      "bytes": 11608,
+      "sha256": "48153074b111640dddf68e12908eaf39561ecde5fe29d3cb6758c76b7c31f6e5"
     },
     "paired_result/20261001_183050_771790_e79_paired_pilot/rx/metadata.json": {
       "bytes": 15642,
@@ -969,8 +969,8 @@
       "sha256": "197c78409f12d8211d3a44b7ce2d95d7a3a62eea528ffcb2d127d7e65ca48742"
     },
     "paired_result/20261001_183050_771790_e79_paired_pilot/tx/analysis/run_00001.json": {
-      "bytes": 11620,
-      "sha256": "2542cc589b59d6ec52d0afdb9c37f734c55f8f44bb1a1575150341f8bccf6419"
+      "bytes": 11608,
+      "sha256": "48153074b111640dddf68e12908eaf39561ecde5fe29d3cb6758c76b7c31f6e5"
     },
     "paired_result/20261001_183050_771790_e79_paired_pilot/tx/metadata.json": {
       "bytes": 15618,

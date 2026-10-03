@@ -71,7 +71,7 @@ class Ppk2Sampler:
                 time.sleep(0.005)
 
     def _read_modifiers_with_retry(self) -> None:
-        # ppk2-api 0.9.2 discards metadata fragments before the chunk containing
+        # ppk2-api discards metadata fragments before the chunk containing
         # END and can silently retain default coefficients. Read a complete
         # response and validate every coefficient before replacing modifiers.
         last_error: Exception | None = None
@@ -148,7 +148,7 @@ class Ppk2Sampler:
             return port.upper() if port[:3].upper() == "COM" and port[3:].isdigit() else port
 
         def is_shell_port(port) -> bool:
-            # PPK2 >= 1.2.0 adds a shell on USB interface 3; measurements
+            # PPK2 can expose a shell on USB interface 3; measurements
             # remain on interface 1. Never infer this from the COM number.
             interface = str(getattr(port, "interface", None) or "").strip()
             hwid = str(getattr(port, "hwid", None) or "")
@@ -178,7 +178,7 @@ class Ppk2Sampler:
                 devices[port] = serial_number
 
         for item in PPK2_API.list_devices():
-            # ppk2-api 0.9.2 returns port-name strings. Newer unreleased code
+            # ppk2-api returns port-name strings. Newer unreleased code
             # returns (port, serial-number) tuples, so normalize both forms.
             if isinstance(item, str):
                 remember(item, "")

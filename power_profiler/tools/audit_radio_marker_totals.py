@@ -1,7 +1,7 @@
 """Independent offline audit of local PPK2 marker totals; never changes acceptance.
 
 Uses only the standard library. The ADC conversion and three-sample range-change
-filter dependency correspond to ppk2-api 0.9.2. No serial or production analysis
+filter dependency correspond to ppk2-api. No serial or production analysis
 modules are imported. Example:
 
     python tools/audit_radio_marker_totals.py PATH_TO_PAIRED_RESULT
@@ -238,7 +238,7 @@ def audit_result(result_root: Path, *, current_tolerance_uA: float = 1e-6) -> di
         "acceptance_changed": False, "sample_rate_hz": SAMPLE_RATE_HZ,
         "current_tolerance_uA": current_tolerance_uA,
         "method": "Independent calibrated ADC integration with a constant-range three-sample dependency guard; no IIR correction, baseline subtraction, clipping or reindexing.",
-        "decoder_reference": "ppk2-api 0.9.2 get_adc_result: stateful outputs on range change and the following two samples; direct ADC otherwise.",
+        "decoder_reference": "ppk2-api get_adc_result: stateful outputs on range change and the following two samples; direct ADC otherwise.",
         "edge_convention": "[first HIGH, first following LOW); QA includes the following LOW word and its incoming counter transition.",
         "limitations": [
             "This report does not accept a failed pair or establish delivery from a pulse.",

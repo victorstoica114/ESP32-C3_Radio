@@ -1,4 +1,4 @@
-"""Independent ppk2-api 0.9.2 filter replay with bounded uncertain history.
+"""Independent ppk2-api filter replay with bounded uncertain history.
 
 This is a distinct, opt-in proof, not the constant-range direct-ADC proof.
 Replay uses the complete recorded stream and a known reset state. Suspect
@@ -207,7 +207,7 @@ def prove_filter_marker_total(
     proof = {
         "schema_version": 1,
         "method": "bounded_filter_replay_marker_total",
-        "decoder_reference": "ppk2-api 0.9.2 / Nordic serialDevice.ts getAdcResult",
+        "decoder_reference": "ppk2-api / Nordic serialDevice.ts getAdcResult",
         "valid": False, "reasons": [], "warnings": [],
         "window_samples": None, "guard_window_samples": None,
         "guard_qa_includes_stop": True,

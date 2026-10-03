@@ -274,7 +274,7 @@ pentru reproducerea calculelor istorice.
   21/21 loturi**, toate cele șapte PHY la −20/0/+13 dBm, cinci repetări.
   [Manifestul final](../../../../measurements/raw/sessions/20261002_120020_798930_paired_32b_campaign_radio_ebyte_e79_cc1352p/manifest.json)
   și [agregatele finale](../../../../measurements/raw/sessions/20261002_120020_798930_paired_32b_campaign_radio_ebyte_e79_cc1352p/analysis/aggregates.csv)
-  folosesc PPK 1.2.4, marcaje locale și `energy_relative_v2`, cu E79 măsurat
+  folosesc marcaje locale și `energy_relative_v2`, cu E79 măsurat
   separat de ESP32 la 3,3 V. GFSK4K8/+13 și GFSK200/−20 au câte o tentativă
   anterioară exclusă, păstrată separat; toate celelalte loturi au o singură
   tentativă. Corecția validatorului UI a trecut 419 teste și nu a schimbat
@@ -307,7 +307,7 @@ pentru reproducerea calculelor istorice.
   inclusiv cu RX OFF, fără `ppk2-api`, `capture_pair` sau decodarea curentului.
   Zero erori raportate de ClearCommError și D0 LOW pe toate cele șase capturi.
   Firmware-ul PPK2 la comutarea gamei este ipoteza principală, nu o cauză
-  internă demonstrată. [Starea investigației](../../../../MASURATORI_DE_FACUT.md)
+  internă demonstrată. Istoricul de mai jos
   păstrează limitele și următorul diagnostic. Campania rămâne 0/105;
   ambele PPK sunt active prin UI.
   [Analiza RAW completă](../../../../measurements/raw/sessions/20261002_085754_457290_paired_32b_campaign_radio_ebyte_e79_cc1352p/diagnostics/counter-cause-diagnostic-analysis.json)
@@ -412,7 +412,7 @@ pentru reproducerea calculelor istorice.
   UI are acum un buton distinct pentru
   **32 B / 105 perechi**, cu reluare și criterii de acceptare neschimbate;
   campania rămâne nepornită până la validarea energiei. **360/360 teste
-  software** trecute. Detaliile curente sunt în [lista măsurătorilor](../../../../MASURATORI_DE_FACUT.md).
+  software** trecute. Încheierea campaniilor este consemnată mai jos; panoul temporar a fost eliminat ulterior din UI.
 
 - Campania pornită **de la zero** este încheiată: **63/63 loturi și 315/315
   perechi validate**, cu 630 de capturi auditate independent. Manifestul și
@@ -438,7 +438,7 @@ pentru reproducerea calculelor istorice.
   Comparația CH340/ESP32 rămâne distinctă.
   Etapa fragmentată s-a încheiat la 1 octombrie, **16:27:38: 105/105 perechi
   acceptate, 21/21 loturi**, inclusiv ultimele OOK4K8 și IEEE154G50.
-  [Starea, calculele și auditul](../../../../MASURATORI_DE_FACUT.md) confirmă
+  [Calculele și auditul final](../../../../measurements/raw/sessions/20261001_150445_661901_paired_fragmented_campaign_radio_ebyte_e79_cc1352p/diagnostics/full-fragmented-independent-audit.json) confirmă
   210 capturi și 1820 de intervale locale. Cele cinci tentative eșuate sunt
   păstrate și excluse integral, fără reutilizarea prefixelor valide.
   Hostul oprește eșantionarea PPK în timpul salvării și analizei, păstrând

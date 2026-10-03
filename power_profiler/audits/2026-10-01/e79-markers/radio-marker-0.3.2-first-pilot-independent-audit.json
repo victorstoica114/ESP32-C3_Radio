@@ -9,7 +9,7 @@
   "sample_rate_hz": 100000,
   "current_tolerance_uA": 1e-06,
   "method": "Independent calibrated ADC integration with a constant-range three-sample dependency guard; no IIR correction, baseline subtraction, clipping or reindexing.",
-  "decoder_reference": "ppk2-api 0.9.2 get_adc_result: stateful outputs on range change and the following two samples; direct ADC otherwise.",
+  "decoder_reference": "ppk2-api get_adc_result: stateful outputs on range change and the following two samples; direct ADC otherwise.",
   "edge_convention": "[first HIGH, first following LOW); QA includes the following LOW word and its incoming counter transition.",
   "limitations": [
     "This report does not accept a failed pair or establish delivery from a pulse.",

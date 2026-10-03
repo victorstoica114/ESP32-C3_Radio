@@ -1,0 +1,150 @@
+{
+  "profile_id": "RADIO_EBYTE_E280_SX1280",
+  "parameters": {
+    "tx_power_dbm": 12,
+    "air_rate": "2M"
+  },
+  "payload_bytes": 32,
+  "voltage_mv": 5000,
+  "voltage_provenance": "Operator connected E280 fixtures after agreed 5 V setup instruction; physical voltage not independently recorded",
+  "physical_voltage_measured": false,
+  "measured_rail": "E280 only; ESP32 excluded",
+  "ppk_mode": "ampere",
+  "synchronization": "host coordinated, independent PPK clocks",
+  "rx_scope": "Fixed modeled listening interval starting at host trigger; not exclusive RF reception",
+  "tx_scope": "Current-threshold TX event",
+  "estimated_airtime_s": 0.010176000000000001,
+  "endpoints": {
+    "tx": {
+      "radio_port": "COM36",
+      "ppk_port": "COM10",
+      "config_readback": [
+        "====== E280 CONFIGURATION ======",
+        "RAW=C0 00 00 17 0A 04",
+        "ADDR=0x0000",
+        "ADDH=0",
+        "ADDL=0",
+        "CHAN=10",
+        "FREQ_APPROX=2450.000 MHz",
+        "BAUD=9600",
+        "PARITY=8N1",
+        "AIR=2M_FSK",
+        "POWER=12 dBm",
+        "FIXED=OFF",
+        "RANGE=HIGH_PRECISION",
+        "FHSS=OFF",
+        "ROLE=SLAVE",
+        "LBT=OFF",
+        "IOMODE=PP",
+        "MODE=TRANSMISSION",
+        "BRIDGE=ON",
+        "SLEEP=NO",
+        "AUX=HIGH",
+        "================================",
+        "OK"
+      ]
+    },
+    "rx": {
+      "radio_port": "COM37",
+      "ppk_port": "COM11",
+      "config_readback": [
+        "====== E280 CONFIGURATION ======",
+        "RAW=C0 00 00 17 0A 04",
+        "ADDR=0x0000",
+        "ADDH=0",
+        "ADDL=0",
+        "CHAN=10",
+        "FREQ_APPROX=2450.000 MHz",
+        "BAUD=9600",
+        "PARITY=8N1",
+        "AIR=2M_FSK",
+        "POWER=12 dBm",
+        "FIXED=OFF",
+        "RANGE=HIGH_PRECISION",
+        "FHSS=OFF",
+        "ROLE=SLAVE",
+        "LBT=OFF",
+        "IOMODE=PP",
+        "MODE=TRANSMISSION",
+        "BRIDGE=ON",
+        "SLEEP=NO",
+        "AUX=HIGH",
+        "================================",
+        "OK"
+      ]
+    }
+  },
+  "usb": {
+    "COM36": {
+      "serial": "08:92:72:9A:BF:EC",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM37": {
+      "serial": "08:92:72:9A:CC:A0",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM10": {
+      "serial": "E753C4E81F3D",
+      "vid": 6421,
+      "pid": 49162
+    },
+    "COM11": {
+      "serial": "CD2D332DB09A",
+      "vid": 6421,
+      "pid": 49162
+    }
+  },
+  "aggregates": [
+    {
+      "role": "tx",
+      "trial_count": 5,
+      "scope": "Current-threshold TX event",
+      "energy_total_uJ_mean": 64.86816621827688,
+      "energy_total_uJ_sd": 13.028738786867692,
+      "energy_excess_uJ_mean": 24.106953185947766,
+      "energy_excess_uJ_sd": 0.37161480624016163,
+      "charge_total_uC_mean": 12.973633243655376,
+      "charge_total_uC_sd": 2.605747757373538,
+      "event_duration_ms_mean": 0.518,
+      "event_duration_ms_sd": 0.14652644812456214,
+      "tx_mean_uA_mean": 25399.743932498797,
+      "tx_mean_uA_sd": 1571.2839479121808
+    },
+    {
+      "role": "rx",
+      "trial_count": 5,
+      "scope": "Fixed modeled listening interval starting at host trigger; not exclusive RF reception",
+      "energy_total_uJ_mean": 857.342983978708,
+      "energy_total_uJ_sd": 1.0087594394509245,
+      "energy_excess_uJ_mean": 4.784435314995429,
+      "energy_excess_uJ_sd": 0.24154464867015732,
+      "charge_total_uC_mean": 171.4685967957416,
+      "charge_total_uC_sd": 0.2017518878901818,
+      "event_duration_ms_mean": 10.17,
+      "event_duration_ms_sd": 0.0,
+      "tx_mean_uA_mean": 16860.235673130934,
+      "tx_mean_uA_sd": 19.837943745355428
+    }
+  ],
+  "status": "complete_five_trial_numeric_batch",
+  "accepted_pairs": 5,
+  "accepted_captures": 10,
+  "acquisition_attempts": 1,
+  "source_session": "measurements\\raw\\sessions\\20261003_150058_023828_paired_reference_radio_ebyte_e280_sx1280",
+  "validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": [
+      "RX measures modeled listening; no exclusive RF reception energy claim."
+    ]
+  },
+  "captured_samples_verified": 1026048,
+  "source_report_sha256": "507baf00f4ad645faabb2c99e25a9a5621f5163f918b9597796bdf2b29b69fc1",
+  "serial_content_bytes": 30,
+  "line_overhead_bytes": 2,
+  "tx_confirmation": "UART write/flush and exact RX payload; transparent modem has no per-packet TX acknowledgment",
+  "replacement_scope": "Only the agreed 32-byte reference point; not other historical energy curves.",
+  "rf_reliability_scope": "Five accepted transfers, not a statistical RF reliability estimate."
+}

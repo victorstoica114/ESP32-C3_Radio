@@ -1,0 +1,1741 @@
+{
+  "profile_id": "RADIO_SX1278_ADAFRUIT_LEVEL_SHIFTER",
+  "voltage_mv": 5000,
+  "parameters": {
+    "tx_power_dbm": 20,
+    "spreading_factor": 7,
+    "bandwidth_khz": 125
+  },
+  "payload_bytes": 32,
+  "serial_content_bytes": 32,
+  "line_overhead_bytes": 0,
+  "coding_rate_denominator": 5,
+  "preamble_symbols": 8,
+  "frequency_mhz": 433,
+  "status": "complete",
+  "accepted_batch": {
+    "attempt": 1,
+    "pairs": [
+      {
+        "run_id": "run_00001",
+        "payload": "SX1278-Adafruit_a3049af4_1_1_XXX",
+        "transcript": {
+          "tx": [
+            "[SX1278] TX -> SX1278-Adafruit_a3049af4_1_1_XXX",
+            "[SX1278] TX OK"
+          ],
+          "rx": [
+            "SX1278-Adafruit_a3049af4_1_1_XXX"
+          ]
+        },
+        "timing": {
+          "synchronization": "host_coordinated_independent_sample_clocks",
+          "hardware_synchronized": false,
+          "sample_rate_hz": 100000,
+          "requested_pre_s": 0.2,
+          "requested_after_trigger_s": 0.8,
+          "devices": {
+            "tx": {
+              "start_command_host_ns": 21751072548900,
+              "first_data_host_ns": 21751097433400,
+              "marker_host_ns": 21751298169400,
+              "trigger_index": 22016,
+              "stop_command_host_ns": 21752099148300,
+              "wire_bytes": 409600,
+              "trailing_bytes": 0
+            },
+            "rx": {
+              "start_command_host_ns": 21751072853600,
+              "first_data_host_ns": 21751097448500,
+              "marker_host_ns": 21751298202900,
+              "trigger_index": 21504,
+              "stop_command_host_ns": 21752099200900,
+              "wire_bytes": 409600,
+              "trailing_bytes": 0
+            }
+          },
+          "host_trigger_ns": 21751298212100,
+          "trigger_callback_started_host_ns": 21751298497000,
+          "trigger_callback_finished_host_ns": 21752006410300,
+          "host_marker_skew_ms": 0.0335
+        },
+        "errors": {},
+        "roles": {
+          "tx": {
+            "raw": {
+              "path": "attempt_001\\raw\\tx\\run_00001.csv.gz",
+              "sha256": "d28ad7c5e7cc0af7689c66c49acb125fba59ee3056374c83ab9d29b2b23e24c6"
+            },
+            "wire": {
+              "path": "attempt_001\\wire\\run_00001\\tx.ppk2.bin",
+              "sha256": "27d26f21f2eaef36a7d031aa367e069a14ae30931ba83844d8ed5b99c3f836be"
+            },
+            "qa": {
+              "valid": true,
+              "sample_count": 102400,
+              "counter_discontinuities": 0,
+              "invalid_words": 0,
+              "replay_max_difference_uA": 0.0,
+              "limitation": "Modulo-64 continuity cannot detect losses of multiples of 64 samples."
+            },
+            "metrics": {
+              "event_detected": true,
+              "baseline_median_uA": 1879.7802739954348,
+              "threshold_uA": 2452.6228977568944,
+              "event_start_ms": 6.77,
+              "event_duration_ms": 72.53,
+              "tx_mean_uA": 59687.45327753761,
+              "tx_peak_uA": 69443.5703794662,
+              "charge_total_uC": 4329.130986219509,
+              "charge_excess_uC": 4192.956684157812,
+              "energy_total_uJ": 21645.654931097546,
+              "energy_excess_uJ": 20964.78342078906,
+              "integration_method": "threshold_events",
+              "integration_windows_ms": [
+                [
+                  6.77,
+                  79.3
+                ]
+              ],
+              "analysis_error": "",
+              "analysis_diagnostics": {}
+            }
+          },
+          "rx": {
+            "raw": {
+              "path": "attempt_001\\raw\\rx\\run_00001.csv.gz",
+              "sha256": "f82a38485ec6b2fecb6173cd64648bc6086f2b61028b377706de168fdb54a01d"
+            },
+            "wire": {
+              "path": "attempt_001\\wire\\run_00001\\rx.ppk2.bin",
+              "sha256": "6d87a66f0f5425833d6ff1beb1e1b9c241143476ccd111a5c11e34698a017671"
+            },
+            "qa": {
+              "valid": true,
+              "sample_count": 102400,
+              "counter_discontinuities": 0,
+              "invalid_words": 0,
+              "replay_max_difference_uA": 0.0,
+              "limitation": "Modulo-64 continuity cannot detect losses of multiples of 64 samples."
+            },
+            "metrics": {
+              "event_detected": true,
+              "baseline_median_uA": 11044.962212155233,
+              "threshold_uA": 13761.38383528563,
+              "event_start_ms": 0.0,
+              "event_duration_ms": 71.92999999999999,
+              "tx_mean_uA": 11676.178493406003,
+              "tx_peak_uA": 14183.8523471426,
+              "charge_total_uC": 839.8675190306893,
+              "charge_excess_uC": 49.43272572883423,
+              "energy_total_uJ": 4199.337595153446,
+              "energy_excess_uJ": 247.16362864417113,
+              "integration_method": "fixed_modeled_airtime",
+              "integration_windows_ms": [
+                [
+                  0.0,
+                  71.93
+                ]
+              ],
+              "analysis_error": "",
+              "analysis_diagnostics": {}
+            }
+          }
+        },
+        "valid": true,
+        "packet_received": true
+      },
+      {
+        "run_id": "run_00002",
+        "payload": "SX1278-Adafruit_a3049af4_1_2_XXX",
+        "transcript": {
+          "tx": [
+            "[SX1278] TX -> SX1278-Adafruit_a3049af4_1_2_XXX",
+            "[SX1278] TX OK"
+          ],
+          "rx": [
+            "SX1278-Adafruit_a3049af4_1_2_XXX"
+          ]
+        },
+        "timing": {
+          "synchronization": "host_coordinated_independent_sample_clocks",
+          "hardware_synchronized": false,
+          "sample_rate_hz": 100000,
+          "requested_pre_s": 0.2,
+          "requested_after_trigger_s": 0.8,
+          "devices": {
+            "tx": {
+              "start_command_host_ns": 21754997195800,
+              "first_data_host_ns": 21755017475600,
+              "marker_host_ns": 21755219220600,
+              "trigger_index": 21504,
+              "stop_command_host_ns": 21756020286300,
+              "wire_bytes": 407552,
+              "trailing_bytes": 0
+            },
+            "rx": {
+              "start_command_host_ns": 21754997429700,
+              "first_data_host_ns": 21755017455600,
+              "marker_host_ns": 21755219274800,
+              "trigger_index": 21504,
+              "stop_command_host_ns": 21756020330900,
+              "wire_bytes": 407552,
+              "trailing_bytes": 0
+            }
+          },
+          "host_trigger_ns": 21755219290600,
+          "trigger_callback_started_host_ns": 21755219511800,
+          "trigger_callback_finished_host_ns": 21755929694300,
+          "host_marker_skew_ms": 0.0542
+        },
+        "errors": {},
+        "roles": {
+          "tx": {
+            "raw": {
+              "path": "attempt_001\\raw\\tx\\run_00002.csv.gz",
+              "sha256": "c3a84010348b4b12c2817b72f6a67e7ab45478eed5c9449594902d4adf4dd2df"
+            },
+            "wire": {
+              "path": "attempt_001\\wire\\run_00002\\tx.ppk2.bin",
+              "sha256": "cd8618905db1c0dbd2b3e2d75c904d2068dcc71e70997070b8b7870310e6e432"
+            },
+            "qa": {
+              "valid": true,
+              "sample_count": 101888,
+              "counter_discontinuities": 0,
+              "invalid_words": 0,
+              "replay_max_difference_uA": 0.0,
+              "limitation": "Modulo-64 continuity cannot detect losses of multiples of 64 samples."
+            },
+            "metrics": {
+              "event_detected": true,
+              "baseline_median_uA": 1875.386339059344,
+              "threshold_uA": 2449.0865520775583,
+              "event_start_ms": 8.06,
+              "event_duration_ms": 72.53,
+              "tx_mean_uA": 59453.79091966703,
+              "tx_peak_uA": 70955.67915787321,
+              "charge_total_uC": 4312.183455403129,
+              "charge_excess_uC": 4176.327631812867,
+              "energy_total_uJ": 21560.917277015647,
+              "energy_excess_uJ": 20881.638159064336,
+              "integration_method": "threshold_events",
+              "integration_windows_ms": [
+                [
+                  8.06,
+                  80.59
+                ]
+              ],
+              "analysis_error": "",
+              "analysis_diagnostics": {}
+            }
+          },
+          "rx": {
+            "raw": {
+              "path": "attempt_001\\raw\\rx\\run_00002.csv.gz",
+              "sha256": "245a23e1e4bc23db7d1b1c9fd5ebf81dd44a3607fe4125cbc02e9f1ef9507436"
+            },
+            "wire": {
+              "path": "attempt_001\\wire\\run_00002\\rx.ppk2.bin",
+              "sha256": "d662238c18765f4b22e4b11ca583a8c942e25fce4149865d115a3fd46a1ed0d7"
+            },
+            "qa": {
+              "valid": true,
+              "sample_count": 101888,
+              "counter_discontinuities": 0,
+              "invalid_words": 0,
+              "replay_max_difference_uA": 0.0,
+              "limitation": "Modulo-64 continuity cannot detect losses of multiples of 64 samples."
+            },
+            "metrics": {
+              "event_detected": true,
+              "baseline_median_uA": 11044.962212155233,
+              "threshold_uA": 13761.38383528563,
+              "event_start_ms": 0.0,
+              "event_duration_ms": 71.92999999999999,
+              "tx_mean_uA": 11704.564709152748,
+              "tx_peak_uA": 14090.78799448689,
+              "charge_total_uC": 841.9093395293522,
+              "charge_excess_uC": 51.41838575593574,
+              "energy_total_uJ": 4209.5466976467615,
+              "energy_excess_uJ": 257.0919287796787,
+              "integration_method": "fixed_modeled_airtime",
+              "integration_windows_ms": [
+                [
+                  0.0,
+                  71.93
+                ]
+              ],
+              "analysis_error": "",
+              "analysis_diagnostics": {}
+            }
+          }
+        },
+        "valid": true,
+        "packet_received": true
+      },
+      {
+        "run_id": "run_00003",
+        "payload": "SX1278-Adafruit_a3049af4_1_3_XXX",
+        "transcript": {
+          "tx": [
+            "[SX1278] TX -> SX1278-Adafruit_a3049af4_1_3_XXX",
+            "[SX1278] TX OK"
+          ],
+          "rx": [
+            "SX1278-Adafruit_a3049af4_1_3_XXX"
+          ]
+        },
+        "timing": {
+          "synchronization": "host_coordinated_independent_sample_clocks",
+          "hardware_synchronized": false,
+          "sample_rate_hz": 100000,
+          "requested_pre_s": 0.2,
+          "requested_after_trigger_s": 0.8,
+          "devices": {
+            "tx": {
+              "start_command_host_ns": 21758932334200,
+              "first_data_host_ns": 21758947122300,
+              "marker_host_ns": 21759148424400,
+              "trigger_index": 20992,
+              "stop_command_host_ns": 21759949288800,
+              "wire_bytes": 405504,
+              "trailing_bytes": 0
+            },
+            "rx": {
+              "start_command_host_ns": 21758932674200,
+              "first_data_host_ns": 21758947236600,
+              "marker_host_ns": 21759148496400,
+              "trigger_index": 20992,
+              "stop_command_host_ns": 21759949368400,
+              "wire_bytes": 405504,
+              "trailing_bytes": 0
+            }
+          },
+          "host_trigger_ns": 21759148513400,
+          "trigger_callback_started_host_ns": 21759148698300,
+          "trigger_callback_finished_host_ns": 21759866167400,
+          "host_marker_skew_ms": 0.072
+        },
+        "errors": {},
+        "roles": {
+          "tx": {
+            "raw": {
+              "path": "attempt_001\\raw\\tx\\run_00003.csv.gz",
+              "sha256": "6dce53a69fd5e7d026e762cf351acf857408c19559858d44fa336ca9cbc1a36e"
+            },
+            "wire": {
+              "path": "attempt_001\\wire\\run_00003\\tx.ppk2.bin",
+              "sha256": "02ba0aa3f13fe8d8cac1787b6d06a6528bcaf7139eb297d1ab0afba81097efa6"
+            },
+            "qa": {
+              "valid": true,
+              "sample_count": 101376,
+              "counter_discontinuities": 0,
+              "invalid_words": 0,
+              "replay_max_difference_uA": 0.0,
+              "limitation": "Modulo-64 continuity cannot detect losses of multiples of 64 samples."
+            },
+            "metrics": {
+              "event_detected": true,
+              "baseline_median_uA": 1875.386339059344,
+              "threshold_uA": 2449.0865520775583,
+              "event_start_ms": 7.21,
+              "event_duration_ms": 72.52,
+              "tx_mean_uA": 59341.620152438656,
+              "tx_peak_uA": 70955.67915787321,
+              "charge_total_uC": 4303.454293454508,
+              "charge_excess_uC": 4167.640032635676,
+              "energy_total_uJ": 21517.27146727254,
+              "energy_excess_uJ": 20838.20016317838,
+              "integration_method": "threshold_events",
+              "integration_windows_ms": [
+                [
+                  7.21,
+                  79.73
+                ]
+              ],
+              "analysis_error": "",
+              "analysis_diagnostics": {}
+            }
+          },
+          "rx": {
+            "raw": {
+              "path": "attempt_001\\raw\\rx\\run_00003.csv.gz",
+              "sha256": "f8131bfa44cf6fbea2277d0e49f864a4cb1e697906fe2e1dfa43cc7795bdb1cd"
+            },
+            "wire": {
+              "path": "attempt_001\\wire\\run_00003\\rx.ppk2.bin",
+              "sha256": "d3db793994bb091f7147cb582a6c52f5a197121083b8c199e032487f8bac42cc"
+            },
+            "qa": {
+              "valid": true,
+              "sample_count": 101376,
+              "counter_discontinuities": 0,
+              "invalid_words": 0,
+              "replay_max_difference_uA": 0.0,
+              "limitation": "Modulo-64 continuity cannot detect losses of multiples of 64 samples."
+            },
+            "metrics": {
+              "event_detected": true,
+              "baseline_median_uA": 11044.962212155233,
+              "threshold_uA": 13761.38383528563,
+              "event_start_ms": 0.0,
+              "event_duration_ms": 71.92999999999999,
+              "tx_mean_uA": 11724.825873996155,
+              "tx_peak_uA": 14137.314534037714,
+              "charge_total_uC": 843.3667251165366,
+              "charge_excess_uC": 52.9070132606053,
+              "energy_total_uJ": 4216.833625582683,
+              "energy_excess_uJ": 264.5350663030265,
+              "integration_method": "fixed_modeled_airtime",
+              "integration_windows_ms": [
+                [
+                  0.0,
+                  71.93
+                ]
+              ],
+              "analysis_error": "",
+              "analysis_diagnostics": {}
+            }
+          }
+        },
+        "valid": true,
+        "packet_received": true
+      },
+      {
+        "run_id": "run_00004",
+        "payload": "SX1278-Adafruit_a3049af4_1_4_XXX",
+        "transcript": {
+          "tx": [
+            "[SX1278] TX -> SX1278-Adafruit_a3049af4_1_4_XXX",
+            "[SX1278] TX OK"
+          ],
+          "rx": [
+            "SX1278-Adafruit_a3049af4_1_4_XXX"
+          ]
+        },
+        "timing": {
+          "synchronization": "host_coordinated_independent_sample_clocks",
+          "hardware_synchronized": false,
+          "sample_rate_hz": 100000,
+          "requested_pre_s": 0.2,
+          "requested_after_trigger_s": 0.8,
+          "devices": {
+            "tx": {
+              "start_command_host_ns": 21762840340600,
+              "first_data_host_ns": 21762861557900,
+              "marker_host_ns": 21763065597300,
+              "trigger_index": 21504,
+              "stop_command_host_ns": 21763866976300,
+              "wire_bytes": 409600,
+              "trailing_bytes": 0
+            },
+            "rx": {
+              "start_command_host_ns": 21762840538300,
+              "first_data_host_ns": 21762861570400,
+              "marker_host_ns": 21763065641700,
+              "trigger_index": 21504,
+              "stop_command_host_ns": 21763866906000,
+              "wire_bytes": 409600,
+              "trailing_bytes": 0
+            }
+          },
+          "host_trigger_ns": 21763065662700,
+          "trigger_callback_started_host_ns": 21763066428700,
+          "trigger_callback_finished_host_ns": 21763775000100,
+          "host_marker_skew_ms": 0.0444
+        },
+        "errors": {},
+        "roles": {
+          "tx": {
+            "raw": {
+              "path": "attempt_001\\raw\\tx\\run_00004.csv.gz",
+              "sha256": "05be5c45d6a8623df33263909a2a849cc21d55c2e256821babd551545c0fe7db"
+            },
+            "wire": {
+              "path": "attempt_001\\wire\\run_00004\\tx.ppk2.bin",
+              "sha256": "2df984fc49880f7a08db2a5be90af5876d8b2c4fb89068904f8fcd4dda03ebbb"
+            },
+            "qa": {
+              "valid": true,
+              "sample_count": 102400,
+              "counter_discontinuities": 0,
+              "invalid_words": 0,
+              "replay_max_difference_uA": 0.0,
+              "limitation": "Modulo-64 continuity cannot detect losses of multiples of 64 samples."
+            },
+            "metrics": {
+              "event_detected": true,
+              "baseline_median_uA": 1875.386339059344,
+              "threshold_uA": 2448.143203895127,
+              "event_start_ms": 11.93,
+              "event_duration_ms": 72.51,
+              "tx_mean_uA": 59395.67459431674,
+              "tx_peak_uA": 68687.65139907785,
+              "charge_total_uC": 4306.780364833558,
+              "charge_excess_uC": 4170.9496609884745,
+              "energy_total_uJ": 21533.90182416779,
+              "energy_excess_uJ": 20854.74830494237,
+              "integration_method": "threshold_events",
+              "integration_windows_ms": [
+                [
+                  11.93,
+                  84.44
+                ]
+              ],
+              "analysis_error": "",
+              "analysis_diagnostics": {}
+            }
+          },
+          "rx": {
+            "raw": {
+              "path": "attempt_001\\raw\\rx\\run_00004.csv.gz",
+              "sha256": "e42a4270d07c47db51514f89fcffe9fe9998a5522c75521c8542e299e1a3d0c4"
+            },
+            "wire": {
+              "path": "attempt_001\\wire\\run_00004\\rx.ppk2.bin",
+              "sha256": "72984df54fed957f2a8f1686bea25c092329e4a1771173a7e6e1425e513edad1"
+            },
+            "qa": {
+              "valid": true,
+              "sample_count": 102400,
+              "counter_discontinuities": 0,
+              "invalid_words": 0,
+              "replay_max_difference_uA": 0.0,
+              "limitation": "Modulo-64 continuity cannot detect losses of multiples of 64 samples."
+            },
+            "metrics": {
+              "event_detected": true,
+              "baseline_median_uA": 11090.74469713821,
+              "threshold_uA": 13807.834887118508,
+              "event_start_ms": 0.0,
+              "event_duration_ms": 71.92999999999999,
+              "tx_mean_uA": 11687.996471728093,
+              "tx_peak_uA": 14137.314534037714,
+              "charge_total_uC": 840.7175862113978,
+              "charge_excess_uC": 47.35406095342573,
+              "energy_total_uJ": 4203.587931056989,
+              "energy_excess_uJ": 236.77030476712866,
+              "integration_method": "fixed_modeled_airtime",
+              "integration_windows_ms": [
+                [
+                  0.0,
+                  71.93
+                ]
+              ],
+              "analysis_error": "",
+              "analysis_diagnostics": {}
+            }
+          }
+        },
+        "valid": true,
+        "packet_received": true
+      },
+      {
+        "run_id": "run_00005",
+        "payload": "SX1278-Adafruit_a3049af4_1_5_XXX",
+        "transcript": {
+          "tx": [
+            "[SX1278] TX -> SX1278-Adafruit_a3049af4_1_5_XXX",
+            "[SX1278] TX OK"
+          ],
+          "rx": [
+            "SX1278-Adafruit_a3049af4_1_5_XXX"
+          ]
+        },
+        "timing": {
+          "synchronization": "host_coordinated_independent_sample_clocks",
+          "hardware_synchronized": false,
+          "sample_rate_hz": 100000,
+          "requested_pre_s": 0.2,
+          "requested_after_trigger_s": 0.8,
+          "devices": {
+            "tx": {
+              "start_command_host_ns": 21766852538600,
+              "first_data_host_ns": 21766870068300,
+              "marker_host_ns": 21767069735900,
+              "trigger_index": 20992,
+              "stop_command_host_ns": 21767870884200,
+              "wire_bytes": 405504,
+              "trailing_bytes": 0
+            },
+            "rx": {
+              "start_command_host_ns": 21766852761600,
+              "first_data_host_ns": 21766870080000,
+              "marker_host_ns": 21767069762900,
+              "trigger_index": 20992,
+              "stop_command_host_ns": 21767870929500,
+              "wire_bytes": 405504,
+              "trailing_bytes": 0
+            }
+          },
+          "host_trigger_ns": 21767069779900,
+          "trigger_callback_started_host_ns": 21767070057600,
+          "trigger_callback_finished_host_ns": 21767786437100,
+          "host_marker_skew_ms": 0.027
+        },
+        "errors": {},
+        "roles": {
+          "tx": {
+            "raw": {
+              "path": "attempt_001\\raw\\tx\\run_00005.csv.gz",
+              "sha256": "2cf8cfec04b28b5994d263f5a9969243c43604f7e9bf1044dfca3a46ba975578"
+            },
+            "wire": {
+              "path": "attempt_001\\wire\\run_00005\\tx.ppk2.bin",
+              "sha256": "592ec94b0a5503d980094466ca9aabfa28bba89c0debde60d5ae09744c082b27"
+            },
+            "qa": {
+              "valid": true,
+              "sample_count": 101376,
+              "counter_discontinuities": 0,
+              "invalid_words": 0,
+              "replay_max_difference_uA": 0.0,
+              "limitation": "Modulo-64 continuity cannot detect losses of multiples of 64 samples."
+            },
+            "metrics": {
+              "event_detected": true,
+              "baseline_median_uA": 1875.386339059344,
+              "threshold_uA": 2448.143203895127,
+              "event_start_ms": 8.35,
+              "event_duration_ms": 72.53999999999999,
+              "tx_mean_uA": 59453.43028687975,
+              "tx_peak_uA": 69443.5703794662,
+              "charge_total_uC": 4312.751833009943,
+              "charge_excess_uC": 4176.899444701559,
+              "energy_total_uJ": 21563.759165049712,
+              "energy_excess_uJ": 20884.497223507795,
+              "integration_method": "threshold_events",
+              "integration_windows_ms": [
+                [
+                  8.35,
+                  80.89
+                ]
+              ],
+              "analysis_error": "",
+              "analysis_diagnostics": {}
+            }
+          },
+          "rx": {
+            "raw": {
+              "path": "attempt_001\\raw\\rx\\run_00005.csv.gz",
+              "sha256": "0a4242a33792b7dd1400ed93fd74f18b13586da2ccd171b252bc37577111a181"
+            },
+            "wire": {
+              "path": "attempt_001\\wire\\run_00005\\rx.ppk2.bin",
+              "sha256": "26d86a0735c90cc182794da4229ad8cf5f7d048908ee2a9e2291f1b95039731f"
+            },
+            "qa": {
+              "valid": true,
+              "sample_count": 101376,
+              "counter_discontinuities": 0,
+              "invalid_words": 0,
+              "replay_max_difference_uA": 0.0,
+              "limitation": "Modulo-64 continuity cannot detect losses of multiples of 64 samples."
+            },
+            "metrics": {
+              "event_detected": true,
+              "baseline_median_uA": 11044.962212155233,
+              "threshold_uA": 13761.38383528563,
+              "event_start_ms": 0.0,
+              "event_duration_ms": 71.92999999999999,
+              "tx_mean_uA": 11701.087692770048,
+              "tx_peak_uA": 14183.8523471426,
+              "charge_total_uC": 841.6592377409474,
+              "charge_excess_uC": 51.22405799911547,
+              "energy_total_uJ": 4208.296188704737,
+              "energy_excess_uJ": 256.12028999557737,
+              "integration_method": "fixed_modeled_airtime",
+              "integration_windows_ms": [
+                [
+                  0.0,
+                  71.93
+                ]
+              ],
+              "analysis_error": "",
+              "analysis_diagnostics": {}
+            }
+          }
+        },
+        "valid": true,
+        "packet_received": true
+      }
+    ],
+    "status": "complete"
+  },
+  "voltage_provenance": "Operator connected SX1278 Adafruit level shifter fixtures after agreed 5 V setup instruction; physical voltage not independently recorded",
+  "physical_voltage_measured": false,
+  "measured_rail": "SX1278-Adafruit only; ESP32 excluded",
+  "ppk_mode": "ampere",
+  "tx_confirmation": "Modem success report and exact RX payload",
+  "synchronization": "host coordinated, independent PPK clocks",
+  "rx_scope": "Fixed modeled listening interval starting at host trigger; not exclusive RF reception",
+  "tx_scope": "Current-threshold TX event",
+  "estimated_airtime_s": 0.071936,
+  "calibrations": {
+    "tx": {
+      "Calibrated": "0",
+      "HW": "21994",
+      "IA": "58",
+      "R": {
+        "0": 1000.5957641601562,
+        "1": 101.40058135986328,
+        "2": 10.28022289276123,
+        "3": 0.9653185606002808,
+        "4": 0.05632902681827545
+      },
+      "O": {
+        "0": 119.50615692138672,
+        "1": 81.77458953857422,
+        "2": 70.12054443359375,
+        "3": 54.01410675048828,
+        "4": 93.50475311279297
+      },
+      "GS": {
+        "0": 1e-19,
+        "1": 119.2336196899414,
+        "2": 17.985504150390625,
+        "3": 2.5476224422454834,
+        "4": 0.07415920495986938
+      },
+      "GI": {
+        "0": 1.0,
+        "1": 0.9664102792739868,
+        "2": 0.9626902937889099,
+        "3": 0.951231837272644,
+        "4": 0.9594330191612244
+      },
+      "S": {
+        "0": 6.495847770793e-08,
+        "1": 7.9617404935561e-07,
+        "2": 8.46630064188503e-06,
+        "3": 8.544084266759455e-05,
+        "4": 0.0037396331317722797
+      },
+      "I": {
+        "0": -8.608763124585e-08,
+        "1": -1.84591544893919e-06,
+        "2": 3.143193680443801e-05,
+        "3": -0.00041445178794674575,
+        "4": -0.011407100595533848
+      },
+      "UG": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 1.0
+      }
+    },
+    "rx": {
+      "Calibrated": "0",
+      "HW": "59154",
+      "IA": "56",
+      "R": {
+        "0": 1004.4283447265625,
+        "1": 102.09636688232422,
+        "2": 10.294670104980469,
+        "3": 0.9710896611213684,
+        "4": 0.056259121745824814
+      },
+      "O": {
+        "0": 128.43923950195312,
+        "1": 89.05178833007812,
+        "2": 75.92266082763672,
+        "3": 59.65896224975586,
+        "4": 102.51764678955078
+      },
+      "GS": {
+        "0": 1e-19,
+        "1": 135.05462646484375,
+        "2": 21.440528869628906,
+        "3": 2.752481460571289,
+        "4": 0.08300972729921341
+      },
+      "GI": {
+        "0": 1.0,
+        "1": 0.9633749127388,
+        "2": 0.9545890688896179,
+        "3": 0.9477665424346924,
+        "4": 0.9539828896522522
+      },
+      "S": {
+        "0": -5.040802975032e-08,
+        "1": -3.6705580441776e-07,
+        "2": -2.99367843581422e-06,
+        "3": -3.209787610103376e-05,
+        "4": 0.0016125940019264817
+      },
+      "I": {
+        "0": 1.8602490570174e-07,
+        "1": 1.21383050100121e-06,
+        "2": 7.046380778774619e-05,
+        "3": -0.00014766653475817293,
+        "4": -0.00523310387507081
+      },
+      "UG": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 1.0
+      }
+    }
+  },
+  "controls": {
+    "tx": {
+      "current_change_uA": {
+        "tx": 0.0,
+        "rx": 8212.03944643836
+      },
+      "timing": {
+        "synchronization": "host_coordinated_independent_sample_clocks",
+        "hardware_synchronized": false,
+        "sample_rate_hz": 100000,
+        "requested_pre_s": 0.2,
+        "requested_after_trigger_s": 0.35,
+        "devices": {
+          "tx": {
+            "start_command_host_ns": 21747446465100,
+            "first_data_host_ns": 21747470111100,
+            "marker_host_ns": 21747670389800,
+            "trigger_index": 21504,
+            "stop_command_host_ns": 21748022395000,
+            "wire_bytes": 229376,
+            "trailing_bytes": 0
+          },
+          "rx": {
+            "start_command_host_ns": 21747446657400,
+            "first_data_host_ns": 21747470269600,
+            "marker_host_ns": 21747670408500,
+            "trigger_index": 21504,
+            "stop_command_host_ns": 21748022446900,
+            "wire_bytes": 229376,
+            "trailing_bytes": 0
+          }
+        },
+        "host_trigger_ns": 21747670416000,
+        "trigger_callback_started_host_ns": 21747670731000,
+        "trigger_callback_finished_host_ns": 21747703548400,
+        "host_marker_skew_ms": 0.0187
+      }
+    },
+    "rx": {
+      "current_change_uA": {
+        "tx": 9085.413951428814,
+        "rx": -4.393934936090773
+      },
+      "timing": {
+        "synchronization": "host_coordinated_independent_sample_clocks",
+        "hardware_synchronized": false,
+        "sample_rate_hz": 100000,
+        "requested_pre_s": 0.2,
+        "requested_after_trigger_s": 0.35,
+        "devices": {
+          "tx": {
+            "start_command_host_ns": 21748775004000,
+            "first_data_host_ns": 21748790380400,
+            "marker_host_ns": 21748992876900,
+            "trigger_index": 20992,
+            "stop_command_host_ns": 21749343945800,
+            "wire_bytes": 227328,
+            "trailing_bytes": 0
+          },
+          "rx": {
+            "start_command_host_ns": 21748775557700,
+            "first_data_host_ns": 21748790476200,
+            "marker_host_ns": 21748993089600,
+            "trigger_index": 20992,
+            "stop_command_host_ns": 21749343887000,
+            "wire_bytes": 225280,
+            "trailing_bytes": 0
+          }
+        },
+        "host_trigger_ns": 21748993127100,
+        "trigger_callback_started_host_ns": 21748993445900,
+        "trigger_callback_finished_host_ns": 21749031371000,
+        "host_marker_skew_ms": 0.2127
+      }
+    }
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "pairs": [
+        {
+          "run_id": "run_00001",
+          "payload": "SX1278-Adafruit_a3049af4_1_1_XXX",
+          "transcript": {
+            "tx": [
+              "[SX1278] TX -> SX1278-Adafruit_a3049af4_1_1_XXX",
+              "[SX1278] TX OK"
+            ],
+            "rx": [
+              "SX1278-Adafruit_a3049af4_1_1_XXX"
+            ]
+          },
+          "timing": {
+            "synchronization": "host_coordinated_independent_sample_clocks",
+            "hardware_synchronized": false,
+            "sample_rate_hz": 100000,
+            "requested_pre_s": 0.2,
+            "requested_after_trigger_s": 0.8,
+            "devices": {
+              "tx": {
+                "start_command_host_ns": 21751072548900,
+                "first_data_host_ns": 21751097433400,
+                "marker_host_ns": 21751298169400,
+                "trigger_index": 22016,
+                "stop_command_host_ns": 21752099148300,
+                "wire_bytes": 409600,
+                "trailing_bytes": 0
+              },
+              "rx": {
+                "start_command_host_ns": 21751072853600,
+                "first_data_host_ns": 21751097448500,
+                "marker_host_ns": 21751298202900,
+                "trigger_index": 21504,
+                "stop_command_host_ns": 21752099200900,
+                "wire_bytes": 409600,
+                "trailing_bytes": 0
+              }
+            },
+            "host_trigger_ns": 21751298212100,
+            "trigger_callback_started_host_ns": 21751298497000,
+            "trigger_callback_finished_host_ns": 21752006410300,
+            "host_marker_skew_ms": 0.0335
+          },
+          "errors": {},
+          "roles": {
+            "tx": {
+              "raw": {
+                "path": "attempt_001\\raw\\tx\\run_00001.csv.gz",
+                "sha256": "d28ad7c5e7cc0af7689c66c49acb125fba59ee3056374c83ab9d29b2b23e24c6"
+              },
+              "wire": {
+                "path": "attempt_001\\wire\\run_00001\\tx.ppk2.bin",
+                "sha256": "27d26f21f2eaef36a7d031aa367e069a14ae30931ba83844d8ed5b99c3f836be"
+              },
+              "qa": {
+                "valid": true,
+                "sample_count": 102400,
+                "counter_discontinuities": 0,
+                "invalid_words": 0,
+                "replay_max_difference_uA": 0.0,
+                "limitation": "Modulo-64 continuity cannot detect losses of multiples of 64 samples."
+              },
+              "metrics": {
+                "event_detected": true,
+                "baseline_median_uA": 1879.7802739954348,
+                "threshold_uA": 2452.6228977568944,
+                "event_start_ms": 6.77,
+                "event_duration_ms": 72.53,
+                "tx_mean_uA": 59687.45327753761,
+                "tx_peak_uA": 69443.5703794662,
+                "charge_total_uC": 4329.130986219509,
+                "charge_excess_uC": 4192.956684157812,
+                "energy_total_uJ": 21645.654931097546,
+                "energy_excess_uJ": 20964.78342078906,
+                "integration_method": "threshold_events",
+                "integration_windows_ms": [
+                  [
+                    6.77,
+                    79.3
+                  ]
+                ],
+                "analysis_error": "",
+                "analysis_diagnostics": {}
+              }
+            },
+            "rx": {
+              "raw": {
+                "path": "attempt_001\\raw\\rx\\run_00001.csv.gz",
+                "sha256": "f82a38485ec6b2fecb6173cd64648bc6086f2b61028b377706de168fdb54a01d"
+              },
+              "wire": {
+                "path": "attempt_001\\wire\\run_00001\\rx.ppk2.bin",
+                "sha256": "6d87a66f0f5425833d6ff1beb1e1b9c241143476ccd111a5c11e34698a017671"
+              },
+              "qa": {
+                "valid": true,
+                "sample_count": 102400,
+                "counter_discontinuities": 0,
+                "invalid_words": 0,
+                "replay_max_difference_uA": 0.0,
+                "limitation": "Modulo-64 continuity cannot detect losses of multiples of 64 samples."
+              },
+              "metrics": {
+                "event_detected": true,
+                "baseline_median_uA": 11044.962212155233,
+                "threshold_uA": 13761.38383528563,
+                "event_start_ms": 0.0,
+                "event_duration_ms": 71.92999999999999,
+                "tx_mean_uA": 11676.178493406003,
+                "tx_peak_uA": 14183.8523471426,
+                "charge_total_uC": 839.8675190306893,
+                "charge_excess_uC": 49.43272572883423,
+                "energy_total_uJ": 4199.337595153446,
+                "energy_excess_uJ": 247.16362864417113,
+                "integration_method": "fixed_modeled_airtime",
+                "integration_windows_ms": [
+                  [
+                    0.0,
+                    71.93
+                  ]
+                ],
+                "analysis_error": "",
+                "analysis_diagnostics": {}
+              }
+            }
+          },
+          "valid": true,
+          "packet_received": true
+        },
+        {
+          "run_id": "run_00002",
+          "payload": "SX1278-Adafruit_a3049af4_1_2_XXX",
+          "transcript": {
+            "tx": [
+              "[SX1278] TX -> SX1278-Adafruit_a3049af4_1_2_XXX",
+              "[SX1278] TX OK"
+            ],
+            "rx": [
+              "SX1278-Adafruit_a3049af4_1_2_XXX"
+            ]
+          },
+          "timing": {
+            "synchronization": "host_coordinated_independent_sample_clocks",
+            "hardware_synchronized": false,
+            "sample_rate_hz": 100000,
+            "requested_pre_s": 0.2,
+            "requested_after_trigger_s": 0.8,
+            "devices": {
+              "tx": {
+                "start_command_host_ns": 21754997195800,
+                "first_data_host_ns": 21755017475600,
+                "marker_host_ns": 21755219220600,
+                "trigger_index": 21504,
+                "stop_command_host_ns": 21756020286300,
+                "wire_bytes": 407552,
+                "trailing_bytes": 0
+              },
+              "rx": {
+                "start_command_host_ns": 21754997429700,
+                "first_data_host_ns": 21755017455600,
+                "marker_host_ns": 21755219274800,
+                "trigger_index": 21504,
+                "stop_command_host_ns": 21756020330900,
+                "wire_bytes": 407552,
+                "trailing_bytes": 0
+              }
+            },
+            "host_trigger_ns": 21755219290600,
+            "trigger_callback_started_host_ns": 21755219511800,
+            "trigger_callback_finished_host_ns": 21755929694300,
+            "host_marker_skew_ms": 0.0542
+          },
+          "errors": {},
+          "roles": {
+            "tx": {
+              "raw": {
+                "path": "attempt_001\\raw\\tx\\run_00002.csv.gz",
+                "sha256": "c3a84010348b4b12c2817b72f6a67e7ab45478eed5c9449594902d4adf4dd2df"
+              },
+              "wire": {
+                "path": "attempt_001\\wire\\run_00002\\tx.ppk2.bin",
+                "sha256": "cd8618905db1c0dbd2b3e2d75c904d2068dcc71e70997070b8b7870310e6e432"
+              },
+              "qa": {
+                "valid": true,
+                "sample_count": 101888,
+                "counter_discontinuities": 0,
+                "invalid_words": 0,
+                "replay_max_difference_uA": 0.0,
+                "limitation": "Modulo-64 continuity cannot detect losses of multiples of 64 samples."
+              },
+              "metrics": {
+                "event_detected": true,
+                "baseline_median_uA": 1875.386339059344,
+                "threshold_uA": 2449.0865520775583,
+                "event_start_ms": 8.06,
+                "event_duration_ms": 72.53,
+                "tx_mean_uA": 59453.79091966703,
+                "tx_peak_uA": 70955.67915787321,
+                "charge_total_uC": 4312.183455403129,
+                "charge_excess_uC": 4176.327631812867,
+                "energy_total_uJ": 21560.917277015647,
+                "energy_excess_uJ": 20881.638159064336,
+                "integration_method": "threshold_events",
+                "integration_windows_ms": [
+                  [
+                    8.06,
+                    80.59
+                  ]
+                ],
+                "analysis_error": "",
+                "analysis_diagnostics": {}
+              }
+            },
+            "rx": {
+              "raw": {
+                "path": "attempt_001\\raw\\rx\\run_00002.csv.gz",
+                "sha256": "245a23e1e4bc23db7d1b1c9fd5ebf81dd44a3607fe4125cbc02e9f1ef9507436"
+              },
+              "wire": {
+                "path": "attempt_001\\wire\\run_00002\\rx.ppk2.bin",
+                "sha256": "d662238c18765f4b22e4b11ca583a8c942e25fce4149865d115a3fd46a1ed0d7"
+              },
+              "qa": {
+                "valid": true,
+                "sample_count": 101888,
+                "counter_discontinuities": 0,
+                "invalid_words": 0,
+                "replay_max_difference_uA": 0.0,
+                "limitation": "Modulo-64 continuity cannot detect losses of multiples of 64 samples."
+              },
+              "metrics": {
+                "event_detected": true,
+                "baseline_median_uA": 11044.962212155233,
+                "threshold_uA": 13761.38383528563,
+                "event_start_ms": 0.0,
+                "event_duration_ms": 71.92999999999999,
+                "tx_mean_uA": 11704.564709152748,
+                "tx_peak_uA": 14090.78799448689,
+                "charge_total_uC": 841.9093395293522,
+                "charge_excess_uC": 51.41838575593574,
+                "energy_total_uJ": 4209.5466976467615,
+                "energy_excess_uJ": 257.0919287796787,
+                "integration_method": "fixed_modeled_airtime",
+                "integration_windows_ms": [
+                  [
+                    0.0,
+                    71.93
+                  ]
+                ],
+                "analysis_error": "",
+                "analysis_diagnostics": {}
+              }
+            }
+          },
+          "valid": true,
+          "packet_received": true
+        },
+        {
+          "run_id": "run_00003",
+          "payload": "SX1278-Adafruit_a3049af4_1_3_XXX",
+          "transcript": {
+            "tx": [
+              "[SX1278] TX -> SX1278-Adafruit_a3049af4_1_3_XXX",
+              "[SX1278] TX OK"
+            ],
+            "rx": [
+              "SX1278-Adafruit_a3049af4_1_3_XXX"
+            ]
+          },
+          "timing": {
+            "synchronization": "host_coordinated_independent_sample_clocks",
+            "hardware_synchronized": false,
+            "sample_rate_hz": 100000,
+            "requested_pre_s": 0.2,
+            "requested_after_trigger_s": 0.8,
+            "devices": {
+              "tx": {
+                "start_command_host_ns": 21758932334200,
+                "first_data_host_ns": 21758947122300,
+                "marker_host_ns": 21759148424400,
+                "trigger_index": 20992,
+                "stop_command_host_ns": 21759949288800,
+                "wire_bytes": 405504,
+                "trailing_bytes": 0
+              },
+              "rx": {
+                "start_command_host_ns": 21758932674200,
+                "first_data_host_ns": 21758947236600,
+                "marker_host_ns": 21759148496400,
+                "trigger_index": 20992,
+                "stop_command_host_ns": 21759949368400,
+                "wire_bytes": 405504,
+                "trailing_bytes": 0
+              }
+            },
+            "host_trigger_ns": 21759148513400,
+            "trigger_callback_started_host_ns": 21759148698300,
+            "trigger_callback_finished_host_ns": 21759866167400,
+            "host_marker_skew_ms": 0.072
+          },
+          "errors": {},
+          "roles": {
+            "tx": {
+              "raw": {
+                "path": "attempt_001\\raw\\tx\\run_00003.csv.gz",
+                "sha256": "6dce53a69fd5e7d026e762cf351acf857408c19559858d44fa336ca9cbc1a36e"
+              },
+              "wire": {
+                "path": "attempt_001\\wire\\run_00003\\tx.ppk2.bin",
+                "sha256": "02ba0aa3f13fe8d8cac1787b6d06a6528bcaf7139eb297d1ab0afba81097efa6"
+              },
+              "qa": {
+                "valid": true,
+                "sample_count": 101376,
+                "counter_discontinuities": 0,
+                "invalid_words": 0,
+                "replay_max_difference_uA": 0.0,
+                "limitation": "Modulo-64 continuity cannot detect losses of multiples of 64 samples."
+              },
+              "metrics": {
+                "event_detected": true,
+                "baseline_median_uA": 1875.386339059344,
+                "threshold_uA": 2449.0865520775583,
+                "event_start_ms": 7.21,
+                "event_duration_ms": 72.52,
+                "tx_mean_uA": 59341.620152438656,
+                "tx_peak_uA": 70955.67915787321,
+                "charge_total_uC": 4303.454293454508,
+                "charge_excess_uC": 4167.640032635676,
+                "energy_total_uJ": 21517.27146727254,
+                "energy_excess_uJ": 20838.20016317838,
+                "integration_method": "threshold_events",
+                "integration_windows_ms": [
+                  [
+                    7.21,
+                    79.73
+                  ]
+                ],
+                "analysis_error": "",
+                "analysis_diagnostics": {}
+              }
+            },
+            "rx": {
+              "raw": {
+                "path": "attempt_001\\raw\\rx\\run_00003.csv.gz",
+                "sha256": "f8131bfa44cf6fbea2277d0e49f864a4cb1e697906fe2e1dfa43cc7795bdb1cd"
+              },
+              "wire": {
+                "path": "attempt_001\\wire\\run_00003\\rx.ppk2.bin",
+                "sha256": "d3db793994bb091f7147cb582a6c52f5a197121083b8c199e032487f8bac42cc"
+              },
+              "qa": {
+                "valid": true,
+                "sample_count": 101376,
+                "counter_discontinuities": 0,
+                "invalid_words": 0,
+                "replay_max_difference_uA": 0.0,
+                "limitation": "Modulo-64 continuity cannot detect losses of multiples of 64 samples."
+              },
+              "metrics": {
+                "event_detected": true,
+                "baseline_median_uA": 11044.962212155233,
+                "threshold_uA": 13761.38383528563,
+                "event_start_ms": 0.0,
+                "event_duration_ms": 71.92999999999999,
+                "tx_mean_uA": 11724.825873996155,
+                "tx_peak_uA": 14137.314534037714,
+                "charge_total_uC": 843.3667251165366,
+                "charge_excess_uC": 52.9070132606053,
+                "energy_total_uJ": 4216.833625582683,
+                "energy_excess_uJ": 264.5350663030265,
+                "integration_method": "fixed_modeled_airtime",
+                "integration_windows_ms": [
+                  [
+                    0.0,
+                    71.93
+                  ]
+                ],
+                "analysis_error": "",
+                "analysis_diagnostics": {}
+              }
+            }
+          },
+          "valid": true,
+          "packet_received": true
+        },
+        {
+          "run_id": "run_00004",
+          "payload": "SX1278-Adafruit_a3049af4_1_4_XXX",
+          "transcript": {
+            "tx": [
+              "[SX1278] TX -> SX1278-Adafruit_a3049af4_1_4_XXX",
+              "[SX1278] TX OK"
+            ],
+            "rx": [
+              "SX1278-Adafruit_a3049af4_1_4_XXX"
+            ]
+          },
+          "timing": {
+            "synchronization": "host_coordinated_independent_sample_clocks",
+            "hardware_synchronized": false,
+            "sample_rate_hz": 100000,
+            "requested_pre_s": 0.2,
+            "requested_after_trigger_s": 0.8,
+            "devices": {
+              "tx": {
+                "start_command_host_ns": 21762840340600,
+                "first_data_host_ns": 21762861557900,
+                "marker_host_ns": 21763065597300,
+                "trigger_index": 21504,
+                "stop_command_host_ns": 21763866976300,
+                "wire_bytes": 409600,
+                "trailing_bytes": 0
+              },
+              "rx": {
+                "start_command_host_ns": 21762840538300,
+                "first_data_host_ns": 21762861570400,
+                "marker_host_ns": 21763065641700,
+                "trigger_index": 21504,
+                "stop_command_host_ns": 21763866906000,
+                "wire_bytes": 409600,
+                "trailing_bytes": 0
+              }
+            },
+            "host_trigger_ns": 21763065662700,
+            "trigger_callback_started_host_ns": 21763066428700,
+            "trigger_callback_finished_host_ns": 21763775000100,
+            "host_marker_skew_ms": 0.0444
+          },
+          "errors": {},
+          "roles": {
+            "tx": {
+              "raw": {
+                "path": "attempt_001\\raw\\tx\\run_00004.csv.gz",
+                "sha256": "05be5c45d6a8623df33263909a2a849cc21d55c2e256821babd551545c0fe7db"
+              },
+              "wire": {
+                "path": "attempt_001\\wire\\run_00004\\tx.ppk2.bin",
+                "sha256": "2df984fc49880f7a08db2a5be90af5876d8b2c4fb89068904f8fcd4dda03ebbb"
+              },
+              "qa": {
+                "valid": true,
+                "sample_count": 102400,
+                "counter_discontinuities": 0,
+                "invalid_words": 0,
+                "replay_max_difference_uA": 0.0,
+                "limitation": "Modulo-64 continuity cannot detect losses of multiples of 64 samples."
+              },
+              "metrics": {
+                "event_detected": true,
+                "baseline_median_uA": 1875.386339059344,
+                "threshold_uA": 2448.143203895127,
+                "event_start_ms": 11.93,
+                "event_duration_ms": 72.51,
+                "tx_mean_uA": 59395.67459431674,
+                "tx_peak_uA": 68687.65139907785,
+                "charge_total_uC": 4306.780364833558,
+                "charge_excess_uC": 4170.9496609884745,
+                "energy_total_uJ": 21533.90182416779,
+                "energy_excess_uJ": 20854.74830494237,
+                "integration_method": "threshold_events",
+                "integration_windows_ms": [
+                  [
+                    11.93,
+                    84.44
+                  ]
+                ],
+                "analysis_error": "",
+                "analysis_diagnostics": {}
+              }
+            },
+            "rx": {
+              "raw": {
+                "path": "attempt_001\\raw\\rx\\run_00004.csv.gz",
+                "sha256": "e42a4270d07c47db51514f89fcffe9fe9998a5522c75521c8542e299e1a3d0c4"
+              },
+              "wire": {
+                "path": "attempt_001\\wire\\run_00004\\rx.ppk2.bin",
+                "sha256": "72984df54fed957f2a8f1686bea25c092329e4a1771173a7e6e1425e513edad1"
+              },
+              "qa": {
+                "valid": true,
+                "sample_count": 102400,
+                "counter_discontinuities": 0,
+                "invalid_words": 0,
+                "replay_max_difference_uA": 0.0,
+                "limitation": "Modulo-64 continuity cannot detect losses of multiples of 64 samples."
+              },
+              "metrics": {
+                "event_detected": true,
+                "baseline_median_uA": 11090.74469713821,
+                "threshold_uA": 13807.834887118508,
+                "event_start_ms": 0.0,
+                "event_duration_ms": 71.92999999999999,
+                "tx_mean_uA": 11687.996471728093,
+                "tx_peak_uA": 14137.314534037714,
+                "charge_total_uC": 840.7175862113978,
+                "charge_excess_uC": 47.35406095342573,
+                "energy_total_uJ": 4203.587931056989,
+                "energy_excess_uJ": 236.77030476712866,
+                "integration_method": "fixed_modeled_airtime",
+                "integration_windows_ms": [
+                  [
+                    0.0,
+                    71.93
+                  ]
+                ],
+                "analysis_error": "",
+                "analysis_diagnostics": {}
+              }
+            }
+          },
+          "valid": true,
+          "packet_received": true
+        },
+        {
+          "run_id": "run_00005",
+          "payload": "SX1278-Adafruit_a3049af4_1_5_XXX",
+          "transcript": {
+            "tx": [
+              "[SX1278] TX -> SX1278-Adafruit_a3049af4_1_5_XXX",
+              "[SX1278] TX OK"
+            ],
+            "rx": [
+              "SX1278-Adafruit_a3049af4_1_5_XXX"
+            ]
+          },
+          "timing": {
+            "synchronization": "host_coordinated_independent_sample_clocks",
+            "hardware_synchronized": false,
+            "sample_rate_hz": 100000,
+            "requested_pre_s": 0.2,
+            "requested_after_trigger_s": 0.8,
+            "devices": {
+              "tx": {
+                "start_command_host_ns": 21766852538600,
+                "first_data_host_ns": 21766870068300,
+                "marker_host_ns": 21767069735900,
+                "trigger_index": 20992,
+                "stop_command_host_ns": 21767870884200,
+                "wire_bytes": 405504,
+                "trailing_bytes": 0
+              },
+              "rx": {
+                "start_command_host_ns": 21766852761600,
+                "first_data_host_ns": 21766870080000,
+                "marker_host_ns": 21767069762900,
+                "trigger_index": 20992,
+                "stop_command_host_ns": 21767870929500,
+                "wire_bytes": 405504,
+                "trailing_bytes": 0
+              }
+            },
+            "host_trigger_ns": 21767069779900,
+            "trigger_callback_started_host_ns": 21767070057600,
+            "trigger_callback_finished_host_ns": 21767786437100,
+            "host_marker_skew_ms": 0.027
+          },
+          "errors": {},
+          "roles": {
+            "tx": {
+              "raw": {
+                "path": "attempt_001\\raw\\tx\\run_00005.csv.gz",
+                "sha256": "2cf8cfec04b28b5994d263f5a9969243c43604f7e9bf1044dfca3a46ba975578"
+              },
+              "wire": {
+                "path": "attempt_001\\wire\\run_00005\\tx.ppk2.bin",
+                "sha256": "592ec94b0a5503d980094466ca9aabfa28bba89c0debde60d5ae09744c082b27"
+              },
+              "qa": {
+                "valid": true,
+                "sample_count": 101376,
+                "counter_discontinuities": 0,
+                "invalid_words": 0,
+                "replay_max_difference_uA": 0.0,
+                "limitation": "Modulo-64 continuity cannot detect losses of multiples of 64 samples."
+              },
+              "metrics": {
+                "event_detected": true,
+                "baseline_median_uA": 1875.386339059344,
+                "threshold_uA": 2448.143203895127,
+                "event_start_ms": 8.35,
+                "event_duration_ms": 72.53999999999999,
+                "tx_mean_uA": 59453.43028687975,
+                "tx_peak_uA": 69443.5703794662,
+                "charge_total_uC": 4312.751833009943,
+                "charge_excess_uC": 4176.899444701559,
+                "energy_total_uJ": 21563.759165049712,
+                "energy_excess_uJ": 20884.497223507795,
+                "integration_method": "threshold_events",
+                "integration_windows_ms": [
+                  [
+                    8.35,
+                    80.89
+                  ]
+                ],
+                "analysis_error": "",
+                "analysis_diagnostics": {}
+              }
+            },
+            "rx": {
+              "raw": {
+                "path": "attempt_001\\raw\\rx\\run_00005.csv.gz",
+                "sha256": "0a4242a33792b7dd1400ed93fd74f18b13586da2ccd171b252bc37577111a181"
+              },
+              "wire": {
+                "path": "attempt_001\\wire\\run_00005\\rx.ppk2.bin",
+                "sha256": "26d86a0735c90cc182794da4229ad8cf5f7d048908ee2a9e2291f1b95039731f"
+              },
+              "qa": {
+                "valid": true,
+                "sample_count": 101376,
+                "counter_discontinuities": 0,
+                "invalid_words": 0,
+                "replay_max_difference_uA": 0.0,
+                "limitation": "Modulo-64 continuity cannot detect losses of multiples of 64 samples."
+              },
+              "metrics": {
+                "event_detected": true,
+                "baseline_median_uA": 11044.962212155233,
+                "threshold_uA": 13761.38383528563,
+                "event_start_ms": 0.0,
+                "event_duration_ms": 71.92999999999999,
+                "tx_mean_uA": 11701.087692770048,
+                "tx_peak_uA": 14183.8523471426,
+                "charge_total_uC": 841.6592377409474,
+                "charge_excess_uC": 51.22405799911547,
+                "energy_total_uJ": 4208.296188704737,
+                "energy_excess_uJ": 256.12028999557737,
+                "integration_method": "fixed_modeled_airtime",
+                "integration_windows_ms": [
+                  [
+                    0.0,
+                    71.93
+                  ]
+                ],
+                "analysis_error": "",
+                "analysis_diagnostics": {}
+              }
+            }
+          },
+          "valid": true,
+          "packet_received": true
+        }
+      ],
+      "status": "complete"
+    }
+  ],
+  "errors": [],
+  "usb": {
+    "COM48": {
+      "serial": "B8:F8:62:38:63:34",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM49": {
+      "serial": "0C:4E:A0:66:F5:C8",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM10": {
+      "serial": "E753C4E81F3D",
+      "vid": 6421,
+      "pid": 49162
+    },
+    "COM11": {
+      "serial": "CD2D332DB09A",
+      "vid": 6421,
+      "pid": 49162
+    }
+  },
+  "control_calibrations_by_port": {
+    "COM10": {
+      "Calibrated": "0",
+      "HW": "59154",
+      "IA": "56",
+      "R": {
+        "0": 1004.4283447265625,
+        "1": 102.09636688232422,
+        "2": 10.294670104980469,
+        "3": 0.9710896611213684,
+        "4": 0.056259121745824814
+      },
+      "O": {
+        "0": 128.43923950195312,
+        "1": 89.05178833007812,
+        "2": 75.92266082763672,
+        "3": 59.65896224975586,
+        "4": 102.51764678955078
+      },
+      "GS": {
+        "0": 1e-19,
+        "1": 135.05462646484375,
+        "2": 21.440528869628906,
+        "3": 2.752481460571289,
+        "4": 0.08300972729921341
+      },
+      "GI": {
+        "0": 1.0,
+        "1": 0.9633749127388,
+        "2": 0.9545890688896179,
+        "3": 0.9477665424346924,
+        "4": 0.9539828896522522
+      },
+      "S": {
+        "0": -5.040802975032e-08,
+        "1": -3.6705580441776e-07,
+        "2": -2.99367843581422e-06,
+        "3": -3.209787610103376e-05,
+        "4": 0.0016125940019264817
+      },
+      "I": {
+        "0": 1.8602490570174e-07,
+        "1": 1.21383050100121e-06,
+        "2": 7.046380778774619e-05,
+        "3": -0.00014766653475817293,
+        "4": -0.00523310387507081
+      },
+      "UG": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 1.0
+      }
+    },
+    "COM11": {
+      "Calibrated": "0",
+      "HW": "21994",
+      "IA": "58",
+      "R": {
+        "0": 1000.5957641601562,
+        "1": 101.40058135986328,
+        "2": 10.28022289276123,
+        "3": 0.9653185606002808,
+        "4": 0.05632902681827545
+      },
+      "O": {
+        "0": 119.50615692138672,
+        "1": 81.77458953857422,
+        "2": 70.12054443359375,
+        "3": 54.01410675048828,
+        "4": 93.50475311279297
+      },
+      "GS": {
+        "0": 1e-19,
+        "1": 119.2336196899414,
+        "2": 17.985504150390625,
+        "3": 2.5476224422454834,
+        "4": 0.07415920495986938
+      },
+      "GI": {
+        "0": 1.0,
+        "1": 0.9664102792739868,
+        "2": 0.9626902937889099,
+        "3": 0.951231837272644,
+        "4": 0.9594330191612244
+      },
+      "S": {
+        "0": 6.495847770793e-08,
+        "1": 7.9617404935561e-07,
+        "2": 8.46630064188503e-06,
+        "3": 8.544084266759455e-05,
+        "4": 0.0037396331317722797
+      },
+      "I": {
+        "0": -8.608763124585e-08,
+        "1": -1.84591544893919e-06,
+        "2": 3.143193680443801e-05,
+        "3": -0.00041445178794674575,
+        "4": -0.011407100595533848
+      },
+      "UG": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 1.0
+      }
+    }
+  },
+  "setup_commands": [
+    "AT+RX=OFF",
+    "AT+RESET",
+    "AT+DEBUG=OFF",
+    "AT+SET=433,125,7,5,0x14,20,0,8,1,ON",
+    "AT+HEADER=EXPLICIT",
+    "AT+IQ=OFF",
+    "AT+FHSS=0"
+  ],
+  "endpoints": {
+    "tx": {
+      "radio_port": "COM48",
+      "ppk_port": "COM11",
+      "config_readback": [
+        "CFG:",
+        "FREQ=433.000 MHz",
+        "BW=125.0 kHz",
+        "SF=7",
+        "CR=5",
+        "SYNC=0x14",
+        "PWR=20 dBm",
+        "CURR=0.0 mA (0=skip)",
+        "PREAMBLE=8",
+        "GAIN=1",
+        "RX=OFF",
+        "SLEEP=NO",
+        "CRC=ON",
+        "HEADER=EXPLICIT",
+        "IMPLEN=32",
+        "IQ=NORMAL",
+        "FHSS=0",
+        "DEBUG=ON",
+        "OK"
+      ]
+    },
+    "rx": {
+      "radio_port": "COM49",
+      "ppk_port": "COM10",
+      "config_readback": [
+        "CFG:",
+        "FREQ=433.000 MHz",
+        "BW=125.0 kHz",
+        "SF=7",
+        "CR=5",
+        "SYNC=0x14",
+        "PWR=20 dBm",
+        "CURR=0.0 mA (0=skip)",
+        "PREAMBLE=8",
+        "GAIN=1",
+        "RX=ON",
+        "SLEEP=NO",
+        "CRC=ON",
+        "HEADER=EXPLICIT",
+        "IMPLEN=32",
+        "IQ=NORMAL",
+        "FHSS=0",
+        "DEBUG=OFF",
+        "OK"
+      ]
+    }
+  },
+  "aggregates": [
+    {
+      "role": "tx",
+      "trial_count": 5,
+      "scope": "Current-threshold TX event",
+      "energy_total_uJ_mean": 21564.300932920647,
+      "energy_total_uJ_sd": 49.41177013422661,
+      "energy_excess_uJ_mean": 20884.773454296388,
+      "energy_excess_uJ_sd": 48.68799173588104,
+      "charge_total_uC_mean": 4312.860186584129,
+      "charge_total_uC_sd": 9.882354026845457,
+      "event_duration_ms_mean": 72.526,
+      "event_duration_ms_sd": 0.011401754250987864,
+      "tx_mean_uA_mean": 59466.393846167965,
+      "tx_mean_uA_sd": 132.06423347421557
+    },
+    {
+      "role": "rx",
+      "trial_count": 5,
+      "scope": "Fixed modeled listening interval starting at host trigger; not exclusive RF reception",
+      "energy_total_uJ_mean": 4207.520407628924,
+      "energy_total_uJ_sd": 6.592922496242775,
+      "energy_excess_uJ_mean": 252.33624369791647,
+      "energy_excess_uJ_sd": 10.663034526131959,
+      "charge_total_uC_mean": 841.5040815257847,
+      "charge_total_uC_sd": 1.3185844992484956,
+      "event_duration_ms_mean": 71.92999999999999,
+      "event_duration_ms_sd": 0.0,
+      "tx_mean_uA_mean": 11698.93064821061,
+      "tx_mean_uA_sd": 18.3314958883549
+    }
+  ]
+}
