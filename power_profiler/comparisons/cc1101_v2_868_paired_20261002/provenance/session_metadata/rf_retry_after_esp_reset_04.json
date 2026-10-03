@@ -1,0 +1,55 @@
+{
+  "energy_capture": false,
+  "commands": [],
+  "batches": [],
+  "ppk_handles_released": false,
+  "power_before": {
+    "state": "waiting_for_start",
+    "time": 1790951497.6802776,
+    "candidate": null,
+    "accepted_energy_points": 0,
+    "attempt": null,
+    "ports": {
+      "ppk": {
+        "tx": [
+          "COM10",
+          "E753C4E81F3D"
+        ],
+        "rx": [
+          "COM11",
+          "CD2D332DB09A"
+        ]
+      },
+      "radio": {}
+    },
+    "stop_file": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition_retry\\STOP",
+    "start_file": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition_retry\\START.json",
+    "ppk_handles_open": {
+      "tx": true,
+      "rx": true
+    },
+    "ppk_dut_power_command": "ON",
+    "hold_io_safe": true,
+    "samples_currents": {
+      "tx": {
+        "samples_drained": 272893440,
+        "last_chunk_samples": 1536,
+        "time": 1790951497.6680942,
+        "last_chunk_mean_current_uA": 17751.76918050356
+      },
+      "rx": {
+        "samples_drained": 272858112,
+        "last_chunk_samples": 1024,
+        "time": 1790951497.669098,
+        "last_chunk_mean_current_uA": 16976.735681513648
+      }
+    },
+    "hold_errors": {},
+    "errors": []
+  },
+  "error": "SerialException(\"could not open port 'COM32': PermissionError(13, 'Access is denied.', None, 5)\")",
+  "partial_uart_hex": {
+    "COM32": "",
+    "COM31": ""
+  }
+}

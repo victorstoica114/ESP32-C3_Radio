@@ -1,0 +1,47 @@
+{
+  "state": "candidate_holding",
+  "time": 1790946874.1296444,
+  "candidate": "attempt_001",
+  "accepted_energy_points": 0,
+  "attempt": "attempt_001",
+  "ports": {
+    "ppk": {
+      "tx": [
+        "COM10",
+        "E753C4E81F3D"
+      ],
+      "rx": [
+        "COM11",
+        "CD2D332DB09A"
+      ]
+    },
+    "radio": {
+      "rx": "COM29",
+      "tx": "COM30"
+    }
+  },
+  "stop_file": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\STOP",
+  "start_file": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\START.json",
+  "ppk_handles_open": {
+    "tx": true,
+    "rx": true
+  },
+  "ppk_dut_power_command": "ON",
+  "hold_io_safe": true,
+  "samples_currents": {
+    "tx": {
+      "samples_drained": 15229440,
+      "last_chunk_samples": 1536,
+      "time": 1790946874.12164,
+      "last_chunk_mean_current_uA": 1781.5769256357544
+    },
+    "rx": {
+      "samples_drained": 15195648,
+      "last_chunk_samples": 1536,
+      "time": 1790946874.1281953,
+      "last_chunk_mean_current_uA": 16829.01790373393
+    }
+  },
+  "hold_errors": {},
+  "errors": []
+}

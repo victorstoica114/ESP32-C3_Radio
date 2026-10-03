@@ -1,0 +1,47 @@
+{
+  "state": "candidate_holding",
+  "time": 1790952184.756928,
+  "candidate": "attempt_001",
+  "accepted_energy_points": 0,
+  "attempt": "attempt_001",
+  "ports": {
+    "ppk": {
+      "tx": [
+        "COM10",
+        "E753C4E81F3D"
+      ],
+      "rx": [
+        "COM11",
+        "CD2D332DB09A"
+      ]
+    },
+    "radio": {
+      "rx": "COM31",
+      "tx": "COM32"
+    }
+  },
+  "stop_file": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition_retry_more\\STOP",
+  "start_file": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition_retry_more\\START.json",
+  "ppk_handles_open": {
+    "tx": true,
+    "rx": true
+  },
+  "ppk_dut_power_command": "ON",
+  "hold_io_safe": true,
+  "samples_currents": {
+    "tx": {
+      "samples_drained": 38967296,
+      "last_chunk_samples": 1536,
+      "time": 1790952184.7485554,
+      "last_chunk_mean_current_uA": 1731.7776055496051
+    },
+    "rx": {
+      "samples_drained": 38934016,
+      "last_chunk_samples": 1536,
+      "time": 1790952184.7515602,
+      "last_chunk_mean_current_uA": 17003.747813265745
+    }
+  },
+  "hold_errors": {},
+  "errors": []
+}

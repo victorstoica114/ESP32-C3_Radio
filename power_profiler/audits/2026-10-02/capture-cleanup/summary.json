@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "completed_utc": "2026-10-02T12:14:44.806398+00:00",
+  "user_request": "Keep complete data; remove unsuccessful captures, including historic attempts.",
+  "deleted_file_count": 405,
+  "deleted_bytes": 1659338091,
+  "by_classification_scope": {
+    "tesla": {
+      "files": 193,
+      "bytes": 1044245500
+    },
+    "maxwell": {
+      "files": 32,
+      "bytes": 424248295
+    },
+    "faraday": {
+      "files": 140,
+      "bytes": 176829369
+    },
+    "root": {
+      "files": 40,
+      "bytes": 14014927
+    }
+  },
+  "all_deleted_paths_absent": true,
+  "protected_file_count": 27268,
+  "protected_sizes_and_mtimes_unchanged": true,
+  "nrf24_complete_batch_sha256_verified_captures": 10,
+  "retained": "Accepted/complete data, later-revalidated measurements, successful diagnostics, small logs/reports and interpreted results. No invented success status for deleted failures.",
+  "historical_manifest_note": "Original audit reports and hashes describe evidence available at their creation. The deletion manifest records subsequent intentional removal of rejected/incomplete RAW/WIRE.",
+  "deletion_manifest": {
+    "path": "power_profiler/audits/2026-10-02/capture-cleanup/deletion_manifest.json",
+    "sha256": "00ff09ed33a95def350e2968ddc380e84accc6d70d2c48e501f9cf56a85385e0"
+  },
+  "unknown_classifications_retained": [],
+  "retained_historical_controls_review": {
+    "confirmed_intentional_control_files": 81,
+    "conservative_ambiguous_files": 16,
+    "delete_from_this_group": 0,
+    "controls": [
+      {
+        "profile": "SX1278_NAKED",
+        "files": 21,
+        "evidence_path": "D:\\Documente\\ESP32-C3_Radio\\module radio\\ESP32-C3_Radio\\power_profiler\\comparisons\\sx1278_naked\\VALIDATION.md",
+        "lines": "59-78",
+        "reason": "Directional-link controls0/20 and continuous retry are intentionally retained; original100%loss remains authoritative."
+      },
+      {
+        "profile": "SX1278_PCB_2CAP",
+        "files": 40,
+        "evidence_path": "D:\\Documente\\ESP32-C3_Radio\\module radio\\ESP32-C3_Radio\\power_profiler\\comparisons\\sx1278_pcb_2cap\\VALIDATION.md",
+        "lines": "72-85",
+        "reason": "Explicit bidirectional20-packet controls; all40 electrical events detected and stable, retained as RF-threshold diagnosis."
+      },
+      {
+        "profile": "EBYTE_E22_SX1268",
+        "files": 10,
+        "evidence_path": "D:\\Documente\\ESP32-C3_Radio\\module radio\\ESP32-C3_Radio\\power_profiler\\comparisons\\ebyte_e22_400m30s\\VALIDATION.md",
+        "lines": "73-94",
+        "reason": "Explicit five-repetition high-drive controls0/5; report states electrical-energy values remain authoritative."
+      },
+      {
+        "profile": "RA01SH_SX1262",
+        "files": 10,
+        "evidence_path": "D:\\Documente\\ESP32-C3_Radio\\module radio\\ESP32-C3_Radio\\power_profiler\\comparisons\\ra01sh_sx1262\\VALIDATION.md",
+        "lines": "49-66",
+        "reason": "Intentional four-way pre-firmware-fix control isolatesLDROdirectional defect; retain diagnosis rather than infer invalidPPKcapture."
+      }
+    ],
+    "ambiguous": [
+      {
+        "profile": "RA01H_SX1276",
+        "direction": "tx",
+        "files": 7,
+        "reason": "TX current events exist; missing peer confirmation alone does not establish electrical acquisition failure or distinguish deliberate recovery controls."
+      },
+      {
+        "profile": "CC1101_V2_868",
+        "direction": "rx",
+        "files": 9,
+        "reason": "Pilot RX-missing records have no unambiguous failed-acquisition classification beyond reception status; preserve pending specific evidence."
+      }
+    ]
+  },
+  "deleted_file_types": {
+    "raw_csv_gz": 314,
+    "wire_ppk2_bin": 90,
+    "verified_redundant_local_zip": 1
+  }
+}

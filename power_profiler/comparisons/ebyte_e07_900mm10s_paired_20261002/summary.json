@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "completed_utc": "2026-10-02T13:14:35Z",
+  "status": "complete_five_trial_numeric_batch",
+  "module": "Ebyte E07-900MM10S",
+  "profile_id": "RADIO_EBYTE_E07_900MM10S",
+  "condition": {
+    "profile_id": "RADIO_EBYTE_E07_900MM10S",
+    "rate_kbps": 250.0,
+    "chip_drive_dbm": 10,
+    "frequency_mhz": 915.0,
+    "modulation": "GFSK",
+    "deviation_khz": 127.0,
+    "bandwidth_khz": 541.67,
+    "preamble_bits": 64,
+    "sync_word": "D391",
+    "sync_error_bits": 1,
+    "crc": true,
+    "payload_bytes": 32,
+    "content_bytes": 30,
+    "line_overhead_bytes": 2,
+    "tx_success_lines": [
+      "[TX] 32 bytes, state: 0",
+      "[TX] 32 bytes"
+    ],
+    "expected_chip_version": 20,
+    "pre_s": 0.2,
+    "after_trigger_s": 0.5,
+    "minimum_tx_gap_s": 1.2,
+    "max_attempts": 20
+  },
+  "accepted_attempt": "attempt_001",
+  "accepted_pairs": 5,
+  "accepted_captures": 10,
+  "accepted_energy_conditions": 2,
+  "acquisition_attempts": 1,
+  "retention": "Only complete accepted RAW/WIRE present; preparation is recorded separately.",
+  "voltage_mv": 3300,
+  "voltage_provenance": "Operator_confirmed_external_3.3V_unchanged_supply",
+  "voltage_simultaneously_recorded": false,
+  "measured_rail": "E07 module; ESP32 host excluded",
+  "ports": {
+    "ppk": {
+      "tx": [
+        "COM10",
+        "E753C4E81F3D"
+      ],
+      "rx": [
+        "COM11",
+        "CD2D332DB09A"
+      ]
+    },
+    "radio": {
+      "rx": "COM29",
+      "tx": "COM30"
+    }
+  },
+  "radio_usb_identities": {
+    "COM29": {
+      "serial": "08:92:72:9A:C2:8C",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM30": {
+      "serial": "08:92:72:9A:CC:88",
+      "vid": 12346,
+      "pid": 4097
+    }
+  },
+  "mapping_evidence": {
+    "path": "power_profiler/web_sessions/20261002_160814_149795_e07_900mm10s_paired/provenance/preparation.json",
+    "bytes": 11854,
+    "sha256": "660c203e9c760860fb02484f3b8286a21540bf8596d0930841c901be1ecc5360"
+  },
+  "staged_start": {
+    "path": "power_profiler/web_sessions/20261002_160814_149795_e07_900mm10s_paired/provenance/START.json",
+    "bytes": 323,
+    "sha256": "dd37250027da3cef71362ad05a7ff175b3f7d456b9fe733711616b06d5f8029d"
+  },
+  "configuration_verification": "SPI chip version0x14 before/after and explicit firmware parameter readbacks; no full hardware RF-register dump.",
+  "hardware_synchronized": false,
+  "sample_rate_hz_per_ppk": 100000,
+  "numeric_audit": {
+    "path": "power_profiler/web_sessions/20261002_160814_149795_e07_900mm10s_paired/analysis/audit.json",
+    "bytes": 35822,
+    "sha256": "2dfbca9602c27ed583c6c25728b09ac2c9d1dd24776d4cd33813a6e9da110025"
+  },
+  "initial_history_audit": {
+    "path": "power_profiler/web_sessions/20261002_160814_149795_e07_900mm10s_paired/analysis/window_history_audit.json",
+    "bytes": 13811,
+    "sha256": "9fadf856f19ad17e1a0e7351b690831b4eefe0b82a6b7b0b394e1170e561a1eb"
+  },
+  "source_manifest": {
+    "path": "power_profiler/web_sessions/20261002_160814_149795_e07_900mm10s_paired/source_manifest.json",
+    "bytes": 13131,
+    "sha256": "39066a1ced9931f1fe8425c3fb3348fcd9646a1a7f41cc1b7a25f7cb0945d13e"
+  },
+  "audit_summary": {
+    "captures": 10,
+    "computed_trials": 10,
+    "total_samples": 720896,
+    "counter_transition_faults": 0,
+    "maximum_replay_difference_uA": 0.0,
+    "valid_complete_five_trial_numeric_batch": true
+  },
+  "aggregates": [
+    {
+      "role": "tx",
+      "trial_count": 5,
+      "valid_complete_five_trial_numeric_batch": true,
+      "scope": "TX threshold event",
+      "sample_sd_ddof": 1,
+      "energy_total_uJ_mean": 234.33847202899156,
+      "energy_total_uJ_sd": 1.4215487859877547,
+      "charge_total_uC_mean": 71.01165819060351,
+      "charge_total_uC_sd": 0.43077235939022956,
+      "duration_ms_mean": 3.0360000000000005,
+      "duration_ms_sd": 0.008944271909999142,
+      "mean_current_uA_mean": 23390.017643882595,
+      "mean_current_uA_sd": 154.43980128235967,
+      "energy_excess_uJ_mean": 216.64241111933603,
+      "energy_excess_uJ_sd": 1.40822623777948
+    },
+    {
+      "role": "rx",
+      "trial_count": 5,
+      "valid_complete_five_trial_numeric_batch": true,
+      "scope": "RX listening, fixed modeled4.44ms",
+      "sample_sd_ddof": 1,
+      "energy_total_uJ_mean": 247.51296534017092,
+      "energy_total_uJ_sd": 0.820505216576163,
+      "charge_total_uC_mean": 75.00392889096088,
+      "charge_total_uC_sd": 0.24863794441701736,
+      "duration_ms_mean": 4.44,
+      "duration_ms_sd": 0.0,
+      "mean_current_uA_mean": 16892.776777243453,
+      "mean_current_uA_sd": 55.99953703086244,
+      "energy_excess_uJ_mean": 1.0592070958290472,
+      "energy_excess_uJ_sd": 0.28855764465390266
+    }
+  ],
+  "max_initial_history_relative_bound": 1.0902089338603873e-15,
+  "transmit_protocol": "Bridge sends a unique30-byte ASCII identifier plus CRLF as one32-byte RF frame. Historical TXBURST=32,32 used its fixed payload pattern; frame length, CRC, PHY and legacy integration are unchanged.",
+  "definitions": {
+    "TX": "Largest rectified-excess threshold group; threshold=pretrigger median+max(500uA,8*1.4826*MAD); merge gap20ms; minimum0.05ms; padding0.1ms each side.",
+    "RX": "Listening energy in a fixed modeled interval beginning at the local software trigger; not an independently delimited RF reception.",
+    "energy": "V * sum(max(0,I_uA))/100000; ordinary Python sum to reproduce existing analysis.py.",
+    "sd": "Sample SD, ddof=1, n=5; not instrument absolute uncertainty."
+  },
+  "limitations": [
+    "RX is listening energy in a modeled4.44ms interval, not exclusive RF reception.",
+    "TX is a current-threshold event; no hardware RF marker.",
+    "Initial-history interval applies to selected software windows; it does not establish invariance of TX threshold selection.",
+    "No simultaneous voltage measurement or analog-accuracy calibration claim.",
+    "Five successful transfers do not prove a general100percent delivery probability or a unique cause for earlier losses."
+  ],
+  "power_hold": {
+    "worker_pid": 86056,
+    "status_path": "power_profiler/web_sessions/20261002_160814_149795_e07_900mm10s_paired/acquisition/status.json",
+    "stop_file": "power_profiler/web_sessions/20261002_160814_149795_e07_900mm10s_paired/acquisition/STOP",
+    "state_at_finalization": "Both PPK ports open, DUT paths ON, measurement streams drained continuously."
+  },
+  "calculation_files": {
+    "trials.csv": {
+      "path": "power_profiler/web_sessions/20261002_160814_149795_e07_900mm10s_paired/analysis/trials.csv",
+      "bytes": 3020,
+      "sha256": "0bc84013043b5d7a6c8c675884f76e8131b96baf4d8f90da61173aa51a80276f"
+    },
+    "aggregates.csv": {
+      "path": "power_profiler/web_sessions/20261002_160814_149795_e07_900mm10s_paired/analysis/aggregates.csv",
+      "bytes": 704,
+      "sha256": "97e475bf857c147680bcd3709331345efdb0934539ebdc14fd06e50046ddb0ab"
+    }
+  }
+}

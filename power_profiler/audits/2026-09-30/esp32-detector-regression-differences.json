@@ -1,0 +1,2997 @@
+[
+  {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004122_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+    "step_id": "tx_p-20_rf_profile-SLR2K5_s512",
+    "run_id": "run_00001",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": -20,
+    "payload_bytes": 512,
+    "repetition": 1,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 8,
+    "reported_primary_detected_frames": 8,
+    "selected_detected_frames": 8,
+    "published_windows_ms": [
+      [
+        24.88,
+        271.08
+      ],
+      [
+        271.62,
+        517.82
+      ],
+      [
+        527.13,
+        773.33
+      ],
+      [
+        789.43,
+        1035.63
+      ],
+      [
+        1043.99,
+        1290.19
+      ],
+      [
+        1294.03,
+        1540.23
+      ],
+      [
+        1548.73,
+        1794.93
+      ],
+      [
+        1808.9,
+        2055.1
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        24.88,
+        271.08
+      ],
+      [
+        272.0,
+        518.2
+      ],
+      [
+        527.13,
+        773.33
+      ],
+      [
+        789.43,
+        1035.63
+      ],
+      [
+        1043.99,
+        1290.19
+      ],
+      [
+        1294.03,
+        1540.23
+      ],
+      [
+        1548.73,
+        1794.93
+      ],
+      [
+        1808.9,
+        2055.1
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 36611.25631993259,
+    "total_energy_current_uJ": 36610.764947315925,
+    "excess_energy_published_uJ": 8152.598401086039,
+    "excess_energy_current_uJ": 8152.55960202786,
+    "total_delta_uJ": -0.49137261666328413,
+    "total_delta_percent": -0.0013421353595943764,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": -0.03879905817939289,
+    "excess_delta_percent": -0.00047591033276450645,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 0.37999999999999545
+  },
+  {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004122_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+    "step_id": "tx_p-20_rf_profile-SLR2K5_s512",
+    "run_id": "run_00004",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": -20,
+    "payload_bytes": 512,
+    "repetition": 4,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 8,
+    "reported_primary_detected_frames": 8,
+    "selected_detected_frames": 8,
+    "published_windows_ms": [
+      [
+        20.49,
+        266.69
+      ],
+      [
+        279.62,
+        525.82
+      ],
+      [
+        530.77,
+        776.97
+      ],
+      [
+        782.65,
+        1028.85
+      ],
+      [
+        1044.24,
+        1290.44
+      ],
+      [
+        1297.9,
+        1544.1
+      ],
+      [
+        1557.69,
+        1803.89
+      ],
+      [
+        1813.86,
+        2060.06
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        20.49,
+        266.69
+      ],
+      [
+        279.62,
+        525.82
+      ],
+      [
+        530.77,
+        776.97
+      ],
+      [
+        783.66,
+        1029.86
+      ],
+      [
+        1044.24,
+        1290.44
+      ],
+      [
+        1297.9,
+        1544.1
+      ],
+      [
+        1557.69,
+        1803.89
+      ],
+      [
+        1813.86,
+        2060.06
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 36565.7417839654,
+    "total_energy_current_uJ": 36565.64777427165,
+    "excess_energy_published_uJ": 8064.673682791488,
+    "excess_energy_current_uJ": 8064.484900721022,
+    "total_delta_uJ": -0.09400969374837587,
+    "total_delta_percent": -0.00025709773454618556,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": -0.18878207046600437,
+    "excess_delta_percent": -0.0023408519413403717,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 1.009999999999991
+  },
+  {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004212_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+    "step_id": "tx_p-20_rf_profile-SLR2K5_s1024",
+    "run_id": "run_00001",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": -20,
+    "payload_bytes": 1024,
+    "repetition": 1,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 16,
+    "reported_primary_detected_frames": 16,
+    "selected_detected_frames": 16,
+    "published_windows_ms": [
+      [
+        16.36,
+        262.56
+      ],
+      [
+        276.45,
+        522.65
+      ],
+      [
+        523.77,
+        769.97
+      ],
+      [
+        782.06,
+        1028.26
+      ],
+      [
+        1040.22,
+        1286.42
+      ],
+      [
+        1288.54,
+        1534.74
+      ],
+      [
+        1547.66,
+        1793.86
+      ],
+      [
+        1807.82,
+        2054.02
+      ],
+      [
+        2055.66,
+        2301.86
+      ],
+      [
+        2314.84,
+        2561.04
+      ],
+      [
+        2565.0,
+        2811.2
+      ],
+      [
+        2822.65,
+        3068.85
+      ],
+      [
+        3073.66,
+        3319.86
+      ],
+      [
+        3330.14,
+        3576.34
+      ],
+      [
+        3584.44,
+        3830.64
+      ],
+      [
+        3846.36,
+        4092.56
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        16.36,
+        262.56
+      ],
+      [
+        276.45,
+        522.65
+      ],
+      [
+        523.0,
+        769.2
+      ],
+      [
+        782.06,
+        1028.26
+      ],
+      [
+        1040.22,
+        1286.42
+      ],
+      [
+        1296.08,
+        1542.28
+      ],
+      [
+        1547.66,
+        1793.86
+      ],
+      [
+        1807.82,
+        2054.02
+      ],
+      [
+        2055.0,
+        2301.2
+      ],
+      [
+        2314.84,
+        2561.04
+      ],
+      [
+        2565.0,
+        2811.2
+      ],
+      [
+        2822.65,
+        3068.85
+      ],
+      [
+        3073.66,
+        3319.86
+      ],
+      [
+        3330.14,
+        3576.34
+      ],
+      [
+        3584.44,
+        3830.64
+      ],
+      [
+        3846.36,
+        4092.56
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 72082.23173831799,
+    "total_energy_current_uJ": 72082.85544115651,
+    "excess_energy_published_uJ": 16972.214703389167,
+    "excess_energy_current_uJ": 16971.76713332611,
+    "total_delta_uJ": 0.6237028385221492,
+    "total_delta_percent": 0.0008652657159435861,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": -0.4475700630573556,
+    "excess_delta_percent": -0.0026370751895377076,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 7.539999999999964
+  },
+  {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004212_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+    "step_id": "tx_p-20_rf_profile-SLR2K5_s1024",
+    "run_id": "run_00002",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": -20,
+    "payload_bytes": 1024,
+    "repetition": 2,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 16,
+    "reported_primary_detected_frames": 16,
+    "selected_detected_frames": 16,
+    "published_windows_ms": [
+      [
+        24.31,
+        270.51
+      ],
+      [
+        273.07,
+        519.27
+      ],
+      [
+        532.74,
+        778.94
+      ],
+      [
+        788.04,
+        1034.24
+      ],
+      [
+        1046.31,
+        1292.51
+      ],
+      [
+        1295.04,
+        1541.24
+      ],
+      [
+        1556.61,
+        1802.81
+      ],
+      [
+        1806.96,
+        2053.16
+      ],
+      [
+        2065.55,
+        2311.75
+      ],
+      [
+        2325.72,
+        2571.92
+      ],
+      [
+        2579.02,
+        2825.22
+      ],
+      [
+        2826.17,
+        3072.37
+      ],
+      [
+        3081.09,
+        3327.29
+      ],
+      [
+        3343.93,
+        3590.13
+      ],
+      [
+        3595.9,
+        3842.1
+      ],
+      [
+        3857.07,
+        4103.27
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        24.31,
+        270.51
+      ],
+      [
+        273.07,
+        519.27
+      ],
+      [
+        532.74,
+        778.94
+      ],
+      [
+        788.04,
+        1034.24
+      ],
+      [
+        1046.31,
+        1292.51
+      ],
+      [
+        1295.04,
+        1541.24
+      ],
+      [
+        1556.61,
+        1802.81
+      ],
+      [
+        1806.96,
+        2053.16
+      ],
+      [
+        2065.55,
+        2311.75
+      ],
+      [
+        2325.72,
+        2571.92
+      ],
+      [
+        2578.02,
+        2824.22
+      ],
+      [
+        2825.01,
+        3071.21
+      ],
+      [
+        3081.09,
+        3327.29
+      ],
+      [
+        3343.93,
+        3590.13
+      ],
+      [
+        3595.9,
+        3842.1
+      ],
+      [
+        3857.07,
+        4103.27
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 72112.91180823342,
+    "total_energy_current_uJ": 72112.70578007249,
+    "excess_energy_published_uJ": 16944.2637990837,
+    "excess_energy_current_uJ": 16944.35988683129,
+    "total_delta_uJ": -0.20602816093014553,
+    "total_delta_percent": -0.00028570217976975343,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": 0.0960877475918096,
+    "excess_delta_percent": 0.0005670812773583833,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 1.1599999999998545
+  },
+  {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004212_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+    "step_id": "tx_p-20_rf_profile-SLR2K5_s1024",
+    "run_id": "run_00003",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": -20,
+    "payload_bytes": 1024,
+    "repetition": 3,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 16,
+    "reported_primary_detected_frames": 16,
+    "selected_detected_frames": 16,
+    "published_windows_ms": [
+      [
+        11.13,
+        257.33
+      ],
+      [
+        268.1,
+        514.3
+      ],
+      [
+        531.22,
+        777.42
+      ],
+      [
+        778.08,
+        1024.28
+      ],
+      [
+        1037.32,
+        1283.52
+      ],
+      [
+        1286.36,
+        1532.56
+      ],
+      [
+        1540.43,
+        1786.63
+      ],
+      [
+        1799.49,
+        2045.69
+      ],
+      [
+        2050.72,
+        2296.92
+      ],
+      [
+        2302.87,
+        2549.07
+      ],
+      [
+        2558.92,
+        2805.12
+      ],
+      [
+        2823.1,
+        3069.3
+      ],
+      [
+        3079.26,
+        3325.46
+      ],
+      [
+        3330.26,
+        3576.46
+      ],
+      [
+        3587.14,
+        3833.34
+      ],
+      [
+        3847.68,
+        4093.88
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        11.13,
+        257.33
+      ],
+      [
+        268.1,
+        514.3
+      ],
+      [
+        531.22,
+        777.42
+      ],
+      [
+        778.08,
+        1024.28
+      ],
+      [
+        1037.32,
+        1283.52
+      ],
+      [
+        1286.36,
+        1532.56
+      ],
+      [
+        1540.43,
+        1786.63
+      ],
+      [
+        1799.49,
+        2045.69
+      ],
+      [
+        2050.72,
+        2296.92
+      ],
+      [
+        2303.88,
+        2550.08
+      ],
+      [
+        2558.92,
+        2805.12
+      ],
+      [
+        2823.1,
+        3069.3
+      ],
+      [
+        3079.26,
+        3325.46
+      ],
+      [
+        3330.26,
+        3576.46
+      ],
+      [
+        3587.14,
+        3833.34
+      ],
+      [
+        3847.68,
+        4093.88
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 72270.36273084179,
+    "total_energy_current_uJ": 72269.85295039785,
+    "excess_energy_published_uJ": 17127.573748702598,
+    "excess_energy_current_uJ": 17127.117281155883,
+    "total_delta_uJ": -0.5097804439428728,
+    "total_delta_percent": -0.0007053796669653778,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": -0.4564675467154302,
+    "excess_delta_percent": -0.0026651033789848455,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 1.0100000000002183
+  },
+  {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004212_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+    "step_id": "tx_p-20_rf_profile-SLR2K5_s1024",
+    "run_id": "run_00004",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": -20,
+    "payload_bytes": 1024,
+    "repetition": 4,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 16,
+    "reported_primary_detected_frames": 16,
+    "selected_detected_frames": 16,
+    "published_windows_ms": [
+      [
+        22.85,
+        269.05
+      ],
+      [
+        270.92,
+        517.12
+      ],
+      [
+        533.05,
+        779.25
+      ],
+      [
+        787.1,
+        1033.3
+      ],
+      [
+        1036.92,
+        1283.12
+      ],
+      [
+        1300.58,
+        1546.78
+      ],
+      [
+        1551.66,
+        1797.86
+      ],
+      [
+        1803.75,
+        2049.95
+      ],
+      [
+        2060.45,
+        2306.65
+      ],
+      [
+        2321.83,
+        2568.03
+      ],
+      [
+        2572.62,
+        2818.82
+      ],
+      [
+        2825.69,
+        3071.89
+      ],
+      [
+        3085.65,
+        3331.85
+      ],
+      [
+        3336.95,
+        3583.15
+      ],
+      [
+        3599.12,
+        3845.32
+      ],
+      [
+        3851.95,
+        4098.15
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        22.85,
+        269.05
+      ],
+      [
+        270.92,
+        517.12
+      ],
+      [
+        533.05,
+        779.25
+      ],
+      [
+        787.1,
+        1033.3
+      ],
+      [
+        1036.92,
+        1283.12
+      ],
+      [
+        1300.58,
+        1546.78
+      ],
+      [
+        1557.7,
+        1803.9
+      ],
+      [
+        1804.76,
+        2050.96
+      ],
+      [
+        2060.45,
+        2306.65
+      ],
+      [
+        2321.83,
+        2568.03
+      ],
+      [
+        2572.62,
+        2818.82
+      ],
+      [
+        2825.69,
+        3071.89
+      ],
+      [
+        3085.65,
+        3331.85
+      ],
+      [
+        3336.95,
+        3583.15
+      ],
+      [
+        3599.12,
+        3845.32
+      ],
+      [
+        3851.95,
+        4098.15
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 72209.75368319996,
+    "total_energy_current_uJ": 72210.41126069035,
+    "excess_energy_published_uJ": 17125.889931387752,
+    "excess_energy_current_uJ": 17125.7087863485,
+    "total_delta_uJ": 0.6575774903903948,
+    "total_delta_percent": 0.0009106491254184945,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": -0.18114503925244207,
+    "excess_delta_percent": -0.001057726284459104,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 6.040000000000191
+  },
+  {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010417_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+    "step_id": "tx_p0_rf_profile-SLR2K5_s512",
+    "run_id": "run_00001",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": 0,
+    "payload_bytes": 512,
+    "repetition": 1,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 8,
+    "reported_primary_detected_frames": 8,
+    "selected_detected_frames": 8,
+    "published_windows_ms": [
+      [
+        24.54,
+        270.74
+      ],
+      [
+        277.92,
+        524.12
+      ],
+      [
+        531.83,
+        778.03
+      ],
+      [
+        785.73,
+        1031.93
+      ],
+      [
+        1035.48,
+        1281.68
+      ],
+      [
+        1289.69,
+        1535.89
+      ],
+      [
+        1548.09,
+        1794.29
+      ],
+      [
+        1803.61,
+        2049.81
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        24.54,
+        270.74
+      ],
+      [
+        277.92,
+        524.12
+      ],
+      [
+        531.83,
+        778.03
+      ],
+      [
+        788.42,
+        1034.62
+      ],
+      [
+        1035.48,
+        1281.68
+      ],
+      [
+        1289.69,
+        1535.89
+      ],
+      [
+        1548.09,
+        1794.29
+      ],
+      [
+        1803.61,
+        2049.81
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 46228.60517731647,
+    "total_energy_current_uJ": 46229.318492987826,
+    "excess_energy_published_uJ": 17360.83739692576,
+    "excess_energy_current_uJ": 17361.06653807454,
+    "total_delta_uJ": 0.7133156713534845,
+    "total_delta_percent": 0.0015430179401310085,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": 0.2291411487822188,
+    "excess_delta_percent": 0.0013198738260333798,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 2.689999999999941
+  },
+  {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010417_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz",
+    "step_id": "tx_p0_rf_profile-SLR2K5_s512",
+    "run_id": "run_00005",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": 0,
+    "payload_bytes": 512,
+    "repetition": 5,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 8,
+    "reported_primary_detected_frames": 8,
+    "selected_detected_frames": 8,
+    "published_windows_ms": [
+      [
+        23.58,
+        269.78
+      ],
+      [
+        273.48,
+        519.68
+      ],
+      [
+        537.26,
+        783.46
+      ],
+      [
+        789.33,
+        1035.53
+      ],
+      [
+        1041.83,
+        1288.03
+      ],
+      [
+        1304.0,
+        1550.2
+      ],
+      [
+        1552.67,
+        1798.87
+      ],
+      [
+        1816.48,
+        2062.68
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        23.58,
+        269.78
+      ],
+      [
+        273.48,
+        519.68
+      ],
+      [
+        537.26,
+        783.46
+      ],
+      [
+        789.33,
+        1035.53
+      ],
+      [
+        1041.83,
+        1288.03
+      ],
+      [
+        1304.0,
+        1550.2
+      ],
+      [
+        1553.09,
+        1799.29
+      ],
+      [
+        1816.48,
+        2062.68
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 46238.00449465456,
+    "total_energy_current_uJ": 46237.572889356146,
+    "excess_energy_published_uJ": 17398.59770641188,
+    "excess_energy_current_uJ": 17398.58754825303,
+    "total_delta_uJ": -0.4316052984140697,
+    "total_delta_percent": -0.0009334427450546912,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": -0.010158158853300847,
+    "excess_delta_percent": -5.838492862508815e-05,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 0.42000000000007276
+  },
+  {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010507_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+    "step_id": "tx_p0_rf_profile-SLR2K5_s1024",
+    "run_id": "run_00001",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": 0,
+    "payload_bytes": 1024,
+    "repetition": 1,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 16,
+    "reported_primary_detected_frames": 16,
+    "selected_detected_frames": 16,
+    "published_windows_ms": [
+      [
+        23.29,
+        269.49
+      ],
+      [
+        278.05,
+        524.25
+      ],
+      [
+        525.74,
+        771.94
+      ],
+      [
+        782.88,
+        1029.08
+      ],
+      [
+        1037.99,
+        1284.19
+      ],
+      [
+        1290.65,
+        1536.85
+      ],
+      [
+        1548.19,
+        1794.39
+      ],
+      [
+        1799.02,
+        2045.22
+      ],
+      [
+        2061.71,
+        2307.91
+      ],
+      [
+        2313.43,
+        2559.63
+      ],
+      [
+        2572.35,
+        2818.55
+      ],
+      [
+        2825.93,
+        3072.13
+      ],
+      [
+        3081.51,
+        3327.71
+      ],
+      [
+        3335.32,
+        3581.52
+      ],
+      [
+        3600.91,
+        3847.11
+      ],
+      [
+        3852.54,
+        4098.74
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        23.29,
+        269.49
+      ],
+      [
+        278.05,
+        524.25
+      ],
+      [
+        525.74,
+        771.94
+      ],
+      [
+        782.88,
+        1029.08
+      ],
+      [
+        1037.99,
+        1284.19
+      ],
+      [
+        1290.65,
+        1536.85
+      ],
+      [
+        1548.19,
+        1794.39
+      ],
+      [
+        1799.02,
+        2045.22
+      ],
+      [
+        2061.71,
+        2307.91
+      ],
+      [
+        2313.43,
+        2559.63
+      ],
+      [
+        2572.35,
+        2818.55
+      ],
+      [
+        2825.93,
+        3072.13
+      ],
+      [
+        3081.51,
+        3327.71
+      ],
+      [
+        3335.32,
+        3581.52
+      ],
+      [
+        3599.01,
+        3845.21
+      ],
+      [
+        3852.54,
+        4098.74
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 92518.47045096122,
+    "total_energy_current_uJ": 92518.57021444711,
+    "excess_energy_published_uJ": 34782.70833298061,
+    "excess_energy_current_uJ": 34782.56657587526,
+    "total_delta_uJ": 0.0997634858940728,
+    "total_delta_percent": 0.00010783088544297215,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": -0.14175710535346298,
+    "excess_delta_percent": -0.0004075505104284005,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 1.900000000000091
+  },
+  {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010507_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+    "step_id": "tx_p0_rf_profile-SLR2K5_s1024",
+    "run_id": "run_00003",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": 0,
+    "payload_bytes": 1024,
+    "repetition": 3,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 16,
+    "reported_primary_detected_frames": 16,
+    "selected_detected_frames": 16,
+    "published_windows_ms": [
+      [
+        13.27,
+        259.47
+      ],
+      [
+        271.34,
+        517.54
+      ],
+      [
+        525.23,
+        771.43
+      ],
+      [
+        781.1,
+        1027.3
+      ],
+      [
+        1040.74,
+        1286.94
+      ],
+      [
+        1293.82,
+        1540.02
+      ],
+      [
+        1552.93,
+        1799.13
+      ],
+      [
+        1808.79,
+        2054.99
+      ],
+      [
+        2056.12,
+        2302.32
+      ],
+      [
+        2320.33,
+        2566.53
+      ],
+      [
+        2577.17,
+        2823.37
+      ],
+      [
+        2824.17,
+        3070.37
+      ],
+      [
+        3084.73,
+        3330.93
+      ],
+      [
+        3340.43,
+        3586.63
+      ],
+      [
+        3595.67,
+        3841.87
+      ],
+      [
+        3845.76,
+        4091.96
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        13.27,
+        259.47
+      ],
+      [
+        271.34,
+        517.54
+      ],
+      [
+        525.23,
+        771.43
+      ],
+      [
+        781.1,
+        1027.3
+      ],
+      [
+        1040.74,
+        1286.94
+      ],
+      [
+        1293.82,
+        1540.02
+      ],
+      [
+        1552.93,
+        1799.13
+      ],
+      [
+        1808.79,
+        2054.99
+      ],
+      [
+        2056.12,
+        2302.32
+      ],
+      [
+        2320.33,
+        2566.53
+      ],
+      [
+        2568.1,
+        2814.3
+      ],
+      [
+        2823.13,
+        3069.33
+      ],
+      [
+        3084.73,
+        3330.93
+      ],
+      [
+        3342.39,
+        3588.59
+      ],
+      [
+        3595.67,
+        3841.87
+      ],
+      [
+        3845.76,
+        4091.96
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 92354.67738202297,
+    "total_energy_current_uJ": 92355.77112787387,
+    "excess_energy_published_uJ": 34737.34093676089,
+    "excess_energy_current_uJ": 34737.47263549917,
+    "total_delta_uJ": 1.0937458508997224,
+    "total_delta_percent": 0.0011842885297319583,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": 0.13169873828155687,
+    "excess_delta_percent": 0.00037912728703126675,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 9.070000000000164
+  },
+  {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010507_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+    "step_id": "tx_p0_rf_profile-SLR2K5_s1024",
+    "run_id": "run_00004",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": 0,
+    "payload_bytes": 1024,
+    "repetition": 4,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 16,
+    "reported_primary_detected_frames": 16,
+    "selected_detected_frames": 16,
+    "published_windows_ms": [
+      [
+        15.17,
+        261.37
+      ],
+      [
+        275.3,
+        521.5
+      ],
+      [
+        525.82,
+        772.02
+      ],
+      [
+        778.94,
+        1025.14
+      ],
+      [
+        1042.88,
+        1289.08
+      ],
+      [
+        1291.41,
+        1537.61
+      ],
+      [
+        1548.06,
+        1794.26
+      ],
+      [
+        1804.13,
+        2050.33
+      ],
+      [
+        2056.73,
+        2302.93
+      ],
+      [
+        2313.34,
+        2559.54
+      ],
+      [
+        2567.54,
+        2813.74
+      ],
+      [
+        2826.5,
+        3072.7
+      ],
+      [
+        3082.57,
+        3328.77
+      ],
+      [
+        3334.49,
+        3580.69
+      ],
+      [
+        3593.82,
+        3840.02
+      ],
+      [
+        3844.74,
+        4090.94
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        15.17,
+        261.37
+      ],
+      [
+        275.3,
+        521.5
+      ],
+      [
+        525.82,
+        772.02
+      ],
+      [
+        778.94,
+        1025.14
+      ],
+      [
+        1042.8,
+        1289.0
+      ],
+      [
+        1291.41,
+        1537.61
+      ],
+      [
+        1548.06,
+        1794.26
+      ],
+      [
+        1804.13,
+        2050.33
+      ],
+      [
+        2056.73,
+        2302.93
+      ],
+      [
+        2313.34,
+        2559.54
+      ],
+      [
+        2568.37,
+        2814.57
+      ],
+      [
+        2826.5,
+        3072.7
+      ],
+      [
+        3082.57,
+        3328.77
+      ],
+      [
+        3334.49,
+        3580.69
+      ],
+      [
+        3593.82,
+        3840.02
+      ],
+      [
+        3844.74,
+        4090.94
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 92366.13489838045,
+    "total_energy_current_uJ": 92366.12594740369,
+    "excess_energy_published_uJ": 34634.77148881907,
+    "excess_energy_current_uJ": 34634.38410181569,
+    "total_delta_uJ": -0.008950976756750606,
+    "total_delta_percent": -9.690755997660006e-06,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": -0.38738700337853516,
+    "excess_delta_percent": -0.0011184915815087848,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 0.830000000000382
+  },
+  {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010507_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz",
+    "step_id": "tx_p0_rf_profile-SLR2K5_s1024",
+    "run_id": "run_00005",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": 0,
+    "payload_bytes": 1024,
+    "repetition": 5,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 16,
+    "reported_primary_detected_frames": 16,
+    "selected_detected_frames": 16,
+    "published_windows_ms": [
+      [
+        14.8,
+        261.0
+      ],
+      [
+        275.02,
+        521.22
+      ],
+      [
+        528.22,
+        774.42
+      ],
+      [
+        787.42,
+        1033.62
+      ],
+      [
+        1044.51,
+        1290.71
+      ],
+      [
+        1293.48,
+        1539.68
+      ],
+      [
+        1551.78,
+        1797.98
+      ],
+      [
+        1803.0,
+        2049.2
+      ],
+      [
+        2069.6,
+        2315.8
+      ],
+      [
+        2323.35,
+        2569.55
+      ],
+      [
+        2581.49,
+        2827.69
+      ],
+      [
+        2829.61,
+        3075.81
+      ],
+      [
+        3090.05,
+        3336.25
+      ],
+      [
+        3339.83,
+        3586.03
+      ],
+      [
+        3600.69,
+        3846.89
+      ],
+      [
+        3859.44,
+        4105.64
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        14.8,
+        261.0
+      ],
+      [
+        275.02,
+        521.22
+      ],
+      [
+        528.22,
+        774.42
+      ],
+      [
+        789.43,
+        1035.63
+      ],
+      [
+        1044.51,
+        1290.71
+      ],
+      [
+        1293.48,
+        1539.68
+      ],
+      [
+        1551.78,
+        1797.98
+      ],
+      [
+        1803.0,
+        2049.2
+      ],
+      [
+        2069.6,
+        2315.8
+      ],
+      [
+        2323.35,
+        2569.55
+      ],
+      [
+        2581.49,
+        2827.69
+      ],
+      [
+        2829.61,
+        3075.81
+      ],
+      [
+        3090.05,
+        3336.25
+      ],
+      [
+        3339.83,
+        3586.03
+      ],
+      [
+        3602.67,
+        3848.87
+      ],
+      [
+        3859.44,
+        4105.64
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 92364.31821828774,
+    "total_energy_current_uJ": 92364.84029449741,
+    "excess_energy_published_uJ": 34687.883961970714,
+    "excess_energy_current_uJ": 34688.126185168025,
+    "total_delta_uJ": 0.5220762096723774,
+    "total_delta_percent": 0.0005652358180618933,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": 0.24222319731052266,
+    "excess_delta_percent": 0.0006982933798305169,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 2.0100000000002183
+  },
+  {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012646_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+    "step_id": "tx_p13_rf_profile-SLR2K5_s512",
+    "run_id": "run_00001",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": 13,
+    "payload_bytes": 512,
+    "repetition": 1,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 8,
+    "reported_primary_detected_frames": 8,
+    "selected_detected_frames": 8,
+    "published_windows_ms": [
+      [
+        20.42,
+        266.62
+      ],
+      [
+        272.5,
+        518.7
+      ],
+      [
+        535.63,
+        781.83
+      ],
+      [
+        783.9,
+        1030.1
+      ],
+      [
+        1046.49,
+        1292.69
+      ],
+      [
+        1296.35,
+        1542.55
+      ],
+      [
+        1552.57,
+        1798.77
+      ],
+      [
+        1810.69,
+        2056.89
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        20.42,
+        266.62
+      ],
+      [
+        273.0,
+        519.2
+      ],
+      [
+        535.63,
+        781.83
+      ],
+      [
+        783.9,
+        1030.1
+      ],
+      [
+        1046.49,
+        1292.69
+      ],
+      [
+        1296.35,
+        1542.55
+      ],
+      [
+        1552.57,
+        1798.77
+      ],
+      [
+        1810.69,
+        2056.89
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 58042.8718921681,
+    "total_energy_current_uJ": 58042.43759633983,
+    "excess_energy_published_uJ": 29099.579412271723,
+    "excess_energy_current_uJ": 29099.493197539592,
+    "total_delta_uJ": -0.4342958282722975,
+    "total_delta_percent": -0.0007482328391317239,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": -0.08621473213133868,
+    "excess_delta_percent": -0.00029627483927319176,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 0.5
+  },
+  {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012646_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+    "step_id": "tx_p13_rf_profile-SLR2K5_s512",
+    "run_id": "run_00002",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": 13,
+    "payload_bytes": 512,
+    "repetition": 2,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 8,
+    "reported_primary_detected_frames": 8,
+    "selected_detected_frames": 8,
+    "published_windows_ms": [
+      [
+        19.6,
+        265.8
+      ],
+      [
+        277.71,
+        523.91
+      ],
+      [
+        528.97,
+        775.17
+      ],
+      [
+        784.08,
+        1030.28
+      ],
+      [
+        1045.93,
+        1292.13
+      ],
+      [
+        1306.3,
+        1552.5
+      ],
+      [
+        1560.52,
+        1806.72
+      ],
+      [
+        1813.67,
+        2059.87
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        19.6,
+        265.8
+      ],
+      [
+        281.75,
+        527.95
+      ],
+      [
+        528.97,
+        775.17
+      ],
+      [
+        784.08,
+        1030.28
+      ],
+      [
+        1045.93,
+        1292.13
+      ],
+      [
+        1306.78,
+        1552.98
+      ],
+      [
+        1560.52,
+        1806.72
+      ],
+      [
+        1813.67,
+        2059.87
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 57980.243010094884,
+    "total_energy_current_uJ": 57979.96476733682,
+    "excess_energy_published_uJ": 29070.352132904776,
+    "excess_energy_current_uJ": 29070.435209823092,
+    "total_delta_uJ": -0.27824275806051446,
+    "total_delta_percent": -0.00047989236267032,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": 0.08307691831578268,
+    "excess_delta_percent": 0.0002857788510279846,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 4.040000000000077
+  },
+  {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012646_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+    "step_id": "tx_p13_rf_profile-SLR2K5_s512",
+    "run_id": "run_00003",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": 13,
+    "payload_bytes": 512,
+    "repetition": 3,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 8,
+    "reported_primary_detected_frames": 8,
+    "selected_detected_frames": 8,
+    "published_windows_ms": [
+      [
+        12.94,
+        259.14
+      ],
+      [
+        272.26,
+        518.46
+      ],
+      [
+        532.08,
+        778.28
+      ],
+      [
+        779.69,
+        1025.89
+      ],
+      [
+        1035.86,
+        1282.06
+      ],
+      [
+        1290.67,
+        1536.87
+      ],
+      [
+        1553.29,
+        1799.49
+      ],
+      [
+        1802.85,
+        2049.05
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        12.94,
+        259.14
+      ],
+      [
+        272.26,
+        518.46
+      ],
+      [
+        532.08,
+        778.28
+      ],
+      [
+        780.04,
+        1026.24
+      ],
+      [
+        1035.0,
+        1281.2
+      ],
+      [
+        1290.2,
+        1536.4
+      ],
+      [
+        1553.29,
+        1799.49
+      ],
+      [
+        1802.85,
+        2049.05
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 57944.01446695424,
+    "total_energy_current_uJ": 57944.1349267079,
+    "excess_energy_published_uJ": 29028.887588957597,
+    "excess_energy_current_uJ": 29028.982942551418,
+    "total_delta_uJ": 0.12045975365617778,
+    "total_delta_percent": 0.00020788989987252648,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": 0.0953535938206187,
+    "excess_delta_percent": 0.00032847829090076885,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 0.8599999999999
+  },
+  {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012646_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+    "step_id": "tx_p13_rf_profile-SLR2K5_s512",
+    "run_id": "run_00004",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": 13,
+    "payload_bytes": 512,
+    "repetition": 4,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 8,
+    "reported_primary_detected_frames": 8,
+    "selected_detected_frames": 8,
+    "published_windows_ms": [
+      [
+        25.3,
+        271.5
+      ],
+      [
+        271.51,
+        517.71
+      ],
+      [
+        534.09,
+        780.29
+      ],
+      [
+        790.0,
+        1036.2
+      ],
+      [
+        1045.1,
+        1291.3
+      ],
+      [
+        1293.25,
+        1539.45
+      ],
+      [
+        1548.23,
+        1794.43
+      ],
+      [
+        1815.63,
+        2061.83
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        25.61,
+        271.81
+      ],
+      [
+        272.53,
+        518.73
+      ],
+      [
+        534.09,
+        780.29
+      ],
+      [
+        790.0,
+        1036.2
+      ],
+      [
+        1045.1,
+        1291.3
+      ],
+      [
+        1293.25,
+        1539.45
+      ],
+      [
+        1548.23,
+        1794.43
+      ],
+      [
+        1815.63,
+        2061.83
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 58039.34358157812,
+    "total_energy_current_uJ": 58039.632946849306,
+    "excess_energy_published_uJ": 29162.91177977489,
+    "excess_energy_current_uJ": 29162.86155928983,
+    "total_delta_uJ": 0.2893652711863979,
+    "total_delta_percent": 0.0004985674429303089,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": -0.050220485059981,
+    "excess_delta_percent": -0.00017220668991901888,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 1.0199999999999818
+  },
+  {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012735_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+    "step_id": "tx_p13_rf_profile-SLR2K5_s1024",
+    "run_id": "run_00001",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": 13,
+    "payload_bytes": 1024,
+    "repetition": 1,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 16,
+    "reported_primary_detected_frames": 16,
+    "selected_detected_frames": 16,
+    "published_windows_ms": [
+      [
+        26.29,
+        272.49
+      ],
+      [
+        279.42,
+        525.62
+      ],
+      [
+        532.48,
+        778.68
+      ],
+      [
+        779.51,
+        1025.71
+      ],
+      [
+        1033.5,
+        1279.7
+      ],
+      [
+        1298.43,
+        1544.63
+      ],
+      [
+        1551.21,
+        1797.41
+      ],
+      [
+        1812.38,
+        2058.58
+      ],
+      [
+        2070.63,
+        2316.83
+      ],
+      [
+        2322.83,
+        2569.03
+      ],
+      [
+        2577.18,
+        2823.38
+      ],
+      [
+        2833.6,
+        3079.8
+      ],
+      [
+        3098.49,
+        3344.69
+      ],
+      [
+        3350.14,
+        3596.34
+      ],
+      [
+        3599.0,
+        3845.2
+      ],
+      [
+        3861.84,
+        4108.04
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        25.32,
+        271.52
+      ],
+      [
+        279.42,
+        525.62
+      ],
+      [
+        532.48,
+        778.68
+      ],
+      [
+        779.51,
+        1025.71
+      ],
+      [
+        1033.17,
+        1279.37
+      ],
+      [
+        1298.43,
+        1544.63
+      ],
+      [
+        1551.21,
+        1797.41
+      ],
+      [
+        1812.38,
+        2058.58
+      ],
+      [
+        2070.63,
+        2316.83
+      ],
+      [
+        2322.83,
+        2569.03
+      ],
+      [
+        2577.18,
+        2823.38
+      ],
+      [
+        2833.6,
+        3079.8
+      ],
+      [
+        3098.49,
+        3344.69
+      ],
+      [
+        3350.14,
+        3596.34
+      ],
+      [
+        3599.0,
+        3845.2
+      ],
+      [
+        3861.84,
+        4108.04
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 115958.66486850384,
+    "total_energy_current_uJ": 115958.51697301121,
+    "excess_energy_published_uJ": 58194.16185264337,
+    "excess_energy_current_uJ": 58194.03448403576,
+    "total_delta_uJ": -0.1478954926278675,
+    "total_delta_percent": -0.0001275415621559972,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": -0.12736860760924174,
+    "excess_delta_percent": -0.0002188683599135821,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 0.9700000000000273
+  },
+  {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012735_radio_ebyte_e79_cc1352p/raw/run_00002.csv.gz",
+    "step_id": "tx_p13_rf_profile-SLR2K5_s1024",
+    "run_id": "run_00002",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": 13,
+    "payload_bytes": 1024,
+    "repetition": 2,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 16,
+    "reported_primary_detected_frames": 16,
+    "selected_detected_frames": 16,
+    "published_windows_ms": [
+      [
+        16.47,
+        262.67
+      ],
+      [
+        273.58,
+        519.78
+      ],
+      [
+        534.22,
+        780.42
+      ],
+      [
+        786.0,
+        1032.2
+      ],
+      [
+        1043.7,
+        1289.9
+      ],
+      [
+        1299.68,
+        1545.88
+      ],
+      [
+        1560.03,
+        1806.23
+      ],
+      [
+        1813.54,
+        2059.74
+      ],
+      [
+        2064.69,
+        2310.89
+      ],
+      [
+        2326.78,
+        2572.98
+      ],
+      [
+        2582.05,
+        2828.25
+      ],
+      [
+        2828.61,
+        3074.81
+      ],
+      [
+        3094.82,
+        3341.02
+      ],
+      [
+        3343.87,
+        3590.07
+      ],
+      [
+        3597.45,
+        3843.65
+      ],
+      [
+        3852.48,
+        4098.68
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        16.47,
+        262.67
+      ],
+      [
+        273.58,
+        519.78
+      ],
+      [
+        534.22,
+        780.42
+      ],
+      [
+        786.0,
+        1032.2
+      ],
+      [
+        1043.7,
+        1289.9
+      ],
+      [
+        1299.68,
+        1545.88
+      ],
+      [
+        1560.03,
+        1806.23
+      ],
+      [
+        1813.54,
+        2059.74
+      ],
+      [
+        2064.69,
+        2310.89
+      ],
+      [
+        2326.78,
+        2572.98
+      ],
+      [
+        2582.05,
+        2828.25
+      ],
+      [
+        2829.0,
+        3075.2
+      ],
+      [
+        3094.82,
+        3341.02
+      ],
+      [
+        3343.87,
+        3590.07
+      ],
+      [
+        3597.45,
+        3843.65
+      ],
+      [
+        3852.48,
+        4098.68
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 115807.19935045719,
+    "total_energy_current_uJ": 115806.99382819503,
+    "excess_energy_published_uJ": 58103.78935134829,
+    "excess_energy_current_uJ": 58103.7771690063,
+    "total_delta_uJ": -0.20552226215659175,
+    "total_delta_percent": -0.00017746933118623076,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": -0.01218234199041035,
+    "excess_delta_percent": -2.096651892102841e-05,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 0.38999999999987267
+  },
+  {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012735_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+    "step_id": "tx_p13_rf_profile-SLR2K5_s1024",
+    "run_id": "run_00003",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": 13,
+    "payload_bytes": 1024,
+    "repetition": 3,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 16,
+    "reported_primary_detected_frames": 16,
+    "selected_detected_frames": 16,
+    "published_windows_ms": [
+      [
+        13.91,
+        260.11
+      ],
+      [
+        272.95,
+        519.15
+      ],
+      [
+        533.53,
+        779.73
+      ],
+      [
+        788.55,
+        1034.75
+      ],
+      [
+        1035.62,
+        1281.82
+      ],
+      [
+        1292.61,
+        1538.81
+      ],
+      [
+        1544.7,
+        1790.9
+      ],
+      [
+        1809.76,
+        2055.96
+      ],
+      [
+        2056.06,
+        2302.26
+      ],
+      [
+        2322.26,
+        2568.46
+      ],
+      [
+        2570.39,
+        2816.59
+      ],
+      [
+        2824.21,
+        3070.41
+      ],
+      [
+        3085.1,
+        3331.3
+      ],
+      [
+        3343.25,
+        3589.45
+      ],
+      [
+        3597.13,
+        3843.33
+      ],
+      [
+        3847.18,
+        4093.38
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        13.91,
+        260.11
+      ],
+      [
+        272.95,
+        519.15
+      ],
+      [
+        533.53,
+        779.73
+      ],
+      [
+        788.55,
+        1034.75
+      ],
+      [
+        1035.62,
+        1281.82
+      ],
+      [
+        1298.62,
+        1544.82
+      ],
+      [
+        1545.71,
+        1791.91
+      ],
+      [
+        1809.76,
+        2055.96
+      ],
+      [
+        2056.06,
+        2302.26
+      ],
+      [
+        2322.26,
+        2568.46
+      ],
+      [
+        2570.39,
+        2816.59
+      ],
+      [
+        2824.21,
+        3070.41
+      ],
+      [
+        3085.1,
+        3331.3
+      ],
+      [
+        3343.25,
+        3589.45
+      ],
+      [
+        3597.13,
+        3843.33
+      ],
+      [
+        3846.23,
+        4092.43
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 116076.03518926025,
+    "total_energy_current_uJ": 116076.60329654693,
+    "excess_energy_published_uJ": 58317.84092276519,
+    "excess_energy_current_uJ": 58318.179350330705,
+    "total_delta_uJ": 0.568107286686427,
+    "total_delta_percent": 0.0004894268534894053,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": 0.33842756551894126,
+    "excess_delta_percent": 0.0005803156635453277,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 6.009999999999991
+  },
+  {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012735_radio_ebyte_e79_cc1352p/raw/run_00004.csv.gz",
+    "step_id": "tx_p13_rf_profile-SLR2K5_s1024",
+    "run_id": "run_00004",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": 13,
+    "payload_bytes": 1024,
+    "repetition": 4,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 16,
+    "reported_primary_detected_frames": 16,
+    "selected_detected_frames": 16,
+    "published_windows_ms": [
+      [
+        11.36,
+        257.56
+      ],
+      [
+        279.99,
+        526.19
+      ],
+      [
+        535.12,
+        781.32
+      ],
+      [
+        789.18,
+        1035.38
+      ],
+      [
+        1039.07,
+        1285.27
+      ],
+      [
+        1302.49,
+        1548.69
+      ],
+      [
+        1550.6,
+        1796.8
+      ],
+      [
+        1808.86,
+        2055.06
+      ],
+      [
+        2069.79,
+        2315.99
+      ],
+      [
+        2320.72,
+        2566.92
+      ],
+      [
+        2581.32,
+        2827.52
+      ],
+      [
+        2837.42,
+        3083.62
+      ],
+      [
+        3084.48,
+        3330.68
+      ],
+      [
+        3339.03,
+        3585.23
+      ],
+      [
+        3599.18,
+        3845.38
+      ],
+      [
+        3850.21,
+        4096.41
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        11.36,
+        257.56
+      ],
+      [
+        279.99,
+        526.19
+      ],
+      [
+        535.12,
+        781.32
+      ],
+      [
+        789.18,
+        1035.38
+      ],
+      [
+        1039.07,
+        1285.27
+      ],
+      [
+        1302.49,
+        1548.69
+      ],
+      [
+        1550.6,
+        1796.8
+      ],
+      [
+        1808.86,
+        2055.06
+      ],
+      [
+        2069.79,
+        2315.99
+      ],
+      [
+        2320.72,
+        2566.92
+      ],
+      [
+        2581.32,
+        2827.52
+      ],
+      [
+        2837.42,
+        3083.62
+      ],
+      [
+        3084.48,
+        3330.68
+      ],
+      [
+        3339.03,
+        3585.23
+      ],
+      [
+        3599.18,
+        3845.38
+      ],
+      [
+        3849.24,
+        4095.44
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 115938.19596657688,
+    "total_energy_current_uJ": 115938.77127615988,
+    "excess_energy_published_uJ": 58239.89758684207,
+    "excess_energy_current_uJ": 58240.13440151784,
+    "total_delta_uJ": 0.5753095830004895,
+    "total_delta_percent": 0.000496220920287449,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": 0.23681467577262083,
+    "excess_delta_percent": 0.0004066193204144142,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 0.9700000000002547
+  },
+  {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_012735_radio_ebyte_e79_cc1352p/raw/run_00005.csv.gz",
+    "step_id": "tx_p13_rf_profile-SLR2K5_s1024",
+    "run_id": "run_00005",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": 13,
+    "payload_bytes": 1024,
+    "repetition": 5,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 16,
+    "reported_primary_detected_frames": 16,
+    "selected_detected_frames": 16,
+    "published_windows_ms": [
+      [
+        16.98,
+        263.18
+      ],
+      [
+        282.43,
+        528.63
+      ],
+      [
+        530.15,
+        776.35
+      ],
+      [
+        787.97,
+        1034.17
+      ],
+      [
+        1049.41,
+        1295.61
+      ],
+      [
+        1299.04,
+        1545.24
+      ],
+      [
+        1555.77,
+        1801.97
+      ],
+      [
+        1811.81,
+        2058.01
+      ],
+      [
+        2070.97,
+        2317.17
+      ],
+      [
+        2330.61,
+        2576.81
+      ],
+      [
+        2583.02,
+        2829.22
+      ],
+      [
+        2843.16,
+        3089.36
+      ],
+      [
+        3099.35,
+        3345.55
+      ],
+      [
+        3347.44,
+        3593.64
+      ],
+      [
+        3607.31,
+        3853.51
+      ],
+      [
+        3871.42,
+        4117.62
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        16.98,
+        263.18
+      ],
+      [
+        282.43,
+        528.63
+      ],
+      [
+        530.15,
+        776.35
+      ],
+      [
+        787.97,
+        1034.17
+      ],
+      [
+        1049.41,
+        1295.61
+      ],
+      [
+        1299.04,
+        1545.24
+      ],
+      [
+        1555.14,
+        1801.34
+      ],
+      [
+        1811.0,
+        2057.2
+      ],
+      [
+        2070.97,
+        2317.17
+      ],
+      [
+        2331.61,
+        2577.81
+      ],
+      [
+        2583.02,
+        2829.22
+      ],
+      [
+        2843.16,
+        3089.36
+      ],
+      [
+        3099.35,
+        3345.55
+      ],
+      [
+        3347.44,
+        3593.64
+      ],
+      [
+        3607.31,
+        3853.51
+      ],
+      [
+        3871.42,
+        4117.62
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 115993.2276838434,
+    "total_energy_current_uJ": 115992.82364482798,
+    "excess_energy_published_uJ": 58473.511726269244,
+    "excess_energy_current_uJ": 58474.25787255014,
+    "total_delta_uJ": -0.4040390154259512,
+    "total_delta_percent": -0.00034832983226706915,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": 0.7461462808932993,
+    "excess_delta_percent": 0.0012760415081469745,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 1.0
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "pass": true,
+  "matching_raw_sha256": 10,
+  "numeric_comparisons": 66,
+  "absolute_tolerance": 1e-08,
+  "max_absolute_difference": 1.2008172234345693e-12,
+  "worst_comparison": {
+    "label": "run_00003:pair_delta_uJ",
+    "absolute_difference": 1.2008172234345693e-12
+  },
+  "compared": "Per-role 200ms total/signed delta/baseline; paired totals/deltas; means and sample SDs",
+  "independent_report_sha256": "373fadbd0d53cb3114385620c298ff7ae3363b5fb58f543a86f908620dd5bb45",
+  "calculator_report_sha256": "7885d961cb82f31fc3f755fa989afed47ed0964dfdac96f055141dd9b0dc615d",
+  "calculator_script_sha256": "5cc6cf248c181fe401e7ce72da5e7bbdf3a472caf94f279eaf8ae4d2296f3402"
+}

@@ -1,0 +1,45 @@
+{
+    "created_utc":  "2026-10-01T08:40:55.5604446Z",
+    "campaign_session":  "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261001_112220_851099_paired_campaign_radio_ebyte_e79_cc1352p",
+    "campaign_state":  "failed",
+    "accepted_batches":  3,
+    "accepted_pairs":  15,
+    "planned_pairs":  315,
+    "remaining_pairs":  300,
+    "failed_condition":  "32 B / GFSK4K8 / +13 dBm",
+    "failed_condition_captured_pairs":  0,
+    "radio_firmware":  "0.3.2",
+    "software_tests_passed":  296,
+    "rf_transmissions_in_usb_diagnostics":  0,
+    "tx_comparison":  {
+                          "port":  "COM12",
+                          "completed_preflights":  60,
+                          "passed":  true
+                      },
+    "rx_failure":  {
+                       "requested_bytes":  10,
+                       "late_rx":  [
+
+                                   ],
+                       "native_call_elapsed_s":  0.0004133996553719044,
+                       "command":  "AT+RX=ON",
+                       "configured_timeout_ms":  5000,
+                       "port":  "COM13",
+                       "ntstatus":  3221225473,
+                       "transferred_bytes":  0,
+                       "native_error":  31
+                   },
+    "interpretation":  "COM13 USB transport failure reproduced without RF. Cable, hub, adapter and driver are not yet individually distinguished. Library message Write timeout does not indicate expiry of the configured 5 s timeout.",
+    "next_step":  "Await operator confirmation that the receiver CH340 USB was moved to a direct PC port; rediscover identity, verify UART transport, explicitly resume without repeating accepted batches.",
+    "paired_guard_active":  true,
+    "evidence":  [
+                     {
+                         "sha256":  "7ac18647e793f699707166d10cddf8c5e55c12e9c0411ca2a0fc27f1cbd32326",
+                         "path":  ".tmp/e79_radio_markers_20261001/preflight-win32-fast-113822.json"
+                     },
+                     {
+                         "sha256":  "72375bdef982f9621cd1856a940a1876968684d670b5140a27574a0397f1c1d2",
+                         "path":  ".tmp/e79_radio_markers_20261001/preflight-win32-fast-113921.json"
+                     }
+                 ]
+}

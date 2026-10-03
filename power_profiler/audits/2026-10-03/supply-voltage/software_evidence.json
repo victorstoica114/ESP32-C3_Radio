@@ -1,0 +1,182 @@
+{
+  "created_utc": "2026-10-03T08:06:13.708950+00:00",
+  "scope": "Read-only software/history audit; no hardware, no source edits, no numerical results changed. Voltage declarations are not independent measurements of historical physical supply.",
+  "git_head": "37599a2a5394de9aa3a84432e578dbcaadfd6da2",
+  "source_sha256": {
+    "power_profiler/radio_power_profiler/ppk.py": "b666dee774d47b36cd59965cce5097f52c299f7ae99c7482d2fd95e9082c57bd",
+    "power_profiler/radio_power_profiler/analysis.py": "2c7af5ba570300494fb1c55e7ec964ede7c33049b21c73a8763cca0b5956060c",
+    "power_profiler/radio_power_profiler/continuous_runner.py": "344fcd52ff9b6e9abdb3ff88f90a90efb4245058747533a4e4c7a91d3d0c1c0a",
+    "power_profiler/radio_power_profiler/results.py": "b567cb4bd6fa148610446621e81a56872b1a19cfe25a0eb03c534ef4c113a3f0",
+    "power_profiler/radio_power_profiler/paired_ppk.py": "7e011ffc8b8747ee9a501961b988652006a3f19c81b3d77a02b790ce715723a5",
+    "power_profiler/radio_power_profiler/paired_runner.py": "a9eb70c36f4410547c35d88ee0cfd1821df86ad7a9a7dc0f5fc8e30620df2ad1",
+    "power_profiler/radio_power_profiler/cli.py": "e175cc3ad5e165cae76daf7fc7dc8a8825b31baea1f4ecd178dd1b37be0d18f8",
+    "power_profiler/radio_power_profiler/web_app.py": "85ce6fc4381a332b3051b65dd4117f43e3e0262940dc7e1ae1127379985000bb",
+    "power_profiler/radio_power_profiler/profiles.json": "225b39042398a448cc290f76d276a31aa2e9bd39260ebe421269d42123c763ad",
+    "power_profiler/tools/generate_transfer_report.py": "77381158d56a7b3de8baf750f39ad8ab3011ae679c1e9e6374cfda39ef528929",
+    "power_profiler/study/generate_study.py": "784d66f5b8f4fae57b019f3144cb449f2cf9dff22ac7e6b0b750ed0672ce566a",
+    "power_profiler/.venv/Lib/site-packages/ppk2_api/ppk2_api.py": "82161647ed1c4d3a7304e1cf3aeaff599214bf026838477e099eb1f5cb2a3360"
+  },
+  "core_conclusions": [
+    {
+      "id": "ampere_voltage_semantics",
+      "finding": "In ampere mode voltage_mv assigns the host decoder current_vdd; it does not set or measure external VIN. DUT on/off controls the current path. Source mode separately sends REGULATOR_SET via set_source_voltage.",
+      "evidence": [
+        "power_profiler/radio_power_profiler/ppk.py:40-56",
+        "power_profiler/.venv/Lib/site-packages/ppk2_api/ppk2_api.py:246-270",
+        "power_profiler/radio_power_profiler/paired_runner.py:351-359"
+      ]
+    },
+    {
+      "id": "voltage_affects_current_and_energy",
+      "finding": "PPK2_API 0.9.2 calibrated current depends on voltage before spike filtering, and analysis then multiplies integrated charge by voltage. E*=5000/3300 alone preserves the original voltage-dependent current decoding.",
+      "equation": "x=(4*adc14-O_r)*(1.8/163840)/R_r; I_A=UG_r*(x*(GS_r*x+GI_r)+S_r*V_volts+I_r); raw-current difference before filtering=UG_r*S_r*(Vnew-Vold).",
+      "evidence": [
+        "power_profiler/.venv/Lib/site-packages/ppk2_api/ppk2_api.py:196-204",
+        "power_profiler/.venv/Lib/site-packages/ppk2_api/ppk2_api.py:278-321",
+        "power_profiler/radio_power_profiler/analysis.py:44-65"
+      ]
+    },
+    {
+      "id": "historical_code",
+      "finding": "The same current_vdd assignment existed from the initial profiler commit on 2026-07-16, was present at July commit8f4f867, and is present in the imported project snapshot. This is not a newly introduced calibration parameter. Initial requirements pin ppk2-api==0.9.2.",
+      "commit": "e7777da7bb8f996fa50d99c6888985cd12d0bc34",
+      "commit_time": "2026-07-16T21:11:06+03:00",
+      "evidence": [
+        "git show e7777da:power_profiler/radio_power_profiler/ppk.py:39-43",
+        "git show e7777da:power_profiler/requirements.txt",
+        "git show 8f4f867:power_profiler/radio_power_profiler/ppk.py",
+        "module radio/ESP32-C3_Radio/power_profiler/radio_power_profiler/ppk.py:43"
+      ],
+      "limitation": "Repository history plus archived snapshot establish implementation, not that every historical run used an unmodified checkout."
+    },
+    {
+      "id": "filter_history",
+      "finding": "Current calibration is followed by two rolling states (.18 and .06), range-change handling and range4 freezes. Correcting decoder voltage can require full word/range history and declared reset convention or a bound on unknown pre-capture state. Current-capture numeric reconstruction is not instrument-accuracy certification.",
+      "evidence": [
+        "power_profiler/.venv/Lib/site-packages/ppk2_api/ppk2_api.py:286-321",
+        "power_profiler/radio_power_profiler/paired_ppk.py:151-157"
+      ]
+    },
+    {
+      "id": "energy_definitions",
+      "finding": "Packet total uses sum(max(0,current))/sample_rate and excess uses positive-clipped baseline subtraction, then V. Continuous power uses mean current times V; 60s energy uses power times duration. Fixed-current/fixed-window totals and their standard deviations scale linearly with V; recomputed currents may alter baseline, threshold-selected windows, clipping, charge and current metrics.",
+      "evidence": [
+        "power_profiler/radio_power_profiler/analysis.py:44-65",
+        "power_profiler/radio_power_profiler/continuous_runner.py:75-119"
+      ]
+    },
+    {
+      "id": "formats",
+      "finding": "Legacy gzip RAW is already-decoded current CSV with sample_index,time_ms,current_uA,logic_bits,trigger. It does not retain ADC code, range or calibration. Current .ppk2.bin WIRE is little-endian uint32 ADC/range/counter/logic, not sampled supply voltage and not the Nordic desktop .ppk2 project format. Paired manifests separately archive per-role PPK calibration.",
+      "evidence": [
+        "power_profiler/radio_power_profiler/results.py:65-75",
+        "power_profiler/radio_power_profiler/paired_ppk.py:158-159",
+        "power_profiler/radio_power_profiler/paired_ppk.py:208-225",
+        "power_profiler/radio_power_profiler/paired_runner.py:352-355",
+        "power_profiler/.venv/Lib/site-packages/ppk2_api/ppk2_api.py:77-81",
+        "power_profiler/.venv/Lib/site-packages/ppk2_api/ppk2_api.py:196-204"
+      ]
+    },
+    {
+      "id": "defaults",
+      "finding": "3300 is the generic CLI/WebConfig/form default, inherited by runs unless changed. Radio profiles contain no supply-voltage field. Current paired UI requires explicit per-role voltages and uses those values.",
+      "evidence": [
+        "power_profiler/radio_power_profiler/cli.py:282",
+        "power_profiler/radio_power_profiler/cli.py:347",
+        "power_profiler/radio_power_profiler/web_app.py:100",
+        "power_profiler/radio_power_profiler/web_app.py:116",
+        "power_profiler/radio_power_profiler/web_app.py:2895",
+        "power_profiler/radio_power_profiler/web_app.py:163-186",
+        "power_profiler/radio_power_profiler/profiles.json",
+        "module radio/ESP32-C3_Radio/power_profiler/radio_power_profiler/web_app.py:91",
+        "module radio/ESP32-C3_Radio/power_profiler/radio_power_profiler/web_app.py:1655"
+      ]
+    },
+    {
+      "id": "exports",
+      "finding": "Generic runner records the passed voltage; summary/aggregates preserve it and group by it. Transfer-report generator copies existing energies, omits voltage in its presentation CSV and records metadata voltage in XLSX. It does not independently detect actual VIN. Study captions hardcode3.3V. E79 CH340 publication/verifier hardcode3.3 only inside a cohort explicitly guarded to declared3300mV; they are not general multi-voltage exporters.",
+      "evidence": [
+        "power_profiler/radio_power_profiler/runner.py:251",
+        "power_profiler/radio_power_profiler/runner.py:267",
+        "power_profiler/radio_power_profiler/runner.py:433",
+        "power_profiler/radio_power_profiler/runner.py:517",
+        "power_profiler/radio_power_profiler/results.py:135",
+        "power_profiler/radio_power_profiler/results.py:198",
+        "power_profiler/tools/generate_transfer_report.py:136-193",
+        "power_profiler/tools/generate_transfer_report.py:290",
+        "power_profiler/study/generate_study.py:1693",
+        "power_profiler/study/generate_study.py:1903",
+        "power_profiler/study/generate_study.py:2574",
+        "power_profiler/tools/publish_e79_ch340.py:110",
+        "power_profiler/tools/publish_e79_ch340.py:169-175",
+        "power_profiler/tools/verify_e79_ch340_release.py:67-92"
+      ]
+    },
+    {
+      "id": "historical_calibration_limit",
+      "finding": "The July sampler called get_modifiers but did not validate its false return or archive coefficients. Installed API initializes fallback coefficients including S=0. Missing archived calibration does not prove fallback occurred, nor permit assuming zero voltage dependence. Current strict parser validates all35 coefficients. Calibrated=0 is not interpreted here as absence of factory calibration.",
+      "evidence": [
+        "git show e7777da:power_profiler/radio_power_profiler/ppk.py:59-69",
+        "power_profiler/.venv/Lib/site-packages/ppk2_api/ppk2_api.py:59-69",
+        "power_profiler/.venv/Lib/site-packages/ppk2_api/ppk2_api.py:225-230",
+        "power_profiler/radio_power_profiler/ppk.py:73-137"
+      ]
+    }
+  ],
+  "imported_archive_metadata_inventory": {
+    "root": "module radio/ESP32-C3_Radio/power_profiler",
+    "method": "rg --files --hidden --no-ignore, patterns metadata.json, *.ppk2, *.ppk2.bin, *calib*.json; parse every metadata.json; no RAW payload scan",
+    "metadata_files": 1611,
+    "voltage_mv_counts": {
+      "3300": 1611
+    },
+    "metadata_read_errors": 0,
+    "metadata_calibration_key_hits": 0,
+    "searched_calibration_keys": [
+      "ppk_calibration_metadata",
+      "modifiers",
+      "calibrations",
+      "current_vdd"
+    ],
+    "calibration_named_json_files": 0,
+    "wire_ppk2_bin_files": 0,
+    "native_ppk2_files": 0,
+    "limitation": "Counts cover the imported archive tree only and the listed file/key patterns; they do not establish physical VIN or absence of calibration in arbitrary other filenames or external records. All1611 declarations being3300 is compatible with repeated use of a default."
+  },
+  "conditional_recalculation": [
+    {
+      "condition": "Existing currents are independently known correctly calibrated for actual5V, and only energy used3.3V; keep integration windows unchanged.",
+      "action": "Scale energy/power and their dispersion by5000/3300. Current and charge metrics stay unchanged.",
+      "status": "exact_algebra_for_fixed_currents"
+    },
+    {
+      "condition": "Actual supply was5V but both decoder and energy were configured3300; complete wire/range history and original calibration are available.",
+      "action": "Independently replay at5000 using original calibration and filter state convention/history bound; rerun appropriate analysis and QA. Multiplication alone omits voltage-dependent current correction.",
+      "status": "redecode_required_unless_zero_dependency_proven"
+    },
+    {
+      "condition": "Actual supply was5V and decoder was3300, but all relevant S_r*UG_r are proven0 over relevant state history.",
+      "action": "Decoded current is voltage-independent under this implementation; fixed-window energy rescales by5000/3300. Confirm zero dependency from actual acquisition calibration rather than default values.",
+      "status": "conditional_exact_scaling"
+    },
+    {
+      "condition": "Only legacy currentCSV or aggregate is available and historical calibration/range history is missing.",
+      "action": "Can publish an explicitly named fixed-current voltage-normalized sensitivity estimate, but cannot certify complete calibration-corrected5V energy from available records. Retain original values and uncertainty/provenance; do not infer ranges from current thresholds.",
+      "status": "insufficient_evidence_for_exact_redecode"
+    },
+    {
+      "condition": "Hardware actually ran at3.3V and the question is how it would consume power at5V.",
+      "action": "Measure at5V with the intended hardware boundary. Software scaling does not model changed operating current, regulators, PA behavior or supply losses.",
+      "status": "remeasure_required"
+    },
+    {
+      "condition": "Physical historical VIN is unknown or inferred only from a present PCB schematic/module nominal supply.",
+      "action": "Obtain historical bench evidence before changing values. The input rail/regulated radio rail and measured boundary must be distinguished.",
+      "status": "actual_voltage_unproven"
+    }
+  ],
+  "fixed_current_scale_3300_to_5000": 1.5151515151515151,
+  "changes_made": [
+    "Only this JSON report; no source, capture, export or hardware changes."
+  ]
+}

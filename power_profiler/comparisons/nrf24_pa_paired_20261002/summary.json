@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "completed_utc": "2026-10-02T11:12:44Z",
+  "status": "complete_five_trial_numeric_batch",
+  "module": "nRF24L01 PA/LNA",
+  "condition": {
+    "payload_bytes": 32,
+    "data_rate_kbps": 2000,
+    "chip_drive_dbm": 0,
+    "channel": 80,
+    "auto_ack": false,
+    "external_voltage_V": 3.3
+  },
+  "measured_rail": "Radio module; ESP32 excluded",
+  "voltage_provenance": "Operator confirmed external 3.3 V",
+  "voltage_simultaneously_recorded": false,
+  "accepted_attempt": "attempt_002",
+  "accepted_pairs": 5,
+  "accepted_captures": 10,
+  "accepted_energy_conditions": 2,
+  "attempts": [
+    {
+      "path": "attempt_001",
+      "status": "incomplete_delivery",
+      "completed": true,
+      "transfers": 5,
+      "exact_receipts": 3,
+      "included_in_energy_aggregates": false
+    },
+    {
+      "path": "attempt_002",
+      "status": "candidate",
+      "completed": true,
+      "transfers": 5,
+      "exact_receipts": 5,
+      "included_in_energy_aggregates": true
+    }
+  ],
+  "all_new_attempts_receipts": 8,
+  "all_new_attempts_transfers": 10,
+  "batch_selection": "First whole five-transfer batch with exact delivery and subsequent independent numeric QA; no merging of successful packets from different batches.",
+  "intermittent_delivery_problem_resolved": false,
+  "link_reliability_claim": "None: 5/5 is conditional on selection after retry. All attempts remain archived.",
+  "hardware_synchronized": false,
+  "sample_rate_hz_per_ppk": 100000,
+  "ports": {
+    "ppk": {
+      "tx": [
+        "COM10",
+        "E753C4E81F3D"
+      ],
+      "rx": [
+        "COM11",
+        "CD2D332DB09A"
+      ]
+    },
+    "radio": {
+      "tx": "COM25",
+      "rx": "COM26"
+    }
+  },
+  "radio_usb_identities": {
+    "COM25": {
+      "serial": "08:92:72:9A:C2:80",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM26": {
+      "serial": "08:92:72:9A:BF:58",
+      "vid": 12346,
+      "pid": 4097
+    }
+  },
+  "power_hold": {
+    "worker_pid": 52128,
+    "status_path": "power_profiler/web_sessions/20261002_135907_149907_nrf24_pa_paired_retries/status.json",
+    "stop_file": "power_profiler/web_sessions/20261002_135907_149907_nrf24_pa_paired_retries/STOP",
+    "snapshot": {
+      "path": "power_profiler/web_sessions/20261002_135907_149907_nrf24_pa_paired_retries/provenance/power_hold_snapshot.json",
+      "bytes": 1088,
+      "sha256": "fdb7b7ac7c3b34597a8e4d8e2b29f3e592bc202bee85fd2ea343d56d8800d8fe"
+    },
+    "note": "PPK handles remain open and both streams are drained; do not create STOP until intentional ownership handoff."
+  },
+  "numeric_audit": {
+    "path": "power_profiler/web_sessions/20261002_135907_149907_nrf24_pa_paired_retries/analysis/audit.json",
+    "bytes": 34863,
+    "sha256": "b826d01b1f4248453217dad3b62f147e51b07d2b67329991f922d77dcfec5672"
+  },
+  "initial_history_audit": {
+    "path": "power_profiler/web_sessions/20261002_135907_149907_nrf24_pa_paired_retries/analysis/window_history_audit.json",
+    "bytes": 13745,
+    "sha256": "90dc10929b9e95f8492a8a9b270d3418c82e6a4fd62d9a6f120f4a5af2477f91"
+  },
+  "source_manifest": {
+    "path": "power_profiler/web_sessions/20261002_135907_149907_nrf24_pa_paired_retries/source_manifest.json",
+    "bytes": 14501,
+    "sha256": "d812385e8b4cd25ab865d4931218f22240f44d7dd7aff9cb5548e461b24fbdf1"
+  },
+  "audit_summary": {
+    "captures": 10,
+    "computed_trials": 10,
+    "total_samples": 722944,
+    "counter_transition_faults": 0,
+    "maximum_replay_difference_uA": 0.0,
+    "valid_complete_five_trial_numeric_batch": true
+  },
+  "aggregates": [
+    {
+      "role": "tx",
+      "trial_count": 5,
+      "valid_complete_five_trial_numeric_batch": true,
+      "scope": "TX threshold event",
+      "sample_sd_ddof": 1,
+      "energy_total_uJ_mean": 104.69399480671981,
+      "energy_total_uJ_sd": 6.026808006439673,
+      "charge_total_uC_mean": 31.725452971733283,
+      "charge_total_uC_sd": 1.826305456496869,
+      "duration_ms_mean": 0.858,
+      "duration_ms_sd": 0.1461848145328371,
+      "mean_current_uA_mean": 37646.19190320316,
+      "mean_current_uA_sd": 5183.773110786565,
+      "energy_excess_uJ_mean": 104.62442093689151,
+      "energy_excess_uJ_sd": 6.017389918040167
+    },
+    {
+      "role": "rx",
+      "trial_count": 5,
+      "valid_complete_five_trial_numeric_batch": true,
+      "scope": "RX listening, fixed modeled1.16ms",
+      "sample_sd_ddof": 1,
+      "energy_total_uJ_mean": 93.94169966194474,
+      "energy_total_uJ_sd": 0.12925075490989849,
+      "charge_total_uC_mean": 28.467181715740832,
+      "charge_total_uC_sd": 0.039166895427241576,
+      "duration_ms_mean": 1.16,
+      "duration_ms_sd": 0.0,
+      "mean_current_uA_mean": 24540.673892880033,
+      "mean_current_uA_sd": 33.76456502349072,
+      "energy_excess_uJ_mean": 0.24594865156573,
+      "energy_excess_uJ_sd": 0.0933189159083137
+    }
+  ],
+  "max_initial_history_relative_bound": 1.0604039910765947e-15,
+  "definitions": {
+    "TX": "Largest rectified-excess threshold group; threshold=pretrigger median+max(200uA,8*1.4826*MAD); merge gap0.5ms; minimum0.05ms; padding0.1ms each side.",
+    "RX": "Listening energy in a fixed modeled interval beginning at the local software trigger; not an independently delimited RF reception.",
+    "energy_total": "V * sum(max(0,I_uA))/100000; ordinary Python sum to reproduce existing analysis.py.",
+    "sd": "Sample standard deviation, ddof=1, n=5; not absolute instrument uncertainty."
+  },
+  "limitations": [
+    "RX is listening energy in a modeled 1.16 ms interval, not exclusive RF reception.",
+    "TX threshold interval includes radio activity; no independent RF boundary marker.",
+    "Unknown-history audit bounds total energy only in the selected fixed software windows, not alternate threshold-window selection.",
+    "Chip drive setting 0 dBm does not specify the PA module output power.",
+    "No simultaneous voltage measurement, no analog accuracy calibration claim; modulo64 continuity cannot detect all multiple64 losses."
+  ],
+  "calculation_files": {
+    "trials.csv": {
+      "path": "power_profiler/web_sessions/20261002_135907_149907_nrf24_pa_paired_retries/analysis/trials.csv",
+      "bytes": 2502,
+      "sha256": "f23813b088cc7d690e714428cf0d6d0a6e10cff5c3144e24cfb3b54826b6a934"
+    },
+    "aggregates.csv": {
+      "path": "power_profiler/web_sessions/20261002_135907_149907_nrf24_pa_paired_retries/analysis/aggregates.csv",
+      "bytes": 686,
+      "sha256": "31ba3cde9248fafa285a642a6223bf0d9787b177a3d470f8d7e6bdd07d94e1d4"
+    }
+  },
+  "historical_diagnostics": "power_profiler/web_sessions/20261002_130611_934700_nrf24_pa_diagnostic/diagnostic_summary.json",
+  "capture_retention": {
+    "updated_utc": "2026-10-02T12:14:44.806398+00:00",
+    "policy": "Keep complete/accepted capture data; remove proved failed/incomplete RAW/WIRE after classification.",
+    "historical_raw_availability": "Failed RAW/WIRE listed in the linked deletion manifest were intentionally deleted at the operator request. Historical reports remain as records, not claims that those files still exist.",
+    "cleanup_summary": "power_profiler/audits/2026-10-02/capture-cleanup/summary.json"
+  }
+}

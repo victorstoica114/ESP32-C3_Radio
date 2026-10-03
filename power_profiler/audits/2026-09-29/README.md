@@ -1,6 +1,8 @@
 **Acoperirea RAW și necesarul de lucru — 29 septembrie 2026**
 
-Acest director publică rapoartele, inventarele și calculele derivate ale auditului. Arhiva RAW importată nu este inclusă în Git: sursele experimentale se află separat, local, în `module radio/ESP32-C3_Radio/power_profiler`. Căile absolute și relative din JSON/CSV sunt păstrate ca identificatori de proveniență ai acelei arhive; nu reprezintă fișiere distribuite în acest director. Reproducerea din eșantioane necesită acces separat la arhiva RAW. Rezultatele curente sunt [NECESAR_REVIZUIT.md](NECESAR_REVIZUIT.md) și [e79-tx-corrected](e79-tx-corrected/README.md); `e79-tx-reanalysis` păstrează screeningul istoric, înlocuit de calculul final.
+**Actualizare 30 septembrie:** [315 capturi CH340 verificate independent](../2026-09-30/README.md). Campania a folosit alte adaptoare și alt DUT decât planul istoric CH9340C; cele două contexte rămân distincte. Planurile de mai jos nu reprezintă o solicitare automată de noi capturi.
+
+Acest director publică rapoartele, inventarele și calculele derivate ale auditului. Arhiva RAW importată nu este inclusă în Git: sursele experimentale se află separat, local, în `measurements/raw/archive`. Căile absolute și relative din JSON/CSV sunt păstrate ca identificatori de proveniență ai acelei arhive; nu reprezintă fișiere distribuite în acest director. Reproducerea din eșantioane necesită acces separat la arhiva RAW. Rezultatele curente sunt [NECESAR_REVIZUIT.md](NECESAR_REVIZUIT.md) și [e79-tx-corrected](e79-tx-corrected/README.md); `e79-tx-reanalysis` păstrează screeningul istoric, înlocuit de calculul final.
 
 **Current result: completed reanalysis of all 630 E79 ESP32 TX captures; no pending segmentation cases. The current hardware plan is 315 E79 CH9340C TX captures. See [the final calculation](e79-tx-corrected/README.md) and [current plan](NECESAR_REVIZUIT.md).**
 

@@ -61,7 +61,7 @@ Rata nominală este 100 kHz, tensiunea 3,3 V. Pierderea PPK declarată este 0…
 Reproducere din rădăcina repository-ului, numai biblioteca standard Python:
 
 
-Comanda necesită arhiva RAW locală externă Git în `module radio/ESP32-C3_Radio/power_profiler`, cu manifestele și metadatele originale. Această arhivă nu este inclusă în rapoartele publicate. Directorul `.tmp` primește o reproducere separată.
+Comanda necesită arhiva RAW locală externă Git în `measurements/raw/archive`, cu manifestele și metadatele originale. Această arhivă nu este inclusă în rapoartele publicate. Directorul `.tmp` primește o reproducere separată.
 Scriptul curent folosește detectorul final; comanda produce o reanaliză actuală, nu o reproducere a screeningului istoric păstrat aici.
 
 ```powershell

@@ -140,7 +140,7 @@ def analyze_job(job):
 
 
 def jobs_from_archive(root):
-    archive = root / "module radio/ESP32-C3_Radio/power_profiler"
+    archive = root / "measurements/raw/archive"
     manifest_path = archive / "comparisons/ebyte_e79_400dm2005s/campaign_logs/manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     jobs = []

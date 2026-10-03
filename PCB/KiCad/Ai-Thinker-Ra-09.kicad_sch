@@ -3369,6 +3369,24 @@
 					)
 				)
 				(pin bidirectional line
+					(at 15.24 -21.59 180)
+					(length 2.54)
+					(name "PH3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "44"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
 					(at 6.35 -31.75 90)
 					(length 2.54)
 					(hide yes)
@@ -3380,24 +3398,6 @@
 						)
 					)
 					(number "45"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 15.24 -21.59 180)
-					(length 2.54)
-					(name "PH3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "44"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3594,12 +3594,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "23c9003c-994e-4c5d-bc0e-c458d8e601e8")
-	)
-	(junction
-		(at 177.8 34.29)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "3015b0eb-0390-4c2a-9229-53f189e6feb5")
 	)
 	(junction
 		(at 115.57 171.45)

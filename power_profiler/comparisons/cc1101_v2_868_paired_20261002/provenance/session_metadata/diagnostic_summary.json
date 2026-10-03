@@ -1,0 +1,193 @@
+﻿{
+    "status":  "awaiting_physical_wiring_check",
+    "accepted_pairs":  0,
+    "accepted_energy_points":  0,
+    "module":  "CC1101 V2 868 MHz",
+    "settings":  {
+                     "profile_id":  "RADIO_CC1101_V2_868",
+                     "rate_kbps":  250.0,
+                     "bit_rate_kbps":  250.0,
+                     "chip_drive_dbm":  10,
+                     "tx_power_dbm":  10,
+                     "frequency_mhz":  868.0,
+                     "modulation":  "2FSK",
+                     "shaping":  "NONE",
+                     "encoding":  "NRZ",
+                     "deviation_khz":  127.0,
+                     "bandwidth_khz":  541.67,
+                     "preamble_bits":  128,
+                     "sync_word":  "D391",
+                     "sync_error_bits":  1,
+                     "crc":  true,
+                     "payload_bytes":  32,
+                     "content_bytes":  30,
+                     "line_overhead_bytes":  2,
+                     "tx_success_lines":  [
+                                              "[TX] 32 bytes, state: 0",
+                                              "[TX] 32 bytes"
+                                          ],
+                     "expected_chip_version":  20,
+                     "pre_s":  0.2,
+                     "after_trigger_s":  0.5,
+                     "minimum_tx_gap_s":  1.2,
+                     "max_attempts":  20
+                 },
+    "physical_mapping":  {
+                             "ppk":  {
+                                         "tx":  [
+                                                    "COM10",
+                                                    "E753C4E81F3D"
+                                                ],
+                                         "rx":  [
+                                                    "COM11",
+                                                    "CD2D332DB09A"
+                                                ]
+                                     },
+                             "radio":  {
+                                           "rx":  "COM31",
+                                           "tx":  "COM32"
+                                       }
+                         },
+    "voltage_mv":  3300,
+    "voltage_provenance":  "Operator_confirmed_external_3.3V_unchanged_supply",
+    "measured_rail":  "Radio only, ESP32 excluded",
+    "campaign_observations":  {
+                                  "attempts":  4,
+                                  "tx_completions":  20,
+                                  "rx_deliveries":  0,
+                                  "last_attempt_note":  "Twenty transfers finished; explicit STOP prevented the fourth post-batch configuration check."
+                              },
+    "rf_controls":  {
+                        "trials":  14,
+                        "tx_completions":  14,
+                        "rx_deliveries":  0,
+                        "conditions":  [
+                                           {
+                                               "rate_kbps":  250,
+                                               "power_dbm":  10,
+                                               "tx":  "COM32",
+                                               "rx":  "COM31",
+                                               "modulation":  "2FSK"
+                                           },
+                                           {
+                                               "rate_kbps":  250,
+                                               "power_dbm":  -30,
+                                               "tx":  "COM32",
+                                               "rx":  "COM31",
+                                               "modulation":  "2FSK"
+                                           },
+                                           {
+                                               "rate_kbps":  38.4,
+                                               "power_dbm":  -30,
+                                               "tx":  "COM32",
+                                               "rx":  "COM31",
+                                               "modulation":  "2FSK"
+                                           },
+                                           {
+                                               "rate_kbps":  1.2,
+                                               "power_dbm":  -30,
+                                               "tx":  "COM32",
+                                               "rx":  "COM31",
+                                               "modulation":  "2FSK"
+                                           },
+                                           {
+                                               "rate_kbps":  250,
+                                               "power_dbm":  10,
+                                               "tx":  "COM31",
+                                               "rx":  "COM32",
+                                               "modulation":  "2FSK"
+                                           },
+                                           {
+                                               "rate_kbps":  250,
+                                               "power_dbm":  -30,
+                                               "tx":  "COM31",
+                                               "rx":  "COM32",
+                                               "modulation":  "2FSK"
+                                           },
+                                           {
+                                               "rate_kbps":  250,
+                                               "power_dbm":  10,
+                                               "tx":  "COM32",
+                                               "rx":  "COM31",
+                                               "modulation":  "GFSK"
+                                           }
+                                       ],
+                        "target_configuration_restored":  true
+                    },
+    "root_cause":  "Undetermined. GPIO10 GDO0 wiring confirmation requested; no firmware edits or flash performed.",
+    "uart_observation":  "First RF control CFG response truncated at 512 bytes; subsequent controls used short per-field readbacks.",
+    "legacy_note":  "Historical TX had no peer reception observer; question mark was unknown delivery, not demonstrated loss.",
+    "retention":  "80 failed RAW/WIRE files removed, 28027057 bytes; original hashes and reports retained. Validated prior sessions unchanged.",
+    "power_holder":  {
+                         "pid":  75188,
+                         "state":  "waiting_for_start",
+                         "path":  "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/acquisition_retry",
+                         "both_dut_paths_on":  true,
+                         "both_ports_open_and_continuously_drained":  true,
+                         "automatic_transmission_pending":  false
+                     },
+    "evidence":  [
+                     {
+                         "path":  "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/preparation.json",
+                         "sha256":  "7f0e1b4ca4aa5cadb0b55b541e636dbc0bfc4954854ce5df59eb4f426c71d2af",
+                         "bytes":  12364
+                     },
+                     {
+                         "path":  "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/acquisition/report.json",
+                         "sha256":  "331eaadf2f848fbe9e0f59e714f1736306e9bae7827cdbe358fd5529994ab4b9",
+                         "bytes":  263445
+                     },
+                     {
+                         "path":  "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/initial_attempts_review.json",
+                         "sha256":  "b7a90adba93cc1d3dc5a88a5c45477c287e1f11ed5e2af4c1bd261bc7e8d817a",
+                         "bytes":  44424
+                     },
+                     {
+                         "path":  "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/rf_controls.json",
+                         "sha256":  "f12f0973f710a5a9bc3cbbd52b8faa26bbab181915cb02af246927bf6a2f4ba3",
+                         "bytes":  80300
+                     },
+                     {
+                         "path":  "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/rf_controls_02.json",
+                         "sha256":  "72b3cc5b593888034e68671916cc2562483f8663b054b00a1fdfb54563932aa3",
+                         "bytes":  558316
+                     }
+                 ],
+    "software_provenance":  [
+                                {
+                                    "path":  "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/diagnostic_provenance/cc1101_v2_analyze_candidate.py",
+                                    "sha256":  "09b613a816c002144bd676f52655d85c7dca6eead82495868b811b8398e8141a",
+                                    "bytes":  23024
+                                },
+                                {
+                                    "path":  "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/diagnostic_provenance/cc1101_v2_prepare_probe.py",
+                                    "sha256":  "282e343ff7a782cce0d617ee84898821504ad614b5ef59473de357327221133a",
+                                    "bytes":  3646
+                                },
+                                {
+                                    "path":  "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/diagnostic_provenance/cc1101_v2_retry_capture_worker.py",
+                                    "sha256":  "f13af75db7dcf48abbaec1397ae49a458d6153f60542b22962e034c423803c49",
+                                    "bytes":  24076
+                                },
+                                {
+                                    "path":  "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/diagnostic_provenance/cc1101_v2_rf_controls.py",
+                                    "sha256":  "9c4d9e798eec452aa568d76de774ef2b17172820623507de98beeec209232ee4",
+                                    "bytes":  4883
+                                },
+                                {
+                                    "path":  "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/diagnostic_provenance/cc1101_v2_save_diagnostic_status.py",
+                                    "sha256":  "e9ac7e8478d213963b7ae98327479a98aeb8c9dfa856a6d90efd63a261a278d9",
+                                    "bytes":  3789
+                                },
+                                {
+                                    "path":  "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/diagnostic_provenance/power_snapshot.json",
+                                    "sha256":  "781ea818aa620d4acc7b1cdaa425567ee4d7eee2b14bcfd2debdc719606f7585",
+                                    "bytes":  1195
+                                }
+                            ],
+    "created_utc":  "2026-10-02T13:53:32Z",
+    "cleanup_execution":  {
+                              "sha256":  "c88548f1f0586a74eac9a5c48c06a98a46206bd2f6bc847f4f41ba3227e18a86",
+                              "path":  "failed_capture_cleanup_execution.json"
+                          }
+}

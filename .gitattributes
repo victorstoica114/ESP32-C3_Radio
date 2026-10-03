@@ -16,3 +16,17 @@ power_profiler/tools/publish_e79_reanalysis.py -text
 power_profiler/tools/reanalyze_e79_tx.py -text whitespace=trailing-space,space-before-tab,cr-at-eol
 power_profiler/radio_power_profiler/frame_detection.py -text
 power_profiler/radio_power_profiler/frame_windows.py -text
+
+# CH340 supplement: preserve archived summaries and publication fingerprints.
+power_profiler/comparisons/ebyte_e79_ch340_20260929/** -text whitespace=trailing-space,space-before-tab,cr-at-eol
+power_profiler/tools/publish_e79_ch340.py -text whitespace=trailing-space,space-before-tab,cr-at-eol
+power_profiler/tools/verify_e79_ch340_release.py -text whitespace=trailing-space,space-before-tab,cr-at-eol
+
+# Paired campaign exports contain fingerprinted source snapshots and evidence.
+power_profiler/comparisons/cc1101_v2_868_paired_20261002/** -text whitespace=trailing-space,space-before-tab,cr-at-eol,-blank-at-eof
+power_profiler/comparisons/ebyte_e07_400m10s_paired_20261002/** -text whitespace=trailing-space,space-before-tab,cr-at-eol,-blank-at-eof
+power_profiler/comparisons/ebyte_e07_900mm10s_paired_20261002/** -text whitespace=trailing-space,space-before-tab,cr-at-eol,-blank-at-eof
+power_profiler/comparisons/nrf24_pa_paired_20261002/** -text whitespace=trailing-space,space-before-tab,cr-at-eol,-blank-at-eof
+power_profiler/comparisons/ebyte_e79_paired_20260930/** -text whitespace=trailing-space,space-before-tab,cr-at-eol,-blank-at-eof
+# Archived patches are exact historical artifacts, including their line endings.
+power_profiler/audits/**/*.patch binary

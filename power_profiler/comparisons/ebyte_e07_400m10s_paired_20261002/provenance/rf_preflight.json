@@ -1,0 +1,87 @@
+{
+  "energy_capture": false,
+  "commands": [
+    {
+      "port": "COM28",
+      "command": "AT+DEBUG=ON",
+      "lines": [
+        "OK"
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+RX=OFF",
+      "lines": [
+        "OK"
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+DEBUG=OFF",
+      "lines": [
+        "OK"
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+RX=ON",
+      "lines": [
+        "OK"
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+STATUS?",
+      "lines": [
+        "CHIP_VERSION=0x14",
+        "RSSI=-74.00",
+        "LQI=0",
+        "MODE=GFSK",
+        "RX=OFF",
+        "SLEEP=NO",
+        "BRIDGE=ON",
+        "OK"
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+STATUS?",
+      "lines": [
+        "CHIP_VERSION=0x14",
+        "RSSI=-74.00",
+        "LQI=0",
+        "MODE=GFSK",
+        "RX=ON",
+        "SLEEP=NO",
+        "BRIDGE=ON",
+        "OK"
+      ]
+    }
+  ],
+  "uart_raw": [
+    {
+      "port": "COM28",
+      "perf_counter_ns": 3068757306678800,
+      "hex": "5b54585d2033322062797465732c2073746174653a20300d0a5b54585d2033322062797465730d0a"
+    }
+  ],
+  "payload": "E07_PILOT_2d4d5314XXXXXXXXXXXX",
+  "rf_payload_bytes": 32,
+  "sent_hex": "4530375f50494c4f545f32643464353331345858585858585858585858580d0a",
+  "send_perf_counter_ns": 3068757302304400,
+  "lines": {
+    "COM28": [
+      "[TX] 32 bytes, state: 0",
+      "[TX] 32 bytes"
+    ],
+    "COM27": []
+  },
+  "partial_uart_hex": {
+    "COM28": "",
+    "COM27": ""
+  },
+  "tx_ok_count": 1,
+  "rx_exact_count": 0,
+  "completed": true,
+  "passed": false
+}

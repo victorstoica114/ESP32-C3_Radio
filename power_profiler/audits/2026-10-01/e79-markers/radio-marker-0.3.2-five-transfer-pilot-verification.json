@@ -1,0 +1,389 @@
+{
+  "schema_version": 1,
+  "auditor": "Faraday",
+  "created_utc": "2026-10-01T08:24:44.220787+00:00",
+  "verified": true,
+  "failures": [],
+  "session_id": "20261001_112023_838576_e79_paired_pilot",
+  "source_result_root": "power_profiler/web_sessions/20261001_112023_678069_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_112023_838576_e79_paired_pilot",
+  "scope": "Read-only independent audit of the five-transfer 0.3.2 pilot; not a verification of the later 315-transfer campaign.",
+  "official_status_unchanged": "valid",
+  "condition": {
+    "payload_bytes": 32,
+    "rf_profile": "GFSK200",
+    "tx_power_dbm": 13,
+    "sample_rate_hz": 100000,
+    "voltage_mv": 3300
+  },
+  "policy": "total_only_with_direct_adc_proof",
+  "deliveries_confirmed_from_pairing_and_both_csv": 5,
+  "transfer_count": 5,
+  "raw_trace_count": 10,
+  "wire_trace_count": 10,
+  "rx_arming_policy": "continuous_across_warmup_and_five_transfers",
+  "rx_rearm_between_transfers": false,
+  "checks": {
+    "shared_ids_unique_and_matching": true,
+    "all_gzip_crc_and_wire_csv_logic_checked": true,
+    "hashes_match_prior_independent_audit": true,
+    "all_marker_total_proofs_rechecked": true,
+    "csv_energy_matches_independent_adc_exactly": true,
+    "all_baseline_threshold_and_excess_csv_fields_empty": true,
+    "both_firmware_marker_roles_and_rf_conditions_verified": true,
+    "source_hashes_stable_after_audit": true
+  },
+  "unavailable_fields": [
+    "baseline_median_uA",
+    "threshold_uA",
+    "charge_excess_uC",
+    "energy_excess_uJ"
+  ],
+  "aggregates": {
+    "tx": {
+      "n": 5,
+      "energy_total_mean_uJ": 57.50134701024846,
+      "energy_total_sample_sd_uJ": 0.1571083119454232,
+      "duration_min_ms": 1.78,
+      "duration_max_ms": 1.79,
+      "duration_mean_ms": 1.784,
+      "outside_counter_anomaly_count": 518
+    },
+    "rx": {
+      "n": 5,
+      "energy_total_mean_uJ": 34.89905548639835,
+      "energy_total_sample_sd_uJ": 0.496109126970189,
+      "duration_min_ms": 1.42,
+      "duration_max_ms": 1.43,
+      "duration_mean_ms": 1.422,
+      "outside_counter_anomaly_count": 1
+    }
+  },
+  "artifacts": [
+    {
+      "run_id": "run_00001",
+      "role": "tx",
+      "duration_ms": 1.78,
+      "window_samples": [
+        25347,
+        25525
+      ],
+      "guard_window_samples": [
+        25344,
+        25525
+      ],
+      "energy_total_uJ": 57.51720107415626,
+      "charge_total_uC": 17.429454870956445,
+      "sample_count": 97280,
+      "range_code": 3,
+      "direct_adc_max_difference_uA": 0.0,
+      "outside_counter_anomaly_count": 108,
+      "baseline_counter_anomaly_count": 32,
+      "raw_csv_gzip_sha256": "b31df2c20a275800f0e7a038252ffb28ef5923c634dab9d2b91a80e355e77993",
+      "raw_csv_gzip_bytes": 756093,
+      "wire_sha256": "b8e875b108d5d1bd7b6ff3a3171e29145aafbed1817ce16596a87d87e895354a",
+      "wire_bytes": 389120
+    },
+    {
+      "run_id": "run_00001",
+      "role": "rx",
+      "duration_ms": 1.42,
+      "window_samples": [
+        25374,
+        25516
+      ],
+      "guard_window_samples": [
+        25371,
+        25516
+      ],
+      "energy_total_uJ": 34.56534838849738,
+      "charge_total_uC": 10.474347996514357,
+      "sample_count": 97280,
+      "range_code": 3,
+      "direct_adc_max_difference_uA": 0.0,
+      "outside_counter_anomaly_count": 0,
+      "baseline_counter_anomaly_count": 0,
+      "raw_csv_gzip_sha256": "93c0134909de111d47179e54e00c9074d774a042a55cd4925960e72228eae69a",
+      "raw_csv_gzip_bytes": 526049,
+      "wire_sha256": "46ec4e741dbaf7cbc02765c028c88b89b9efbe6b44e5465cc55d38fe9e220da5",
+      "wire_bytes": 389120
+    },
+    {
+      "run_id": "run_00002",
+      "role": "tx",
+      "duration_ms": 1.78,
+      "window_samples": [
+        25643,
+        25821
+      ],
+      "guard_window_samples": [
+        25640,
+        25821
+      ],
+      "energy_total_uJ": 57.42458866709983,
+      "charge_total_uC": 17.40139050518177,
+      "sample_count": 97280,
+      "range_code": 3,
+      "direct_adc_max_difference_uA": 0.0,
+      "outside_counter_anomaly_count": 95,
+      "baseline_counter_anomaly_count": 16,
+      "raw_csv_gzip_sha256": "3435e657360afd5228a68c0250e66c8e6500a5936fb09e649cc7d721b96912b1",
+      "raw_csv_gzip_bytes": 756328,
+      "wire_sha256": "c782395dd1c75a1937e6fc1ef57b815924f554e621916de952fd7d4160aada0e",
+      "wire_bytes": 389120
+    },
+    {
+      "run_id": "run_00002",
+      "role": "rx",
+      "duration_ms": 1.42,
+      "window_samples": [
+        25165,
+        25307
+      ],
+      "guard_window_samples": [
+        25162,
+        25307
+      ],
+      "energy_total_uJ": 35.35452041924886,
+      "charge_total_uC": 10.713491036136018,
+      "sample_count": 97280,
+      "range_code": 3,
+      "direct_adc_max_difference_uA": 0.0,
+      "outside_counter_anomaly_count": 0,
+      "baseline_counter_anomaly_count": 0,
+      "raw_csv_gzip_sha256": "d8c9e2f2f47e4e893c4c46673e58dd8e3ad98feac509c5b6a13cd4afeb78f640",
+      "raw_csv_gzip_bytes": 525713,
+      "wire_sha256": "2ba076f0a467475a6265c63f9608e7872dbc5ae0385de5b964de01de3bc4e589",
+      "wire_bytes": 389120
+    },
+    {
+      "run_id": "run_00003",
+      "role": "tx",
+      "duration_ms": 1.79,
+      "window_samples": [
+        25588,
+        25767
+      ],
+      "guard_window_samples": [
+        25585,
+        25767
+      ],
+      "energy_total_uJ": 57.74187924498837,
+      "charge_total_uC": 17.49753916514799,
+      "sample_count": 97280,
+      "range_code": 3,
+      "direct_adc_max_difference_uA": 0.0,
+      "outside_counter_anomaly_count": 116,
+      "baseline_counter_anomaly_count": 16,
+      "raw_csv_gzip_sha256": "3e9e8367c56f24f5266294d9e12dd4f3bf877aa6a837c4b9e005721e59d4cbe8",
+      "raw_csv_gzip_bytes": 757358,
+      "wire_sha256": "d9aaf89cb09a8198fd02ec0a324762720e0647aa988ae667c151f1bf061356c7",
+      "wire_bytes": 389120
+    },
+    {
+      "run_id": "run_00003",
+      "role": "rx",
+      "duration_ms": 1.43,
+      "window_samples": [
+        25125,
+        25268
+      ],
+      "guard_window_samples": [
+        25122,
+        25268
+      ],
+      "energy_total_uJ": 35.52214942039325,
+      "charge_total_uC": 10.76428770314947,
+      "sample_count": 97280,
+      "range_code": 3,
+      "direct_adc_max_difference_uA": 0.0,
+      "outside_counter_anomaly_count": 0,
+      "baseline_counter_anomaly_count": 0,
+      "raw_csv_gzip_sha256": "4f0a70905678310b78c7c3098da77cc99ff48b643890f2262298ffbc03d7d014",
+      "raw_csv_gzip_bytes": 526545,
+      "wire_sha256": "254a59e627dc7f42a4d8f6e670dc23d5e0b521f17739253da2716d0a4f69f912",
+      "wire_bytes": 389120
+    },
+    {
+      "run_id": "run_00004",
+      "role": "tx",
+      "duration_ms": 1.79,
+      "window_samples": [
+        26133,
+        26312
+      ],
+      "guard_window_samples": [
+        26130,
+        26312
+      ],
+      "energy_total_uJ": 57.507969630833486,
+      "charge_total_uC": 17.426657463888937,
+      "sample_count": 98304,
+      "range_code": 3,
+      "direct_adc_max_difference_uA": 0.0,
+      "outside_counter_anomaly_count": 94,
+      "baseline_counter_anomaly_count": 32,
+      "raw_csv_gzip_sha256": "ab15aa43a4608b9f84583a6a68bb530c7edf16b7d806ba075c171beb0afad8b6",
+      "raw_csv_gzip_bytes": 763239,
+      "wire_sha256": "e0714e86cbe42c26182c260de8d155bfb7fbb48d0f0c758842a27639f99b8db9",
+      "wire_bytes": 393216
+    },
+    {
+      "run_id": "run_00004",
+      "role": "rx",
+      "duration_ms": 1.42,
+      "window_samples": [
+        25172,
+        25314
+      ],
+      "guard_window_samples": [
+        25169,
+        25314
+      ],
+      "energy_total_uJ": 34.52214620057057,
+      "charge_total_uC": 10.461256424415325,
+      "sample_count": 97280,
+      "range_code": 3,
+      "direct_adc_max_difference_uA": 0.0,
+      "outside_counter_anomaly_count": 0,
+      "baseline_counter_anomaly_count": 0,
+      "raw_csv_gzip_sha256": "aa8ec58d6e6443fbfc5009bfe40bdae723af3fbdf625906979fccccb9c09d212",
+      "raw_csv_gzip_bytes": 525892,
+      "wire_sha256": "a9e14de16ba9e4b471337f5dd7052a0ed8ee3f27db7a57cf66c5e100bc1a299c",
+      "wire_bytes": 389120
+    },
+    {
+      "run_id": "run_00005",
+      "role": "tx",
+      "duration_ms": 1.78,
+      "window_samples": [
+        25405,
+        25583
+      ],
+      "guard_window_samples": [
+        25402,
+        25583
+      ],
+      "energy_total_uJ": 57.31509643416436,
+      "charge_total_uC": 17.36821104065587,
+      "sample_count": 97280,
+      "range_code": 3,
+      "direct_adc_max_difference_uA": 0.0,
+      "outside_counter_anomaly_count": 105,
+      "baseline_counter_anomaly_count": 16,
+      "raw_csv_gzip_sha256": "ccf7395d3eab0f2b5126685cf2d86b188cb33e1012b47e01da2156393629ea4c",
+      "raw_csv_gzip_bytes": 756266,
+      "wire_sha256": "91c39039768165d9c97cc40ae9bcaf47973b155adcc0ff8621e4a48530e05e5d",
+      "wire_bytes": 389120
+    },
+    {
+      "run_id": "run_00005",
+      "role": "rx",
+      "duration_ms": 1.42,
+      "window_samples": [
+        25916,
+        26058
+      ],
+      "guard_window_samples": [
+        25913,
+        26058
+      ],
+      "energy_total_uJ": 34.53111300328171,
+      "charge_total_uC": 10.463973637358094,
+      "sample_count": 97280,
+      "range_code": 3,
+      "direct_adc_max_difference_uA": 0.0,
+      "outside_counter_anomaly_count": 1,
+      "baseline_counter_anomaly_count": 0,
+      "raw_csv_gzip_sha256": "96cfb1552b6f8081ed1da4f08f11ac083d8a69f8b96c926da8a24b845878efdc",
+      "raw_csv_gzip_bytes": 525230,
+      "wire_sha256": "143a36b2a7bbc5bacd84e516a91e816c3fe4e0ca4decccad13110a4116fe5998",
+      "wire_bytes": 389120
+    }
+  ],
+  "sources": {
+    "tx_summary": {
+      "path": "power_profiler/web_sessions/20261001_112023_678069_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_112023_838576_e79_paired_pilot/tx/summary.csv",
+      "sha256": "144f3723d25cb4c6c20d12f7ce9395e1e70ed9271235430b6e9ae8d0cf3ce36e"
+    },
+    "tx_metadata": {
+      "path": "power_profiler/web_sessions/20261001_112023_678069_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_112023_838576_e79_paired_pilot/tx/metadata.json",
+      "sha256": "f5624c63e42896c5dc4e5ed0c3343a563f7d3bcb0a2ffbaf66886ed14888f42b"
+    },
+    "rx_summary": {
+      "path": "power_profiler/web_sessions/20261001_112023_678069_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_112023_838576_e79_paired_pilot/rx/summary.csv",
+      "sha256": "9d811b8b0df63c6f70163739a6c1982beae7602b74bb66ffbc9303d05e21ac83"
+    },
+    "rx_metadata": {
+      "path": "power_profiler/web_sessions/20261001_112023_678069_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_112023_838576_e79_paired_pilot/rx/metadata.json",
+      "sha256": "cdb6b2d7dae6fdfbead2e898f7db706627df855155c1fad8e0ba03c82e0498ac"
+    },
+    "pairing": {
+      "path": "power_profiler/web_sessions/20261001_112023_678069_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_112023_838576_e79_paired_pilot/pairing.json",
+      "sha256": "14b3b399a526cb4b77dddc36b69061d3a2940d4b58ac9442f22c98f8c3cc4a96"
+    },
+    "source_offline_audit": {
+      "path": ".tmp/e79_radio_markers_20261001/pilot-total-independent-audit.json",
+      "sha256": "a1fa5ec8ecad8f5a1a28755260eee1daeecf63f0947d143445fa13cb8ef50ac4"
+    },
+    "offline_auditor": {
+      "path": "power_profiler/tools/audit_radio_marker_totals.py",
+      "sha256": "df38021e34293f58b9a81a99c31d0ad94106ebf589135910bcd502513fd76bde"
+    }
+  },
+  "software_suite": {
+    "reported_by": "root",
+    "passed": 289,
+    "independently_rerun_for_this_report": false
+  },
+  "limitations": [
+    "TX integrates its local RAT_GPO0 interval; RX integrates its own RAT_GPO1 interval from detected sync until packet end/abort. Widths are intentionally unequal.",
+    "RX excludes preamble, prior listening, startup and processing after the marker. Neither total isolates an internal RF circuit.",
+    "Baseline, threshold and excess charge/energy remain unavailable under this explicit policy. No existing RAW or acceptance decision was changed.",
+    "Counter anomalies outside guarded marker intervals remain in RAW and are disclosed. Constant valid range and exact ADC comparison establish no IIR dependence inside these intervals.",
+    "Modulo-64 counter continuity cannot prove zero loss or detect every corruption. PPK clocks are independent, with 10 us sample spacing.",
+    "Voltage/calibration come from archived metadata; this read-only audit performs no hardware measurements.",
+    "The ongoing campaign started at 20261001_112220_851099 is outside this report."
+  ],
+  "endpoint_preflight": {
+    "tx": {
+      "firmware_version": "0.3.2",
+      "radio_port": "COM12",
+      "ppk_port": "COM10",
+      "marker_reply": "+MARKER:ROLE=TX,DIO=17,SOURCE=RAT_GPO0,ACTIVE=HIGH",
+      "config": {
+        "PROFILE": "GFSK200",
+        "FREQ": "433920000",
+        "RATE": "200000",
+        "PWR": "13",
+        "MOD": "2GFSK",
+        "SYNC": "0x930B51DE",
+        "ADDR": "N/A",
+        "CHAN": "N/A",
+        "RX": "OFF",
+        "SLEEP": "NO",
+        "DEBUG": "OFF",
+        "MARKER": "TX"
+      }
+    },
+    "rx": {
+      "firmware_version": "0.3.2",
+      "radio_port": "COM13",
+      "ppk_port": "COM11",
+      "marker_reply": "+MARKER:ROLE=RX,DIO=17,SOURCE=RAT_GPO1,ACTIVE=HIGH",
+      "config": {
+        "PROFILE": "GFSK200",
+        "FREQ": "433920000",
+        "RATE": "200000",
+        "PWR": "13",
+        "MOD": "2GFSK",
+        "SYNC": "0x930B51DE",
+        "ADDR": "N/A",
+        "CHAN": "N/A",
+        "RX": "ON",
+        "SLEEP": "NO",
+        "DEBUG": "OFF",
+        "MARKER": "RX"
+      }
+    }
+  }
+}

@@ -127,6 +127,45 @@ class SerialRadioTests(unittest.TestCase):
         radio.drain.assert_called_once_with(wait_s=0.05)
         sleep.assert_called_once_with(0.15)
 
+    def test_constructor_closes_open_port_for_transport_failure_or_cancellation(self):
+        import serial
+        cases = (("drain", serial.SerialTimeoutException("Read setup failed"), "boot_wait_and_drain"),
+                 ("_synchronize_after_open", serial.SerialTimeoutException("Write timeout"), "initial_AT_synchronization"),
+                 ("_synchronize_after_open", KeyboardInterrupt(), "initial_AT_synchronization"))
+        for operation, error, phase in cases:
+            with self.subTest(operation=operation, error=type(error).__name__):
+                port = Mock(is_open=False)
+                port.open.side_effect = lambda: setattr(port, "is_open", True)
+                port.close.side_effect = lambda: setattr(port, "is_open", False)
+                with (
+                    patch.dict("sys.modules", {"serial": SimpleNamespace(Serial=lambda: port)}),
+                    patch.object(SerialRadio, "drain", return_value=()) as drain,
+                    patch.object(SerialRadio, "_synchronize_after_open") as synchronize,
+                    patch("radio_power_profiler.serial_radio.time.sleep"),
+                ):
+                    (drain if operation == "drain" else synchronize).side_effect = error
+                    with self.assertRaises(type(error)) as caught:
+                        SerialRadio("COM13", 1000000, dtr=False, rts=False)
+                self.assertIs(caught.exception, error)
+                port.close.assert_called_once()
+                self.assertFalse(port.is_open)
+                self.assertIn(f"UART initialization on COM13, phase={phase}", error.__notes__)
+
+    def test_write_timeout_retains_transport_type_and_context_without_configuration_retry(self):
+        import serial
+        radio = SerialRadio.__new__(SerialRadio)
+        radio.port = "COM13"
+        radio.serial = Mock()
+        error = serial.SerialTimeoutException("Write timeout")
+        radio.serial.write.side_effect = error
+        radio.drain = Mock(return_value=())
+        with self.assertRaises(serial.SerialTimeoutException) as caught:
+            radio.configure(("AT+PROFILE=GFSK4K8",))
+        self.assertIs(caught.exception, error)
+        radio.serial.write.assert_called_once_with(b"AT+PROFILE=GFSK4K8\r\n")
+        radio.serial.flush.assert_not_called()
+        self.assertIn("UART write/flush on COM13, command=AT+PROFILE, bytes=20", error.__notes__)
+
     def test_configure_reraises_persistent_modem_error(self):
         radio = SerialRadio.__new__(SerialRadio)
         radio.command = Mock(side_effect=RadioCommandError("invalid"))

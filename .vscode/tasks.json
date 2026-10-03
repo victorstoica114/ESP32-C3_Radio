@@ -1,0 +1,39 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Radio profiler: Start web interface",
+            "type": "process",
+            "command": "${workspaceFolder}/power_profiler/.venv/Scripts/python.exe",
+            "args": ["-u", "run_web_ui.py", "--no-browser"],
+            "options": {
+                "cwd": "${workspaceFolder}/power_profiler"
+            },
+            "detail": "Starts localhost:8765 without opening hardware ports. Use Browser: Open Integrated Browser to view the interface in VS Code.",
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "radio-profiler",
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):\\s+ERROR:\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "message": 3
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^Radio Power Profiler web:",
+                    "endsPattern": "^Sessions: .+$"
+                }
+            },
+            "presentation": {
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "clear": false
+            },
+            "runOptions": {
+                "instanceLimit": 1
+            }
+        }
+    ]
+}

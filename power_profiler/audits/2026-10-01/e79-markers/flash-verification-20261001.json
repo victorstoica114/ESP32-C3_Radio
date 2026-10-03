@@ -1,0 +1,72 @@
+{
+  "created_utc": "2026-10-01T07:10:53.098089+00:00",
+  "status": "Same CH340 0.3.1 image programmed and verified on TX and RX; marker pilot pending debugger removal",
+  "programmer": {
+    "model": "J-Link PLUS",
+    "serial": "603000869",
+    "version": "9.54",
+    "interface": "cJTAG",
+    "device": "CC1352P1F3",
+    "speed_khz": 1000
+  },
+  "image": {
+    "version": "0.3.1",
+    "pinout": "CH340 TX=DIO12 / RX=DIO13",
+    "sha256": "9e3b54edba67a097a9eb68b5193f5f3255fc3f6906600459104471b6a1f672c6",
+    "verification": "J-Link verifybin successful across 360448 bytes",
+    "bl_config": "C5FE0FC5"
+  },
+  "firmware_backup": "Not read out or saved; omitted at explicit operator request. Existing backup in Git per operator.",
+  "uart_tx": {
+    "created_utc": "2026-10-01T07:16:54.581349+00:00",
+    "port": "COM12",
+    "reset_on_open": true,
+    "pulse_ms": 100,
+    "version": [
+      "+VERSION:E79_AT_MODEM,0.3.1,SimpleLink-LPF2-SDK 8.33.00.16",
+      "OK"
+    ],
+    "marker": [
+      "+TXMARKER:DIO=17,SOURCE=RAT_GPO0,ACTIVE=HIGH",
+      "OK"
+    ]
+  },
+  "uart_rx": {
+    "role": "rx",
+    "port": "COM13",
+    "silicon_ieee": "00124B002292A310",
+    "AT+VERSION?": "+VERSION:E79_AT_MODEM,0.3.1,SimpleLink-LPF2-SDK 8.33.00.16\r\nOK\r\n",
+    "AT+TXMARKER?": "+TXMARKER:DIO=17,SOURCE=RAT_GPO0,ACTIVE=HIGH\r\nOK\r\n",
+    "AT+STATUS?": "+STATUS:PROFILE=GFSK50,SLEEP=NO,RX=ON,RF=OPEN,TXCNT=0,RXCNT=0,ERRCNT=0,UPTIME=31\r\nOK\r\n",
+    "verified": true
+  },
+  "marker_wiring": "Operator confirmed TX DIO17 -> both PPK2 D0, common ground and 3.3V logic reference",
+  "energy_voltage_mv": 3300,
+  "voltage_provenance": "Operator-confirmed nominal external supply. J-Link VTref displayed 3.372-3.383 V during programming; diagnostic only, not a calibrated voltage used for energy.",
+  "updated_utc": "2026-10-01T07:17:44.955869+00:00",
+  "targets": [
+    {
+      "role": "tx",
+      "uart_port": "COM12",
+      "silicon_ieee": "00124B0022929BE4",
+      "icepick_id": "3BB4102F",
+      "user_id": "3282F000",
+      "flash_size_bytes": 360448
+    },
+    {
+      "role": "rx",
+      "uart_port": "COM13",
+      "silicon_ieee": "00124B002292A310",
+      "icepick_id": "3BB4102F",
+      "user_id": "3282F000",
+      "flash_size_bytes": 360448
+    }
+  ],
+  "both_images_verified": true,
+  "initial_ui_attempt": {
+    "session": "20261001_101239_717599_paired_pilot_radio_ebyte_e79_cc1352p",
+    "status": "failed_before_acquisition",
+    "raw_count": 0,
+    "cause": "COM10 temporarily not enumerated during PPK guard handoff"
+  }
+}

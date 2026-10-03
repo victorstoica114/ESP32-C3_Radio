@@ -1,0 +1,6 @@
+{
+  "original_helper_location": ".tmp/",
+  "analysis_command": "power_profiler/.venv/Scripts/python.exe -B .tmp/e07_900_analyze_candidate.py --candidate <session>/acquisition/attempt_001 --output <NEW output directory>",
+  "history_command": "power_profiler/.venv/Scripts/python.exe -B .tmp/nrf24_window_history_audit.py --audit <NEW output directory>/audit.json --output <NEW history JSON>",
+  "archive_note": "Restore archived helpers under repository .tmp/; hardware worker is recorded for provenance and must not be launched while existing PPK holder owns the ports."
+}

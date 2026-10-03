@@ -22,9 +22,15 @@ log/
 
 # Python power-profiler environment and generated measurements
 .tmp/
-# Local imported experiment archive (RAW data and a separate Git history).
-# Reviewed audit reports are published under power_profiler/audits/.
-/module radio/
+# All local PPK captures, wire streams, manifests and relocation inventories.
+/measurements/raw/
+/measurements/relocation.json
+# A capture must never become tracked because of an explicit output directory.
+*.csv.gz
+*.ppk2.bin
+*.ppk
+*.ppk2
+# Older explicit output paths remain local; new defaults use measurements/raw/.
 power_profiler/.venv/
 power_profiler/pilot_results/
 power_profiler/results/
@@ -35,9 +41,6 @@ power_profiler/**/*.pyc
 
 # Local alternate PlatformIO core used for callback-safe firmware builds
 .pio-callback-core/
-
-# Local datasheets are references only; keep public docs as links unless reviewed.
-Datasheets/*.pdf
 
 # Copied RA-08 SDK local/heavy artifacts
 src/RA-08(ASR6601)/.git/

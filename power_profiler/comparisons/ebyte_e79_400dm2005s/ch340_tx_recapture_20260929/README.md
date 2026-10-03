@@ -1,5 +1,7 @@
 # E79 CH340 fragmented-TX RAW recapture (2026-09-29)
 
+Independent follow-up, 30 September: [all 315 RAW traces and archived energies were verified](../../../audits/2026-09-30/README.md). The [separate CH340 supplement](../../ebyte_e79_ch340_20260929/README.md) contains CSV/XLSX exports and matched ESP32 figures. The historical CH9340C series remains a different hardware context.
+
 The complete bench session, including all 315 accepted 100 kS/s PPK2 RAW
 captures and every interrupted diagnostic attempt, is published as the GitHub
 Release asset

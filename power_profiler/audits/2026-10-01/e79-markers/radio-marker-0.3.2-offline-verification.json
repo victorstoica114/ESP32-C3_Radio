@@ -1,0 +1,38 @@
+{
+    "source_sha256":  "85537623c0b2cb3d39c648522254bd5a1b915bf4327422b02a43e4690bf3167f",
+    "host_override_tests":  "Override lifetime, preservation, repeated reopen, duplicate, capacity, NULL: PASS",
+    "build_variants":  [
+                           {
+                               "pinout":  "ch340",
+                               "binary_bytes":  360448,
+                               "bl_config":  "C5FE0FC5",
+                               "sha256":  "6a369175134d5fe9d3647767ee26061b42c9a2275da4cb111e11719c61f0ddb6"
+                           },
+                           {
+                               "pinout":  "esp32",
+                               "binary_bytes":  360448,
+                               "bl_config":  "C5FE0FC5",
+                               "sha256":  "9d1773e6769269fcaaed65de04ddd54e6e4cdcabcb2d70aecf55bb1821e41c96"
+                           }
+                       ],
+    "rx_repeat_unchanged":  true,
+    "hardware_flashed":  false,
+    "rx_marker_bench_validated":  false,
+    "profiler_tests":  {
+                           "log":  ".tmp/e79_radio_markers_20261001/profiler-tests-final.log",
+                           "duration_s":  11.173,
+                           "failed":  0,
+                           "passed":  248
+                       },
+    "live_ui":  {
+                    "radio_markers_served":  true,
+                    "paired_guard_active":  true,
+                    "url":  "http://127.0.0.1:8765/",
+                    "pilot_started":  false
+                },
+    "pending":  [
+                    "Connect debugger to TX COM12 and confirm separate DIO17 wires",
+                    "Flash and verify both radios with the same CH340 0.3.2 image; no device backup",
+                    "Remove debugger and validate local markers on continuous RX"
+                ]
+}

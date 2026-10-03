@@ -1,0 +1,16 @@
+{
+  "updated_utc": "2026-10-02T12:14:44.806398+00:00",
+  "policy": "Keep complete/accepted capture data; remove proved failed/incomplete RAW/WIRE after classification.",
+  "historical_raw_availability": "Failed RAW/WIRE listed in the linked deletion manifest were intentionally deleted at the operator request. Historical reports remain as records, not claims that those files still exist.",
+  "cleanup_summary": "power_profiler/audits/2026-10-02/capture-cleanup/summary.json",
+  "removed_file_count": 6,
+  "removed_bytes": 3561929,
+  "removed_paths": [
+    "power_profiler/web_sessions/20261001_171738_633948_paired_pilot_radio_ebyte_e79_cc1352p/diagnostics/range-repeatability-five/run_00001/rx.csv.gz",
+    "power_profiler/web_sessions/20261001_171738_633948_paired_pilot_radio_ebyte_e79_cc1352p/diagnostics/range-repeatability-five/run_00001/wire/rx.ppk2.bin",
+    "power_profiler/web_sessions/20261001_171738_633948_paired_pilot_radio_ebyte_e79_cc1352p/diagnostics/range-repeatability-five/run_00002/rx.csv.gz",
+    "power_profiler/web_sessions/20261001_171738_633948_paired_pilot_radio_ebyte_e79_cc1352p/diagnostics/range-repeatability-five/run_00002/wire/rx.ppk2.bin",
+    "power_profiler/web_sessions/20261001_171738_633948_paired_pilot_radio_ebyte_e79_cc1352p/diagnostics/range-repeatability-five/run_00005/rx.csv.gz",
+    "power_profiler/web_sessions/20261001_171738_633948_paired_pilot_radio_ebyte_e79_cc1352p/diagnostics/range-repeatability-five/run_00005/wire/rx.ppk2.bin"
+  ]
+}

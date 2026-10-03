@@ -37,13 +37,13 @@
 \title{Measurement-Based Energy and Throughput Characterization\\
 of \TotalModules{} Embedded Radio Modules and Hardware Variants}
 \author{Victor Stoica\\Radio Power Profiler Project}
-\date{July 2026}
+\date{September 2026}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-This work compares \TotalModules{} embedded radio modules and physical implementations using a common measurement pipeline and a Nordic Power Profiler Kit II (PPK2). The campaign contains \TotalPacketPoints{} packet-level operating points, \TotalPacketRuns{} packet repetitions, and \TotalContinuousWindows{} 60-second traffic windows for \TotalContinuousModules{} of the entries. It spans sub-GHz and \SI{2.4}{GHz} radios, direct-SPI transceivers, transparent UART modems, integrated radio microcontrollers, LoRa, 2-(G)FSK, OOK, SimpleLink Long Range, and IEEE 802.15.4g-derived profiles. TX event and RX window energies are reported for every logical payload size exercised by each campaign: 8, 16, 32, 58, 60, 64, 128, 512, or 1024 bytes. The common 32-byte point remains useful for a cross-module comparison, but it no longer substitutes for the measured payload curves. Matched sub-studies compare three E07 (CC1101) implementations, the E07 family against two earlier CC1101 boards, E79 (CC1352P) measurements made through ESP32 and CH9340C UART paths, Ai-Thinker RA-08 (ASR6601) against Ai-Thinker RA-09 (STM32WLE5), CC1101 revisions and bands, E32 bands, SX1278 board implementations, Ai-Thinker RA-02 (SX1278) capacitor variants, NRF24L01 (nRF24L01+) PA/LNA integration, and seven CC1352P PHY profiles. At the common 32-byte point, measured transmit energy spans \SI{\BestPacketEnergy}{mJ} to \SI{\WorstPacketEnergy}{mJ}. Larger-payload results expose fragmentation and integration-window limits; historical E79 CH9340C fragmented-TX values remain window-only observations pending all-frame TX measurements. Continuous delivery results are reported as end-to-end system behavior and are not treated as standalone RF sensitivity measurements.
+This work compares \TotalModules{} embedded radio modules and physical implementations using a common measurement pipeline and a Nordic Power Profiler Kit II (PPK2). The campaign contains \TotalPacketPoints{} packet-level operating points, \TotalPacketRuns{} packet repetitions, and \TotalContinuousWindows{} 60-second traffic windows for \TotalContinuousModules{} of the entries. It spans sub-GHz and \SI{2.4}{GHz} radios, direct-SPI transceivers, transparent UART modems, integrated radio microcontrollers, LoRa, 2-(G)FSK, OOK, SimpleLink Long Range, and IEEE 802.15.4g-derived profiles. TX event and RX window energies are reported for every logical payload size exercised by each campaign: 8, 16, 32, 58, 60, 64, 128, 512, or 1024 bytes. The common 32-byte point remains useful for a cross-module comparison, but it no longer substitutes for the measured payload curves. Matched sub-studies compare three E07 (CC1101) implementations, the E07 family against two earlier CC1101 boards, E79 (CC1352P) measurements made through ESP32 and CH9340C UART paths, Ai-Thinker RA-08 (ASR6601) against Ai-Thinker RA-09 (STM32WLE5), CC1101 revisions and bands, E32 bands, SX1278 board implementations, Ai-Thinker RA-02 (SX1278) capacitor variants, NRF24L01 (nRF24L01+) PA/LNA integration, and seven CC1352P PHY profiles. At the common 32-byte point, measured transmit energy spans \SI{\BestPacketEnergy}{mJ} to \SI{\WorstPacketEnergy}{mJ}. Larger-payload results expose fragmentation and integration-window limits; historical E79 CH9340C fragmented-TX values remain window-only observations. A separate CH340 supplement reports 315 all-frame TX captures without merging the hardware contexts. Continuous delivery results are reported as end-to-end system behavior and are not treated as standalone RF sensitivity measurements.
 \end{abstract}
 
 \section{Introduction}
@@ -433,6 +433,32 @@ At \SI{2}{Mbps}, the PA/LNA board uses \SI{0.0935}{mJ} per TX event versus \SI{0
 \end{figure}
 
 The E32 20-dBm pair is the closest hardware match in the continuous campaign. At +20 dBm, Ebyte E32-433T20D (SX1278) and Ebyte E32-868T20D (SX1276) average \SI{275.86}{mW} and \SI{276.37}{mW} TX, while RX is \SI{43.441}{mW} and \SI{43.438}{mW}. Across all three power settings, the maximum TX difference is \SI{0.52}{\percent} and the maximum RX difference is \SI{0.11}{\percent}. The RX baseline-subtracted curve is clipped to zero by the campaign pipeline because the active-window mean falls below the pre-trigger listening mean; it must not be interpreted as a zero-power receiver. Total RX power is the valid comparison in this case.
+
+\clearpage
+\section{Supplementary E79 CH340 fragmented-TX campaign}
+\label{sec:e79-ch340-supplement}
+
+A separate September 29 campaign adds 315 TX captures at 63 operating points: seven E79 PHYs, $-20/0/+13$ dBm, 128/512/1024-byte logical payloads, and five repetitions. This supplement is outside the main \TotalModules{}-entry inventory and its packet-run totals because it has no matching 32-byte, RX, or continuous campaign. Both USB--UART adapters were changed to CH340, and the measured radio/PPK chain was switched to COM16/COM13 after a baseline-noise pilot. The measurements therefore describe an additional experimental context; they do not replace historical CH9340C values or isolate a causal bridge effect.
+
+Independent verification read all 315 gzip traces and 55,967,744 samples, reproduced the archived total and excess energies, and reproduced all 2/8/16-frame window sets with the final acquisition analyzer. The archive and all 1,109 manifest entries match their declared SHA-256 values. The detector uses adaptive 1--2 ms bins and a 4-MAD primary result confirmed by at least one neighbor; two low-signal traces and one high-signal trace use fully agreeing alternative threshold brackets. The three traces were also inspected visually. Maximum reported sample loss is \SI{0.833684}{\percent}; no missing samples were reconstructed. These checks qualify the modeled-window measurement and do not provide synchronized RF timing or a PPK uncertainty estimate.
+
+The dataset preserves 245 fully received logical transfers and 70 \texttt{rx\_missing} transfers, or \SI{22.22}{\percent} not received in full. Loss observations are included in all energy aggregates rather than repeated until successful. This is an end-to-end bench outcome, not an individual RF-frame error rate. Energy excludes inter-frame host gaps and is not the energy of a complete application transaction.
+
+At GFSK200 and +13 dBm, mean CH340-context TX energies are \SI{0.326386}{mJ}, \SI{1.322129}{mJ}, and \SI{2.629776}{mJ} for 128, 512, and 1024 bytes, respectively. The corresponding published ESP32-context means are \SI{0.304150}{mJ}, \SI{1.204723}{mJ}, and \SI{2.410810}{mJ}. Figure~\ref{fig:e79-ch340-ratio} matches all 63 operating points by PHY, power, and payload, after checking modeled duration and voltage. Different units, sessions, baseline behavior, and detector qualification prevent attributing these differences solely to the USB adapter. Reprocessing all 315 fragmented ESP32 traces with the final detector keeps every trace valid; the maximum total-energy shift is \SI{0.001543018}{\percent}. The comparison retains the published ESP32 values and records this small algorithm-version sensitivity separately.
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth]{../comparisons/ebyte_e79_ch340_20260929/e79_ch340_tx_energy.pdf}
+  \caption{Supplementary E79 CH340 TX energies for the seven PHYs and three powers. Each point includes all five attempts, including any incomplete receptions. These are sums of modeled per-frame windows.}
+  \label{fig:e79-ch340-tx}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth]{../comparisons/ebyte_e79_ch340_20260929/e79_ch340_vs_esp32.pdf}
+  \caption{CH340-to-ESP32 total-energy ratios for matched fragmented-TX operating points. The ratio compares experimental contexts and is not an estimate of bridge power or a controlled adapter-only effect. Historical CH9340C windows are excluded.}
+  \label{fig:e79-ch340-ratio}
+\end{figure}
 
 \clearpage
 \section{Discussion}

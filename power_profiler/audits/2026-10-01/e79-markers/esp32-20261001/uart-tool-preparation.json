@@ -1,0 +1,48 @@
+{
+  "source": "D:\\Documente\\CC1352P\\scripts\\ti-python-sbl-esp32-bridge.py",
+  "source_sha256": "227604ef34e93a41b5b2c3f5b64f43c6536839fd13719df386f4bd5888213622",
+  "prepared_files": [
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\.tmp\\e79_esp32_20261001\\ti-python-sbl-esp32-bridge-safe-open.py",
+      "sha256": "9af5664eec7b4b03d73f786605ba8b607aff05c6edf85aaad517208cd743b69d",
+      "bytes": 58487,
+      "syntax": "passed"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\.tmp\\e79_esp32_20261001\\probe_e79_rom.py",
+      "sha256": "9a53e1b4f03079a979994371675031d643d6e36b4ffa62d99d1abc5ef631ab23",
+      "bytes": 4882,
+      "syntax": "passed"
+    }
+  ],
+  "patch": [
+    "--- D:\\Documente\\CC1352P\\scripts\\ti-python-sbl-esp32-bridge.py",
+    "+++ .tmp\\e79_esp32_20261001\\ti-python-sbl-esp32-bridge-safe-open.py",
+    "@@ -229,6 +229,9 @@",
+    "             self.sp.rtscts=0                  # h/w (RTS/CTS) flow control",
+    "             self.sp.timeout=0.5               # set the timeout value",
+    " ",
+    "+        # Set inactive control lines while the serial handle is still closed.",
+    "+        self.sp.dtr = False",
+    "+        self.sp.rts = False",
+    "         self.sp.open()",
+    " ",
+    "     def invoke_bootloader(self, dtr_active_high=False, inverted=False, sonoff_usb=False):"
+  ],
+  "serial_open_tail": [
+    "self.sp.dtr = False",
+    "self.sp.rts = False",
+    "self.sp.open()"
+  ],
+  "probe_forbidden_mutating_calls_present": [],
+  "hardware_accessed": false,
+  "flash_executed": false,
+  "backup_created": false,
+  "checks": "Compile syntax and static AST/diff inspection only; no scripts imported or executed.",
+  "behavior_notes": [
+    "The original CLI resets at successful completion and on CRC mismatch; do not use a no-operation CLI invocation as probe-only.",
+    "Use the separate probe helper after binary bridge mode and ROM entry are already prepared.",
+    "Explicit -b1000000 sets force_speed and skips the automatic XOSC switch/reopen path; --no-invoke-bootloader skips DTR/RTS boot entry.",
+    "DTR/RTS are configured inactive before open; this is a code-level guarantee, not a measurement of the USB driver or attached hardware."
+  ]
+}

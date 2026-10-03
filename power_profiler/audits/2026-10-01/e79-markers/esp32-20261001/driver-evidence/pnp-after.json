@@ -1,0 +1,91 @@
+﻿{
+    "created_utc":  "2026-10-01T13:58:01.3187978Z",
+    "devices":  [
+                    {
+                        "Name":  "nRF Connect DFU Trigger",
+                        "Status":  "OK",
+                        "ConfigManagerErrorCode":  0,
+                        "Service":  "WinUSB",
+                        "PNPDeviceID":  "USB\\VID_1915\u0026PID_C00A\u0026MI_00\\8\u00262811C9C9\u00260\u00260000"
+                    },
+                    {
+                        "Name":  "nRF Connect DFU Trigger",
+                        "Status":  "OK",
+                        "ConfigManagerErrorCode":  0,
+                        "Service":  "WinUSB",
+                        "PNPDeviceID":  "USB\\VID_1915\u0026PID_C00A\u0026MI_00\\8\u00262458238F\u00260\u00260000"
+                    },
+                    {
+                        "Name":  "USB Composite Device",
+                        "Status":  "OK",
+                        "ConfigManagerErrorCode":  0,
+                        "Service":  "usbccgp",
+                        "PNPDeviceID":  "USB\\VID_1915\u0026PID_C00A\\CD2D332DB09A"
+                    },
+                    {
+                        "Name":  "USB Serial Device (COM10)",
+                        "Status":  "OK",
+                        "ConfigManagerErrorCode":  0,
+                        "Service":  "usbser",
+                        "PNPDeviceID":  "USB\\VID_1915\u0026PID_C00A\u0026MI_01\\8\u00262811C9C9\u00260\u00260001"
+                    },
+                    {
+                        "Name":  "USB Serial Device (COM11)",
+                        "Status":  "OK",
+                        "ConfigManagerErrorCode":  0,
+                        "Service":  "usbser",
+                        "PNPDeviceID":  "USB\\VID_1915\u0026PID_C00A\u0026MI_01\\8\u00262458238F\u00260\u00260001"
+                    },
+                    {
+                        "Name":  "USB Composite Device",
+                        "Status":  "OK",
+                        "ConfigManagerErrorCode":  0,
+                        "Service":  "usbccgp",
+                        "PNPDeviceID":  "USB\\VID_1915\u0026PID_C00A\\E753C4E81F3D"
+                    }
+                ],
+    "drivers":  [
+                    {
+                        "DeviceName":  "USB Serial Device",
+                        "DeviceID":  "USB\\VID_1915\u0026PID_C00A\u0026MI_01\\8\u00262458238F\u00260\u00260001",
+                        "DriverProviderName":  "Microsoft",
+                        "DriverVersion":  "10.0.26100.9278",
+                        "InfName":  "usbser.inf"
+                    },
+                    {
+                        "DeviceName":  "nRF Connect DFU Trigger",
+                        "DeviceID":  "USB\\VID_1915\u0026PID_C00A\u0026MI_00\\8\u00262458238F\u00260\u00260000",
+                        "DriverProviderName":  "Nordic Semiconductor ASA",
+                        "DriverVersion":  "1.0.0.1",
+                        "InfName":  "oem167.inf"
+                    },
+                    {
+                        "DeviceName":  "USB Composite Device",
+                        "DeviceID":  "USB\\VID_1915\u0026PID_C00A\\CD2D332DB09A",
+                        "DriverProviderName":  "Microsoft",
+                        "DriverVersion":  "10.0.26100.9278",
+                        "InfName":  "usb.inf"
+                    },
+                    {
+                        "DeviceName":  "USB Serial Device",
+                        "DeviceID":  "USB\\VID_1915\u0026PID_C00A\u0026MI_01\\8\u00262811C9C9\u00260\u00260001",
+                        "DriverProviderName":  "Microsoft",
+                        "DriverVersion":  "10.0.26100.9278",
+                        "InfName":  "usbser.inf"
+                    },
+                    {
+                        "DeviceName":  "nRF Connect DFU Trigger",
+                        "DeviceID":  "USB\\VID_1915\u0026PID_C00A\u0026MI_00\\8\u00262811C9C9\u00260\u00260000",
+                        "DriverProviderName":  "Nordic Semiconductor ASA",
+                        "DriverVersion":  "1.0.0.1",
+                        "InfName":  "oem167.inf"
+                    },
+                    {
+                        "DeviceName":  "USB Composite Device",
+                        "DeviceID":  "USB\\VID_1915\u0026PID_C00A\\E753C4E81F3D",
+                        "DriverProviderName":  "Microsoft",
+                        "DriverVersion":  "10.0.26100.9278",
+                        "InfName":  "usb.inf"
+                    }
+                ]
+}

@@ -1,0 +1,32 @@
+{
+    "schema":  "e79_uart_port_mapping_v1",
+    "created_utc":  "2026-10-01T09:08:02.4602835Z",
+    "same_physical_fixture_confirmed":  true,
+    "confirmed_by":  "Codex: UART-to-PPK association verified independently from the recorded RX current toggles; original radio chip IDs are historical evidence, not newly read.",
+    "verification_method":  "Independent calibrated ADC medians from both archived PPK wire streams: enabling RX through each UART raises only its own PPK branch by more than 2.6 mA; cross-response is zero in the medians.",
+    "roles":  {
+                  "tx":  {
+                             "previous_radio_port":  "COM12",
+                             "radio_port":  "COM16",
+                             "ppk_port":  "COM10",
+                             "ppk_serial_number":  "E753C4E81F3D",
+                             "identity":  "E79-A silicon IEEE 00124B0022929BE4 on CH340 COM12 (USB location 1-8.3), measured by PPK2 E753C4E81F3D; silicon read by J-Link and associated with COM12 by reset"
+                         },
+                  "rx":  {
+                             "previous_radio_port":  "COM13",
+                             "radio_port":  "COM14",
+                             "ppk_port":  "COM11",
+                             "ppk_serial_number":  "CD2D332DB09A",
+                             "identity":  "E79-B silicon IEEE 00124B002292A310 on CH340 COM13 (USB location 1-8.1.2), measured by PPK2 CD2D332DB09A; silicon read by J-Link during RX programming"
+                         }
+              },
+    "source_evidence":  {
+                            "sha256":  "36eac5119ea9b2641ccfe73bd3ccea1f064e98d378905747fba6c71db0a42454",
+                            "path":  "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\firmware\\e79_tx_marker_dio17\\radio-marker-0.3.2-usb-port-mapping-verification.json"
+                        },
+    "limitations":  [
+                        "Mapping describes the 11:57 fixture; subsequent cable changes require renewed association.",
+                        "This is not approval of USB transport health: the subsequent COM16 UART stress check failed; do not launch on that failed state.",
+                        "Legacy identity text retains former COM names as provenance; effective UART ports are recorded separately."
+                    ]
+}

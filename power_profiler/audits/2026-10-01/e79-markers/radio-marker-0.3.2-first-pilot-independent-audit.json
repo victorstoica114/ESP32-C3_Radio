@@ -1,0 +1,306 @@
+{
+  "schema_version": 1,
+  "tool": "audit_radio_marker_totals",
+  "result_root": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261001_110234_196026_paired_pilot_radio_ebyte_e79_cc1352p\\paired_result\\20261001_110234_367104_e79_paired_pilot",
+  "session_id": "20261001_110234_367104_e79_paired_pilot",
+  "official_status_unchanged": "failed",
+  "integration_mode_recorded": "radio_markers",
+  "acceptance_changed": false,
+  "sample_rate_hz": 100000,
+  "current_tolerance_uA": 1e-06,
+  "method": "Independent calibrated ADC integration with a constant-range three-sample dependency guard; no IIR correction, baseline subtraction, clipping or reindexing.",
+  "decoder_reference": "ppk2-api 0.9.2 get_adc_result: stateful outputs on range change and the following two samples; direct ADC otherwise.",
+  "edge_convention": "[first HIGH, first following LOW); QA includes the following LOW word and its incoming counter transition.",
+  "limitations": [
+    "This report does not accept a failed pair or establish delivery from a pulse.",
+    "Counter continuity is modulo 64, not a checksum or proof of zero sample loss.",
+    "Range changes fail this sufficient proof even if an alternative stateful analysis could validate them.",
+    "Baseline/excess energy is not calculated, including when baseline integrity is clean.",
+    "The current belongs to the whole measured endpoint, not an isolated internal RF block.",
+    "Local PPK clocks remain independent; widths need not match for separate TX/RX signals.",
+    "Voltage and calibration are taken from archived metadata, not remeasured by this audit."
+  ],
+  "sources": {
+    "pairing": {
+      "path": "pairing.json",
+      "bytes": 15288,
+      "sha256": "c9b1cb1dc136c81a98db3111289d21e4d64a35297598ebf4d3af99c8db9f856f"
+    }
+  },
+  "runs": [
+    {
+      "run_id": "run_00001",
+      "present_in_pairing": true,
+      "official_status_unchanged": "failed",
+      "delivery": {
+        "packet_received_recorded": true,
+        "tx_status_recorded": "analysis_review_required",
+        "rx_status_recorded": "analysis_review_required",
+        "source": "pairing.json; not inferred from energy or D0"
+      },
+      "roles": {
+        "tx": {
+          "role": "tx",
+          "total_energy_uJ": 57.64439945173119,
+          "total_proven": true,
+          "pulses": [
+            {
+              "window_samples": [
+                24764,
+                24943
+              ],
+              "duration_samples": 179,
+              "duration_ms": 1.79,
+              "guard_window_samples": [
+                24761,
+                24943
+              ],
+              "wire_qa": {
+                "checked_indices_inclusive": [
+                  24761,
+                  24943
+                ],
+                "counter_anomaly_indices": [],
+                "invalid_range_indices": [],
+                "bit17_set_indices": []
+              },
+              "range_counts_guard": {
+                "3": 182
+              },
+              "range_transitions_guard": [],
+              "constant_valid_range_guard": true,
+              "direct_adc_dependency_proven": true,
+              "adc_csv_max_difference_uA": 0.0,
+              "adc_csv_exact_match": true,
+              "adc_csv_within_tolerance": true,
+              "proof_passed": true,
+              "total_energy_uJ": 57.64439945173119,
+              "csv_total_energy_uJ": 57.64439945173119,
+              "reasons": []
+            }
+          ],
+          "reasons": [],
+          "sources": {
+            "metadata": {
+              "path": "tx/metadata.json",
+              "bytes": 15229,
+              "sha256": "52310f602d59bdad7be0e6d3b1d8a7a770f4de967b62759adc0a72ff1981234d"
+            },
+            "wire": {
+              "path": "wire/run_00001/tx.ppk2.bin",
+              "bytes": 385024,
+              "sha256": "6cc8122098932ebe7e4e4629547b92746e2250fa1dfe847e3ce668c302874929"
+            },
+            "raw_csv_gzip": {
+              "path": "tx/raw/run_00001.csv.gz",
+              "bytes": 748665,
+              "sha256": "be2d0b0b8de2470fc42d8f80d0c5b0e4404ae98ae15c3b2e731bc71b7eddbce4"
+            }
+          },
+          "sample_count": 96256,
+          "software_trigger_index": 21504,
+          "voltage_v": 3.3,
+          "calibration_flag": "0",
+          "counter_anomaly_count": 78,
+          "counter_anomaly_indices": [
+            2857,
+            2858,
+            10523,
+            10524,
+            12423,
+            12424,
+            12725,
+            12726,
+            15155,
+            15156,
+            18981,
+            18982,
+            19787,
+            19788,
+            22103,
+            22104,
+            32797,
+            32798,
+            38033,
+            38034,
+            38147,
+            38148,
+            38751,
+            38752,
+            42363,
+            42364,
+            44793,
+            44794,
+            47297,
+            47298,
+            47599,
+            47600,
+            48921,
+            48922,
+            49915,
+            49916,
+            50029,
+            50030,
+            51929,
+            51930,
+            54547,
+            54548,
+            54849,
+            54850,
+            56863,
+            56864,
+            59179,
+            59180,
+            60199,
+            60200,
+            66127,
+            66128,
+            66429,
+            66430,
+            66731,
+            66732,
+            71363,
+            71364,
+            71779,
+            71780,
+            79331,
+            79332,
+            80325,
+            80326,
+            81949,
+            81950,
+            82943,
+            82944,
+            84957,
+            84958,
+            89891,
+            89892,
+            90193,
+            90194,
+            90307,
+            90308,
+            95241,
+            95242
+          ],
+          "baseline_window_samples": [
+            1000,
+            21004
+          ],
+          "baseline_qa": {
+            "checked_indices_inclusive": [
+              1000,
+              21004
+            ],
+            "counter_anomaly_indices": [
+              2857,
+              2858,
+              10523,
+              10524,
+              12423,
+              12424,
+              12725,
+              12726,
+              15155,
+              15156,
+              18981,
+              18982,
+              19787,
+              19788
+            ],
+            "invalid_range_indices": [],
+            "bit17_set_indices": []
+          },
+          "baseline_nonfinite_indices": [],
+          "baseline_integrity_clean": false,
+          "gzip_crc_checked_to_eof": true,
+          "wire_csv_logic_match": true,
+          "pulse_count": 1
+        },
+        "rx": {
+          "role": "rx",
+          "total_energy_uJ": 34.65197718434426,
+          "total_proven": true,
+          "pulses": [
+            {
+              "window_samples": [
+                24795,
+                24937
+              ],
+              "duration_samples": 142,
+              "duration_ms": 1.42,
+              "guard_window_samples": [
+                24792,
+                24937
+              ],
+              "wire_qa": {
+                "checked_indices_inclusive": [
+                  24792,
+                  24937
+                ],
+                "counter_anomaly_indices": [],
+                "invalid_range_indices": [],
+                "bit17_set_indices": []
+              },
+              "range_counts_guard": {
+                "3": 145
+              },
+              "range_transitions_guard": [],
+              "constant_valid_range_guard": true,
+              "direct_adc_dependency_proven": true,
+              "adc_csv_max_difference_uA": 0.0,
+              "adc_csv_exact_match": true,
+              "adc_csv_within_tolerance": true,
+              "proof_passed": true,
+              "total_energy_uJ": 34.65197718434426,
+              "csv_total_energy_uJ": 34.65197718434426,
+              "reasons": []
+            }
+          ],
+          "reasons": [],
+          "sources": {
+            "metadata": {
+              "path": "rx/metadata.json",
+              "bytes": 15227,
+              "sha256": "7cd625b649de218708f18c4ceed2b2db18c24ba5f4c6c0a1d77324dcc4b7d770"
+            },
+            "wire": {
+              "path": "wire/run_00001/rx.ppk2.bin",
+              "bytes": 385024,
+              "sha256": "b050c2f94feae4d5c18f15ddcead7bfa04cc5d17cffac3df51ecb04145c26161"
+            },
+            "raw_csv_gzip": {
+              "path": "rx/raw/run_00001.csv.gz",
+              "bytes": 520660,
+              "sha256": "be3e8dbe0433cd9cd82ca99a621bd8ea654e5fc3205041e2e229120aafaaba7b"
+            }
+          },
+          "sample_count": 96256,
+          "software_trigger_index": 20480,
+          "voltage_v": 3.3,
+          "calibration_flag": "0",
+          "counter_anomaly_count": 0,
+          "counter_anomaly_indices": [],
+          "baseline_window_samples": [
+            1000,
+            19980
+          ],
+          "baseline_qa": {
+            "checked_indices_inclusive": [
+              1000,
+              19980
+            ],
+            "counter_anomaly_indices": [],
+            "invalid_range_indices": [],
+            "bit17_set_indices": []
+          },
+          "baseline_nonfinite_indices": [],
+          "baseline_integrity_clean": true,
+          "gzip_crc_checked_to_eof": true,
+          "wire_csv_logic_match": true,
+          "pulse_count": 1
+        }
+      }
+    }
+  ],
+  "errors": []
+}

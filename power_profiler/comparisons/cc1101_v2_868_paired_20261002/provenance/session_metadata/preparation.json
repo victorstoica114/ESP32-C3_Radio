@@ -1,0 +1,443 @@
+{
+  "kind": "configuration_and_current_mapping",
+  "commands": [
+    {
+      "port": "COM31",
+      "command": "AT+CFG?",
+      "lines": [
+        "====== CC1101 868 MHz CONFIGURATION ======",
+        "Module:       CC1101 868 MHz",
+        "Module max TX:10 dBm nominal",
+        "Frequency:    868.00 MHz",
+        "Bit Rate:     250.0 kbps",
+        "Freq Dev:     127.0 kHz",
+        "RX Bandwidth: 541.67 kHz",
+        "TX Power:     10 dBm",
+        "Preamble:     128 bits",
+        "Sync Word:    0xD391",
+        "CRC:          Enabled",
+        "Modulation:   2FSK",
+        "Data shaping: NONE",
+        "Encoding:     NRZ",
+        "Packet mode:  VARIABLE",
+        "Packet len:   64",
+        "Address filt: OFF",
+        "Node addr:    0x01",
+        "Broadcasts:   1",
+        "Promiscuous:  OFF",
+        "Carrier sense:OFF",
+        "Sync err bits:1",
+        "Sleep:        NO",
+        "==================================",
+        "OK"
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+DEFAULT",
+      "lines": [
+        "OK"
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+STATUS?",
+      "lines": [
+        "CHIP_VERSION=0x14",
+        "RSSI=-74.00",
+        "LQI=0",
+        "MODE=2FSK",
+        "RX=ON",
+        "SLEEP=NO",
+        "BRIDGE=ON",
+        "OK"
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+CFG?",
+      "lines": [
+        "====== CC1101 868 MHz CONFIGURATION ======",
+        "Module:       CC1101 868 MHz",
+        "Module max TX:10 dBm nominal",
+        "Frequency:    868.00 MHz",
+        "Bit Rate:     250.0 kbps",
+        "Freq Dev:     127.0 kHz",
+        "RX Bandwidth: 541.67 kHz",
+        "TX Power:     10 dBm",
+        "Preamble:     128 bits",
+        "Sync Word:    0xD391",
+        "CRC:          Enabled",
+        "Modulation:   2FSK",
+        "Data shaping: NONE",
+        "Encoding:     NRZ",
+        "Packet mode:  VARIABLE",
+        "Packet len:   64",
+        "Address filt: OFF",
+        "Node addr:    0x01",
+        "Broadcasts:   1",
+        "Promiscuous:  OFF",
+        "Carrier sense:OFF",
+        "Sync err bits:1",
+        "Sleep:        NO",
+        "==================================",
+        "OK"
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+DEFAULT",
+      "lines": [
+        "OK"
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+STATUS?",
+      "lines": [
+        "CHIP_VERSION=0x14",
+        "RSSI=-74.00",
+        "LQI=0",
+        "MODE=2FSK",
+        "RX=ON",
+        "SLEEP=NO",
+        "BRIDGE=ON",
+        "OK"
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+RX=OFF",
+      "lines": [
+        "OK"
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+RX=OFF",
+      "lines": [
+        "OK"
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+RX=ON",
+      "lines": [
+        "OK"
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+RX=OFF",
+      "lines": [
+        "OK"
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+RX=ON",
+      "lines": [
+        "OK"
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+RX=OFF",
+      "lines": [
+        "OK"
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+RX=ON",
+      "lines": [
+        "OK"
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+RX=ON",
+      "lines": [
+        "OK"
+      ]
+    }
+  ],
+  "power_snapshots": [
+    {
+      "label": "initial_power_hold",
+      "state": {
+        "state": "candidate_holding",
+        "time": 1790948203.0352297,
+        "candidate": "attempt_001",
+        "accepted_energy_points": 0,
+        "attempt": "attempt_001",
+        "ports": {
+          "ppk": {
+            "tx": [
+              "COM10",
+              "E753C4E81F3D"
+            ],
+            "rx": [
+              "COM11",
+              "CD2D332DB09A"
+            ]
+          },
+          "radio": {
+            "rx": "COM29",
+            "tx": "COM30"
+          }
+        },
+        "stop_file": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\STOP",
+        "start_file": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\START.json",
+        "ppk_handles_open": {
+          "tx": true,
+          "rx": true
+        },
+        "ppk_dut_power_command": "ON",
+        "hold_io_safe": true,
+        "samples_currents": {
+          "tx": {
+            "samples_drained": 148117504,
+            "last_chunk_samples": 3584,
+            "time": 1790948203.0251102,
+            "last_chunk_mean_current_uA": 17656.464830411336
+          },
+          "rx": {
+            "samples_drained": 148083200,
+            "last_chunk_samples": 3584,
+            "time": 1790948203.0337276,
+            "last_chunk_mean_current_uA": 17008.44773058645
+          }
+        },
+        "hold_errors": {},
+        "errors": []
+      }
+    },
+    {
+      "label": "both_rx_off",
+      "state": {
+        "state": "candidate_holding",
+        "time": 1790948209.1022508,
+        "candidate": "attempt_001",
+        "accepted_energy_points": 0,
+        "attempt": "attempt_001",
+        "ports": {
+          "ppk": {
+            "tx": [
+              "COM10",
+              "E753C4E81F3D"
+            ],
+            "rx": [
+              "COM11",
+              "CD2D332DB09A"
+            ]
+          },
+          "radio": {
+            "rx": "COM29",
+            "tx": "COM30"
+          }
+        },
+        "stop_file": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\STOP",
+        "start_file": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\START.json",
+        "ppk_handles_open": {
+          "tx": true,
+          "rx": true
+        },
+        "ppk_dut_power_command": "ON",
+        "hold_io_safe": true,
+        "samples_currents": {
+          "tx": {
+            "samples_drained": 148727296,
+            "last_chunk_samples": 1536,
+            "time": 1790948209.0943875,
+            "last_chunk_mean_current_uA": 1731.9125139375517
+          },
+          "rx": {
+            "samples_drained": 148693504,
+            "last_chunk_samples": 1536,
+            "time": 1790948209.0969064,
+            "last_chunk_mean_current_uA": 1771.550528677316
+          }
+        },
+        "hold_errors": {},
+        "errors": []
+      }
+    },
+    {
+      "label": "COM31_rx_on_other_off",
+      "state": {
+        "state": "candidate_holding",
+        "time": 1790948211.1201973,
+        "candidate": "attempt_001",
+        "accepted_energy_points": 0,
+        "attempt": "attempt_001",
+        "ports": {
+          "ppk": {
+            "tx": [
+              "COM10",
+              "E753C4E81F3D"
+            ],
+            "rx": [
+              "COM11",
+              "CD2D332DB09A"
+            ]
+          },
+          "radio": {
+            "rx": "COM29",
+            "tx": "COM30"
+          }
+        },
+        "stop_file": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\STOP",
+        "start_file": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\START.json",
+        "ppk_handles_open": {
+          "tx": true,
+          "rx": true
+        },
+        "ppk_dut_power_command": "ON",
+        "hold_io_safe": true,
+        "samples_currents": {
+          "tx": {
+            "samples_drained": 148928512,
+            "last_chunk_samples": 1536,
+            "time": 1790948211.1080587,
+            "last_chunk_mean_current_uA": 1729.920245772545
+          },
+          "rx": {
+            "samples_drained": 148894720,
+            "last_chunk_samples": 1536,
+            "time": 1790948211.1101367,
+            "last_chunk_mean_current_uA": 16807.499217862594
+          }
+        },
+        "hold_errors": {},
+        "errors": []
+      }
+    },
+    {
+      "label": "COM32_rx_on_other_off",
+      "state": {
+        "state": "candidate_holding",
+        "time": 1790948212.131346,
+        "candidate": "attempt_001",
+        "accepted_energy_points": 0,
+        "attempt": "attempt_001",
+        "ports": {
+          "ppk": {
+            "tx": [
+              "COM10",
+              "E753C4E81F3D"
+            ],
+            "rx": [
+              "COM11",
+              "CD2D332DB09A"
+            ]
+          },
+          "radio": {
+            "rx": "COM29",
+            "tx": "COM30"
+          }
+        },
+        "stop_file": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\STOP",
+        "start_file": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\START.json",
+        "ppk_handles_open": {
+          "tx": true,
+          "rx": true
+        },
+        "ppk_dut_power_command": "ON",
+        "hold_io_safe": true,
+        "samples_currents": {
+          "tx": {
+            "samples_drained": 149030912,
+            "last_chunk_samples": 1536,
+            "time": 1790948212.1281664,
+            "last_chunk_mean_current_uA": 17451.03037490023
+          },
+          "rx": {
+            "samples_drained": 148996608,
+            "last_chunk_samples": 1024,
+            "time": 1790948212.130331,
+            "last_chunk_mean_current_uA": 1767.5300321450459
+          }
+        },
+        "hold_errors": {},
+        "errors": []
+      }
+    },
+    {
+      "label": "both_rx_on_at_end",
+      "state": {
+        "state": "candidate_holding",
+        "time": 1790948214.1487799,
+        "candidate": "attempt_001",
+        "accepted_energy_points": 0,
+        "attempt": "attempt_001",
+        "ports": {
+          "ppk": {
+            "tx": [
+              "COM10",
+              "E753C4E81F3D"
+            ],
+            "rx": [
+              "COM11",
+              "CD2D332DB09A"
+            ]
+          },
+          "radio": {
+            "rx": "COM29",
+            "tx": "COM30"
+          }
+        },
+        "stop_file": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\STOP",
+        "start_file": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\START.json",
+        "ppk_handles_open": {
+          "tx": true,
+          "rx": true
+        },
+        "ppk_dut_power_command": "ON",
+        "hold_io_safe": true,
+        "samples_currents": {
+          "tx": {
+            "samples_drained": 149231616,
+            "last_chunk_samples": 1536,
+            "time": 1790948214.1383266,
+            "last_chunk_mean_current_uA": 17547.193313611202
+          },
+          "rx": {
+            "samples_drained": 149197824,
+            "last_chunk_samples": 1536,
+            "time": 1790948214.1406193,
+            "last_chunk_mean_current_uA": 16775.720760880104
+          }
+        },
+        "hold_errors": {},
+        "errors": []
+      }
+    }
+  ],
+  "voltage_mv": 3300,
+  "voltage_provenance": "External 3.3 V confirmed earlier by operator; no supply change reported",
+  "ppk_owner": "Existing E07-900 acquisition worker holds both PPK handles open during this probe; acquisition will use a controlled ownership handoff with radio reinitialization",
+  "radio_usb_identities": {
+    "COM31": "08:92:72:9A:D4:B4",
+    "COM32": "08:92:72:9A:C8:C8"
+  },
+  "mapping_deltas_uA": {
+    "COM31": {
+      "tx": -1.9922681650066352,
+      "rx": 15035.94868918528
+    },
+    "COM32": {
+      "tx": 15719.117860962679,
+      "rx": -4.0204965322700446
+    }
+  },
+  "completed": true,
+  "radio_ports": {
+    "rx": "COM31",
+    "tx": "COM32"
+  },
+  "ppk_ports": {
+    "tx": "COM10",
+    "rx": "COM11"
+  }
+}

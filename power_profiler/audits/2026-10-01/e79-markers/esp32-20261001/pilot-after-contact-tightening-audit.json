@@ -1,0 +1,253 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-01T14:10:15.551600+00:00",
+  "scope": "Independent stdlib audit of terminal ESP32 pilot4; no production marker analyzer imported; no hardware/API",
+  "session_path": "power_profiler/web_sessions/20261001_170839_911142_paired_pilot_radio_ebyte_e79_cc1352p",
+  "result_path": "paired_result/20261001_170840_090756_e79_paired_pilot",
+  "manifest_state": "completed_with_errors",
+  "pairing_status": "failed",
+  "completed_utc": "2026-10-01T14:08:55.777125+00:00",
+  "sample_rate_hz": 100000,
+  "expected_pairs": 5,
+  "attempted_pairs": 1,
+  "accepted_pairs": 0,
+  "accepted_result": "",
+  "condition": {
+    "interface_label": "ESP32",
+    "payload_bytes": 32,
+    "rf_profile": "GFSK200",
+    "tx_power_dbm": 13,
+    "integration_mode": "radio_markers",
+    "energy_policy": "total_only_with_direct_adc_proof"
+  },
+  "channel_order": [
+    "D0",
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D5",
+    "D6",
+    "D7"
+  ],
+  "runs": [
+    {
+      "run_id": "run_00001",
+      "packet_received": true,
+      "status": "failed",
+      "production_marker_reasons": [
+        "tx: Marker HIGH at capture boundary; pulse is truncated",
+        "rx: Marker HIGH at capture boundary; pulse is truncated"
+      ],
+      "capture_errors": {},
+      "roles": {
+        "tx": {
+          "radio_port": "COM20",
+          "ppk_port": "COM10",
+          "ppk_serial": "E753C4E81F3D",
+          "firmware_version": "0.3.2",
+          "marker_reply": [
+            "+MARKER:ROLE=TX,DIO=17,SOURCE=RAT_GPO0,ACTIVE=HIGH",
+            "OK"
+          ],
+          "voltage_mv": 3300,
+          "wire_bytes": 389120,
+          "sample_count": 97280,
+          "software_trigger_index": 22528,
+          "capture_duration_ms": 972.8,
+          "pretrigger_duration_ms": 225.28,
+          "posttrigger_duration_ms": 747.52,
+          "logic_byte_counts": {
+            "255": 97280
+          },
+          "high_samples_by_channel": [
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280
+          ],
+          "low_samples_by_channel": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "transitions_by_channel": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "d0_high_segments_samples": [
+            [
+              0,
+              97280
+            ]
+          ],
+          "d0_complete_pulse_count": 0,
+          "csv_wire_logic_mismatch_count": 0,
+          "csv_index_error_count": 0,
+          "csv_trigger_indices": [
+            22528
+          ],
+          "gzip_crc_valid_read_to_eof": true,
+          "summary_status": "analysis_review_required",
+          "summary_energy_total_uJ": "",
+          "summary_analysis_error": "tx: Marker HIGH at capture boundary; pulse is truncated; rx: Marker HIGH at capture boundary; pulse is truncated",
+          "accepted_adc_proof_count": 0,
+          "integration_duration_ms": null,
+          "adc_audit_not_run_reason": "No complete digital marker window exists. No total can be accepted or independently integrated under the marker policy."
+        },
+        "rx": {
+          "radio_port": "COM19",
+          "ppk_port": "COM11",
+          "ppk_serial": "CD2D332DB09A",
+          "firmware_version": "0.3.2",
+          "marker_reply": [
+            "+MARKER:ROLE=RX,DIO=17,SOURCE=RAT_GPO1,ACTIVE=HIGH",
+            "OK"
+          ],
+          "voltage_mv": 3300,
+          "wire_bytes": 389120,
+          "sample_count": 97280,
+          "software_trigger_index": 22528,
+          "capture_duration_ms": 972.8,
+          "pretrigger_duration_ms": 225.28,
+          "posttrigger_duration_ms": 747.52,
+          "logic_byte_counts": {
+            "255": 97280
+          },
+          "high_samples_by_channel": [
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280
+          ],
+          "low_samples_by_channel": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "transitions_by_channel": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "d0_high_segments_samples": [
+            [
+              0,
+              97280
+            ]
+          ],
+          "d0_complete_pulse_count": 0,
+          "csv_wire_logic_mismatch_count": 0,
+          "csv_index_error_count": 0,
+          "csv_trigger_indices": [
+            22528
+          ],
+          "gzip_crc_valid_read_to_eof": true,
+          "summary_status": "analysis_review_required",
+          "summary_energy_total_uJ": "",
+          "summary_analysis_error": "tx: Marker HIGH at capture boundary; pulse is truncated; rx: Marker HIGH at capture boundary; pulse is truncated",
+          "accepted_adc_proof_count": 0,
+          "integration_duration_ms": null,
+          "adc_audit_not_run_reason": "No complete digital marker window exists. No total can be accepted or independently integrated under the marker policy."
+        }
+      }
+    }
+  ],
+  "sources": {
+    "manifest.json": {
+      "bytes": 5237,
+      "sha256": "b3d64b3da82b2fe3a2eb2534f0ff75e4d8a5b474f6851e3eb2c94def6ddb3c0b"
+    },
+    "paired_result/20261001_170840_090756_e79_paired_pilot/pairing.json": {
+      "bytes": 13823,
+      "sha256": "960b0c40cb601e1f6009b6412a30b2910a8c2798f03b0d6b27e3df48f6a5c6a4"
+    },
+    "paired_result/20261001_170840_090756_e79_paired_pilot/rx/aggregates.csv": {
+      "bytes": 875,
+      "sha256": "ea0addc3ea5aba683d4d1764388d52d5d1d9ae663bd622e2c599756a62b25c65"
+    },
+    "paired_result/20261001_170840_090756_e79_paired_pilot/rx/analysis/run_00001.json": {
+      "bytes": 2310,
+      "sha256": "b54ae63bf7bbc1cb05c2411916fb1c366135cfd20b22d1d6a4579799e758b8c3"
+    },
+    "paired_result/20261001_170840_090756_e79_paired_pilot/rx/metadata.json": {
+      "bytes": 15917,
+      "sha256": "eb29f8310bb57f9fef406e44fa82380c998b1690853136ba1ed2339c3e076a75"
+    },
+    "paired_result/20261001_170840_090756_e79_paired_pilot/rx/raw/run_00001.csv.gz": {
+      "bytes": 803189,
+      "sha256": "4b63b65155c9354740eae39d8fe853e6fa3cfdf82e5ce451c1dbd3d9361a1215"
+    },
+    "paired_result/20261001_170840_090756_e79_paired_pilot/rx/summary.csv": {
+      "bytes": 1434,
+      "sha256": "ffcff359e0fdc674dbee1d48fb8e9ddc78bb31d298b5de51cfd8ae15194e630a"
+    },
+    "paired_result/20261001_170840_090756_e79_paired_pilot/summary.csv": {
+      "bytes": 193,
+      "sha256": "367d5328b4cae78c27422fce716cb397a35023dbe33b49fc0ca64c1932eda1b7"
+    },
+    "paired_result/20261001_170840_090756_e79_paired_pilot/tx/aggregates.csv": {
+      "bytes": 875,
+      "sha256": "197c78409f12d8211d3a44b7ce2d95d7a3a62eea528ffcb2d127d7e65ca48742"
+    },
+    "paired_result/20261001_170840_090756_e79_paired_pilot/tx/analysis/run_00001.json": {
+      "bytes": 2310,
+      "sha256": "b54ae63bf7bbc1cb05c2411916fb1c366135cfd20b22d1d6a4579799e758b8c3"
+    },
+    "paired_result/20261001_170840_090756_e79_paired_pilot/tx/metadata.json": {
+      "bytes": 15893,
+      "sha256": "197dabde7d384798e6c58068fd3c3e372fa8f69ed686f9c35ee2fa73531732c5"
+    },
+    "paired_result/20261001_170840_090756_e79_paired_pilot/tx/raw/run_00001.csv.gz": {
+      "bytes": 768346,
+      "sha256": "de61ffc564c2541ed1ca59ba60189535f2b3968dd6292cc2d4d1de33b5f48ee2"
+    },
+    "paired_result/20261001_170840_090756_e79_paired_pilot/tx/summary.csv": {
+      "bytes": 1416,
+      "sha256": "e78f51687518d674e5606042f3c07acf036107b3f86bf94e7417ec4ea1eb2019"
+    },
+    "paired_result/20261001_170840_090756_e79_paired_pilot/wire/run_00001/rx.ppk2.bin": {
+      "bytes": 389120,
+      "sha256": "f54c81c0d0f30888f5f8d69040d2566adcb4e98f86c44cf667d6299d51984b14"
+    },
+    "paired_result/20261001_170840_090756_e79_paired_pilot/wire/run_00001/timing.json": {
+      "bytes": 1128,
+      "sha256": "679a4cd011746db2dd036bfae82edd81a43f0e40ac026e50f4368d015f25f660"
+    },
+    "paired_result/20261001_170840_090756_e79_paired_pilot/wire/run_00001/tx.ppk2.bin": {
+      "bytes": 389120,
+      "sha256": "ab37981fe060504e710d792ae59c086ac682ef32ea992867353a46b43d7faa06"
+    }
+  },
+  "conclusion": "All eight recorded digital inputs remain HIGH throughout both captures, including before software trigger. RAW/wire agree exactly. Fail-closed marker rejection is supported; physical cause is undetermined. Packet delivery does not supply missing marker edges.",
+  "preservation": "Original RAW, wire, metadata, acceptance, and firmware unchanged."
+}

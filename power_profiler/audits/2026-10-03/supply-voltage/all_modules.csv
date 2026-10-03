@@ -1,0 +1,29 @@
+slug,module,supply_voltage_mv,calculation_voltage_mv,verdict,source_rows_checked,evidence
+cc1101_v1_433,"CC1101 V1, 433 MHz",3300,3300,concordant,372,matching_3v3_evidence.json
+cc1101_v2_868,"CC1101 V2, 868 MHz",3300,3300,concordant,375,matching_3v3_evidence.json
+ebyte_e07_400m10s,Ebyte E07-400M10S,3300,3300,concordant,270,matching_3v3_evidence.json
+ebyte_e07_433m20s,"Ebyte E07-433M20S, PA/LNA",3300,3300,concordant,270,matching_3v3_evidence.json
+ebyte_e07_900mm10s,Ebyte E07-900MM10S,3300,3300,concordant,270,matching_3v3_evidence.json
+ebyte_e22_400m30s,Ebyte E22-400M30S,5000,3300,neconcordant,192,evidence.json
+e28_sx1280,"Ebyte E28-2G4M12XX, SPI / SX1280",3300,3300,concordant,192,matching_3v3_evidence.json
+e280,"Ebyte E280-2G4T12S, UART / SX1280",5000,3300,neconcordant,192,evidence.json
+ebyte_e32_433t20d,Ebyte E32-433T20D,5000,3300,neconcordant,372,evidence.json
+ebyte_e32_433t33d,Ebyte E32-433T33D,5000,3300,neconcordant,372,evidence.json
+ebyte_e32_868t20d,Ebyte E32-868T20D,5000,3300,neconcordant,372,evidence.json
+ebyte_e32_868t30d,Ebyte E32-868T30D,5000,3300,neconcordant,372,evidence.json
+ebyte_e79_400dm2005s,"Ebyte E79-400DM2005S, interfață ESP32",3300,3300,concordant,864,matching_3v3_evidence.json
+ebyte_e79_ch9340,"Ebyte E79-400DM2005S, interfață CH9340C / CH340",3300,3300,concordant,1260,matching_3v3_evidence.json
+hc12,HC-12,5000,3300,neconcordant,192,evidence.json
+nrf24l01,nRF24L01 / nRF24L01+,3300,3300,concordant,192,matching_3v3_evidence.json
+nrf24l01_pa,nRF24L01 PA/LNA,3300,3300,concordant,192,matching_3v3_evidence.json
+ra01h_sx1276,Ai-Thinker RA-01H / SX1276,3300,3300,concordant,192,matching_3v3_evidence.json
+ra01sh_sx1262,Ai-Thinker RA-01SH / SX1262,3300,3300,concordant,192,matching_3v3_evidence.json
+ra02_sx1278,Ai-Thinker RA-02 / SX1278,3300,3300,concordant,192,matching_3v3_evidence.json
+ra02_sx1278_2cap,"Ai-Thinker RA-02 / SX1278, varianta +2Cap",3300,3300,concordant,192,matching_3v3_evidence.json
+ra08_asr6601,"Ai-Thinker RA-08 / ASR6601, platformă de dezvoltare",3300,3300,concordant,192,matching_3v3_evidence.json
+ra09_stm32wle5,"Ai-Thinker RA-09 / STM32WLE5, placă proiectată de autor",3300,3300,concordant,270,matching_3v3_evidence.json
+sx1278_naked,"SX1278, modul ne-ecranat / naked",3300,3300,concordant,192,matching_3v3_evidence.json
+sx1278_shielded,"SX1278, modul ecranat / shielded",3300,3300,concordant,192,matching_3v3_evidence.json
+sx1278_pcb_2cap,"SX1278, PCB +2Cap",3300,3300,concordant,192,matching_3v3_evidence.json
+sx1278_adafruit_level_shifter,"SX1278, placă tip Adafruit cu level shifter",5000,3300,neconcordant,192,evidence.json
+xl1276_d01_sx1276,XL1276-D01 / SX1276,3300,3300,concordant,192,matching_3v3_evidence.json

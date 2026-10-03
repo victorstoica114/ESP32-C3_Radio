@@ -1,0 +1,17 @@
+{
+    "firmware_version":  "0.3.1",
+    "uart_pinout":  "CH340",
+    "uart_baud":  1000000,
+    "uart_tx_dio":  12,
+    "uart_rx_dio":  13,
+    "source_sha256":  "15e7f6ebf72a8b0f2a970b87ce1c56ba63c452b5d23e1f6564538ee8cb551c62",
+    "syscfg_sha256":  "e19ff2a880168512a95c4e7fc55fc52494c15520ec5c839dedfb4d91c473407a",
+    "artifact_sha256":  {
+                            "e79_at_modem.bin":  "9e3b54edba67a097a9eb68b5193f5f3255fc3f6906600459104471b6a1f672c6",
+                            "e79_at_modem.hex":  "1d3fb7a4e8f054a9f625a553f820bc3fc502541f7cf365f75549827827692e0c",
+                            "e79_at_modem.out":  "6d73ea26b89c4f1ec5da18b302f80a4339dfd3a10436367115aec14443be6d96",
+                            "e79_at_modem.map":  "fed06ac36fd51d76d05755cfb6cc59552effaee62cf40c8e16c3e0c8947762a3",
+                            "ti_drivers_config.h":  "da7a45d9827c8e7a8f0cbc67e06ba4a48030f7d3a18e54a1bd06b850c1993422"
+                        },
+    "validation":  "Compiled and generated UART mapping checked; RF marker requires bench validation"
+}

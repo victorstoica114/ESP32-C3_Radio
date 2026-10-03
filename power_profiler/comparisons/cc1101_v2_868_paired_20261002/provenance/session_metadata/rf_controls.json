@@ -1,0 +1,3536 @@
+{
+  "energy_capture": false,
+  "commands": [
+    {
+      "port": "COM32",
+      "command": "AT+RESET",
+      "lines": [
+        "[RADIO] Resetting... OK",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073036376729100,
+              "hex": "5b524144494f5d20526573657474696e672e2e2e20"
+            }
+          ]
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [
+              "[RADIO] Resetting... OK",
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073036651673200,
+              "hex": "4f4b0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+DEFAULT",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073036859084600,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+DEBUG=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073036867761000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+BRIDGE=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073036898740000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+CS=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073037105966300,
+              "hex": "4f4b"
+            },
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073037107584300,
+              "hex": "0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+FREQ=868",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073037293912300,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+MOD=2FSK",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073037482058900,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+SHAPE=NONE",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073037667539800,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PRE=128",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073037858927300,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+SYNC=D391",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073038043474000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+SYNCERR=1",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073038235042600,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+CRC=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073038417047900,
+              "hex": "4f4b"
+            },
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073038418639600,
+              "hex": "0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+ENC=NRZ",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073038606283900,
+              "hex": "4f4b"
+            },
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073038607948100,
+              "hex": "0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PKT=VARIABLE,64",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073038794423200,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+ADDR=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073038982215100,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PROMISC=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073039168278800,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+BR=250",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073039358468600,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+DEV=127",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073039547418500,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+BW=541.67",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073039734334900,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PWR=10",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073039920118500,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+RESET",
+      "lines": [
+        "[RADIO] Resetting... OK",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073039931708300,
+              "hex": "5b524144494f5d20526573657474696e672e2e2e20"
+            }
+          ]
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "[RADIO] Resetting... OK",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073040205460100,
+              "hex": "4f4b0d0a4f4b"
+            },
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073040207151900,
+              "hex": "0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+DEFAULT",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073040392814600,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+DEBUG=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073040399736700,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+BRIDGE=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073040432156000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+CS=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073040639605700,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+FREQ=868",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073040826539600,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+MOD=2FSK",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073041014070700,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+SHAPE=NONE",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073041200115200,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PRE=128",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073041391273400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+SYNC=D391",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073041575256500,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+SYNCERR=1",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073041767887500,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+CRC=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073041951849600,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+ENC=NRZ",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073042137973800,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PKT=VARIABLE,64",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073042325852400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+ADDR=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073042513069500,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PROMISC=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073042703951800,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+BR=250",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073042891041300,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+DEV=127",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073043078725900,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+BW=541.67",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073043280977000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PWR=10",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073043483026400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+DEBUG=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073043493986800,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+RX=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073043526712000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+DEBUG=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073043557256900,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+RX=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073043587593400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+CFG?",
+      "lines": [
+        "====== CC1101 868 MHz CONFIGURATION ======",
+        "Module:       CC1101 868 MHz",
+        "Module max TX:10 dBm nominal",
+        "Frequency:    868.00 MHz",
+        "Bit Rate:     250.0 kbps",
+        "Freq Dev:     127.0 kHz",
+        "RX Bandwidth: 541.67 kHz",
+        "TX Power:     10 dBm",
+        "Preamble:     128 bits",
+        "Sync Word:    0xD391",
+        "CRC:          Enabled",
+        "Modulation:   2FSK",
+        "Data shaping: NONE",
+        "Encoding:     NRZ",
+        "Packet mode:  VARIABLE",
+        "Packet len:   64",
+        "Address filt: OFF",
+        "Node addr:    0x01",
+        "Broadcasts:   1",
+        "Promiscuous:  OFF",
+        "Carrier sense:OFF",
+        "Sync err bits:1",
+        "Sleep:        NO",
+        "==================================",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [
+              "====== CC1101 868 MHz CONFIGURATION ======",
+              "Module:       CC1101 868 MHz",
+              "Module max TX:10 dBm nominal",
+              "Frequency:    868.00 MHz",
+              "Bit Rate:     250.0 kbps",
+              "Freq Dev:     127.0 kHz",
+              "RX Bandwidth: 541.67 kHz",
+              "TX Power:     10 dBm",
+              "Preamble:     128 bits",
+              "Sync Word:    0xD391",
+              "CRC:          Enabled",
+              "Modulation:   2FSK",
+              "Data shaping: NONE",
+              "Encoding:     NRZ",
+              "Packet mode:  VARIABLE",
+              "Packet len:   64",
+              "Address filt: OFF",
+              "Node addr:    0x01",
+              "Broadcasts:   1",
+              "Promiscuous:  OFF",
+              "Carrier sense:OFF",
+              "Sync err bits:1",
+              "Sleep:        NO",
+              "==================================",
+              "OK"
+            ],
+            "COM31": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3073043619903400,
+              "hex": "3d3d3d3d3d3d2043433131303120383638204d487a20434f4e46494755524154494f4e203d3d3d3d3d3d0d0a4d6f64756c653a2020202020202043433131303120383638204d487a0d0a4d6f64756c65206d61782054583a31302064426d206e6f6d696e616c0d0a4672657175656e63793a202020203836382e3030204d487a0d0a42697420526174653a20202020203235302e30206b6270730d0a46726571204465763a20202020203132372e30206b487a0d0a52582042616e6477696474683a203534312e3637206b487a0d0a545820506f7765723a202020202031302064426d0d0a507265616d626c653a202020202031323820626974730d0a53796e6320576f72643a202020203078443339310d0a4352433a20202020202020202020456e61626c65640d0a4d6f64756c6174696f6e3a2020203246534b0d0a446174612073686170696e673a204e4f4e450d0a456e636f64696e673a20202020204e525a0d0a5061636b6574206d6f64653a20205641524941424c450d0a5061636b6574206c656e3a20202036340d0a416464726573732066696c743a204f46460d0a4e6f646520616464723a20202020307830310d0a42726f616463617374733a202020310d0a50726f6d697363756f75733a20204f46460d0a436172726965722073656e73653a4f46460d0a53796e632065727220626974733a310d0a536c6565703a20202020202020204e4f0d0a3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+CFG?",
+      "lines": [
+        "====== CC1101 868 MHz CONFIGURATION ======",
+        "Module:       CC1101 868 MHz",
+        "Module max TX:10 dBm nominal",
+        "Frequency:    868.00 MHz",
+        "Bit Rate:     250.0 kbps",
+        "Freq Dev:     127.0 kHz",
+        "RX Bandwidth: 541.67 kHz",
+        "TX Power:     10 dBm",
+        "Preamble:     128 bits",
+        "Sync Word:    0xD391",
+        "CRC:          Enabled",
+        "Modulation:   2FSK",
+        "Data shaping: NONE",
+        "Encoding:     NRZ",
+        "Packet mode:  VARIABLE",
+        "Packet len:   64",
+        "Address filt: OFF",
+        "Node addr:    0x01"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": [
+              "====== CC1101 868 MHz CONFIGURATION ======",
+              "Module:       CC1101 868 MHz",
+              "Module max TX:10 dBm nominal",
+              "Frequency:    868.00 MHz",
+              "Bit Rate:     250.0 kbps",
+              "Freq Dev:     127.0 kHz",
+              "RX Bandwidth: 541.67 kHz",
+              "TX Power:     10 dBm",
+              "Preamble:     128 bits",
+              "Sync Word:    0xD391",
+              "CRC:          Enabled",
+              "Modulation:   2FSK",
+              "Data shaping: NONE",
+              "Encoding:     NRZ",
+              "Packet mode:  VARIABLE",
+              "Packet len:   64",
+              "Address filt: OFF",
+              "Node addr:    0x01"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3073043651628900,
+              "hex": "3d3d3d3d3d3d2043433131303120383638204d487a20434f4e46494755524154494f4e203d3d3d3d3d3d0d0a4d6f64756c653a2020202020202043433131303120383638204d487a0d0a4d6f64756c65206d61782054583a31302064426d206e6f6d696e616c0d0a4672657175656e63793a202020203836382e3030204d487a0d0a42697420526174653a20202020203235302e30206b6270730d0a46726571204465763a20202020203132372e30206b487a0d0a52582042616e6477696474683a203534312e3637206b487a0d0a545820506f7765723a202020202031302064426d0d0a507265616d626c653a202020202031323820626974730d0a53796e6320576f72643a202020203078443339310d0a4352433a20202020202020202020456e61626c65640d0a4d6f64756c6174696f6e3a2020203246534b0d0a446174612073686170696e673a204e4f4e450d0a456e636f64696e673a20202020204e525a0d0a5061636b6574206d6f64653a20205641524941424c450d0a5061636b6574206c656e3a20202036340d0a416464726573732066696c743a204f46460d0a4e6f646520616464723a20202020307830310d0a4272"
+            }
+          ]
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM32": [],
+            "COM31": []
+          },
+          "raw": []
+        }
+      ]
+    }
+  ],
+  "batches": [
+    {
+      "rate_kbps": 250,
+      "power_dbm": 10,
+      "tx": "COM32",
+      "rx": "COM31",
+      "modulation": "2FSK",
+      "power": {
+        "state": "waiting_for_start",
+        "time": 1790948879.816125,
+        "candidate": null,
+        "accepted_energy_points": 0,
+        "attempt": null,
+        "ports": {
+          "ppk": {
+            "tx": [
+              "COM10",
+              "E753C4E81F3D"
+            ],
+            "rx": [
+              "COM11",
+              "CD2D332DB09A"
+            ]
+          },
+          "radio": {}
+        },
+        "stop_file": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition_retry\\STOP",
+        "start_file": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition_retry\\START.json",
+        "ppk_handles_open": {
+          "tx": true,
+          "rx": true
+        },
+        "ppk_dut_power_command": "ON",
+        "hold_io_safe": true,
+        "samples_currents": {
+          "tx": {
+            "samples_drained": 11107328,
+            "last_chunk_samples": 1536,
+            "time": 1790948879.8121126,
+            "last_chunk_mean_current_uA": 1733.007374347365
+          },
+          "rx": {
+            "samples_drained": 11072000,
+            "last_chunk_samples": 1536,
+            "time": 1790948879.8146653,
+            "last_chunk_mean_current_uA": 16920.7207439312
+          }
+        },
+        "hold_errors": {},
+        "errors": []
+      },
+      "runs": []
+    }
+  ],
+  "ppk_handles_released": false,
+  "power_before": {
+    "state": "waiting_for_start",
+    "time": 1790948878.7872574,
+    "candidate": null,
+    "accepted_energy_points": 0,
+    "attempt": null,
+    "ports": {
+      "ppk": {
+        "tx": [
+          "COM10",
+          "E753C4E81F3D"
+        ],
+        "rx": [
+          "COM11",
+          "CD2D332DB09A"
+        ]
+      },
+      "radio": {}
+    },
+    "stop_file": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition_retry\\STOP",
+    "start_file": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition_retry\\START.json",
+    "ppk_handles_open": {
+      "tx": true,
+      "rx": true
+    },
+    "ppk_dut_power_command": "ON",
+    "hold_io_safe": true,
+    "samples_currents": {
+      "tx": {
+        "samples_drained": 11004928,
+        "last_chunk_samples": 1536,
+        "time": 1790948878.7872574,
+        "last_chunk_mean_current_uA": 1734.002731952558
+      },
+      "rx": {
+        "samples_drained": 10968064,
+        "last_chunk_samples": 1536,
+        "time": 1790948878.7760909,
+        "last_chunk_mean_current_uA": 16905.71811541849
+      }
+    },
+    "hold_errors": {},
+    "errors": []
+  },
+  "error": "TimeoutError({'port': 'COM31', 'command': 'AT+CFG?', 'lines': ['====== CC1101 868 MHz CONFIGURATION ======', 'Module:       CC1101 868 MHz', 'Module max TX:10 dBm nominal', 'Frequency:    868.00 MHz', 'Bit Rate:     250.0 kbps', 'Freq Dev:     127.0 kHz', 'RX Bandwidth: 541.67 kHz', 'TX Power:     10 dBm', 'Preamble:     128 bits', 'Sync Word:    0xD391', 'CRC:          Enabled', 'Modulation:   2FSK', 'Data shaping: NONE', 'Encoding:     NRZ', 'Packet mode:  VARIABLE', 'Packet len:   64', 'Address filt: OFF', 'Node addr:    0x01'], 'uart': [{'lines': {'COM32': [], 'COM31': ['====== CC1101 868 MHz CONFIGURATION ======', 'Module:       CC1101 868 MHz', 'Module max TX:10 dBm nominal', 'Frequency:    868.00 MHz', 'Bit Rate:     250.0 kbps', 'Freq Dev:     127.0 kHz', 'RX Bandwidth: 541.67 kHz', 'TX Power:     10 dBm', 'Preamble:     128 bits', 'Sync Word:    0xD391', 'CRC:          Enabled', 'Modulation:   2FSK', 'Data shaping: NONE', 'Encoding:     NRZ', 'Packet mode:  VARIABLE', 'Packet len:   64', 'Address filt: OFF', 'Node addr:    0x01']}, 'raw': [{'port': 'COM31', 'perf_counter_ns': 3073043651628900, 'hex': '3d3d3d3d3d3d2043433131303120383638204d487a20434f4e46494755524154494f4e203d3d3d3d3d3d0d0a4d6f64756c653a2020202020202043433131303120383638204d487a0d0a4d6f64756c65206d61782054583a31302064426d206e6f6d696e616c0d0a4672657175656e63793a202020203836382e3030204d487a0d0a42697420526174653a20202020203235302e30206b6270730d0a46726571204465763a20202020203132372e30206b487a0d0a52582042616e6477696474683a203534312e3637206b487a0d0a545820506f7765723a202020202031302064426d0d0a507265616d626c653a202020202031323820626974730d0a53796e6320576f72643a202020203078443339310d0a4352433a20202020202020202020456e61626c65640d0a4d6f64756c6174696f6e3a2020203246534b0d0a446174612073686170696e673a204e4f4e450d0a456e636f64696e673a20202020204e525a0d0a5061636b6574206d6f64653a20205641524941424c450d0a5061636b6574206c656e3a20202036340d0a416464726573732066696c743a204f46460d0a4e6f646520616464723a20202020307830310d0a4272'}]}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}, {'lines': {'COM32': [], 'COM31': []}, 'raw': []}]})",
+  "partial_uart_hex": {
+    "COM32": "",
+    "COM31": "4272"
+  }
+}

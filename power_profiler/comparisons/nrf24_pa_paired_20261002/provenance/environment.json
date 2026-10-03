@@ -1,0 +1,9 @@
+{
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "packages": {
+    "ppk2-api": "0.9.2",
+    "pyserial": "3.5"
+  },
+  "source_script_location": ".tmp/",
+  "reproduction": "Restore the archived helper scripts under repository .tmp/ and run the analyzer with --candidate <campaign>/attempt_002 --output <NEW directory>. Then run the history audit with --audit <NEW directory>/audit.json --output <NEW history JSON>."
+}

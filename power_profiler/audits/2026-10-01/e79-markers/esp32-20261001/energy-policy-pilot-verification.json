@@ -1,0 +1,179 @@
+{
+  "schema_version": 2,
+  "created_utc": "2026-10-01T16:20:00.877234+00:00",
+  "session_dir": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261001_191322_933884_paired_pilot_radio_ebyte_e79_cc1352p",
+  "result_dir": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261001_191322_933884_paired_pilot_radio_ebyte_e79_cc1352p\\paired_result\\20261001_191323_102311_e79_paired_pilot",
+  "ui_start": true,
+  "software_tests_passed": 412,
+  "history_policy": "energy_relative_v2",
+  "energy_history_relative_tolerance": 0.0001,
+  "replay_tolerance_uA": 1e-06,
+  "fixture": {
+    "tx_radio_port": "COM20",
+    "rx_radio_port": "COM19",
+    "tx_ppk_port": "COM10",
+    "rx_ppk_port": "COM11",
+    "tx_voltage_mv": 3300,
+    "rx_voltage_mv": 3300,
+    "tx_identity": "E79 via ESP32 COM20 (08:92:72:9A:C2:60), PPK COM10 E753C4E81F3D; RX on/off current mapping verified 2026-10-01; E79 rail only, ESP32 excluded",
+    "rx_identity": "E79 via ESP32 COM19 (08:92:72:9A:BF:E8), PPK COM11 CD2D332DB09A; RX on/off current mapping verified 2026-10-01; E79 rail only, ESP32 excluded",
+    "voltage_confirmed": true,
+    "voltage_provenance": "Operator confirmed external 3.3 V at both PPK VIN; only each E79 radio is powered through its PPK, ESP32 consumption excluded. Local E79 DIO17 to own PPK D0, common GND and 3.3 V digital reference. Mapping verified by RX ON/OFF current steps.",
+    "interface_label": "ESP32",
+    "ppk_mode": "ampere",
+    "integration_mode": "radio_markers",
+    "marker_totals_only": true,
+    "filter_aware_totals": true,
+    "filter_history_policy": "energy_relative_v2",
+    "profile_id": "RADIO_EBYTE_E79_CC1352P"
+  },
+  "planned_transfers": 5,
+  "measured_transfers": 2,
+  "received_packets": 2,
+  "valid_pair_prefix": 1,
+  "accepted_pilot_batches": 0,
+  "accepted_campaign_pairs": 0,
+  "campaign_105_started": false,
+  "failed_rx_proof": {
+    "schema_version": 2,
+    "method": "bounded_filter_replay_marker_total",
+    "decoder_reference": "ppk2-api 0.9.2 / Nordic serialDevice.ts getAdcResult",
+    "valid": false,
+    "reasons": [
+      "Counter discontinuity touches the guard, pulse or falling boundary",
+      "Uncertain history overlaps the local marker guard",
+      "Uncertain-history energy interval exceeds the 0.01% software budget"
+    ],
+    "warnings": [
+      "286 counter transition anomalies outside the guarded interval; retained without repair"
+    ],
+    "window_samples": [
+      25354,
+      25496
+    ],
+    "guard_window_samples": [
+      25351,
+      25496
+    ],
+    "guard_qa_includes_stop": true,
+    "sample_rate_hz": 100000,
+    "voltage_mv": 3300.0,
+    "wire_sha256": "d32488572372b2137f6c522207b4a383d2cc1d044b9e72611b3dc8e57b675c07",
+    "wire_sample_count": 97280,
+    "captured_sample_count": 97280,
+    "range_code": null,
+    "range_counts_guard": {
+      "3": 132,
+      "2": 13
+    },
+    "constant_range_guard": false,
+    "counter_anomaly_indices_guard": [
+      25351,
+      25352
+    ],
+    "outside_counter_anomaly_count": 286,
+    "invalid_range_indices_guard": [],
+    "outside_invalid_range_count": 0,
+    "bit17_indices_guard": [],
+    "outside_bit17_count": 0,
+    "nonfinite_current_indices_guard": [],
+    "wire_logic_match_full_capture": true,
+    "wire_logic_mismatch_count": 0,
+    "marker_window_complete": true,
+    "calibration_valid": true,
+    "calibration_sha256": "a4db456cec97e8e2492b063879ef443c258948ade0167e4b75281ba9ba1796f9",
+    "filter_parameters": {
+      "alpha": 0.18,
+      "alpha5": 0.06,
+      "samples": 3
+    },
+    "filter_initial_state": {
+      "rolling_avg": null,
+      "rolling_avg4": null,
+      "prev_range": null,
+      "after_spike": 0,
+      "consecutive_range_samples": 0
+    },
+    "filter_tolerance_uA": 1e-06,
+    "filter_replay_max_difference_uA": 0.0,
+    "filter_replay_compared_samples": 97280,
+    "filter_replay_match": true,
+    "filter_replay_nonfinite_indices": [],
+    "global_adc_domain_values": 81920,
+    "global_adc_bounds_A": [
+      -0.016547240355314033,
+      24.351354316430132
+    ],
+    "global_state_bounds_A": [
+      -0.016547240355314033,
+      24.35135431643014
+    ],
+    "global_state_invariant": true,
+    "history_bound_valid": false,
+    "history_interval_max_width_uA": 16384977.006782541,
+    "combined_error_bound_uA": 16384977.006782543,
+    "history_clean_suffix_start": 25353,
+    "history_last_suspect_index": 25352,
+    "history_suspect_count": 105,
+    "history_state_converged_samples": {
+      "fast": null,
+      "slow": null
+    },
+    "history_interval_algorithm": "binary64_monotone_endpoints_with_control_state_union",
+    "charge_interval_uC": [
+      9.964944139256149,
+      493.21137260357625
+    ],
+    "energy_interval_uJ": [
+      32.88431565954528,
+      1627.5975295918017
+    ],
+    "charge_interval_width_uC": 483.24642846432016,
+    "energy_interval_width_uJ": 1594.7132139322566,
+    "charge_total_uC": null,
+    "energy_total_uJ": null,
+    "limitation": "Certifies recorded-data decoding and bounds prior filter-state influence, not analog accuracy during range switching. Modulo-64 continuity cannot detect losses of multiples of 64. Whole-endpoint local marker energy; no baseline/excess or internal RF-only claim.",
+    "history_policy": "energy_relative_v2",
+    "energy_history_relative_tolerance": 0.0001,
+    "energy_history_relative_bound": 48.49464499862146,
+    "energy_history_budget_valid": false,
+    "energy_history_budget_scope": "Software history-state uncertainty only; not instrument accuracy",
+    "global_state_invariant_expansions": 2
+  },
+  "independent_audit": {
+    "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261001_191322_933884_paired_pilot_radio_ebyte_e79_cc1352p\\diagnostics\\energy-independent-audit.json",
+    "sha256": "7f6a3cc522921b2d8509ad338e26b6944567858b919b79e7c63836110bf41811",
+    "captured_roles": 4,
+    "matching_verdicts": 4,
+    "full_replay_max_difference_uA": 0
+  },
+  "counter_diagnostic": {
+    "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261001_191322_933884_paired_pilot_radio_ebyte_e79_cc1352p\\diagnostics\\rx-run2-counter-diagnostic.json",
+    "sha256": "241f7dfce465a31d8a27cfaaccdac4d47e5b1643a41f6b8b5347be27c583681e"
+  },
+  "source_sha256": {
+    "power_profiler/radio_power_profiler/filter_marker_totals.py": "5e857bb4dc2848917564e9a2f47cbd7bf1316bb0efc0107d5f17aa5acafd5c24",
+    "power_profiler/radio_power_profiler/marker_analysis.py": "5078e9ff49ca0b06473cd0228e1800ea485b4e38415e0e0329c0f80b0be1a5ad",
+    "power_profiler/radio_power_profiler/paired_runner.py": "a9eb70c36f4410547c35d88ee0cfd1821df86ad7a9a7dc0f5fc8e30620df2ad1",
+    "power_profiler/radio_power_profiler/paired_ppk.py": "7e011ffc8b8747ee9a501961b988652006a3f19c81b3d77a02b790ce715723a5",
+    "power_profiler/radio_power_profiler/web_app.py": "bdbeb634687ec96556b73a91f344389c8e4c90fe5a0e3497c44eb40fdc0ac2eb",
+    "power_profiler/tools/audit_filter_marker_totals.py": "dcd7dad11c7b0c1ded06c3b0a32e2f815d9ced49aa2a3246f978d132ca675542",
+    "power_profiler/tools/summarize_paired_campaign.py": "a09c31d627fe7967fbed72ac56f8a7cd35705dc61181dded111eb671689c72de",
+    "power_profiler/firmware/e79_tx_marker_dio17/esp32-20261001/software-tests-412.log": "39111464ee651c313aa82b5af6473d37a78e4abc45da1ce9c551db48d22b6edb"
+  },
+  "pairing_sha256": "7df2c31a5dfde5e831973f00f4bc9e998b08ade69ddd761f699c2a996e1e5d3e",
+  "manifest_sha256": "3e0524f476c2425917ff7659d4c5bdc01406a5e9c99968aacacfb969de057699",
+  "ppk_guard_observed_after_completion": {
+    "active": true,
+    "ports": {
+      "tx": "COM10",
+      "rx": "COM11"
+    },
+    "error": ""
+  },
+  "limitations": [
+    "Software history budget is not PPK analog accuracy.",
+    "Partial pilot prefixes are not promoted to campaign statistics.",
+    "Counter anomalies in the local marker guard remain unconditional failures."
+  ]
+}

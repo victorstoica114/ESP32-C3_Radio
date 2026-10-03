@@ -17,6 +17,9 @@ the ESP32-C3 Radio project.
 Local KiCad-generated files such as `fp-info-cache`, `*.kicad_prl`,
 `untitled.kicad_sch`, and `desktop.ini` are ignored.
 
+The [module supply-voltage list](TENSIUNI_ALIMENTARE.md) is a simple table
+of the radio modules and their 3.3 V or 5 V supply voltages.
+
 ## Board Images
 
 | Module | Image |

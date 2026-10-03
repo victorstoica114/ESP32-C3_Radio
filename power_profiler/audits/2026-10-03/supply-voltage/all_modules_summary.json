@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-03",
+  "implementations": 28,
+  "concordant": 20,
+  "neconcordant": 8,
+  "source_rows_checked": 8511,
+  "physical_supply_status": "operator_confirmed",
+  "matrix": "all_modules.csv",
+  "result": "All recorded voltages are 3300 mV. Eight actual 5000 mV supplies mismatch; twenty actual 3300 mV supplies match.",
+  "numerical_results_rewritten": false,
+  "sha256": {
+    "all_modules.csv": "ec7711f32cc1c984229545f9f74eb16616df7c9ef83e770013c387a188febe71",
+    "supply_reference.json": "d84e2c40792180b0bc374acc2c1ea16b6d532119ba1e6a006029dc08dadf76be",
+    "evidence.json": "4daa1cac156a115f0b143f27cc90e6edbb75a558e55429d405626e5eb0ccaeb8",
+    "matching_3v3_evidence.json": "365cf6b95a9786be5e2c48a27ea69e82ec3b72753d015a4c27a3f7b10d88ec63"
+  }
+}

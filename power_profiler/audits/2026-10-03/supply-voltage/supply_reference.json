@@ -1,0 +1,151 @@
+{
+  "date": "2026-10-03",
+  "status": "operator_confirmed",
+  "source": "Explicit user confirmation in this task; PCB/TENSIUNI_ALIMENTARE.md",
+  "operator_statement": "ppK este montat in serie cu modulul Radio. modulele se alimenteaza la 5V sau 3V3 conform listei facuta de tine.",
+  "measurement_point": "PPK inserted at the current-measurement jumper, in series with the radio module or radio carrier input specified by the table.",
+  "scope": "Physical supply reference for the existing calculations, including historical captures; confirmation is from the operator, not a new voltmeter recording.",
+  "table_sha256": "b9a40b92313a28bc3bd660b68392998c02cee80f96c376ef06f49427e22522bd",
+  "modules": [
+    {
+      "slug": "cc1101_v1_433",
+      "module": "CC1101 V1, 433 MHz",
+      "supply_voltage_mv": 3300
+    },
+    {
+      "slug": "cc1101_v2_868",
+      "module": "CC1101 V2, 868 MHz",
+      "supply_voltage_mv": 3300
+    },
+    {
+      "slug": "ebyte_e07_400m10s",
+      "module": "Ebyte E07-400M10S",
+      "supply_voltage_mv": 3300
+    },
+    {
+      "slug": "ebyte_e07_433m20s",
+      "module": "Ebyte E07-433M20S, PA/LNA",
+      "supply_voltage_mv": 3300
+    },
+    {
+      "slug": "ebyte_e07_900mm10s",
+      "module": "Ebyte E07-900MM10S",
+      "supply_voltage_mv": 3300
+    },
+    {
+      "slug": "ebyte_e22_400m30s",
+      "module": "Ebyte E22-400M30S",
+      "supply_voltage_mv": 5000
+    },
+    {
+      "slug": "e28_sx1280",
+      "module": "Ebyte E28-2G4M12XX, SPI / SX1280",
+      "supply_voltage_mv": 3300
+    },
+    {
+      "slug": "e280",
+      "module": "Ebyte E280-2G4T12S, UART / SX1280",
+      "supply_voltage_mv": 5000
+    },
+    {
+      "slug": "ebyte_e32_433t20d",
+      "module": "Ebyte E32-433T20D",
+      "supply_voltage_mv": 5000
+    },
+    {
+      "slug": "ebyte_e32_433t33d",
+      "module": "Ebyte E32-433T33D",
+      "supply_voltage_mv": 5000
+    },
+    {
+      "slug": "ebyte_e32_868t20d",
+      "module": "Ebyte E32-868T20D",
+      "supply_voltage_mv": 5000
+    },
+    {
+      "slug": "ebyte_e32_868t30d",
+      "module": "Ebyte E32-868T30D",
+      "supply_voltage_mv": 5000
+    },
+    {
+      "slug": "ebyte_e79_400dm2005s",
+      "module": "Ebyte E79-400DM2005S, interfață ESP32",
+      "supply_voltage_mv": 3300
+    },
+    {
+      "slug": "ebyte_e79_ch9340",
+      "module": "Ebyte E79-400DM2005S, interfață CH9340C / CH340",
+      "supply_voltage_mv": 3300
+    },
+    {
+      "slug": "hc12",
+      "module": "HC-12",
+      "supply_voltage_mv": 5000
+    },
+    {
+      "slug": "nrf24l01",
+      "module": "nRF24L01 / nRF24L01+",
+      "supply_voltage_mv": 3300
+    },
+    {
+      "slug": "nrf24l01_pa",
+      "module": "nRF24L01 PA/LNA",
+      "supply_voltage_mv": 3300
+    },
+    {
+      "slug": "ra01h_sx1276",
+      "module": "Ai-Thinker RA-01H / SX1276",
+      "supply_voltage_mv": 3300
+    },
+    {
+      "slug": "ra01sh_sx1262",
+      "module": "Ai-Thinker RA-01SH / SX1262",
+      "supply_voltage_mv": 3300
+    },
+    {
+      "slug": "ra02_sx1278",
+      "module": "Ai-Thinker RA-02 / SX1278",
+      "supply_voltage_mv": 3300
+    },
+    {
+      "slug": "ra02_sx1278_2cap",
+      "module": "Ai-Thinker RA-02 / SX1278, varianta +2Cap",
+      "supply_voltage_mv": 3300
+    },
+    {
+      "slug": "ra08_asr6601",
+      "module": "Ai-Thinker RA-08 / ASR6601, platformă de dezvoltare",
+      "supply_voltage_mv": 3300
+    },
+    {
+      "slug": "ra09_stm32wle5",
+      "module": "Ai-Thinker RA-09 / STM32WLE5, placă proiectată de autor",
+      "supply_voltage_mv": 3300
+    },
+    {
+      "slug": "sx1278_naked",
+      "module": "SX1278, modul ne-ecranat / naked",
+      "supply_voltage_mv": 3300
+    },
+    {
+      "slug": "sx1278_shielded",
+      "module": "SX1278, modul ecranat / shielded",
+      "supply_voltage_mv": 3300
+    },
+    {
+      "slug": "sx1278_pcb_2cap",
+      "module": "SX1278, PCB +2Cap",
+      "supply_voltage_mv": 3300
+    },
+    {
+      "slug": "sx1278_adafruit_level_shifter",
+      "module": "SX1278, placă tip Adafruit cu level shifter",
+      "supply_voltage_mv": 5000
+    },
+    {
+      "slug": "xl1276_d01_sx1276",
+      "module": "XL1276-D01 / SX1276",
+      "supply_voltage_mv": 3300
+    }
+  ]
+}

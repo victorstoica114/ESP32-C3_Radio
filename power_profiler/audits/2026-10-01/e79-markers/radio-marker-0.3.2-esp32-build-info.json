@@ -1,0 +1,17 @@
+{
+    "firmware_version":  "0.3.2",
+    "uart_pinout":  "ESP32",
+    "uart_baud":  1000000,
+    "uart_tx_dio":  13,
+    "uart_rx_dio":  12,
+    "source_sha256":  "85537623c0b2cb3d39c648522254bd5a1b915bf4327422b02a43e4690bf3167f",
+    "syscfg_sha256":  "7f60030a712fabaa640e0723bb0990217b2f9c3899deecb58dfdfd9705dd1872",
+    "artifact_sha256":  {
+                            "e79_at_modem.bin":  "9d1773e6769269fcaaed65de04ddd54e6e4cdcabcb2d70aecf55bb1821e41c96",
+                            "e79_at_modem.hex":  "85dd53f2771fb9d1ec553188ba0f178fadecf1ee567e4fc25155844d34263547",
+                            "e79_at_modem.out":  "c9f18426017fc0c5f351a66370c4159a2a7d695a0f9dbcc97faee5de02d35295",
+                            "e79_at_modem.map":  "442cdf8123a9776a58808a0bd2da2d12ad0aa3a295e1836b32ac5a0319521cf9",
+                            "ti_drivers_config.h":  "c0db6f72bc6fb2bb036f2d957281dc95b50479fdc8a7f0f71b74c1e2d2dad9c6"
+                        },
+    "validation":  "Compiled and generated UART mapping checked; RF marker requires bench validation"
+}

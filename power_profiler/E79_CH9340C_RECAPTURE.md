@@ -1,5 +1,7 @@
 # Instrucțiuni pentru GPT/operator: recaptură E79 CH9340C TX
 
+**Actualizare 30 septembrie 2026:** campania a fost executată pe un montaj alternativ **CH340**, cu schimbarea DUT-ului măsurat. Toate cele 315 capturi au fost [verificate independent din RAW](audits/2026-09-30/README.md). Protocolul de mai jos păstrează planul inițial; nu este o cerere de repetare a campaniei deja încheiate. Datele CH340 rămân distincte de seria istorică CH9340C.
+
 Continuă pe PC-ul conectat la bancul PPK2. Obiectivul este obținerea și păstrarea a **315 capturi TX E79 pe montajul cu CH9340C**, cu date RAW și analiza fragmentelor. Folosește codul actual din acest repository, care raportează `per_frame_modeled_airtime_v1`. Acest document descrie operațiile de executat; redactarea și verificarea lui nu au pornit hardware și nu reprezintă măsurători noi.
 
 ## Context și limite

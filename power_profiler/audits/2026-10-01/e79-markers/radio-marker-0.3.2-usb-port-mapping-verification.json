@@ -1,0 +1,406 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-01T09:07:00.611284+00:00",
+  "mapping_record_created_utc": "2026-10-01T08:57:36.690547+00:00",
+  "scope": "Offline verification of the UART-to-PPK electrical mapping at the recorded USB configuration; no hardware/API access during this audit.",
+  "verified": true,
+  "sources": {
+    "mapping_record": {
+      "path": ".tmp/e79_radio_markers_20261001/e79-ppk-mapping-115751.json",
+      "bytes": 2358,
+      "sha256": "2bdcaf1b55370bdecee2afb54a3994baa1e4c830329e9afb3c85422aef7b8927"
+    },
+    "mapping_command_script": {
+      "path": ".tmp/e79_radio_markers_20261001/map_e79_new_usb_ports.py",
+      "bytes": 3324,
+      "sha256": "dc900b846c0f88c129594c75f556e58533c87ad685e4d7258585c9f8c3469661"
+    },
+    "historical_calibration_pairing": {
+      "path": "power_profiler/web_sessions/20261001_112220_851099_paired_campaign_radio_ebyte_e79_cc1352p/paired_result/paired_s32_GFSK200_p13/20261001_112221_018244_e79_paired_pilot/pairing.json",
+      "bytes": 68556,
+      "sha256": "2b1d126001933c55a32754c6b18f8d236a9559b24b0ff0b6c04da4d336badc64"
+    }
+  },
+  "measurement_context": {
+    "external_voltage_mv": 3300,
+    "ppk_mode": "ampere",
+    "source_status": "ok",
+    "source_reports_rf_transmitted": false,
+    "mapping_script_requested_transmit_commands": 0,
+    "controls": "AT+RX=OFF / AT+RX=ON; stages wait 150 ms then collect about 350 ms; UART COM14 and COM16 are controlled separately."
+  },
+  "method": {
+    "wire_format": "Little-endian 32-bit words; ADC=(word&0x3fff)*4, range=(word>>14)&7, counter=(word>>18)&63. No range clamping.",
+    "adc_formula": "x=(ADC-O[range])*(1.8/163840/R[range]); current_uA=UG[range]*(x*(GS[range]*x+GI[range])+(S[range]*3.3+I[range]))*1e6",
+    "decoder": "Independent scalar calculation from wire words and stored PPK modifiers, without ppk2-api state, IIR filtering, interpolation or RAW repair.",
+    "robustness": "Compare all valid-word medians against medians excluding both endpoints of every non-unit modulo-64 counter transition, bit17-set words, and the first three samples after every range change.",
+    "decision_rule": {
+      "controlled_ppk_median_increase_min_uA": 2000,
+      "other_ppk_median_absolute_change_max_uA": 100
+    },
+    "limits_convention": "byte_start inclusive, byte_end exclusive; word boundaries must be 4-byte aligned; all ranges must be 0..4; sample counts must match the original report."
+  },
+  "ppks": {
+    "COM10": {
+      "historical_role": "tx",
+      "serial_number_from_historical_metadata": "E753C4E81F3D",
+      "wire": {
+        "path": ".tmp/e79_radio_markers_20261001/e79-ppk-mapping-115751-COM10.ppk2.bin",
+        "bytes": 5160960,
+        "sha256": "82c68d437051c30d9b93499797fde938cb6f345bb2cbb20cbc7a27e17a314132"
+      },
+      "wire_words": 1290240,
+      "calibration_modifiers": {
+        "R": {
+          "0": 1004.4283,
+          "1": 102.0964,
+          "2": 10.2947,
+          "3": 0.9711,
+          "4": 0.0563
+        },
+        "O": {
+          "0": 128.4392,
+          "1": 89.0518,
+          "2": 75.9227,
+          "3": 59.659,
+          "4": 102.5176
+        },
+        "GS": {
+          "0": 0.0,
+          "1": 135.0546,
+          "2": 21.4405,
+          "3": 2.7525,
+          "4": 0.083
+        },
+        "GI": {
+          "0": 1.0,
+          "1": 0.9634,
+          "2": 0.9546,
+          "3": 0.9478,
+          "4": 0.954
+        },
+        "S": {
+          "0": -5e-08,
+          "1": -3.67e-07,
+          "2": -2.994e-06,
+          "3": -3.2098e-05,
+          "4": 0.001612594
+        },
+        "I": {
+          "0": 1.86e-07,
+          "1": 1.214e-06,
+          "2": 7.0464e-05,
+          "3": -0.000147667,
+          "4": -0.005233104
+        },
+        "UG": {
+          "0": 1.0,
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0
+        }
+      },
+      "source_calibrated_flag": "0",
+      "calibration_sha256": "9a6ba7885f61f78c66d58527b28e030dfdb3d8916b20e15818e41e26a62e84f3"
+    },
+    "COM11": {
+      "historical_role": "rx",
+      "serial_number_from_historical_metadata": "CD2D332DB09A",
+      "wire": {
+        "path": ".tmp/e79_radio_markers_20261001/e79-ppk-mapping-115751-COM11.ppk2.bin",
+        "bytes": 4935680,
+        "sha256": "340fd3da748763301af0c6d14b5c151edeeef1a4fcdecc0f1254aa40dba1b630"
+      },
+      "wire_words": 1233920,
+      "calibration_modifiers": {
+        "R": {
+          "0": 1000.5958,
+          "1": 101.4006,
+          "2": 10.2802,
+          "3": 0.9653,
+          "4": 0.0563
+        },
+        "O": {
+          "0": 119.5062,
+          "1": 81.7746,
+          "2": 70.1205,
+          "3": 54.0141,
+          "4": 93.5048
+        },
+        "GS": {
+          "0": 0.0,
+          "1": 119.2336,
+          "2": 17.9855,
+          "3": 2.5476,
+          "4": 0.0742
+        },
+        "GI": {
+          "0": 1.0,
+          "1": 0.9664,
+          "2": 0.9627,
+          "3": 0.9512,
+          "4": 0.9594
+        },
+        "S": {
+          "0": 6.5e-08,
+          "1": 7.96e-07,
+          "2": 8.466e-06,
+          "3": 8.5441e-05,
+          "4": 0.003739633
+        },
+        "I": {
+          "0": -8.6e-08,
+          "1": -1.846e-06,
+          "2": 3.1432e-05,
+          "3": -0.000414452,
+          "4": -0.011407101
+        },
+        "UG": {
+          "0": 1.0,
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0
+        }
+      },
+      "source_calibrated_flag": "0",
+      "calibration_sha256": "a4db456cec97e8e2492b063879ef443c258948ade0167e4b75281ba9ba1796f9"
+    }
+  },
+  "stages": [
+    {
+      "label": "both_rx_off",
+      "host_ns": 2969225888687800,
+      "ppks": {
+        "COM10": {
+          "byte_start": 4206592,
+          "byte_end": 4345856,
+          "word_start": 1051648,
+          "word_stop": 1086464,
+          "sample_count": 34816,
+          "bounds_and_count_valid": true,
+          "raw_range_counts": {
+            "2": 30370,
+            "3": 4446
+          },
+          "invalid_range_words": 0,
+          "bit17_words": 0,
+          "counter_anomalous_transitions_touching_window": 30,
+          "direct_adc_median_uA": 4429.328993508331,
+          "robust_direct_adc_median_uA": 4429.328993508331,
+          "robust_samples": 32710,
+          "range_dependency_excluded_samples": 2076,
+          "original_filtered_median_uA": 4429.328993508331,
+          "direct_minus_original_median_uA": 0.0,
+          "robust_minus_all_valid_median_uA": 0.0
+        },
+        "COM11": {
+          "byte_start": 3985408,
+          "byte_end": 4128768,
+          "word_start": 996352,
+          "word_stop": 1032192,
+          "sample_count": 35840,
+          "bounds_and_count_valid": true,
+          "raw_range_counts": {
+            "2": 31849,
+            "3": 3991
+          },
+          "invalid_range_words": 0,
+          "bit17_words": 0,
+          "counter_anomalous_transitions_touching_window": 42,
+          "direct_adc_median_uA": 4434.055037867738,
+          "robust_direct_adc_median_uA": 4434.055037867738,
+          "robust_samples": 33597,
+          "range_dependency_excluded_samples": 2205,
+          "original_filtered_median_uA": 4438.818436486068,
+          "direct_minus_original_median_uA": -4.763398618330029,
+          "robust_minus_all_valid_median_uA": 0.0
+        }
+      }
+    },
+    {
+      "label": "COM14_rx_on_COM16_rx_off",
+      "host_ns": 2969226530129600,
+      "ppks": {
+        "COM10": {
+          "byte_start": 4452352,
+          "byte_end": 4603904,
+          "word_start": 1113088,
+          "word_stop": 1150976,
+          "sample_count": 37888,
+          "bounds_and_count_valid": true,
+          "raw_range_counts": {
+            "2": 33040,
+            "3": 4848
+          },
+          "invalid_range_words": 0,
+          "bit17_words": 0,
+          "counter_anomalous_transitions_touching_window": 32,
+          "direct_adc_median_uA": 4429.328993508331,
+          "robust_direct_adc_median_uA": 4429.328993508331,
+          "robust_samples": 35596,
+          "range_dependency_excluded_samples": 2260,
+          "original_filtered_median_uA": 4429.328993508331,
+          "direct_minus_original_median_uA": 0.0,
+          "robust_minus_all_valid_median_uA": 0.0
+        },
+        "COM11": {
+          "byte_start": 4243456,
+          "byte_end": 4382720,
+          "word_start": 1060864,
+          "word_stop": 1095680,
+          "sample_count": 34816,
+          "bounds_and_count_valid": true,
+          "raw_range_counts": {
+            "3": 34816
+          },
+          "invalid_range_words": 0,
+          "bit17_words": 0,
+          "counter_anomalous_transitions_touching_window": 0,
+          "direct_adc_median_uA": 7088.597604166183,
+          "robust_direct_adc_median_uA": 7088.597604166183,
+          "robust_samples": 34816,
+          "range_dependency_excluded_samples": 0,
+          "original_filtered_median_uA": 7088.597604166183,
+          "direct_minus_original_median_uA": 0.0,
+          "robust_minus_all_valid_median_uA": 0.0
+        }
+      }
+    },
+    {
+      "label": "COM14_rx_off_COM16_rx_on",
+      "host_ns": 2969227202881300,
+      "ppks": {
+        "COM10": {
+          "byte_start": 4730880,
+          "byte_end": 4870144,
+          "word_start": 1182720,
+          "word_stop": 1217536,
+          "sample_count": 34816,
+          "bounds_and_count_valid": true,
+          "raw_range_counts": {
+            "3": 34816
+          },
+          "invalid_range_words": 0,
+          "bit17_words": 0,
+          "counter_anomalous_transitions_touching_window": 0,
+          "direct_adc_median_uA": 7070.211115460884,
+          "robust_direct_adc_median_uA": 7070.211115460884,
+          "robust_samples": 34816,
+          "range_dependency_excluded_samples": 0,
+          "original_filtered_median_uA": 7070.211115460884,
+          "direct_minus_original_median_uA": 0.0,
+          "robust_minus_all_valid_median_uA": 0.0
+        },
+        "COM11": {
+          "byte_start": 4513792,
+          "byte_end": 4657152,
+          "word_start": 1128448,
+          "word_stop": 1164288,
+          "sample_count": 35840,
+          "bounds_and_count_valid": true,
+          "raw_range_counts": {
+            "2": 31852,
+            "3": 3988
+          },
+          "invalid_range_words": 0,
+          "bit17_words": 0,
+          "counter_anomalous_transitions_touching_window": 36,
+          "direct_adc_median_uA": 4434.055037867738,
+          "robust_direct_adc_median_uA": 4434.055037867738,
+          "robust_samples": 33633,
+          "range_dependency_excluded_samples": 2173,
+          "original_filtered_median_uA": 4438.818436486068,
+          "direct_minus_original_median_uA": -4.763398618330029,
+          "robust_minus_all_valid_median_uA": 0.0
+        }
+      }
+    },
+    {
+      "label": "both_rx_on",
+      "host_ns": 2969227843508500,
+      "ppks": {
+        "COM10": {
+          "byte_start": 4968448,
+          "byte_end": 5128192,
+          "word_start": 1242112,
+          "word_stop": 1282048,
+          "sample_count": 39936,
+          "bounds_and_count_valid": true,
+          "raw_range_counts": {
+            "3": 39936
+          },
+          "invalid_range_words": 0,
+          "bit17_words": 0,
+          "counter_anomalous_transitions_touching_window": 0,
+          "direct_adc_median_uA": 7070.211115460884,
+          "robust_direct_adc_median_uA": 7070.211115460884,
+          "robust_samples": 39936,
+          "range_dependency_excluded_samples": 0,
+          "original_filtered_median_uA": 7070.211115460884,
+          "direct_minus_original_median_uA": 0.0,
+          "robust_minus_all_valid_median_uA": 0.0
+        },
+        "COM11": {
+          "byte_start": 4767744,
+          "byte_end": 4907008,
+          "word_start": 1191936,
+          "word_stop": 1226752,
+          "sample_count": 34816,
+          "bounds_and_count_valid": true,
+          "raw_range_counts": {
+            "3": 34816
+          },
+          "invalid_range_words": 0,
+          "bit17_words": 0,
+          "counter_anomalous_transitions_touching_window": 0,
+          "direct_adc_median_uA": 7088.597604166183,
+          "robust_direct_adc_median_uA": 7088.597604166183,
+          "robust_samples": 34816,
+          "range_dependency_excluded_samples": 0,
+          "original_filtered_median_uA": 7088.597604166183,
+          "direct_minus_original_median_uA": 0.0,
+          "robust_minus_all_valid_median_uA": 0.0
+        }
+      }
+    }
+  ],
+  "mapping": [
+    {
+      "uart_port_at_recording": "COM16",
+      "ppk_port_at_recording": "COM10",
+      "ppk_serial_from_historical_metadata": "E753C4E81F3D",
+      "historical_role": "tx",
+      "rx_off_median_uA": 4429.328993508331,
+      "rx_on_median_uA": 7070.211115460884,
+      "controlled_channel_delta_uA": 2640.8821219525526,
+      "other_ppk": "COM11",
+      "other_channel_delta_uA": 0.0,
+      "both_on_repeat_difference_uA": 0.0,
+      "verified": true
+    },
+    {
+      "uart_port_at_recording": "COM14",
+      "ppk_port_at_recording": "COM11",
+      "ppk_serial_from_historical_metadata": "CD2D332DB09A",
+      "historical_role": "rx",
+      "rx_off_median_uA": 4434.055037867738,
+      "rx_on_median_uA": 7088.597604166183,
+      "controlled_channel_delta_uA": 2654.5425662984453,
+      "other_ppk": "COM10",
+      "other_channel_delta_uA": 0.0,
+      "both_on_repeat_difference_uA": 0.0,
+      "verified": true
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "This is a dated physical-channel mapping snapshot. USB COM numbers can change again after reconnection; it does not assert the present port names after subsequent user moves.",
+    "PPK serials and calibration modifiers come from the accepted first-batch endpoint metadata and the supplied premise that COM10/COM11 remain those same PPKs; this offline audit does not enumerate live USB devices.",
+    "No new IEEE/silicon identity was read. Mapping COM16 to the historical TX supply channel and COM14 to the historical RX supply channel does not independently read or authenticate the MCU identity.",
+    "Counter anomalies occur in RX-off windows and are reported. They are not repaired, and no loss percentage or waveform-wide integrity claim is inferred. Robust medians establish a supply-current step, not precision energy or time alignment.",
+    "Direct ADC medians can differ slightly from the original ppk2-api filtered medians near range changes. Both methods lead to the same channel mapping.",
+    "The script requests RX state changes only; this audit does not independently monitor radiated RF."
+  ]
+}

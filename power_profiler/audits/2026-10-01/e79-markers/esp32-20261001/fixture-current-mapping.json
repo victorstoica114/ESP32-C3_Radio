@@ -1,0 +1,115 @@
+{
+  "created_utc": "2026-10-01T13:53:19.752021+00:00",
+  "scope": "E79 only; ESP32 USB powered; external 3300 mV confirmed by operator",
+  "method": "Steady current with RX disabled separately; diagnostic only, no RF transmission",
+  "ports": [
+    {
+      "port": "COM1",
+      "serial": null,
+      "vid": null,
+      "pid": null
+    },
+    {
+      "port": "COM10",
+      "serial": "E753C4E81F3D",
+      "vid": 6421,
+      "pid": 49162
+    },
+    {
+      "port": "COM11",
+      "serial": "CD2D332DB09A",
+      "vid": 6421,
+      "pid": 49162
+    },
+    {
+      "port": "COM19",
+      "serial": "08:92:72:9A:BF:E8",
+      "vid": 12346,
+      "pid": 4097
+    },
+    {
+      "port": "COM20",
+      "serial": "08:92:72:9A:C2:60",
+      "vid": 12346,
+      "pid": 4097
+    }
+  ],
+  "stages": [
+    {
+      "label": "both_on",
+      "commands": {
+        "COM19": "OK\r\n",
+        "COM20": "OK\r\n"
+      },
+      "ppks": {
+        "COM10": {
+          "n": 29816,
+          "median_uA": 7159.78272583444,
+          "mean_uA": 7481.206940533907
+        },
+        "COM11": {
+          "n": 29816,
+          "median_uA": 7088.597604166183,
+          "mean_uA": 7394.404592916637
+        }
+      }
+    },
+    {
+      "label": "COM19_off",
+      "commands": {
+        "COM19": "OK\r\n",
+        "COM20": "OK\r\n"
+      },
+      "ppks": {
+        "COM10": {
+          "n": 29816,
+          "median_uA": 7159.78272583444,
+          "mean_uA": 7463.312943900281
+        },
+        "COM11": {
+          "n": 29816,
+          "median_uA": 4376.945525130499,
+          "mean_uA": 4679.3730045739785
+        }
+      }
+    },
+    {
+      "label": "COM20_off",
+      "commands": {
+        "COM19": "OK\r\n",
+        "COM20": "OK\r\n"
+      },
+      "ppks": {
+        "COM10": {
+          "n": 29816,
+          "median_uA": 4536.013474435363,
+          "mean_uA": 4813.040825418505
+        },
+        "COM11": {
+          "n": 29816,
+          "median_uA": 7043.572960470082,
+          "mean_uA": 7382.8800434433615
+        }
+      }
+    },
+    {
+      "label": "both_on_restored",
+      "commands": {
+        "COM19": "OK\r\n",
+        "COM20": "OK\r\n"
+      },
+      "ppks": {
+        "COM10": {
+          "n": 29816,
+          "median_uA": 7114.991283952691,
+          "mean_uA": 7416.0455760231835
+        },
+        "COM11": {
+          "n": 29816,
+          "median_uA": 7043.572960470082,
+          "mean_uA": 7372.52201277637
+        }
+      }
+    }
+  ]
+}

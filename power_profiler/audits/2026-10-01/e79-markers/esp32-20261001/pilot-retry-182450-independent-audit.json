@@ -1,0 +1,1129 @@
+{
+  "schema_version": 1,
+  "tool": "audit_radio_marker_totals",
+  "result_root": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261001_182450_545613_paired_pilot_radio_ebyte_e79_cc1352p\\paired_result\\20261001_182450_774191_e79_paired_pilot",
+  "session_id": "20261001_182450_774191_e79_paired_pilot",
+  "official_status_unchanged": "failed",
+  "integration_mode_recorded": "radio_markers",
+  "acceptance_changed": false,
+  "sample_rate_hz": 100000,
+  "current_tolerance_uA": 1e-06,
+  "method": "Independent calibrated ADC integration with a constant-range three-sample dependency guard; no IIR correction, baseline subtraction, clipping or reindexing.",
+  "decoder_reference": "ppk2-api 0.9.2 get_adc_result: stateful outputs on range change and the following two samples; direct ADC otherwise.",
+  "edge_convention": "[first HIGH, first following LOW); QA includes the following LOW word and its incoming counter transition.",
+  "limitations": [
+    "This report does not accept a failed pair or establish delivery from a pulse.",
+    "Counter continuity is modulo 64, not a checksum or proof of zero sample loss.",
+    "Range changes fail this sufficient proof even if an alternative stateful analysis could validate them.",
+    "Baseline/excess energy is not calculated, including when baseline integrity is clean.",
+    "The current belongs to the whole measured endpoint, not an isolated internal RF block.",
+    "Local PPK clocks remain independent; widths need not match for separate TX/RX signals.",
+    "Voltage and calibration are taken from archived metadata, not remeasured by this audit."
+  ],
+  "sources": {
+    "pairing": {
+      "path": "pairing.json",
+      "bytes": 24229,
+      "sha256": "40c66360262890d924906d852666936581b671ca3ed7b4c3746f643752e52007"
+    }
+  },
+  "runs": [
+    {
+      "run_id": "run_00001",
+      "present_in_pairing": true,
+      "official_status_unchanged": "failed",
+      "delivery": {
+        "packet_received_recorded": true,
+        "tx_status_recorded": "analysis_review_required",
+        "rx_status_recorded": "analysis_review_required",
+        "source": "pairing.json; not inferred from energy or D0"
+      },
+      "roles": {
+        "tx": {
+          "role": "tx",
+          "total_energy_uJ": 57.128580629469056,
+          "total_proven": true,
+          "pulses": [
+            {
+              "window_samples": [
+                25152,
+                25330
+              ],
+              "duration_samples": 178,
+              "duration_ms": 1.78,
+              "guard_window_samples": [
+                25149,
+                25330
+              ],
+              "wire_qa": {
+                "checked_indices_inclusive": [
+                  25149,
+                  25330
+                ],
+                "counter_anomaly_indices": [],
+                "invalid_range_indices": [],
+                "bit17_set_indices": []
+              },
+              "range_counts_guard": {
+                "3": 181
+              },
+              "range_transitions_guard": [],
+              "constant_valid_range_guard": true,
+              "direct_adc_dependency_proven": true,
+              "adc_csv_max_difference_uA": 0.0,
+              "adc_csv_exact_match": true,
+              "adc_csv_within_tolerance": true,
+              "proof_passed": true,
+              "total_energy_uJ": 57.128580629469056,
+              "csv_total_energy_uJ": 57.128580629469056,
+              "reasons": [],
+              "range_transitions_including_boundary": [],
+              "counter_fault_context": [],
+              "adc_difference_indices": []
+            }
+          ],
+          "reasons": [],
+          "sources": {
+            "metadata": {
+              "path": "tx/metadata.json",
+              "bytes": 15618,
+              "sha256": "fd429d31c9a29719e3373f7294c5b06dc0e2fa7e40c1eb0e9d4c83c4087c86e7"
+            },
+            "wire": {
+              "path": "wire/run_00001/tx.ppk2.bin",
+              "bytes": 385024,
+              "sha256": "8acaa441bfa71204373c9a954901479ed628d2bc40806e86dbf47dab96535234"
+            },
+            "raw_csv_gzip": {
+              "path": "tx/raw/run_00001.csv.gz",
+              "bytes": 758288,
+              "sha256": "56e59041c6b6527d53f342263366d4ef2536ecc3d8344f4ec49d28dca80166ac"
+            }
+          },
+          "sample_count": 96256,
+          "software_trigger_index": 20480,
+          "voltage_v": 3.3,
+          "calibration_flag": "0",
+          "counter_anomaly_count": 106,
+          "counter_anomaly_indices": [
+            413,
+            414,
+            1521,
+            1522,
+            3845,
+            3846,
+            4139,
+            4140,
+            6063,
+            6064,
+            6455,
+            6456,
+            7981,
+            7982,
+            8795,
+            8796,
+            8975,
+            8976,
+            9375,
+            9376,
+            9677,
+            9678,
+            11993,
+            11994,
+            14817,
+            14818,
+            16037,
+            16038,
+            24781,
+            24782,
+            25105,
+            25106,
+            26151,
+            26152,
+            28351,
+            28352,
+            29775,
+            29776,
+            30667,
+            30668,
+            30969,
+            30970,
+            32383,
+            32384,
+            33285,
+            33286,
+            33587,
+            33588,
+            38737,
+            38738,
+            41139,
+            41140,
+            43757,
+            43758,
+            44383,
+            44384,
+            44981,
+            44982,
+            46375,
+            46376,
+            52023,
+            52024,
+            53033,
+            53034,
+            53927,
+            53928,
+            54229,
+            54230,
+            64097,
+            64098,
+            64701,
+            64702,
+            66121,
+            66122,
+            68037,
+            68038,
+            69031,
+            69032,
+            70647,
+            70648,
+            72159,
+            72160,
+            74489,
+            74490,
+            75889,
+            75890,
+            77187,
+            77188,
+            79805,
+            79806,
+            81031,
+            81032,
+            82423,
+            82424,
+            83749,
+            83750,
+            84235,
+            84236,
+            90695,
+            90696,
+            90795,
+            90796,
+            96133,
+            96134,
+            96233,
+            96234
+          ],
+          "baseline_window_samples": [
+            1000,
+            19980
+          ],
+          "baseline_qa": {
+            "checked_indices_inclusive": [
+              1000,
+              19980
+            ],
+            "counter_anomaly_indices": [
+              1521,
+              1522,
+              3845,
+              3846,
+              4139,
+              4140,
+              6063,
+              6064,
+              6455,
+              6456,
+              7981,
+              7982,
+              8795,
+              8796,
+              8975,
+              8976,
+              9375,
+              9376,
+              9677,
+              9678,
+              11993,
+              11994,
+              14817,
+              14818,
+              16037,
+              16038
+            ],
+            "invalid_range_indices": [],
+            "bit17_set_indices": []
+          },
+          "baseline_nonfinite_indices": [],
+          "baseline_integrity_clean": false,
+          "gzip_crc_checked_to_eof": true,
+          "wire_csv_logic_match": true,
+          "pulse_count": 1,
+          "digital_all_channels": {
+            "logic_byte_counts": {
+              "254": 96078,
+              "255": 178
+            },
+            "high_samples": [
+              178,
+              96256,
+              96256,
+              96256,
+              96256,
+              96256,
+              96256,
+              96256
+            ],
+            "low_samples": [
+              96078,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "transitions": [
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "raw_wire_mismatch_count": 0
+          },
+          "endpoint": {
+            "radio_port": "COM20",
+            "ppk_port": "COM10",
+            "voltage_mv": 3300,
+            "ppk_serial": "E753C4E81F3D"
+          },
+          "preflight": {
+            "firmware_version": "0.3.2",
+            "marker_set_command": "AT+MARKER=TX",
+            "marker_reply": [
+              "+MARKER:ROLE=TX,DIO=17,SOURCE=RAT_GPO0,ACTIVE=HIGH",
+              "OK"
+            ]
+          },
+          "production_proof": {
+            "valid": true,
+            "reasons": [],
+            "window_samples": [
+              25152,
+              25330
+            ],
+            "guard_window_samples": [
+              25149,
+              25330
+            ],
+            "range_counts_guard": {
+              "3": 181
+            },
+            "counter_anomaly_indices_guard": [],
+            "energy_total_uJ": 57.128580629469056,
+            "direct_adc_max_difference_uA": 0.0
+          },
+          "summary_recorded": {
+            "status": "analysis_review_required",
+            "analysis_error": "rx: Direct-ADC total proof failed: Valid constant range over [start-3,stop) is required to exclude IIR dependence; Counter discontinuity touches the guard, pulse or falling boundary",
+            "energy_total_uJ": "",
+            "charge_total_uC": "",
+            "baseline_median_uA": "",
+            "energy_excess_uJ": "",
+            "integration_windows_ms": "[]",
+            "integration_method": "independent_radio_hardware_marker_totals"
+          },
+          "production_comparison": {
+            "valid": true,
+            "window": true,
+            "range_counts": true,
+            "counter_guard": true,
+            "invalid_ranges_guard": true,
+            "bit17_guard": true
+          }
+        },
+        "rx": {
+          "role": "rx",
+          "total_energy_uJ": null,
+          "total_proven": false,
+          "pulses": [
+            {
+              "window_samples": [
+                25177,
+                25320
+              ],
+              "duration_samples": 143,
+              "duration_ms": 1.43,
+              "guard_window_samples": [
+                25174,
+                25320
+              ],
+              "wire_qa": {
+                "checked_indices_inclusive": [
+                  25174,
+                  25320
+                ],
+                "counter_anomaly_indices": [
+                  25206,
+                  25207
+                ],
+                "invalid_range_indices": [],
+                "bit17_set_indices": []
+              },
+              "range_counts_guard": {
+                "3": 97,
+                "2": 49
+              },
+              "range_transitions_guard": [
+                25184,
+                25191,
+                25200,
+                25207,
+                25215,
+                25222,
+                25238,
+                25245,
+                25256,
+                25263,
+                25292,
+                25299,
+                25310,
+                25317
+              ],
+              "constant_valid_range_guard": false,
+              "direct_adc_dependency_proven": false,
+              "adc_csv_max_difference_uA": 38400.84558289786,
+              "adc_csv_exact_match": false,
+              "adc_csv_within_tolerance": false,
+              "proof_passed": false,
+              "total_energy_uJ": null,
+              "csv_total_energy_uJ": null,
+              "reasons": [
+                "Wire anomaly touches the pulse, its decoder guard, or falling boundary",
+                "Range change reaches the pulse; stateful decoder independence is not proven",
+                "Independently calibrated ADC does not match CSV within tolerance"
+              ],
+              "range_transitions_including_boundary": [
+                {
+                  "index": 25184,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 7,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25191,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 14,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25200,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 23,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25207,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 30,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25215,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 38,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25222,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 45,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25238,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 61,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25245,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 68,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25256,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 79,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25263,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 86,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25292,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 115,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25299,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 122,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25310,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 133,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25317,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 140,
+                  "location": "integrated_marker"
+                }
+              ],
+              "counter_fault_context": [
+                {
+                  "index": 25206,
+                  "previous_counter": 5,
+                  "counter": 7,
+                  "expected_counter": 6,
+                  "range_code": 2,
+                  "previous_range_code": 2,
+                  "relative_to_marker_start_samples": 29
+                },
+                {
+                  "index": 25207,
+                  "previous_counter": 7,
+                  "counter": 7,
+                  "expected_counter": 8,
+                  "range_code": 3,
+                  "previous_range_code": 2,
+                  "relative_to_marker_start_samples": 30
+                }
+              ],
+              "adc_difference_indices": [
+                25184,
+                25185,
+                25186,
+                25191,
+                25192,
+                25193,
+                25200,
+                25201,
+                25202,
+                25207,
+                25208,
+                25209,
+                25215,
+                25216,
+                25217,
+                25222,
+                25223,
+                25224,
+                25238,
+                25239,
+                25240,
+                25245,
+                25246,
+                25247,
+                25256,
+                25257,
+                25258,
+                25263,
+                25264,
+                25265,
+                25292,
+                25293,
+                25294,
+                25299,
+                25300,
+                25301,
+                25310,
+                25311,
+                25312,
+                25317,
+                25318,
+                25319
+              ]
+            }
+          ],
+          "reasons": [
+            "Pulse [25177,25320): Wire anomaly touches the pulse, its decoder guard, or falling boundary",
+            "Pulse [25177,25320): Range change reaches the pulse; stateful decoder independence is not proven",
+            "Pulse [25177,25320): Independently calibrated ADC does not match CSV within tolerance"
+          ],
+          "sources": {
+            "metadata": {
+              "path": "rx/metadata.json",
+              "bytes": 15642,
+              "sha256": "398de86ab6b554cf853ac6c5c08b565b8bc265f7b8d4fff0b78cb37d656ae1eb"
+            },
+            "wire": {
+              "path": "wire/run_00001/rx.ppk2.bin",
+              "bytes": 385024,
+              "sha256": "f543de00796f70e08a3a30c1f289624f6a280d45e57d767b95df63ee83813523"
+            },
+            "raw_csv_gzip": {
+              "path": "rx/raw/run_00001.csv.gz",
+              "bytes": 792725,
+              "sha256": "67ae22de500fd6fe4ae14bd3dbf07092ea4f0dac4016380fd220d81c35dba75e"
+            }
+          },
+          "sample_count": 96256,
+          "software_trigger_index": 20480,
+          "voltage_v": 3.3,
+          "calibration_flag": "0",
+          "counter_anomaly_count": 258,
+          "counter_anomaly_indices": [
+            468,
+            469,
+            594,
+            595,
+            2574,
+            2575,
+            2908,
+            2909,
+            5056,
+            5057,
+            5306,
+            5307,
+            6414,
+            6415,
+            6514,
+            6515,
+            7312,
+            7313,
+            7330,
+            7331,
+            7696,
+            7697,
+            7900,
+            7901,
+            8986,
+            8987,
+            9152,
+            9153,
+            11090,
+            11091,
+            11122,
+            11123,
+            11354,
+            11355,
+            11396,
+            11397,
+            11428,
+            11429,
+            12364,
+            12365,
+            13208,
+            13209,
+            13472,
+            13473,
+            15656,
+            15657,
+            16058,
+            16059,
+            19396,
+            19397,
+            19586,
+            19587,
+            20526,
+            20527,
+            20560,
+            20561,
+            20670,
+            20671,
+            20934,
+            20935,
+            21796,
+            21797,
+            22192,
+            22193,
+            23086,
+            23087,
+            23204,
+            23205,
+            23476,
+            23477,
+            24448,
+            24449,
+            25206,
+            25207,
+            25450,
+            25451,
+            25762,
+            25763,
+            26550,
+            26551,
+            26592,
+            26593,
+            27760,
+            27761,
+            28040,
+            28041,
+            29070,
+            29071,
+            30290,
+            30291,
+            31246,
+            31247,
+            31646,
+            31647,
+            31834,
+            31835,
+            32610,
+            32611,
+            32776,
+            32777,
+            34258,
+            34259,
+            36138,
+            36139,
+            37458,
+            37459,
+            37722,
+            37723,
+            38794,
+            38795,
+            39878,
+            39879,
+            42346,
+            42347,
+            43160,
+            43161,
+            43192,
+            43193,
+            43374,
+            43375,
+            44486,
+            44487,
+            44782,
+            44783,
+            44894,
+            44895,
+            47158,
+            47159,
+            47460,
+            47461,
+            49428,
+            49429,
+            50552,
+            50553,
+            51726,
+            51727,
+            53196,
+            53197,
+            54154,
+            54155,
+            55188,
+            55189,
+            55784,
+            55785,
+            57590,
+            57591,
+            57716,
+            57717,
+            58168,
+            58169,
+            58932,
+            58933,
+            59344,
+            59345,
+            60090,
+            60091,
+            62394,
+            62395,
+            62564,
+            62565,
+            62820,
+            62821,
+            63050,
+            63051,
+            64820,
+            64821,
+            65008,
+            65009,
+            65112,
+            65113,
+            65280,
+            65281,
+            65944,
+            65945,
+            66526,
+            66527,
+            66984,
+            66985,
+            68384,
+            68385,
+            68558,
+            68559,
+            69550,
+            69551,
+            69996,
+            69997,
+            70064,
+            70065,
+            70904,
+            70905,
+            71038,
+            71039,
+            72130,
+            72131,
+            74436,
+            74437,
+            76740,
+            76741,
+            77894,
+            77895,
+            78154,
+            78155,
+            79296,
+            79297,
+            79622,
+            79623,
+            80348,
+            80349,
+            80766,
+            80767,
+            81552,
+            81553,
+            81636,
+            81637,
+            82888,
+            82889,
+            83252,
+            83253,
+            84000,
+            84001,
+            84464,
+            84465,
+            85344,
+            85345,
+            86468,
+            86469,
+            86676,
+            86677,
+            86810,
+            86811,
+            87426,
+            87427,
+            87914,
+            87915,
+            88078,
+            88079,
+            88714,
+            88715,
+            88998,
+            88999,
+            89352,
+            89353,
+            89930,
+            89931,
+            90316,
+            90317,
+            91664,
+            91665,
+            92370,
+            92371,
+            92424,
+            92425,
+            93546,
+            93547,
+            93898,
+            93899,
+            94138,
+            94139
+          ],
+          "baseline_window_samples": [
+            1000,
+            19980
+          ],
+          "baseline_qa": {
+            "checked_indices_inclusive": [
+              1000,
+              19980
+            ],
+            "counter_anomaly_indices": [
+              2574,
+              2575,
+              2908,
+              2909,
+              5056,
+              5057,
+              5306,
+              5307,
+              6414,
+              6415,
+              6514,
+              6515,
+              7312,
+              7313,
+              7330,
+              7331,
+              7696,
+              7697,
+              7900,
+              7901,
+              8986,
+              8987,
+              9152,
+              9153,
+              11090,
+              11091,
+              11122,
+              11123,
+              11354,
+              11355,
+              11396,
+              11397,
+              11428,
+              11429,
+              12364,
+              12365,
+              13208,
+              13209,
+              13472,
+              13473,
+              15656,
+              15657,
+              16058,
+              16059,
+              19396,
+              19397,
+              19586,
+              19587
+            ],
+            "invalid_range_indices": [],
+            "bit17_set_indices": []
+          },
+          "baseline_nonfinite_indices": [],
+          "baseline_integrity_clean": false,
+          "gzip_crc_checked_to_eof": true,
+          "wire_csv_logic_match": true,
+          "pulse_count": 1,
+          "digital_all_channels": {
+            "logic_byte_counts": {
+              "254": 96113,
+              "255": 143
+            },
+            "high_samples": [
+              143,
+              96256,
+              96256,
+              96256,
+              96256,
+              96256,
+              96256,
+              96256
+            ],
+            "low_samples": [
+              96113,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "transitions": [
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "raw_wire_mismatch_count": 0
+          },
+          "endpoint": {
+            "radio_port": "COM19",
+            "ppk_port": "COM11",
+            "voltage_mv": 3300,
+            "ppk_serial": "CD2D332DB09A"
+          },
+          "preflight": {
+            "firmware_version": "0.3.2",
+            "marker_set_command": "AT+MARKER=RX",
+            "marker_reply": [
+              "+MARKER:ROLE=RX,DIO=17,SOURCE=RAT_GPO1,ACTIVE=HIGH",
+              "OK"
+            ]
+          },
+          "production_proof": {
+            "valid": false,
+            "reasons": [
+              "Valid constant range over [start-3,stop) is required to exclude IIR dependence",
+              "Counter discontinuity touches the guard, pulse or falling boundary"
+            ],
+            "window_samples": [
+              25177,
+              25320
+            ],
+            "guard_window_samples": [
+              25174,
+              25320
+            ],
+            "range_counts_guard": {
+              "3": 97,
+              "2": 49
+            },
+            "counter_anomaly_indices_guard": [
+              25206,
+              25207
+            ],
+            "energy_total_uJ": null,
+            "direct_adc_max_difference_uA": null
+          },
+          "summary_recorded": {
+            "status": "analysis_review_required",
+            "analysis_error": "rx: Direct-ADC total proof failed: Valid constant range over [start-3,stop) is required to exclude IIR dependence; Counter discontinuity touches the guard, pulse or falling boundary",
+            "energy_total_uJ": "",
+            "charge_total_uC": "",
+            "baseline_median_uA": "",
+            "energy_excess_uJ": "",
+            "integration_windows_ms": "[]",
+            "integration_method": "independent_radio_hardware_marker_totals"
+          },
+          "production_comparison": {
+            "valid": true,
+            "window": true,
+            "range_counts": true,
+            "counter_guard": true,
+            "invalid_ranges_guard": true,
+            "bit17_guard": true
+          }
+        }
+      },
+      "production_marker_reasons": [
+        "rx: Direct-ADC total proof failed: Valid constant range over [start-3,stop) is required to exclude IIR dependence; Counter discontinuity touches the guard, pulse or falling boundary"
+      ],
+      "capture_errors": {}
+    }
+  ],
+  "errors": [],
+  "created_utc": "2026-10-01T15:27:07.499845+00:00",
+  "pilot_number": 6,
+  "manifest_state": "completed_with_errors",
+  "accepted_result": "",
+  "accepted_pairs": 0,
+  "expected_pairs": 5,
+  "attempted_pairs": 1,
+  "channel_order": [
+    "D0",
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D5",
+    "D6",
+    "D7"
+  ],
+  "production_comparison_differences": [],
+  "source_inventory": {
+    "manifest.json": {
+      "bytes": 4687,
+      "sha256": "1f69e1a8ab53de40add30d0d39372bc71d7e4b84f9416803ced929bd70c2d80e"
+    },
+    "paired_result/20261001_182450_774191_e79_paired_pilot/pairing.json": {
+      "bytes": 24229,
+      "sha256": "40c66360262890d924906d852666936581b671ca3ed7b4c3746f643752e52007"
+    },
+    "paired_result/20261001_182450_774191_e79_paired_pilot/rx/aggregates.csv": {
+      "bytes": 875,
+      "sha256": "ea0addc3ea5aba683d4d1764388d52d5d1d9ae663bd622e2c599756a62b25c65"
+    },
+    "paired_result/20261001_182450_774191_e79_paired_pilot/rx/analysis/run_00001.json": {
+      "bytes": 11923,
+      "sha256": "cf1dea6a3ebfa2c3b3c66af8e4dbf0fad27841be8dfc50d617de8059c4837c7f"
+    },
+    "paired_result/20261001_182450_774191_e79_paired_pilot/rx/metadata.json": {
+      "bytes": 15642,
+      "sha256": "398de86ab6b554cf853ac6c5c08b565b8bc265f7b8d4fff0b78cb37d656ae1eb"
+    },
+    "paired_result/20261001_182450_774191_e79_paired_pilot/rx/raw/run_00001.csv.gz": {
+      "bytes": 792725,
+      "sha256": "67ae22de500fd6fe4ae14bd3dbf07092ea4f0dac4016380fd220d81c35dba75e"
+    },
+    "paired_result/20261001_182450_774191_e79_paired_pilot/rx/summary.csv": {
+      "bytes": 1490,
+      "sha256": "438e1925ccdfd650416d8c177d6ad2cb116aec363a927fe99089a33afc327a58"
+    },
+    "paired_result/20261001_182450_774191_e79_paired_pilot/summary.csv": {
+      "bytes": 193,
+      "sha256": "5099e31911488474e2382db402d97d50525a0143fde301d5896e43ed57fd0374"
+    },
+    "paired_result/20261001_182450_774191_e79_paired_pilot/tx/aggregates.csv": {
+      "bytes": 875,
+      "sha256": "197c78409f12d8211d3a44b7ce2d95d7a3a62eea528ffcb2d127d7e65ca48742"
+    },
+    "paired_result/20261001_182450_774191_e79_paired_pilot/tx/analysis/run_00001.json": {
+      "bytes": 11923,
+      "sha256": "cf1dea6a3ebfa2c3b3c66af8e4dbf0fad27841be8dfc50d617de8059c4837c7f"
+    },
+    "paired_result/20261001_182450_774191_e79_paired_pilot/tx/metadata.json": {
+      "bytes": 15618,
+      "sha256": "fd429d31c9a29719e3373f7294c5b06dc0e2fa7e40c1eb0e9d4c83c4087c86e7"
+    },
+    "paired_result/20261001_182450_774191_e79_paired_pilot/tx/raw/run_00001.csv.gz": {
+      "bytes": 758288,
+      "sha256": "56e59041c6b6527d53f342263366d4ef2536ecc3d8344f4ec49d28dca80166ac"
+    },
+    "paired_result/20261001_182450_774191_e79_paired_pilot/tx/summary.csv": {
+      "bytes": 1472,
+      "sha256": "346e239ef8686e5fadce66dfc8633bcfcdabc7f8503aa93ab03416a12187f2a1"
+    },
+    "paired_result/20261001_182450_774191_e79_paired_pilot/wire/run_00001/rx.ppk2.bin": {
+      "bytes": 385024,
+      "sha256": "f543de00796f70e08a3a30c1f289624f6a280d45e57d767b95df63ee83813523"
+    },
+    "paired_result/20261001_182450_774191_e79_paired_pilot/wire/run_00001/timing.json": {
+      "bytes": 1128,
+      "sha256": "a31768456f1bc8c3e6190bc2066364b06b73ea943b61a1bac89de7d27535ff8e"
+    },
+    "paired_result/20261001_182450_774191_e79_paired_pilot/wire/run_00001/tx.ppk2.bin": {
+      "bytes": 385024,
+      "sha256": "8acaa441bfa71204373c9a954901479ed628d2bc40806e86dbf47dab96535234"
+    }
+  },
+  "counts": {
+    "runs": 1,
+    "delivered_recorded": 1,
+    "complete_single_pulses": 2,
+    "independent_total_proofs_pass": 1,
+    "raw_wire_logic_mismatches": 0
+  },
+  "audit_tool_source": {
+    "path": "power_profiler/tools/audit_radio_marker_totals.py",
+    "sha256": "df38021e34293f58b9a81a99c31d0ad94106ebf589135910bcd502513fd76bde"
+  },
+  "conclusion": "One delivered transfer, with complete local TX and RX markers. RX direct-ADC proof fails because range changes and counter discontinuities enter the guarded marker interval. The pair remains failed; no energy averaging, RAW repair, physical cause attribution, or acceptance changes."
+}

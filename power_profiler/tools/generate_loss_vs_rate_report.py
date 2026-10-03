@@ -4,7 +4,11 @@ import argparse
 import csv
 import json
 from pathlib import Path
+import sys
 from typing import Any
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from radio_power_profiler.storage import resolve_measurement_path
 
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Font, PatternFill
@@ -32,6 +36,7 @@ OUTPUT_FIELDS = (
 def read_results(result_dirs: list[Path]) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     for result_dir in result_dirs:
+        result_dir = resolve_measurement_path(result_dir)
         metadata = json.loads((result_dir / "metadata.json").read_text(encoding="utf-8"))
         if metadata.get("measurement_direction") != "rx":
             raise ValueError(f"Not an RX result directory: {result_dir}")

@@ -1,0 +1,1115 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-02T13:48:51.152685+00:00",
+  "scope": "Offline diagnostic review only; no energy calculation or candidate acceptance.",
+  "candidate": null,
+  "accepted_energy_points": 0,
+  "source_root_report": {
+    "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\report.json",
+    "bytes": 263445,
+    "sha256": "331eaadf2f848fbe9e0f59e714f1736306e9bae7827cdbe358fd5529994ab4b9"
+  },
+  "source_attempt_reports": [
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_001\\report.json",
+      "bytes": 27723,
+      "sha256": "111b9318175c0346dfa57182668276acc1a6aeadd06ef893127ff477b53e4777"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_002\\report.json",
+      "bytes": 27729,
+      "sha256": "2c9f9e4d6d4c597691ecda12cef758089edc1ce777dc8bf07cbb1c48e045b852"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_003\\report.json",
+      "bytes": 27731,
+      "sha256": "34df09bf328d903a2f102de207bf19639b6f970062c05c2b7f45c3e904e2479c"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_004\\report.json",
+      "bytes": 24241,
+      "sha256": "4e7b1909737d7f84d3d218ca87740e891022906aae262248cb9a8fe5570af12a"
+    }
+  ],
+  "start_request_evidence": {
+    "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\START.json",
+    "bytes": 392,
+    "sha256": "09eec6ed6da34fbb29cc0ed419368ac533ad3fcfbe071d001fd32f540a3cfbe3"
+  },
+  "mapping_preparation_evidence": {
+    "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\preparation.json",
+    "bytes": 12364,
+    "sha256": "7f0e1b4ca4aa5cadb0b55b541e636dbc0bfc4954854ce5df59eb4f426c71d2af"
+  },
+  "worker_evidence": {
+    "path": "D:\\Documente\\ESP32-C3_Radio\\.tmp\\cc1101_v2_retry_capture_worker.py",
+    "bytes": 24076,
+    "sha256": "f13af75db7dcf48abbaec1397ae49a458d6153f60542b22962e034c423803c49"
+  },
+  "ports": {
+    "ppk": {
+      "tx": [
+        "COM10",
+        "E753C4E81F3D"
+      ],
+      "rx": [
+        "COM11",
+        "CD2D332DB09A"
+      ]
+    },
+    "radio": {
+      "rx": "COM31",
+      "tx": "COM32"
+    }
+  },
+  "usb_identities": {
+    "COM31": {
+      "serial": "08:92:72:9A:D4:B4",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM32": {
+      "serial": "08:92:72:9A:C8:C8",
+      "vid": 12346,
+      "pid": 4097
+    }
+  },
+  "checks": {
+    "uart_raw_reconstruction_matches_lines": true,
+    "uart_groups": 355,
+    "uart_bytes_reconstructed": 15720,
+    "uart_partial_remaining": false,
+    "all_payloads_unique_30_ascii": true,
+    "all_rf_payload_hex_32_bytes": true,
+    "configuration_readbacks_match": true,
+    "configuration_query_counts": {
+      "FREQ": 15,
+      "BR": 15,
+      "DEV": 15,
+      "BW": 15,
+      "PWR": 15,
+      "PRE": 14,
+      "SYNCERR": 14,
+      "SYNC": 14,
+      "CRC": 14,
+      "MOD": 14,
+      "SHAPE": 14,
+      "ENC": 14,
+      "PKT": 14,
+      "ADDR": 14,
+      "PROMISC": 14,
+      "CS": 14,
+      "BRIDGE": 14
+    },
+    "status_queries_checked": 14,
+    "all_capture_pairs_associated": true,
+    "raw_wire_files_hashed": 80
+  },
+  "summary": {
+    "whole_attempts_recorded": 4,
+    "transfers_recorded": 20,
+    "tx_success_both_ack_lines": 20,
+    "rx_exact_deliveries": 0,
+    "rx_uart_bytes_in_transfer_observation_windows": 0,
+    "capture_or_save_errors": 0,
+    "attempt4_stop": "Explicit operator STOP after five captures; final configuration verification absent.",
+    "root_errors": [
+      "InterruptedError('Explicit STOP file received')"
+    ],
+    "cleanup": {
+      "COM31": "closed",
+      "COM32": "closed",
+      "tx": "closed_keep_power_on_requested",
+      "rx": "closed_keep_power_on_requested"
+    }
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "incomplete_delivery",
+      "completed": true,
+      "rows": 5,
+      "hardware_before_present": true,
+      "hardware_after_present": true,
+      "error": null
+    },
+    {
+      "attempt": 2,
+      "status": "incomplete_delivery",
+      "completed": true,
+      "rows": 5,
+      "hardware_before_present": true,
+      "hardware_after_present": true,
+      "error": null
+    },
+    {
+      "attempt": 3,
+      "status": "incomplete_delivery",
+      "completed": true,
+      "rows": 5,
+      "hardware_before_present": true,
+      "hardware_after_present": true,
+      "error": null
+    },
+    {
+      "attempt": 4,
+      "status": "failed",
+      "completed": false,
+      "rows": 5,
+      "hardware_before_present": true,
+      "hardware_after_present": false,
+      "error": "InterruptedError('Explicit STOP file received')"
+    }
+  ],
+  "transfers": [
+    {
+      "attempt": 1,
+      "run_id": "run_00001",
+      "payload": "CC2_763ce8bf_01_01_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30315f30315f58585858585858585858580d0a",
+      "tx_state_zero_count": 1,
+      "tx_bridge_ack_count": 1,
+      "rx_exact_count": 0,
+      "rx_uart_bytes": 0,
+      "rx_uart_hex": "",
+      "rx_lines": [],
+      "tx_lines": [
+        "[TX] 32 bytes, state: 0",
+        "[TX] 32 bytes"
+      ],
+      "gap_s": null,
+      "host_marker_skew_ms": 0.014,
+      "capture_errors": {},
+      "sample_counts": {
+        "tx": 72192,
+        "rx": 72192
+      },
+      "loss_estimator_percent": {
+        "tx": 0.0,
+        "rx": 0.0
+      }
+    },
+    {
+      "attempt": 1,
+      "run_id": "run_00002",
+      "payload": "CC2_763ce8bf_01_02_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30315f30325f58585858585858585858580d0a",
+      "tx_state_zero_count": 1,
+      "tx_bridge_ack_count": 1,
+      "rx_exact_count": 0,
+      "rx_uart_bytes": 0,
+      "rx_uart_hex": "",
+      "rx_lines": [],
+      "tx_lines": [
+        "[TX] 32 bytes, state: 0",
+        "[TX] 32 bytes"
+      ],
+      "gap_s": 2.4228622,
+      "host_marker_skew_ms": 0.0849,
+      "capture_errors": {},
+      "sample_counts": {
+        "tx": 72192,
+        "rx": 72192
+      },
+      "loss_estimator_percent": {
+        "tx": 0.0,
+        "rx": 0.0
+      }
+    },
+    {
+      "attempt": 1,
+      "run_id": "run_00003",
+      "payload": "CC2_763ce8bf_01_03_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30315f30335f58585858585858585858580d0a",
+      "tx_state_zero_count": 1,
+      "tx_bridge_ack_count": 1,
+      "rx_exact_count": 0,
+      "rx_uart_bytes": 0,
+      "rx_uart_hex": "",
+      "rx_lines": [],
+      "tx_lines": [
+        "[TX] 32 bytes, state: 0",
+        "[TX] 32 bytes"
+      ],
+      "gap_s": 2.356169,
+      "host_marker_skew_ms": 0.1351,
+      "capture_errors": {},
+      "sample_counts": {
+        "tx": 72192,
+        "rx": 72192
+      },
+      "loss_estimator_percent": {
+        "tx": 0.0,
+        "rx": 0.0
+      }
+    },
+    {
+      "attempt": 1,
+      "run_id": "run_00004",
+      "payload": "CC2_763ce8bf_01_04_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30315f30345f58585858585858585858580d0a",
+      "tx_state_zero_count": 1,
+      "tx_bridge_ack_count": 1,
+      "rx_exact_count": 0,
+      "rx_uart_bytes": 0,
+      "rx_uart_hex": "",
+      "rx_lines": [],
+      "tx_lines": [
+        "[TX] 32 bytes, state: 0",
+        "[TX] 32 bytes"
+      ],
+      "gap_s": 2.3619461,
+      "host_marker_skew_ms": 0.0641,
+      "capture_errors": {},
+      "sample_counts": {
+        "tx": 72704,
+        "rx": 72704
+      },
+      "loss_estimator_percent": {
+        "tx": 0.0,
+        "rx": 0.0
+      }
+    },
+    {
+      "attempt": 1,
+      "run_id": "run_00005",
+      "payload": "CC2_763ce8bf_01_05_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30315f30355f58585858585858585858580d0a",
+      "tx_state_zero_count": 1,
+      "tx_bridge_ack_count": 1,
+      "rx_exact_count": 0,
+      "rx_uart_bytes": 0,
+      "rx_uart_hex": "",
+      "rx_lines": [],
+      "tx_lines": [
+        "[TX] 32 bytes, state: 0",
+        "[TX] 32 bytes"
+      ],
+      "gap_s": 2.3362277,
+      "host_marker_skew_ms": 0.0116,
+      "capture_errors": {},
+      "sample_counts": {
+        "tx": 71680,
+        "rx": 71680
+      },
+      "loss_estimator_percent": {
+        "tx": 0.0,
+        "rx": 0.0
+      }
+    },
+    {
+      "attempt": 2,
+      "run_id": "run_00001",
+      "payload": "CC2_763ce8bf_02_01_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30325f30315f58585858585858585858580d0a",
+      "tx_state_zero_count": 1,
+      "tx_bridge_ack_count": 1,
+      "rx_exact_count": 0,
+      "rx_uart_bytes": 0,
+      "rx_uart_hex": "",
+      "rx_lines": [],
+      "tx_lines": [
+        "[TX] 32 bytes, state: 0",
+        "[TX] 32 bytes"
+      ],
+      "gap_s": 4.8313959,
+      "host_marker_skew_ms": 0.0206,
+      "capture_errors": {},
+      "sample_counts": {
+        "tx": 71680,
+        "rx": 71680
+      },
+      "loss_estimator_percent": {
+        "tx": 0.0,
+        "rx": 0.0
+      }
+    },
+    {
+      "attempt": 2,
+      "run_id": "run_00002",
+      "payload": "CC2_763ce8bf_02_02_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30325f30325f58585858585858585858580d0a",
+      "tx_state_zero_count": 1,
+      "tx_bridge_ack_count": 1,
+      "rx_exact_count": 0,
+      "rx_uart_bytes": 0,
+      "rx_uart_hex": "",
+      "rx_lines": [],
+      "tx_lines": [
+        "[TX] 32 bytes, state: 0",
+        "[TX] 32 bytes"
+      ],
+      "gap_s": 2.4837035,
+      "host_marker_skew_ms": 0.1212,
+      "capture_errors": {},
+      "sample_counts": {
+        "tx": 72192,
+        "rx": 72192
+      },
+      "loss_estimator_percent": {
+        "tx": 0.0,
+        "rx": 0.0
+      }
+    },
+    {
+      "attempt": 2,
+      "run_id": "run_00003",
+      "payload": "CC2_763ce8bf_02_03_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30325f30335f58585858585858585858580d0a",
+      "tx_state_zero_count": 1,
+      "tx_bridge_ack_count": 1,
+      "rx_exact_count": 0,
+      "rx_uart_bytes": 0,
+      "rx_uart_hex": "",
+      "rx_lines": [],
+      "tx_lines": [
+        "[TX] 32 bytes, state: 0",
+        "[TX] 32 bytes"
+      ],
+      "gap_s": 2.5363931,
+      "host_marker_skew_ms": 0.1683,
+      "capture_errors": {},
+      "sample_counts": {
+        "tx": 72704,
+        "rx": 72704
+      },
+      "loss_estimator_percent": {
+        "tx": 0.0,
+        "rx": 0.0
+      }
+    },
+    {
+      "attempt": 2,
+      "run_id": "run_00004",
+      "payload": "CC2_763ce8bf_02_04_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30325f30345f58585858585858585858580d0a",
+      "tx_state_zero_count": 1,
+      "tx_bridge_ack_count": 1,
+      "rx_exact_count": 0,
+      "rx_uart_bytes": 0,
+      "rx_uart_hex": "",
+      "rx_lines": [],
+      "tx_lines": [
+        "[TX] 32 bytes, state: 0",
+        "[TX] 32 bytes"
+      ],
+      "gap_s": 2.3967072,
+      "host_marker_skew_ms": 0.0766,
+      "capture_errors": {},
+      "sample_counts": {
+        "tx": 72704,
+        "rx": 72704
+      },
+      "loss_estimator_percent": {
+        "tx": 0.0,
+        "rx": 0.0
+      }
+    },
+    {
+      "attempt": 2,
+      "run_id": "run_00005",
+      "payload": "CC2_763ce8bf_02_05_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30325f30355f58585858585858585858580d0a",
+      "tx_state_zero_count": 1,
+      "tx_bridge_ack_count": 1,
+      "rx_exact_count": 0,
+      "rx_uart_bytes": 0,
+      "rx_uart_hex": "",
+      "rx_lines": [],
+      "tx_lines": [
+        "[TX] 32 bytes, state: 0",
+        "[TX] 32 bytes"
+      ],
+      "gap_s": 2.3384517,
+      "host_marker_skew_ms": 0.133,
+      "capture_errors": {},
+      "sample_counts": {
+        "tx": 72192,
+        "rx": 72192
+      },
+      "loss_estimator_percent": {
+        "tx": 0.0,
+        "rx": 0.0
+      }
+    },
+    {
+      "attempt": 3,
+      "run_id": "run_00001",
+      "payload": "CC2_763ce8bf_03_01_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30335f30315f58585858585858585858580d0a",
+      "tx_state_zero_count": 1,
+      "tx_bridge_ack_count": 1,
+      "rx_exact_count": 0,
+      "rx_uart_bytes": 0,
+      "rx_uart_hex": "",
+      "rx_lines": [],
+      "tx_lines": [
+        "[TX] 32 bytes, state: 0",
+        "[TX] 32 bytes"
+      ],
+      "gap_s": 4.8800888,
+      "host_marker_skew_ms": 0.0216,
+      "capture_errors": {},
+      "sample_counts": {
+        "tx": 72704,
+        "rx": 72704
+      },
+      "loss_estimator_percent": {
+        "tx": 0.0,
+        "rx": 0.0
+      }
+    },
+    {
+      "attempt": 3,
+      "run_id": "run_00002",
+      "payload": "CC2_763ce8bf_03_02_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30335f30325f58585858585858585858580d0a",
+      "tx_state_zero_count": 1,
+      "tx_bridge_ack_count": 1,
+      "rx_exact_count": 0,
+      "rx_uart_bytes": 0,
+      "rx_uart_hex": "",
+      "rx_lines": [],
+      "tx_lines": [
+        "[TX] 32 bytes, state: 0",
+        "[TX] 32 bytes"
+      ],
+      "gap_s": 2.480532,
+      "host_marker_skew_ms": 0.313,
+      "capture_errors": {},
+      "sample_counts": {
+        "tx": 72704,
+        "rx": 72192
+      },
+      "loss_estimator_percent": {
+        "tx": 0.0,
+        "rx": 0.0
+      }
+    },
+    {
+      "attempt": 3,
+      "run_id": "run_00003",
+      "payload": "CC2_763ce8bf_03_03_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30335f30335f58585858585858585858580d0a",
+      "tx_state_zero_count": 1,
+      "tx_bridge_ack_count": 1,
+      "rx_exact_count": 0,
+      "rx_uart_bytes": 0,
+      "rx_uart_hex": "",
+      "rx_lines": [],
+      "tx_lines": [
+        "[TX] 32 bytes, state: 0",
+        "[TX] 32 bytes"
+      ],
+      "gap_s": 2.3994573,
+      "host_marker_skew_ms": 0.0123,
+      "capture_errors": {},
+      "sample_counts": {
+        "tx": 72192,
+        "rx": 71680
+      },
+      "loss_estimator_percent": {
+        "tx": 0.0,
+        "rx": 0.0
+      }
+    },
+    {
+      "attempt": 3,
+      "run_id": "run_00004",
+      "payload": "CC2_763ce8bf_03_04_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30335f30345f58585858585858585858580d0a",
+      "tx_state_zero_count": 1,
+      "tx_bridge_ack_count": 1,
+      "rx_exact_count": 0,
+      "rx_uart_bytes": 0,
+      "rx_uart_hex": "",
+      "rx_lines": [],
+      "tx_lines": [
+        "[TX] 32 bytes, state: 0",
+        "[TX] 32 bytes"
+      ],
+      "gap_s": 2.3419631,
+      "host_marker_skew_ms": 0.0279,
+      "capture_errors": {},
+      "sample_counts": {
+        "tx": 71680,
+        "rx": 71680
+      },
+      "loss_estimator_percent": {
+        "tx": 0.0,
+        "rx": 0.0
+      }
+    },
+    {
+      "attempt": 3,
+      "run_id": "run_00005",
+      "payload": "CC2_763ce8bf_03_05_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30335f30355f58585858585858585858580d0a",
+      "tx_state_zero_count": 1,
+      "tx_bridge_ack_count": 1,
+      "rx_exact_count": 0,
+      "rx_uart_bytes": 0,
+      "rx_uart_hex": "",
+      "rx_lines": [],
+      "tx_lines": [
+        "[TX] 32 bytes, state: 0",
+        "[TX] 32 bytes"
+      ],
+      "gap_s": 2.3900507,
+      "host_marker_skew_ms": 0.0095,
+      "capture_errors": {},
+      "sample_counts": {
+        "tx": 71680,
+        "rx": 71680
+      },
+      "loss_estimator_percent": {
+        "tx": 0.0,
+        "rx": 0.0
+      }
+    },
+    {
+      "attempt": 4,
+      "run_id": "run_00001",
+      "payload": "CC2_763ce8bf_04_01_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30345f30315f58585858585858585858580d0a",
+      "tx_state_zero_count": 1,
+      "tx_bridge_ack_count": 1,
+      "rx_exact_count": 0,
+      "rx_uart_bytes": 0,
+      "rx_uart_hex": "",
+      "rx_lines": [],
+      "tx_lines": [
+        "[TX] 32 bytes, state: 0",
+        "[TX] 32 bytes"
+      ],
+      "gap_s": 4.8780248,
+      "host_marker_skew_ms": 0.2022,
+      "capture_errors": {},
+      "sample_counts": {
+        "tx": 72192,
+        "rx": 72192
+      },
+      "loss_estimator_percent": {
+        "tx": 0.0,
+        "rx": 0.0
+      }
+    },
+    {
+      "attempt": 4,
+      "run_id": "run_00002",
+      "payload": "CC2_763ce8bf_04_02_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30345f30325f58585858585858585858580d0a",
+      "tx_state_zero_count": 1,
+      "tx_bridge_ack_count": 1,
+      "rx_exact_count": 0,
+      "rx_uart_bytes": 0,
+      "rx_uart_hex": "",
+      "rx_lines": [],
+      "tx_lines": [
+        "[TX] 32 bytes, state: 0",
+        "[TX] 32 bytes"
+      ],
+      "gap_s": 2.3490565,
+      "host_marker_skew_ms": 0.0128,
+      "capture_errors": {},
+      "sample_counts": {
+        "tx": 72704,
+        "rx": 72704
+      },
+      "loss_estimator_percent": {
+        "tx": 0.0,
+        "rx": 0.0
+      }
+    },
+    {
+      "attempt": 4,
+      "run_id": "run_00003",
+      "payload": "CC2_763ce8bf_04_03_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30345f30335f58585858585858585858580d0a",
+      "tx_state_zero_count": 1,
+      "tx_bridge_ack_count": 1,
+      "rx_exact_count": 0,
+      "rx_uart_bytes": 0,
+      "rx_uart_hex": "",
+      "rx_lines": [],
+      "tx_lines": [
+        "[TX] 32 bytes, state: 0",
+        "[TX] 32 bytes"
+      ],
+      "gap_s": 2.5510088,
+      "host_marker_skew_ms": 0.0501,
+      "capture_errors": {},
+      "sample_counts": {
+        "tx": 71680,
+        "rx": 71680
+      },
+      "loss_estimator_percent": {
+        "tx": 0.0,
+        "rx": 0.0
+      }
+    },
+    {
+      "attempt": 4,
+      "run_id": "run_00004",
+      "payload": "CC2_763ce8bf_04_04_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30345f30345f58585858585858585858580d0a",
+      "tx_state_zero_count": 1,
+      "tx_bridge_ack_count": 1,
+      "rx_exact_count": 0,
+      "rx_uart_bytes": 0,
+      "rx_uart_hex": "",
+      "rx_lines": [],
+      "tx_lines": [
+        "[TX] 32 bytes, state: 0",
+        "[TX] 32 bytes"
+      ],
+      "gap_s": 2.5914996,
+      "host_marker_skew_ms": 0.02,
+      "capture_errors": {},
+      "sample_counts": {
+        "tx": 72704,
+        "rx": 72704
+      },
+      "loss_estimator_percent": {
+        "tx": 0.0,
+        "rx": 0.0
+      }
+    },
+    {
+      "attempt": 4,
+      "run_id": "run_00005",
+      "payload": "CC2_763ce8bf_04_05_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30345f30355f58585858585858585858580d0a",
+      "tx_state_zero_count": 1,
+      "tx_bridge_ack_count": 1,
+      "rx_exact_count": 0,
+      "rx_uart_bytes": 0,
+      "rx_uart_hex": "",
+      "rx_lines": [],
+      "tx_lines": [
+        "[TX] 32 bytes, state: 0",
+        "[TX] 32 bytes"
+      ],
+      "gap_s": 2.4430119,
+      "host_marker_skew_ms": 0.0163,
+      "capture_errors": {},
+      "sample_counts": {
+        "tx": 71680,
+        "rx": 71680
+      },
+      "loss_estimator_percent": {
+        "tx": 0.0,
+        "rx": 0.0
+      }
+    }
+  ],
+  "capture_files": [
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_001\\raw\\tx\\run_00001.csv.gz",
+      "bytes": 410876,
+      "sha256": "10625a79a0c7351547169f23d8e30c67e431105bd802ae8eda2122613aca6980"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_001\\wire\\run_00001\\tx.ppk2.bin",
+      "bytes": 288768,
+      "sha256": "596b75bf24a8f27b023b5e6ff08c4db2588d4a731754e73bef4a3f8c9b3ec5af"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_001\\raw\\rx\\run_00001.csv.gz",
+      "bytes": 412733,
+      "sha256": "f13c1d1a68d37cc59ac90f9046e6cf4aed31e47a67c2d3a8ee8fd8624f54a50f"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_001\\wire\\run_00001\\rx.ppk2.bin",
+      "bytes": 288768,
+      "sha256": "267115de2f473764e73c69b079c1e5d28dc2c6dfdf38e2542b23bc71118711dc"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_001\\raw\\tx\\run_00002.csv.gz",
+      "bytes": 410915,
+      "sha256": "fd9626ec510f3e9eb4b8f95d2d2f3966671e4deafb208cd30bf2a1cc2faafced"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_001\\wire\\run_00002\\tx.ppk2.bin",
+      "bytes": 288768,
+      "sha256": "5a08827ff20066853322a05fb3a1fbf753d5f6f193f6594c40733f359de7f52d"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_001\\raw\\rx\\run_00002.csv.gz",
+      "bytes": 413550,
+      "sha256": "7232c1a320cff5334c71c29a7b8c4eb889be72192cdbd1b9c665b5c2469f8b2c"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_001\\wire\\run_00002\\rx.ppk2.bin",
+      "bytes": 288768,
+      "sha256": "d7139230b7cef8f76691016ee21d8fcf65df36881efb4e4aa42b479ec0aa1fe8"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_001\\raw\\tx\\run_00003.csv.gz",
+      "bytes": 411641,
+      "sha256": "fe579144194013ec9fa1a66b9b8373242ed3a7358daac6d7f4e7a58eab3b55a5"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_001\\wire\\run_00003\\tx.ppk2.bin",
+      "bytes": 288768,
+      "sha256": "a743510a7bb9b67645dc161d697862368376b6b2bd1a903d62f63f94e39e5663"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_001\\raw\\rx\\run_00003.csv.gz",
+      "bytes": 413254,
+      "sha256": "b6070c633f9ae9a0681d6cb90f39f7042ea9ef079926715a57ded034c1987b1b"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_001\\wire\\run_00003\\rx.ppk2.bin",
+      "bytes": 288768,
+      "sha256": "bff44c0cbeeb069d8542bde4fc1dcbf3041b91db7e68e4e29984988641d38470"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_001\\raw\\tx\\run_00004.csv.gz",
+      "bytes": 413969,
+      "sha256": "412a363ed3955bd271b951cf385814ae8a8ae0e53edf0c97175de80cc0ddaa6c"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_001\\wire\\run_00004\\tx.ppk2.bin",
+      "bytes": 290816,
+      "sha256": "a8d390cff16181384353cf3a3eb5e01786740d374e3d78c389fed056894e898b"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_001\\raw\\rx\\run_00004.csv.gz",
+      "bytes": 416356,
+      "sha256": "7b932e353b0a812965c79c7930a5c6b04b701790e74a3ec45e402a1d18387012"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_001\\wire\\run_00004\\rx.ppk2.bin",
+      "bytes": 290816,
+      "sha256": "19e77b590f7f7744c60d9552061b0eae07380c230e250e31f22ef2820bc73f9c"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_001\\raw\\tx\\run_00005.csv.gz",
+      "bytes": 408517,
+      "sha256": "d78d06609739c863e4ad7568eb880066d4d61a3fc936e6b3ef3bd3cc420e34b7"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_001\\wire\\run_00005\\tx.ppk2.bin",
+      "bytes": 286720,
+      "sha256": "a5a662dbd6ec1f6a69b720e435f6ef5b82465bd4f7e8096387749b2e934130af"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_001\\raw\\rx\\run_00005.csv.gz",
+      "bytes": 409628,
+      "sha256": "86f61fc481611745a2182189941570ec904adbb7d5c3476fedfa3a064ec96e70"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_001\\wire\\run_00005\\rx.ppk2.bin",
+      "bytes": 286720,
+      "sha256": "e804499563e0ddb9e7fc46cc72673c9b8e5be2220ab2ff979202343ae9a85059"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_002\\raw\\tx\\run_00001.csv.gz",
+      "bytes": 408372,
+      "sha256": "c6ad861ce9582750e1998caea50d948222bf47b7321edb56ef66924d4d30196f"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_002\\wire\\run_00001\\tx.ppk2.bin",
+      "bytes": 286720,
+      "sha256": "ad414da6472c3f9668e648c9239ecd6115a179942c27636469acadb1bec483d6"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_002\\raw\\rx\\run_00001.csv.gz",
+      "bytes": 412529,
+      "sha256": "1509453440fe098338ac8b801c419aabe2f71cc4e236363fd13c674db4a127ec"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_002\\wire\\run_00001\\rx.ppk2.bin",
+      "bytes": 286720,
+      "sha256": "75f4bed543864218954d1db45c15c5502c0c98b654b402e2d14f8aea4e402835"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_002\\raw\\tx\\run_00002.csv.gz",
+      "bytes": 410511,
+      "sha256": "e454a72c02b26a4ae67dec5d7c1f11481d0099a891b899f92a6eb29e301db401"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_002\\wire\\run_00002\\tx.ppk2.bin",
+      "bytes": 288768,
+      "sha256": "cca563d9fa8bffe1757060bad19ccd04718f70343106ac5fb98043d083b485ab"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_002\\raw\\rx\\run_00002.csv.gz",
+      "bytes": 412970,
+      "sha256": "2429e7b8f0f4c450eeac93e35798c079d01c1d0e069497bea9f1af02297f9584"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_002\\wire\\run_00002\\rx.ppk2.bin",
+      "bytes": 288768,
+      "sha256": "0a006090fce19f417e3f012be9e197f8c4c004e2fc7e22d34c63040acc2b8b1b"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_002\\raw\\tx\\run_00003.csv.gz",
+      "bytes": 414210,
+      "sha256": "44db252c9ecd4c0e1381bf814e40f120017b2142724ebd8b5ddb1e35d24a5f40"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_002\\wire\\run_00003\\tx.ppk2.bin",
+      "bytes": 290816,
+      "sha256": "160615be13b8b9c8bdb82867625e6c49dc50d64927020b9c766aa0faeb7beb1f"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_002\\raw\\rx\\run_00003.csv.gz",
+      "bytes": 415689,
+      "sha256": "e7452902e9122f3dc9a63e2516057c96fb003901fdd88e4af57e41940db9ef85"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_002\\wire\\run_00003\\rx.ppk2.bin",
+      "bytes": 290816,
+      "sha256": "e1e77617da114a1d94a55b41fcceb0418a634721cdbe265b5dc46808a7dbf35e"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_002\\raw\\tx\\run_00004.csv.gz",
+      "bytes": 413065,
+      "sha256": "83b461050ba50e36521c88ce2b7680acecbadae2fd6b3bff486e963ed0fd70c7"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_002\\wire\\run_00004\\tx.ppk2.bin",
+      "bytes": 290816,
+      "sha256": "0ed224d3c887e66c79c250c7682785ea109b31188336e52dfd3b8a65c3437aff"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_002\\raw\\rx\\run_00004.csv.gz",
+      "bytes": 415936,
+      "sha256": "e9a97683e91a0afba73738c326b2b9ae691d755a43e8ccd2a543b08add8e2c72"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_002\\wire\\run_00004\\rx.ppk2.bin",
+      "bytes": 290816,
+      "sha256": "c9f304d37dbc95f9710afc6919527feec297a64524c49ce86942f0c004d436f9"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_002\\raw\\tx\\run_00005.csv.gz",
+      "bytes": 410336,
+      "sha256": "82a9a2929143406fa2f5fc0a7d47430d053c5b67e2185b0ce447f18ecafce712"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_002\\wire\\run_00005\\tx.ppk2.bin",
+      "bytes": 288768,
+      "sha256": "3645c09823249c6f86148e23affbd9afa510426f94136dd930864cf5b3f165c8"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_002\\raw\\rx\\run_00005.csv.gz",
+      "bytes": 413309,
+      "sha256": "2ebf195a6135050a3471c9acd6a11b69d7cb856e686ca6979a3e5976bcb6bb31"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_002\\wire\\run_00005\\rx.ppk2.bin",
+      "bytes": 288768,
+      "sha256": "4fae97f8c9a61c39eb43cbe6c40536308454fba6c96480a72b9c5ec342e74434"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_003\\raw\\tx\\run_00001.csv.gz",
+      "bytes": 413944,
+      "sha256": "2e17c559b65c92205ca74d7db15a311c54aa7a246a3a7e79eb961bf0f07fefd9"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_003\\wire\\run_00001\\tx.ppk2.bin",
+      "bytes": 290816,
+      "sha256": "014b6263c073275f626f652c34452efd4db6164486de804b92ef21343a0d16e5"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_003\\raw\\rx\\run_00001.csv.gz",
+      "bytes": 416266,
+      "sha256": "f80713c9cc58df570420cd630a825028e8564de28ab3894f0f509f250e3930ee"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_003\\wire\\run_00001\\rx.ppk2.bin",
+      "bytes": 290816,
+      "sha256": "5ccfb6a2d340a01dd0855e6d64acadbf602654710d8f35f6f8fd9b37d28bb38c"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_003\\raw\\tx\\run_00002.csv.gz",
+      "bytes": 411907,
+      "sha256": "f17f87cbdbe29c5db48b15d900ad38b02881ed7160d9d0b24c364b3737c2fd45"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_003\\wire\\run_00002\\tx.ppk2.bin",
+      "bytes": 290816,
+      "sha256": "577d11c29854cfad719cb5fa5ecefb3594109dd9ce4cd18ca99c66dddcf92ce7"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_003\\raw\\rx\\run_00002.csv.gz",
+      "bytes": 413053,
+      "sha256": "c18135f99d45763720a6e857172d24319cacf73c2e09bcc4cb5669c4bf597106"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_003\\wire\\run_00002\\rx.ppk2.bin",
+      "bytes": 288768,
+      "sha256": "00a2f7839fcf0aca3b3de3591569c78987399b8765392e2e1af18693cb974169"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_003\\raw\\tx\\run_00003.csv.gz",
+      "bytes": 410731,
+      "sha256": "f74c09512679d0b58961c4d2afa70e67a93d487b48b828c7ce2d1b1835930517"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_003\\wire\\run_00003\\tx.ppk2.bin",
+      "bytes": 288768,
+      "sha256": "d59f02a5e0aa780cb795a02d0a3fbbb1d288bcd9f2f25ca3d3c4a7c84b1bd279"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_003\\raw\\rx\\run_00003.csv.gz",
+      "bytes": 409660,
+      "sha256": "d35c258ba028a193c9ba2dc669639fa1823d88033b0a73ae27e010b70a168f36"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_003\\wire\\run_00003\\rx.ppk2.bin",
+      "bytes": 286720,
+      "sha256": "fda01231ab5b0b614686bbfe99971b4b66a32e76aee9f3a1b722b7c826176b04"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_003\\raw\\tx\\run_00004.csv.gz",
+      "bytes": 408083,
+      "sha256": "d320f9fd18f3bc91b1de0cf5021c36c5b9e400526c3668d870b1bcea927efbf5"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_003\\wire\\run_00004\\tx.ppk2.bin",
+      "bytes": 286720,
+      "sha256": "44f010c2e57f0c28ab4e3edfde1ebefa40b8bf4b591e106023b27147e5b41cfd"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_003\\raw\\rx\\run_00004.csv.gz",
+      "bytes": 409707,
+      "sha256": "f64b96c954ad013c18244facde7c5c27adbe52a0b2e6fa980f8857b0683c2229"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_003\\wire\\run_00004\\rx.ppk2.bin",
+      "bytes": 286720,
+      "sha256": "61c61b2e0ef1810410ec218b138d7b1af6b8fe5df028e9b88427021ac47ddfea"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_003\\raw\\tx\\run_00005.csv.gz",
+      "bytes": 406632,
+      "sha256": "d65e570f171ca555b90cbb5ad8154efc546d6b731de955e985e46f6f713530bf"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_003\\wire\\run_00005\\tx.ppk2.bin",
+      "bytes": 286720,
+      "sha256": "a9711698aa26c0d56a4ebb652d0e8524081ed41c06a6a5ca9a08cae8f3a59a0c"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_003\\raw\\rx\\run_00005.csv.gz",
+      "bytes": 410503,
+      "sha256": "f94304b2a7caa54a2c448e18619e6fa477f79c0550c4ed2390c5bc9606fd2b28"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_003\\wire\\run_00005\\rx.ppk2.bin",
+      "bytes": 286720,
+      "sha256": "a8ce8f38738a6e67edf683128a89466f13d20c4e30329b05c6364a5985e7e0ea"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_004\\raw\\tx\\run_00001.csv.gz",
+      "bytes": 410790,
+      "sha256": "88c1dd981570b95564c599d2795cea99e4182f2f77735addd034b4efd2c91ad9"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_004\\wire\\run_00001\\tx.ppk2.bin",
+      "bytes": 288768,
+      "sha256": "1726bcee6f88667a09cf98d99ba1fe95d10c96e986223fd79d1253de90d561d8"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_004\\raw\\rx\\run_00001.csv.gz",
+      "bytes": 413342,
+      "sha256": "72c16353d1e165cf4a6eb9d97575fa9873e804ee869773e73786057258924f27"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_004\\wire\\run_00001\\rx.ppk2.bin",
+      "bytes": 288768,
+      "sha256": "e92a5326d3d616ff0f0ad8b591ef6d67d2f08fab6567c68f3f21182d90f8835a"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_004\\raw\\tx\\run_00002.csv.gz",
+      "bytes": 412048,
+      "sha256": "c47f24ace94e99e477e7fe6a6e57f8a5dbee065d14b2825b619299037c7b7b55"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_004\\wire\\run_00002\\tx.ppk2.bin",
+      "bytes": 290816,
+      "sha256": "107eb9c8ed9da1044279abe53f9da96b24d9aa2537e8d7e0f7f6eceea40fdf66"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_004\\raw\\rx\\run_00002.csv.gz",
+      "bytes": 415795,
+      "sha256": "0f60afc39683ee430009310c984c25f573170d22f75db64706d0fa2d67c76cd5"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_004\\wire\\run_00002\\rx.ppk2.bin",
+      "bytes": 290816,
+      "sha256": "5913c654b540db74588fa9e57120fbd9f0f70c514be1397d3b61efd93ae104f6"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_004\\raw\\tx\\run_00003.csv.gz",
+      "bytes": 408363,
+      "sha256": "2c964d58406efccfced639f39ae26f5ee7d72813b9077d996d713512af41cdb9"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_004\\wire\\run_00003\\tx.ppk2.bin",
+      "bytes": 286720,
+      "sha256": "c9a945096c8dd75183936d13dde2f7d8179a86efc5316433e975deab71d46f56"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_004\\raw\\rx\\run_00003.csv.gz",
+      "bytes": 409829,
+      "sha256": "cda131c489bfe8ec9f00d1364587363f87ff4a5784b0a4dcbb55f25b73990a1b"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_004\\wire\\run_00003\\rx.ppk2.bin",
+      "bytes": 286720,
+      "sha256": "e50db2dcca4a5bb70e3f1fc812ea059ecf16671bacee41a1d0103c7ce1908afa"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_004\\raw\\tx\\run_00004.csv.gz",
+      "bytes": 413948,
+      "sha256": "15cc027857a983deaf2dd3371bd5f5fa4caf2a4f416c6039dc280a1d9716ff26"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_004\\wire\\run_00004\\tx.ppk2.bin",
+      "bytes": 290816,
+      "sha256": "b56cae955c41d0b9f790c63765845e6a12ef3c679b2a216cb49ed057a8c5de07"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_004\\raw\\rx\\run_00004.csv.gz",
+      "bytes": 415746,
+      "sha256": "7b95756e4e61a921d517271fd3fb5d35392756901d89a6773ae399d96a874e14"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_004\\wire\\run_00004\\rx.ppk2.bin",
+      "bytes": 290816,
+      "sha256": "7f732464a8b1ae49bfa2037080cb799590e0329744f6eca6fa958d6af70e0781"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_004\\raw\\tx\\run_00005.csv.gz",
+      "bytes": 407739,
+      "sha256": "27fff2edd991ab0a49f13650548ba6c16b88e704fda09a77c780b344c6db1b18"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_004\\wire\\run_00005\\tx.ppk2.bin",
+      "bytes": 286720,
+      "sha256": "466051a9dbbaaec8e03e4972b5ae7f01654e0253533aa9bafde3d5e7ac32745e"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_004\\raw\\rx\\run_00005.csv.gz",
+      "bytes": 409885,
+      "sha256": "3079fd68d793082ab10df81eaa7027c4bca38f15274d8e31ef1f001229d88270"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition\\attempt_004\\wire\\run_00005\\rx.ppk2.bin",
+      "bytes": 286720,
+      "sha256": "4f85456f983962bf3d3faf7c6b792b67f2ba38386b7dcc9446ab05a8266bdca3"
+    }
+  ],
+  "limitations": [
+    "Local TX completion does not prove RF reception.",
+    "No RX UART bytes were observed in the before/during/after capture windows; this does not determine the physical RF failure cause.",
+    "RF settings and RX mode are firmware readbacks; chip version is a hardware read; RSSI/LQI are cached.",
+    "Host coordinated PPK streams have independent sample clocks. Loss percentage is a host estimator, not proof of zero sample loss.",
+    "No numeric energy or raw ADC/calibration QA was performed in this report."
+  ]
+}

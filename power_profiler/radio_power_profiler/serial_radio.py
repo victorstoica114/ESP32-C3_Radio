@@ -66,24 +66,36 @@ class SerialRadio:
             self.serial.dtr = dtr
         if rts is not None:
             self.serial.rts = rts
-        self.serial.open()
-        if reset_on_open:
-            if rts is not False:
+        phase = "open"
+        try:
+            self.serial.open()
+            if reset_on_open:
+                phase = "reset_pulse"
+                if rts is not False:
+                    raise ValueError(
+                        "Serial reset-on-open requires an inactive RTS steady state"
+                    )
+                self.serial.rts = True
+                time.sleep(0.10)
+                self.serial.rts = False
+            self._bounded_partial = bytearray()
+            # Wait for boot before discarding its banner and synchronizing AT.
+            phase = "boot_wait_and_drain"
+            time.sleep(open_wait_s)
+            self.drain(wait_s=0.25)
+            phase = "initial_AT_synchronization"
+            self._synchronize_after_open()
+        except BaseException as exc:
+            # The caller cannot own this instance until __init__ returns.
+            # Transport exceptions and cancellation must close it here too.
+            if hasattr(exc, "add_note"):
+                exc.add_note(f"UART initialization on {port}, phase={phase}")
+            try:
                 self.close()
-                raise ValueError(
-                    "Serial reset-on-open requires an inactive RTS steady state"
-                )
-            self.serial.rts = True
-            time.sleep(0.10)
-            self.serial.rts = False
-        self._bounded_partial = bytearray()
-        # Opening an ESP32-C3 USB CDC port can reset the controller.  Wait for
-        # its AT firmware to finish setup before discarding the boot banner;
-        # otherwise the first command can be interleaved with that banner and
-        # its standalone "OK" becomes impossible to recognize.
-        time.sleep(open_wait_s)
-        self.drain(wait_s=0.25)
-        self._synchronize_after_open()
+            except Exception as close_exc:
+                if hasattr(exc, "add_note"):
+                    exc.add_note(f"UART initialization cleanup on {port}: {type(close_exc).__name__}: {close_exc}")
+            raise
 
     def _synchronize_after_open(self) -> None:
         last_error: RadioCommandError | None = None
@@ -114,8 +126,16 @@ class SerialRadio:
         self.close()
 
     def _write_line(self, text: str) -> None:
-        self.serial.write(text.encode("ascii") + b"\r\n")
-        self.serial.flush()
+        try:
+            self.serial.write(text.encode("ascii") + b"\r\n")
+            self.serial.flush()
+        except Exception as exc:
+            # Retain the original transport exception type: configuration
+            # retries catch RadioCommandError, not uncertain transport writes.
+            if hasattr(exc, "add_note"):
+                command_name = text.split("=", 1)[0] if text.upper().startswith("AT") else "payload"
+                exc.add_note(f"UART write/flush on {self.port}, command={command_name}, bytes={len(text) + 2}")
+            raise
 
     def drain(self, *, wait_s: float = 0.05) -> tuple[str, ...]:
         deadline = time.monotonic() + wait_s

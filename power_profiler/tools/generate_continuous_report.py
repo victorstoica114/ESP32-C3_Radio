@@ -4,7 +4,11 @@ import argparse
 import csv
 import json
 from pathlib import Path
+import sys
 from typing import Any
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from radio_power_profiler.storage import resolve_measurement_path
 
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Font, PatternFill
@@ -12,6 +16,7 @@ from openpyxl.utils import get_column_letter
 
 
 def read_session(result_dir: Path) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    result_dir = resolve_measurement_path(result_dir)
     metadata = json.loads((result_dir / "metadata.json").read_text(encoding="utf-8"))
     rows: list[dict[str, Any]] = []
     with (result_dir / "summary.csv").open(encoding="utf-8", newline="") as stream:

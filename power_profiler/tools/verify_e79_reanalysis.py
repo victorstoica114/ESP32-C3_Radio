@@ -15,9 +15,9 @@ import sys
 from types import SimpleNamespace
 
 ROOT = Path(__file__).resolve().parents[2]
-ARCHIVE = ROOT / "module radio/ESP32-C3_Radio/power_profiler"
+ARCHIVE = ROOT / "measurements/raw/archive"
 PROOF = ROOT / ".tmp/recapture-audit-20260929/e79-final-verification.json"
-REPORTS = ROOT / "module radio/IMPORT_INFO/recapture-audit-2026-09-29"
+REPORTS = ROOT / "power_profiler/audits/2026-09-29"
 sys.path.insert(0, str(ROOT / "power_profiler"))
 from radio_power_profiler.analysis import analyze_capture, _frame_sample_lengths
 from radio_power_profiler.models import CaptureSpec, TransmitSpec

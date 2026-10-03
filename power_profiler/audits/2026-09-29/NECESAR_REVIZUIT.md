@@ -1,6 +1,8 @@
 ﻿**Plan și calcule actualizate — 29 septembrie 2026**
 
-**Pentru hardware rămâne E79 CH9340C, numai TX fragmentat: 63 configurații × 5 repetări = 315 capturi.** Calculul E79 ESP32 este finalizat din RAW-urile existente; celelalte campanii se păstrează cu protocolul și limitele explicite.
+**Actualizare 30 septembrie:** cele 315 capturi au fost colectate și [verificate pe montajul alternativ CH340](../2026-09-30/README.md), cu alt DUT măsurat. Lista de mai jos este planul istoric, nu o nouă coadă de capturi. Datele CH340 se publică separat; nu înlocuiesc automat seria CH9340C.
+
+**Planul hardware din 29 septembrie prevedea E79 CH9340C, numai TX fragmentat: 63 configurații × 5 repetări = 315 capturi.** Calculul E79 ESP32 este finalizat din RAW-urile existente; celelalte campanii se păstrează cu protocolul și limitele explicite.
 
 | Domeniu | Rezultat / acțiune |
 | --- | --- |

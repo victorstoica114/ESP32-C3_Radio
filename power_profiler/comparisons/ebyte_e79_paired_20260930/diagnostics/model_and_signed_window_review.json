@@ -1,0 +1,1546 @@
+{
+  "schema_version": 1,
+  "scope": "Independent read-only model and signed-window review; original metrics unchanged",
+  "model": {
+    "payload_bytes": 32,
+    "frame_count": 1,
+    "modeled_overhead_bytes": 12,
+    "bitrate_bps": 200000,
+    "modeled_bit_duration_ms": 1.76,
+    "modeled_ramp_ms": 3.0,
+    "modeled_integration_ms": 4.76,
+    "interpretation": "A modeled current-integration window; not independently measured RF duration or full transaction energy.",
+    "generated_payload_ascii": "0123456789abcdefghijklmnopqrstuv",
+    "host_uart_command_ascii": "AT+SEND=0123456789abcdefghijklmnopqrstuv\\r\\n",
+    "host_uart_command_bytes_including_CRLF": 42,
+    "uart_baud": 1000000,
+    "uart_command_drain_before_write_ms": 20,
+    "source_references": [
+      "radio_power_profiler/profiles.json:552-554",
+      "radio_power_profiler/planning.py:49-61",
+      "radio_power_profiler/serial_radio.py:467-470",
+      "radio_power_profiler/serial_radio.py:161-170",
+      "radio_power_profiler/paired_runner.py:272-279",
+      "radio_power_profiler/analysis.py:153-180"
+    ]
+  },
+  "signed_metric": {
+    "definition": "V/fs * sum(I - mean(pretrigger -180..-20 ms)), retaining negative values",
+    "baseline_state": {
+      "tx": "RX disabled",
+      "rx": "RX listening"
+    },
+    "primary_window_ms": [
+      0,
+      200
+    ],
+    "sensitivity_window_ends_ms": [
+      100,
+      150,
+      200,
+      300,
+      500
+    ],
+    "sensitivity_baseline_windows_ms": [
+      [
+        -180,
+        -100
+      ],
+      [
+        -100,
+        -20
+      ]
+    ],
+    "clock": "Each PPK local sample axis; host-coordinated marker, no hardware synchronization"
+  },
+  "rows": [
+    {
+      "role": "tx",
+      "run_id": "run_00001",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00001",
+      "sample_count": 97280,
+      "trigger_index": 21504,
+      "posttrigger_ms": 757.76,
+      "reported_sample_loss_percent": 0.0,
+      "baseline_mean_uA": 4824.926775636134,
+      "baseline_split_means": [
+        {
+          "window_ms": [
+            -180,
+            -100
+          ],
+          "mean_uA": 4828.497073004298
+        },
+        {
+          "window_ms": [
+            -100,
+            -20
+          ],
+          "mean_uA": 4821.35647826797
+        }
+      ],
+      "legacy": {
+        "window_ms": [
+          41.24,
+          46.0
+        ],
+        "baseline_median_uA": 4516.588166383134,
+        "energy_total_uJ": 114.14096711764982,
+        "energy_clipped_excess_uJ": 44.58331278058112,
+        "signed_increment_using_mean_baseline_uJ": 38.351017325957244,
+        "baseline_energy_using_mean_uJ": 75.78994979169238
+      },
+      "signed_windows": [
+        {
+          "end_ms": 100,
+          "energy_total_uJ": 1632.2885350535012,
+          "baseline_energy_uJ": 1592.225835959924,
+          "signed_increment_uJ": 40.06269909359618,
+          "split_baseline_signed_increment_uJ": [
+            38.88450096210086,
+            41.240897225092546
+          ]
+        },
+        {
+          "end_ms": 150,
+          "energy_total_uJ": 2433.4176858417363,
+          "baseline_energy_uJ": 2388.338753939886,
+          "signed_increment_uJ": 45.07893190184737,
+          "split_baseline_signed_increment_uJ": [
+            43.31163470460392,
+            46.84622909909306
+          ]
+        },
+        {
+          "end_ms": 200,
+          "energy_total_uJ": 3230.2825895453934,
+          "baseline_energy_uJ": 3184.451671919848,
+          "signed_increment_uJ": 45.830917625451015,
+          "split_baseline_signed_increment_uJ": [
+            43.474521362458965,
+            48.187313888445814
+          ]
+        },
+        {
+          "end_ms": 300,
+          "energy_total_uJ": 4829.993767267012,
+          "baseline_energy_uJ": 4776.677507879772,
+          "signed_increment_uJ": 53.316259387018924,
+          "split_baseline_signed_increment_uJ": [
+            49.78166499253071,
+            56.850853781512065
+          ]
+        },
+        {
+          "end_ms": 500,
+          "energy_total_uJ": 8024.562781789422,
+          "baseline_energy_uJ": 7961.12917979962,
+          "signed_increment_uJ": 63.433601989914855,
+          "split_baseline_signed_increment_uJ": [
+            57.542611332434504,
+            69.32459264740493
+          ]
+        }
+      ],
+      "host_timing": {
+        "marker_skew_ms": 0.1123,
+        "callback_duration_ms": 124.7382,
+        "host_trigger_to_send_entry_ms": 0.1953
+      }
+    },
+    {
+      "role": "tx",
+      "run_id": "run_00002",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00002",
+      "sample_count": 96256,
+      "trigger_index": 20480,
+      "posttrigger_ms": 757.76,
+      "reported_sample_loss_percent": 0.0,
+      "baseline_mean_uA": 4844.311932281393,
+      "baseline_split_means": [
+        {
+          "window_ms": [
+            -180,
+            -100
+          ],
+          "mean_uA": 4840.20119026621
+        },
+        {
+          "window_ms": [
+            -100,
+            -20
+          ],
+          "mean_uA": 4848.422674296576
+        }
+      ],
+      "legacy": {
+        "window_ms": [
+          40.98,
+          45.74
+        ],
+        "baseline_median_uA": 4511.733792821595,
+        "energy_total_uJ": 115.0013755737763,
+        "energy_clipped_excess_uJ": 44.759209544563575,
+        "signed_increment_using_mean_baseline_uJ": 38.90692374149999,
+        "baseline_energy_using_mean_uJ": 76.0944518322761
+      },
+      "signed_windows": [
+        {
+          "end_ms": 100,
+          "energy_total_uJ": 1633.6639571695584,
+          "baseline_energy_uJ": 1598.6229376528595,
+          "signed_increment_uJ": 35.04101951670861,
+          "split_baseline_signed_increment_uJ": [
+            36.39756438172266,
+            33.68447465169879
+          ]
+        },
+        {
+          "end_ms": 150,
+          "energy_total_uJ": 2431.5140131324692,
+          "baseline_energy_uJ": 2397.934406479289,
+          "signed_increment_uJ": 33.5796066531719,
+          "split_baseline_signed_increment_uJ": [
+            35.6144239506939,
+            31.544789355656793
+          ]
+        },
+        {
+          "end_ms": 200,
+          "energy_total_uJ": 3235.2898149705034,
+          "baseline_energy_uJ": 3197.245875305719,
+          "signed_increment_uJ": 38.043939664678156,
+          "split_baseline_signed_increment_uJ": [
+            40.75702939470762,
+            35.33084993465791
+          ]
+        },
+        {
+          "end_ms": 300,
+          "energy_total_uJ": 4829.7058347464335,
+          "baseline_energy_uJ": 4795.868812958578,
+          "signed_increment_uJ": 33.83702178765099,
+          "split_baseline_signed_increment_uJ": [
+            37.90665638269704,
+            29.767387192623218
+          ]
+        },
+        {
+          "end_ms": 500,
+          "energy_total_uJ": 8024.906587779441,
+          "baseline_energy_uJ": 7993.114688264296,
+          "signed_increment_uJ": 31.791899515309105,
+          "split_baseline_signed_increment_uJ": [
+            38.57462384038773,
+            25.00917519026088
+          ]
+        }
+      ],
+      "host_timing": {
+        "marker_skew_ms": 0.0132,
+        "callback_duration_ms": 123.1712,
+        "host_trigger_to_send_entry_ms": 0.2575
+      }
+    },
+    {
+      "role": "tx",
+      "run_id": "run_00003",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00003",
+      "sample_count": 97280,
+      "trigger_index": 22528,
+      "posttrigger_ms": 747.52,
+      "reported_sample_loss_percent": 0.2542859486506439,
+      "baseline_mean_uA": 4818.975922182761,
+      "baseline_split_means": [
+        {
+          "window_ms": [
+            -180,
+            -100
+          ],
+          "mean_uA": 4829.094332501317
+        },
+        {
+          "window_ms": [
+            -100,
+            -20
+          ],
+          "mean_uA": 4808.857511864205
+        }
+      ],
+      "legacy": {
+        "window_ms": [
+          26.11,
+          30.87
+        ],
+        "baseline_median_uA": 4511.733792821595,
+        "energy_total_uJ": 112.66029632587068,
+        "energy_clipped_excess_uJ": 43.26811155362131,
+        "signed_increment_using_mean_baseline_uJ": 36.963822540223624,
+        "baseline_energy_using_mean_uJ": 75.69647378564679
+      },
+      "signed_windows": [
+        {
+          "end_ms": 100,
+          "energy_total_uJ": 1634.7518857842877,
+          "baseline_energy_uJ": 1590.2620543203109,
+          "signed_increment_uJ": 44.489831463984245,
+          "split_baseline_signed_increment_uJ": [
+            41.15075605886142,
+            47.828906869113666
+          ]
+        },
+        {
+          "end_ms": 150,
+          "energy_total_uJ": 2426.938083446267,
+          "baseline_energy_uJ": 2385.393081480466,
+          "signed_increment_uJ": 41.54500196578996,
+          "split_baseline_signed_increment_uJ": [
+            36.536388858105894,
+            46.55361507348499
+          ]
+        },
+        {
+          "end_ms": 200,
+          "energy_total_uJ": 3230.0335333910507,
+          "baseline_energy_uJ": 3180.5241086406218,
+          "signed_increment_uJ": 49.50942475032275,
+          "split_baseline_signed_increment_uJ": [
+            42.83127394007785,
+            56.187575560583866
+          ]
+        },
+        {
+          "end_ms": 300,
+          "energy_total_uJ": 4824.329062893795,
+          "baseline_energy_uJ": 4770.786162960932,
+          "signed_increment_uJ": 53.542899932650535,
+          "split_baseline_signed_increment_uJ": [
+            43.5256737172826,
+            63.5601261480433
+          ]
+        },
+        {
+          "end_ms": 500,
+          "energy_total_uJ": 8016.315240154271,
+          "baseline_energy_uJ": 7951.310271601554,
+          "signed_increment_uJ": 65.00496855284266,
+          "split_baseline_signed_increment_uJ": [
+            48.30959152722965,
+            81.70034557847137
+          ]
+        }
+      ],
+      "host_timing": {
+        "marker_skew_ms": 0.0118,
+        "callback_duration_ms": 118.9656,
+        "host_trigger_to_send_entry_ms": 0.1966
+      }
+    },
+    {
+      "role": "tx",
+      "run_id": "run_00004",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00004",
+      "sample_count": 97280,
+      "trigger_index": 21504,
+      "posttrigger_ms": 757.76,
+      "reported_sample_loss_percent": 0.0,
+      "baseline_mean_uA": 4838.2102491636,
+      "baseline_split_means": [
+        {
+          "window_ms": [
+            -180,
+            -100
+          ],
+          "mean_uA": 4840.467595831555
+        },
+        {
+          "window_ms": [
+            -100,
+            -20
+          ],
+          "mean_uA": 4835.952902495645
+        }
+      ],
+      "legacy": {
+        "window_ms": [
+          39.54,
+          44.3
+        ],
+        "baseline_median_uA": 4516.588166383134,
+        "energy_total_uJ": 115.53743467272243,
+        "energy_clipped_excess_uJ": 46.13516809095271,
+        "signed_increment_using_mean_baseline_uJ": 39.5388280788603,
+        "baseline_energy_using_mean_uJ": 75.99860659386181
+      },
+      "signed_windows": [
+        {
+          "end_ms": 100,
+          "energy_total_uJ": 1634.5886488529225,
+          "baseline_energy_uJ": 1596.6093822239877,
+          "signed_increment_uJ": 37.97926662895956,
+          "split_baseline_signed_increment_uJ": [
+            37.23434222853086,
+            38.72419102938222
+          ]
+        },
+        {
+          "end_ms": 150,
+          "energy_total_uJ": 2429.3424264475416,
+          "baseline_energy_uJ": 2394.9140733359814,
+          "signed_increment_uJ": 34.428353111578744,
+          "split_baseline_signed_increment_uJ": [
+            33.31096651093489,
+            35.545739712211486
+          ]
+        },
+        {
+          "end_ms": 200,
+          "energy_total_uJ": 3227.216943234189,
+          "baseline_energy_uJ": 3193.2187644479754,
+          "signed_increment_uJ": 33.99817878614426,
+          "split_baseline_signed_increment_uJ": [
+            32.50832998528782,
+            35.4880275869884
+          ]
+        },
+        {
+          "end_ms": 300,
+          "energy_total_uJ": 4826.077197947519,
+          "baseline_energy_uJ": 4789.828146671963,
+          "signed_increment_uJ": 36.24905127540558,
+          "split_baseline_signed_increment_uJ": [
+            34.014278074119275,
+            38.4838244766706
+          ]
+        },
+        {
+          "end_ms": 500,
+          "energy_total_uJ": 8026.6608204459935,
+          "baseline_energy_uJ": 7983.046911119938,
+          "signed_increment_uJ": 43.613909326213324,
+          "split_baseline_signed_increment_uJ": [
+            39.88928732406395,
+            47.338531328317266
+          ]
+        }
+      ],
+      "host_timing": {
+        "marker_skew_ms": 0.0844,
+        "callback_duration_ms": 122.8326,
+        "host_trigger_to_send_entry_ms": 0.2849
+      }
+    },
+    {
+      "role": "tx",
+      "run_id": "run_00005",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00005",
+      "sample_count": 98304,
+      "trigger_index": 22528,
+      "posttrigger_ms": 757.76,
+      "reported_sample_loss_percent": 0.0,
+      "baseline_mean_uA": 4825.80965453212,
+      "baseline_split_means": [
+        {
+          "window_ms": [
+            -180,
+            -100
+          ],
+          "mean_uA": 4834.280143900463
+        },
+        {
+          "window_ms": [
+            -100,
+            -20
+          ],
+          "mean_uA": 4817.339165163776
+        }
+      ],
+      "legacy": {
+        "window_ms": [
+          25.64,
+          30.4
+        ],
+        "baseline_median_uA": 4516.588166383134,
+        "energy_total_uJ": 113.72396506704045,
+        "energy_clipped_excess_uJ": 44.26026135730986,
+        "signed_increment_using_mean_baseline_uJ": 37.92014701364981,
+        "baseline_energy_using_mean_uJ": 75.80381805339051
+      },
+      "signed_windows": [
+        {
+          "end_ms": 100,
+          "energy_total_uJ": 1632.7346482261166,
+          "baseline_energy_uJ": 1592.5171859955992,
+          "signed_increment_uJ": 40.217462230526024,
+          "split_baseline_signed_increment_uJ": [
+            37.422200738975725,
+            43.012723722075854
+          ]
+        },
+        {
+          "end_ms": 150,
+          "energy_total_uJ": 2431.824367545303,
+          "baseline_energy_uJ": 2388.775778993399,
+          "signed_increment_uJ": 43.04858855190747,
+          "split_baseline_signed_increment_uJ": [
+            38.85569631458255,
+            47.241480789232085
+          ]
+        },
+        {
+          "end_ms": 200,
+          "energy_total_uJ": 3230.2573918624853,
+          "baseline_energy_uJ": 3185.0343719911984,
+          "signed_increment_uJ": 45.22301987119813,
+          "split_baseline_signed_increment_uJ": [
+            39.63249688809861,
+            50.813542854297374
+          ]
+        },
+        {
+          "end_ms": 300,
+          "energy_total_uJ": 4827.487684284798,
+          "baseline_energy_uJ": 4777.551557986798,
+          "signed_increment_uJ": 49.936126297758044,
+          "split_baseline_signed_increment_uJ": [
+            41.550341823108894,
+            58.321910772406014
+          ]
+        },
+        {
+          "end_ms": 500,
+          "energy_total_uJ": 8031.041687559088,
+          "baseline_energy_uJ": 7962.585929977996,
+          "signed_increment_uJ": 68.45575758122698,
+          "split_baseline_signed_increment_uJ": [
+            54.47945012347805,
+            82.43206503898053
+          ]
+        }
+      ],
+      "host_timing": {
+        "marker_skew_ms": 0.0398,
+        "callback_duration_ms": 114.3952,
+        "host_trigger_to_send_entry_ms": 0.2419
+      }
+    },
+    {
+      "role": "rx",
+      "run_id": "run_00001",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00001",
+      "sample_count": 96256,
+      "trigger_index": 20480,
+      "posttrigger_ms": 757.76,
+      "reported_sample_loss_percent": 0.0,
+      "baseline_mean_uA": 7421.367546735459,
+      "baseline_split_means": [
+        {
+          "window_ms": [
+            -180,
+            -100
+          ],
+          "mean_uA": 7414.465810326334
+        },
+        {
+          "window_ms": [
+            -100,
+            -20
+          ],
+          "mean_uA": 7428.269283144584
+        }
+      ],
+      "legacy": {
+        "window_ms": [
+          0.0,
+          4.76
+        ],
+        "baseline_median_uA": 7223.734894936387,
+        "energy_total_uJ": 117.00361781803375,
+        "energy_clipped_excess_uJ": 4.9566688698317085,
+        "signed_increment_using_mean_baseline_uJ": 0.42877639391320244,
+        "baseline_energy_using_mean_uJ": 116.57484142412056
+      },
+      "signed_windows": [
+        {
+          "end_ms": 100,
+          "energy_total_uJ": 2453.584452506498,
+          "baseline_energy_uJ": 2449.051290422701,
+          "signed_increment_uJ": 4.533162083758968,
+          "split_baseline_signed_increment_uJ": [
+            6.810735098770069,
+            2.255589068747696
+          ]
+        },
+        {
+          "end_ms": 150,
+          "energy_total_uJ": 3676.648367320309,
+          "baseline_energy_uJ": 3673.5769356340516,
+          "signed_increment_uJ": 3.0714316861933764,
+          "split_baseline_signed_increment_uJ": [
+            6.487791208710052,
+            -0.34492783632351115
+          ]
+        },
+        {
+          "end_ms": 200,
+          "energy_total_uJ": 4901.526112615291,
+          "baseline_energy_uJ": 4898.102580845402,
+          "signed_increment_uJ": 3.423531769834689,
+          "split_baseline_signed_increment_uJ": [
+            7.978677799856643,
+            -1.1316142601882417
+          ]
+        },
+        {
+          "end_ms": 300,
+          "energy_total_uJ": 7349.843508886491,
+          "baseline_energy_uJ": 7347.153871268103,
+          "signed_increment_uJ": 2.6896376185260435,
+          "split_baseline_signed_increment_uJ": [
+            9.522356663558323,
+            -4.143081426508524
+          ]
+        },
+        {
+          "end_ms": 500,
+          "energy_total_uJ": 12245.598372714558,
+          "baseline_energy_uJ": 12245.256452113505,
+          "signed_increment_uJ": 0.34192060115865375,
+          "split_baseline_signed_increment_uJ": [
+            11.729785676212463,
+            -11.045944473900398
+          ]
+        }
+      ],
+      "host_timing": {
+        "marker_skew_ms": 0.1123,
+        "callback_duration_ms": 124.7382,
+        "host_trigger_to_send_entry_ms": 0.1953
+      }
+    },
+    {
+      "role": "rx",
+      "run_id": "run_00002",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00002",
+      "sample_count": 96256,
+      "trigger_index": 20480,
+      "posttrigger_ms": 757.76,
+      "reported_sample_loss_percent": 0.0,
+      "baseline_mean_uA": 7429.804021961433,
+      "baseline_split_means": [
+        {
+          "window_ms": [
+            -180,
+            -100
+          ],
+          "mean_uA": 7434.521240403632
+        },
+        {
+          "window_ms": [
+            -100,
+            -20
+          ],
+          "mean_uA": 7425.086803519235
+        }
+      ],
+      "legacy": {
+        "window_ms": [
+          0.0,
+          4.76
+        ],
+        "baseline_median_uA": 7223.734894936387,
+        "energy_total_uJ": 116.72865838501083,
+        "energy_clipped_excess_uJ": 4.8480773086063875,
+        "signed_increment_using_mean_baseline_uJ": 0.021296808040536092,
+        "baseline_energy_using_mean_uJ": 116.70736157697017
+      },
+      "signed_windows": [
+        {
+          "end_ms": 100,
+          "energy_total_uJ": 2450.950410797416,
+          "baseline_energy_uJ": 2451.8353272472727,
+          "signed_increment_uJ": -0.8849164498985501,
+          "split_baseline_signed_increment_uJ": [
+            -2.4415985358243715,
+            0.6717656360267483
+          ]
+        },
+        {
+          "end_ms": 150,
+          "energy_total_uJ": 3673.798647664345,
+          "baseline_energy_uJ": 3677.752990870909,
+          "signed_increment_uJ": -3.9543432066194057,
+          "split_baseline_signed_increment_uJ": [
+            -6.289366335507762,
+            -1.619320077731315
+          ]
+        },
+        {
+          "end_ms": 200,
+          "energy_total_uJ": 4896.290287512744,
+          "baseline_energy_uJ": 4903.6706544945455,
+          "signed_increment_uJ": -7.380366981822301,
+          "split_baseline_signed_increment_uJ": [
+            -10.493731153673043,
+            -4.267002809971381
+          ]
+        },
+        {
+          "end_ms": 300,
+          "energy_total_uJ": 7346.325596019315,
+          "baseline_energy_uJ": 7355.505981741818,
+          "signed_increment_uJ": -9.180385722321352,
+          "split_baseline_signed_increment_uJ": [
+            -13.850431980096996,
+            -4.510339464545274
+          ]
+        },
+        {
+          "end_ms": 500,
+          "energy_total_uJ": 12242.332293686795,
+          "baseline_energy_uJ": 12259.176636236363,
+          "signed_increment_uJ": -16.84434254951543,
+          "split_baseline_signed_increment_uJ": [
+            -24.6277529791411,
+            -9.06093211989074
+          ]
+        }
+      ],
+      "host_timing": {
+        "marker_skew_ms": 0.0132,
+        "callback_duration_ms": 123.1712,
+        "host_trigger_to_send_entry_ms": 0.2575
+      }
+    },
+    {
+      "role": "rx",
+      "run_id": "run_00003",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00003",
+      "sample_count": 97280,
+      "trigger_index": 21504,
+      "posttrigger_ms": 757.76,
+      "reported_sample_loss_percent": 0.0,
+      "baseline_mean_uA": 7419.953395149604,
+      "baseline_split_means": [
+        {
+          "window_ms": [
+            -180,
+            -100
+          ],
+          "mean_uA": 7420.195882055783
+        },
+        {
+          "window_ms": [
+            -100,
+            -20
+          ],
+          "mean_uA": 7419.710908243427
+        }
+      ],
+      "legacy": {
+        "window_ms": [
+          0.0,
+          4.76
+        ],
+        "baseline_median_uA": 7223.734894936387,
+        "energy_total_uJ": 116.66666916842642,
+        "energy_clipped_excess_uJ": 4.784597400084558,
+        "signed_increment_using_mean_baseline_uJ": 0.11404123741638612,
+        "baseline_energy_using_mean_uJ": 116.55262793100997
+      },
+      "signed_windows": [
+        {
+          "end_ms": 100,
+          "energy_total_uJ": 2450.548805678688,
+          "baseline_energy_uJ": 2448.584620399369,
+          "signed_increment_uJ": 1.9641852792846828,
+          "split_baseline_signed_increment_uJ": [
+            1.8841646002455081,
+            2.044205958323293
+          ]
+        },
+        {
+          "end_ms": 150,
+          "energy_total_uJ": 3675.949577294169,
+          "baseline_energy_uJ": 3672.8769305990536,
+          "signed_increment_uJ": 3.072646695061526,
+          "split_baseline_signed_increment_uJ": [
+            2.952615676502739,
+            3.1926777136195237
+          ]
+        },
+        {
+          "end_ms": 200,
+          "energy_total_uJ": 4901.51309001583,
+          "baseline_energy_uJ": 4897.169240798738,
+          "signed_increment_uJ": 4.343849217041398,
+          "split_baseline_signed_increment_uJ": [
+            4.183807858962995,
+            4.503890575118764
+          ]
+        },
+        {
+          "end_ms": 300,
+          "energy_total_uJ": 7348.761470541284,
+          "baseline_energy_uJ": 7345.753861198107,
+          "signed_increment_uJ": 3.007609343299889,
+          "split_baseline_signed_increment_uJ": [
+            2.7675473061823297,
+            3.2476713804158175
+          ]
+        },
+        {
+          "end_ms": 500,
+          "energy_total_uJ": 12248.176709751106,
+          "baseline_energy_uJ": 12242.923101996845,
+          "signed_increment_uJ": 5.253607754272544,
+          "split_baseline_signed_increment_uJ": [
+            4.853504359077029,
+            5.653711149465233
+          ]
+        }
+      ],
+      "host_timing": {
+        "marker_skew_ms": 0.0118,
+        "callback_duration_ms": 118.9656,
+        "host_trigger_to_send_entry_ms": 0.1966
+      }
+    },
+    {
+      "role": "rx",
+      "run_id": "run_00004",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00004",
+      "sample_count": 97280,
+      "trigger_index": 21504,
+      "posttrigger_ms": 757.76,
+      "reported_sample_loss_percent": 0.0,
+      "baseline_mean_uA": 7424.486497905906,
+      "baseline_split_means": [
+        {
+          "window_ms": [
+            -180,
+            -100
+          ],
+          "mean_uA": 7426.390339248643
+        },
+        {
+          "window_ms": [
+            -100,
+            -20
+          ],
+          "mean_uA": 7422.58265656317
+        }
+      ],
+      "legacy": {
+        "window_ms": [
+          0.0,
+          4.76
+        ],
+        "baseline_median_uA": 7223.734894936387,
+        "energy_total_uJ": 116.92881558986375,
+        "energy_clipped_excess_uJ": 4.910195364125598,
+        "signed_increment_using_mean_baseline_uJ": 0.3049816807576376,
+        "baseline_energy_using_mean_uJ": 116.62383390910595
+      },
+      "signed_windows": [
+        {
+          "end_ms": 100,
+          "energy_total_uJ": 2445.693813842981,
+          "baseline_energy_uJ": 2450.0805443089484,
+          "signed_increment_uJ": -4.38673046601,
+          "split_baseline_signed_increment_uJ": [
+            -5.014998109113176,
+            -3.758462822906886
+          ]
+        },
+        {
+          "end_ms": 150,
+          "energy_total_uJ": 3669.511758213461,
+          "baseline_energy_uJ": 3675.1208164634227,
+          "signed_increment_uJ": -5.60905825004931,
+          "split_baseline_signed_increment_uJ": [
+            -6.551459714703798,
+            -4.666656785394792
+          ]
+        },
+        {
+          "end_ms": 200,
+          "energy_total_uJ": 4894.514329092247,
+          "baseline_energy_uJ": 4900.161088617897,
+          "signed_increment_uJ": -5.646759525736533,
+          "split_baseline_signed_increment_uJ": [
+            -6.9032948119423505,
+            -4.390224239530595
+          ]
+        },
+        {
+          "end_ms": 300,
+          "energy_total_uJ": 7339.88039750881,
+          "baseline_energy_uJ": 7350.241632926845,
+          "signed_increment_uJ": -10.361235417945728,
+          "split_baseline_signed_increment_uJ": [
+            -12.2460383472547,
+            -8.476432488637498
+          ]
+        },
+        {
+          "end_ms": 500,
+          "energy_total_uJ": 12236.956679431585,
+          "baseline_energy_uJ": 12250.402721544742,
+          "signed_increment_uJ": -13.446042113089609,
+          "split_baseline_signed_increment_uJ": [
+            -16.587380328605725,
+            -10.304703897576914
+          ]
+        }
+      ],
+      "host_timing": {
+        "marker_skew_ms": 0.0844,
+        "callback_duration_ms": 122.8326,
+        "host_trigger_to_send_entry_ms": 0.2849
+      }
+    },
+    {
+      "role": "rx",
+      "run_id": "run_00005",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00005",
+      "sample_count": 97280,
+      "trigger_index": 21504,
+      "posttrigger_ms": 757.76,
+      "reported_sample_loss_percent": 0.0,
+      "baseline_mean_uA": 7423.809597532509,
+      "baseline_split_means": [
+        {
+          "window_ms": [
+            -180,
+            -100
+          ],
+          "mean_uA": 7419.567233235522
+        },
+        {
+          "window_ms": [
+            -100,
+            -20
+          ],
+          "mean_uA": 7428.051961829497
+        }
+      ],
+      "legacy": {
+        "window_ms": [
+          0.0,
+          4.76
+        ],
+        "baseline_median_uA": 7223.734894936387,
+        "energy_total_uJ": 116.7596248917949,
+        "energy_clipped_excess_uJ": 4.935502279237673,
+        "signed_increment_using_mean_baseline_uJ": 0.1464237337542011,
+        "baseline_energy_using_mean_uJ": 116.61320115804062
+      },
+      "signed_windows": [
+        {
+          "end_ms": 100,
+          "energy_total_uJ": 2445.3124407942014,
+          "baseline_energy_uJ": 2449.8571671857276,
+          "signed_increment_uJ": -4.544726391564728,
+          "split_baseline_signed_increment_uJ": [
+            -3.144746173559492,
+            -5.944706609571169
+          ]
+        },
+        {
+          "end_ms": 150,
+          "energy_total_uJ": 3669.438435079384,
+          "baseline_energy_uJ": 3674.785750778591,
+          "signed_increment_uJ": -5.347315699250304,
+          "split_baseline_signed_increment_uJ": [
+            -3.2473453722421475,
+            -7.4472860262592615
+          ]
+        },
+        {
+          "end_ms": 200,
+          "energy_total_uJ": 4894.378906970896,
+          "baseline_energy_uJ": 4899.714334371455,
+          "signed_increment_uJ": -5.335427400560525,
+          "split_baseline_signed_increment_uJ": [
+            -2.535466964549424,
+            -8.135387836571956
+          ]
+        },
+        {
+          "end_ms": 300,
+          "energy_total_uJ": 7343.139225880367,
+          "baseline_energy_uJ": 7349.571501557182,
+          "signed_increment_uJ": -6.432275676645574,
+          "split_baseline_signed_increment_uJ": [
+            -2.232335022628527,
+            -10.63221633066201
+          ]
+        },
+        {
+          "end_ms": 500,
+          "energy_total_uJ": 12241.577971669632,
+          "baseline_energy_uJ": 12249.285835928637,
+          "signed_increment_uJ": -7.707864258880042,
+          "split_baseline_signed_increment_uJ": [
+            -0.707963168851475,
+            -14.707765348906804
+          ]
+        }
+      ],
+      "host_timing": {
+        "marker_skew_ms": 0.0398,
+        "callback_duration_ms": 114.3952,
+        "host_trigger_to_send_entry_ms": 0.2419
+      }
+    }
+  ],
+  "inputs": {
+    "pairing.json": "03f81994ef44a23111c55cbf822c5134611eda4f5c2d724f9eab3fd32843c0f9",
+    "tx/summary.csv": "901055e9962801315f94d1f59078f84f1e0e048145227656f6f842f0384c397d",
+    "tx/raw/run_00001.csv.gz": "6712ef4567c6e0046a17a74bc493aab642bea3472c3b90b8e32fdb841816e7d2",
+    "tx/raw/run_00002.csv.gz": "fb7ba7f15d980fb0f47d8f99d3c4d5cf7cf67e8ee02b8728fc6d4fc4c62c5929",
+    "tx/raw/run_00003.csv.gz": "608899628d7fc7bff4afda3bd724f6d7329d873bd1a7fd3038b56dfa6d446836",
+    "tx/raw/run_00004.csv.gz": "3fc842b333d1324af6ea92f15405c88ee5778b411fd7fb95fde0132c59d89cb8",
+    "tx/raw/run_00005.csv.gz": "8e167667196fcf8f9d1ce7c1e27398356eed1aacc0d65666884386b9908fb883",
+    "rx/summary.csv": "97dea6ac249b89f5b492e2a8d7cad36e7cc1176340f5a73089dc0ffaf9b5d972",
+    "rx/raw/run_00001.csv.gz": "1d89f53cd10987307e0f4005a10410abeb1655c563863423499e47ed9ef79555",
+    "rx/raw/run_00002.csv.gz": "ea7d4dc05d73e7cd7eb9c6fa2a6f65d6cae904603cbaa260d7c6c20ba60646b5",
+    "rx/raw/run_00003.csv.gz": "9f4b7e4f88be8232b42e24c0d140ae0564f8e118efaedf42b171229d1cb307f1",
+    "rx/raw/run_00004.csv.gz": "003592960a9ae31179e180e9ce8024abf87ee913b61a69d3c2edf8941482f0d1",
+    "rx/raw/run_00005.csv.gz": "9ad08c329c669d72babb0f481e4a844a2a0bb0be2d7f211de566b87eae257e36",
+    "diagnostics/rx_review/wire_counter_review.json": "cb730d9e7d086c862dcc700233b04cedb69d194110633514ccfe354315531e72"
+  },
+  "limits": [
+    "No physical RF-start/end timestamp recorded.",
+    "TX alignment maximizes clipped charge in a fixed model-length window; observed energy does not establish RF duration.",
+    "RX fixed window starts at the host marker and precedes UART drain/write latency; not a detected packet event.",
+    "Host sample_loss_percent is an acquisition-volume estimator, not a wire-continuity certificate.",
+    "The five physical transfers are the replicate unit; ADC samples are autocorrelated.",
+    "TX and RX baselines have different radio states; never describe both as standby.",
+    "Recorded calibration coefficients do not provide an independent instrument/voltage accuracy verification.",
+    "TX wire counter anomalies exist in all five captures; acquisition validity is qualified pending identification of their cause. They do not justify inventing missing samples or rejecting only run 3."
+  ],
+  "aggregates": {
+    "tx": {
+      "replicates": 5,
+      "baseline_mean_uA": 4830.446906759202,
+      "legacy_signed_increment_uJ_mean": 38.33614774003819,
+      "legacy_signed_increment_uJ_sd": 0.978363353287153,
+      "windows": [
+        {
+          "end_ms": 100,
+          "signed_increment_uJ_mean": 39.55805578675493,
+          "signed_increment_uJ_sd": 3.4607833262652905,
+          "split_baseline_aggregate_means_uJ": [
+            38.21787287403831,
+            40.898238699472614
+          ]
+        },
+        {
+          "end_ms": 150,
+          "signed_increment_uJ_mean": 39.53609643685909,
+          "signed_increment_uJ_sd": 5.212128636519193,
+          "split_baseline_aggregate_means_uJ": [
+            37.52582206778423,
+            41.54637080593568
+          ]
+        },
+        {
+          "end_ms": 200,
+          "signed_increment_uJ_mean": 42.521096139558864,
+          "signed_increment_uJ_sd": 6.320148281602893,
+          "split_baseline_aggregate_means_uJ": [
+            39.840730314126176,
+            45.20146196499467
+          ]
+        },
+        {
+          "end_ms": 300,
+          "signed_increment_uJ_mean": 45.37627173609682,
+          "signed_increment_uJ_sd": 9.578490699632853,
+          "split_baseline_aggregate_means_uJ": [
+            41.3557229979477,
+            49.396820474251044
+          ]
+        },
+        {
+          "end_ms": 500,
+          "signed_increment_uJ_mean": 54.460027393101385,
+          "signed_increment_uJ_sd": 15.961544311333183,
+          "split_baseline_aggregate_means_uJ": [
+            47.75911282951878,
+            61.160941956687
+          ]
+        }
+      ]
+    },
+    "rx": {
+      "replicates": 5,
+      "baseline_mean_uA": 7423.884211856983,
+      "legacy_signed_increment_uJ_mean": 0.2031039707763927,
+      "legacy_signed_increment_uJ_sd": 0.1624082621974415,
+      "windows": [
+        {
+          "end_ms": 100,
+          "signed_increment_uJ_mean": -0.6638051888859257,
+          "signed_increment_uJ_sd": 3.9650162333821384,
+          "split_baseline_aggregate_means_uJ": [
+            -0.3812886238962925,
+            -0.9463217538760634
+          ]
+        },
+        {
+          "end_ms": 150,
+          "signed_increment_uJ_mean": -1.7533277549328237,
+          "signed_increment_uJ_sd": 4.44961259746757,
+          "split_baseline_aggregate_means_uJ": [
+            -1.3295529074481833,
+            -2.177102602417871
+          ]
+        },
+        {
+          "end_ms": 200,
+          "signed_increment_uJ_mean": -2.1190345842486544,
+          "signed_increment_uJ_sd": 5.544378987491981,
+          "split_baseline_aggregate_means_uJ": [
+            -1.5540014542690357,
+            -2.684067714228682
+          ]
+        },
+        {
+          "end_ms": 300,
+          "signed_increment_uJ_mean": -4.055329971017345,
+          "signed_increment_uJ_sd": 6.462588691631214,
+          "split_baseline_aggregate_means_uJ": [
+            -3.207780276047914,
+            -4.902879665987498
+          ]
+        },
+        {
+          "end_ms": 500,
+          "signed_increment_uJ_mean": -6.480544113210778,
+          "signed_increment_uJ_sd": 9.242147206988898,
+          "split_baseline_aggregate_means_uJ": [
+            -5.0679612882617615,
+            -7.893126938161925
+          ]
+        }
+      ]
+    }
+  },
+  "wire_counter_review": {
+    "source_report": "../rx_review/wire_counter_review.json",
+    "protocol_source": "https://github.com/nordicsemi/pc-nrfconnect-ppk/blob/881d596480f60dea045ad6f3643afdc3f9d5a0a6/src/device/serialDevice.ts#L35",
+    "interpretation": "Counter anomalies are observed, but their cause and corresponding ADC error are not identified. No missing-count correction or reindexing is applied. Persistent startup phase changes precede the -180 ms baseline start. A modulo-64 counter cannot rule out losses divisible by 64.",
+    "hypothetical_sensitivity_definition": "Replace only dominant-phase isolated outlier current values by the average of their immediate neighbors, preserving sample indices and recomputing mean baseline; this is a diagnostic perturbation, NOT a corrected measurement or error bound.",
+    "rows": [
+      {
+        "role": "tx",
+        "run_id": "run_00001",
+        "counter_transition_anomalies": 154,
+        "phase_outliers_after_index1000": 76,
+        "baseline_outlier_count": 16,
+        "legacy_window_outlier_count": 0,
+        "legacy_window_outlier_local_ms": [],
+        "legacy_window_outlier_recorded_energy_uJ": 0.0,
+        "hypothetical_neighbor_replacement_baseline_change_uA": 1.2225395672858212,
+        "hypothetical_legacy_total_energy_change_uJ": 0.0,
+        "window_sensitivity": [
+          {
+            "end_ms": 100,
+            "phase_outlier_count": 3,
+            "hypothetical_signed_increment_change_uJ": -0.42344867487767823
+          },
+          {
+            "end_ms": 150,
+            "phase_outlier_count": 8,
+            "hypothetical_signed_increment_change_uJ": -0.4017112194778374
+          },
+          {
+            "end_ms": 200,
+            "phase_outlier_count": 11,
+            "hypothetical_signed_increment_change_uJ": -0.5923056987054235
+          },
+          {
+            "end_ms": 300,
+            "phase_outlier_count": 22,
+            "hypothetical_signed_increment_change_uJ": -0.44464229225735413
+          },
+          {
+            "end_ms": 500,
+            "phase_outlier_count": 37,
+            "hypothetical_signed_increment_change_uJ": -0.6186891033910508
+          }
+        ]
+      },
+      {
+        "role": "tx",
+        "run_id": "run_00002",
+        "counter_transition_anomalies": 135,
+        "phase_outliers_after_index1000": 67,
+        "baseline_outlier_count": 9,
+        "legacy_window_outlier_count": 0,
+        "legacy_window_outlier_local_ms": [],
+        "legacy_window_outlier_recorded_energy_uJ": 0.0,
+        "hypothetical_neighbor_replacement_baseline_change_uA": 1.1461441126093632,
+        "hypothetical_legacy_total_energy_change_uJ": 0.0,
+        "window_sensitivity": [
+          {
+            "end_ms": 100,
+            "phase_outlier_count": 8,
+            "hypothetical_signed_increment_change_uJ": -0.086570848014096
+          },
+          {
+            "end_ms": 150,
+            "phase_outlier_count": 10,
+            "hypothetical_signed_increment_change_uJ": -0.2900033063570031
+          },
+          {
+            "end_ms": 200,
+            "phase_outlier_count": 12,
+            "hypothetical_signed_increment_change_uJ": -0.47731617619315686
+          },
+          {
+            "end_ms": 300,
+            "phase_outlier_count": 20,
+            "hypothetical_signed_increment_change_uJ": -0.5432955312918736
+          },
+          {
+            "end_ms": 500,
+            "phase_outlier_count": 36,
+            "hypothetical_signed_increment_change_uJ": -0.7964746228383532
+          }
+        ]
+      },
+      {
+        "role": "tx",
+        "run_id": "run_00003",
+        "counter_transition_anomalies": 136,
+        "phase_outliers_after_index1000": 67,
+        "baseline_outlier_count": 12,
+        "legacy_window_outlier_count": 1,
+        "legacy_window_outlier_local_ms": [
+          26.58
+        ],
+        "legacy_window_outlier_recorded_energy_uJ": 0.15757460798618952,
+        "hypothetical_neighbor_replacement_baseline_change_uA": 0.3883033261063247,
+        "hypothetical_legacy_total_energy_change_uJ": 0.08141469835717241,
+        "window_sensitivity": [
+          {
+            "end_ms": 100,
+            "phase_outlier_count": 12,
+            "hypothetical_signed_increment_change_uJ": 0.0798001255368854
+          },
+          {
+            "end_ms": 150,
+            "phase_outlier_count": 15,
+            "hypothetical_signed_increment_change_uJ": 0.16549406679561582
+          },
+          {
+            "end_ms": 200,
+            "phase_outlier_count": 21,
+            "hypothetical_signed_increment_change_uJ": 0.5454626866558381
+          },
+          {
+            "end_ms": 300,
+            "phase_outlier_count": 29,
+            "hypothetical_signed_increment_change_uJ": 0.8299729695545318
+          },
+          {
+            "end_ms": 500,
+            "phase_outlier_count": 41,
+            "hypothetical_signed_increment_change_uJ": 1.3449405572159217
+          }
+        ]
+      },
+      {
+        "role": "tx",
+        "run_id": "run_00004",
+        "counter_transition_anomalies": 132,
+        "phase_outliers_after_index1000": 65,
+        "baseline_outlier_count": 12,
+        "legacy_window_outlier_count": 2,
+        "legacy_window_outlier_local_ms": [
+          39.91,
+          42.39
+        ],
+        "legacy_window_outlier_recorded_energy_uJ": 0.3636843013576924,
+        "hypothetical_neighbor_replacement_baseline_change_uA": 0.4803199937232421,
+        "hypothetical_legacy_total_energy_change_uJ": 0.0038538080062940883,
+        "window_sensitivity": [
+          {
+            "end_ms": 100,
+            "phase_outlier_count": 4,
+            "hypothetical_signed_increment_change_uJ": 0.10143423987510543
+          },
+          {
+            "end_ms": 150,
+            "phase_outlier_count": 7,
+            "hypothetical_signed_increment_change_uJ": 0.17306209132360834
+          },
+          {
+            "end_ms": 200,
+            "phase_outlier_count": 10,
+            "hypothetical_signed_increment_change_uJ": 0.3514208707342116
+          },
+          {
+            "end_ms": 300,
+            "phase_outlier_count": 20,
+            "hypothetical_signed_increment_change_uJ": 0.7394569472842186
+          },
+          {
+            "end_ms": 500,
+            "phase_outlier_count": 34,
+            "hypothetical_signed_increment_change_uJ": 0.6946511772236457
+          }
+        ]
+      },
+      {
+        "role": "tx",
+        "run_id": "run_00005",
+        "counter_transition_anomalies": 159,
+        "phase_outliers_after_index1000": 78,
+        "baseline_outlier_count": 12,
+        "legacy_window_outlier_count": 0,
+        "legacy_window_outlier_local_ms": [],
+        "legacy_window_outlier_recorded_energy_uJ": 0.0,
+        "hypothetical_neighbor_replacement_baseline_change_uA": 0.5904645744703885,
+        "hypothetical_legacy_total_energy_change_uJ": 0.0,
+        "window_sensitivity": [
+          {
+            "end_ms": 100,
+            "phase_outlier_count": 8,
+            "hypothetical_signed_increment_change_uJ": 0.5721484009813327
+          },
+          {
+            "end_ms": 150,
+            "phase_outlier_count": 14,
+            "hypothetical_signed_increment_change_uJ": 0.46437801302575216
+          },
+          {
+            "end_ms": 200,
+            "phase_outlier_count": 17,
+            "hypothetical_signed_increment_change_uJ": 0.34814769017681085
+          },
+          {
+            "end_ms": 300,
+            "phase_outlier_count": 21,
+            "hypothetical_signed_increment_change_uJ": 0.24530057758758067
+          },
+          {
+            "end_ms": 500,
+            "phase_outlier_count": 32,
+            "hypothetical_signed_increment_change_uJ": 0.640778489182678
+          }
+        ]
+      },
+      {
+        "role": "rx",
+        "run_id": "run_00001",
+        "counter_transition_anomalies": 0,
+        "phase_outliers_after_index1000": 0,
+        "baseline_outlier_count": 0,
+        "legacy_window_outlier_count": 0,
+        "legacy_window_outlier_local_ms": [],
+        "legacy_window_outlier_recorded_energy_uJ": 0.0,
+        "hypothetical_neighbor_replacement_baseline_change_uA": 0.0,
+        "hypothetical_legacy_total_energy_change_uJ": 0.0,
+        "window_sensitivity": [
+          {
+            "end_ms": 100,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          },
+          {
+            "end_ms": 150,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          },
+          {
+            "end_ms": 200,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          },
+          {
+            "end_ms": 300,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          },
+          {
+            "end_ms": 500,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          }
+        ]
+      },
+      {
+        "role": "rx",
+        "run_id": "run_00002",
+        "counter_transition_anomalies": 0,
+        "phase_outliers_after_index1000": 0,
+        "baseline_outlier_count": 0,
+        "legacy_window_outlier_count": 0,
+        "legacy_window_outlier_local_ms": [],
+        "legacy_window_outlier_recorded_energy_uJ": 0.0,
+        "hypothetical_neighbor_replacement_baseline_change_uA": 0.0,
+        "hypothetical_legacy_total_energy_change_uJ": 0.0,
+        "window_sensitivity": [
+          {
+            "end_ms": 100,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          },
+          {
+            "end_ms": 150,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          },
+          {
+            "end_ms": 200,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          },
+          {
+            "end_ms": 300,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          },
+          {
+            "end_ms": 500,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          }
+        ]
+      },
+      {
+        "role": "rx",
+        "run_id": "run_00003",
+        "counter_transition_anomalies": 0,
+        "phase_outliers_after_index1000": 0,
+        "baseline_outlier_count": 0,
+        "legacy_window_outlier_count": 0,
+        "legacy_window_outlier_local_ms": [],
+        "legacy_window_outlier_recorded_energy_uJ": 0.0,
+        "hypothetical_neighbor_replacement_baseline_change_uA": 0.0,
+        "hypothetical_legacy_total_energy_change_uJ": 0.0,
+        "window_sensitivity": [
+          {
+            "end_ms": 100,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          },
+          {
+            "end_ms": 150,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          },
+          {
+            "end_ms": 200,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          },
+          {
+            "end_ms": 300,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          },
+          {
+            "end_ms": 500,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          }
+        ]
+      },
+      {
+        "role": "rx",
+        "run_id": "run_00004",
+        "counter_transition_anomalies": 0,
+        "phase_outliers_after_index1000": 0,
+        "baseline_outlier_count": 0,
+        "legacy_window_outlier_count": 0,
+        "legacy_window_outlier_local_ms": [],
+        "legacy_window_outlier_recorded_energy_uJ": 0.0,
+        "hypothetical_neighbor_replacement_baseline_change_uA": 0.0,
+        "hypothetical_legacy_total_energy_change_uJ": 0.0,
+        "window_sensitivity": [
+          {
+            "end_ms": 100,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          },
+          {
+            "end_ms": 150,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          },
+          {
+            "end_ms": 200,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          },
+          {
+            "end_ms": 300,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          },
+          {
+            "end_ms": 500,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          }
+        ]
+      },
+      {
+        "role": "rx",
+        "run_id": "run_00005",
+        "counter_transition_anomalies": 0,
+        "phase_outliers_after_index1000": 0,
+        "baseline_outlier_count": 0,
+        "legacy_window_outlier_count": 0,
+        "legacy_window_outlier_local_ms": [],
+        "legacy_window_outlier_recorded_energy_uJ": 0.0,
+        "hypothetical_neighbor_replacement_baseline_change_uA": 0.0,
+        "hypothetical_legacy_total_energy_change_uJ": 0.0,
+        "window_sensitivity": [
+          {
+            "end_ms": 100,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          },
+          {
+            "end_ms": 150,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          },
+          {
+            "end_ms": 200,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          },
+          {
+            "end_ms": 300,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          },
+          {
+            "end_ms": 500,
+            "phase_outlier_count": 0,
+            "hypothetical_signed_increment_change_uJ": 0.0
+          }
+        ]
+      }
+    ]
+  },
+  "run3_acquisition_qualification": {
+    "role": "tx",
+    "samples": 97280,
+    "marker": 22528,
+    "nominal_expected_samples": 97528,
+    "nominal_deficit_samples": 248,
+    "reported_deficit_percent": 0.2542859486506439,
+    "interpretation": "248 is a deficit against requested duration and queue-count marker, not a confirmed count of missing wire samples. No rescaling, padding, or selective exclusion is justified by this number alone.",
+    "local_posttrigger_ms": 747.52,
+    "all_requested_sensitivity_windows_fit": true
+  }
+}

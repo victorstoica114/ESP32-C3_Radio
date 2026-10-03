@@ -1,0 +1,82 @@
+; nrf-device-lib-winusb.inf
+[Strings]
+DeviceName = "nRF Connect DFU Trigger"
+ManufacturerName = "Nordic Semiconductor ASA"
+DeviceID   = "VID_1915&PID_C00A&MI_00"
+DeviceGUID = "{8f47efcd-4fb0-409f-bb2e-8b56bdc180b7}"
+WinUsb_SvcDesc = "WinUSB Driver"
+ClassName = "Nordic Semiconductor DFU"
+; DiskName = "nRF52 USB Installation Disk"
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = "Nordic Semiconductor DFU"
+ClassGuid   = {ECFB0CFD-74C4-4f52-BBF7-343461CD72AC}
+Provider    = %ManufacturerName%
+CatalogFile = nrf-device-lib-winusb.cat
+DriverVer   = 08/21/2020, 1.0.0.1
+PnpLockDown = 1
+
+[ClassInstall32]
+Addreg = ClassInstall_AddReg
+
+[ClassInstall_AddReg]
+HKR,,,,%ClassName%
+HKR,,Icon,,-20
+
+[Manufacturer]
+%ManufacturerName% = Nordic_DeviceGroup,NTx86,NTamd64
+
+[Nordic_DeviceGroup.NTx86]
+%DeviceName% = USB_Install, USB\%DeviceID%
+
+[Nordic_DeviceGroup.NTamd64]
+%DeviceName% = USB_Install, USB\%DeviceID%
+
+[USB_Install]
+Include = winusb.inf
+Needs   = WINUSB.NT
+
+[USB_Install.Services]
+Include    = winusb.inf
+AddService = WinUSB,0x00000002,WinUsb_ServiceInstall
+
+[WinUsb_ServiceInstall]
+DisplayName   = %WinUSB_SvcDesc%
+ServiceType   = 1
+StartType     = 3
+ErrorControl  = 1
+ServiceBinary = %12%\WinUSB.sys
+
+[USB_Install.Wdf]
+KmdfService = WINUSB, WinUsb_Install
+
+[WinUSB_Install]
+KmdfLibraryVersion = 1.11
+
+[USB_Install.HW]
+AddReg = Dev_AddReg
+
+[Dev_AddReg]
+HKR,,DeviceInterfaceGUIDs,0x10000,%DeviceGUID%
+
+[USB_Install.CoInstallers]
+AddReg    = CoInstallers_AddReg
+CopyFiles = CoInstallers_CopyFiles
+
+[CoInstallers_AddReg]
+HKR,,CoInstallers32,0x00010000,"WdfCoInstaller01011.dll,WdfCoInstaller","WinUSBCoInstaller2.dll"
+
+[DestinationDirs]
+CoInstallers_CopyFiles = 11
+
+; [SourceDisksNames]
+; 1 = %DiskName%
+
+[SourceDisksFiles.x86]
+WinUSBCoInstaller2.dll = 1,x86
+WdfCoInstaller01011.dll = 1,x86
+
+[SourceDisksFiles.amd64]
+WinUSBCoInstaller2.dll = 1,x64
+WdfCoInstaller01011.dll = 1,x64

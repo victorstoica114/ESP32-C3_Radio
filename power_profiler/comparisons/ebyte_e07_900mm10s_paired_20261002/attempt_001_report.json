@@ -1,0 +1,960 @@
+{
+  "attempt": 1,
+  "status": "candidate",
+  "completed": true,
+  "runs": [
+    {
+      "run_id": "run_00001",
+      "payload": "E07_fe743712_01_01_XXXXXXXXXXX",
+      "sent_rf_hex": "4530375f66653734333731325f30315f30315f58585858585858585858580d0a",
+      "physical_payload_bytes": 32,
+      "before_uart": {
+        "lines": {
+          "COM29": [],
+          "COM30": []
+        },
+        "raw": []
+      },
+      "send_perf_counter_ns": 3070933978098200,
+      "previous_tx_gap_s": null,
+      "during_uart": {
+        "lines": {
+          "COM29": [
+            "E07_fe743712_01_01_XXXXXXXXXXX"
+          ],
+          "COM30": [
+            "[TX] 32 bytes, state: 0",
+            "[TX] 32 bytes"
+          ]
+        },
+        "raw": [
+          {
+            "port": "COM30",
+            "perf_counter_ns": 3070933982591000,
+            "hex": "5b54585d2033322062797465732c2073746174653a20300d0a5b54585d2033322062797465730d0a"
+          },
+          {
+            "port": "COM29",
+            "perf_counter_ns": 3070933984165700,
+            "hex": "4530375f66653734333731325f30315f30315f58585858585858585858580d0a"
+          }
+        ]
+      },
+      "timing": {
+        "synchronization": "host_coordinated_independent_sample_clocks",
+        "hardware_synchronized": false,
+        "sample_rate_hz": 100000,
+        "requested_pre_s": 0.2,
+        "requested_after_trigger_s": 0.5,
+        "devices": {
+          "tx": {
+            "start_command_host_ns": 3070933757316000,
+            "first_data_host_ns": 3070933774624100,
+            "marker_host_ns": 3070933977394900,
+            "trigger_index": 20992,
+            "stop_command_host_ns": 3070934478639700,
+            "wire_bytes": 286720,
+            "trailing_bytes": 0
+          },
+          "rx": {
+            "start_command_host_ns": 3070933757537600,
+            "first_data_host_ns": 3070933774487500,
+            "marker_host_ns": 3070933977410900,
+            "trigger_index": 20992,
+            "stop_command_host_ns": 3070934478814200,
+            "wire_bytes": 286720,
+            "trailing_bytes": 0
+          }
+        },
+        "host_trigger_ns": 3070933977416300,
+        "trigger_callback_started_host_ns": 3070933977805100,
+        "trigger_callback_finished_host_ns": 3070934428245700,
+        "host_marker_skew_ms": 0.016
+      },
+      "capture_errors": {},
+      "captures": {
+        "tx": {
+          "raw_path": "raw\\tx\\run_00001.csv.gz",
+          "samples": 71680,
+          "trigger_index": 20992,
+          "elapsed_s": 0.7213237,
+          "expected_samples": 70992,
+          "sample_loss_percent": 0.0
+        },
+        "rx": {
+          "raw_path": "raw\\rx\\run_00001.csv.gz",
+          "samples": 71680,
+          "trigger_index": 20992,
+          "elapsed_s": 0.7212766,
+          "expected_samples": 70992,
+          "sample_loss_percent": 0.0
+        }
+      },
+      "wire_paths": {
+        "tx": "wire\\run_00001\\tx.ppk2.bin",
+        "rx": "wire\\run_00001\\rx.ppk2.bin"
+      },
+      "save_errors": [],
+      "after_uart": {
+        "lines": {
+          "COM29": [],
+          "COM30": []
+        },
+        "raw": []
+      },
+      "tx_state_ok_count": 1,
+      "tx_bridge_ack_count": 1,
+      "tx_ok_count": 1,
+      "tx_ok": true,
+      "rx_exact_count": 1,
+      "capture_ok": true,
+      "candidate": true
+    },
+    {
+      "run_id": "run_00002",
+      "payload": "E07_fe743712_01_02_XXXXXXXXXXX",
+      "sent_rf_hex": "4530375f66653734333731325f30315f30325f58585858585858585858580d0a",
+      "physical_payload_bytes": 32,
+      "before_uart": {
+        "lines": {
+          "COM29": [],
+          "COM30": []
+        },
+        "raw": []
+      },
+      "send_perf_counter_ns": 3070936282462600,
+      "previous_tx_gap_s": 2.3043644,
+      "during_uart": {
+        "lines": {
+          "COM29": [
+            "E07_fe743712_01_02_XXXXXXXXXXX"
+          ],
+          "COM30": [
+            "[TX] 32 bytes, state: 0",
+            "[TX] 32 bytes"
+          ]
+        },
+        "raw": [
+          {
+            "port": "COM30",
+            "perf_counter_ns": 3070936287429500,
+            "hex": "5b54585d2033322062797465732c2073746174653a20300d0a5b54585d2033322062797465730d0a"
+          },
+          {
+            "port": "COM29",
+            "perf_counter_ns": 3070936289070100,
+            "hex": "4530375f66653734333731325f30315f30325f58585858585858585858580d0a"
+          }
+        ]
+      },
+      "timing": {
+        "synchronization": "host_coordinated_independent_sample_clocks",
+        "hardware_synchronized": false,
+        "sample_rate_hz": 100000,
+        "requested_pre_s": 0.2,
+        "requested_after_trigger_s": 0.5,
+        "devices": {
+          "tx": {
+            "start_command_host_ns": 3070936056835600,
+            "first_data_host_ns": 3070936079633700,
+            "marker_host_ns": 3070936281983600,
+            "trigger_index": 22016,
+            "stop_command_host_ns": 3070936783399800,
+            "wire_bytes": 288768,
+            "trailing_bytes": 0
+          },
+          "rx": {
+            "start_command_host_ns": 3070936057252800,
+            "first_data_host_ns": 3070936079611600,
+            "marker_host_ns": 3070936282001400,
+            "trigger_index": 21504,
+            "stop_command_host_ns": 3070936783443500,
+            "wire_bytes": 288768,
+            "trailing_bytes": 0
+          }
+        },
+        "host_trigger_ns": 3070936282007500,
+        "trigger_callback_started_host_ns": 3070936282228800,
+        "trigger_callback_finished_host_ns": 3070936724917000,
+        "host_marker_skew_ms": 0.0178
+      },
+      "capture_errors": {},
+      "captures": {
+        "tx": {
+          "raw_path": "raw\\tx\\run_00002.csv.gz",
+          "samples": 72192,
+          "trigger_index": 22016,
+          "elapsed_s": 0.7265642,
+          "expected_samples": 72016,
+          "sample_loss_percent": 0.0
+        },
+        "rx": {
+          "raw_path": "raw\\rx\\run_00002.csv.gz",
+          "samples": 72192,
+          "trigger_index": 21504,
+          "elapsed_s": 0.7261907,
+          "expected_samples": 71504,
+          "sample_loss_percent": 0.0
+        }
+      },
+      "wire_paths": {
+        "tx": "wire\\run_00002\\tx.ppk2.bin",
+        "rx": "wire\\run_00002\\rx.ppk2.bin"
+      },
+      "save_errors": [],
+      "after_uart": {
+        "lines": {
+          "COM29": [],
+          "COM30": []
+        },
+        "raw": []
+      },
+      "tx_state_ok_count": 1,
+      "tx_bridge_ack_count": 1,
+      "tx_ok_count": 1,
+      "tx_ok": true,
+      "rx_exact_count": 1,
+      "capture_ok": true,
+      "candidate": true
+    },
+    {
+      "run_id": "run_00003",
+      "payload": "E07_fe743712_01_03_XXXXXXXXXXX",
+      "sent_rf_hex": "4530375f66653734333731325f30315f30335f58585858585858585858580d0a",
+      "physical_payload_bytes": 32,
+      "before_uart": {
+        "lines": {
+          "COM29": [],
+          "COM30": []
+        },
+        "raw": []
+      },
+      "send_perf_counter_ns": 3070938575585800,
+      "previous_tx_gap_s": 2.2931232,
+      "during_uart": {
+        "lines": {
+          "COM29": [
+            "E07_fe743712_01_03_XXXXXXXXXXX"
+          ],
+          "COM30": [
+            "[TX] 32 bytes, state: 0",
+            "[TX] 32 bytes"
+          ]
+        },
+        "raw": [
+          {
+            "port": "COM30",
+            "perf_counter_ns": 3070938580186000,
+            "hex": "5b54585d2033322062797465732c2073746174653a20300d0a5b54585d2033322062797465730d0a"
+          },
+          {
+            "port": "COM29",
+            "perf_counter_ns": 3070938581681800,
+            "hex": "4530375f66653734333731325f30315f30335f58585858585858585858580d0a"
+          }
+        ]
+      },
+      "timing": {
+        "synchronization": "host_coordinated_independent_sample_clocks",
+        "hardware_synchronized": false,
+        "sample_rate_hz": 100000,
+        "requested_pre_s": 0.2,
+        "requested_after_trigger_s": 0.5,
+        "devices": {
+          "tx": {
+            "start_command_host_ns": 3070938353270700,
+            "first_data_host_ns": 3070938371562600,
+            "marker_host_ns": 3070938574211100,
+            "trigger_index": 21504,
+            "stop_command_host_ns": 3070939075973400,
+            "wire_bytes": 288768,
+            "trailing_bytes": 0
+          },
+          "rx": {
+            "start_command_host_ns": 3070938353500000,
+            "first_data_host_ns": 3070938371575600,
+            "marker_host_ns": 3070938574493700,
+            "trigger_index": 21504,
+            "stop_command_host_ns": 3070939075899500,
+            "wire_bytes": 288768,
+            "trailing_bytes": 0
+          }
+        },
+        "host_trigger_ns": 3070938574543900,
+        "trigger_callback_started_host_ns": 3070938575159800,
+        "trigger_callback_finished_host_ns": 3070939022213500,
+        "host_marker_skew_ms": 0.2826
+      },
+      "capture_errors": {},
+      "captures": {
+        "tx": {
+          "raw_path": "raw\\tx\\run_00003.csv.gz",
+          "samples": 72192,
+          "trigger_index": 21504,
+          "elapsed_s": 0.7227027,
+          "expected_samples": 71504,
+          "sample_loss_percent": 0.0
+        },
+        "rx": {
+          "raw_path": "raw\\rx\\run_00003.csv.gz",
+          "samples": 72192,
+          "trigger_index": 21504,
+          "elapsed_s": 0.7223995,
+          "expected_samples": 71504,
+          "sample_loss_percent": 0.0
+        }
+      },
+      "wire_paths": {
+        "tx": "wire\\run_00003\\tx.ppk2.bin",
+        "rx": "wire\\run_00003\\rx.ppk2.bin"
+      },
+      "save_errors": [],
+      "after_uart": {
+        "lines": {
+          "COM29": [],
+          "COM30": []
+        },
+        "raw": []
+      },
+      "tx_state_ok_count": 1,
+      "tx_bridge_ack_count": 1,
+      "tx_ok_count": 1,
+      "tx_ok": true,
+      "rx_exact_count": 1,
+      "capture_ok": true,
+      "candidate": true
+    },
+    {
+      "run_id": "run_00004",
+      "payload": "E07_fe743712_01_04_XXXXXXXXXXX",
+      "sent_rf_hex": "4530375f66653734333731325f30315f30345f58585858585858585858580d0a",
+      "physical_payload_bytes": 32,
+      "before_uart": {
+        "lines": {
+          "COM29": [],
+          "COM30": []
+        },
+        "raw": []
+      },
+      "send_perf_counter_ns": 3070940893687600,
+      "previous_tx_gap_s": 2.3181018,
+      "during_uart": {
+        "lines": {
+          "COM29": [
+            "E07_fe743712_01_04_XXXXXXXXXXX"
+          ],
+          "COM30": [
+            "[TX] 32 bytes, state: 0",
+            "[TX] 32 bytes"
+          ]
+        },
+        "raw": [
+          {
+            "port": "COM30",
+            "perf_counter_ns": 3070940898098200,
+            "hex": "5b54585d2033322062797465732c2073746174653a20300d0a5b54585d2033322062797465730d0a"
+          },
+          {
+            "port": "COM29",
+            "perf_counter_ns": 3070940899570400,
+            "hex": "4530375f66653734333731325f30315f30345f58585858585858585858580d0a"
+          }
+        ]
+      },
+      "timing": {
+        "synchronization": "host_coordinated_independent_sample_clocks",
+        "hardware_synchronized": false,
+        "sample_rate_hz": 100000,
+        "requested_pre_s": 0.2,
+        "requested_after_trigger_s": 0.5,
+        "devices": {
+          "tx": {
+            "start_command_host_ns": 3070940663628900,
+            "first_data_host_ns": 3070940677015700,
+            "marker_host_ns": 3070940892914900,
+            "trigger_index": 22016,
+            "stop_command_host_ns": 3070941393901600,
+            "wire_bytes": 290816,
+            "trailing_bytes": 0
+          },
+          "rx": {
+            "start_command_host_ns": 3070940663849900,
+            "first_data_host_ns": 3070940677035100,
+            "marker_host_ns": 3070940893031800,
+            "trigger_index": 22016,
+            "stop_command_host_ns": 3070941394009300,
+            "wire_bytes": 290816,
+            "trailing_bytes": 0
+          }
+        },
+        "host_trigger_ns": 3070940893064000,
+        "trigger_callback_started_host_ns": 3070940893375700,
+        "trigger_callback_finished_host_ns": 3070941334922800,
+        "host_marker_skew_ms": 0.1169
+      },
+      "capture_errors": {},
+      "captures": {
+        "tx": {
+          "raw_path": "raw\\tx\\run_00004.csv.gz",
+          "samples": 72704,
+          "trigger_index": 22016,
+          "elapsed_s": 0.7302727,
+          "expected_samples": 72016,
+          "sample_loss_percent": 0.0
+        },
+        "rx": {
+          "raw_path": "raw\\rx\\run_00004.csv.gz",
+          "samples": 72704,
+          "trigger_index": 22016,
+          "elapsed_s": 0.7301594,
+          "expected_samples": 72016,
+          "sample_loss_percent": 0.0
+        }
+      },
+      "wire_paths": {
+        "tx": "wire\\run_00004\\tx.ppk2.bin",
+        "rx": "wire\\run_00004\\rx.ppk2.bin"
+      },
+      "save_errors": [],
+      "after_uart": {
+        "lines": {
+          "COM29": [],
+          "COM30": []
+        },
+        "raw": []
+      },
+      "tx_state_ok_count": 1,
+      "tx_bridge_ack_count": 1,
+      "tx_ok_count": 1,
+      "tx_ok": true,
+      "rx_exact_count": 1,
+      "capture_ok": true,
+      "candidate": true
+    },
+    {
+      "run_id": "run_00005",
+      "payload": "E07_fe743712_01_05_XXXXXXXXXXX",
+      "sent_rf_hex": "4530375f66653734333731325f30315f30355f58585858585858585858580d0a",
+      "physical_payload_bytes": 32,
+      "before_uart": {
+        "lines": {
+          "COM29": [],
+          "COM30": []
+        },
+        "raw": []
+      },
+      "send_perf_counter_ns": 3070943245918600,
+      "previous_tx_gap_s": 2.352231,
+      "during_uart": {
+        "lines": {
+          "COM29": [
+            "E07_fe743712_01_05_XXXXXXXXXXX"
+          ],
+          "COM30": [
+            "[TX] 32 bytes, state: 0",
+            "[TX] 32 bytes"
+          ]
+        },
+        "raw": [
+          {
+            "port": "COM30",
+            "perf_counter_ns": 3070943250619500,
+            "hex": "5b54585d2033322062797465732c2073746174653a20300d0a5b54585d2033322062797465730d0a"
+          },
+          {
+            "port": "COM29",
+            "perf_counter_ns": 3070943252360200,
+            "hex": "4530375f66653734333731325f30315f30355f58585858585858585858580d0a"
+          }
+        ]
+      },
+      "timing": {
+        "synchronization": "host_coordinated_independent_sample_clocks",
+        "hardware_synchronized": false,
+        "sample_rate_hz": 100000,
+        "requested_pre_s": 0.2,
+        "requested_after_trigger_s": 0.5,
+        "devices": {
+          "tx": {
+            "start_command_host_ns": 3070943024706900,
+            "first_data_host_ns": 3070943045215800,
+            "marker_host_ns": 3070943245074700,
+            "trigger_index": 20992,
+            "stop_command_host_ns": 3070943746034700,
+            "wire_bytes": 286720,
+            "trailing_bytes": 0
+          },
+          "rx": {
+            "start_command_host_ns": 3070943024839000,
+            "first_data_host_ns": 3070943045007100,
+            "marker_host_ns": 3070943245095600,
+            "trigger_index": 20992,
+            "stop_command_host_ns": 3070943745912300,
+            "wire_bytes": 286720,
+            "trailing_bytes": 0
+          }
+        },
+        "host_trigger_ns": 3070943245103800,
+        "trigger_callback_started_host_ns": 3070943245499200,
+        "trigger_callback_finished_host_ns": 3070943692769300,
+        "host_marker_skew_ms": 0.0209
+      },
+      "capture_errors": {},
+      "captures": {
+        "tx": {
+          "raw_path": "raw\\tx\\run_00005.csv.gz",
+          "samples": 71680,
+          "trigger_index": 20992,
+          "elapsed_s": 0.7213278,
+          "expected_samples": 70992,
+          "sample_loss_percent": 0.0
+        },
+        "rx": {
+          "raw_path": "raw\\rx\\run_00005.csv.gz",
+          "samples": 71680,
+          "trigger_index": 20992,
+          "elapsed_s": 0.7210733,
+          "expected_samples": 70992,
+          "sample_loss_percent": 0.0
+        }
+      },
+      "wire_paths": {
+        "tx": "wire\\run_00005\\tx.ppk2.bin",
+        "rx": "wire\\run_00005\\rx.ppk2.bin"
+      },
+      "save_errors": [],
+      "after_uart": {
+        "lines": {
+          "COM29": [],
+          "COM30": []
+        },
+        "raw": []
+      },
+      "tx_state_ok_count": 1,
+      "tx_bridge_ack_count": 1,
+      "tx_ok_count": 1,
+      "tx_ok": true,
+      "rx_exact_count": 1,
+      "capture_ok": true,
+      "candidate": true
+    }
+  ],
+  "kind": "diagnostic_only",
+  "accepted_energy_points": 0,
+  "radio_ports": {
+    "rx": "COM29",
+    "tx": "COM30"
+  },
+  "sample_rate_hz": 100000,
+  "radio_usb_identities": {
+    "COM29": {
+      "serial": "08:92:72:9A:C2:8C",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM30": {
+      "serial": "08:92:72:9A:CC:88",
+      "vid": 12346,
+      "pid": 4097
+    }
+  },
+  "mapping_provenance": "RX OFF/ON current association in D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\preparation.json sha256=660c203e9c760860fb02484f3b8286a21540bf8596d0930841c901be1ecc5360",
+  "setup_commands": [
+    "AT+RESET",
+    "AT+DEFAULT",
+    "AT+DEBUG=OFF",
+    "AT+BRIDGE=ON",
+    "AT+CS=OFF",
+    "AT+FREQ=915.0",
+    "AT+MOD=GFSK",
+    "AT+PRE=64",
+    "AT+SYNC=D391",
+    "AT+SYNCERR=1",
+    "AT+CRC=ON",
+    "AT+ENC=NRZ",
+    "AT+PKT=VARIABLE,64",
+    "AT+ADDR=OFF",
+    "AT+PROMISC=OFF",
+    "AT+BR=250",
+    "AT+DEV=127",
+    "AT+BW=541.67",
+    "AT+PWR=10"
+  ],
+  "voltage_mv_for_decoder": 3300,
+  "voltage_provenance": "Operator_confirmed_external_3.3V_unchanged_supply",
+  "calibrations": {
+    "tx": {
+      "Calibrated": "0",
+      "HW": "59154",
+      "IA": "60",
+      "R": {
+        "0": 1004.4283447265625,
+        "1": 102.09636688232422,
+        "2": 10.294670104980469,
+        "3": 0.9710896611213684,
+        "4": 0.056259121745824814
+      },
+      "O": {
+        "0": 128.43923950195312,
+        "1": 89.05178833007812,
+        "2": 75.92266082763672,
+        "3": 59.65896224975586,
+        "4": 102.51764678955078
+      },
+      "GS": {
+        "0": 1e-19,
+        "1": 135.05462646484375,
+        "2": 21.440528869628906,
+        "3": 2.752481460571289,
+        "4": 0.08300972729921341
+      },
+      "GI": {
+        "0": 1.0,
+        "1": 0.9633749127388,
+        "2": 0.9545890688896179,
+        "3": 0.9477665424346924,
+        "4": 0.9539828896522522
+      },
+      "S": {
+        "0": -5.040802975032e-08,
+        "1": -3.6705580441776e-07,
+        "2": -2.99367843581422e-06,
+        "3": -3.209787610103376e-05,
+        "4": 0.0016125940019264817
+      },
+      "I": {
+        "0": 1.8602490570174e-07,
+        "1": 1.21383050100121e-06,
+        "2": 7.046380778774619e-05,
+        "3": -0.00014766653475817293,
+        "4": -0.00523310387507081
+      },
+      "UG": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 1.0
+      }
+    },
+    "rx": {
+      "Calibrated": "0",
+      "HW": "21994",
+      "IA": "60",
+      "R": {
+        "0": 1000.5957641601562,
+        "1": 101.40058135986328,
+        "2": 10.28022289276123,
+        "3": 0.9653185606002808,
+        "4": 0.05632902681827545
+      },
+      "O": {
+        "0": 119.50615692138672,
+        "1": 81.77458953857422,
+        "2": 70.12054443359375,
+        "3": 54.01410675048828,
+        "4": 93.50475311279297
+      },
+      "GS": {
+        "0": 1e-19,
+        "1": 119.2336196899414,
+        "2": 17.985504150390625,
+        "3": 2.5476224422454834,
+        "4": 0.07415920495986938
+      },
+      "GI": {
+        "0": 1.0,
+        "1": 0.9664102792739868,
+        "2": 0.9626902937889099,
+        "3": 0.951231837272644,
+        "4": 0.9594330191612244
+      },
+      "S": {
+        "0": 6.495847770793e-08,
+        "1": 7.9617404935561e-07,
+        "2": 8.46630064188503e-06,
+        "3": 8.544084266759455e-05,
+        "4": 0.0037396331317722797
+      },
+      "I": {
+        "0": -8.608763124585e-08,
+        "1": -1.84591544893919e-06,
+        "2": 3.143193680443801e-05,
+        "3": -0.00041445178794674575,
+        "4": -0.011407100595533848
+      },
+      "UG": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 1.0
+      }
+    }
+  },
+  "settings": {
+    "profile_id": "RADIO_EBYTE_E07_900MM10S",
+    "rate_kbps": 250.0,
+    "chip_drive_dbm": 10,
+    "frequency_mhz": 915.0,
+    "modulation": "GFSK",
+    "deviation_khz": 127.0,
+    "bandwidth_khz": 541.67,
+    "preamble_bits": 64,
+    "sync_word": "D391",
+    "sync_error_bits": 1,
+    "crc": true,
+    "payload_bytes": 32,
+    "content_bytes": 30,
+    "line_overhead_bytes": 2,
+    "tx_success_lines": [
+      "[TX] 32 bytes, state: 0",
+      "[TX] 32 bytes"
+    ],
+    "expected_chip_version": 20,
+    "pre_s": 0.2,
+    "after_trigger_s": 0.5,
+    "minimum_tx_gap_s": 1.2,
+    "max_attempts": 20
+  },
+  "hardware_before": {
+    "rx": {
+      "configuration_queries": {
+        "FREQ": "915.000",
+        "BR": "250.000",
+        "DEV": "127.000",
+        "BW": "541.67",
+        "PWR": "10",
+        "PRE": "64",
+        "SYNCERR": "1",
+        "SYNC": "0xD391",
+        "CRC": "ON",
+        "MOD": "GFSK",
+        "SHAPE": "0.5",
+        "ENC": "NRZ",
+        "PKT": "VARIABLE,64",
+        "ADDR": "OFF",
+        "PROMISC": "OFF",
+        "CS": "OFF",
+        "BRIDGE": "ON",
+        "DEBUG": "OFF"
+      },
+      "status": {
+        "CHIP_VERSION": "0x14",
+        "RSSI": "-74.00",
+        "LQI": "0",
+        "MODE": "GFSK",
+        "RX": "ON",
+        "SLEEP": "NO",
+        "BRIDGE": "ON"
+      },
+      "configuration": [
+        "====== E07-900MM10S CONFIGURATION ======",
+        "Module:       Ebyte E07-900MM10S",
+        "Module max TX:10 dBm nominal",
+        "Frequency:    915.00 MHz",
+        "Bit Rate:     250.0 kbps",
+        "Freq Dev:     127.0 kHz",
+        "RX Bandwidth: 541.67 kHz",
+        "TX Power:     10 dBm",
+        "Preamble:     64 bits",
+        "Sync Word:    0xD391",
+        "CRC:          Enabled",
+        "Modulation:   GFSK",
+        "Data shaping: 0.5",
+        "Encoding:     NRZ",
+        "Packet mode:  VARIABLE",
+        "Packet len:   64",
+        "Address filt: OFF",
+        "Node addr:    0x01",
+        "Broadcasts:   1",
+        "Promiscuous:  OFF",
+        "Carrier sense:OFF",
+        "Sync err bits:1",
+        "Sleep:        NO",
+        "==================================",
+        "OK"
+      ],
+      "limitation": "Chip version is a hardware read; RSSI/LQI are cached by the driver from its last FIFO read. RF settings and RX mode are firmware configuration/state readbacks, not a complete hardware register dump."
+    },
+    "tx": {
+      "configuration_queries": {
+        "FREQ": "915.000",
+        "BR": "250.000",
+        "DEV": "127.000",
+        "BW": "541.67",
+        "PWR": "10",
+        "PRE": "64",
+        "SYNCERR": "1",
+        "SYNC": "0xD391",
+        "CRC": "ON",
+        "MOD": "GFSK",
+        "SHAPE": "0.5",
+        "ENC": "NRZ",
+        "PKT": "VARIABLE,64",
+        "ADDR": "OFF",
+        "PROMISC": "OFF",
+        "CS": "OFF",
+        "BRIDGE": "ON",
+        "DEBUG": "ON"
+      },
+      "status": {
+        "CHIP_VERSION": "0x14",
+        "RSSI": "-74.00",
+        "LQI": "0",
+        "MODE": "GFSK",
+        "RX": "OFF",
+        "SLEEP": "NO",
+        "BRIDGE": "ON"
+      },
+      "configuration": [
+        "====== E07-900MM10S CONFIGURATION ======",
+        "Module:       Ebyte E07-900MM10S",
+        "Module max TX:10 dBm nominal",
+        "Frequency:    915.00 MHz",
+        "Bit Rate:     250.0 kbps",
+        "Freq Dev:     127.0 kHz",
+        "RX Bandwidth: 541.67 kHz",
+        "TX Power:     10 dBm",
+        "Preamble:     64 bits",
+        "Sync Word:    0xD391",
+        "CRC:          Enabled",
+        "Modulation:   GFSK",
+        "Data shaping: 0.5",
+        "Encoding:     NRZ",
+        "Packet mode:  VARIABLE",
+        "Packet len:   64",
+        "Address filt: OFF",
+        "Node addr:    0x01",
+        "Broadcasts:   1",
+        "Promiscuous:  OFF",
+        "Carrier sense:OFF",
+        "Sync err bits:1",
+        "Sleep:        NO",
+        "==================================",
+        "OK"
+      ],
+      "limitation": "Chip version is a hardware read; RSSI/LQI are cached by the driver from its last FIFO read. RF settings and RX mode are firmware configuration/state readbacks, not a complete hardware register dump."
+    }
+  },
+  "hardware_after": {
+    "rx": {
+      "configuration_queries": {
+        "FREQ": "915.000",
+        "BR": "250.000",
+        "DEV": "127.000",
+        "BW": "541.67",
+        "PWR": "10",
+        "PRE": "64",
+        "SYNCERR": "1",
+        "SYNC": "0xD391",
+        "CRC": "ON",
+        "MOD": "GFSK",
+        "SHAPE": "0.5",
+        "ENC": "NRZ",
+        "PKT": "VARIABLE,64",
+        "ADDR": "OFF",
+        "PROMISC": "OFF",
+        "CS": "OFF",
+        "BRIDGE": "ON",
+        "DEBUG": "OFF"
+      },
+      "status": {
+        "CHIP_VERSION": "0x14",
+        "RSSI": "-25.50",
+        "LQI": "48",
+        "MODE": "GFSK",
+        "RX": "ON",
+        "SLEEP": "NO",
+        "BRIDGE": "ON"
+      },
+      "configuration": [
+        "====== E07-900MM10S CONFIGURATION ======",
+        "Module:       Ebyte E07-900MM10S",
+        "Module max TX:10 dBm nominal",
+        "Frequency:    915.00 MHz",
+        "Bit Rate:     250.0 kbps",
+        "Freq Dev:     127.0 kHz",
+        "RX Bandwidth: 541.67 kHz",
+        "TX Power:     10 dBm",
+        "Preamble:     64 bits",
+        "Sync Word:    0xD391",
+        "CRC:          Enabled",
+        "Modulation:   GFSK",
+        "Data shaping: 0.5",
+        "Encoding:     NRZ",
+        "Packet mode:  VARIABLE",
+        "Packet len:   64",
+        "Address filt: OFF",
+        "Node addr:    0x01",
+        "Broadcasts:   1",
+        "Promiscuous:  OFF",
+        "Carrier sense:OFF",
+        "Sync err bits:1",
+        "Sleep:        NO",
+        "==================================",
+        "OK"
+      ],
+      "limitation": "Chip version is a hardware read; RSSI/LQI are cached by the driver from its last FIFO read. RF settings and RX mode are firmware configuration/state readbacks, not a complete hardware register dump."
+    },
+    "tx": {
+      "configuration_queries": {
+        "FREQ": "915.000",
+        "BR": "250.000",
+        "DEV": "127.000",
+        "BW": "541.67",
+        "PWR": "10",
+        "PRE": "64",
+        "SYNCERR": "1",
+        "SYNC": "0xD391",
+        "CRC": "ON",
+        "MOD": "GFSK",
+        "SHAPE": "0.5",
+        "ENC": "NRZ",
+        "PKT": "VARIABLE,64",
+        "ADDR": "OFF",
+        "PROMISC": "OFF",
+        "CS": "OFF",
+        "BRIDGE": "ON",
+        "DEBUG": "ON"
+      },
+      "status": {
+        "CHIP_VERSION": "0x14",
+        "RSSI": "-74.00",
+        "LQI": "0",
+        "MODE": "GFSK",
+        "RX": "OFF",
+        "SLEEP": "NO",
+        "BRIDGE": "ON"
+      },
+      "configuration": [
+        "====== E07-900MM10S CONFIGURATION ======",
+        "Module:       Ebyte E07-900MM10S",
+        "Module max TX:10 dBm nominal",
+        "Frequency:    915.00 MHz",
+        "Bit Rate:     250.0 kbps",
+        "Freq Dev:     127.0 kHz",
+        "RX Bandwidth: 541.67 kHz",
+        "TX Power:     10 dBm",
+        "Preamble:     64 bits",
+        "Sync Word:    0xD391",
+        "CRC:          Enabled",
+        "Modulation:   GFSK",
+        "Data shaping: 0.5",
+        "Encoding:     NRZ",
+        "Packet mode:  VARIABLE",
+        "Packet len:   64",
+        "Address filt: OFF",
+        "Node addr:    0x01",
+        "Broadcasts:   1",
+        "Promiscuous:  OFF",
+        "Carrier sense:OFF",
+        "Sync err bits:1",
+        "Sleep:        NO",
+        "==================================",
+        "OK"
+      ],
+      "limitation": "Chip version is a hardware read; RSSI/LQI are cached by the driver from its last FIFO read. RF settings and RX mode are firmware configuration/state readbacks, not a complete hardware register dump."
+    }
+  }
+}

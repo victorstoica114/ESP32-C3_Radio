@@ -1,0 +1,466 @@
+{
+  "schema_version": 1,
+  "session_id": "20260930_213239_188258_e79_paired_pilot",
+  "created_utc": "2026-09-30T18:32:39.189301+00:00",
+  "status": "valid",
+  "interface_label": "CH340",
+  "endpoints": {
+    "tx": {
+      "radio_port": "COM12",
+      "ppk_port": "COM10",
+      "voltage_mv": 3300,
+      "identity": "E79-A on CH340 COM12 (USB location 1-8.3), measured by PPK2 E753C4E81F3D; mapping verified by RX ON/OFF current steps",
+      "radio_usb": {
+        "device": "COM12",
+        "serial_number": "",
+        "vid": 6790,
+        "pid": 29987,
+        "hwid": "USB VID:PID=1A86:7523 SER= LOCATION=1-8.3:x.1",
+        "description": "USB-SERIAL CH340 (COM12)"
+      },
+      "ppk_usb": {
+        "device": "COM10",
+        "serial_number": "E753C4E81F3D",
+        "vid": 6421,
+        "pid": 49162,
+        "hwid": "USB VID:PID=1915:C00A SER=E753C4E81F3D LOCATION=1-8.4:x.1",
+        "description": "USB Serial Device (COM10)"
+      },
+      "ppk_calibration_metadata": {
+        "Calibrated": "0",
+        "R": {
+          "0": 1004.4283,
+          "1": 102.0964,
+          "2": 10.2947,
+          "3": 0.9711,
+          "4": 0.0563
+        },
+        "GS": {
+          "0": 0.0,
+          "1": 135.0546,
+          "2": 21.4405,
+          "3": 2.7525,
+          "4": 0.083
+        },
+        "GI": {
+          "0": 1.0,
+          "1": 0.9634,
+          "2": 0.9546,
+          "3": 0.9478,
+          "4": 0.954
+        },
+        "O": {
+          "0": 128.4392,
+          "1": 89.0518,
+          "2": 75.9227,
+          "3": 59.659,
+          "4": 102.5176
+        },
+        "S": {
+          "0": -5e-08,
+          "1": -3.67e-07,
+          "2": -2.994e-06,
+          "3": -3.2098e-05,
+          "4": 0.001612594
+        },
+        "I": {
+          "0": 1.86e-07,
+          "1": 1.214e-06,
+          "2": 7.0464e-05,
+          "3": -0.000147667,
+          "4": -0.005233104
+        },
+        "UG": {
+          "0": 1.0,
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0
+        },
+        "HW": "59154",
+        "IA": "56"
+      },
+      "modem_preflight": {
+        "version_reply": [
+          "+VERSION:E79_AT_MODEM,0.3.0,SimpleLink-LPF2-SDK 8.33.00.16",
+          "OK"
+        ],
+        "config_reply": [
+          "+CFG:PROFILE=GFSK200,FREQ=433920000,RATE=200000,PWR=13,MOD=2GFSK,SYNC=0x930B51DE,ADDR=N/A,CHAN=N/A,RX=OFF,SLEEP=NO,DEBUG=OFF",
+          "OK"
+        ],
+        "config": {
+          "PROFILE": "GFSK200",
+          "FREQ": "433920000",
+          "RATE": "200000",
+          "PWR": "13",
+          "MOD": "2GFSK",
+          "SYNC": "0x930B51DE",
+          "ADDR": "N/A",
+          "CHAN": "N/A",
+          "RX": "OFF",
+          "SLEEP": "NO",
+          "DEBUG": "OFF"
+        }
+      },
+      "ppk_closed_keep_power_on": true
+    },
+    "rx": {
+      "radio_port": "COM13",
+      "ppk_port": "COM11",
+      "voltage_mv": 3300,
+      "identity": "E79-B on CH340 COM13 (USB location 1-8.1.2), measured by PPK2 CD2D332DB09A; mapping verified by RX ON/OFF current steps",
+      "radio_usb": {
+        "device": "COM13",
+        "serial_number": "",
+        "vid": 6790,
+        "pid": 29987,
+        "hwid": "USB VID:PID=1A86:7523 SER= LOCATION=1-8.1.2:x.1",
+        "description": "USB-SERIAL CH340 (COM13)"
+      },
+      "ppk_usb": {
+        "device": "COM11",
+        "serial_number": "CD2D332DB09A",
+        "vid": 6421,
+        "pid": 49162,
+        "hwid": "USB VID:PID=1915:C00A SER=CD2D332DB09A LOCATION=1-8.1.1:x.1",
+        "description": "USB Serial Device (COM11)"
+      },
+      "ppk_calibration_metadata": {
+        "Calibrated": "0",
+        "R": {
+          "0": 1000.5958,
+          "1": 101.4006,
+          "2": 10.2802,
+          "3": 0.9653,
+          "4": 0.0563
+        },
+        "GS": {
+          "0": 0.0,
+          "1": 119.2336,
+          "2": 17.9855,
+          "3": 2.5476,
+          "4": 0.0742
+        },
+        "GI": {
+          "0": 1.0,
+          "1": 0.9664,
+          "2": 0.9627,
+          "3": 0.9512,
+          "4": 0.9594
+        },
+        "O": {
+          "0": 119.5062,
+          "1": 81.7746,
+          "2": 70.1205,
+          "3": 54.0141,
+          "4": 93.5048
+        },
+        "S": {
+          "0": 6.5e-08,
+          "1": 7.96e-07,
+          "2": 8.466e-06,
+          "3": 8.5441e-05,
+          "4": 0.003739633
+        },
+        "I": {
+          "0": -8.6e-08,
+          "1": -1.846e-06,
+          "2": 3.1432e-05,
+          "3": -0.000414452,
+          "4": -0.011407101
+        },
+        "UG": {
+          "0": 1.0,
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0
+        },
+        "HW": "21994",
+        "IA": "55"
+      },
+      "modem_preflight": {
+        "version_reply": [
+          "+VERSION:E79_AT_MODEM,0.3.0,SimpleLink-LPF2-SDK 8.33.00.16",
+          "OK"
+        ],
+        "config_reply": [
+          "+CFG:PROFILE=GFSK200,FREQ=433920000,RATE=200000,PWR=13,MOD=2GFSK,SYNC=0x930B51DE,ADDR=N/A,CHAN=N/A,RX=ON,SLEEP=NO,DEBUG=OFF",
+          "OK"
+        ],
+        "config": {
+          "PROFILE": "GFSK200",
+          "FREQ": "433920000",
+          "RATE": "200000",
+          "PWR": "13",
+          "MOD": "2GFSK",
+          "SYNC": "0x930B51DE",
+          "ADDR": "N/A",
+          "CHAN": "N/A",
+          "RX": "ON",
+          "SLEEP": "NO",
+          "DEBUG": "OFF"
+        }
+      },
+      "ppk_closed_keep_power_on": true
+    }
+  },
+  "expected_rows": 5,
+  "profile_id": "RADIO_EBYTE_E79_CC1352P",
+  "payload_bytes": 32,
+  "rf_profile": "GFSK200",
+  "tx_power_dbm": 13,
+  "voltage_confirmed": true,
+  "voltage_provenance": "Operator explicitly confirmed external 3.3 V at PPK2 VIN and supply exclusively through PPK2 on 2026-09-30.",
+  "ppk_mode": "ampere",
+  "serial_dtr": false,
+  "serial_rts": false,
+  "boot_wait_s": 6.0,
+  "hardware_synchronized": false,
+  "synchronization": "host_coordinated_independent_sample_clocks",
+  "measurement_scope": "TX modeled event window; RX modeled listening window, excluding full transaction claims",
+  "rx_metric_definition": "Fixed listening window at host trigger; not a detected RX packet event. UART/command latency can precede RF activity.",
+  "warmup": "Profile warm-up is unmeasured; only its bounded initialization retries are allowed",
+  "sample_rate_hz": 100000,
+  "rows": [
+    {
+      "run_id": "run_00001",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00001",
+      "status": "valid",
+      "radio_send_entry_host_ns": 2917328867420900,
+      "timing": {
+        "synchronization": "host_coordinated_independent_sample_clocks",
+        "hardware_synchronized": false,
+        "sample_rate_hz": 100000,
+        "requested_pre_s": 0.2,
+        "requested_after_trigger_s": 0.75,
+        "devices": {
+          "tx": {
+            "start_command_host_ns": 2917328648567700,
+            "first_data_host_ns": 2917328665212200,
+            "marker_host_ns": 2917328867085500,
+            "trigger_index": 21504,
+            "stop_command_host_ns": 2917329618088400,
+            "wire_bytes": 389120,
+            "trailing_bytes": 0
+          },
+          "rx": {
+            "start_command_host_ns": 2917328649133700,
+            "first_data_host_ns": 2917328665362400,
+            "marker_host_ns": 2917328867197800,
+            "trigger_index": 20480,
+            "stop_command_host_ns": 2917329618253200,
+            "wire_bytes": 385024,
+            "trailing_bytes": 0
+          }
+        },
+        "host_trigger_ns": 2917328867225600,
+        "trigger_callback_started_host_ns": 2917328867419500,
+        "trigger_callback_finished_host_ns": 2917328992157700,
+        "host_marker_skew_ms": 0.1123
+      },
+      "capture_errors": {},
+      "wire_paths": {
+        "tx": "wire\\run_00001\\tx.ppk2.bin",
+        "rx": "wire\\run_00001\\rx.ppk2.bin"
+      },
+      "tx_raw": "tx/raw/run_00001.csv.gz",
+      "rx_raw": "rx/raw/run_00001.csv.gz",
+      "packet_received": true,
+      "tx_status": "ok",
+      "rx_status": "ok"
+    },
+    {
+      "run_id": "run_00002",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00002",
+      "status": "valid",
+      "radio_send_entry_host_ns": 2917332353262400,
+      "timing": {
+        "synchronization": "host_coordinated_independent_sample_clocks",
+        "hardware_synchronized": false,
+        "sample_rate_hz": 100000,
+        "requested_pre_s": 0.2,
+        "requested_after_trigger_s": 0.75,
+        "devices": {
+          "tx": {
+            "start_command_host_ns": 2917332134450100,
+            "first_data_host_ns": 2917332155378100,
+            "marker_host_ns": 2917332352984900,
+            "trigger_index": 20480,
+            "stop_command_host_ns": 2917333104063400,
+            "wire_bytes": 385024,
+            "trailing_bytes": 0
+          },
+          "rx": {
+            "start_command_host_ns": 2917332134643000,
+            "first_data_host_ns": 2917332155388700,
+            "marker_host_ns": 2917332352998100,
+            "trigger_index": 20480,
+            "stop_command_host_ns": 2917333104050100,
+            "wire_bytes": 385024,
+            "trailing_bytes": 0
+          }
+        },
+        "host_trigger_ns": 2917332353004900,
+        "trigger_callback_started_host_ns": 2917332353260300,
+        "trigger_callback_finished_host_ns": 2917332476431500,
+        "host_marker_skew_ms": 0.0132
+      },
+      "capture_errors": {},
+      "wire_paths": {
+        "tx": "wire\\run_00002\\tx.ppk2.bin",
+        "rx": "wire\\run_00002\\rx.ppk2.bin"
+      },
+      "tx_raw": "tx/raw/run_00002.csv.gz",
+      "rx_raw": "rx/raw/run_00002.csv.gz",
+      "packet_received": true,
+      "tx_status": "ok",
+      "rx_status": "ok"
+    },
+    {
+      "run_id": "run_00003",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00003",
+      "status": "valid",
+      "radio_send_entry_host_ns": 2917335968796000,
+      "timing": {
+        "synchronization": "host_coordinated_independent_sample_clocks",
+        "hardware_synchronized": false,
+        "sample_rate_hz": 100000,
+        "requested_pre_s": 0.2,
+        "requested_after_trigger_s": 0.75,
+        "devices": {
+          "tx": {
+            "start_command_host_ns": 2917335743900600,
+            "first_data_host_ns": 2917335768162300,
+            "marker_host_ns": 2917335968582500,
+            "trigger_index": 22528,
+            "stop_command_host_ns": 2917336720560300,
+            "wire_bytes": 389120,
+            "trailing_bytes": 0
+          },
+          "rx": {
+            "start_command_host_ns": 2917335744356700,
+            "first_data_host_ns": 2917335768094000,
+            "marker_host_ns": 2917335968594300,
+            "trigger_index": 21504,
+            "stop_command_host_ns": 2917336720508000,
+            "wire_bytes": 389120,
+            "trailing_bytes": 0
+          }
+        },
+        "host_trigger_ns": 2917335968599400,
+        "trigger_callback_started_host_ns": 2917335968794200,
+        "trigger_callback_finished_host_ns": 2917336087759800,
+        "host_marker_skew_ms": 0.0118
+      },
+      "capture_errors": {},
+      "wire_paths": {
+        "tx": "wire\\run_00003\\tx.ppk2.bin",
+        "rx": "wire\\run_00003\\rx.ppk2.bin"
+      },
+      "tx_raw": "tx/raw/run_00003.csv.gz",
+      "rx_raw": "rx/raw/run_00003.csv.gz",
+      "packet_received": true,
+      "tx_status": "ok",
+      "rx_status": "ok"
+    },
+    {
+      "run_id": "run_00004",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00004",
+      "status": "valid",
+      "radio_send_entry_host_ns": 2917339479994100,
+      "timing": {
+        "synchronization": "host_coordinated_independent_sample_clocks",
+        "hardware_synchronized": false,
+        "sample_rate_hz": 100000,
+        "requested_pre_s": 0.2,
+        "requested_after_trigger_s": 0.75,
+        "devices": {
+          "tx": {
+            "start_command_host_ns": 2917339251164400,
+            "first_data_host_ns": 2917339266701400,
+            "marker_host_ns": 2917339479594400,
+            "trigger_index": 21504,
+            "stop_command_host_ns": 2917340231042400,
+            "wire_bytes": 389120,
+            "trailing_bytes": 0
+          },
+          "rx": {
+            "start_command_host_ns": 2917339251576200,
+            "first_data_host_ns": 2917339281740200,
+            "marker_host_ns": 2917339479678800,
+            "trigger_index": 21504,
+            "stop_command_host_ns": 2917340231095100,
+            "wire_bytes": 389120,
+            "trailing_bytes": 0
+          }
+        },
+        "host_trigger_ns": 2917339479709200,
+        "trigger_callback_started_host_ns": 2917339479991900,
+        "trigger_callback_finished_host_ns": 2917339602824500,
+        "host_marker_skew_ms": 0.0844
+      },
+      "capture_errors": {},
+      "wire_paths": {
+        "tx": "wire\\run_00004\\tx.ppk2.bin",
+        "rx": "wire\\run_00004\\rx.ppk2.bin"
+      },
+      "tx_raw": "tx/raw/run_00004.csv.gz",
+      "rx_raw": "rx/raw/run_00004.csv.gz",
+      "packet_received": true,
+      "tx_status": "ok",
+      "rx_status": "ok"
+    },
+    {
+      "run_id": "run_00005",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00005",
+      "status": "valid",
+      "radio_send_entry_host_ns": 2917342973464400,
+      "timing": {
+        "synchronization": "host_coordinated_independent_sample_clocks",
+        "hardware_synchronized": false,
+        "sample_rate_hz": 100000,
+        "requested_pre_s": 0.2,
+        "requested_after_trigger_s": 0.75,
+        "devices": {
+          "tx": {
+            "start_command_host_ns": 2917342744227700,
+            "first_data_host_ns": 2917342756623500,
+            "marker_host_ns": 2917342973173200,
+            "trigger_index": 22528,
+            "stop_command_host_ns": 2917343724246400,
+            "wire_bytes": 393216,
+            "trailing_bytes": 0
+          },
+          "rx": {
+            "start_command_host_ns": 2917342744746600,
+            "first_data_host_ns": 2917342771218500,
+            "marker_host_ns": 2917342973213000,
+            "trigger_index": 21504,
+            "stop_command_host_ns": 2917343724207200,
+            "wire_bytes": 389120,
+            "trailing_bytes": 0
+          }
+        },
+        "host_trigger_ns": 2917342973222500,
+        "trigger_callback_started_host_ns": 2917342973462800,
+        "trigger_callback_finished_host_ns": 2917343087858000,
+        "host_marker_skew_ms": 0.0398
+      },
+      "capture_errors": {},
+      "wire_paths": {
+        "tx": "wire\\run_00005\\tx.ppk2.bin",
+        "rx": "wire\\run_00005\\rx.ppk2.bin"
+      },
+      "tx_raw": "tx/raw/run_00005.csv.gz",
+      "rx_raw": "rx/raw/run_00005.csv.gz",
+      "packet_received": true,
+      "tx_status": "ok",
+      "rx_status": "ok"
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "completed_utc": "2026-09-30T18:33:08.226717+00:00"
+}

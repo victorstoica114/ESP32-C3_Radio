@@ -7,6 +7,7 @@ from typing import Any
 
 from .planning import build_cases
 from .profiles import list_profiles, load_profile, override_profile
+from .storage import CONTINUOUS_RESULTS_ROOT, PACKET_RESULTS_ROOT, SESSIONS_ROOT
 
 
 def _csv_ints(text: str) -> tuple[int, ...]:
@@ -67,11 +68,12 @@ def cmd_ports(_args) -> int:
     except ImportError as exc:
         raise RuntimeError("Install dependencies first: python -m pip install -r requirements.txt") from exc
 
-    ppk_ports = {device for device, _serial in Ppk2Sampler.list_devices()}
-    print(f"{'PORT':<10} {'TYPE':<8} DESCRIPTION")
+    ppk_ports = dict(Ppk2Sampler.list_devices())
+    print(f"{'PORT':<10} {'TYPE':<8} {'PPK2 SERIAL':<16} DESCRIPTION")
     for port in list_ports.comports():
         kind = "PPK2" if port.device in ppk_ports else "serial"
-        print(f"{port.device:<10} {kind:<8} {port.description}")
+        serial_number = ppk_ports.get(port.device) or "-"
+        print(f"{port.device:<10} {kind:<8} {serial_number:<16} {port.description}")
     return 0
 
 
@@ -281,7 +283,7 @@ def make_parser() -> argparse.ArgumentParser:
         default=3300,
         help="actual VIN rail voltage used for calibration and energy; PPK2 does not generate it",
     )
-    run_parser.add_argument("--output", type=Path, default=Path("results"))
+    run_parser.add_argument("--output", type=Path, default=PACKET_RESULTS_ROOT)
     run_parser.add_argument("--save-raw", action="store_true", help="save every 100 kS/s trace as gzip CSV")
     run_parser.add_argument(
         "--keep-power-on",
@@ -347,7 +349,7 @@ def make_parser() -> argparse.ArgumentParser:
     continuous_parser.add_argument(
         "--output",
         type=Path,
-        default=Path("continuous_results"),
+        default=CONTINUOUS_RESULTS_ROOT,
     )
     continuous_parser.add_argument("--boot-wait-s", type=float, default=1.5)
     continuous_parser.add_argument(
@@ -379,7 +381,7 @@ def make_parser() -> argparse.ArgumentParser:
     web_parser.add_argument(
         "--sessions-root",
         type=Path,
-        default=Path("web_sessions"),
+        default=SESSIONS_ROOT,
     )
     web_parser.add_argument(
         "--no-browser",

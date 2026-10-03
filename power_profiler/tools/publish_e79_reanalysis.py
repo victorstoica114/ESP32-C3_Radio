@@ -156,7 +156,7 @@ def validate_corrected(record, original):
 
 
 def validate_inputs(root, reanalysis, integrity_audit):
-    archive = root / "module radio/ESP32-C3_Radio/power_profiler"
+    archive = root / "measurements/raw/archive"
     runs_path = reanalysis / "runs.json"
     records = read_json(runs_path)
     if not isinstance(records, list) or len(records) != 630:
@@ -253,7 +253,7 @@ def render_graphs(tex_files, no_render):
 def publish(root, reanalysis, output, integrity_audit=None, *, no_render=False, validate_only=False):
     root, reanalysis, output = root.resolve(), reanalysis.resolve(), output.resolve()
     canonical = root / "power_profiler/comparisons" / BASE
-    archive = root / "module radio/ESP32-C3_Radio/power_profiler"
+    archive = root / "measurements/raw/archive"
     if not output.is_relative_to(root) or output.is_relative_to(archive):
         raise ValueError("Publication output must be inside the repository and outside the source archive")
     grouped, metadata, provenance, inputs = validate_inputs(root, reanalysis, integrity_audit)
@@ -277,7 +277,7 @@ def publish(root, reanalysis, output, integrity_audit=None, *, no_render=False, 
         for step_id, rows in sorted(grouped.items()):
             destination = stage / derivation / step_id
             item_metadata = copy.deepcopy(metadata[step_id])
-            item_metadata["derived_from"] = {"raw_root": "module radio/ESP32-C3_Radio/power_profiler", "source_step": step_id, **inputs}
+            item_metadata["derived_from"] = {"raw_root": "measurements/raw/archive", "source_step": step_id, **inputs}
             item_metadata["save_raw"] = False
             item_metadata["analysis_note"] = "Derived modeled-airtime frame windows; archived RAW and original summaries remain unchanged. Host gaps and standby transitions are outside this metric."
             with ResultWriter(destination, item_metadata) as writer:
@@ -377,7 +377,7 @@ def main():
     args = parser.parse_args()
     root = args.root.resolve()
     output = args.output or root / "power_profiler/comparisons" / BASE
-    audit = args.integrity_audit or root / "module radio/IMPORT_INFO/recapture-audit-2026-09-29/raw-full-integrity.jsonl"
+    audit = args.integrity_audit or root / "power_profiler/audits/2026-09-29/raw-full-integrity.jsonl"
     if not audit.is_file() and args.integrity_audit is None:
         audit = root / ".tmp/recapture-audit-20260929/raw-full-integrity.jsonl"
     try:

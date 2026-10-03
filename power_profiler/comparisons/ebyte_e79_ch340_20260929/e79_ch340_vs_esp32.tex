@@ -1,0 +1,50 @@
+\documentclass[tikz,border=7pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=3 by 1,horizontal sep=1.0cm},width=6.5cm,height=7cm,
+xlabel={Logical payload [B]},xmode=log,log basis x=2,ymin=0.98,ymax=1.27,
+xtick={128,512,1024},xticklabels={128,512,1024},grid=both,legend style={at={(0.5,-0.23)},anchor=north,legend columns=2,font=\scriptsize}]
+\nextgroupplot[title={-20 dBm},ylabel={CH340 / ESP32 TX-window energy}]
+\addplot[gray,dashed,forget plot] coordinates {(128,1) (1024,1)};
+\addplot[color=blue,mark=*,line width=0.8pt] coordinates {(128,1.166429747) (512,1.14804048) (1024,1.150526414)};
+\addplot[color=red,mark=*,line width=0.8pt] coordinates {(128,1.218263492) (512,1.229650787) (1024,1.235432252)};
+\addplot[color=green!55!black,mark=*,line width=0.8pt] coordinates {(128,1.221487781) (512,1.186887871) (1024,1.193846278)};
+\addplot[color=orange,mark=*,line width=0.8pt] coordinates {(128,1.218954601) (512,1.226829171) (1024,1.242395165)};
+\addplot[color=violet,mark=*,line width=0.8pt] coordinates {(128,1.218130917) (512,1.225525885) (1024,1.242284854)};
+\addplot[color=cyan!70!black,mark=*,line width=0.8pt] coordinates {(128,1.167776657) (512,1.157079385) (1024,1.178913921)};
+\addplot[color=black,mark=*,line width=0.8pt] coordinates {(128,1.2051573) (512,1.202318333) (1024,1.189261641)};
+\nextgroupplot[title={+0 dBm}]
+\addplot[gray,dashed,forget plot] coordinates {(128,1) (1024,1)};
+\addplot[color=blue,mark=*,line width=0.8pt] coordinates {(128,1.044537717) (512,1.053526714) (1024,1.052534621)};
+\addlegendentry{GFSK4K8}
+\addplot[color=red,mark=*,line width=0.8pt] coordinates {(128,1.05537248) (512,1.05804312) (1024,1.063275739)};
+\addlegendentry{GFSK50}
+\addplot[color=green!55!black,mark=*,line width=0.8pt] coordinates {(128,1.108736993) (512,1.08974324) (1024,1.10348589)};
+\addlegendentry{GFSK200}
+\addplot[color=orange,mark=*,line width=0.8pt] coordinates {(128,1.049136423) (512,1.053020036) (1024,1.053793847)};
+\addlegendentry{SLR2K5}
+\addplot[color=violet,mark=*,line width=0.8pt] coordinates {(128,1.047378226) (512,1.053207131) (1024,1.052003916)};
+\addlegendentry{SLR5}
+\addplot[color=cyan!70!black,mark=*,line width=0.8pt] coordinates {(128,1.097063576) (512,1.096255647) (1024,1.102316248)};
+\addlegendentry{OOK4K8}
+\addplot[color=black,mark=*,line width=0.8pt] coordinates {(128,1.055940036) (512,1.05566012) (1024,1.059718717)};
+\addlegendentry{IEEE154G50}
+\nextgroupplot[title={+13 dBm}]
+\addplot[gray,dashed,forget plot] coordinates {(128,1) (1024,1)};
+\addplot[color=blue,mark=*,line width=0.8pt] coordinates {(128,1.057462047) (512,1.060774672) (1024,1.061527133)};
+\addplot[color=red,mark=*,line width=0.8pt] coordinates {(128,1.062246207) (512,1.064659607) (1024,1.065030402)};
+\addplot[color=green!55!black,mark=*,line width=0.8pt] coordinates {(128,1.07310682) (512,1.097455253) (1024,1.090826601)};
+\addplot[color=orange,mark=*,line width=0.8pt] coordinates {(128,1.057342335) (512,1.062613857) (1024,1.063422834)};
+\addplot[color=violet,mark=*,line width=0.8pt] coordinates {(128,1.055450884) (512,1.06063023) (1024,1.063463617)};
+\addplot[color=cyan!70!black,mark=*,line width=0.8pt] coordinates {(128,1.100456678) (512,1.106251193) (1024,1.108441929)};
+\addplot[color=black,mark=*,line width=0.8pt] coordinates {(128,1.060572723) (512,1.066082641) (1024,1.066842593)};
+\end{groupplot}
+\node[anchor=south,font=\bfseries] at (group c2r1.north) [yshift=30pt] {Separate CH340 and ESP32 acquisition contexts};
+\node[anchor=north,font=\small,align=center] at (group c2r1.south) [yshift=-110pt] {63 matched condition means, five attempts each; all RF losses retained.\\Ratios describe radio-module windows and session differences, not converter energy or causality.};
+\end{tikzpicture}
+\end{document}

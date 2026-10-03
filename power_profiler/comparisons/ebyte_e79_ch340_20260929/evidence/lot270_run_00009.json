@@ -1,0 +1,927 @@
+{
+  "run_id": "run_00009",
+  "integration_method": "per_frame_modeled_airtime_v1",
+  "integration_windows_ms": [
+    [
+      26.55,
+      156.22
+    ],
+    [
+      177.7,
+      307.37
+    ],
+    [
+      334.65,
+      464.32
+    ],
+    [
+      486.4,
+      616.07
+    ],
+    [
+      642.39,
+      772.06
+    ],
+    [
+      799.58,
+      929.24
+    ],
+    [
+      951.26,
+      1080.92
+    ],
+    [
+      1102.76,
+      1232.42
+    ]
+  ],
+  "analysis_error": "",
+  "raw_retained": true,
+  "diagnostics": {
+    "frame_airtimes_s": [
+      0.12966666666666668,
+      0.12966666666666668,
+      0.12966666666666668,
+      0.12966666666666668,
+      0.12966666666666668,
+      0.12966666666666668,
+      0.12966666666666668,
+      0.12966666666666668
+    ],
+    "expected_frames": 8,
+    "frame_lengths": [
+      12967,
+      12967,
+      12967,
+      12967,
+      12967,
+      12966,
+      12966,
+      12966
+    ],
+    "sensitivity": [
+      {
+        "multiplier": 4.0,
+        "detected_frames": 8,
+        "groups": [
+          [
+            22256,
+            35056
+          ],
+          [
+            37456,
+            46256
+          ],
+          [
+            53456,
+            65856
+          ],
+          [
+            68056,
+            73456
+          ],
+          [
+            83856,
+            96256
+          ],
+          [
+            102056,
+            109656
+          ],
+          [
+            114656,
+            121256
+          ],
+          [
+            129856,
+            142656
+          ]
+        ],
+        "detector": {
+          "bin_samples": 200,
+          "baseline_bins": 89,
+          "sensitivity": 4.0,
+          "merge_gap_ms": 5.0,
+          "minimum_sustained_core_bins": 2,
+          "anchor_rule": "first_and_last_sustained_above_threshold_core",
+          "expected_count_used_by_detector": false,
+          "valid": true,
+          "reasons": [],
+          "baseline_mean_uA": 5642.172782255099,
+          "baseline_median_bin_uA": 5633.377279688005,
+          "baseline_sigma_mad_uA": 212.15938519806298,
+          "threshold_uA": 6482.014820480257,
+          "minimum_group_bins": 26,
+          "raw_group_count": 15,
+          "supported_group_count": 14,
+          "dropped_unsupported_groups": 1,
+          "retained_group_count": 8,
+          "dropped_short_groups": 6,
+          "frame_window_ms": 129.66,
+          "maximum_frame_window_ms": 129.67,
+          "group_widths_ms": [
+            128.0,
+            88.0,
+            124.0,
+            54.0,
+            124.0,
+            76.0,
+            66.0,
+            128.0
+          ],
+          "group_mean_uA": [
+            6806.793479247613,
+            7193.302163736195,
+            6703.805813094114,
+            6606.233558281886,
+            6700.231943537193,
+            7623.52646045835,
+            6596.1180449023395,
+            6582.624290443333
+          ],
+          "group_excess_over_baseline_uA": [
+            1173.4161995596078,
+            1559.9248840481905,
+            1070.4285334061087,
+            972.8562785938811,
+            1066.854663849188,
+            1990.149180770345,
+            962.7407652143347,
+            949.2470107553281
+          ],
+          "overlong_groups": [],
+          "groups_near_capture_end": [],
+          "pretrigger_frame_like_group_count": 0
+        },
+        "reasons": [
+          "Modeled frame window cannot fit its pulse cell"
+        ]
+      },
+      {
+        "multiplier": 3.0,
+        "detected_frames": 8,
+        "groups": [
+          [
+            22056,
+            35056
+          ],
+          [
+            37256,
+            50256
+          ],
+          [
+            53456,
+            65856
+          ],
+          [
+            68056,
+            81056
+          ],
+          [
+            83656,
+            96656
+          ],
+          [
+            99456,
+            112256
+          ],
+          [
+            114656,
+            127456
+          ],
+          [
+            129856,
+            142656
+          ]
+        ],
+        "detector": {
+          "bin_samples": 200,
+          "baseline_bins": 89,
+          "sensitivity": 3.0,
+          "merge_gap_ms": 5.0,
+          "minimum_sustained_core_bins": 2,
+          "anchor_rule": "first_and_last_sustained_above_threshold_core",
+          "expected_count_used_by_detector": false,
+          "valid": true,
+          "reasons": [],
+          "baseline_mean_uA": 5642.172782255099,
+          "baseline_median_bin_uA": 5633.377279688005,
+          "baseline_sigma_mad_uA": 212.15938519806298,
+          "threshold_uA": 6269.855435282194,
+          "minimum_group_bins": 26,
+          "raw_group_count": 8,
+          "supported_group_count": 8,
+          "dropped_unsupported_groups": 0,
+          "retained_group_count": 8,
+          "dropped_short_groups": 0,
+          "frame_window_ms": 129.66,
+          "maximum_frame_window_ms": 129.67,
+          "group_widths_ms": [
+            130.0,
+            130.0,
+            124.0,
+            130.0,
+            130.0,
+            128.0,
+            128.0,
+            128.0
+          ],
+          "group_mean_uA": [
+            6799.849058033549,
+            6986.172964289772,
+            6703.805813094114,
+            6563.047105465921,
+            6686.933688503246,
+            7169.960000944803,
+            6549.311929022064,
+            6582.624290443333
+          ],
+          "group_excess_over_baseline_uA": [
+            1166.4717783455444,
+            1352.7956846017669,
+            1070.4285334061087,
+            929.6698257779162,
+            1053.5564088152414,
+            1536.5827212567983,
+            915.934649334059,
+            949.2470107553281
+          ],
+          "overlong_groups": [],
+          "groups_near_capture_end": [],
+          "pretrigger_frame_like_group_count": 0
+        },
+        "windows": [
+          [
+            22111,
+            35078
+          ],
+          [
+            37226,
+            50193
+          ],
+          [
+            52921,
+            65888
+          ],
+          [
+            68096,
+            81063
+          ],
+          [
+            83695,
+            96662
+          ],
+          [
+            99414,
+            112380
+          ],
+          [
+            114582,
+            127548
+          ],
+          [
+            129732,
+            142698
+          ]
+        ],
+        "total_integral_uA_samples": 700725506.5071388,
+        "excess_integral_uA_samples": 230542557.72805017
+      },
+      {
+        "multiplier": 5.0,
+        "detected_frames": 3,
+        "groups": [
+          [
+            29056,
+            35056
+          ],
+          [
+            37456,
+            45456
+          ],
+          [
+            102056,
+            109256
+          ]
+        ],
+        "detector": {
+          "bin_samples": 200,
+          "baseline_bins": 89,
+          "sensitivity": 5.0,
+          "merge_gap_ms": 5.0,
+          "minimum_sustained_core_bins": 2,
+          "anchor_rule": "first_and_last_sustained_above_threshold_core",
+          "expected_count_used_by_detector": false,
+          "valid": true,
+          "reasons": [],
+          "baseline_mean_uA": 5642.172782255099,
+          "baseline_median_bin_uA": 5633.377279688005,
+          "baseline_sigma_mad_uA": 212.15938519806298,
+          "threshold_uA": 6694.17420567832,
+          "minimum_group_bins": 26,
+          "raw_group_count": 41,
+          "supported_group_count": 18,
+          "dropped_unsupported_groups": 23,
+          "retained_group_count": 3,
+          "dropped_short_groups": 15,
+          "frame_window_ms": 129.66,
+          "maximum_frame_window_ms": 129.67,
+          "group_widths_ms": [
+            60.0,
+            80.0,
+            72.0
+          ],
+          "group_mean_uA": [
+            7026.781941095717,
+            7256.428213273085,
+            7676.519670089661
+          ],
+          "group_excess_over_baseline_uA": [
+            1393.4046614077124,
+            1623.0509335850802,
+            2043.1423904016565
+          ],
+          "overlong_groups": [],
+          "groups_near_capture_end": [],
+          "pretrigger_frame_like_group_count": 0
+        },
+        "reasons": [
+          "detected_frame_count_mismatch"
+        ]
+      },
+      {
+        "multiplier": 2.5,
+        "detected_frames": 8,
+        "groups": [
+          [
+            22056,
+            35056
+          ],
+          [
+            37256,
+            50256
+          ],
+          [
+            53056,
+            65856
+          ],
+          [
+            68056,
+            81056
+          ],
+          [
+            83656,
+            96656
+          ],
+          [
+            99456,
+            112256
+          ],
+          [
+            114656,
+            127456
+          ],
+          [
+            129856,
+            142656
+          ]
+        ],
+        "detector": {
+          "bin_samples": 200,
+          "baseline_bins": 89,
+          "sensitivity": 2.5,
+          "merge_gap_ms": 5.0,
+          "minimum_sustained_core_bins": 2,
+          "anchor_rule": "first_and_last_sustained_above_threshold_core",
+          "expected_count_used_by_detector": false,
+          "valid": true,
+          "reasons": [],
+          "baseline_mean_uA": 5642.172782255099,
+          "baseline_median_bin_uA": 5633.377279688005,
+          "baseline_sigma_mad_uA": 212.15938519806298,
+          "threshold_uA": 6163.775742683162,
+          "minimum_group_bins": 26,
+          "raw_group_count": 9,
+          "supported_group_count": 8,
+          "dropped_unsupported_groups": 1,
+          "retained_group_count": 8,
+          "dropped_short_groups": 0,
+          "frame_window_ms": 129.66,
+          "maximum_frame_window_ms": 129.67,
+          "group_widths_ms": [
+            130.0,
+            130.0,
+            128.0,
+            130.0,
+            130.0,
+            128.0,
+            128.0,
+            128.0
+          ],
+          "group_mean_uA": [
+            6799.849058033549,
+            6986.172964289772,
+            6699.64073830165,
+            6563.047105465921,
+            6686.933688503246,
+            7169.960000944803,
+            6549.311929022064,
+            6582.624290443333
+          ],
+          "group_excess_over_baseline_uA": [
+            1166.4717783455444,
+            1352.7956846017669,
+            1066.2634586136455,
+            929.6698257779162,
+            1053.5564088152414,
+            1536.5827212567983,
+            915.934649334059,
+            949.2470107553281
+          ],
+          "overlong_groups": [],
+          "groups_near_capture_end": [],
+          "pretrigger_frame_like_group_count": 0
+        },
+        "windows": [
+          [
+            22111,
+            35078
+          ],
+          [
+            37226,
+            50193
+          ],
+          [
+            52921,
+            65888
+          ],
+          [
+            68096,
+            81063
+          ],
+          [
+            83695,
+            96662
+          ],
+          [
+            99414,
+            112380
+          ],
+          [
+            114582,
+            127548
+          ],
+          [
+            129732,
+            142698
+          ]
+        ],
+        "total_integral_uA_samples": 700725506.5071388,
+        "excess_integral_uA_samples": 230542557.72805017
+      },
+      {
+        "multiplier": 2.0,
+        "detected_frames": 8,
+        "groups": [
+          [
+            22056,
+            35056
+          ],
+          [
+            37256,
+            50256
+          ],
+          [
+            53056,
+            65856
+          ],
+          [
+            68056,
+            81056
+          ],
+          [
+            83656,
+            96656
+          ],
+          [
+            99456,
+            112256
+          ],
+          [
+            114656,
+            127656
+          ],
+          [
+            129856,
+            142656
+          ]
+        ],
+        "detector": {
+          "bin_samples": 200,
+          "baseline_bins": 89,
+          "sensitivity": 2.0,
+          "merge_gap_ms": 5.0,
+          "minimum_sustained_core_bins": 2,
+          "anchor_rule": "first_and_last_sustained_above_threshold_core",
+          "expected_count_used_by_detector": false,
+          "valid": true,
+          "reasons": [],
+          "baseline_mean_uA": 5642.172782255099,
+          "baseline_median_bin_uA": 5633.377279688005,
+          "baseline_sigma_mad_uA": 212.15938519806298,
+          "threshold_uA": 6057.696050084131,
+          "minimum_group_bins": 26,
+          "raw_group_count": 10,
+          "supported_group_count": 8,
+          "dropped_unsupported_groups": 2,
+          "retained_group_count": 8,
+          "dropped_short_groups": 0,
+          "frame_window_ms": 129.66,
+          "maximum_frame_window_ms": 129.67,
+          "group_widths_ms": [
+            130.0,
+            130.0,
+            128.0,
+            130.0,
+            130.0,
+            128.0,
+            130.0,
+            128.0
+          ],
+          "group_mean_uA": [
+            6799.849058033549,
+            6986.172964289772,
+            6699.64073830165,
+            6563.047105465921,
+            6686.933688503246,
+            7169.960000944803,
+            6543.225029927569,
+            6582.624290443333
+          ],
+          "group_excess_over_baseline_uA": [
+            1166.4717783455444,
+            1352.7956846017669,
+            1066.2634586136455,
+            929.6698257779162,
+            1053.5564088152414,
+            1536.5827212567983,
+            909.8477502395644,
+            949.2470107553281
+          ],
+          "overlong_groups": [],
+          "groups_near_capture_end": [],
+          "pretrigger_frame_like_group_count": 0
+        },
+        "windows": [
+          [
+            22111,
+            35078
+          ],
+          [
+            37226,
+            50193
+          ],
+          [
+            52921,
+            65888
+          ],
+          [
+            68096,
+            81063
+          ],
+          [
+            83695,
+            96662
+          ],
+          [
+            99414,
+            112380
+          ],
+          [
+            114582,
+            127548
+          ],
+          [
+            129732,
+            142698
+          ]
+        ],
+        "total_integral_uA_samples": 700725506.5071388,
+        "excess_integral_uA_samples": 230542557.72805017,
+        "total_difference_percent": 0.0
+      },
+      {
+        "multiplier": 2.25,
+        "detected_frames": 8,
+        "groups": [
+          [
+            22056,
+            35056
+          ],
+          [
+            37256,
+            50256
+          ],
+          [
+            53056,
+            65856
+          ],
+          [
+            68056,
+            81056
+          ],
+          [
+            83656,
+            96656
+          ],
+          [
+            99456,
+            112256
+          ],
+          [
+            114656,
+            127656
+          ],
+          [
+            129856,
+            142656
+          ]
+        ],
+        "detector": {
+          "bin_samples": 200,
+          "baseline_bins": 89,
+          "sensitivity": 2.25,
+          "merge_gap_ms": 5.0,
+          "minimum_sustained_core_bins": 2,
+          "anchor_rule": "first_and_last_sustained_above_threshold_core",
+          "expected_count_used_by_detector": false,
+          "valid": true,
+          "reasons": [],
+          "baseline_mean_uA": 5642.172782255099,
+          "baseline_median_bin_uA": 5633.377279688005,
+          "baseline_sigma_mad_uA": 212.15938519806298,
+          "threshold_uA": 6110.735896383647,
+          "minimum_group_bins": 26,
+          "raw_group_count": 9,
+          "supported_group_count": 8,
+          "dropped_unsupported_groups": 1,
+          "retained_group_count": 8,
+          "dropped_short_groups": 0,
+          "frame_window_ms": 129.66,
+          "maximum_frame_window_ms": 129.67,
+          "group_widths_ms": [
+            130.0,
+            130.0,
+            128.0,
+            130.0,
+            130.0,
+            128.0,
+            130.0,
+            128.0
+          ],
+          "group_mean_uA": [
+            6799.849058033549,
+            6986.172964289772,
+            6699.64073830165,
+            6563.047105465921,
+            6686.933688503246,
+            7169.960000944803,
+            6543.225029927569,
+            6582.624290443333
+          ],
+          "group_excess_over_baseline_uA": [
+            1166.4717783455444,
+            1352.7956846017669,
+            1066.2634586136455,
+            929.6698257779162,
+            1053.5564088152414,
+            1536.5827212567983,
+            909.8477502395644,
+            949.2470107553281
+          ],
+          "overlong_groups": [],
+          "groups_near_capture_end": [],
+          "pretrigger_frame_like_group_count": 0
+        },
+        "windows": [
+          [
+            22111,
+            35078
+          ],
+          [
+            37226,
+            50193
+          ],
+          [
+            52921,
+            65888
+          ],
+          [
+            68096,
+            81063
+          ],
+          [
+            83695,
+            96662
+          ],
+          [
+            99414,
+            112380
+          ],
+          [
+            114582,
+            127548
+          ],
+          [
+            129732,
+            142698
+          ]
+        ],
+        "total_integral_uA_samples": 700725506.5071388,
+        "excess_integral_uA_samples": 230542557.72805017,
+        "total_difference_percent": 0.0
+      },
+      {
+        "multiplier": 2.75,
+        "detected_frames": 8,
+        "groups": [
+          [
+            22056,
+            35056
+          ],
+          [
+            37256,
+            50256
+          ],
+          [
+            53456,
+            65856
+          ],
+          [
+            68056,
+            81056
+          ],
+          [
+            83656,
+            96656
+          ],
+          [
+            99456,
+            112256
+          ],
+          [
+            114656,
+            127456
+          ],
+          [
+            129856,
+            142656
+          ]
+        ],
+        "detector": {
+          "bin_samples": 200,
+          "baseline_bins": 89,
+          "sensitivity": 2.75,
+          "merge_gap_ms": 5.0,
+          "minimum_sustained_core_bins": 2,
+          "anchor_rule": "first_and_last_sustained_above_threshold_core",
+          "expected_count_used_by_detector": false,
+          "valid": true,
+          "reasons": [],
+          "baseline_mean_uA": 5642.172782255099,
+          "baseline_median_bin_uA": 5633.377279688005,
+          "baseline_sigma_mad_uA": 212.15938519806298,
+          "threshold_uA": 6216.815588982678,
+          "minimum_group_bins": 26,
+          "raw_group_count": 8,
+          "supported_group_count": 8,
+          "dropped_unsupported_groups": 0,
+          "retained_group_count": 8,
+          "dropped_short_groups": 0,
+          "frame_window_ms": 129.66,
+          "maximum_frame_window_ms": 129.67,
+          "group_widths_ms": [
+            130.0,
+            130.0,
+            124.0,
+            130.0,
+            130.0,
+            128.0,
+            128.0,
+            128.0
+          ],
+          "group_mean_uA": [
+            6799.849058033549,
+            6986.172964289772,
+            6703.805813094114,
+            6563.047105465921,
+            6686.933688503246,
+            7169.960000944803,
+            6549.311929022064,
+            6582.624290443333
+          ],
+          "group_excess_over_baseline_uA": [
+            1166.4717783455444,
+            1352.7956846017669,
+            1070.4285334061087,
+            929.6698257779162,
+            1053.5564088152414,
+            1536.5827212567983,
+            915.934649334059,
+            949.2470107553281
+          ],
+          "overlong_groups": [],
+          "groups_near_capture_end": [],
+          "pretrigger_frame_like_group_count": 0
+        },
+        "windows": [
+          [
+            22111,
+            35078
+          ],
+          [
+            37226,
+            50193
+          ],
+          [
+            52921,
+            65888
+          ],
+          [
+            68096,
+            81063
+          ],
+          [
+            83695,
+            96662
+          ],
+          [
+            99414,
+            112380
+          ],
+          [
+            114582,
+            127548
+          ],
+          [
+            129732,
+            142698
+          ]
+        ],
+        "total_integral_uA_samples": 700725506.5071388,
+        "excess_integral_uA_samples": 230542557.72805017,
+        "total_difference_percent": 0.0
+      }
+    ],
+    "sensitivity_consensus": {
+      "mode": "long_frame_low_signal_fallback",
+      "reference_multiplier": 2.5,
+      "supporting_multipliers": [
+        2.5,
+        2.0,
+        2.25,
+        2.75
+      ],
+      "outlier_multipliers": [],
+      "required_support_count": 4,
+      "primary_4_MAD_reasons": [
+        "Modeled frame window cannot fit its pulse cell"
+      ]
+    },
+    "detected_frames": 8,
+    "groups": [
+      [
+        22056,
+        35056
+      ],
+      [
+        37256,
+        50256
+      ],
+      [
+        53056,
+        65856
+      ],
+      [
+        68056,
+        81056
+      ],
+      [
+        83656,
+        96656
+      ],
+      [
+        99456,
+        112256
+      ],
+      [
+        114656,
+        127456
+      ],
+      [
+        129856,
+        142656
+      ]
+    ]
+  }
+}

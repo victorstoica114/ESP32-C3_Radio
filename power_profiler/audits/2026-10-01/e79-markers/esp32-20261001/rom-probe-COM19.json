@@ -1,0 +1,26 @@
+﻿{
+  "port": "COM19",
+  "baud": 1000000,
+  "timeout_s": 8.0,
+  "operation": "sync_and_read_identification_only",
+  "control_lines_before_open": {
+    "dtr": false,
+    "rts": false
+  },
+  "bootloader_entry_requested": false,
+  "target_reset_requested": false,
+  "erase_requested": false,
+  "flash_write_requested": false,
+  "flash_backup_requested": false,
+  "clock_switch_requested": false,
+  "status": "identified",
+  "messages": [
+    "CC1352P1 PG2.0 (7x7mm): 352KB Flash, 20KB SRAM, CCFG.BL_CONFIG at 0x00057FD8",
+    "Primary IEEE Address: 00:12:4B:00:22:92:A3:2A"
+  ],
+  "chip_id": "0xf000",
+  "flash_size_bytes": 360448,
+  "flash_start_address": 0,
+  "bootloader_config_address": "0x00057fd8",
+  "serial_handle_closed": true
+}

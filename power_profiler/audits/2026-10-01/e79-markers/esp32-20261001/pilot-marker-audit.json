@@ -1,0 +1,689 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-01T14:03:08.372165+00:00",
+  "audit_type": "Independent stdlib RAW/wire digital-marker audit; read-only sources",
+  "scope": "First ESP32 pilot only; no claims about later pilot after operator wiring check",
+  "result_path": "power_profiler/web_sessions/20261001_165613_865546_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_165614_034521_e79_paired_pilot",
+  "session_id": "20261001_165614_034521_e79_paired_pilot",
+  "status_recorded": "failed",
+  "run_id": "run_00001",
+  "sample_rate_hz": 100000,
+  "packet_received": true,
+  "capture_errors": {},
+  "condition": {
+    "interface_label": "ESP32",
+    "payload_bytes": 32,
+    "rf_profile": "GFSK200",
+    "tx_power_dbm": 13,
+    "ppk_mode": "ampere",
+    "integration_mode": "radio_markers",
+    "energy_policy": "total_only_with_direct_adc_proof"
+  },
+  "production_marker_reasons": [
+    "tx: Marker HIGH at capture boundary; pulse is truncated",
+    "rx: Marker HIGH at capture boundary; pulse is truncated"
+  ],
+  "roles": {
+    "tx": {
+      "endpoint": {
+        "radio_port": "COM20",
+        "ppk_port": "COM10",
+        "voltage_mv": 3300,
+        "identity": "E79 via ESP32 COM20 (08:92:72:9A:C2:60), PPK COM10 E753C4E81F3D; RX on/off current mapping verified 2026-10-01; E79 rail only, ESP32 excluded"
+      },
+      "ppk_serial": "E753C4E81F3D",
+      "modem_preflight": {
+        "firmware_version": "0.3.2",
+        "version_reply": [
+          "+VERSION:E79_AT_MODEM,0.3.2,SimpleLink-LPF2-SDK 8.33.00.16",
+          "OK"
+        ],
+        "marker_set_command": "AT+MARKER=TX",
+        "marker_set_reply": [
+          "OK"
+        ],
+        "marker_reply": [
+          "+MARKER:ROLE=TX,DIO=17,SOURCE=RAT_GPO0,ACTIVE=HIGH",
+          "OK"
+        ],
+        "radio_marker": {
+          "role": "TX",
+          "dio": 17,
+          "source": "RAT_GPO0",
+          "active": "HIGH",
+          "ppk_input": "D0"
+        },
+        "config_reply": [
+          "+CFG:PROFILE=GFSK200,FREQ=433920000,RATE=200000,PWR=13,MOD=2GFSK,SYNC=0x930B51DE,ADDR=N/A,CHAN=N/A,RX=OFF,SLEEP=NO,DEBUG=OFF,MARKER=TX",
+          "OK"
+        ],
+        "config": {
+          "PROFILE": "GFSK200",
+          "FREQ": "433920000",
+          "RATE": "200000",
+          "PWR": "13",
+          "MOD": "2GFSK",
+          "SYNC": "0x930B51DE",
+          "ADDR": "N/A",
+          "CHAN": "N/A",
+          "RX": "OFF",
+          "SLEEP": "NO",
+          "DEBUG": "OFF",
+          "MARKER": "TX"
+        }
+      },
+      "wire_bytes": 389120,
+      "wire_samples": 97280,
+      "csv_samples": 97280,
+      "capture_duration_ms": 972.8,
+      "software_trigger_index": 21504,
+      "pretrigger_duration_ms": 215.04,
+      "posttrigger_duration_ms": 757.76,
+      "logic_distribution": {
+        "255": 97280
+      },
+      "bits": [
+        {
+          "channel": "D0",
+          "high_samples": 97280,
+          "low_samples": 0,
+          "transition_count": 0,
+          "high_segments_samples": [
+            [
+              0,
+              97280
+            ]
+          ],
+          "complete_pulse_count": 0,
+          "high_pretrigger_samples": 21504,
+          "high_posttrigger_samples": 75776,
+          "first_sample_high": true,
+          "last_sample_high": true
+        },
+        {
+          "channel": "D1",
+          "high_samples": 97280,
+          "low_samples": 0,
+          "transition_count": 0,
+          "high_segments_samples": [
+            [
+              0,
+              97280
+            ]
+          ],
+          "complete_pulse_count": 0,
+          "high_pretrigger_samples": 21504,
+          "high_posttrigger_samples": 75776,
+          "first_sample_high": true,
+          "last_sample_high": true
+        },
+        {
+          "channel": "D2",
+          "high_samples": 97280,
+          "low_samples": 0,
+          "transition_count": 0,
+          "high_segments_samples": [
+            [
+              0,
+              97280
+            ]
+          ],
+          "complete_pulse_count": 0,
+          "high_pretrigger_samples": 21504,
+          "high_posttrigger_samples": 75776,
+          "first_sample_high": true,
+          "last_sample_high": true
+        },
+        {
+          "channel": "D3",
+          "high_samples": 97280,
+          "low_samples": 0,
+          "transition_count": 0,
+          "high_segments_samples": [
+            [
+              0,
+              97280
+            ]
+          ],
+          "complete_pulse_count": 0,
+          "high_pretrigger_samples": 21504,
+          "high_posttrigger_samples": 75776,
+          "first_sample_high": true,
+          "last_sample_high": true
+        },
+        {
+          "channel": "D4",
+          "high_samples": 97280,
+          "low_samples": 0,
+          "transition_count": 0,
+          "high_segments_samples": [
+            [
+              0,
+              97280
+            ]
+          ],
+          "complete_pulse_count": 0,
+          "high_pretrigger_samples": 21504,
+          "high_posttrigger_samples": 75776,
+          "first_sample_high": true,
+          "last_sample_high": true
+        },
+        {
+          "channel": "D5",
+          "high_samples": 97280,
+          "low_samples": 0,
+          "transition_count": 0,
+          "high_segments_samples": [
+            [
+              0,
+              97280
+            ]
+          ],
+          "complete_pulse_count": 0,
+          "high_pretrigger_samples": 21504,
+          "high_posttrigger_samples": 75776,
+          "first_sample_high": true,
+          "last_sample_high": true
+        },
+        {
+          "channel": "D6",
+          "high_samples": 97280,
+          "low_samples": 0,
+          "transition_count": 0,
+          "high_segments_samples": [
+            [
+              0,
+              97280
+            ]
+          ],
+          "complete_pulse_count": 0,
+          "high_pretrigger_samples": 21504,
+          "high_posttrigger_samples": 75776,
+          "first_sample_high": true,
+          "last_sample_high": true
+        },
+        {
+          "channel": "D7",
+          "high_samples": 97280,
+          "low_samples": 0,
+          "transition_count": 0,
+          "high_segments_samples": [
+            [
+              0,
+              97280
+            ]
+          ],
+          "complete_pulse_count": 0,
+          "high_pretrigger_samples": 21504,
+          "high_posttrigger_samples": 75776,
+          "first_sample_high": true,
+          "last_sample_high": true
+        }
+      ],
+      "csv_wire_logic_mismatch_count": 0,
+      "csv_index_error_count": 0,
+      "csv_trigger_indices": [
+        21504
+      ],
+      "gzip_read_to_eof_crc_valid": true,
+      "counter_transition_anomaly_count": 118,
+      "counter_transition_anomaly_first_indices": [
+        1963,
+        1964,
+        4975,
+        4976,
+        5169,
+        5170,
+        10603,
+        10604,
+        10709,
+        10710,
+        15235,
+        15236,
+        16257,
+        16258,
+        17551,
+        17552
+      ],
+      "counter_note": "Expected next counter is (previous+1) mod64; a corrupt word can create two transition anomalies. Not a diagnosis or energy acceptance.",
+      "summary_recorded": [
+        {
+          "run_id": "run_00001",
+          "timestamp_utc": "2026-10-01T13:56:29.680948+00:00",
+          "profile_id": "RADIO_EBYTE_E79_CC1352P",
+          "module": "Ebyte E79-400DM2005S (CC1352P AT modem)",
+          "firmware_selection": "RADIO_EBYTE_E79_CC1352P + AT_COMMANDS; modeled firmware 0.3.0/0.3.1/0.3.2; common TX marker requires TX 0.3.1/0.3.2; independent radio markers require both radios 0.3.2; observed TX modem 0.3.2",
+          "measurement_direction": "tx",
+          "measured_port": "COM20",
+          "peer_port": "COM19",
+          "transmitter_port": "COM20",
+          "repetition": "1",
+          "payload_bytes": "32",
+          "frame_count": "1",
+          "max_frame_payload_bytes": "64",
+          "serial_content_bytes": "32",
+          "parameters_json": "{\"rf_profile\": \"GFSK200\", \"tx_power_dbm\": 13}",
+          "ppk_mode": "ampere",
+          "voltage_mv": "3300",
+          "estimated_airtime_ms": "4.760000000000001",
+          "estimated_event_ms": "4.760000000000001",
+          "captured_samples": "97280",
+          "sample_loss_percent": "0.0",
+          "event_detected": "False",
+          "baseline_median_uA": "",
+          "threshold_uA": "",
+          "event_start_ms": "",
+          "event_duration_ms": "",
+          "tx_mean_uA": "",
+          "tx_peak_uA": "",
+          "rx_mean_uA": "",
+          "rx_peak_uA": "",
+          "event_mean_uA": "",
+          "event_peak_uA": "",
+          "charge_total_uC": "",
+          "charge_excess_uC": "",
+          "energy_total_uJ": "",
+          "energy_excess_uJ": "",
+          "integration_method": "independent_radio_hardware_marker_totals",
+          "integration_windows_ms": "[]",
+          "analysis_error": "tx: Marker HIGH at capture boundary; pulse is truncated; rx: Marker HIGH at capture boundary; pulse is truncated",
+          "radio_response": "OK",
+          "transmitter_response": "OK",
+          "receiver_port": "COM19",
+          "receiver_response": "0123456789abcdefghijklmnopqrstuv",
+          "packet_received": "True",
+          "packet_lost": "False",
+          "status": "analysis_review_required"
+        }
+      ]
+    },
+    "rx": {
+      "endpoint": {
+        "radio_port": "COM19",
+        "ppk_port": "COM11",
+        "voltage_mv": 3300,
+        "identity": "E79 via ESP32 COM19 (08:92:72:9A:BF:E8), PPK COM11 CD2D332DB09A; RX on/off current mapping verified 2026-10-01; E79 rail only, ESP32 excluded"
+      },
+      "ppk_serial": "CD2D332DB09A",
+      "modem_preflight": {
+        "firmware_version": "0.3.2",
+        "version_reply": [
+          "+VERSION:E79_AT_MODEM,0.3.2,SimpleLink-LPF2-SDK 8.33.00.16",
+          "OK"
+        ],
+        "marker_set_command": "AT+MARKER=RX",
+        "marker_set_reply": [
+          "OK"
+        ],
+        "marker_reply": [
+          "+MARKER:ROLE=RX,DIO=17,SOURCE=RAT_GPO1,ACTIVE=HIGH",
+          "OK"
+        ],
+        "radio_marker": {
+          "role": "RX",
+          "dio": 17,
+          "source": "RAT_GPO1",
+          "active": "HIGH",
+          "ppk_input": "D0"
+        },
+        "config_reply": [
+          "+CFG:PROFILE=GFSK200,FREQ=433920000,RATE=200000,PWR=13,MOD=2GFSK,SYNC=0x930B51DE,ADDR=N/A,CHAN=N/A,RX=ON,SLEEP=NO,DEBUG=OFF,MARKER=RX",
+          "OK"
+        ],
+        "config": {
+          "PROFILE": "GFSK200",
+          "FREQ": "433920000",
+          "RATE": "200000",
+          "PWR": "13",
+          "MOD": "2GFSK",
+          "SYNC": "0x930B51DE",
+          "ADDR": "N/A",
+          "CHAN": "N/A",
+          "RX": "ON",
+          "SLEEP": "NO",
+          "DEBUG": "OFF",
+          "MARKER": "RX"
+        }
+      },
+      "wire_bytes": 389120,
+      "wire_samples": 97280,
+      "csv_samples": 97280,
+      "capture_duration_ms": 972.8,
+      "software_trigger_index": 21504,
+      "pretrigger_duration_ms": 215.04,
+      "posttrigger_duration_ms": 757.76,
+      "logic_distribution": {
+        "255": 97280
+      },
+      "bits": [
+        {
+          "channel": "D0",
+          "high_samples": 97280,
+          "low_samples": 0,
+          "transition_count": 0,
+          "high_segments_samples": [
+            [
+              0,
+              97280
+            ]
+          ],
+          "complete_pulse_count": 0,
+          "high_pretrigger_samples": 21504,
+          "high_posttrigger_samples": 75776,
+          "first_sample_high": true,
+          "last_sample_high": true
+        },
+        {
+          "channel": "D1",
+          "high_samples": 97280,
+          "low_samples": 0,
+          "transition_count": 0,
+          "high_segments_samples": [
+            [
+              0,
+              97280
+            ]
+          ],
+          "complete_pulse_count": 0,
+          "high_pretrigger_samples": 21504,
+          "high_posttrigger_samples": 75776,
+          "first_sample_high": true,
+          "last_sample_high": true
+        },
+        {
+          "channel": "D2",
+          "high_samples": 97280,
+          "low_samples": 0,
+          "transition_count": 0,
+          "high_segments_samples": [
+            [
+              0,
+              97280
+            ]
+          ],
+          "complete_pulse_count": 0,
+          "high_pretrigger_samples": 21504,
+          "high_posttrigger_samples": 75776,
+          "first_sample_high": true,
+          "last_sample_high": true
+        },
+        {
+          "channel": "D3",
+          "high_samples": 97280,
+          "low_samples": 0,
+          "transition_count": 0,
+          "high_segments_samples": [
+            [
+              0,
+              97280
+            ]
+          ],
+          "complete_pulse_count": 0,
+          "high_pretrigger_samples": 21504,
+          "high_posttrigger_samples": 75776,
+          "first_sample_high": true,
+          "last_sample_high": true
+        },
+        {
+          "channel": "D4",
+          "high_samples": 97280,
+          "low_samples": 0,
+          "transition_count": 0,
+          "high_segments_samples": [
+            [
+              0,
+              97280
+            ]
+          ],
+          "complete_pulse_count": 0,
+          "high_pretrigger_samples": 21504,
+          "high_posttrigger_samples": 75776,
+          "first_sample_high": true,
+          "last_sample_high": true
+        },
+        {
+          "channel": "D5",
+          "high_samples": 97280,
+          "low_samples": 0,
+          "transition_count": 0,
+          "high_segments_samples": [
+            [
+              0,
+              97280
+            ]
+          ],
+          "complete_pulse_count": 0,
+          "high_pretrigger_samples": 21504,
+          "high_posttrigger_samples": 75776,
+          "first_sample_high": true,
+          "last_sample_high": true
+        },
+        {
+          "channel": "D6",
+          "high_samples": 97280,
+          "low_samples": 0,
+          "transition_count": 0,
+          "high_segments_samples": [
+            [
+              0,
+              97280
+            ]
+          ],
+          "complete_pulse_count": 0,
+          "high_pretrigger_samples": 21504,
+          "high_posttrigger_samples": 75776,
+          "first_sample_high": true,
+          "last_sample_high": true
+        },
+        {
+          "channel": "D7",
+          "high_samples": 97280,
+          "low_samples": 0,
+          "transition_count": 0,
+          "high_segments_samples": [
+            [
+              0,
+              97280
+            ]
+          ],
+          "complete_pulse_count": 0,
+          "high_pretrigger_samples": 21504,
+          "high_posttrigger_samples": 75776,
+          "first_sample_high": true,
+          "last_sample_high": true
+        }
+      ],
+      "csv_wire_logic_mismatch_count": 0,
+      "csv_index_error_count": 0,
+      "csv_trigger_indices": [
+        21504
+      ],
+      "gzip_read_to_eof_crc_valid": true,
+      "counter_transition_anomaly_count": 273,
+      "counter_transition_anomaly_first_indices": [
+        1,
+        410,
+        411,
+        524,
+        525,
+        590,
+        591,
+        1232,
+        1233,
+        1434,
+        1435,
+        2704,
+        2705,
+        3736,
+        3737,
+        3868
+      ],
+      "counter_note": "Expected next counter is (previous+1) mod64; a corrupt word can create two transition anomalies. Not a diagnosis or energy acceptance.",
+      "summary_recorded": [
+        {
+          "run_id": "run_00001",
+          "timestamp_utc": "2026-10-01T13:56:29.682130+00:00",
+          "profile_id": "RADIO_EBYTE_E79_CC1352P",
+          "module": "Ebyte E79-400DM2005S (CC1352P AT modem)",
+          "firmware_selection": "RADIO_EBYTE_E79_CC1352P + AT_COMMANDS; modeled firmware 0.3.0/0.3.1/0.3.2; common TX marker requires TX 0.3.1/0.3.2; independent radio markers require both radios 0.3.2; observed RX modem 0.3.2",
+          "measurement_direction": "rx",
+          "measured_port": "COM19",
+          "peer_port": "COM20",
+          "transmitter_port": "COM20",
+          "repetition": "1",
+          "payload_bytes": "32",
+          "frame_count": "1",
+          "max_frame_payload_bytes": "64",
+          "serial_content_bytes": "32",
+          "parameters_json": "{\"rf_profile\": \"GFSK200\", \"tx_power_dbm\": 13}",
+          "ppk_mode": "ampere",
+          "voltage_mv": "3300",
+          "estimated_airtime_ms": "4.760000000000001",
+          "estimated_event_ms": "84.76",
+          "captured_samples": "97280",
+          "sample_loss_percent": "0.0",
+          "event_detected": "False",
+          "baseline_median_uA": "",
+          "threshold_uA": "",
+          "event_start_ms": "",
+          "event_duration_ms": "",
+          "tx_mean_uA": "",
+          "tx_peak_uA": "",
+          "rx_mean_uA": "",
+          "rx_peak_uA": "",
+          "event_mean_uA": "",
+          "event_peak_uA": "",
+          "charge_total_uC": "",
+          "charge_excess_uC": "",
+          "energy_total_uJ": "",
+          "energy_excess_uJ": "",
+          "integration_method": "independent_radio_hardware_marker_totals",
+          "integration_windows_ms": "[]",
+          "analysis_error": "tx: Marker HIGH at capture boundary; pulse is truncated; rx: Marker HIGH at capture boundary; pulse is truncated",
+          "radio_response": "0123456789abcdefghijklmnopqrstuv",
+          "transmitter_response": "OK",
+          "receiver_port": "COM19",
+          "receiver_response": "0123456789abcdefghijklmnopqrstuv",
+          "packet_received": "True",
+          "packet_lost": "False",
+          "status": "analysis_review_required"
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "path": "power_profiler/web_sessions/20261001_165613_865546_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_165614_034521_e79_paired_pilot/pairing.json",
+      "size_bytes": 13436,
+      "sha256": "1309c1532e321e033e34dbd0c0a2526bea374e83186721dd33deac8ec1382bdb"
+    },
+    {
+      "path": "power_profiler/web_sessions/20261001_165613_865546_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_165614_034521_e79_paired_pilot/rx/aggregates.csv",
+      "size_bytes": 875,
+      "sha256": "ea0addc3ea5aba683d4d1764388d52d5d1d9ae663bd622e2c599756a62b25c65"
+    },
+    {
+      "path": "power_profiler/web_sessions/20261001_165613_865546_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_165614_034521_e79_paired_pilot/rx/analysis/run_00001.json",
+      "size_bytes": 2310,
+      "sha256": "c8cccdc006153d3434418aa5b3f7cf329548cdc0eac4c157af7ed6aa10b3a0c9"
+    },
+    {
+      "path": "power_profiler/web_sessions/20261001_165613_865546_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_165614_034521_e79_paired_pilot/rx/metadata.json",
+      "size_bytes": 15530,
+      "sha256": "162d4f32bdc02e16ce6e91d8a12d24fc11b160cc62493c32bd943fdc93d28e68"
+    },
+    {
+      "path": "power_profiler/web_sessions/20261001_165613_865546_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_165614_034521_e79_paired_pilot/rx/raw/run_00001.csv.gz",
+      "size_bytes": 801426,
+      "sha256": "15a5928d67bf353a07d65f5f4bb6b7837a6c2d5c90001d19a48fd2ad9d885965"
+    },
+    {
+      "path": "power_profiler/web_sessions/20261001_165613_865546_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_165614_034521_e79_paired_pilot/rx/summary.csv",
+      "size_bytes": 1419,
+      "sha256": "06d86ecd8b6957acc7ec21f63a61d4254d0bdb9eeb102192ac6b828a08924a0d"
+    },
+    {
+      "path": "power_profiler/web_sessions/20261001_165613_865546_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_165614_034521_e79_paired_pilot/summary.csv",
+      "size_bytes": 193,
+      "sha256": "d8724533a4c5f1c69faa56d28c5dc74fc61aecb875acf4934d08fbdb73921334"
+    },
+    {
+      "path": "power_profiler/web_sessions/20261001_165613_865546_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_165614_034521_e79_paired_pilot/tx/aggregates.csv",
+      "size_bytes": 875,
+      "sha256": "197c78409f12d8211d3a44b7ce2d95d7a3a62eea528ffcb2d127d7e65ca48742"
+    },
+    {
+      "path": "power_profiler/web_sessions/20261001_165613_865546_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_165614_034521_e79_paired_pilot/tx/analysis/run_00001.json",
+      "size_bytes": 2310,
+      "sha256": "c8cccdc006153d3434418aa5b3f7cf329548cdc0eac4c157af7ed6aa10b3a0c9"
+    },
+    {
+      "path": "power_profiler/web_sessions/20261001_165613_865546_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_165614_034521_e79_paired_pilot/tx/metadata.json",
+      "size_bytes": 15506,
+      "sha256": "4d13f24237e00dba5d482124efff0fd68fbf7a65dc0fe3c26cd88e0a5f6efed6"
+    },
+    {
+      "path": "power_profiler/web_sessions/20261001_165613_865546_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_165614_034521_e79_paired_pilot/tx/raw/run_00001.csv.gz",
+      "size_bytes": 768501,
+      "sha256": "7fe2fba29f4ec24ff7515824d3047de46baa8bb5988b00ac4aacbf7f3ec9b361"
+    },
+    {
+      "path": "power_profiler/web_sessions/20261001_165613_865546_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_165614_034521_e79_paired_pilot/tx/summary.csv",
+      "size_bytes": 1401,
+      "sha256": "33de389f6847677af83a824064d7e6be22e7d8a8770b6034f22226e895188063"
+    },
+    {
+      "path": "power_profiler/web_sessions/20261001_165613_865546_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_165614_034521_e79_paired_pilot/wire/run_00001/rx.ppk2.bin",
+      "size_bytes": 389120,
+      "sha256": "f120c00d0a6541920f0b2a7de0d1f19f7db225dacb7add7acb822108d35ccede"
+    },
+    {
+      "path": "power_profiler/web_sessions/20261001_165613_865546_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_165614_034521_e79_paired_pilot/wire/run_00001/timing.json",
+      "size_bytes": 1128,
+      "sha256": "1ee5474118ef4293496db0eb9710d7c32c76256c2ceba8877fab69e1617cf2fa"
+    },
+    {
+      "path": "power_profiler/web_sessions/20261001_165613_865546_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_165614_034521_e79_paired_pilot/wire/run_00001/tx.ppk2.bin",
+      "size_bytes": 389120,
+      "sha256": "7771c28b291916c334e37ad2ab1bb2ba0f08f1de9ce71ce67ef337e7877239a6"
+    }
+  ],
+  "pinout_evidence": {
+    "sources": [
+      {
+        "path": "D:\\Documente\\CC1352P\\firmware\\e79_at_modem\\e79_at_modem.c",
+        "size_bytes": 49761,
+        "sha256": "85537623c0b2cb3d39c648522254bd5a1b915bf4327422b02a43e4690bf3167f"
+      },
+      {
+        "path": "D:\\Documente\\CC1352P\\firmware\\e79_at_modem\\artifacts\\0.3.2\\esp32_1000000\\ti_drivers_config.h",
+        "size_bytes": 3146,
+        "sha256": "c0db6f72bc6fb2bb036f2d957281dc95b50479fdc8a7f0f71b74c1e2d2dad9c6"
+      },
+      {
+        "path": "D:\\Documente\\CC1352P\\firmware\\e79_at_modem\\artifacts\\0.3.2\\esp32_1000000\\e79_at_modem.bin",
+        "size_bytes": 360448,
+        "sha256": "9d1773e6769269fcaaed65de04ddd54e6e4cdcabcb2d70aecf55bb1821e41c96"
+      },
+      {
+        "path": "PCB/KiCad/module_radio.kicad_pcb",
+        "size_bytes": 1773815,
+        "sha256": "ef3115adf6e8e763bbaabec40786ba828cef6baa8719d14bcbce74996898bd6d"
+      }
+    ],
+    "firmware_marker": "e79_at_modem.c:69 E79_MARKER_DIO IOID_17; lines 676-678 note DIO17 also JTAG TDI; marker routed to RFC_GPO2 at line705.",
+    "uart": "ESP32 artifact ti_drivers_config.h:64 UART_TX=13; :68 UART_RX=12. UART and marker DIO17 are distinct.",
+    "pcb": "module_radio.kicad_pcb:20808 pad19, :20812 net /Ebyte_E79/TDI, :20813 pinfunction DIO_17_19; J10 pin5 at :22242-22243. DIO17 is not physical pad17 or ESP32 GPIO17."
+  },
+  "conclusions": [
+    "Both roles independently contain only logic byte 0xFF throughout capture; no alternate digital channel contains a usable pulse.",
+    "Wire bits and exported CSV agree exactly; failure is already present in recorded digital input, not introduced by CSV conversion.",
+    "The only HIGH segment covers the full record and has neither captured rising nor falling edge; no RF marker duration can be recovered.",
+    "Firmware preflight reports the requested local TX and RX marker roles. These replies prove configuration, not electrical connectivity.",
+    "The failed marker acceptance is appropriate; this audit does not accept energy metrics or infer a physical cause."
+  ],
+  "minimum_physical_check": [
+    "Confirm each E79 DIO17 (module pad19/TDI, carrier J10 pin5) reaches its own PPK D0, with common GND and PPK digital VCC referenced to the actual 3.3 V rail.",
+    "To isolate PPK input/cable from the radio, disconnect D0 lead from the E79 output first, then connect the freed D0 lead to GND and verify LOW while digital VCC stays 3.3 V. Never ground the attached radio output. This is a proposed check only; this audit used no hardware."
+  ]
+}

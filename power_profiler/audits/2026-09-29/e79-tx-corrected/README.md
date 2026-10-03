@@ -30,7 +30,7 @@ Au fost parcurse 85.969.920 de eșantioane. Energia din fereastra istorică este
 - `verification.json`: verificare independentă de proveniență și concordanță cu integrarea aplicației.
 
 
-Comanda necesită arhiva RAW locală externă Git în `module radio/ESP32-C3_Radio/power_profiler`, cu manifestele și metadatele originale. Această arhivă nu este inclusă în rapoartele publicate. Directorul `.tmp` primește o reproducere separată.
+Comanda necesită arhiva RAW locală externă Git în `measurements/raw/archive`, cu manifestele și metadatele originale. Această arhivă nu este inclusă în rapoartele publicate. Directorul `.tmp` primește o reproducere separată.
 
 ```powershell
 python -B power_profiler/tools/reanalyze_e79_tx.py --workers 1 --output ".tmp/e79-tx-corrected-reproduced"

@@ -1,0 +1,343 @@
+{
+  "source_commit": "37599a2a5394de9aa3a84432e578dbcaadfd6da2",
+  "published_source": "power_profiler/audits/2026-09-29/e79-tx-corrected/runs.json",
+  "published_source_sha256": "d180bcfae431b0a61e1e508ba8b44d5c41e1a3664b76be18030c49f01224c420",
+  "expected_runs": 315,
+  "processed_runs": 315,
+  "errors": [],
+  "quality_counts": {
+    "model_window_reanalysis": 315
+  },
+  "consensus_mode_counts": {
+    "primary_4_MAD": 315
+  },
+  "raw_sha256_matching": 315,
+  "windows_identical": 294,
+  "cases_different": 21,
+  "total_energy_matching_tolerance": 294,
+  "excess_energy_matching_tolerance": 294,
+  "comparison_tolerance": {
+    "rel_tol": 1e-10,
+    "abs_tol_uJ": 1e-08
+  },
+  "reported_primary_vs_selected_count_mismatches": 0,
+  "elapsed_seconds": 95.57800000021234,
+  "maximum_absolute_total_delta_uJ": 1.0937458508997224,
+  "maximum_absolute_total_delta_percent": 0.0015430179401310085,
+  "maximum_total_delta_case": {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_010417_radio_ebyte_e79_cc1352p/raw/run_00001.csv.gz",
+    "step_id": "tx_p0_rf_profile-SLR2K5_s512",
+    "run_id": "run_00001",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": 0,
+    "payload_bytes": 512,
+    "repetition": 1,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 8,
+    "reported_primary_detected_frames": 8,
+    "selected_detected_frames": 8,
+    "published_windows_ms": [
+      [
+        24.54,
+        270.74
+      ],
+      [
+        277.92,
+        524.12
+      ],
+      [
+        531.83,
+        778.03
+      ],
+      [
+        785.73,
+        1031.93
+      ],
+      [
+        1035.48,
+        1281.68
+      ],
+      [
+        1289.69,
+        1535.89
+      ],
+      [
+        1548.09,
+        1794.29
+      ],
+      [
+        1803.61,
+        2049.81
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        24.54,
+        270.74
+      ],
+      [
+        277.92,
+        524.12
+      ],
+      [
+        531.83,
+        778.03
+      ],
+      [
+        788.42,
+        1034.62
+      ],
+      [
+        1035.48,
+        1281.68
+      ],
+      [
+        1289.69,
+        1535.89
+      ],
+      [
+        1548.09,
+        1794.29
+      ],
+      [
+        1803.61,
+        2049.81
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 46228.60517731647,
+    "total_energy_current_uJ": 46229.318492987826,
+    "excess_energy_published_uJ": 17360.83739692576,
+    "excess_energy_current_uJ": 17361.06653807454,
+    "total_delta_uJ": 0.7133156713534845,
+    "total_delta_percent": 0.0015430179401310085,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": 0.2291411487822188,
+    "excess_delta_percent": 0.0013198738260333798,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 2.689999999999941
+  },
+  "maximum_absolute_excess_delta_uJ": 0.7461462808932993,
+  "maximum_absolute_excess_delta_percent": 0.0026651033789848455,
+  "maximum_excess_delta_case": {
+    "raw_relative_path": "web_sessions/20260719_003026_campaign_radio_ebyte_e79_cc1352p/packet_tx/20260719_004212_radio_ebyte_e79_cc1352p/raw/run_00003.csv.gz",
+    "step_id": "tx_p-20_rf_profile-SLR2K5_s1024",
+    "run_id": "run_00003",
+    "rf_profile": "SLR2K5",
+    "tx_power_dbm": -20,
+    "payload_bytes": 1024,
+    "repetition": 3,
+    "quality": "model_window_reanalysis",
+    "reasons": "",
+    "mode": "primary_4_MAD",
+    "supporting_multipliers": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "outlier_multipliers": [],
+    "primary_4_MAD_reasons": [],
+    "sha256_match": true,
+    "expected_frames": 16,
+    "reported_primary_detected_frames": 16,
+    "selected_detected_frames": 16,
+    "published_windows_ms": [
+      [
+        11.13,
+        257.33
+      ],
+      [
+        268.1,
+        514.3
+      ],
+      [
+        531.22,
+        777.42
+      ],
+      [
+        778.08,
+        1024.28
+      ],
+      [
+        1037.32,
+        1283.52
+      ],
+      [
+        1286.36,
+        1532.56
+      ],
+      [
+        1540.43,
+        1786.63
+      ],
+      [
+        1799.49,
+        2045.69
+      ],
+      [
+        2050.72,
+        2296.92
+      ],
+      [
+        2302.87,
+        2549.07
+      ],
+      [
+        2558.92,
+        2805.12
+      ],
+      [
+        2823.1,
+        3069.3
+      ],
+      [
+        3079.26,
+        3325.46
+      ],
+      [
+        3330.26,
+        3576.46
+      ],
+      [
+        3587.14,
+        3833.34
+      ],
+      [
+        3847.68,
+        4093.88
+      ]
+    ],
+    "current_windows_ms": [
+      [
+        11.13,
+        257.33
+      ],
+      [
+        268.1,
+        514.3
+      ],
+      [
+        531.22,
+        777.42
+      ],
+      [
+        778.08,
+        1024.28
+      ],
+      [
+        1037.32,
+        1283.52
+      ],
+      [
+        1286.36,
+        1532.56
+      ],
+      [
+        1540.43,
+        1786.63
+      ],
+      [
+        1799.49,
+        2045.69
+      ],
+      [
+        2050.72,
+        2296.92
+      ],
+      [
+        2303.88,
+        2550.08
+      ],
+      [
+        2558.92,
+        2805.12
+      ],
+      [
+        2823.1,
+        3069.3
+      ],
+      [
+        3079.26,
+        3325.46
+      ],
+      [
+        3330.26,
+        3576.46
+      ],
+      [
+        3587.14,
+        3833.34
+      ],
+      [
+        3847.68,
+        4093.88
+      ]
+    ],
+    "windows_identical": false,
+    "total_energy_published_uJ": 72270.36273084179,
+    "total_energy_current_uJ": 72269.85295039785,
+    "excess_energy_published_uJ": 17127.573748702598,
+    "excess_energy_current_uJ": 17127.117281155883,
+    "total_delta_uJ": -0.5097804439428728,
+    "total_delta_percent": -0.0007053796669653778,
+    "total_energy_matches_tolerance": false,
+    "excess_delta_uJ": -0.4564675467154302,
+    "excess_delta_percent": -0.0026651033789848455,
+    "excess_energy_matches_tolerance": false,
+    "maximum_window_endpoint_shift_ms": 1.0100000000002183
+  },
+  "maximum_window_endpoint_shift_ms": 9.070000000000164,
+  "different_cases_by_phy": {
+    "SLR2K5": 21
+  },
+  "different_cases_by_condition": [
+    {
+      "rf_profile": "SLR2K5",
+      "tx_power_dbm": -20,
+      "payload_bytes": 512,
+      "different_repetitions": 2
+    },
+    {
+      "rf_profile": "SLR2K5",
+      "tx_power_dbm": -20,
+      "payload_bytes": 1024,
+      "different_repetitions": 4
+    },
+    {
+      "rf_profile": "SLR2K5",
+      "tx_power_dbm": 0,
+      "payload_bytes": 512,
+      "different_repetitions": 2
+    },
+    {
+      "rf_profile": "SLR2K5",
+      "tx_power_dbm": 0,
+      "payload_bytes": 1024,
+      "different_repetitions": 4
+    },
+    {
+      "rf_profile": "SLR2K5",
+      "tx_power_dbm": 13,
+      "payload_bytes": 512,
+      "different_repetitions": 4
+    },
+    {
+      "rf_profile": "SLR2K5",
+      "tx_power_dbm": 13,
+      "payload_bytes": 1024,
+      "different_repetitions": 5
+    }
+  ],
+  "all_three_primary_thresholds_supported": 315,
+  "runs_with_sensitivity_outliers": 0
+}

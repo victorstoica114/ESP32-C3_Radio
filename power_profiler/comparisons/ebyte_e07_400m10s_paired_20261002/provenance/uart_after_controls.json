@@ -1,0 +1,97 @@
+{
+  "commands": [
+    {
+      "port": "COM27",
+      "command": "AT+STATUS?",
+      "lines": [
+        "CHIP_VERSION=0x00",
+        "RSSI=-74.00",
+        "LQI=0",
+        "MODE=GFSK",
+        "RX=ON",
+        "SLEEP=NO",
+        "BRIDGE=ON",
+        "OK"
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+BR?",
+      "lines": [
+        "BR=250.000",
+        "OK"
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+PWR?",
+      "lines": [
+        "PWR=10",
+        "OK"
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+PKT?",
+      "lines": [
+        "PKT=VARIABLE,64",
+        "OK"
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+SYNC?",
+      "lines": [
+        "SYNC=0xD391",
+        "OK"
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+STATUS?",
+      "lines": [
+        "CHIP_VERSION=0x00",
+        "RSSI=-74.00",
+        "LQI=0",
+        "MODE=GFSK",
+        "RX=ON",
+        "SLEEP=NO",
+        "BRIDGE=ON",
+        "OK"
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+BR?",
+      "lines": [
+        "BR=250.000",
+        "OK"
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+PWR?",
+      "lines": [
+        "PWR=10",
+        "OK"
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+PKT?",
+      "lines": [
+        "PKT=VARIABLE,64",
+        "OK"
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+SYNC?",
+      "lines": [
+        "SYNC=0xD391",
+        "OK"
+      ]
+    }
+  ],
+  "completed": true
+}

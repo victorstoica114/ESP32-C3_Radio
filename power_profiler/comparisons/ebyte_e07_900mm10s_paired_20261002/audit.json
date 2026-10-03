@@ -1,0 +1,892 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-02T13:13:34.014516+00:00",
+  "source": {
+    "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\attempt_001\\report.json",
+    "bytes": 28843,
+    "sha256": "f8157f53a2986e11f38b6441db4d0a9cd10996042e6c0790d4061da1db4c9af7"
+  },
+  "helper": {
+    "path": "D:\\Documente\\ESP32-C3_Radio\\.tmp\\e07_900_analyze_candidate.py",
+    "bytes": 22216,
+    "sha256": "9425ff7925705764dc4697a1751d50b044aa301a3f67787b4168e8d1a03fa217"
+  },
+  "sources": [
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\radio_power_profiler\\analysis.py",
+      "bytes": 11109,
+      "sha256": "2c7af5ba570300494fb1c55e7ec964ede7c33049b21c73a8763cca0b5956060c"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\radio_power_profiler\\profiles.json",
+      "bytes": 48232,
+      "sha256": "225b39042398a448cc290f76d276a31aa2e9bd39260ebe421269d42123c763ad"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\radio_power_profiler\\planning.py",
+      "bytes": 5834,
+      "sha256": "7630fb57f463eb1a22851a2852518a27ac51f5dae72170d6515e3734cc89660c"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\tools\\audit_filter_marker_totals.py",
+      "bytes": 23405,
+      "sha256": "dcd7dad11c7b0c1ded06c3b0a32e2f815d9ced49aa2a3246f978d132ca675542"
+    }
+  ],
+  "acceptance_changed": false,
+  "hardware_synchronized": false,
+  "scope": "Legacy numeric metrics on declared software windows, with independent full-stream decoder replay. Not E79 hardware-marker proof.",
+  "profile_id": "RADIO_EBYTE_E07_900MM10S",
+  "parameters": {
+    "bit_rate_kbps": 250,
+    "cc1101_drive_dbm": 10
+  },
+  "tx_window_definition": "Largest rectified-excess threshold group; threshold=pretrigger median+max(500uA,8*1.4826*MAD); merge gap20ms; minimum0.05ms; padding0.1ms each side.",
+  "rx_window_definition": "Listening energy in a fixed modeled interval beginning at the local software trigger; not an independently delimited RF reception.",
+  "transmit_protocol": "Bridge sends a unique30-byte ASCII identifier plus CRLF as one32-byte RF frame. Historical TXBURST=32,32 used its fixed payload pattern; frame length, CRC, PHY and legacy integration are unchanged.",
+  "estimated_airtime_s": 0.00444,
+  "rx_window_samples": 444,
+  "voltage_mv_for_decoder": 3300,
+  "voltage_provenance": "Operator_confirmed_external_3.3V_unchanged_supply",
+  "legacy_total_definition": "V * sum(max(0,I_uA))/100000; ordinary Python sum to reproduce existing analysis.py.",
+  "legacy_excess_definition": "V * sum(max(0,I_uA-baseline_median_uA))/100000; rectified, not signed baseline subtraction.",
+  "signed_diagnostic_definition": "V * math.fsum(I_uA)/100000 over the same selected window; kept separate from legacy totals.",
+  "history_validation": {
+    "replay_initialization": "Known host decoder reset: fast/slow/previous=None, after_spike=consecutive=0.",
+    "scope": "Reconstructs this declared reset convention from full WIRE; does not bound unknown pre-capture physical/filter history.",
+    "unknown_initial_history_bound_performed": false,
+    "window_boundary_uncertainty_bound_performed": false,
+    "e79_marker_proof_applied": false
+  },
+  "limitations": [
+    "Modulo64 continuity cannot exclude missing blocks of64 samples.",
+    "Replay agreement does not establish analog accuracy or actual VIN.",
+    "TX threshold selection is not proved invariant under unknown history; RX software trigger is not an RF edge.",
+    "All five trials are retained; failed transfers or QA prevent a valid five-trial numeric batch."
+  ],
+  "errors": [],
+  "captures": [
+    {
+      "run_id": "run_00001",
+      "role": "tx",
+      "errors": [],
+      "raw": {
+        "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\attempt_001\\raw\\tx\\run_00001.csv.gz",
+        "bytes": 398353,
+        "sha256": "4091aad66afcbaa60cc8254d94dd10c2a6281efadad69d365164d222a32c3d2d"
+      },
+      "wire": {
+        "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\attempt_001\\wire\\run_00001\\tx.ppk2.bin",
+        "bytes": 286720,
+        "sha256": "3b45b93e97185b046bc9bf1b319009fdbb90acd8370119d4af3e5d7d28dc1d3d"
+      },
+      "sample_count": 71680,
+      "software_trigger_index": 20992,
+      "replay_max_difference_uA": 0.0,
+      "replay_exact_samples": 71680,
+      "filtered_samples": 11,
+      "counter_transition_fault_indices": [],
+      "invalid_range_indices": [],
+      "bit17_indices": [],
+      "logic_mismatch_count": 0,
+      "mean_current_full_capture_uA": 1873.4423964929688,
+      "min_current_full_capture_uA": 31.472249637787403,
+      "max_current_full_capture_uA": 41489.702955039735,
+      "range_counts": {
+        "2": 71401,
+        "3": 273,
+        "0": 5,
+        "1": 1
+      },
+      "sample_loss_percent_recorded_estimator": 0.0,
+      "calibration_sha256": "5355962f149f59062e87116a86381668eebc8e0eb21d9ef15679103ea96c966e",
+      "metrics": {
+        "event_detected": true,
+        "baseline_median_uA": 1783.8703925129616,
+        "threshold_uA": 2283.8703925129616,
+        "event_start_ms": 10.58,
+        "event_duration_ms": 3.0500000000000003,
+        "tx_mean_uA": 23311.444672619855,
+        "tx_peak_uA": 41489.702955039735,
+        "charge_total_uC": 71.0999062514906,
+        "charge_excess_uC": 65.69434102243466,
+        "energy_total_uJ": 234.62969062991894,
+        "energy_excess_uJ": 216.79132537403436,
+        "integration_method": "threshold_events",
+        "integration_windows_ms": [
+          [
+            10.58,
+            13.63
+          ]
+        ],
+        "analysis_error": "",
+        "analysis_diagnostics": {}
+      },
+      "window_samples": [
+        [
+          22050,
+          22355
+        ]
+      ],
+      "independent_legacy_charge_uC": 71.0999062514906,
+      "independent_legacy_energy_uJ": 234.62969062991894,
+      "independent_legacy_energy_difference_uJ": 0.0,
+      "signed_charge_diagnostic_uC": 71.09990625149055,
+      "signed_energy_diagnostic_uJ": 234.6296906299188,
+      "legacy_minus_signed_energy_uJ": 1.4210854715202004e-13,
+      "negative_current_samples_in_window": 0,
+      "signed_vs_legacy_note": "Difference includes zero-clipping and ordinary-sum versus fsum rounding; this does not replace the legacy metric."
+    },
+    {
+      "run_id": "run_00001",
+      "role": "rx",
+      "errors": [],
+      "raw": {
+        "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\attempt_001\\raw\\rx\\run_00001.csv.gz",
+        "bytes": 397232,
+        "sha256": "126247993c955982d97b402bf334c323df89236758bdfcaf46ba74abc1b39852"
+      },
+      "wire": {
+        "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\attempt_001\\wire\\run_00001\\rx.ppk2.bin",
+        "bytes": 286720,
+        "sha256": "4a5e19384947f0dc50af4f19133831d287a520195c6372df3cc4de21a1409344"
+      },
+      "sample_count": 71680,
+      "software_trigger_index": 20992,
+      "replay_max_difference_uA": 0.0,
+      "replay_exact_samples": 71680,
+      "filtered_samples": 9,
+      "counter_transition_fault_indices": [],
+      "invalid_range_indices": [],
+      "bit17_indices": [],
+      "logic_mismatch_count": 0,
+      "mean_current_full_capture_uA": 16802.179585601727,
+      "min_current_full_capture_uA": 45.85352971202843,
+      "max_current_full_capture_uA": 19058.005828500685,
+      "range_counts": {
+        "3": 71434,
+        "0": 5,
+        "2": 241
+      },
+      "sample_loss_percent_recorded_estimator": 0.0,
+      "calibration_sha256": "f9bef7b6b288147046cb14c8f5f27e28b0646c1dbd64d6acc654f72e7b5c56d1",
+      "metrics": {
+        "event_detected": true,
+        "baseline_median_uA": 16967.01306415617,
+        "threshold_uA": 18089.063970834926,
+        "event_start_ms": 0.0,
+        "event_duration_ms": 4.44,
+        "tx_mean_uA": 16909.498065466396,
+        "tx_peak_uA": 18771.666653277087,
+        "charge_total_uC": 75.07817141067073,
+        "charge_excess_uC": 0.23681714571375978,
+        "energy_total_uJ": 247.7579656552134,
+        "energy_excess_uJ": 0.7814965808554072,
+        "integration_method": "fixed_modeled_airtime",
+        "integration_windows_ms": [
+          [
+            0.0,
+            4.44
+          ]
+        ],
+        "analysis_error": "",
+        "analysis_diagnostics": {}
+      },
+      "window_samples": [
+        [
+          20992,
+          21436
+        ]
+      ],
+      "independent_legacy_charge_uC": 75.07817141067073,
+      "independent_legacy_energy_uJ": 247.7579656552134,
+      "independent_legacy_energy_difference_uJ": 0.0,
+      "signed_charge_diagnostic_uC": 75.0781714106708,
+      "signed_energy_diagnostic_uJ": 247.75796565521364,
+      "legacy_minus_signed_energy_uJ": -2.2737367544323206e-13,
+      "negative_current_samples_in_window": 0,
+      "signed_vs_legacy_note": "Difference includes zero-clipping and ordinary-sum versus fsum rounding; this does not replace the legacy metric."
+    },
+    {
+      "run_id": "run_00002",
+      "role": "tx",
+      "errors": [],
+      "raw": {
+        "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\attempt_001\\raw\\tx\\run_00002.csv.gz",
+        "bytes": 401390,
+        "sha256": "f17fa40003f969080ad919239c52a5b27b481f7837676466773093a43b4a62b1"
+      },
+      "wire": {
+        "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\attempt_001\\wire\\run_00002\\tx.ppk2.bin",
+        "bytes": 288768,
+        "sha256": "06112f2fc929402e1603f1a2821319423dede21d626664dafe0a1e3c8abfd82d"
+      },
+      "sample_count": 72192,
+      "software_trigger_index": 22016,
+      "replay_max_difference_uA": 0.0,
+      "replay_exact_samples": 72192,
+      "filtered_samples": 9,
+      "counter_transition_fault_indices": [],
+      "invalid_range_indices": [],
+      "bit17_indices": [],
+      "logic_mismatch_count": 0,
+      "mean_current_full_capture_uA": 1870.9736847413571,
+      "min_current_full_capture_uA": 39.34753142521386,
+      "max_current_full_capture_uA": 40910.326063401444,
+      "range_counts": {
+        "2": 71914,
+        "3": 273,
+        "0": 5
+      },
+      "sample_loss_percent_recorded_estimator": 0.0,
+      "calibration_sha256": "5355962f149f59062e87116a86381668eebc8e0eb21d9ef15679103ea96c966e",
+      "metrics": {
+        "event_detected": true,
+        "baseline_median_uA": 1779.477847438857,
+        "threshold_uA": 2279.4778474388568,
+        "event_start_ms": 5.15,
+        "event_duration_ms": 3.0300000000000002,
+        "tx_mean_uA": 23665.733463234516,
+        "tx_peak_uA": 40910.326063401444,
+        "charge_total_uC": 71.70717239360063,
+        "charge_excess_uC": 66.35282676046566,
+        "energy_total_uJ": 236.63366889888206,
+        "energy_excess_uJ": 218.96432830953665,
+        "integration_method": "threshold_events",
+        "integration_windows_ms": [
+          [
+            5.15,
+            8.18
+          ]
+        ],
+        "analysis_error": "",
+        "analysis_diagnostics": {}
+      },
+      "window_samples": [
+        [
+          22531,
+          22834
+        ]
+      ],
+      "independent_legacy_charge_uC": 71.70717239360063,
+      "independent_legacy_energy_uJ": 236.63366889888206,
+      "independent_legacy_energy_difference_uJ": 0.0,
+      "signed_charge_diagnostic_uC": 71.70717239360057,
+      "signed_energy_diagnostic_uJ": 236.63366889888187,
+      "legacy_minus_signed_energy_uJ": 1.9895196601282805e-13,
+      "negative_current_samples_in_window": 0,
+      "signed_vs_legacy_note": "Difference includes zero-clipping and ordinary-sum versus fsum rounding; this does not replace the legacy metric."
+    },
+    {
+      "run_id": "run_00002",
+      "role": "rx",
+      "errors": [],
+      "raw": {
+        "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\attempt_001\\raw\\rx\\run_00002.csv.gz",
+        "bytes": 400387,
+        "sha256": "62ea78ed85b211c6d90f69b2247b668991c08308e2174bd2a68236542cf51c04"
+      },
+      "wire": {
+        "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\attempt_001\\wire\\run_00002\\rx.ppk2.bin",
+        "bytes": 288768,
+        "sha256": "dee6418ca0e45361723a133ebd34843713a02a798c0b3081dfdd82a6bdfd6dc4"
+      },
+      "sample_count": 72192,
+      "software_trigger_index": 21504,
+      "replay_max_difference_uA": 0.0,
+      "replay_exact_samples": 72192,
+      "filtered_samples": 10,
+      "counter_transition_fault_indices": [],
+      "invalid_range_indices": [],
+      "bit17_indices": [],
+      "logic_mismatch_count": 0,
+      "mean_current_full_capture_uA": 16860.20254648338,
+      "min_current_full_capture_uA": 41.1541809780802,
+      "max_current_full_capture_uA": 19153.53669731329,
+      "range_counts": {
+        "3": 71885,
+        "1": 1,
+        "0": 5,
+        "2": 301
+      },
+      "sample_loss_percent_recorded_estimator": 0.0,
+      "calibration_sha256": "f9bef7b6b288147046cb14c8f5f27e28b0646c1dbd64d6acc654f72e7b5c56d1",
+      "metrics": {
+        "event_detected": true,
+        "baseline_median_uA": 16825.18982986989,
+        "threshold_uA": 17946.48926231232,
+        "event_start_ms": 0.0,
+        "event_duration_ms": 4.44,
+        "tx_mean_uA": 16819.3586209927,
+        "tx_peak_uA": 18771.666653277087,
+        "charge_total_uC": 74.67795227720754,
+        "charge_excess_uC": 0.26351921029911896,
+        "energy_total_uJ": 246.43724251478486,
+        "energy_excess_uJ": 0.8696133939870925,
+        "integration_method": "fixed_modeled_airtime",
+        "integration_windows_ms": [
+          [
+            0.0,
+            4.44
+          ]
+        ],
+        "analysis_error": "",
+        "analysis_diagnostics": {}
+      },
+      "window_samples": [
+        [
+          21504,
+          21948
+        ]
+      ],
+      "independent_legacy_charge_uC": 74.67795227720754,
+      "independent_legacy_energy_uJ": 246.43724251478486,
+      "independent_legacy_energy_difference_uJ": 0.0,
+      "signed_charge_diagnostic_uC": 74.6779522772076,
+      "signed_energy_diagnostic_uJ": 246.43724251478505,
+      "legacy_minus_signed_energy_uJ": -1.9895196601282805e-13,
+      "negative_current_samples_in_window": 0,
+      "signed_vs_legacy_note": "Difference includes zero-clipping and ordinary-sum versus fsum rounding; this does not replace the legacy metric."
+    },
+    {
+      "run_id": "run_00003",
+      "role": "tx",
+      "errors": [],
+      "raw": {
+        "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\attempt_001\\raw\\tx\\run_00003.csv.gz",
+        "bytes": 401495,
+        "sha256": "80a8485a12961c3fa06bb902dd490ff7e42b3ebd8c212ce955f3460b6edf8268"
+      },
+      "wire": {
+        "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\attempt_001\\wire\\run_00003\\tx.ppk2.bin",
+        "bytes": 288768,
+        "sha256": "e4831ea05a4343b9389a4d2a19224795203e070e7bf94000e9315b6ebd6b8caf"
+      },
+      "sample_count": 72192,
+      "software_trigger_index": 21504,
+      "replay_max_difference_uA": 0.0,
+      "replay_exact_samples": 72192,
+      "filtered_samples": 10,
+      "counter_transition_fault_indices": [],
+      "invalid_range_indices": [],
+      "bit17_indices": [],
+      "logic_mismatch_count": 0,
+      "mean_current_full_capture_uA": 1869.3479303020563,
+      "min_current_full_capture_uA": 36.85369219252881,
+      "max_current_full_capture_uA": 41489.702955039735,
+      "range_counts": {
+        "2": 71913,
+        "3": 272,
+        "1": 1,
+        "0": 6
+      },
+      "sample_loss_percent_recorded_estimator": 0.0,
+      "calibration_sha256": "5355962f149f59062e87116a86381668eebc8e0eb21d9ef15679103ea96c966e",
+      "metrics": {
+        "event_detected": true,
+        "baseline_median_uA": 1779.477847438857,
+        "threshold_uA": 2279.4778474388568,
+        "event_start_ms": 7.04,
+        "event_duration_ms": 3.0300000000000002,
+        "tx_mean_uA": 23332.168549581995,
+        "tx_peak_uA": 41489.702955039735,
+        "charge_total_uC": 70.69647070523345,
+        "charge_excess_uC": 65.35713881396734,
+        "energy_total_uJ": 233.29835332727038,
+        "energy_excess_uJ": 215.6785580860922,
+        "integration_method": "threshold_events",
+        "integration_windows_ms": [
+          [
+            7.04,
+            10.07
+          ]
+        ],
+        "analysis_error": "",
+        "analysis_diagnostics": {}
+      },
+      "window_samples": [
+        [
+          22208,
+          22511
+        ]
+      ],
+      "independent_legacy_charge_uC": 70.69647070523345,
+      "independent_legacy_energy_uJ": 233.29835332727038,
+      "independent_legacy_energy_difference_uJ": 0.0,
+      "signed_charge_diagnostic_uC": 70.69647070523345,
+      "signed_energy_diagnostic_uJ": 233.29835332727038,
+      "legacy_minus_signed_energy_uJ": 0.0,
+      "negative_current_samples_in_window": 0,
+      "signed_vs_legacy_note": "Difference includes zero-clipping and ordinary-sum versus fsum rounding; this does not replace the legacy metric."
+    },
+    {
+      "run_id": "run_00003",
+      "role": "rx",
+      "errors": [],
+      "raw": {
+        "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\attempt_001\\raw\\rx\\run_00003.csv.gz",
+        "bytes": 400185,
+        "sha256": "ba0d2bab43983b58f1291ab780eb074dd6e8f16d0142b3759a5cc1791477f1d5"
+      },
+      "wire": {
+        "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\attempt_001\\wire\\run_00003\\rx.ppk2.bin",
+        "bytes": 288768,
+        "sha256": "105c902d04e683927b031314dad12200a44335ef0874662f515cfb7679d78656"
+      },
+      "sample_count": 72192,
+      "software_trigger_index": 21504,
+      "replay_max_difference_uA": 0.0,
+      "replay_exact_samples": 72192,
+      "filtered_samples": 9,
+      "counter_transition_fault_indices": [],
+      "invalid_range_indices": [],
+      "bit17_indices": [],
+      "logic_mismatch_count": 0,
+      "mean_current_full_capture_uA": 16797.341222879404,
+      "min_current_full_capture_uA": 35.53253015616081,
+      "max_current_full_capture_uA": 18914.788722536225,
+      "range_counts": {
+        "3": 71900,
+        "0": 6,
+        "2": 286
+      },
+      "sample_loss_percent_recorded_estimator": 0.0,
+      "calibration_sha256": "f9bef7b6b288147046cb14c8f5f27e28b0646c1dbd64d6acc654f72e7b5c56d1",
+      "metrics": {
+        "event_detected": true,
+        "baseline_median_uA": 16919.728093093487,
+        "threshold_uA": 18041.52850836012,
+        "event_start_ms": 0.0,
+        "event_duration_ms": 4.44,
+        "tx_mean_uA": 16966.680352601354,
+        "tx_peak_uA": 18628.639620723286,
+        "charge_total_uC": 75.33206076554993,
+        "charge_excess_uC": 0.4477453921610868,
+        "energy_total_uJ": 248.59580052631475,
+        "energy_excess_uJ": 1.4775597941315863,
+        "integration_method": "fixed_modeled_airtime",
+        "integration_windows_ms": [
+          [
+            0.0,
+            4.44
+          ]
+        ],
+        "analysis_error": "",
+        "analysis_diagnostics": {}
+      },
+      "window_samples": [
+        [
+          21504,
+          21948
+        ]
+      ],
+      "independent_legacy_charge_uC": 75.33206076554993,
+      "independent_legacy_energy_uJ": 248.59580052631475,
+      "independent_legacy_energy_difference_uJ": 0.0,
+      "signed_charge_diagnostic_uC": 75.33206076555001,
+      "signed_energy_diagnostic_uJ": 248.59580052631503,
+      "legacy_minus_signed_energy_uJ": -2.8421709430404007e-13,
+      "negative_current_samples_in_window": 0,
+      "signed_vs_legacy_note": "Difference includes zero-clipping and ordinary-sum versus fsum rounding; this does not replace the legacy metric."
+    },
+    {
+      "run_id": "run_00004",
+      "role": "tx",
+      "errors": [],
+      "raw": {
+        "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\attempt_001\\raw\\tx\\run_00004.csv.gz",
+        "bytes": 404178,
+        "sha256": "9697b8e5e83db259ffdd55aaf2bed06a934be4643204e7165e30836be97b55b5"
+      },
+      "wire": {
+        "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\attempt_001\\wire\\run_00004\\tx.ppk2.bin",
+        "bytes": 290816,
+        "sha256": "6d1641a6400d8bcf47107c88710746769b71d35fbba16ab67cfa7dd8430e43ee"
+      },
+      "sample_count": 72704,
+      "software_trigger_index": 22016,
+      "replay_max_difference_uA": 0.0,
+      "replay_exact_samples": 72704,
+      "filtered_samples": 9,
+      "counter_transition_fault_indices": [],
+      "invalid_range_indices": [],
+      "bit17_indices": [],
+      "logic_mismatch_count": 0,
+      "mean_current_full_capture_uA": 1869.0014780444626,
+      "min_current_full_capture_uA": 38.73500950841403,
+      "max_current_full_capture_uA": 40752.55092849895,
+      "range_counts": {
+        "2": 72426,
+        "3": 273,
+        "0": 5
+      },
+      "sample_loss_percent_recorded_estimator": 0.0,
+      "calibration_sha256": "5355962f149f59062e87116a86381668eebc8e0eb21d9ef15679103ea96c966e",
+      "metrics": {
+        "event_detected": true,
+        "baseline_median_uA": 1779.477847438857,
+        "threshold_uA": 2279.4778474388568,
+        "event_start_ms": 9.66,
+        "event_duration_ms": 3.0300000000000002,
+        "tx_mean_uA": 23311.266059608963,
+        "tx_peak_uA": 40752.55092849895,
+        "charge_total_uC": 70.63313616061517,
+        "charge_excess_uC": 65.2764405396506,
+        "energy_total_uJ": 233.08934933003005,
+        "energy_excess_uJ": 215.41225378084695,
+        "integration_method": "threshold_events",
+        "integration_windows_ms": [
+          [
+            9.66,
+            12.69
+          ]
+        ],
+        "analysis_error": "",
+        "analysis_diagnostics": {}
+      },
+      "window_samples": [
+        [
+          22982,
+          23285
+        ]
+      ],
+      "independent_legacy_charge_uC": 70.63313616061517,
+      "independent_legacy_energy_uJ": 233.08934933003005,
+      "independent_legacy_energy_difference_uJ": 0.0,
+      "signed_charge_diagnostic_uC": 70.63313616061517,
+      "signed_energy_diagnostic_uJ": 233.08934933003005,
+      "legacy_minus_signed_energy_uJ": 0.0,
+      "negative_current_samples_in_window": 0,
+      "signed_vs_legacy_note": "Difference includes zero-clipping and ordinary-sum versus fsum rounding; this does not replace the legacy metric."
+    },
+    {
+      "run_id": "run_00004",
+      "role": "rx",
+      "errors": [],
+      "raw": {
+        "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\attempt_001\\raw\\rx\\run_00004.csv.gz",
+        "bytes": 403185,
+        "sha256": "732ff2e2d76808673eb81699e8e0e836675462192474a7e30bf94a69df5fa03b"
+      },
+      "wire": {
+        "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\attempt_001\\wire\\run_00004\\rx.ppk2.bin",
+        "bytes": 290816,
+        "sha256": "ea14451fbc41039200a10a251f09b32850b53f33d28eb7dc05e9ad0cd9bc5394"
+      },
+      "sample_count": 72704,
+      "software_trigger_index": 22016,
+      "replay_max_difference_uA": 0.0,
+      "replay_exact_samples": 72704,
+      "filtered_samples": 11,
+      "counter_transition_fault_indices": [],
+      "invalid_range_indices": [],
+      "bit17_indices": [],
+      "logic_mismatch_count": 0,
+      "mean_current_full_capture_uA": 16837.5237394386,
+      "min_current_full_capture_uA": 44.22852127131737,
+      "max_current_full_capture_uA": 19010.25623354527,
+      "range_counts": {
+        "3": 72430,
+        "1": 2,
+        "0": 4,
+        "2": 268
+      },
+      "sample_loss_percent_recorded_estimator": 0.0,
+      "calibration_sha256": "f9bef7b6b288147046cb14c8f5f27e28b0646c1dbd64d6acc654f72e7b5c56d1",
+      "metrics": {
+        "event_detected": true,
+        "baseline_median_uA": 16825.18982986989,
+        "threshold_uA": 17946.48926231232,
+        "event_start_ms": 0.0,
+        "event_duration_ms": 4.44,
+        "tx_mean_uA": 16859.03190806784,
+        "tx_peak_uA": 18533.34106385705,
+        "charge_total_uC": 74.85410167182117,
+        "charge_excess_uC": 0.3732208711462446,
+        "energy_total_uJ": 247.01853551700984,
+        "energy_excess_uJ": 1.231628874782607,
+        "integration_method": "fixed_modeled_airtime",
+        "integration_windows_ms": [
+          [
+            0.0,
+            4.44
+          ]
+        ],
+        "analysis_error": "",
+        "analysis_diagnostics": {}
+      },
+      "window_samples": [
+        [
+          22016,
+          22460
+        ]
+      ],
+      "independent_legacy_charge_uC": 74.85410167182117,
+      "independent_legacy_energy_uJ": 247.01853551700984,
+      "independent_legacy_energy_difference_uJ": 0.0,
+      "signed_charge_diagnostic_uC": 74.85410167182121,
+      "signed_energy_diagnostic_uJ": 247.01853551700998,
+      "legacy_minus_signed_energy_uJ": -1.4210854715202004e-13,
+      "negative_current_samples_in_window": 0,
+      "signed_vs_legacy_note": "Difference includes zero-clipping and ordinary-sum versus fsum rounding; this does not replace the legacy metric."
+    },
+    {
+      "run_id": "run_00005",
+      "role": "tx",
+      "errors": [],
+      "raw": {
+        "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\attempt_001\\raw\\tx\\run_00005.csv.gz",
+        "bytes": 398691,
+        "sha256": "05b39408f4c0073603547da3c445eccc4dd83b28d802756e2a61fa87a110a8e1"
+      },
+      "wire": {
+        "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\attempt_001\\wire\\run_00005\\tx.ppk2.bin",
+        "bytes": 286720,
+        "sha256": "4076a474c3f7f95067968ab104d8688694ce0c65936099312e26b626dc75fc72"
+      },
+      "sample_count": 71680,
+      "software_trigger_index": 20992,
+      "replay_max_difference_uA": 0.0,
+      "replay_exact_samples": 71680,
+      "filtered_samples": 9,
+      "counter_transition_fault_indices": [],
+      "invalid_range_indices": [],
+      "bit17_indices": [],
+      "logic_mismatch_count": 0,
+      "mean_current_full_capture_uA": 1870.9460265397267,
+      "min_current_full_capture_uA": 30.290957369673432,
+      "max_current_full_capture_uA": 41542.44122287666,
+      "range_counts": {
+        "2": 71402,
+        "3": 272,
+        "0": 6
+      },
+      "sample_loss_percent_recorded_estimator": 0.0,
+      "calibration_sha256": "5355962f149f59062e87116a86381668eebc8e0eb21d9ef15679103ea96c966e",
+      "metrics": {
+        "event_detected": true,
+        "baseline_median_uA": 1779.477847438857,
+        "threshold_uA": 2279.4778474388568,
+        "event_start_ms": 10.98,
+        "event_duration_ms": 3.04,
+        "tx_mean_uA": 23329.475474367653,
+        "tx_peak_uA": 41542.44122287666,
+        "charge_total_uC": 70.92160544207769,
+        "charge_excess_uC": 65.56533031702119,
+        "energy_total_uJ": 234.04129795885638,
+        "energy_excess_uJ": 216.36559004616993,
+        "integration_method": "threshold_events",
+        "integration_windows_ms": [
+          [
+            10.98,
+            14.02
+          ]
+        ],
+        "analysis_error": "",
+        "analysis_diagnostics": {}
+      },
+      "window_samples": [
+        [
+          22090,
+          22394
+        ]
+      ],
+      "independent_legacy_charge_uC": 70.92160544207769,
+      "independent_legacy_energy_uJ": 234.04129795885638,
+      "independent_legacy_energy_difference_uJ": 0.0,
+      "signed_charge_diagnostic_uC": 70.92160544207766,
+      "signed_energy_diagnostic_uJ": 234.04129795885626,
+      "legacy_minus_signed_energy_uJ": 1.1368683772161603e-13,
+      "negative_current_samples_in_window": 0,
+      "signed_vs_legacy_note": "Difference includes zero-clipping and ordinary-sum versus fsum rounding; this does not replace the legacy metric."
+    },
+    {
+      "run_id": "run_00005",
+      "role": "rx",
+      "errors": [],
+      "raw": {
+        "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\attempt_001\\raw\\rx\\run_00005.csv.gz",
+        "bytes": 397168,
+        "sha256": "1caa8767ef5b0cfd1ac18ad6d9990bb469892759d44069f77ea8fcc530d39e23"
+      },
+      "wire": {
+        "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_160814_149795_e07_900mm10s_paired\\acquisition\\attempt_001\\wire\\run_00005\\rx.ppk2.bin",
+        "bytes": 286720,
+        "sha256": "b61df5bf724065324a241e1f0edbfe99e71fd8e26be5df2c8d821c8d92306888"
+      },
+      "sample_count": 71680,
+      "software_trigger_index": 20992,
+      "replay_max_difference_uA": 0.0,
+      "replay_exact_samples": 71680,
+      "filtered_samples": 9,
+      "counter_transition_fault_indices": [],
+      "invalid_range_indices": [],
+      "bit17_indices": [],
+      "logic_mismatch_count": 0,
+      "mean_current_full_capture_uA": 16814.975177092227,
+      "min_current_full_capture_uA": 37.201457743918134,
+      "max_current_full_capture_uA": 18962.517198223784,
+      "range_counts": {
+        "3": 71429,
+        "0": 5,
+        "2": 246
+      },
+      "sample_loss_percent_recorded_estimator": 0.0,
+      "calibration_sha256": "f9bef7b6b288147046cb14c8f5f27e28b0646c1dbd64d6acc654f72e7b5c56d1",
+      "metrics": {
+        "event_detected": true,
+        "baseline_median_uA": 16919.728093093487,
+        "threshold_uA": 18041.52850836012,
+        "event_start_ms": 0.0,
+        "event_duration_ms": 4.44,
+        "tx_mean_uA": 16909.314939088985,
+        "tx_peak_uA": 18533.34106385705,
+        "charge_total_uC": 75.07735832955505,
+        "charge_excess_uC": 0.28355661678440697,
+        "energy_total_uJ": 247.75528248753167,
+        "energy_excess_uJ": 0.9357368353885429,
+        "integration_method": "fixed_modeled_airtime",
+        "integration_windows_ms": [
+          [
+            0.0,
+            4.44
+          ]
+        ],
+        "analysis_error": "",
+        "analysis_diagnostics": {}
+      },
+      "window_samples": [
+        [
+          20992,
+          21436
+        ]
+      ],
+      "independent_legacy_charge_uC": 75.07735832955505,
+      "independent_legacy_energy_uJ": 247.75528248753167,
+      "independent_legacy_energy_difference_uJ": 0.0,
+      "signed_charge_diagnostic_uC": 75.0773583295551,
+      "signed_energy_diagnostic_uJ": 247.75528248753182,
+      "legacy_minus_signed_energy_uJ": -1.4210854715202004e-13,
+      "negative_current_samples_in_window": 0,
+      "signed_vs_legacy_note": "Difference includes zero-clipping and ordinary-sum versus fsum rounding; this does not replace the legacy metric."
+    }
+  ],
+  "radio_ports": {
+    "rx": "COM29",
+    "tx": "COM30"
+  },
+  "radio_port_provenance": "explicit radio_ports",
+  "independent_delivery": [
+    {
+      "tx_ok_line_count": 1,
+      "rx_exact_payload_line_count": 1,
+      "tx_complete_line_count": 1,
+      "tx_state_lines": [
+        "[TX] 32 bytes, state: 0"
+      ],
+      "failure_lines": [],
+      "passed": true,
+      "run_id": "run_00001",
+      "payload": "E07_fe743712_01_01_XXXXXXXXXXX"
+    },
+    {
+      "tx_ok_line_count": 1,
+      "rx_exact_payload_line_count": 1,
+      "tx_complete_line_count": 1,
+      "tx_state_lines": [
+        "[TX] 32 bytes, state: 0"
+      ],
+      "failure_lines": [],
+      "passed": true,
+      "run_id": "run_00002",
+      "payload": "E07_fe743712_01_02_XXXXXXXXXXX"
+    },
+    {
+      "tx_ok_line_count": 1,
+      "rx_exact_payload_line_count": 1,
+      "tx_complete_line_count": 1,
+      "tx_state_lines": [
+        "[TX] 32 bytes, state: 0"
+      ],
+      "failure_lines": [],
+      "passed": true,
+      "run_id": "run_00003",
+      "payload": "E07_fe743712_01_03_XXXXXXXXXXX"
+    },
+    {
+      "tx_ok_line_count": 1,
+      "rx_exact_payload_line_count": 1,
+      "tx_complete_line_count": 1,
+      "tx_state_lines": [
+        "[TX] 32 bytes, state: 0"
+      ],
+      "failure_lines": [],
+      "passed": true,
+      "run_id": "run_00004",
+      "payload": "E07_fe743712_01_04_XXXXXXXXXXX"
+    },
+    {
+      "tx_ok_line_count": 1,
+      "rx_exact_payload_line_count": 1,
+      "tx_complete_line_count": 1,
+      "tx_state_lines": [
+        "[TX] 32 bytes, state: 0"
+      ],
+      "failure_lines": [],
+      "passed": true,
+      "run_id": "run_00005",
+      "payload": "E07_fe743712_01_05_XXXXXXXXXXX"
+    }
+  ],
+  "aggregates": [
+    {
+      "role": "tx",
+      "trial_count": 5,
+      "valid_complete_five_trial_numeric_batch": true,
+      "scope": "TX threshold event",
+      "sample_sd_ddof": 1,
+      "energy_total_uJ_mean": 234.33847202899156,
+      "energy_total_uJ_sd": 1.4215487859877547,
+      "charge_total_uC_mean": 71.01165819060351,
+      "charge_total_uC_sd": 0.43077235939022956,
+      "duration_ms_mean": 3.0360000000000005,
+      "duration_ms_sd": 0.008944271909999142,
+      "mean_current_uA_mean": 23390.017643882595,
+      "mean_current_uA_sd": 154.43980128235967,
+      "energy_excess_uJ_mean": 216.64241111933603,
+      "energy_excess_uJ_sd": 1.40822623777948
+    },
+    {
+      "role": "rx",
+      "trial_count": 5,
+      "valid_complete_five_trial_numeric_batch": true,
+      "scope": "RX listening, fixed modeled4.44ms",
+      "sample_sd_ddof": 1,
+      "energy_total_uJ_mean": 247.51296534017092,
+      "energy_total_uJ_sd": 0.820505216576163,
+      "charge_total_uC_mean": 75.00392889096088,
+      "charge_total_uC_sd": 0.24863794441701736,
+      "duration_ms_mean": 4.44,
+      "duration_ms_sd": 0.0,
+      "mean_current_uA_mean": 16892.776777243453,
+      "mean_current_uA_sd": 55.99953703086244,
+      "energy_excess_uJ_mean": 1.0592070958290472,
+      "energy_excess_uJ_sd": 0.28855764465390266
+    }
+  ],
+  "valid_complete_five_trial_numeric_batch": true,
+  "source_files_unchanged": true,
+  "unique_evidence_counts": {
+    "paths": 20,
+    "raw_sha256": 10,
+    "wire_sha256": 10
+  },
+  "summary": {
+    "captures": 10,
+    "computed_trials": 10,
+    "total_samples": 720896,
+    "counter_transition_faults": 0,
+    "maximum_replay_difference_uA": 0.0,
+    "valid_complete_five_trial_numeric_batch": true
+  }
+}

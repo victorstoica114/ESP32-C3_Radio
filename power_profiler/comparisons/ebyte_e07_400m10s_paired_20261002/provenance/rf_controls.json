@@ -1,0 +1,5651 @@
+{
+  "energy_capture": false,
+  "commands": [
+    {
+      "port": "COM28",
+      "command": "AT",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068886627963500,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+DEFAULT",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068886845557700,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+DEBUG=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068886868018700,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+BRIDGE=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068886898846200,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+CS=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068887104182700,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+FREQ=433.92",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068887293662400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+MOD=GFSK",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068887482907100,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+PRE=64",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068887668120500,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+SYNCERR=1",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068887855797000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+CRC=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068888042497500,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+RX=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068888056428000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068888088037500,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+DEFAULT",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068888296876700,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+DEBUG=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068888305893500,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+BRIDGE=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068888337076400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+CS=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068888543077400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+FREQ=433.92",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068888730735000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+MOD=GFSK",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068888922298700,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+PRE=64",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068889107238600,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+SYNCERR=1",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068889296065500,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+CRC=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068889481528800,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+RX=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068889494942400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+BR=250",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068889704946200,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+DEV=127",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068889891687400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+BW=541.67",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068890078516900,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+PWR=10",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068890266085200,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+BR=250",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068890451766300,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+DEV=127",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068890641259000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+BW=541.67",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068890843654800,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+PWR=10",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068891046974100,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+DEBUG=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068891056398300,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+RX=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068891087599700,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+DEBUG=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068891119297400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+RX=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068891151151600,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+STATUS?",
+      "lines": [
+        "CHIP_VERSION=0x14",
+        "RSSI=-74.00",
+        "LQI=0",
+        "MODE=GFSK",
+        "RX=OFF",
+        "SLEEP=NO",
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [
+              "CHIP_VERSION=0x14",
+              "RSSI=-74.00",
+              "LQI=0",
+              "MODE=GFSK",
+              "RX=OFF",
+              "SLEEP=NO",
+              "BRIDGE=ON",
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068893899411000,
+              "hex": "434849505f56455253494f4e3d307831340d0a525353493d2d37342e30300d0a4c51493d300d0a4d4f44453d4746534b0d0a52583d4f46460d0a534c4545503d4e4f0d0a4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+STATUS?",
+      "lines": [
+        "CHIP_VERSION=0x14",
+        "RSSI=-74.00",
+        "LQI=0",
+        "MODE=GFSK",
+        "RX=ON",
+        "SLEEP=NO",
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "CHIP_VERSION=0x14",
+              "RSSI=-74.00",
+              "LQI=0",
+              "MODE=GFSK",
+              "RX=ON",
+              "SLEEP=NO",
+              "BRIDGE=ON",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068893930940900,
+              "hex": "434849505f56455253494f4e3d307831340d0a525353493d2d37342e30300d0a4c51493d300d0a4d4f44453d4746534b0d0a52583d4f4e0d0a534c4545503d4e4f0d0a4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+BR=250",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068894139867000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+DEV=127",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068894327066200,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+BW=541.67",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068894512873800,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+PWR=-30",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068894704712400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+BR=250",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068894888593400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+DEV=127",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068895076806300,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+BW=541.67",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068895264261200,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+PWR=-30",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068895455754500,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+DEBUG=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068895464318200,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+RX=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068895495310100,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+DEBUG=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068895525860700,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+RX=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068895555795100,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+STATUS?",
+      "lines": [
+        "CHIP_VERSION=0x14",
+        "RSSI=-74.00",
+        "LQI=0",
+        "MODE=GFSK",
+        "RX=OFF",
+        "SLEEP=NO",
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [
+              "CHIP_VERSION=0x14",
+              "RSSI=-74.00",
+              "LQI=0",
+              "MODE=GFSK",
+              "RX=OFF",
+              "SLEEP=NO",
+              "BRIDGE=ON",
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068898307182800,
+              "hex": "434849505f56455253494f4e3d307831340d0a525353493d2d37342e30300d0a4c51493d300d0a4d4f44453d4746534b0d0a52583d4f46460d0a534c4545503d4e4f0d0a4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+STATUS?",
+      "lines": [
+        "CHIP_VERSION=0x14",
+        "RSSI=-40.50",
+        "LQI=46",
+        "MODE=GFSK",
+        "RX=ON",
+        "SLEEP=NO",
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "CHIP_VERSION=0x14",
+              "RSSI=-40.50",
+              "LQI=46",
+              "MODE=GFSK",
+              "RX=ON",
+              "SLEEP=NO",
+              "BRIDGE=ON",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068898342069600,
+              "hex": "434849505f56455253494f4e3d307831340d0a525353493d2d34302e35300d0a4c51493d34360d0a4d4f44453d4746534b0d0a52583d4f4e0d0a534c4545503d4e4f0d0a4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+BR=38.4",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068898564684200,
+              "hex": "4f4b"
+            },
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068898566270000,
+              "hex": "0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+DEV=20",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068898767747900,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+BW=101.56",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068898954014400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+PWR=10",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068899143007500,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+BR=38.4",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068899329478300,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+DEV=20",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068899521310800,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+BW=101.56",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068899739599700,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+PWR=10",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068899954768100,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+DEBUG=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068899964459200,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+RX=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068899994375200,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+DEBUG=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068900026779600,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+RX=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068900056201300,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+STATUS?",
+      "lines": [
+        "CHIP_VERSION=0x14",
+        "RSSI=-74.00",
+        "LQI=0",
+        "MODE=GFSK",
+        "RX=OFF",
+        "SLEEP=NO",
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [
+              "CHIP_VERSION=0x14",
+              "RSSI=-74.00",
+              "LQI=0",
+              "MODE=GFSK",
+              "RX=OFF",
+              "SLEEP=NO",
+              "BRIDGE=ON",
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068902808287200,
+              "hex": "434849505f56455253494f4e3d307831340d0a525353493d2d37342e30300d0a4c51493d300d0a4d4f44453d4746534b0d0a52583d4f46460d0a534c4545503d4e4f0d0a4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+STATUS?",
+      "lines": [
+        "CHIP_VERSION=0x14",
+        "RSSI=-40.50",
+        "LQI=46",
+        "MODE=GFSK",
+        "RX=ON",
+        "SLEEP=NO",
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "CHIP_VERSION=0x14",
+              "RSSI=-40.50",
+              "LQI=46",
+              "MODE=GFSK",
+              "RX=ON",
+              "SLEEP=NO",
+              "BRIDGE=ON",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068902838375600,
+              "hex": "434849505f56455253494f4e3d307831340d0a525353493d2d34302e35300d0a4c51493d34360d0a4d4f44453d4746534b0d0a52583d4f4e0d0a534c4545503d4e4f0d0a4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+BR=1.2",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068903051763000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+DEV=5.2",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068903235793000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+BW=58.03",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068903422553000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+PWR=-30",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068903626960800,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+BR=1.2",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068903845774800,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+DEV=5.2",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068904048759400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+BW=58.03",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068904236815100,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+PWR=-30",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068904424501200,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+DEBUG=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068904433872400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+RX=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068904466304600,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+DEBUG=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068904495257300,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+RX=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068904527943400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+STATUS?",
+      "lines": [
+        "CHIP_VERSION=0x14",
+        "RSSI=-74.00",
+        "LQI=0",
+        "MODE=GFSK",
+        "RX=OFF",
+        "SLEEP=NO",
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [
+              "CHIP_VERSION=0x14",
+              "RSSI=-74.00",
+              "LQI=0",
+              "MODE=GFSK",
+              "RX=OFF",
+              "SLEEP=NO",
+              "BRIDGE=ON",
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068907276621600,
+              "hex": "434849505f56455253494f4e3d307831340d0a525353493d2d37342e30300d0a4c51493d300d0a4d4f44453d4746534b0d0a52583d4f46460d0a534c4545503d4e4f0d0a4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+STATUS?",
+      "lines": [
+        "CHIP_VERSION=0x14",
+        "RSSI=-39.50",
+        "LQI=40",
+        "MODE=GFSK",
+        "RX=ON",
+        "SLEEP=NO",
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "CHIP_VERSION=0x14",
+              "RSSI=-39.50",
+              "LQI=40",
+              "MODE=GFSK",
+              "RX=ON",
+              "SLEEP=NO",
+              "BRIDGE=ON",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068907307761100,
+              "hex": "434849505f56455253494f4e3d307831340d0a525353493d2d33392e35300d0a4c51493d34300d0a4d4f44453d4746534b0d0a52583d4f4e0d0a534c4545503d4e4f0d0a4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+BR=250",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068907522536400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+DEV=127",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068907737622800,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+BW=541.67",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068907924186600,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+PWR=10",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068908113628500,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+BR=250",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068908298712000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+DEV=127",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068908488316900,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+BW=541.67",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068908674677400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+PWR=10",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068908882500900,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+DEBUG=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068908902316700,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+RX=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068908932867800,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+DEBUG=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068908968512500,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+RX=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068908995574600,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM28",
+      "command": "AT+CFG?",
+      "lines": [
+        "====== E07-400M10S CONFIGURATION ======",
+        "Module:       Ebyte E07-400M10S",
+        "Module max TX:10 dBm nominal",
+        "Frequency:    433.92 MHz",
+        "Bit Rate:     250.0 kbps",
+        "Freq Dev:     127.0 kHz",
+        "RX Bandwidth: 541.67 kHz",
+        "TX Power:     10 dBm",
+        "Preamble:     64 bits",
+        "Sync Word:    0xD391",
+        "CRC:          Enabled",
+        "Modulation:   GFSK",
+        "Data shaping: 0.5",
+        "Encoding:     NRZ",
+        "Packet mode:  VARIABLE",
+        "Packet len:   64",
+        "Address filt: OFF",
+        "Node addr:    0x01",
+        "Broadcasts:   1",
+        "Promiscuous:  OFF",
+        "Carrier sense:OFF",
+        "Sync err bits:1",
+        "Sleep:        NO",
+        "==================================",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [
+              "====== E07-400M10S CONFIGURATION ======",
+              "Module:       Ebyte E07-400M10S",
+              "Module max TX:10 dBm nominal",
+              "Frequency:    433.92 MHz",
+              "Bit Rate:     250.0 kbps",
+              "Freq Dev:     127.0 kHz",
+              "RX Bandwidth: 541.67 kHz",
+              "TX Power:     10 dBm",
+              "Preamble:     64 bits",
+              "Sync Word:    0xD391",
+              "CRC:          Enabled",
+              "Modulation:   GFSK",
+              "Data shaping: 0.5",
+              "Encoding:     NRZ",
+              "Packet mode:  VARIABLE",
+              "Packet len:   64",
+              "Address filt: OFF",
+              "Node addr:    0x01",
+              "Broadcasts:   1",
+              "Promiscuous:  OFF",
+              "Carrier sense:OFF",
+              "Sync err bits:1",
+              "Sleep:        NO",
+              "==================================",
+              "OK"
+            ],
+            "COM27": []
+          },
+          "raw": [
+            {
+              "port": "COM28",
+              "perf_counter_ns": 3068909335810700,
+              "hex": "3d3d3d3d3d3d204530372d3430304d31305320434f4e46494755524154494f4e203d3d3d3d3d3d0d0a4d6f64756c653a202020202020204562797465204530372d3430304d3130530d0a4d6f64756c65206d61782054583a31302064426d206e6f6d696e616c0d0a4672657175656e63793a202020203433332e3932204d487a0d0a42697420526174653a20202020203235302e30206b6270730d0a46726571204465763a20202020203132372e30206b487a0d0a52582042616e6477696474683a203534312e3637206b487a0d0a545820506f7765723a202020202031302064426d0d0a507265616d626c653a2020202020363420626974730d0a53796e6320576f72643a202020203078443339310d0a4352433a20202020202020202020456e61626c65640d0a4d6f64756c6174696f6e3a2020204746534b0d0a446174612073686170696e673a20302e350d0a456e636f64696e673a20202020204e525a0d0a5061636b6574206d6f64653a20205641524941424c450d0a5061636b6574206c656e3a20202036340d0a416464726573732066696c743a204f46460d0a4e6f646520616464723a20202020307830310d0a42726f616463617374733a202020310d0a50726f6d697363756f75733a20204f46460d0a436172726965722073656e73653a4f46460d0a53796e632065727220626974733a310d0a536c6565703a20202020202020204e4f0d0a3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM27",
+      "command": "AT+CFG?",
+      "lines": [
+        "====== E07-400M10S CONFIGURATION ======",
+        "Module:       Ebyte E07-400M10S",
+        "Module max TX:10 dBm nominal",
+        "Frequency:    433.92 MHz",
+        "Bit Rate:     250.0 kbps",
+        "Freq Dev:     127.0 kHz",
+        "RX Bandwidth: 541.67 kHz",
+        "TX Power:     10 dBm",
+        "Preamble:     64 bits",
+        "Sync Word:    0xD391",
+        "CRC:          Enabled",
+        "Modulation:   GFSK",
+        "Data shaping: 0.5",
+        "Encoding:     NRZ"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": [
+              "====== E07-400M10S CONFIGURATION ======",
+              "Module:       Ebyte E07-400M10S",
+              "Module max TX:10 dBm nominal",
+              "Frequency:    433.92 MHz",
+              "Bit Rate:     250.0 kbps",
+              "Freq Dev:     127.0 kHz",
+              "RX Bandwidth: 541.67 kHz",
+              "TX Power:     10 dBm",
+              "Preamble:     64 bits",
+              "Sync Word:    0xD391",
+              "CRC:          Enabled",
+              "Modulation:   GFSK",
+              "Data shaping: 0.5",
+              "Encoding:     NRZ"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM27",
+              "perf_counter_ns": 3068909372148200,
+              "hex": "3d3d3d3d3d3d204530372d3430304d31305320434f4e46494755524154494f4e203d3d3d3d3d3d0d0a4d6f64756c653a202020202020204562797465204530372d3430304d3130530d0a4d6f64756c65206d61782054583a31302064426d206e6f6d696e616c0d0a4672657175656e63793a202020203433332e3932204d487a0d0a42697420526174653a20202020203235302e30206b6270730d0a46726571204465763a20202020203132372e30206b487a0d0a52582042616e6477696474683a203534312e3637206b487a0d0a545820506f7765723a202020202031302064426d0d0a507265616d626c653a2020202020363420626974730d0a53796e6320576f72643a202020203078443339310d0a4352433a20202020202020202020456e61626c65640d0a4d6f64756c6174696f6e3a2020204746534b0d0a446174612073686170696e673a20302e350d0a456e636f64696e673a20202020204e525a0d0a5061636b6574206d6f64653a20205641524941"
+            }
+          ]
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM28": [],
+            "COM27": []
+          },
+          "raw": []
+        }
+      ]
+    }
+  ],
+  "batches": [
+    {
+      "rate_kbps": 250,
+      "power_dbm": 10,
+      "before": {
+        "lines": {
+          "COM28": [],
+          "COM27": []
+        },
+        "raw": []
+      },
+      "runs": [
+        {
+          "payload": "E07_1b35f97c391b44c7XXXXXXXXXX",
+          "send_perf_counter_ns": 3068891490407700,
+          "uart": {
+            "lines": {
+              "COM28": [
+                "[TX] 32 bytes, state: 0",
+                "[TX] 32 bytes"
+              ],
+              "COM27": []
+            },
+            "raw": [
+              {
+                "port": "COM28",
+                "perf_counter_ns": 3068891495446300,
+                "hex": "5b54585d2033322062797465732c2073746174653a20300d0a5b54585d2033322062797465730d0a"
+              }
+            ]
+          },
+          "tx_ok_count": 1,
+          "rx_exact_count": 0
+        },
+        {
+          "payload": "E07_acdbd97f588746f4XXXXXXXXXX",
+          "send_perf_counter_ns": 3068892695387600,
+          "uart": {
+            "lines": {
+              "COM28": [
+                "[TX] 32 bytes, state: 0",
+                "[TX] 32 bytes"
+              ],
+              "COM27": []
+            },
+            "raw": [
+              {
+                "port": "COM28",
+                "perf_counter_ns": 3068892699826600,
+                "hex": "5b54585d2033322062797465732c2073746174653a20300d0a5b54585d2033322062797465730d0a"
+              }
+            ]
+          },
+          "tx_ok_count": 1,
+          "rx_exact_count": 0
+        }
+      ],
+      "status_after": {
+        "COM28": [
+          "CHIP_VERSION=0x14",
+          "RSSI=-74.00",
+          "LQI=0",
+          "MODE=GFSK",
+          "RX=OFF",
+          "SLEEP=NO",
+          "BRIDGE=ON",
+          "OK"
+        ],
+        "COM27": [
+          "CHIP_VERSION=0x14",
+          "RSSI=-74.00",
+          "LQI=0",
+          "MODE=GFSK",
+          "RX=ON",
+          "SLEEP=NO",
+          "BRIDGE=ON",
+          "OK"
+        ]
+      }
+    },
+    {
+      "rate_kbps": 250,
+      "power_dbm": -30,
+      "before": {
+        "lines": {
+          "COM28": [],
+          "COM27": []
+        },
+        "raw": []
+      },
+      "runs": [
+        {
+          "payload": "E07_173a2dcfc862478cXXXXXXXXXX",
+          "send_perf_counter_ns": 3068895896036200,
+          "uart": {
+            "lines": {
+              "COM28": [
+                "[TX] 32 bytes, state: 0",
+                "[TX] 32 bytes"
+              ],
+              "COM27": [
+                "E07_173a2dcfc862478cXXXXXXXXXX"
+              ]
+            },
+            "raw": [
+              {
+                "port": "COM28",
+                "perf_counter_ns": 3068895901049100,
+                "hex": "5b54585d2033322062797465732c2073746174653a20300d0a5b54585d2033322062797465730d0a"
+              },
+              {
+                "port": "COM27",
+                "perf_counter_ns": 3068895902603900,
+                "hex": "4530375f31373361326463666338363234373863585858585858585858580d0a"
+              }
+            ]
+          },
+          "tx_ok_count": 1,
+          "rx_exact_count": 1
+        },
+        {
+          "payload": "E07_d0aae78d04a54a5cXXXXXXXXXX",
+          "send_perf_counter_ns": 3068897102817100,
+          "uart": {
+            "lines": {
+              "COM28": [
+                "[TX] 32 bytes, state: 0",
+                "[TX] 32 bytes"
+              ],
+              "COM27": [
+                "E07_d0aae78d04a54a5cXXXXXXXXXX"
+              ]
+            },
+            "raw": [
+              {
+                "port": "COM28",
+                "perf_counter_ns": 3068897107410700,
+                "hex": "5b54585d2033322062797465732c2073746174653a20300d0a5b54585d2033322062797465730d0a"
+              },
+              {
+                "port": "COM27",
+                "perf_counter_ns": 3068897109165000,
+                "hex": "4530375f64306161653738643034613534613563585858585858585858580d0a"
+              }
+            ]
+          },
+          "tx_ok_count": 1,
+          "rx_exact_count": 1
+        }
+      ],
+      "status_after": {
+        "COM28": [
+          "CHIP_VERSION=0x14",
+          "RSSI=-74.00",
+          "LQI=0",
+          "MODE=GFSK",
+          "RX=OFF",
+          "SLEEP=NO",
+          "BRIDGE=ON",
+          "OK"
+        ],
+        "COM27": [
+          "CHIP_VERSION=0x14",
+          "RSSI=-40.50",
+          "LQI=46",
+          "MODE=GFSK",
+          "RX=ON",
+          "SLEEP=NO",
+          "BRIDGE=ON",
+          "OK"
+        ]
+      }
+    },
+    {
+      "rate_kbps": 38.4,
+      "power_dbm": 10,
+      "before": {
+        "lines": {
+          "COM28": [],
+          "COM27": []
+        },
+        "raw": []
+      },
+      "runs": [
+        {
+          "payload": "E07_b3aeba30204044fdXXXXXXXXXX",
+          "send_perf_counter_ns": 3068900396266100,
+          "uart": {
+            "lines": {
+              "COM28": [
+                "[TX] 32 bytes, state: 0",
+                "[TX] 32 bytes"
+              ],
+              "COM27": []
+            },
+            "raw": [
+              {
+                "port": "COM28",
+                "perf_counter_ns": 3068900409271500,
+                "hex": "5b54585d2033322062797465732c2073746174653a20300d0a5b54585d2033322062797465730d0a"
+              }
+            ]
+          },
+          "tx_ok_count": 1,
+          "rx_exact_count": 0
+        },
+        {
+          "payload": "E07_be5d7f057eb54480XXXXXXXXXX",
+          "send_perf_counter_ns": 3068901602442700,
+          "uart": {
+            "lines": {
+              "COM28": [
+                "[TX] 32 bytes, state: 0",
+                "[TX] 32 bytes"
+              ],
+              "COM27": []
+            },
+            "raw": [
+              {
+                "port": "COM28",
+                "perf_counter_ns": 3068901615969500,
+                "hex": "5b54585d2033322062797465732c2073746174653a20300d0a5b54585d2033322062797465730d0a"
+              }
+            ]
+          },
+          "tx_ok_count": 1,
+          "rx_exact_count": 0
+        }
+      ],
+      "status_after": {
+        "COM28": [
+          "CHIP_VERSION=0x14",
+          "RSSI=-74.00",
+          "LQI=0",
+          "MODE=GFSK",
+          "RX=OFF",
+          "SLEEP=NO",
+          "BRIDGE=ON",
+          "OK"
+        ],
+        "COM27": [
+          "CHIP_VERSION=0x14",
+          "RSSI=-40.50",
+          "LQI=46",
+          "MODE=GFSK",
+          "RX=ON",
+          "SLEEP=NO",
+          "BRIDGE=ON",
+          "OK"
+        ]
+      }
+    },
+    {
+      "rate_kbps": 1.2,
+      "power_dbm": -30,
+      "before": {
+        "lines": {
+          "COM28": [],
+          "COM27": []
+        },
+        "raw": []
+      },
+      "runs": [
+        {
+          "payload": "E07_201474976ad943d2XXXXXXXXXX",
+          "send_perf_counter_ns": 3068904865171300,
+          "uart": {
+            "lines": {
+              "COM28": [
+                "[TX] 32 bytes, state: 0",
+                "[TX] 32 bytes"
+              ],
+              "COM27": [
+                "E07_201474976ad943d2XXXXXXXXXX"
+              ]
+            },
+            "raw": [
+              {
+                "port": "COM28",
+                "perf_counter_ns": 3068905169146500,
+                "hex": "5b54585d2033322062797465732c2073746174653a20300d0a5b54585d2033322062797465730d0a"
+              },
+              {
+                "port": "COM27",
+                "perf_counter_ns": 3068905172378000,
+                "hex": "4530375f32303134373439373661643934336432585858585858585858580d0a"
+              }
+            ]
+          },
+          "tx_ok_count": 1,
+          "rx_exact_count": 1
+        },
+        {
+          "payload": "E07_a1924e4a906c4c41XXXXXXXXXX",
+          "send_perf_counter_ns": 3068906071938100,
+          "uart": {
+            "lines": {
+              "COM28": [
+                "[TX] 32 bytes, state: 0",
+                "[TX] 32 bytes"
+              ],
+              "COM27": [
+                "E07_a1924e4a906c4c41XXXXXXXXXX"
+              ]
+            },
+            "raw": [
+              {
+                "port": "COM28",
+                "perf_counter_ns": 3068906376002500,
+                "hex": "5b54585d2033322062797465732c2073746174653a20300d0a5b54585d2033322062797465730d0a"
+              },
+              {
+                "port": "COM27",
+                "perf_counter_ns": 3068906377628600,
+                "hex": "4530375f61313932346534613930366334633431585858585858585858580d0a"
+              }
+            ]
+          },
+          "tx_ok_count": 1,
+          "rx_exact_count": 1
+        }
+      ],
+      "status_after": {
+        "COM28": [
+          "CHIP_VERSION=0x14",
+          "RSSI=-74.00",
+          "LQI=0",
+          "MODE=GFSK",
+          "RX=OFF",
+          "SLEEP=NO",
+          "BRIDGE=ON",
+          "OK"
+        ],
+        "COM27": [
+          "CHIP_VERSION=0x14",
+          "RSSI=-39.50",
+          "LQI=40",
+          "MODE=GFSK",
+          "RX=ON",
+          "SLEEP=NO",
+          "BRIDGE=ON",
+          "OK"
+        ]
+      }
+    }
+  ],
+  "ppk_handles_released": false,
+  "power_before": {
+    "state": "candidate_holding",
+    "time": 1790944728.2218134,
+    "candidate": "attempt_002",
+    "accepted_energy_points": 0,
+    "attempt": "attempt_002",
+    "ports": {
+      "ppk": {
+        "tx": [
+          "COM10",
+          "E753C4E81F3D"
+        ],
+        "rx": [
+          "COM11",
+          "CD2D332DB09A"
+        ]
+      },
+      "radio": {
+        "tx": "COM25",
+        "rx": "COM26"
+      }
+    },
+    "stop_file": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_135907_149907_nrf24_pa_paired_retries\\STOP",
+    "ppk_handles_open": {
+      "tx": true,
+      "rx": true
+    },
+    "ppk_dut_power_command": "ON",
+    "hold_io_safe": true,
+    "samples_currents": {
+      "tx": {
+        "samples_drained": 539368352,
+        "last_chunk_samples": 2048,
+        "time": 1790944728.2175295,
+        "last_chunk_mean_current_uA": 1746.0000230368298
+      },
+      "rx": {
+        "samples_drained": 539336704,
+        "last_chunk_samples": 1536,
+        "time": 1790944728.219546,
+        "last_chunk_mean_current_uA": 17844.250254299594
+      }
+    },
+    "hold_errors": {},
+    "errors": []
+  },
+  "restore_target": {
+    "lines": {
+      "COM28": [],
+      "COM27": []
+    },
+    "raw": []
+  },
+  "error": "TimeoutError({'port': 'COM27', 'command': 'AT+CFG?', 'lines': ['====== E07-400M10S CONFIGURATION ======', 'Module:       Ebyte E07-400M10S', 'Module max TX:10 dBm nominal', 'Frequency:    433.92 MHz', 'Bit Rate:     250.0 kbps', 'Freq Dev:     127.0 kHz', 'RX Bandwidth: 541.67 kHz', 'TX Power:     10 dBm', 'Preamble:     64 bits', 'Sync Word:    0xD391', 'CRC:          Enabled', 'Modulation:   GFSK', 'Data shaping: 0.5', 'Encoding:     NRZ'], 'uart': [{'lines': {'COM28': [], 'COM27': ['====== E07-400M10S CONFIGURATION ======', 'Module:       Ebyte E07-400M10S', 'Module max TX:10 dBm nominal', 'Frequency:    433.92 MHz', 'Bit Rate:     250.0 kbps', 'Freq Dev:     127.0 kHz', 'RX Bandwidth: 541.67 kHz', 'TX Power:     10 dBm', 'Preamble:     64 bits', 'Sync Word:    0xD391', 'CRC:          Enabled', 'Modulation:   GFSK', 'Data shaping: 0.5', 'Encoding:     NRZ']}, 'raw': [{'port': 'COM27', 'perf_counter_ns': 3068909372148200, 'hex': '3d3d3d3d3d3d204530372d3430304d31305320434f4e46494755524154494f4e203d3d3d3d3d3d0d0a4d6f64756c653a202020202020204562797465204530372d3430304d3130530d0a4d6f64756c65206d61782054583a31302064426d206e6f6d696e616c0d0a4672657175656e63793a202020203433332e3932204d487a0d0a42697420526174653a20202020203235302e30206b6270730d0a46726571204465763a20202020203132372e30206b487a0d0a52582042616e6477696474683a203534312e3637206b487a0d0a545820506f7765723a202020202031302064426d0d0a507265616d626c653a2020202020363420626974730d0a53796e6320576f72643a202020203078443339310d0a4352433a20202020202020202020456e61626c65640d0a4d6f64756c6174696f6e3a2020204746534b0d0a446174612073686170696e673a20302e350d0a456e636f64696e673a20202020204e525a0d0a5061636b6574206d6f64653a20205641524941'}]}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}, {'lines': {'COM28': [], 'COM27': []}, 'raw': []}]})",
+  "partial_uart_hex": {
+    "COM28": "",
+    "COM27": "5061636b6574206d6f64653a20205641524941"
+  }
+}

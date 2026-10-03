@@ -1,0 +1,35 @@
+{
+  "trigger_called": true,
+  "timing": {
+    "synchronization": "host_coordinated_independent_sample_clocks",
+    "hardware_synchronized": false,
+    "sample_rate_hz": 100000,
+    "requested_pre_s": 0.2,
+    "requested_after_trigger_s": 0.5,
+    "devices": {
+      "tx": {
+        "start_command_host_ns": 3075896915015500,
+        "first_data_host_ns": 3075896937024600,
+        "marker_host_ns": 3075897136219700,
+        "trigger_index": 21504,
+        "stop_command_host_ns": 3075897637499300,
+        "wire_bytes": 288768,
+        "trailing_bytes": 0
+      },
+      "rx": {
+        "start_command_host_ns": 3075896915237600,
+        "first_data_host_ns": 3075896937046900,
+        "marker_host_ns": 3075897136258000,
+        "trigger_index": 21504,
+        "stop_command_host_ns": 3075897637611900,
+        "wire_bytes": 288768,
+        "trailing_bytes": 0
+      }
+    },
+    "host_trigger_ns": 3075897136268100,
+    "trigger_callback_started_host_ns": 3075897136592000,
+    "trigger_callback_finished_host_ns": 3075897583259600,
+    "host_marker_skew_ms": 0.0383
+  },
+  "errors": {}
+}

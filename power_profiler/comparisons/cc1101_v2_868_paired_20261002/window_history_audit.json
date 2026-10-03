@@ -1,0 +1,414 @@
+{
+  "audit": {
+    "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\analysis\\audit.json",
+    "bytes": 37171,
+    "sha256": "d2a83b0bd8b27f6a3dc4e6bc7bc7df8563e55228448f92d73d88f1c561ba537f"
+  },
+  "source": {
+    "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition_retry_more\\attempt_001\\report.json",
+    "bytes": 29001,
+    "sha256": "a308327895c97fe9c22becafb78cd2cc43bae66a7a8c8be1991e3b224fdc8c23"
+  },
+  "helper": {
+    "path": "D:\\Documente\\ESP32-C3_Radio\\.tmp\\nrf24_window_history_audit.py",
+    "bytes": 5828,
+    "sha256": "3e3564fc23fcec301878543c57730170455e6730e4ecfd76d990be4b1c68c4b1"
+  },
+  "imported_modules": [
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\tools\\audit_filter_marker_totals.py",
+      "bytes": 23405,
+      "sha256": "dcd7dad11c7b0c1ded06c3b0a32e2f815d9ced49aa2a3246f978d132ca675542"
+    },
+    {
+      "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\radio_power_profiler\\filter_marker_totals.py",
+      "bytes": 23167,
+      "sha256": "5e857bb4dc2848917564e9a2f47cbd7bf1316bb0efc0107d5f17aa5acafd5c24"
+    }
+  ],
+  "method": "Conservative initial-history enclosure in fixed, already selected software windows",
+  "unknown_state_seed_sample": 0,
+  "unknown_seed_is_recorded_counter_fault": false,
+  "energy_history_relative_tolerance": 0.0001,
+  "captures": [
+    {
+      "run_id": "run_00001",
+      "role": "tx",
+      "window_samples": [
+        22710,
+        23129
+      ],
+      "raw_sha256": "41d5f6572e82e24d0839b72e4d735b1b09962798c2c5ffb9b9207e5f797e25c7",
+      "wire_sha256": "a80969ac293adf8a779400ffc48315ae364c8388b426ae6dbb12d46d3c0d6b43",
+      "global_adc_bounds_A": [
+        -0.01897675544196226,
+        25.740989987510105
+      ],
+      "initial_state_invariant_A": [
+        -0.018976755441962263,
+        25.740989987510105
+      ],
+      "converged_samples": {
+        "fast": 235,
+        "slow": 740
+      },
+      "max_current_interval_width_uA": 0.0,
+      "charge_interval_uC": [
+        60.89063354574469,
+        60.89063354574473
+      ],
+      "energy_interval_uJ": [
+        200.93909070095745,
+        200.93909070095762
+      ],
+      "energy_interval_width_uJ": 1.7053025658242407e-13,
+      "energy_history_relative_bound": 8.486664092464291e-16,
+      "fsum_reference_energy_uJ": 200.9390907009575,
+      "legacy_energy_uJ": 200.9390907009575,
+      "legacy_ordinary_sum_minus_fsum_uJ": 0.0,
+      "history_budget_passed": true
+    },
+    {
+      "run_id": "run_00001",
+      "role": "rx",
+      "window_samples": [
+        22016,
+        22485
+      ],
+      "raw_sha256": "aef8312b838f7d11e5c6781815df707cebe7eecd918d62ea5022860a9ee9f849",
+      "wire_sha256": "4497ff8cd9cb511ad31336e73a7343352ca805f53579fece2af9eef5cbe4b798",
+      "global_adc_bounds_A": [
+        -0.01653885116147285,
+        24.326350854658365
+      ],
+      "initial_state_invariant_A": [
+        -0.01653885116147285,
+        24.32635085465837
+      ],
+      "converged_samples": {
+        "fast": 220,
+        "slow": 726
+      },
+      "max_current_interval_width_uA": 0.0,
+      "charge_interval_uC": [
+        80.4092106962156,
+        80.40921069621564
+      ],
+      "energy_interval_uJ": [
+        265.3503952975114,
+        265.3503952975116
+      ],
+      "energy_interval_width_uJ": 2.273736754432321e-13,
+      "energy_history_relative_bound": 8.568808619572634e-16,
+      "fsum_reference_energy_uJ": 265.35039529751157,
+      "legacy_energy_uJ": 265.3503952975112,
+      "legacy_ordinary_sum_minus_fsum_uJ": -3.410605131648481e-13,
+      "history_budget_passed": true
+    },
+    {
+      "run_id": "run_00002",
+      "role": "tx",
+      "window_samples": [
+        22699,
+        23109
+      ],
+      "raw_sha256": "62ce1b6159cc4844232100b60c6460cc3598a0d5b2eed641a58e9eb73b44e36d",
+      "wire_sha256": "4ad02d66c74130d08d1c0a54453485c552d9f3b3627198ba03ded3f0b2a48f4d",
+      "global_adc_bounds_A": [
+        -0.01897675544196226,
+        25.740989987510105
+      ],
+      "initial_state_invariant_A": [
+        -0.018976755441962263,
+        25.740989987510105
+      ],
+      "converged_samples": {
+        "fast": 230,
+        "slow": 752
+      },
+      "max_current_interval_width_uA": 0.0,
+      "charge_interval_uC": [
+        60.2821814909833,
+        60.28218149098333
+      ],
+      "energy_interval_uJ": [
+        198.93119892024484,
+        198.93119892024498
+      ],
+      "energy_interval_width_uJ": 1.4210854715202006e-13,
+      "energy_history_relative_bound": 7.143602809582121e-16,
+      "fsum_reference_energy_uJ": 198.93119892024492,
+      "legacy_energy_uJ": 198.93119892024504,
+      "legacy_ordinary_sum_minus_fsum_uJ": 1.1368683772161603e-13,
+      "history_budget_passed": true
+    },
+    {
+      "run_id": "run_00002",
+      "role": "rx",
+      "window_samples": [
+        22016,
+        22485
+      ],
+      "raw_sha256": "060440201f89656f8d8e992abc5a7bb754469dbf6c1a19f37f552346ce3d83cc",
+      "wire_sha256": "fc8f20aae7d1a78fe5837f155158786cc5abf5c37201e4f7b27af313cdc90dfa",
+      "global_adc_bounds_A": [
+        -0.01653885116147285,
+        24.326350854658365
+      ],
+      "initial_state_invariant_A": [
+        -0.01653885116147285,
+        24.32635085465837
+      ],
+      "converged_samples": {
+        "fast": 229,
+        "slow": 697
+      },
+      "max_current_interval_width_uA": 0.0,
+      "charge_interval_uC": [
+        79.80066257952312,
+        79.80066257952318
+      ],
+      "energy_interval_uJ": [
+        263.3421865124262,
+        263.3421865124265
+      ],
+      "energy_interval_width_uJ": 2.842170943040401e-13,
+      "energy_history_relative_bound": 1.0792691367382907e-15,
+      "fsum_reference_energy_uJ": 263.3421865124264,
+      "legacy_energy_uJ": 263.34218651242605,
+      "legacy_ordinary_sum_minus_fsum_uJ": -3.410605131648481e-13,
+      "history_budget_passed": true
+    },
+    {
+      "run_id": "run_00003",
+      "role": "tx",
+      "window_samples": [
+        22381,
+        22798
+      ],
+      "raw_sha256": "38e5125c1f2c76614f39b842194a65e7c37c003fd604b648c22f254eb9d162df",
+      "wire_sha256": "847df80c04e9bc1f0a3162de3b22c3e064d88ee6a26922095824b7b50ee30b0b",
+      "global_adc_bounds_A": [
+        -0.01897675544196226,
+        25.740989987510105
+      ],
+      "initial_state_invariant_A": [
+        -0.018976755441962263,
+        25.740989987510105
+      ],
+      "converged_samples": {
+        "fast": 246,
+        "slow": 725
+      },
+      "max_current_interval_width_uA": 0.0,
+      "charge_interval_uC": [
+        61.27375407364467,
+        61.273754073644696
+      ],
+      "energy_interval_uJ": [
+        202.20338844302736,
+        202.2033884430275
+      ],
+      "energy_interval_width_uJ": 1.4210854715202006e-13,
+      "energy_history_relative_bound": 7.028000284577845e-16,
+      "fsum_reference_energy_uJ": 202.20338844302745,
+      "legacy_energy_uJ": 202.2033884430273,
+      "legacy_ordinary_sum_minus_fsum_uJ": -1.4210854715202004e-13,
+      "history_budget_passed": true
+    },
+    {
+      "run_id": "run_00003",
+      "role": "rx",
+      "window_samples": [
+        21504,
+        21973
+      ],
+      "raw_sha256": "08be485ae072b0c93d3406a44eab3aa9594edc8e3278813835a19b40d68d60a8",
+      "wire_sha256": "85848ed129a1ffd45a4cf82e7faaaf9fa869681aa411c508c6b17d93b670a3f0",
+      "global_adc_bounds_A": [
+        -0.01653885116147285,
+        24.326350854658365
+      ],
+      "initial_state_invariant_A": [
+        -0.01653885116147285,
+        24.32635085465837
+      ],
+      "converged_samples": {
+        "fast": 226,
+        "slow": 715
+      },
+      "max_current_interval_width_uA": 0.0,
+      "charge_interval_uC": [
+        80.21509992847375,
+        80.21509992847379
+      ],
+      "energy_interval_uJ": [
+        264.7098297639633,
+        264.70982976396357
+      ],
+      "energy_interval_width_uJ": 2.842170943040401e-13,
+      "energy_history_relative_bound": 1.0736930115420012e-15,
+      "fsum_reference_energy_uJ": 264.7098297639634,
+      "legacy_energy_uJ": 264.709829763963,
+      "legacy_ordinary_sum_minus_fsum_uJ": -3.979039320256561e-13,
+      "history_budget_passed": true
+    },
+    {
+      "run_id": "run_00004",
+      "role": "tx",
+      "window_samples": [
+        22425,
+        22842
+      ],
+      "raw_sha256": "43edf7a5c55d3efb75e0918ee7777b7309d88b3065bc5f0f46086473491b9def",
+      "wire_sha256": "e6548a7b327a126b69fa102da2d049907d656c0304f267b12d93a548f74374f5",
+      "global_adc_bounds_A": [
+        -0.01897675544196226,
+        25.740989987510105
+      ],
+      "initial_state_invariant_A": [
+        -0.018976755441962263,
+        25.740989987510105
+      ],
+      "converged_samples": {
+        "fast": 230,
+        "slow": 750
+      },
+      "max_current_interval_width_uA": 0.0,
+      "charge_interval_uC": [
+        60.125375785124,
+        60.12537578512403
+      ],
+      "energy_interval_uJ": [
+        198.41374009090916,
+        198.4137400909093
+      ],
+      "energy_interval_width_uJ": 1.4210854715202006e-13,
+      "energy_history_relative_bound": 7.162233174320933e-16,
+      "fsum_reference_energy_uJ": 198.41374009090924,
+      "legacy_energy_uJ": 198.41374009090933,
+      "legacy_ordinary_sum_minus_fsum_uJ": 8.526512829121202e-14,
+      "history_budget_passed": true
+    },
+    {
+      "run_id": "run_00004",
+      "role": "rx",
+      "window_samples": [
+        21504,
+        21973
+      ],
+      "raw_sha256": "3028b9409258e3542ebd4b8670b55c9c330ab3041fc2f1c8deec81ca2050cdd0",
+      "wire_sha256": "ab500a6d7220edc4a184516e8c8e11412cd1d893a0d0033cfab05dfe25cb08d2",
+      "global_adc_bounds_A": [
+        -0.01653885116147285,
+        24.326350854658365
+      ],
+      "initial_state_invariant_A": [
+        -0.01653885116147285,
+        24.32635085465837
+      ],
+      "converged_samples": {
+        "fast": 224,
+        "slow": 736
+      },
+      "max_current_interval_width_uA": 0.0,
+      "charge_interval_uC": [
+        79.84712038374002,
+        79.84712038374006
+      ],
+      "energy_interval_uJ": [
+        263.495497266342,
+        263.4954972663422
+      ],
+      "energy_interval_width_uJ": 2.273736754432321e-13,
+      "energy_history_relative_bound": 8.629129446314682e-16,
+      "fsum_reference_energy_uJ": 263.4954972663421,
+      "legacy_energy_uJ": 263.4954972663418,
+      "legacy_ordinary_sum_minus_fsum_uJ": -3.410605131648481e-13,
+      "history_budget_passed": true
+    },
+    {
+      "run_id": "run_00005",
+      "role": "tx",
+      "window_samples": [
+        22770,
+        23097
+      ],
+      "raw_sha256": "1367f37c7de49769f9bf65752216b163a15c3fcc3447d41fe8962f8daa9a6550",
+      "wire_sha256": "c7e108ad0c2795647abab1586ae4c76c24d10049436ebc48b558c310be0485d7",
+      "global_adc_bounds_A": [
+        -0.01897675544196226,
+        25.740989987510105
+      ],
+      "initial_state_invariant_A": [
+        -0.018976755441962263,
+        25.740989987510105
+      ],
+      "converged_samples": {
+        "fast": 239,
+        "slow": 764
+      },
+      "max_current_interval_width_uA": 0.0,
+      "charge_interval_uC": [
+        58.6029215233063,
+        58.60292152330633
+      ],
+      "energy_interval_uJ": [
+        193.38964102691074,
+        193.3896410269109
+      ],
+      "energy_interval_width_uJ": 1.7053025658242407e-13,
+      "energy_history_relative_bound": 8.817962310540424e-16,
+      "fsum_reference_energy_uJ": 193.38964102691082,
+      "legacy_energy_uJ": 193.3896410269109,
+      "legacy_ordinary_sum_minus_fsum_uJ": 8.526512829121202e-14,
+      "history_budget_passed": true
+    },
+    {
+      "run_id": "run_00005",
+      "role": "rx",
+      "window_samples": [
+        22016,
+        22485
+      ],
+      "raw_sha256": "ee759e6b81937837ac2bcf1f78dfb54479a833d282cd199c1fecdb3218283b9c",
+      "wire_sha256": "cfe1d30ede867a5e5746c151c87870821a4f2621babeecd2aaf4fdabb945705b",
+      "global_adc_bounds_A": [
+        -0.01653885116147285,
+        24.326350854658365
+      ],
+      "initial_state_invariant_A": [
+        -0.01653885116147285,
+        24.32635085465837
+      ],
+      "converged_samples": {
+        "fast": 235,
+        "slow": 703
+      },
+      "max_current_interval_width_uA": 0.0,
+      "charge_interval_uC": [
+        80.2784298047035,
+        80.27842980470355
+      ],
+      "energy_interval_uJ": [
+        264.9188183555215,
+        264.91881835552175
+      ],
+      "energy_interval_width_uJ": 2.273736754432321e-13,
+      "energy_history_relative_bound": 8.582767991139696e-16,
+      "fsum_reference_energy_uJ": 264.91881835552164,
+      "legacy_energy_uJ": 264.9188183555213,
+      "legacy_ordinary_sum_minus_fsum_uJ": -3.410605131648481e-13,
+      "history_budget_passed": true
+    }
+  ],
+  "scope": "Clipped-current total integrated with fsum. Legacy ordinary-sum total is retained separately, with its rounding difference.",
+  "limitations": [
+    "Does not validate physical packet boundaries, analog accuracy, or TX threshold-window invariance under alternate filter histories.",
+    "No D0 marker is asserted or synthesized. RX remains a conventional listening interval.",
+    "All prior filter states are assumed bounded by the calibrated ADC-domain invariant."
+  ],
+  "accepted_energy_points_changed": false,
+  "all_history_budgets_passed": true,
+  "max_energy_history_relative_bound": 1.0792691367382907e-15
+}

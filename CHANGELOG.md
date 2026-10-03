@@ -6,6 +6,9 @@ All notable changes to this project will be documented here.
 
 ### Added
 
+- Added `measurements/README.md` and a repository layout guide for capture storage, acquisition code, analysis tools, reviewed results, and the study.
+- Added a local relocation inventory and a path resolver so historical manifests can be read without rewriting their source paths or byte-level evidence.
+- Added storage tests covering relocated paths, command arguments, and default capture directories.
 - Added MIT project license and third-party notices for public repository preparation.
 - Added Ebyte E22 SX1268 SPI module support with AT-command firmware, onboard OLED on GPIO5/GPIO6, and SX1268-safe parameter validation.
 - Added Ebyte E280-2G4T12S UART/TTL module support with raw Ebyte binary configuration, bridge mode, RSSI/ranging/low-power runtime modes, and AT-command wrappers.
@@ -25,7 +28,6 @@ All notable changes to this project will be documented here.
 - Added `Invoke-AtProbe.ps1` for single-port AT diagnostics before running full
   pair tests.
 - Added a focused CC1101 quick sweep script for local RF-band diagnostics.
-- Added a `Datasheets/` reference index for supported modules and ESP32-C3 hardware documentation.
 - Added per-module AT command documentation to `README.md`, including module-specific command descriptions.
 - Added `AT+SLEEP` and `AT+WAKE` support to AT-command firmware variants where the hardware/library supports sleep:
   - CC1101
@@ -53,6 +55,12 @@ All notable changes to this project will be documented here.
 
 ### Changed
 
+- Centralized all local PPK RAW CSV and WIRE files under `measurements/raw/`, with separate `archive/`, `sessions/`, `packet/`, `continuous/`, and `diagnostics/` directories.
+- Excluded capture files and the local relocation inventory from Git, including the five RAW files previously tracked in comparison exports.
+- Updated the acquisition UI, CLI defaults, offline analysis tools, and documentation to use the centralized storage independently of the shell working directory.
+- Moved E79 marker documentation and supporting evidence from `power_profiler/firmware/` to `power_profiler/audits/2026-10-01/e79-markers/`.
+- Updated continuous and loss report readers to resolve historical paths after removal of redundant summary directories.
+- Preserved exact line endings in fingerprinted paired-campaign exports, source snapshots, and archived patches when committing or cloning with Git.
 - Standardized AT error responses so generic failures return `#ERROR` and
   specific guardrail messages start with `#ERROR:`.
 - Added explicit feedback when payload TX is blocked because the radio is in
@@ -90,7 +98,6 @@ All notable changes to this project will be documented here.
 - Removed the obsolete E79 ESP32-side `AT_COMMANDS` helper; E79 `AT_COMMANDS`
   now aliases the validated ESP32 bridge to the CC1352P AT modem.
 - Kept `AT+DEFAULT` as the documented recovery path for restoring known-safe settings.
-- Removed datasheet PDFs from Git tracking; local PDF copies are ignored and the public repository keeps only reference notes/links.
 - Hardened CC1101 OLED/SPI handoff so the SSD1306 splash is not put into
   power-save immediately after boot, then reinitializes the radio SPI bus.
 - Changed the generic CC1101 default carrier from 433.000 MHz to 433.920 MHz,
@@ -104,8 +111,20 @@ All notable changes to this project will be documented here.
 - Added the missing explicit `Wire.h` include to the E280 firmware so clean
   PlatformIO builds compile after the OLED hardware-I2C recovery code.
 
+### Removed
+
+- Removed the imported project snapshot after preserving its measurement data and verifying that its source commit is retained in the main Git history.
+- Removed five temporary capture copies after SHA-256 verification against the retained files.
+- Removed local PPK firmware update packages and notes about PPK firmware versions.
+- Removed the unused `Datasheets/` reference directory and the standard PlatformIO README-only `include/` and `lib/` directories.
+- Removed 24 duplicate metadata/summary files from `power_profiler/continuous_results/` and `power_profiler/loss_results/`; byte-identical copies remain in the centralized archive.
+- Removed temporary browser snapshots and obsolete debug logs.
+
 ### Verified
 
+- Verified SHA-256 identity for all 21,391 moved files; all 8,903 retained capture files are local and excluded from Git.
+- Reproduced all 105 accepted E79/ESP32 pairs and the same 42 aggregate rows after relocation; an independent RAW/WIRE audit reproduced all ten captures and saved energies/charges in a real batch.
+- Passed 427 software tests after the storage restructuring, then 24 focused storage/report tests after removing duplicate summaries; historical paths resolve for all seven continuous and five loss result directories.
 - Built all updated `AT_COMMANDS` firmware selections successfully:
   - `RADIO_CC1101_V1_433`
   - `RADIO_HC12`

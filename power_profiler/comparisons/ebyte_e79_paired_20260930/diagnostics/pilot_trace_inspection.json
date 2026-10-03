@@ -1,0 +1,124 @@
+{
+  "scope": "Read-only inspection of runs 1 and 3; published metrics unchanged",
+  "assessment": [
+    "TX windows include distinct sustained current increases in both inspected runs.",
+    "Run 3 has a lower instantaneous window peak, but its sustained TX plateau is similar to run 1; narrow high-current spikes also occur outside TX.",
+    "RX 0--4.76 ms samples an already listening receiver; its rectified excess resembles equally long pretrigger windows and is not evidence of packet-event energy.",
+    "Host marker skew is not hardware synchronization; do not overlay the two PPK sample clocks as synchronized RF time.",
+    "sample_loss_percent is a duration/sample-count estimate with USB-queue markers and clipped negative deficit, not proof of wire-level sample continuity."
+  ],
+  "records": [
+    {
+      "role": "tx",
+      "run_id": "run_00001",
+      "source": "tx\\raw\\run_00001.csv.gz",
+      "sha256": "6712ef4567c6e0046a17a74bc493aab642bea3472c3b90b8e32fdb841816e7d2",
+      "window_ms": [
+        41.24,
+        46.0
+      ],
+      "baseline_median_mA": 4.516588166383134,
+      "baseline_mean_mA": 4.8281513363954796,
+      "event_mean_mA": 7.266422658368325,
+      "event_peak_mA": 16.768446755523232,
+      "event_max_02ms_mean_mA": 9.968506563180108,
+      "reference_window_samples": 476,
+      "reference_region_ms": [
+        -100,
+        -10
+      ],
+      "reference_window_count": 18,
+      "reference_excess_energy_mean_uJ": 7.79697184180662,
+      "reference_excess_energy_stdev_uJ": 1.129378723693084,
+      "recorded_excess_energy_uJ": 44.58331278058112,
+      "posttrigger_global_peak_mA": 17.157974000443506,
+      "posttrigger_global_peak_time_ms": 521.2,
+      "sample_loss_percent_recorded": 0.0,
+      "host_marker_skew_ms": 0.1123
+    },
+    {
+      "role": "tx",
+      "run_id": "run_00003",
+      "source": "tx\\raw\\run_00003.csv.gz",
+      "sha256": "608899628d7fc7bff4afda3bd724f6d7329d873bd1a7fd3038b56dfa6d446836",
+      "window_ms": [
+        26.11,
+        30.87
+      ],
+      "baseline_median_mA": 4.511733792821595,
+      "baseline_mean_mA": 4.819468033863649,
+      "event_mean_mA": 7.172160448552996,
+      "event_peak_mA": 12.842089436608502,
+      "event_max_02ms_mean_mA": 9.897930506158803,
+      "reference_window_samples": 476,
+      "reference_region_ms": [
+        -100,
+        -10
+      ],
+      "reference_window_count": 18,
+      "reference_excess_energy_mean_uJ": 7.600666634202583,
+      "reference_excess_energy_stdev_uJ": 0.8195718016265052,
+      "recorded_excess_energy_uJ": 43.26811155362131,
+      "posttrigger_global_peak_mA": 17.400593334880117,
+      "posttrigger_global_peak_time_ms": 48.12,
+      "sample_loss_percent_recorded": 0.2542859486506439,
+      "host_marker_skew_ms": 0.0118
+    },
+    {
+      "role": "rx",
+      "run_id": "run_00001",
+      "source": "rx\\raw\\run_00001.csv.gz",
+      "sha256": "1d89f53cd10987307e0f4005a10410abeb1655c563863423499e47ed9ef79555",
+      "window_ms": [
+        0.0,
+        4.76
+      ],
+      "baseline_median_mA": 7.223734894936387,
+      "baseline_mean_mA": 7.420428909353693,
+      "event_mean_mA": 7.4486642359328865,
+      "event_peak_mA": 9.3077410803286,
+      "event_max_02ms_mean_mA": 8.46391611554543,
+      "reference_window_samples": 476,
+      "reference_region_ms": [
+        -100,
+        -10
+      ],
+      "reference_window_count": 18,
+      "reference_excess_energy_mean_uJ": 4.703175070735692,
+      "reference_excess_energy_stdev_uJ": 0.31696543773290226,
+      "recorded_excess_energy_uJ": 4.9566688698317085,
+      "posttrigger_global_peak_mA": 9.900749089781085,
+      "posttrigger_global_peak_time_ms": 49.61,
+      "sample_loss_percent_recorded": 0.0,
+      "host_marker_skew_ms": 0.1123
+    },
+    {
+      "role": "rx",
+      "run_id": "run_00003",
+      "source": "rx\\raw\\run_00003.csv.gz",
+      "sha256": "9f4b7e4f88be8232b42e24c0d140ae0564f8e118efaedf42b171229d1cb307f1",
+      "window_ms": [
+        0.0,
+        4.76
+      ],
+      "baseline_median_mA": 7.223734894936387,
+      "baseline_mean_mA": 7.420284067831159,
+      "event_mean_mA": 7.427213468832847,
+      "event_peak_mA": 9.353293721373822,
+      "event_max_02ms_mean_mA": 8.45478024346363,
+      "reference_window_samples": 476,
+      "reference_region_ms": [
+        -100,
+        -10
+      ],
+      "reference_window_count": 18,
+      "reference_excess_energy_mean_uJ": 4.64925422004788,
+      "reference_excess_energy_stdev_uJ": 0.3200696830917181,
+      "recorded_excess_energy_uJ": 4.784597400084558,
+      "posttrigger_global_peak_mA": 10.266564131144516,
+      "posttrigger_global_peak_time_ms": 35.53,
+      "sample_loss_percent_recorded": 0.0,
+      "host_marker_skew_ms": 0.0118
+    }
+  ]
+}

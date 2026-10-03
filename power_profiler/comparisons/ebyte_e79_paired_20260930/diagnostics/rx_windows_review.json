@@ -1,0 +1,184 @@
+{
+  "conclusion": "No uniquely justified RF-only RX integration window can be identified from these traces and software timestamps.",
+  "recommended_primary_window_ms": [
+    0,
+    200
+  ],
+  "baseline_window_ms": [
+    -180,
+    -20
+  ],
+  "metric": "Same-duration local observation budget on each endpoint; total and signed delta relative to listening/idle mean. Not hardware-synchronized RF-only energy.",
+  "rows": [
+    {
+      "run_id": "run_00001",
+      "tx_saved_window_local_ms": [
+        41.24,
+        46.0
+      ],
+      "rx_RF_window_identifiable": false,
+      "rx_RF_window_ms": null,
+      "rx_peak_0_200_local_ms": 49.61,
+      "rx_peak_0_200_uA": 9900.749089781086,
+      "rx_peak_interpretation": "Descriptive largest excursion only; not an RF start or end marker.",
+      "rx_legacy_window_local_ms": [
+        0,
+        4.76
+      ],
+      "radio_send_entry_after_host_trigger_ms": 0.1953,
+      "callback_finished_after_host_trigger_ms": 124.9321,
+      "host_marker_skew_ms": 0.1123,
+      "nominal_marker_index_difference_ms": 10.24,
+      "conditional_clock_offset_envelope_ms": [
+        -6.554699999999999,
+        26.3185
+      ],
+      "conditional_TX_window_in_RX_time_envelope_ms": [
+        34.685300000000005,
+        72.3185
+      ],
+      "envelope_assumptions": "Nominal100kS/s, continuous stream, sample0 between command timestamp and first data timestamp. This is not a calibrated confidence interval or identification of the RX RF event.",
+      "tx_start_to_first_data_ms": 16.6445,
+      "rx_start_to_first_data_ms": 16.2287
+    },
+    {
+      "run_id": "run_00002",
+      "tx_saved_window_local_ms": [
+        40.98,
+        45.74
+      ],
+      "rx_RF_window_identifiable": false,
+      "rx_RF_window_ms": null,
+      "rx_peak_0_200_local_ms": 44.47,
+      "rx_peak_0_200_uA": 10312.338531076364,
+      "rx_peak_interpretation": "Descriptive largest excursion only; not an RF start or end marker.",
+      "rx_legacy_window_local_ms": [
+        0,
+        4.76
+      ],
+      "radio_send_entry_after_host_trigger_ms": 0.2575,
+      "callback_finished_after_host_trigger_ms": 123.4266,
+      "host_marker_skew_ms": 0.0132,
+      "nominal_marker_index_difference_ms": 0.0,
+      "conditional_clock_offset_envelope_ms": [
+        -20.9386,
+        20.7351
+      ],
+      "conditional_TX_window_in_RX_time_envelope_ms": [
+        20.041399999999996,
+        66.4751
+      ],
+      "envelope_assumptions": "Nominal100kS/s, continuous stream, sample0 between command timestamp and first data timestamp. This is not a calibrated confidence interval or identification of the RX RF event.",
+      "tx_start_to_first_data_ms": 20.928,
+      "rx_start_to_first_data_ms": 20.7457
+    },
+    {
+      "run_id": "run_00003",
+      "tx_saved_window_local_ms": [
+        26.11,
+        30.87
+      ],
+      "rx_RF_window_identifiable": false,
+      "rx_RF_window_ms": null,
+      "rx_peak_0_200_local_ms": 35.53,
+      "rx_peak_0_200_uA": 10266.564131144516,
+      "rx_peak_interpretation": "Descriptive largest excursion only; not an RF start or end marker.",
+      "rx_legacy_window_local_ms": [
+        0,
+        4.76
+      ],
+      "radio_send_entry_after_host_trigger_ms": 0.1966,
+      "callback_finished_after_host_trigger_ms": 119.1604,
+      "host_marker_skew_ms": 0.0118,
+      "nominal_marker_index_difference_ms": 10.24,
+      "conditional_clock_offset_envelope_ms": [
+        -13.9534,
+        34.0456
+      ],
+      "conditional_TX_window_in_RX_time_envelope_ms": [
+        12.1566,
+        64.9156
+      ],
+      "envelope_assumptions": "Nominal100kS/s, continuous stream, sample0 between command timestamp and first data timestamp. This is not a calibrated confidence interval or identification of the RX RF event.",
+      "tx_start_to_first_data_ms": 24.2617,
+      "rx_start_to_first_data_ms": 23.7373
+    },
+    {
+      "run_id": "run_00004",
+      "tx_saved_window_local_ms": [
+        39.54,
+        44.3
+      ],
+      "rx_RF_window_identifiable": false,
+      "rx_RF_window_ms": null,
+      "rx_peak_0_200_local_ms": 43.95,
+      "rx_peak_0_200_uA": 10083.572130886942,
+      "rx_peak_interpretation": "Descriptive largest excursion only; not an RF start or end marker.",
+      "rx_legacy_window_local_ms": [
+        0,
+        4.76
+      ],
+      "radio_send_entry_after_host_trigger_ms": 0.2849,
+      "callback_finished_after_host_trigger_ms": 123.1153,
+      "host_marker_skew_ms": 0.0844,
+      "nominal_marker_index_difference_ms": 0.0,
+      "conditional_clock_offset_envelope_ms": [
+        -30.5758,
+        15.1252
+      ],
+      "conditional_TX_window_in_RX_time_envelope_ms": [
+        8.964199999999998,
+        59.4252
+      ],
+      "envelope_assumptions": "Nominal100kS/s, continuous stream, sample0 between command timestamp and first data timestamp. This is not a calibrated confidence interval or identification of the RX RF event.",
+      "tx_start_to_first_data_ms": 15.537,
+      "rx_start_to_first_data_ms": 30.164
+    },
+    {
+      "run_id": "run_00005",
+      "tx_saved_window_local_ms": [
+        25.64,
+        30.4
+      ],
+      "rx_RF_window_identifiable": false,
+      "rx_RF_window_ms": null,
+      "rx_peak_0_200_local_ms": 33.88,
+      "rx_peak_0_200_uA": 10358.123490955197,
+      "rx_peak_interpretation": "Descriptive largest excursion only; not an RF start or end marker.",
+      "rx_legacy_window_local_ms": [
+        0,
+        4.76
+      ],
+      "radio_send_entry_after_host_trigger_ms": 0.2419,
+      "callback_finished_after_host_trigger_ms": 114.6355,
+      "host_marker_skew_ms": 0.0398,
+      "nominal_marker_index_difference_ms": 10.24,
+      "conditional_clock_offset_envelope_ms": [
+        -16.750799999999998,
+        22.1169
+      ],
+      "conditional_TX_window_in_RX_time_envelope_ms": [
+        8.889200000000002,
+        52.5169
+      ],
+      "envelope_assumptions": "Nominal100kS/s, continuous stream, sample0 between command timestamp and first data timestamp. This is not a calibrated confidence interval or identification of the RX RF event.",
+      "tx_start_to_first_data_ms": 12.3958,
+      "rx_start_to_first_data_ms": 26.4719
+    }
+  ],
+  "protocol_latency_evidence": {
+    "call_chain": [
+      "paired_runner.py:59-62 _send_one_transfer",
+      "serial_radio.py:542-547 send_packet invokes command",
+      "serial_radio.py:166-170 command defaults drain_before=True and drains for0.02s before writing AT command"
+    ],
+    "minimum_nominal_host_drain_before_send_ms": 20,
+    "interpretation": "The legacy0..4.76ms RX window is a listening observation before the scheduled send, subject to local USB-marker uncertainty. No RF-boundary claim is made."
+  },
+  "conditional_envelope_caution": "The broad clock envelopes are explanatory calculations only and are not used to pick an RX integration window. TX startup counter irregularities additionally weaken their continuous-stream assumption.",
+  "snapshot_hashes": {
+    "paired_runner.py": "6d8a6dc281abef3bb73fc4e8d39a628430aae0300ce4e82d05ee883b2d8cba92",
+    "paired_ppk.py": "07dbfdc3c1d7c980dbd5505723a1b031e3d57eddf499b9ec02daed2bef7a6993",
+    "serial_radio.py": "e594c083d9bddbdbd3f70a941978443481d69a9f382758e73a80da387d666d73"
+  }
+}

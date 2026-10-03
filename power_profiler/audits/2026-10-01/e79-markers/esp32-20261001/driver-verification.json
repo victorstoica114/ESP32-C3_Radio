@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-01T13:58:45.454135+00:00",
+  "scope": "PPK2 USB interface driver installation evidence; no radio or PPK acquisition performed by this audit",
+  "status": "installation_and_post_install_bindings_verified_from_saved_evidence",
+  "sources": {
+    "installation_log": {
+      "path": ".tmp/e79_esp32_20261001/ppk-driver/install-result.txt",
+      "bytes": 468,
+      "sha256": "8d6ec172e0be93bd03312cd64a626695c4e0cfe2084c8bfa8896f071229671e6",
+      "persistent_copy": {
+        "path": "power_profiler/firmware/e79_tx_marker_dio17/esp32-20261001/driver-evidence/install-result.txt",
+        "bytes": 468,
+        "sha256": "8d6ec172e0be93bd03312cd64a626695c4e0cfe2084c8bfa8896f071229671e6"
+      }
+    },
+    "installation_script": {
+      "path": ".tmp/e79_esp32_20261001/ppk-driver/install-ppk-dfu-driver.ps1",
+      "bytes": 550,
+      "sha256": "a6cb3c81432c43935afa8d71996083d8d83251b784c57774ea03737efa1844ca"
+    },
+    "official_installer": {
+      "path": ".tmp/e79_esp32_20261001/ppk-driver/nrf-device-lib-driver-installer.exe",
+      "bytes": 3083744,
+      "sha256": "c914a1572b2b14ca02ecb895ed7415e3dca40df4ef942aeaf2e645c00788fa2a"
+    },
+    "dfu_inf": {
+      "path": ".tmp/ppk-driver-research/extracted/drivers/x64/nrf-device-lib-winusb.inf",
+      "bytes": 1965,
+      "sha256": "f63942e8a3b083061dadfceb58c8ece09b44ab75d41e57f1b27b55cfdd7ca9da",
+      "persistent_copy": {
+        "path": "power_profiler/firmware/e79_tx_marker_dio17/esp32-20261001/driver-evidence/nrf-device-lib-winusb.inf",
+        "bytes": 1965,
+        "sha256": "f63942e8a3b083061dadfceb58c8ece09b44ab75d41e57f1b27b55cfdd7ca9da"
+      }
+    },
+    "dfu_catalog": {
+      "path": ".tmp/ppk-driver-research/extracted/drivers/x64/nrf-device-lib-winusb.cat",
+      "bytes": 9614,
+      "sha256": "04872db7cb0897d7a1a140c0861420a38a2af2bd5f641e8ab3865c8744d4a842",
+      "persistent_copy": {
+        "path": "power_profiler/firmware/e79_tx_marker_dio17/esp32-20261001/driver-evidence/nrf-device-lib-winusb.cat",
+        "bytes": 9614,
+        "sha256": "04872db7cb0897d7a1a140c0861420a38a2af2bd5f641e8ab3865c8744d4a842"
+      }
+    },
+    "post_install_pnp": {
+      "path": ".tmp/e79_esp32_20261001/ppk-driver/pnp-after.json",
+      "bytes": 4617,
+      "sha256": "7f2a1410280d7dd046758baf3f5eb57f54411e31d9336e949081604408158534",
+      "persistent_copy": {
+        "path": "power_profiler/firmware/e79_tx_marker_dio17/esp32-20261001/driver-evidence/pnp-after.json",
+        "bytes": 4617,
+        "sha256": "7f2a1410280d7dd046758baf3f5eb57f54411e31d9336e949081604408158534"
+      }
+    }
+  },
+  "official_sources": {
+    "installer": "https://github.com/NordicSemiconductor/pc-nrfconnect-launcher/blob/main/build/drivers/nrf-device-lib-driver-installer.exe",
+    "nordic_support_recommendation": "https://devzone.nordicsemi.com/f/nordic-q-a/114628/ppkii-device-must-be-programmed-do-you-want-to-proceed/503237",
+    "measurement_interface": "https://docs.nordicsemi.com/r/bundle/ug_ppk2/page/ug/ppk/ppk_user_guide_measurement_system.html",
+    "dfu_trigger_role": "https://docs.nordicsemi.com/r/bundle/nrf5_sdk_v15.0.0/page/lib_dfu_trigger_usb.html"
+  },
+  "authenticode": {
+    "method": "Read-only Get-AuthenticodeSignature on the local official installer and DFU catalog",
+    "installer_status": "Valid",
+    "catalog_status": "Valid",
+    "signer": "Nordic Semiconductor ASA",
+    "signer_certificate_thumbprint": "A5CB28185110BD14CB33B2B9C96EF7B8412D7445",
+    "timestamp_signer": "Sectigo RSA Time Stamping Signer #2"
+  },
+  "installation": {
+    "performed_by": "root agent, elevated UAC",
+    "command": "pnputil /add-driver \"D:\\Documente\\ESP32-C3_Radio\\.tmp\\ppk-driver-research\\extracted\\drivers\\x64\\nrf-device-lib-winusb.inf\" /install",
+    "exit_code": 0,
+    "published_inf": "oem167.inf",
+    "packages_added": 1,
+    "installed_instance_ids_from_log": [
+      "USB\\VID_1915&PID_C00A&MI_00\\7&33e86bed&0&0000",
+      "USB\\VID_1915&PID_C00A&MI_00\\8&2811c9c9&0&0000",
+      "USB\\VID_1915&PID_C00A&MI_00\\8&2458238f&0&0000"
+    ],
+    "note": "The installation log lists three matching device instances; this does not assert that three PPK2 devices are currently connected."
+  },
+  "interface_roles": {
+    "MI_00": {
+      "hardware_id": "USB\\VID_1915&PID_C00A&MI_00",
+      "name": "nRF Connect DFU Trigger",
+      "purpose": "Firmware information and entry into DFU bootloader",
+      "official_inf": "nrf-device-lib-winusb.inf",
+      "service": "WinUSB",
+      "driver_version": "1.0.0.1",
+      "driver_date": "2020-08-21"
+    },
+    "MI_01": {
+      "hardware_id": "USB\\VID_1915&PID_C00A&MI_01",
+      "purpose": "CDC ACM measurement/control serial interface",
+      "service": "usbser",
+      "included_in_installed_dfu_inf": false
+    }
+  },
+  "post_install_verification": {
+    "provenance": "Root saved read-only CIM results; Faraday independently parsed the saved JSON and verified each interface/driver binding. No direct hardware access.",
+    "captured_at_utc": "2026-10-01T13:58:01.3187978Z",
+    "device_nodes": 6,
+    "nonzero_problem_codes": 0,
+    "composite_serials": [
+      "CD2D332DB09A",
+      "E753C4E81F3D"
+    ],
+    "interfaces": [
+      {
+        "interface": "MI_00",
+        "instance_id": "USB\\VID_1915&PID_C00A&MI_00\\8&2811C9C9&0&0000",
+        "name": "nRF Connect DFU Trigger",
+        "status": "OK",
+        "problem_code": 0,
+        "service": "WinUSB",
+        "inf": "oem167.inf",
+        "provider": "Nordic Semiconductor ASA",
+        "driver_version": "1.0.0.1"
+      },
+      {
+        "interface": "MI_00",
+        "instance_id": "USB\\VID_1915&PID_C00A&MI_00\\8&2458238F&0&0000",
+        "name": "nRF Connect DFU Trigger",
+        "status": "OK",
+        "problem_code": 0,
+        "service": "WinUSB",
+        "inf": "oem167.inf",
+        "provider": "Nordic Semiconductor ASA",
+        "driver_version": "1.0.0.1"
+      },
+      {
+        "interface": "MI_01",
+        "instance_id": "USB\\VID_1915&PID_C00A&MI_01\\8&2811C9C9&0&0001",
+        "name": "USB Serial Device (COM10)",
+        "status": "OK",
+        "problem_code": 0,
+        "service": "usbser",
+        "inf": "usbser.inf",
+        "provider": "Microsoft",
+        "driver_version": "10.0.26100.9278"
+      },
+      {
+        "interface": "MI_01",
+        "instance_id": "USB\\VID_1915&PID_C00A&MI_01\\8&2458238F&0&0001",
+        "name": "USB Serial Device (COM11)",
+        "status": "OK",
+        "problem_code": 0,
+        "service": "usbser",
+        "inf": "usbser.inf",
+        "provider": "Microsoft",
+        "driver_version": "10.0.26100.9278"
+      }
+    ],
+    "cdc_driver_unchanged_reported_by_root": true,
+    "cdc_current_binding_independently_verified": true,
+    "direct_faraday_cim_query": "Denied by sandbox (0x80041003); saved root evidence used instead."
+  },
+  "limitations": [
+    "This records driver installation and interface binding, not RF campaign or current-measurement acceptance.",
+    "No conclusion is drawn about the cause of historical digital-marker anomalies."
+  ],
+  "evidence_preservation": {
+    "directory": "power_profiler/firmware/e79_tx_marker_dio17/esp32-20261001/driver-evidence",
+    "files": 4,
+    "copies_match_original_sha256": true,
+    "note": "Installation log, post-install PnP snapshot, original Nordic DFU INF and signed catalog are preserved in the repository; installer and DLL binaries are not copied."
+  }
+}

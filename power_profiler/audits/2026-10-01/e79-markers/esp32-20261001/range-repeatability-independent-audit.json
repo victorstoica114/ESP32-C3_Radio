@@ -1,0 +1,2042 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-01T14:26:16.328208+00:00",
+  "scope": "Read-only independent audit of five predetermined diagnostic transfers; no campaign acceptance and no energy averaging",
+  "diagnostic_result": "power_profiler/web_sessions/20261001_171738_633948_paired_pilot_radio_ebyte_e79_cc1352p/diagnostics/range-repeatability-five",
+  "source_status": "diagnostic_completed",
+  "accepted_campaign_pairs": 0,
+  "acceptance_changed": false,
+  "sample_rate_hz": 100000,
+  "channel_order": [
+    "D0",
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D5",
+    "D6",
+    "D7"
+  ],
+  "runs": [
+    {
+      "run_id": "run_00001",
+      "packet_received_recorded": true,
+      "uart_tx_lines_recorded": [
+        "OK"
+      ],
+      "uart_rx_payload_recorded": [
+        "0123456789abcdefghijklmnopqrstuv"
+      ],
+      "capture_errors_recorded": {},
+      "production_pair_valid": false,
+      "roles": {
+        "tx": {
+          "sample_count": 97280,
+          "wire_bytes": 389120,
+          "software_trigger_index": 21504,
+          "gzip_crc_valid_read_to_eof": true,
+          "raw_index_errors": [],
+          "raw_trigger_indices": [
+            21504
+          ],
+          "raw_wire_logic_mismatch_count": 0,
+          "recorded_raw_sha256_matches": true,
+          "recorded_wire_sha256_matches": true,
+          "logic_byte_counts": {
+            "254": 97102,
+            "255": 178
+          },
+          "high_samples_by_channel": [
+            178,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280
+          ],
+          "transitions_by_channel": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "pulse_count": 1,
+          "capture_counter_transition_anomaly_count": 109,
+          "pulses": [
+            {
+              "window_samples": [
+                25434,
+                25612
+              ],
+              "duration_samples": 178,
+              "duration_ms": 1.78,
+              "complete_after_trigger": true,
+              "guard_window_samples": [
+                25431,
+                25612
+              ],
+              "qa_includes_falling_boundary": true,
+              "range_counts_guard": {
+                "3": 181
+              },
+              "range_transitions_including_falling_boundary": [],
+              "wire_qa": {
+                "checked_indices_inclusive": [
+                  25431,
+                  25612
+                ],
+                "counter_anomaly_indices": [],
+                "invalid_range_indices": [],
+                "bit17_set_indices": []
+              },
+              "constant_valid_range_guard": true,
+              "nonfinite_current_indices_guard": [],
+              "direct_adc_max_difference_uA": 0.0,
+              "direct_adc_difference_samples": [],
+              "independent_proof_valid": true
+            }
+          ],
+          "production_total_proof_valid": true,
+          "production_total_proof_reasons": [],
+          "independent_total_proof_valid": true,
+          "production_comparison": {
+            "window": true,
+            "duration": true,
+            "range_counts": true,
+            "counter_guard": true,
+            "invalid_ranges_guard": true,
+            "bit17_guard": true,
+            "proof_valid": true
+          }
+        },
+        "rx": {
+          "sample_count": 97280,
+          "wire_bytes": 389120,
+          "software_trigger_index": 21504,
+          "gzip_crc_valid_read_to_eof": true,
+          "raw_index_errors": [],
+          "raw_trigger_indices": [
+            21504
+          ],
+          "raw_wire_logic_mismatch_count": 0,
+          "recorded_raw_sha256_matches": true,
+          "recorded_wire_sha256_matches": true,
+          "logic_byte_counts": {
+            "254": 97138,
+            "255": 142
+          },
+          "high_samples_by_channel": [
+            142,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280
+          ],
+          "transitions_by_channel": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "pulse_count": 1,
+          "capture_counter_transition_anomaly_count": 293,
+          "pulses": [
+            {
+              "window_samples": [
+                25453,
+                25595
+              ],
+              "duration_samples": 142,
+              "duration_ms": 1.42,
+              "complete_after_trigger": true,
+              "guard_window_samples": [
+                25450,
+                25595
+              ],
+              "qa_includes_falling_boundary": true,
+              "range_counts_guard": {
+                "3": 92,
+                "2": 53
+              },
+              "range_transitions_including_falling_boundary": [
+                {
+                  "index": 25453,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 0,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25459,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 6,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25471,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 18,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25478,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 25,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25489,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 36,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25496,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 43,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25506,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 53,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25513,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 60,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25520,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 67,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25527,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 74,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25530,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 77,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25536,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 83,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25565,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 112,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25572,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 119,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25583,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 130,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25589,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 136,
+                  "location": "integrated_marker"
+                }
+              ],
+              "wire_qa": {
+                "checked_indices_inclusive": [
+                  25450,
+                  25595
+                ],
+                "counter_anomaly_indices": [
+                  25582,
+                  25583
+                ],
+                "invalid_range_indices": [],
+                "bit17_set_indices": []
+              },
+              "constant_valid_range_guard": false,
+              "nonfinite_current_indices_guard": [],
+              "direct_adc_max_difference_uA": 43499.05696847974,
+              "direct_adc_difference_samples": [
+                {
+                  "index": 25453,
+                  "direct_minus_csv_uA": -6044.897969338367
+                },
+                {
+                  "index": 25454,
+                  "direct_minus_csv_uA": -4137.220628792278
+                },
+                {
+                  "index": 25455,
+                  "direct_minus_csv_uA": -2620.8193303560956
+                },
+                {
+                  "index": 25459,
+                  "direct_minus_csv_uA": 40510.57266237323
+                },
+                {
+                  "index": 25460,
+                  "direct_minus_csv_uA": 8938.787171174457
+                },
+                {
+                  "index": 25461,
+                  "direct_minus_csv_uA": -3604.414206337422
+                },
+                {
+                  "index": 25471,
+                  "direct_minus_csv_uA": -6287.11627505647
+                },
+                {
+                  "index": 25472,
+                  "direct_minus_csv_uA": -4659.068841752872
+                },
+                {
+                  "index": 25473,
+                  "direct_minus_csv_uA": -3153.8246007488897
+                },
+                {
+                  "index": 25478,
+                  "direct_minus_csv_uA": 43499.05696847974
+                },
+                {
+                  "index": 25479,
+                  "direct_minus_csv_uA": 11475.86821571421
+                },
+                {
+                  "index": 25480,
+                  "direct_minus_csv_uA": -3726.603559450479
+                },
+                {
+                  "index": 25489,
+                  "direct_minus_csv_uA": -6548.967614808694
+                },
+                {
+                  "index": 25490,
+                  "direct_minus_csv_uA": -4650.656847003094
+                },
+                {
+                  "index": 25491,
+                  "direct_minus_csv_uA": -3094.0713469636567
+                },
+                {
+                  "index": 25496,
+                  "direct_minus_csv_uA": 26884.908154737546
+                },
+                {
+                  "index": 25497,
+                  "direct_minus_csv_uA": 4059.4385613637696
+                },
+                {
+                  "index": 25498,
+                  "direct_minus_csv_uA": -2361.9091880646865
+                },
+                {
+                  "index": 25506,
+                  "direct_minus_csv_uA": -5950.590833705464
+                },
+                {
+                  "index": 25507,
+                  "direct_minus_csv_uA": -4131.860798581069
+                },
+                {
+                  "index": 25508,
+                  "direct_minus_csv_uA": -2686.970921755856
+                },
+                {
+                  "index": 25513,
+                  "direct_minus_csv_uA": 27856.806252550425
+                },
+                {
+                  "index": 25514,
+                  "direct_minus_csv_uA": 4318.950383159445
+                },
+                {
+                  "index": 25515,
+                  "direct_minus_csv_uA": -2456.7152041657555
+                },
+                {
+                  "index": 25520,
+                  "direct_minus_csv_uA": -6473.474238920841
+                },
+                {
+                  "index": 25521,
+                  "direct_minus_csv_uA": -4648.860555124598
+                },
+                {
+                  "index": 25522,
+                  "direct_minus_csv_uA": -3111.937373739044
+                },
+                {
+                  "index": 25527,
+                  "direct_minus_csv_uA": 23611.827177428182
+                },
+                {
+                  "index": 25528,
+                  "direct_minus_csv_uA": 3191.7940456287924
+                },
+                {
+                  "index": 25529,
+                  "direct_minus_csv_uA": 2617.2711174156084
+                },
+                {
+                  "index": 25530,
+                  "direct_minus_csv_uA": -8363.633292466555
+                },
+                {
+                  "index": 25531,
+                  "direct_minus_csv_uA": -6170.50783546017
+                },
+                {
+                  "index": 25532,
+                  "direct_minus_csv_uA": -4408.7430457278215
+                },
+                {
+                  "index": 25536,
+                  "direct_minus_csv_uA": 41248.61341338274
+                },
+                {
+                  "index": 25537,
+                  "direct_minus_csv_uA": 9296.192599461967
+                },
+                {
+                  "index": 25538,
+                  "direct_minus_csv_uA": -4132.495247109648
+                },
+                {
+                  "index": 25565,
+                  "direct_minus_csv_uA": -5179.086182695013
+                },
+                {
+                  "index": 25566,
+                  "direct_minus_csv_uA": -3501.1603759056416
+                },
+                {
+                  "index": 25567,
+                  "direct_minus_csv_uA": -2134.584623815999
+                },
+                {
+                  "index": 25572,
+                  "direct_minus_csv_uA": 27696.619295287685
+                },
+                {
+                  "index": 25573,
+                  "direct_minus_csv_uA": 4377.482638432599
+                },
+                {
+                  "index": 25574,
+                  "direct_minus_csv_uA": -2178.3045541052306
+                },
+                {
+                  "index": 25583,
+                  "direct_minus_csv_uA": -5538.534587538571
+                },
+                {
+                  "index": 25584,
+                  "direct_minus_csv_uA": -3861.470052811876
+                },
+                {
+                  "index": 25585,
+                  "direct_minus_csv_uA": -2489.208976124538
+                },
+                {
+                  "index": 25589,
+                  "direct_minus_csv_uA": 34596.41537869742
+                },
+                {
+                  "index": 25590,
+                  "direct_minus_csv_uA": 6323.469770737973
+                },
+                {
+                  "index": 25591,
+                  "direct_minus_csv_uA": -3157.1503933021268
+                }
+              ],
+              "independent_proof_valid": false
+            }
+          ],
+          "production_total_proof_valid": false,
+          "production_total_proof_reasons": [
+            "Valid constant range over [start-3,stop) is required to exclude IIR dependence",
+            "Counter discontinuity touches the guard, pulse or falling boundary"
+          ],
+          "independent_total_proof_valid": false,
+          "production_comparison": {
+            "window": true,
+            "duration": true,
+            "range_counts": true,
+            "counter_guard": true,
+            "invalid_ranges_guard": true,
+            "bit17_guard": true,
+            "proof_valid": true
+          }
+        }
+      }
+    },
+    {
+      "run_id": "run_00002",
+      "packet_received_recorded": true,
+      "uart_tx_lines_recorded": [
+        "OK"
+      ],
+      "uart_rx_payload_recorded": [
+        "0123456789abcdefghijklmnopqrstuv"
+      ],
+      "capture_errors_recorded": {},
+      "production_pair_valid": false,
+      "roles": {
+        "tx": {
+          "sample_count": 96256,
+          "wire_bytes": 385024,
+          "software_trigger_index": 20480,
+          "gzip_crc_valid_read_to_eof": true,
+          "raw_index_errors": [],
+          "raw_trigger_indices": [
+            20480
+          ],
+          "raw_wire_logic_mismatch_count": 0,
+          "recorded_raw_sha256_matches": true,
+          "recorded_wire_sha256_matches": true,
+          "logic_byte_counts": {
+            "254": 96078,
+            "255": 178
+          },
+          "high_samples_by_channel": [
+            178,
+            96256,
+            96256,
+            96256,
+            96256,
+            96256,
+            96256,
+            96256
+          ],
+          "transitions_by_channel": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "pulse_count": 1,
+          "capture_counter_transition_anomaly_count": 86,
+          "pulses": [
+            {
+              "window_samples": [
+                25184,
+                25362
+              ],
+              "duration_samples": 178,
+              "duration_ms": 1.78,
+              "complete_after_trigger": true,
+              "guard_window_samples": [
+                25181,
+                25362
+              ],
+              "qa_includes_falling_boundary": true,
+              "range_counts_guard": {
+                "3": 181
+              },
+              "range_transitions_including_falling_boundary": [],
+              "wire_qa": {
+                "checked_indices_inclusive": [
+                  25181,
+                  25362
+                ],
+                "counter_anomaly_indices": [],
+                "invalid_range_indices": [],
+                "bit17_set_indices": []
+              },
+              "constant_valid_range_guard": true,
+              "nonfinite_current_indices_guard": [],
+              "direct_adc_max_difference_uA": 0.0,
+              "direct_adc_difference_samples": [],
+              "independent_proof_valid": true
+            }
+          ],
+          "production_total_proof_valid": true,
+          "production_total_proof_reasons": [],
+          "independent_total_proof_valid": true,
+          "production_comparison": {
+            "window": true,
+            "duration": true,
+            "range_counts": true,
+            "counter_guard": true,
+            "invalid_ranges_guard": true,
+            "bit17_guard": true,
+            "proof_valid": true
+          }
+        },
+        "rx": {
+          "sample_count": 96256,
+          "wire_bytes": 385024,
+          "software_trigger_index": 20480,
+          "gzip_crc_valid_read_to_eof": true,
+          "raw_index_errors": [],
+          "raw_trigger_indices": [
+            20480
+          ],
+          "raw_wire_logic_mismatch_count": 0,
+          "recorded_raw_sha256_matches": true,
+          "recorded_wire_sha256_matches": true,
+          "logic_byte_counts": {
+            "254": 96113,
+            "255": 143
+          },
+          "high_samples_by_channel": [
+            143,
+            96256,
+            96256,
+            96256,
+            96256,
+            96256,
+            96256,
+            96256
+          ],
+          "transitions_by_channel": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "pulse_count": 1,
+          "capture_counter_transition_anomaly_count": 304,
+          "pulses": [
+            {
+              "window_samples": [
+                25209,
+                25352
+              ],
+              "duration_samples": 143,
+              "duration_ms": 1.43,
+              "complete_after_trigger": true,
+              "guard_window_samples": [
+                25206,
+                25352
+              ],
+              "qa_includes_falling_boundary": true,
+              "range_counts_guard": {
+                "2": 29,
+                "3": 117
+              },
+              "range_transitions_including_falling_boundary": [
+                {
+                  "index": 25207,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": -2,
+                  "location": "preceding_guard"
+                },
+                {
+                  "index": 25218,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 9,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25226,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 17,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25241,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 32,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25248,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 39,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25269,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 60,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25276,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 67,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25333,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 124,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25339,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 130,
+                  "location": "integrated_marker"
+                }
+              ],
+              "wire_qa": {
+                "checked_indices_inclusive": [
+                  25206,
+                  25352
+                ],
+                "counter_anomaly_indices": [],
+                "invalid_range_indices": [],
+                "bit17_set_indices": []
+              },
+              "constant_valid_range_guard": false,
+              "nonfinite_current_indices_guard": [],
+              "direct_adc_max_difference_uA": 43379.658404256814,
+              "direct_adc_difference_samples": [
+                {
+                  "index": 25209,
+                  "direct_minus_csv_uA": -3277.2016472199393
+                },
+                {
+                  "index": 25218,
+                  "direct_minus_csv_uA": -7155.852100155865
+                },
+                {
+                  "index": 25219,
+                  "direct_minus_csv_uA": -5151.158029063304
+                },
+                {
+                  "index": 25220,
+                  "direct_minus_csv_uA": -3484.657437405029
+                },
+                {
+                  "index": 25226,
+                  "direct_minus_csv_uA": 26109.54218683047
+                },
+                {
+                  "index": 25227,
+                  "direct_minus_csv_uA": 3654.25670020462
+                },
+                {
+                  "index": 25228,
+                  "direct_minus_csv_uA": -2189.6988586040297
+                },
+                {
+                  "index": 25241,
+                  "direct_minus_csv_uA": -5646.617636554123
+                },
+                {
+                  "index": 25242,
+                  "direct_minus_csv_uA": -4053.5070341789697
+                },
+                {
+                  "index": 25243,
+                  "direct_minus_csv_uA": -2630.667985756483
+                },
+                {
+                  "index": 25248,
+                  "direct_minus_csv_uA": 43379.658404256814
+                },
+                {
+                  "index": 25249,
+                  "direct_minus_csv_uA": 13701.284515340354
+                },
+                {
+                  "index": 25250,
+                  "direct_minus_csv_uA": -2199.575480919744
+                },
+                {
+                  "index": 25269,
+                  "direct_minus_csv_uA": -5828.801444718765
+                },
+                {
+                  "index": 25270,
+                  "direct_minus_csv_uA": -4079.768166153935
+                },
+                {
+                  "index": 25271,
+                  "direct_minus_csv_uA": -2613.1803718674178
+                },
+                {
+                  "index": 25276,
+                  "direct_minus_csv_uA": 33365.270277499694
+                },
+                {
+                  "index": 25277,
+                  "direct_minus_csv_uA": 5939.369754779076
+                },
+                {
+                  "index": 25278,
+                  "direct_minus_csv_uA": -2757.71521962957
+                },
+                {
+                  "index": 25333,
+                  "direct_minus_csv_uA": -4916.34652090924
+                },
+                {
+                  "index": 25334,
+                  "direct_minus_csv_uA": -3223.540385060912
+                },
+                {
+                  "index": 25335,
+                  "direct_minus_csv_uA": -1874.941140699019
+                },
+                {
+                  "index": 25339,
+                  "direct_minus_csv_uA": 43245.92719083725
+                },
+                {
+                  "index": 25340,
+                  "direct_minus_csv_uA": 12072.751777077625
+                },
+                {
+                  "index": 25341,
+                  "direct_minus_csv_uA": -3464.6402214008813
+                }
+              ],
+              "independent_proof_valid": false
+            }
+          ],
+          "production_total_proof_valid": false,
+          "production_total_proof_reasons": [
+            "Valid constant range over [start-3,stop) is required to exclude IIR dependence"
+          ],
+          "independent_total_proof_valid": false,
+          "production_comparison": {
+            "window": true,
+            "duration": true,
+            "range_counts": true,
+            "counter_guard": true,
+            "invalid_ranges_guard": true,
+            "bit17_guard": true,
+            "proof_valid": true
+          }
+        }
+      }
+    },
+    {
+      "run_id": "run_00003",
+      "packet_received_recorded": true,
+      "uart_tx_lines_recorded": [
+        "OK"
+      ],
+      "uart_rx_payload_recorded": [
+        "0123456789abcdefghijklmnopqrstuv"
+      ],
+      "capture_errors_recorded": {},
+      "production_pair_valid": false,
+      "roles": {
+        "tx": {
+          "sample_count": 96256,
+          "wire_bytes": 385024,
+          "software_trigger_index": 20480,
+          "gzip_crc_valid_read_to_eof": true,
+          "raw_index_errors": [],
+          "raw_trigger_indices": [
+            20480
+          ],
+          "raw_wire_logic_mismatch_count": 0,
+          "recorded_raw_sha256_matches": true,
+          "recorded_wire_sha256_matches": true,
+          "logic_byte_counts": {
+            "254": 96078,
+            "255": 178
+          },
+          "high_samples_by_channel": [
+            178,
+            96256,
+            96256,
+            96256,
+            96256,
+            96256,
+            96256,
+            96256
+          ],
+          "transitions_by_channel": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "pulse_count": 1,
+          "capture_counter_transition_anomaly_count": 110,
+          "pulses": [
+            {
+              "window_samples": [
+                25340,
+                25518
+              ],
+              "duration_samples": 178,
+              "duration_ms": 1.78,
+              "complete_after_trigger": true,
+              "guard_window_samples": [
+                25337,
+                25518
+              ],
+              "qa_includes_falling_boundary": true,
+              "range_counts_guard": {
+                "3": 181
+              },
+              "range_transitions_including_falling_boundary": [],
+              "wire_qa": {
+                "checked_indices_inclusive": [
+                  25337,
+                  25518
+                ],
+                "counter_anomaly_indices": [],
+                "invalid_range_indices": [],
+                "bit17_set_indices": []
+              },
+              "constant_valid_range_guard": true,
+              "nonfinite_current_indices_guard": [],
+              "direct_adc_max_difference_uA": 0.0,
+              "direct_adc_difference_samples": [],
+              "independent_proof_valid": true
+            }
+          ],
+          "production_total_proof_valid": true,
+          "production_total_proof_reasons": [],
+          "independent_total_proof_valid": true,
+          "production_comparison": {
+            "window": true,
+            "duration": true,
+            "range_counts": true,
+            "counter_guard": true,
+            "invalid_ranges_guard": true,
+            "bit17_guard": true,
+            "proof_valid": true
+          }
+        },
+        "rx": {
+          "sample_count": 96256,
+          "wire_bytes": 385024,
+          "software_trigger_index": 20480,
+          "gzip_crc_valid_read_to_eof": true,
+          "raw_index_errors": [],
+          "raw_trigger_indices": [
+            20480
+          ],
+          "raw_wire_logic_mismatch_count": 0,
+          "recorded_raw_sha256_matches": true,
+          "recorded_wire_sha256_matches": true,
+          "logic_byte_counts": {
+            "254": 96114,
+            "255": 142
+          },
+          "high_samples_by_channel": [
+            142,
+            96256,
+            96256,
+            96256,
+            96256,
+            96256,
+            96256,
+            96256
+          ],
+          "transitions_by_channel": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "pulse_count": 1,
+          "capture_counter_transition_anomaly_count": 250,
+          "pulses": [
+            {
+              "window_samples": [
+                25352,
+                25494
+              ],
+              "duration_samples": 142,
+              "duration_ms": 1.42,
+              "complete_after_trigger": true,
+              "guard_window_samples": [
+                25349,
+                25494
+              ],
+              "qa_includes_falling_boundary": true,
+              "range_counts_guard": {
+                "3": 111,
+                "2": 34
+              },
+              "range_transitions_including_falling_boundary": [
+                {
+                  "index": 25350,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": -2,
+                  "location": "preceding_guard"
+                },
+                {
+                  "index": 25356,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 4,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25371,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 19,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25378,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 26,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25390,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 38,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25397,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 45,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25409,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 57,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25416,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 64,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25478,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 126,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25485,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 133,
+                  "location": "integrated_marker"
+                }
+              ],
+              "wire_qa": {
+                "checked_indices_inclusive": [
+                  25349,
+                  25494
+                ],
+                "counter_anomaly_indices": [],
+                "invalid_range_indices": [],
+                "bit17_set_indices": []
+              },
+              "constant_valid_range_guard": false,
+              "nonfinite_current_indices_guard": [],
+              "direct_adc_max_difference_uA": 39768.053525224284,
+              "direct_adc_difference_samples": [
+                {
+                  "index": 25352,
+                  "direct_minus_csv_uA": -2831.701386854842
+                },
+                {
+                  "index": 25356,
+                  "direct_minus_csv_uA": 39768.053525224284
+                },
+                {
+                  "index": 25357,
+                  "direct_minus_csv_uA": 8860.404135276698
+                },
+                {
+                  "index": 25358,
+                  "direct_minus_csv_uA": -3409.3549478358273
+                },
+                {
+                  "index": 25371,
+                  "direct_minus_csv_uA": -5905.616561513103
+                },
+                {
+                  "index": 25372,
+                  "direct_minus_csv_uA": -4104.535122257685
+                },
+                {
+                  "index": 25373,
+                  "direct_minus_csv_uA": -2625.653189563268
+                },
+                {
+                  "index": 25378,
+                  "direct_minus_csv_uA": 37621.10840141933
+                },
+                {
+                  "index": 25379,
+                  "direct_minus_csv_uA": 7727.788630545581
+                },
+                {
+                  "index": 25380,
+                  "direct_minus_csv_uA": -3026.4366152988096
+                },
+                {
+                  "index": 25390,
+                  "direct_minus_csv_uA": -6191.519556412333
+                },
+                {
+                  "index": 25391,
+                  "direct_minus_csv_uA": -4338.3421112783635
+                },
+                {
+                  "index": 25392,
+                  "direct_minus_csv_uA": -2824.448861597482
+                },
+                {
+                  "index": 25397,
+                  "direct_minus_csv_uA": 33179.93232741777
+                },
+                {
+                  "index": 25398,
+                  "direct_minus_csv_uA": 5757.174615031843
+                },
+                {
+                  "index": 25399,
+                  "direct_minus_csv_uA": -3089.0579123229854
+                },
+                {
+                  "index": 25409,
+                  "direct_minus_csv_uA": -6152.682689411399
+                },
+                {
+                  "index": 25410,
+                  "direct_minus_csv_uA": -4329.8008246649
+                },
+                {
+                  "index": 25411,
+                  "direct_minus_csv_uA": -2794.240997552527
+                },
+                {
+                  "index": 25416,
+                  "direct_minus_csv_uA": 35077.63478154931
+                },
+                {
+                  "index": 25417,
+                  "direct_minus_csv_uA": 6532.912020310854
+                },
+                {
+                  "index": 25418,
+                  "direct_minus_csv_uA": -3139.184626169548
+                },
+                {
+                  "index": 25478,
+                  "direct_minus_csv_uA": -5361.454117922523
+                },
+                {
+                  "index": 25479,
+                  "direct_minus_csv_uA": -3854.45855165433
+                },
+                {
+                  "index": 25480,
+                  "direct_minus_csv_uA": -2456.831445433296
+                },
+                {
+                  "index": 25485,
+                  "direct_minus_csv_uA": 36338.740955924455
+                },
+                {
+                  "index": 25486,
+                  "direct_minus_csv_uA": 7267.632265242148
+                },
+                {
+                  "index": 25487,
+                  "direct_minus_csv_uA": -3057.7644248399447
+                }
+              ],
+              "independent_proof_valid": false
+            }
+          ],
+          "production_total_proof_valid": false,
+          "production_total_proof_reasons": [
+            "Valid constant range over [start-3,stop) is required to exclude IIR dependence"
+          ],
+          "independent_total_proof_valid": false,
+          "production_comparison": {
+            "window": true,
+            "duration": true,
+            "range_counts": true,
+            "counter_guard": true,
+            "invalid_ranges_guard": true,
+            "bit17_guard": true,
+            "proof_valid": true
+          }
+        }
+      }
+    },
+    {
+      "run_id": "run_00004",
+      "packet_received_recorded": true,
+      "uart_tx_lines_recorded": [
+        "OK"
+      ],
+      "uart_rx_payload_recorded": [
+        "0123456789abcdefghijklmnopqrstuv"
+      ],
+      "capture_errors_recorded": {},
+      "production_pair_valid": false,
+      "roles": {
+        "tx": {
+          "sample_count": 97280,
+          "wire_bytes": 389120,
+          "software_trigger_index": 21504,
+          "gzip_crc_valid_read_to_eof": true,
+          "raw_index_errors": [],
+          "raw_trigger_indices": [
+            21504
+          ],
+          "raw_wire_logic_mismatch_count": 0,
+          "recorded_raw_sha256_matches": true,
+          "recorded_wire_sha256_matches": true,
+          "logic_byte_counts": {
+            "254": 97101,
+            "255": 179
+          },
+          "high_samples_by_channel": [
+            179,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280
+          ],
+          "transitions_by_channel": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "pulse_count": 1,
+          "capture_counter_transition_anomaly_count": 104,
+          "pulses": [
+            {
+              "window_samples": [
+                25357,
+                25536
+              ],
+              "duration_samples": 179,
+              "duration_ms": 1.79,
+              "complete_after_trigger": true,
+              "guard_window_samples": [
+                25354,
+                25536
+              ],
+              "qa_includes_falling_boundary": true,
+              "range_counts_guard": {
+                "3": 182
+              },
+              "range_transitions_including_falling_boundary": [],
+              "wire_qa": {
+                "checked_indices_inclusive": [
+                  25354,
+                  25536
+                ],
+                "counter_anomaly_indices": [],
+                "invalid_range_indices": [],
+                "bit17_set_indices": []
+              },
+              "constant_valid_range_guard": true,
+              "nonfinite_current_indices_guard": [],
+              "direct_adc_max_difference_uA": 0.0,
+              "direct_adc_difference_samples": [],
+              "independent_proof_valid": true
+            }
+          ],
+          "production_total_proof_valid": true,
+          "production_total_proof_reasons": [],
+          "independent_total_proof_valid": true,
+          "production_comparison": {
+            "window": true,
+            "duration": true,
+            "range_counts": true,
+            "counter_guard": true,
+            "invalid_ranges_guard": true,
+            "bit17_guard": true,
+            "proof_valid": true
+          }
+        },
+        "rx": {
+          "sample_count": 97280,
+          "wire_bytes": 389120,
+          "software_trigger_index": 21504,
+          "gzip_crc_valid_read_to_eof": true,
+          "raw_index_errors": [],
+          "raw_trigger_indices": [
+            21504
+          ],
+          "raw_wire_logic_mismatch_count": 0,
+          "recorded_raw_sha256_matches": true,
+          "recorded_wire_sha256_matches": true,
+          "logic_byte_counts": {
+            "254": 97137,
+            "255": 143
+          },
+          "high_samples_by_channel": [
+            143,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280
+          ],
+          "transitions_by_channel": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "pulse_count": 1,
+          "capture_counter_transition_anomaly_count": 281,
+          "pulses": [
+            {
+              "window_samples": [
+                24806,
+                24949
+              ],
+              "duration_samples": 143,
+              "duration_ms": 1.43,
+              "complete_after_trigger": true,
+              "guard_window_samples": [
+                24803,
+                24949
+              ],
+              "qa_includes_falling_boundary": true,
+              "range_counts_guard": {
+                "3": 139,
+                "2": 7
+              },
+              "range_transitions_including_falling_boundary": [
+                {
+                  "index": 24938,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 132,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 24945,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 139,
+                  "location": "integrated_marker"
+                }
+              ],
+              "wire_qa": {
+                "checked_indices_inclusive": [
+                  24803,
+                  24949
+                ],
+                "counter_anomaly_indices": [],
+                "invalid_range_indices": [],
+                "bit17_set_indices": []
+              },
+              "constant_valid_range_guard": false,
+              "nonfinite_current_indices_guard": [],
+              "direct_adc_max_difference_uA": 30534.96168207743,
+              "direct_adc_difference_samples": [
+                {
+                  "index": 24938,
+                  "direct_minus_csv_uA": -5321.401150395663
+                },
+                {
+                  "index": 24939,
+                  "direct_minus_csv_uA": -3684.6824627565584
+                },
+                {
+                  "index": 24940,
+                  "direct_minus_csv_uA": -2245.3891321646697
+                },
+                {
+                  "index": 24945,
+                  "direct_minus_csv_uA": 30534.96168207743
+                },
+                {
+                  "index": 24946,
+                  "direct_minus_csv_uA": 5361.384910793686
+                },
+                {
+                  "index": 24947,
+                  "direct_minus_csv_uA": -1869.4635554236465
+                }
+              ],
+              "independent_proof_valid": false
+            }
+          ],
+          "production_total_proof_valid": false,
+          "production_total_proof_reasons": [
+            "Valid constant range over [start-3,stop) is required to exclude IIR dependence"
+          ],
+          "independent_total_proof_valid": false,
+          "production_comparison": {
+            "window": true,
+            "duration": true,
+            "range_counts": true,
+            "counter_guard": true,
+            "invalid_ranges_guard": true,
+            "bit17_guard": true,
+            "proof_valid": true
+          }
+        }
+      }
+    },
+    {
+      "run_id": "run_00005",
+      "packet_received_recorded": true,
+      "uart_tx_lines_recorded": [
+        "OK"
+      ],
+      "uart_rx_payload_recorded": [
+        "0123456789abcdefghijklmnopqrstuv"
+      ],
+      "capture_errors_recorded": {},
+      "production_pair_valid": false,
+      "roles": {
+        "tx": {
+          "sample_count": 97280,
+          "wire_bytes": 389120,
+          "software_trigger_index": 21504,
+          "gzip_crc_valid_read_to_eof": true,
+          "raw_index_errors": [],
+          "raw_trigger_indices": [
+            21504
+          ],
+          "raw_wire_logic_mismatch_count": 0,
+          "recorded_raw_sha256_matches": true,
+          "recorded_wire_sha256_matches": true,
+          "logic_byte_counts": {
+            "254": 97102,
+            "255": 178
+          },
+          "high_samples_by_channel": [
+            178,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280
+          ],
+          "transitions_by_channel": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "pulse_count": 1,
+          "capture_counter_transition_anomaly_count": 113,
+          "pulses": [
+            {
+              "window_samples": [
+                25181,
+                25359
+              ],
+              "duration_samples": 178,
+              "duration_ms": 1.78,
+              "complete_after_trigger": true,
+              "guard_window_samples": [
+                25178,
+                25359
+              ],
+              "qa_includes_falling_boundary": true,
+              "range_counts_guard": {
+                "2": 5,
+                "3": 176
+              },
+              "range_transitions_including_falling_boundary": [
+                {
+                  "index": 25183,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 2,
+                  "location": "integrated_marker"
+                }
+              ],
+              "wire_qa": {
+                "checked_indices_inclusive": [
+                  25178,
+                  25359
+                ],
+                "counter_anomaly_indices": [],
+                "invalid_range_indices": [],
+                "bit17_set_indices": []
+              },
+              "constant_valid_range_guard": false,
+              "nonfinite_current_indices_guard": [],
+              "direct_adc_max_difference_uA": 33975.973011639864,
+              "direct_adc_difference_samples": [
+                {
+                  "index": 25183,
+                  "direct_minus_csv_uA": 33975.973011639864
+                },
+                {
+                  "index": 25184,
+                  "direct_minus_csv_uA": 7448.649900995637
+                },
+                {
+                  "index": 25185,
+                  "direct_minus_csv_uA": -1206.0276883132392
+                }
+              ],
+              "independent_proof_valid": false
+            }
+          ],
+          "production_total_proof_valid": false,
+          "production_total_proof_reasons": [
+            "Valid constant range over [start-3,stop) is required to exclude IIR dependence"
+          ],
+          "independent_total_proof_valid": false,
+          "production_comparison": {
+            "window": true,
+            "duration": true,
+            "range_counts": true,
+            "counter_guard": true,
+            "invalid_ranges_guard": true,
+            "bit17_guard": true,
+            "proof_valid": true
+          }
+        },
+        "rx": {
+          "sample_count": 97280,
+          "wire_bytes": 389120,
+          "software_trigger_index": 21504,
+          "gzip_crc_valid_read_to_eof": true,
+          "raw_index_errors": [],
+          "raw_trigger_indices": [
+            21504
+          ],
+          "raw_wire_logic_mismatch_count": 0,
+          "recorded_raw_sha256_matches": true,
+          "recorded_wire_sha256_matches": true,
+          "logic_byte_counts": {
+            "254": 97138,
+            "255": 142
+          },
+          "high_samples_by_channel": [
+            142,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280
+          ],
+          "transitions_by_channel": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "pulse_count": 1,
+          "capture_counter_transition_anomaly_count": 267,
+          "pulses": [
+            {
+              "window_samples": [
+                25211,
+                25353
+              ],
+              "duration_samples": 142,
+              "duration_ms": 1.42,
+              "complete_after_trigger": true,
+              "guard_window_samples": [
+                25208,
+                25353
+              ],
+              "qa_includes_falling_boundary": true,
+              "range_counts_guard": {
+                "3": 105,
+                "2": 40
+              },
+              "range_transitions_including_falling_boundary": [
+                {
+                  "index": 25211,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 0,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25217,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 6,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25241,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 30,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25248,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 37,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25274,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 63,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25280,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 69,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25305,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 94,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25312,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 101,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25319,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 108,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25326,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 115,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25334,
+                  "from_range": 3,
+                  "to_range": 2,
+                  "relative_to_marker_start_samples": 123,
+                  "location": "integrated_marker"
+                },
+                {
+                  "index": 25341,
+                  "from_range": 2,
+                  "to_range": 3,
+                  "relative_to_marker_start_samples": 130,
+                  "location": "integrated_marker"
+                }
+              ],
+              "wire_qa": {
+                "checked_indices_inclusive": [
+                  25208,
+                  25353
+                ],
+                "counter_anomaly_indices": [
+                  25340,
+                  25341
+                ],
+                "invalid_range_indices": [],
+                "bit17_set_indices": []
+              },
+              "constant_valid_range_guard": false,
+              "nonfinite_current_indices_guard": [],
+              "direct_adc_max_difference_uA": 37540.90297174116,
+              "direct_adc_difference_samples": [
+                {
+                  "index": 25211,
+                  "direct_minus_csv_uA": -5349.891042436784
+                },
+                {
+                  "index": 25212,
+                  "direct_minus_csv_uA": -3589.4468877789823
+                },
+                {
+                  "index": 25213,
+                  "direct_minus_csv_uA": -2110.714327357493
+                },
+                {
+                  "index": 25217,
+                  "direct_minus_csv_uA": 37540.90297174116
+                },
+                {
+                  "index": 25218,
+                  "direct_minus_csv_uA": 7557.18241778053
+                },
+                {
+                  "index": 25219,
+                  "direct_minus_csv_uA": -3416.687512386945
+                },
+                {
+                  "index": 25241,
+                  "direct_minus_csv_uA": -5096.903224410563
+                },
+                {
+                  "index": 25242,
+                  "direct_minus_csv_uA": -3533.953288761072
+                },
+                {
+                  "index": 25243,
+                  "direct_minus_csv_uA": -2175.3092815349623
+                },
+                {
+                  "index": 25248,
+                  "direct_minus_csv_uA": 28948.61012378612
+                },
+                {
+                  "index": 25249,
+                  "direct_minus_csv_uA": 4627.2569994298665
+                },
+                {
+                  "index": 25250,
+                  "direct_minus_csv_uA": -2401.484893609786
+                },
+                {
+                  "index": 25274,
+                  "direct_minus_csv_uA": -5345.584834052314
+                },
+                {
+                  "index": 25275,
+                  "direct_minus_csv_uA": -3666.62837596394
+                },
+                {
+                  "index": 25276,
+                  "direct_minus_csv_uA": -2300.169603890064
+                },
+                {
+                  "index": 25280,
+                  "direct_minus_csv_uA": 35838.283891786676
+                },
+                {
+                  "index": 25281,
+                  "direct_minus_csv_uA": 8140.096622586256
+                },
+                {
+                  "index": 25282,
+                  "direct_minus_csv_uA": -1927.9802842606477
+                },
+                {
+                  "index": 25305,
+                  "direct_minus_csv_uA": -5159.092448189282
+                },
+                {
+                  "index": 25306,
+                  "direct_minus_csv_uA": -3539.523965874474
+                },
+                {
+                  "index": 25307,
+                  "direct_minus_csv_uA": -2176.174452706813
+                },
+                {
+                  "index": 25312,
+                  "direct_minus_csv_uA": 25201.77404968757
+                },
+                {
+                  "index": 25313,
+                  "direct_minus_csv_uA": 3936.0076950174753
+                },
+                {
+                  "index": 25314,
+                  "direct_minus_csv_uA": -2139.9476250622392
+                },
+                {
+                  "index": 25319,
+                  "direct_minus_csv_uA": -6084.201251510245
+                },
+                {
+                  "index": 25320,
+                  "direct_minus_csv_uA": -4321.621046927522
+                },
+                {
+                  "index": 25321,
+                  "direct_minus_csv_uA": -2823.952462795557
+                },
+                {
+                  "index": 25326,
+                  "direct_minus_csv_uA": 21866.847154367533
+                },
+                {
+                  "index": 25327,
+                  "direct_minus_csv_uA": 2906.2889856270613
+                },
+                {
+                  "index": 25328,
+                  "direct_minus_csv_uA": -1868.083776344809
+                },
+                {
+                  "index": 25334,
+                  "direct_minus_csv_uA": -5981.805617034158
+                },
+                {
+                  "index": 25335,
+                  "direct_minus_csv_uA": -4170.497047248702
+                },
+                {
+                  "index": 25336,
+                  "direct_minus_csv_uA": -2595.220676232117
+                },
+                {
+                  "index": 25341,
+                  "direct_minus_csv_uA": 21730.23026722115
+                },
+                {
+                  "index": 25342,
+                  "direct_minus_csv_uA": 2931.364915810078
+                },
+                {
+                  "index": 25343,
+                  "direct_minus_csv_uA": -1583.711381733281
+                }
+              ],
+              "independent_proof_valid": false
+            }
+          ],
+          "production_total_proof_valid": false,
+          "production_total_proof_reasons": [
+            "Valid constant range over [start-3,stop) is required to exclude IIR dependence",
+            "Counter discontinuity touches the guard, pulse or falling boundary"
+          ],
+          "independent_total_proof_valid": false,
+          "production_comparison": {
+            "window": true,
+            "duration": true,
+            "range_counts": true,
+            "counter_guard": true,
+            "invalid_ranges_guard": true,
+            "bit17_guard": true,
+            "proof_valid": true
+          }
+        }
+      }
+    }
+  ],
+  "comparisons_different": [],
+  "sources": {
+    "report.json": {
+      "bytes": 77765,
+      "sha256": "1d1b6d713526e1708ad9fb4137720969bc58bd80c9c5909da8b74312cdfc8428"
+    },
+    "run_00001/rx.csv.gz": {
+      "bytes": 804317,
+      "sha256": "c2193ad2eeeb5f7951bb8123d4380b9c62052f62145436b19ec77a12984cab2a"
+    },
+    "run_00001/tx.csv.gz": {
+      "bytes": 766055,
+      "sha256": "d766f46bc538195437263b85bbcbe7175fd1c36739279c73a0c2ba75d07d5d4e"
+    },
+    "run_00001/wire/rx.ppk2.bin": {
+      "bytes": 389120,
+      "sha256": "a78deb0f3d2330e9fdccf139d00a12efe6143accf0dec8393a7ea12b33c7356f"
+    },
+    "run_00001/wire/timing.json": {
+      "bytes": 1128,
+      "sha256": "1ba3b0b273834652159c393648ead928ef50918d42697d89002ffed0f086f2fc"
+    },
+    "run_00001/wire/tx.ppk2.bin": {
+      "bytes": 389120,
+      "sha256": "d67e8957a802ec5753dc502d2d5d1341b470d0d14bcd45eef4b072272bd61363"
+    },
+    "run_00002/rx.csv.gz": {
+      "bytes": 792584,
+      "sha256": "e8c2bfff2ecda1a2f4a6b522b94c362e32937f42e53d6d732e0d2e272ab791d8"
+    },
+    "run_00002/tx.csv.gz": {
+      "bytes": 758738,
+      "sha256": "87cfea6d6b133642a55e6115345e2d9c17070cfc3cbe394eea714e61a605dcb3"
+    },
+    "run_00002/wire/rx.ppk2.bin": {
+      "bytes": 385024,
+      "sha256": "82ca4d0bf5baa5b9ee32c78bf4b487a84e8d109c1cbfe177889e2f3366fa1694"
+    },
+    "run_00002/wire/timing.json": {
+      "bytes": 1128,
+      "sha256": "d221a78923a9785f55e9cabf5412a5e82e328f25b6865bef1dd2af1b9aa846ba"
+    },
+    "run_00002/wire/tx.ppk2.bin": {
+      "bytes": 385024,
+      "sha256": "6f0c567b2b9153e0e76a4aab990170e94c623044a6978c15ae021ba7913877a8"
+    },
+    "run_00003/rx.csv.gz": {
+      "bytes": 795204,
+      "sha256": "bf6bb30bd5670d447afbff7bd2b7fab1b193433d57b3e962033ad0cc43532bee"
+    },
+    "run_00003/tx.csv.gz": {
+      "bytes": 759013,
+      "sha256": "58302691afcda8e87488d0b4da6d735817ff1b87e3b0f46fb13c6e5c88da014f"
+    },
+    "run_00003/wire/rx.ppk2.bin": {
+      "bytes": 385024,
+      "sha256": "eafae03ac73c7f2949dad658ebdbd929e67624d8e9a46414fc93bfab5730a633"
+    },
+    "run_00003/wire/timing.json": {
+      "bytes": 1128,
+      "sha256": "cdd45dc3a47d1934e9ffbd2d2dc9c4cbfb84885b8f22906f0892d1bad21a8f4f"
+    },
+    "run_00003/wire/tx.ppk2.bin": {
+      "bytes": 385024,
+      "sha256": "043882eafcf9d59b56810286cfd55cb72d9736bb69db45c94d62485d81276757"
+    },
+    "run_00004/rx.csv.gz": {
+      "bytes": 802672,
+      "sha256": "568084e0ca401785f36af7272906da196f5e381a82b5d051589f50d179cf71b3"
+    },
+    "run_00004/tx.csv.gz": {
+      "bytes": 767233,
+      "sha256": "1f619a7b37fa2aaa24d8eeba88720e9da7a070478903ec60d70dcea7e97cac1d"
+    },
+    "run_00004/wire/rx.ppk2.bin": {
+      "bytes": 389120,
+      "sha256": "02c2a516b496ebc454226b012015a2e98a14d762ecc25ac63f3e9b4774b8b135"
+    },
+    "run_00004/wire/timing.json": {
+      "bytes": 1128,
+      "sha256": "571c9a46a2aaa14e90456ed438e4f16a43b237bbfe5768cb9f87f532cc4eaf8e"
+    },
+    "run_00004/wire/tx.ppk2.bin": {
+      "bytes": 389120,
+      "sha256": "68e81b6a82a1e1c7d1600d83e47efd058709d84759f2adf4a9d988ae2abf4976"
+    },
+    "run_00005/rx.csv.gz": {
+      "bytes": 801764,
+      "sha256": "0789168e527fd91199259a1639f0906230962e6438cf87c6efa7c3844356a5bd"
+    },
+    "run_00005/tx.csv.gz": {
+      "bytes": 766943,
+      "sha256": "9f6821ba8cfe09e2d3f26c4cb3f73af190744c2432ebff8756823d54c099a873"
+    },
+    "run_00005/wire/rx.ppk2.bin": {
+      "bytes": 389120,
+      "sha256": "80e2a88aa5d8177ce7b3fe64bd170d6c1b46d0802b8cd807d103c194e862db8d"
+    },
+    "run_00005/wire/timing.json": {
+      "bytes": 1127,
+      "sha256": "e922bbadb6c6bf70db2594163dfad66a05f2123396cf6caf8888674735d78535"
+    },
+    "run_00005/wire/tx.ppk2.bin": {
+      "bytes": 389120,
+      "sha256": "7d9d92b274d4dfb3f9106c4f4523e49345f09aae2f7f5ccc4f929c643d5e52a0"
+    }
+  },
+  "independent_adc_helper": {
+    "path": "power_profiler/tools/audit_radio_marker_totals.py",
+    "sha256": "df38021e34293f58b9a81a99c31d0ad94106ebf589135910bcd502513fd76bde"
+  },
+  "counts": {
+    "transfers": 5,
+    "delivered_recorded": 5,
+    "raw_files": 10,
+    "wire_files": 10,
+    "complete_single_pulses": 10,
+    "tx_independent_proof_pass": 4,
+    "rx_independent_proof_pass": 0,
+    "roles_with_guard_counter_fault": 2,
+    "raw_wire_logic_mismatches": 0
+  },
+  "conclusions": [
+    "All10captures contain exactly one complete local D0 pulse after their software trigger; all5deliveries are recorded.",
+    "All5RX markers fail the unchanged direct-ADC proof because range2/3 switching reaches the integrated interval; see exact transitions per run.",
+    "FourTX markers pass the independent proof; oneTX marker fails. These diagnostic results do not promote any pair into a campaign.",
+    "No energy means calculated, no cause attributed, no RAW repair or policy change. Counter modulo64 is a consistency check, not a checksum or proof of zero sample loss."
+  ]
+}

@@ -1,0 +1,2651 @@
+{
+  "kind": "diagnostic_only",
+  "accepted_energy_points": 0,
+  "candidate": "attempt_002",
+  "argv": [
+    ".tmp\\nrf24_retry_capture_worker.py",
+    "--output",
+    "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_135907_149907_nrf24_pa_paired_retries",
+    "--max-attempts",
+    "20"
+  ],
+  "created_utc": "2026-10-02T11:08:32Z",
+  "ports": {
+    "ppk": {
+      "tx": [
+        "COM10",
+        "E753C4E81F3D"
+      ],
+      "rx": [
+        "COM11",
+        "CD2D332DB09A"
+      ]
+    },
+    "radio": {
+      "tx": "COM25",
+      "rx": "COM26"
+    }
+  },
+  "sample_rate_hz": 100000,
+  "voltage_mv_for_decoder": 3300,
+  "mode": "ampere",
+  "voltage_provenance": "Operator confirmed external 3.3 V",
+  "settings": {
+    "rate_kbps": 2000,
+    "chip_drive_dbm": 0,
+    "channel": 80,
+    "payload_bytes": 32,
+    "auto_ack": false,
+    "pre_s": 0.2,
+    "after_trigger_s": 0.5,
+    "minimum_tx_gap_s": 1.2,
+    "max_attempts": 20
+  },
+  "script_sha256": "c4edff5b2d80fc02cbfe64358cdfce1f0cd1874e85fed560bf1dc0bc08d31ed7",
+  "commands": [
+    {
+      "port": "COM25",
+      "command": "AT+RESET",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063472568098800,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+RX=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063472608819100,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+CHAN=80",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063472780607200,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+ADDRWIDTH=5",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063472940729000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+ADDR=0123456789",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063473093495100,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+PIPE0=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063473252649600,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+PIPE1=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063473409738600,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+PIPE2=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063473562585000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+PIPE3=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063473718414700,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+PIPE4=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063473882465500,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+PIPE5=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063474062685400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+CRC=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063474217954300,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+DYN=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063474375119000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+AUTOACK=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063474533528000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+ACKPAY=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063474690282100,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+LNA=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063474841741100,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+RATE=2000",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063474998153700,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+PWR=0",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063475162849400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+RESET",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063475323707400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+RX=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063475353348000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+CHAN=80",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063475531792100,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+ADDRWIDTH=5",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063475689108900,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+ADDR=0123456789",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063475846452400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+PIPE0=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063475998947300,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+PIPE1=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063476158575600,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+PIPE2=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063476311957200,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+PIPE3=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063476467120400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+PIPE4=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063476630844000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+PIPE5=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063476819518200,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+CRC=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063477001761300,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+DYN=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063477160157900,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+AUTOACK=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063477315186500,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+ACKPAY=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063477472126600,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+LNA=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063477624736000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+RATE=2000",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063477779432700,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+PWR=0",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063477937152000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+DEBUG=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063477947595800,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+RX=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063477982041100,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+DEBUG=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063478011017800,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+RX=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063478047383600,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+CFG?",
+      "lines": [
+        "CFG:",
+        "FREQ=2480.0 MHz",
+        "CHAN=80",
+        "RATE=2000 kbps",
+        "PWR=0 dBm",
+        "ADDR_WIDTH=5",
+        "TXADDR=0x0123456789",
+        "PIPE0=ON RXADDR=0x0123456789",
+        "PIPE1=OFF RXADDR=0x0123456788",
+        "PIPE2=OFF RXADDR=0x0123456787",
+        "PIPE3=OFF RXADDR=0x0123456786",
+        "PIPE4=OFF RXADDR=0x0123456785",
+        "PIPE5=OFF RXADDR=0x0123456784",
+        "CRC=ON",
+        "AUTOACK_MASK=0x0",
+        "RETRIES_DELAY=5",
+        "RETRIES_COUNT=15",
+        "LNA=ON",
+        "DYN_PAYLOAD=ON",
+        "ACK_PAYLOAD=OFF",
+        "FIXED_PAYLOAD_LEN=32",
+        "RX=OFF",
+        "SLEEP=NO",
+        "DEBUG=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [
+              "CFG:",
+              "  FREQ=2480.0 MHz",
+              "  CHAN=80",
+              "  RATE=2000 kbps",
+              "  PWR=0 dBm",
+              "  ADDR_WIDTH=5",
+              "  TXADDR=0x0123456789",
+              "  PIPE0=ON RXADDR=0x0123456789",
+              "  PIPE1=OFF RXADDR=0x0123456788",
+              "  PIPE2=OFF RXADDR=0x0123456787",
+              "  PIPE3=OFF RXADDR=0x0123456786",
+              "  PIPE4=OFF RXADDR=0x0123456785",
+              "  PIPE5=OFF RXADDR=0x0123456784",
+              "  CRC=ON",
+              "  AUTOACK_MASK=0x0",
+              "  RETRIES_DELAY=5",
+              "  RETRIES_COUNT=15",
+              "  LNA=ON",
+              "  DYN_PAYLOAD=ON",
+              "  ACK_PAYLOAD=OFF",
+              "  FIXED_PAYLOAD_LEN=32",
+              "  RX=OFF",
+              "  SLEEP=NO",
+              "  DEBUG=ON",
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063478074764500,
+              "hex": "4346473a0d0a2020465245513d323438302e30204d487a0d0a20204348414e3d38300d0a2020524154453d32303030206b6270730d0a20205057523d302064426d0d0a2020414444525f57494454483d350d0a20205458414444523d3078303132333435363738390d0a202050495045303d4f4e205258414444523d3078303132333435363738390d0a202050495045313d4f4646205258414444523d3078303132333435363738380d0a202050495045323d4f4646205258414444523d3078303132333435363738370d0a202050495045333d4f4646205258414444523d3078303132333435363738360d0a202050495045343d4f4646205258414444523d3078303132333435363738350d0a202050495045353d4f4646205258414444523d3078303132333435363738340d0a20204352433d4f4e0d0a20204155544f41434b5f4d41534b3d3078300d0a2020524554524945535f44454c41593d350d0a2020524554524945535f434f554e543d31350d0a20204c4e413d4f4e0d0a202044594e5f5041594c4f41443d4f4e0d0a202041434b5f5041594c4f41443d4f46460d0a202046495845445f5041594c4f41445f4c454e3d33320d0a202052583d4f46460d0a2020534c4545503d4e4f0d0a202044454255473d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+CFG?",
+      "lines": [
+        "CFG:",
+        "FREQ=2480.0 MHz",
+        "CHAN=80",
+        "RATE=2000 kbps",
+        "PWR=0 dBm",
+        "ADDR_WIDTH=5",
+        "TXADDR=0x0123456789",
+        "PIPE0=ON RXADDR=0x0123456789",
+        "PIPE1=OFF RXADDR=0x0123456788",
+        "PIPE2=OFF RXADDR=0x0123456787",
+        "PIPE3=OFF RXADDR=0x0123456786",
+        "PIPE4=OFF RXADDR=0x0123456785",
+        "PIPE5=OFF RXADDR=0x0123456784",
+        "CRC=ON",
+        "AUTOACK_MASK=0x0",
+        "RETRIES_DELAY=5",
+        "RETRIES_COUNT=15",
+        "LNA=ON",
+        "DYN_PAYLOAD=ON",
+        "ACK_PAYLOAD=OFF",
+        "FIXED_PAYLOAD_LEN=32",
+        "RX=ON",
+        "SLEEP=NO",
+        "DEBUG=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "CFG:",
+              "  FREQ=2480.0 MHz",
+              "  CHAN=80",
+              "  RATE=2000 kbps",
+              "  PWR=0 dBm",
+              "  ADDR_WIDTH=5",
+              "  TXADDR=0x0123456789",
+              "  PIPE0=ON RXADDR=0x0123456789",
+              "  PIPE1=OFF RXADDR=0x0123456788",
+              "  PIPE2=OFF RXADDR=0x0123456787",
+              "  PIPE3=OFF RXADDR=0x0123456786",
+              "  PIPE4=OFF RXADDR=0x0123456785",
+              "  PIPE5=OFF RXADDR=0x0123456784",
+              "  CRC=ON",
+              "  AUTOACK_MASK=0x0",
+              "  RETRIES_DELAY=5",
+              "  RETRIES_COUNT=15",
+              "  LNA=ON",
+              "  DYN_PAYLOAD=ON",
+              "  ACK_PAYLOAD=OFF",
+              "  FIXED_PAYLOAD_LEN=32",
+              "  RX=ON",
+              "  SLEEP=NO",
+              "  DEBUG=OFF",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063478104983100,
+              "hex": "4346473a0d0a2020465245513d323438302e30204d487a0d0a20204348414e3d38300d0a2020524154453d32303030206b6270730d0a20205057523d302064426d0d0a2020414444525f57494454483d350d0a20205458414444523d3078303132333435363738390d0a202050495045303d4f4e205258414444523d3078303132333435363738390d0a202050495045313d4f4646205258414444523d3078303132333435363738380d0a202050495045323d4f4646205258414444523d3078303132333435363738370d0a202050495045333d4f4646205258414444523d3078303132333435363738360d0a202050495045343d4f4646205258414444523d3078303132333435363738350d0a202050495045353d4f4646205258414444523d3078303132333435363738340d0a20204352433d4f4e0d0a20204155544f41434b5f4d41534b3d3078300d0a2020524554524945535f44454c41593d350d0a2020524554524945535f434f554e543d31350d0a20204c4e413d4f4e0d0a202044594e5f5041594c4f41443d4f4e0d0a202041434b5f5041594c4f41443d4f46460d0a202046495845445f5041594c4f41445f4c454e3d33320d0a202052583d4f4e0d0a2020534c4545503d4e4f0d0a202044454255473d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+STATUS?",
+      "lines": [
+        "STATUS=0xE",
+        "FIFO_STATUS=0x11",
+        "RF_CH=80",
+        "RF_SETUP=0xF",
+        "EN_AA=0x0",
+        "EN_RXADDR=0x1",
+        "SETUP_RETR=0x5F",
+        "FEATURE=0x4",
+        "DYNPD=0x3F",
+        "RPD=NO",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [
+              "STATUS=0xE",
+              "FIFO_STATUS=0x11",
+              "RF_CH=80",
+              "RF_SETUP=0xF",
+              "EN_AA=0x0",
+              "EN_RXADDR=0x1",
+              "SETUP_RETR=0x5F",
+              "FEATURE=0x4",
+              "DYNPD=0x3F",
+              "RPD=NO",
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063478147986700,
+              "hex": "5354415455533d3078450d0a4649464f5f5354415455533d307831310d0a52465f43483d38300d0a52465f53455455503d3078460d0a454e5f41413d3078300d0a454e5f5258414444523d3078310d0a53455455505f524554523d307835460d0a464541545552453d3078340d0a44594e50443d307833460d0a5250443d4e4f0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+STATUS?",
+      "lines": [
+        "STATUS=0xE",
+        "FIFO_STATUS=0x11",
+        "RF_CH=80",
+        "RF_SETUP=0xF",
+        "EN_AA=0x0",
+        "EN_RXADDR=0x1",
+        "SETUP_RETR=0x5F",
+        "FEATURE=0x4",
+        "DYNPD=0x3F",
+        "RPD=NO",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "STATUS=0xE",
+              "FIFO_STATUS=0x11",
+              "RF_CH=80",
+              "RF_SETUP=0xF",
+              "EN_AA=0x0",
+              "EN_RXADDR=0x1",
+              "SETUP_RETR=0x5F",
+              "FEATURE=0x4",
+              "DYNPD=0x3F",
+              "RPD=NO",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063478183599000,
+              "hex": "5354415455533d3078450d0a4649464f5f5354415455533d307831310d0a52465f43483d38300d0a52465f53455455503d3078460d0a454e5f41413d3078300d0a454e5f5258414444523d3078310d0a53455455505f524554523d307835460d0a464541545552453d3078340d0a44594e50443d3078"
+            },
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063478185221200,
+              "hex": "33460d0a5250443d4e4f0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+STATUS?",
+      "lines": [
+        "STATUS=0xE",
+        "FIFO_STATUS=0x11",
+        "RF_CH=80",
+        "RF_SETUP=0xF",
+        "EN_AA=0x0",
+        "EN_RXADDR=0x1",
+        "SETUP_RETR=0x5F",
+        "FEATURE=0x4",
+        "DYNPD=0x3F",
+        "RPD=NO",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [
+              "STATUS=0xE",
+              "FIFO_STATUS=0x11",
+              "RF_CH=80",
+              "RF_SETUP=0xF",
+              "EN_AA=0x0",
+              "EN_RXADDR=0x1",
+              "SETUP_RETR=0x5F",
+              "FEATURE=0x4",
+              "DYNPD=0x3F",
+              "RPD=NO",
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063490284004800,
+              "hex": "5354415455533d3078450d0a4649464f5f5354415455533d307831310d0a52465f43483d38300d0a52465f53455455503d3078460d0a454e5f41413d3078300d0a454e5f5258414444523d3078310d0a53455455505f524554523d307835460d0a464541545552453d3078340d0a44594e50443d307833460d0a5250443d4e4f0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+STATUS?",
+      "lines": [
+        "STATUS=0xE",
+        "FIFO_STATUS=0x11",
+        "RF_CH=80",
+        "RF_SETUP=0xF",
+        "EN_AA=0x0",
+        "EN_RXADDR=0x1",
+        "SETUP_RETR=0x5F",
+        "FEATURE=0x4",
+        "DYNPD=0x3F",
+        "RPD=NO",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "STATUS=0xE",
+              "FIFO_STATUS=0x11",
+              "RF_CH=80",
+              "RF_SETUP=0xF",
+              "EN_AA=0x0",
+              "EN_RXADDR=0x1",
+              "SETUP_RETR=0x5F",
+              "FEATURE=0x4",
+              "DYNPD=0x3F",
+              "RPD=NO",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063490308248600,
+              "hex": "5354415455533d3078450d0a4649464f5f5354415455533d307831310d0a52465f43483d38300d0a52465f53455455503d3078460d0a454e5f41413d3078300d0a454e5f5258414444523d3078310d0a53455455505f524554523d307835460d0a464541545552453d3078"
+            },
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063490309855900,
+              "hex": "340d0a44594e50443d307833460d0a5250443d4e4f0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+STATUS?",
+      "lines": [
+        "STATUS=0xE",
+        "FIFO_STATUS=0x11",
+        "RF_CH=80",
+        "RF_SETUP=0xF",
+        "EN_AA=0x0",
+        "EN_RXADDR=0x1",
+        "SETUP_RETR=0x5F",
+        "FEATURE=0x4",
+        "DYNPD=0x3F",
+        "RPD=NO",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [
+              "STATUS=0xE",
+              "FIFO_STATUS=0x11",
+              "RF_CH=80",
+              "RF_SETUP=0xF",
+              "EN_AA=0x0",
+              "EN_RXADDR=0x1",
+              "SETUP_RETR=0x5F",
+              "FEATURE=0x4",
+              "DYNPD=0x3F",
+              "RPD=NO",
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063490353024800,
+              "hex": "5354415455533d3078450d0a4649464f5f5354415455533d307831310d0a52465f43483d38300d0a52465f53455455503d3078460d0a454e5f41413d3078300d0a454e5f5258414444523d3078310d0a53455455505f524554523d307835460d0a464541545552453d3078340d0a44594e50443d307833460d0a5250443d4e4f0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+STATUS?",
+      "lines": [
+        "STATUS=0xE",
+        "FIFO_STATUS=0x11",
+        "RF_CH=80",
+        "RF_SETUP=0xF",
+        "EN_AA=0x0",
+        "EN_RXADDR=0x1",
+        "SETUP_RETR=0x5F",
+        "FEATURE=0x4",
+        "DYNPD=0x3F",
+        "RPD=NO",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "STATUS=0xE",
+              "FIFO_STATUS=0x11",
+              "RF_CH=80",
+              "RF_SETUP=0xF",
+              "EN_AA=0x0",
+              "EN_RXADDR=0x1",
+              "SETUP_RETR=0x5F",
+              "FEATURE=0x4",
+              "DYNPD=0x3F",
+              "RPD=NO",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063490387816900,
+              "hex": "5354415455533d3078450d0a4649464f5f5354415455533d307831310d0a52465f43483d38300d0a52465f53455455503d3078460d0a454e5f41413d3078300d0a454e5f5258414444523d3078310d0a53455455505f524554523d307835460d0a464541545552453d3078340d0a44594e50443d307833460d0a5250443d4e4f0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM25",
+      "command": "AT+STATUS?",
+      "lines": [
+        "STATUS=0xE",
+        "FIFO_STATUS=0x11",
+        "RF_CH=80",
+        "RF_SETUP=0xF",
+        "EN_AA=0x0",
+        "EN_RXADDR=0x1",
+        "SETUP_RETR=0x5F",
+        "FEATURE=0x4",
+        "DYNPD=0x3F",
+        "RPD=NO",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [
+              "STATUS=0xE",
+              "FIFO_STATUS=0x11",
+              "RF_CH=80",
+              "RF_SETUP=0xF",
+              "EN_AA=0x0",
+              "EN_RXADDR=0x1",
+              "SETUP_RETR=0x5F",
+              "FEATURE=0x4",
+              "DYNPD=0x3F",
+              "RPD=NO",
+              "OK"
+            ],
+            "COM26": []
+          },
+          "raw": [
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063502850271100,
+              "hex": "5354415455533d3078450d0a4649464f5f5354415455533d307831310d0a52465f43483d38300d0a52465f53455455503d3078460d0a454e5f41413d3078300d0a454e5f5258414444523d3078310d0a53455455505f524554523d307835460d0a464541545552453d3078"
+            },
+            {
+              "port": "COM25",
+              "perf_counter_ns": 3063502851833100,
+              "hex": "340d0a44594e50443d307833460d0a5250443d4e4f0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM26",
+      "command": "AT+STATUS?",
+      "lines": [
+        "STATUS=0xE",
+        "FIFO_STATUS=0x11",
+        "RF_CH=80",
+        "RF_SETUP=0xF",
+        "EN_AA=0x0",
+        "EN_RXADDR=0x1",
+        "SETUP_RETR=0x5F",
+        "FEATURE=0x4",
+        "DYNPD=0x3F",
+        "RPD=NO",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM25": [],
+            "COM26": [
+              "STATUS=0xE",
+              "FIFO_STATUS=0x11",
+              "RF_CH=80",
+              "RF_SETUP=0xF",
+              "EN_AA=0x0",
+              "EN_RXADDR=0x1",
+              "SETUP_RETR=0x5F",
+              "FEATURE=0x4",
+              "DYNPD=0x3F",
+              "RPD=NO",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063502883014400,
+              "hex": "5354415455533d3078450d0a4649464f5f5354415455533d307831310d0a52465f43483d38300d0a52465f53455455503d3078460d0a454e5f41413d3078300d0a454e5f5258414444523d3078310d0a53455455505f524554523d307835460d0a464541545552453d3078340d0a44594e50443d307833460d0a5250443d"
+            },
+            {
+              "port": "COM26",
+              "perf_counter_ns": 3063502884594400,
+              "hex": "4e4f0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "path": "attempt_001",
+      "status": "incomplete_delivery"
+    },
+    {
+      "path": "attempt_002",
+      "status": "candidate"
+    }
+  ],
+  "errors": [],
+  "cleanup": {
+    "COM25": "closed",
+    "COM26": "closed"
+  },
+  "radio_usb_identities": {
+    "COM25": {
+      "serial": "08:92:72:9A:C2:80",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM26": {
+      "serial": "08:92:72:9A:BF:58",
+      "vid": 12346,
+      "pid": 4097
+    }
+  },
+  "calibrations": {
+    "tx": {
+      "Calibrated": "0",
+      "HW": "59154",
+      "IA": "58",
+      "R": {
+        "0": 1004.4283447265625,
+        "1": 102.09636688232422,
+        "2": 10.294670104980469,
+        "3": 0.9710896611213684,
+        "4": 0.056259121745824814
+      },
+      "O": {
+        "0": 128.43923950195312,
+        "1": 89.05178833007812,
+        "2": 75.92266082763672,
+        "3": 59.65896224975586,
+        "4": 102.51764678955078
+      },
+      "GS": {
+        "0": 1e-19,
+        "1": 135.05462646484375,
+        "2": 21.440528869628906,
+        "3": 2.752481460571289,
+        "4": 0.08300972729921341
+      },
+      "GI": {
+        "0": 1.0,
+        "1": 0.9633749127388,
+        "2": 0.9545890688896179,
+        "3": 0.9477665424346924,
+        "4": 0.9539828896522522
+      },
+      "S": {
+        "0": -5.040802975032e-08,
+        "1": -3.6705580441776e-07,
+        "2": -2.99367843581422e-06,
+        "3": -3.209787610103376e-05,
+        "4": 0.0016125940019264817
+      },
+      "I": {
+        "0": 1.8602490570174e-07,
+        "1": 1.21383050100121e-06,
+        "2": 7.046380778774619e-05,
+        "3": -0.00014766653475817293,
+        "4": -0.00523310387507081
+      },
+      "UG": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 1.0
+      }
+    },
+    "rx": {
+      "Calibrated": "0",
+      "HW": "21994",
+      "IA": "58",
+      "R": {
+        "0": 1000.5957641601562,
+        "1": 101.40058135986328,
+        "2": 10.28022289276123,
+        "3": 0.9653185606002808,
+        "4": 0.05632902681827545
+      },
+      "O": {
+        "0": 119.50615692138672,
+        "1": 81.77458953857422,
+        "2": 70.12054443359375,
+        "3": 54.01410675048828,
+        "4": 93.50475311279297
+      },
+      "GS": {
+        "0": 1e-19,
+        "1": 119.2336196899414,
+        "2": 17.985504150390625,
+        "3": 2.5476224422454834,
+        "4": 0.07415920495986938
+      },
+      "GI": {
+        "0": 1.0,
+        "1": 0.9664102792739868,
+        "2": 0.9626902937889099,
+        "3": 0.951231837272644,
+        "4": 0.9594330191612244
+      },
+      "S": {
+        "0": 6.495847770793e-08,
+        "1": 7.9617404935561e-07,
+        "2": 8.46630064188503e-06,
+        "3": 8.544084266759455e-05,
+        "4": 0.0037396331317722797
+      },
+      "I": {
+        "0": -8.608763124585e-08,
+        "1": -1.84591544893919e-06,
+        "2": 3.143193680443801e-05,
+        "3": -0.00041445178794674575,
+        "4": -0.011407100595533848
+      },
+      "UG": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 1.0
+      }
+    }
+  },
+  "partial_uart_hex": {
+    "COM25": "",
+    "COM26": ""
+  }
+}

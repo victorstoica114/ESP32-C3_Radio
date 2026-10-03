@@ -17,18 +17,31 @@ high-power E32 and LoRa implementations. Click the chart to open the complete
 
 [![Measured TX and RX packet energy across all tested radio modules](power_profiler/study/figures/packet_energy_comparison.png)](power_profiler/study/radio_module_energy_study.pdf)
 
-See `CHANGELOG.md` for notable project changes.
+## Repository layout
 
-Hardware PDFs are collected temporarily under `Datasheets/`. Review the notes in
-`Datasheets/README.md` before making the repository public.
+| Folder | Purpose |
+| --- | --- |
+| `src/` | ESP32 firmware |
+| `PCB/` | KiCad boards and supply-voltage table |
+| `measurements/raw/` | All local PPK captures and source metadata; excluded from Git |
+| `power_profiler/radio_power_profiler/`, `power_profiler/tools/` | Acquisition UI and analysis tools |
+| `power_profiler/comparisons/` | Reviewed results and comparison exports |
+| `power_profiler/audits/` | Measurement checks and supporting evidence |
+| `power_profiler/study/` | Comparative study, figures and editable sources |
+| `test/`, `power_profiler/tests/` | Radio checks and software tests |
+
+See [the measurement directory guide](measurements/README.md) for RAW and WIRE
+locations. New captures use the same local directory regardless of the shell's
+working directory.
+
+See `CHANGELOG.md` for notable project changes.
 
 ## License
 
 Project source code is released under the MIT License. See `LICENSE`.
 
 Third-party libraries and vendor/manufacturer datasheets keep their own
-licenses and redistribution terms. See `THIRD_PARTY_NOTICES.md` and
-`Datasheets/README.md`.
+licenses and redistribution terms. See `THIRD_PARTY_NOTICES.md`.
 
 ## Hardware target
 
@@ -36,6 +49,9 @@ licenses and redistribution terms. See `THIRD_PARTY_NOTICES.md` and
 - Framework: Arduino
 - Build system: PlatformIO
 - Optional display: SSD1306 128x64 OLED via U8g2
+
+See the [module supply-voltage list](PCB/TENSIUNI_ALIMENTARE.md) for the
+3.3 V and 5 V inputs used by the different radio adapter boards.
 
 Common pins used by many sketches:
 
@@ -150,8 +166,8 @@ implementations used by this project and its power-measurement campaigns.
   </tr>
   <tr>
     <td align="center"><img src="PCB/KiCad/Pictures/RA-02-cap.jpg" width="220" alt="Ai-Thinker RA-02 carrier with capacitor"><br><strong>RA-02 capacitor variant</strong></td>
-    <td align="center"><img src="PCB/KiCad/Pictures/RA-08.jpg" width="220" alt="Ai-Thinker RA-08 carrier"><br><strong>RA-08</strong></td>
-    <td align="center"><img src="PCB/KiCad/Pictures/RA-09.jpg" width="220" alt="Ai-Thinker RA-09 carrier"><br><strong>RA-09</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/RA-08.jpg" width="220" alt="Ai-Thinker RA-08 development board"><br><strong>RA-08</strong></td>
+    <td align="center"><img src="PCB/KiCad/Pictures/RA-09.jpg" width="220" alt="Author-designed RA-09 board"><br><strong>RA-09</strong></td>
     <td align="center"><img src="PCB/KiCad/Pictures/XL1276.jpg" width="220" alt="XL1276-D01 carrier"><br><strong>XL1276-D01</strong></td>
   </tr>
   <tr>

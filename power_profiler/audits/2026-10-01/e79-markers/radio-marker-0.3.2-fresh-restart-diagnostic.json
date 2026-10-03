@@ -1,0 +1,420 @@
+{
+    "schema":  "e79_fresh_campaign_restart_diagnostic_v1",
+    "created_utc":  "2026-10-01T09:48:11.6383452Z",
+    "status":  "UART_recheck_passed_pending_RF_and_power_fixture_verification",
+    "campaign_started":  false,
+    "accepted_pairs":  0,
+    "planned_pairs":  315,
+    "fragmented_phase_pairs":  105,
+    "fragmented_phase_implemented":  false,
+    "diagnostic_only":  true,
+    "rf_transmissions_requested":  0,
+    "roles":  {
+                  "tx":  {
+                             "ppk_port":  "COM10",
+                             "ppk_serial":  "E753C4E81F3D"
+                         },
+                  "rx":  {
+                             "ppk_port":  "COM11",
+                             "ppk_serial":  "CD2D332DB09A"
+                         }
+              },
+    "tx_radio_port":  "COM17",
+    "rx_radio_port":  "COM18",
+    "usb_topology":  "All four devices moved to direct PC USB ports; PPK10 location1-3, PPK11 1-4, UART17 1-2, UART18 1-1",
+    "mapping":  {
+                    "path":  ".tmp/e79_fresh_20261001/current-power-20261001_123814_421185/report.json",
+                    "sha256":  "a5426cec0e467d7b43ca3fa399c405d38aadd21d9c9a8f1508ef5117885aa386",
+                    "association":  {
+                                        "status":  "unique_complementary_current_state_association",
+                                        "mapping":  {
+                                                        "COM17":  {
+                                                                      "ppk_port":  "COM10",
+                                                                      "ppk_serial":  "E753C4E81F3D"
+                                                                  },
+                                                        "COM18":  {
+                                                                      "ppk_port":  "COM11",
+                                                                      "ppk_serial":  "CD2D332DB09A"
+                                                                  }
+                                                    },
+                                        "deltas_uA":  {
+                                                          "COM17":  {
+                                                                        "COM10":  2639.4105631742086,
+                                                                        "COM11":  -4.762741301885399
+                                                                    },
+                                                          "COM18":  {
+                                                                        "COM10":  0.0,
+                                                                        "COM11":  2654.542566298446
+                                                                    }
+                                                      },
+                                        "rule":  "Unique complementary median rise \u003e=2000 uA; other PPK absolute delta \u003c=max(1000 uA,15% rise); both-on consistency within that tolerance."
+                                    },
+                    "raw":  {
+                                "COM10":  {
+                                              "usb":  {
+                                                          "device":  "COM10",
+                                                          "vid":  6421,
+                                                          "pid":  49162,
+                                                          "serial_number":  "E753C4E81F3D",
+                                                          "location":  "1-3:x.1",
+                                                          "hwid":  "USB VID:PID=1915:C00A SER=E753C4E81F3D LOCATION=1-3:x.1",
+                                                          "description":  "USB Serial Device (COM10)"
+                                                      },
+                                              "calibration":  {
+                                                                  "Calibrated":  "0",
+                                                                  "R":  {
+                                                                            "0":  1004.4283,
+                                                                            "1":  102.0964,
+                                                                            "2":  10.2947,
+                                                                            "3":  0.9711,
+                                                                            "4":  0.0563
+                                                                        },
+                                                                  "GS":  {
+                                                                             "0":  0.0,
+                                                                             "1":  135.0546,
+                                                                             "2":  21.4405,
+                                                                             "3":  2.7525,
+                                                                             "4":  0.083
+                                                                         },
+                                                                  "GI":  {
+                                                                             "0":  1.0,
+                                                                             "1":  0.9634,
+                                                                             "2":  0.9546,
+                                                                             "3":  0.9478,
+                                                                             "4":  0.954
+                                                                         },
+                                                                  "O":  {
+                                                                            "0":  128.4392,
+                                                                            "1":  89.0518,
+                                                                            "2":  75.9227,
+                                                                            "3":  59.659,
+                                                                            "4":  102.5176
+                                                                        },
+                                                                  "S":  {
+                                                                            "0":  -5E-08,
+                                                                            "1":  -3.67E-07,
+                                                                            "2":  -2.994E-06,
+                                                                            "3":  -3.2098E-05,
+                                                                            "4":  0.001612594
+                                                                        },
+                                                                  "I":  {
+                                                                            "0":  1.86E-07,
+                                                                            "1":  1.214E-06,
+                                                                            "2":  7.0464E-05,
+                                                                            "3":  -0.000147667,
+                                                                            "4":  -0.005233104
+                                                                        },
+                                                                  "UG":  {
+                                                                             "0":  1.0,
+                                                                             "1":  1.0,
+                                                                             "2":  1.0,
+                                                                             "3":  1.0,
+                                                                             "4":  1.0
+                                                                         },
+                                                                  "HW":  "59154",
+                                                                  "IA":  "56"
+                                                              },
+                                              "serial_closed":  true,
+                                              "raw":  {
+                                                          "path":  "COM10.ppk2.bin",
+                                                          "bytes":  8593408,
+                                                          "sha256":  "12168c157877284fc881cf0fedf0b7ed6f806860642f6a82797e9643afe6a8ce",
+                                                          "trailing_bytes":  0
+                                                      }
+                                          },
+                                "COM11":  {
+                                              "usb":  {
+                                                          "device":  "COM11",
+                                                          "vid":  6421,
+                                                          "pid":  49162,
+                                                          "serial_number":  "CD2D332DB09A",
+                                                          "location":  "1-4:x.1",
+                                                          "hwid":  "USB VID:PID=1915:C00A SER=CD2D332DB09A LOCATION=1-4:x.1",
+                                                          "description":  "USB Serial Device (COM11)"
+                                                      },
+                                              "calibration":  {
+                                                                  "Calibrated":  "0",
+                                                                  "R":  {
+                                                                            "0":  1000.5958,
+                                                                            "1":  101.4006,
+                                                                            "2":  10.2802,
+                                                                            "3":  0.9653,
+                                                                            "4":  0.0563
+                                                                        },
+                                                                  "GS":  {
+                                                                             "0":  0.0,
+                                                                             "1":  119.2336,
+                                                                             "2":  17.9855,
+                                                                             "3":  2.5476,
+                                                                             "4":  0.0742
+                                                                         },
+                                                                  "GI":  {
+                                                                             "0":  1.0,
+                                                                             "1":  0.9664,
+                                                                             "2":  0.9627,
+                                                                             "3":  0.9512,
+                                                                             "4":  0.9594
+                                                                         },
+                                                                  "O":  {
+                                                                            "0":  119.5062,
+                                                                            "1":  81.7746,
+                                                                            "2":  70.1205,
+                                                                            "3":  54.0141,
+                                                                            "4":  93.5048
+                                                                        },
+                                                                  "S":  {
+                                                                            "0":  6.5E-08,
+                                                                            "1":  7.96E-07,
+                                                                            "2":  8.466E-06,
+                                                                            "3":  8.5441E-05,
+                                                                            "4":  0.003739633
+                                                                        },
+                                                                  "I":  {
+                                                                            "0":  -8.6E-08,
+                                                                            "1":  -1.846E-06,
+                                                                            "2":  3.1432E-05,
+                                                                            "3":  -0.000414452,
+                                                                            "4":  -0.011407101
+                                                                        },
+                                                                  "UG":  {
+                                                                             "0":  1.0,
+                                                                             "1":  1.0,
+                                                                             "2":  1.0,
+                                                                             "3":  1.0,
+                                                                             "4":  1.0
+                                                                         },
+                                                                  "HW":  "21994",
+                                                                  "IA":  "56"
+                                                              },
+                                              "serial_closed":  true,
+                                              "raw":  {
+                                                          "path":  "COM11.ppk2.bin",
+                                                          "bytes":  8364032,
+                                                          "sha256":  "d16bce99e0e4e8b86f8a318c5006ee43ef118d9b4590577f383caeaf918351e6",
+                                                          "trailing_bytes":  0
+                                                      }
+                                          }
+                            },
+                    "off_phases":  [
+                                       {
+                                           "ppk_port":  "COM10",
+                                           "responding_uart_ports":  [
+                                                                         "COM18"
+                                                                     ],
+                                           "silent_after_complete_write_ports":  [
+                                                                                     "COM17"
+                                                                                 ],
+                                           "power_restored_utc":  "2026-10-01T09:38:26.042442+00:00"
+                                       },
+                                       {
+                                           "ppk_port":  "COM11",
+                                           "responding_uart_ports":  [
+                                                                         "COM17"
+                                                                     ],
+                                           "silent_after_complete_write_ports":  [
+                                                                                     "COM18"
+                                                                                 ],
+                                           "power_restored_utc":  "2026-10-01T09:38:33.940676+00:00"
+                                       }
+                                   ],
+                    "cleanup_errors":  [
+
+                                       ]
+                },
+    "old_sessions":  {
+                         "path":  ".tmp/e79_fresh_20261001/old-session-cleanup.json",
+                         "sha256":  "c65a7c197fdbe5a4aa9c87ba54dd7c3bc1f019fedd7cb4f76b202723c0c3d004",
+                         "status":  "deleted_and_absence_verified",
+                         "deleted_count":  5,
+                         "deleted_files":  242,
+                         "deleted_bytes":  45688226,
+                         "scope":  "Five current 2026-10-01 E79 dual-PPK sessions only; historical campaigns and firmware diagnostics preserved"
+                     },
+    "uart_tests":  [
+                       {
+                           "path":  ".tmp/e79_fresh_20261001/preflight-win32-COM17-fast-123144.json",
+                           "sha256":  "67b2f7a55866398c121a8a7dcd7e4aa2498d2bc7ed549476ab4ea971114e19b3",
+                           "port":  "COM17",
+                           "mode":  "fast",
+                           "reset_on_open":  null,
+                           "completed_preflights":  60,
+                           "passed":  true,
+                           "error":  null,
+                           "failed_native_writes":  [
+
+                                                    ]
+                       },
+                       {
+                           "path":  ".tmp/e79_fresh_20261001/preflight-win32-COM18-fast-123223.json",
+                           "sha256":  "d2cf445a9c16fd520018ccf7c007c8fa5558e6ca7124770ac523945db0b313cf",
+                           "port":  "COM18",
+                           "mode":  "fast",
+                           "reset_on_open":  null,
+                           "completed_preflights":  36,
+                           "passed":  false,
+                           "error":  "RadioCommandError: Timeout waiting for OK after \u0027AT+CFG?\u0027: +CFG:PROFILE=GFSK4K8,FREQ=433920000,RATE=4800,PWR=13,MOD=2GFSK,SYNC=0x930B51DE,ADDR=N/A,CHAN=N/A,RX=ON,SLEEP=NO,DEBUG=OFF,MARKER",
+                           "failed_native_writes":  [
+
+                                                    ]
+                       },
+                       {
+                           "path":  ".tmp/e79_fresh_20261001/preflight-win32-COM18-fast-123312.json",
+                           "sha256":  "ac2c06a1933fcf88b94264faf6322e5e694376541f98bc9a8f2b3ba0675896b9",
+                           "port":  "COM18",
+                           "mode":  "fast",
+                           "reset_on_open":  false,
+                           "completed_preflights":  17,
+                           "passed":  false,
+                           "error":  "RadioCommandError: Timeout waiting for OK after \u0027AT+MARKER?\u0027: +MARKER:ROLE=RX,DIO=17,SOURCE=RA",
+                           "failed_native_writes":  [
+
+                                                    ]
+                       },
+                       {
+                           "path":  ".tmp/e79_fresh_20261001/preflight-win32-COM18-paced-123349.json",
+                           "sha256":  "9db5a0d885dd5b4559e5b235ba7332043ee5a81f2b85ec90a6045f8a3005e316",
+                           "port":  "COM18",
+                           "mode":  "paced",
+                           "reset_on_open":  true,
+                           "completed_preflights":  13,
+                           "passed":  false,
+                           "error":  "SerialTimeoutException: Write timeout",
+                           "failed_native_writes":  [
+                                                        {
+                                                            "command":  "AT+MARKER=TX",
+                                                            "requested_bytes":  14,
+                                                            "overlapped_last_error":  31,
+                                                            "overlapped_transferred":  0,
+                                                            "overlapped_elapsed_s":  0.00030690012499690056
+                                                        }
+                                                    ]
+                       },
+                       {
+                           "path":  ".tmp/e79_fresh_20261001/preflight-win32-COM18-fast-124009.json",
+                           "sha256":  "349a61e9d7b2688c5e4702faecfcd60fc66e43d1d83b07c803c107c34fe94d72",
+                           "port":  "COM18",
+                           "mode":  "fast",
+                           "reset_on_open":  true,
+                           "completed_preflights":  20,
+                           "passed":  false,
+                           "error":  "ValueError: rx: actual modem configuration does not match the requested batch: {\u0027PROFILE\u0027: \u0027GFSK4K8\u0027, \u0027FREQ\u0027: \u0027433920000\u0027, \u0027RATE\u0027: \u00274800\u0027, \u0027PWR\u0027: \u002713\u0027, \u0027MOD\u0027: \u00272GFSK\u0027, \u0027SYNC\u0027: \u00270x930B51DE\u0027, \u0027ADDR\u0027: \u0027N/A\u0027, \u0027CHAN\u0027: \u0027N/AFF\u0027, \u0027MARKER\u0027: \u0027RX\u0027}; expected {\u0027PROFILE\u0027: \u0027GFSK4K8\u0027, \u0027RATE\u0027: \u00274800\u0027, \u0027PWR\u0027: \u002713\u0027, \u0027RX\u0027: \u0027ON\u0027, \u0027SLEEP\u0027: \u0027NO\u0027, \u0027DEBUG\u0027: \u0027OFF\u0027, \u0027MARKER\u0027: \u0027RX\u0027}",
+                           "failed_native_writes":  [
+
+                                                    ]
+                       }
+                   ],
+    "fixture":  ".tmp/e79_fresh_20261001/fresh-paired-fixture.json",
+    "limitations":  [
+                        "Current steps and OFF/ON responses establish the radio-to-PPK association, not stable UART or campaign acceptance.",
+                        "Device power-OFF current was approximately zero and only its corresponding radio stopped responding after at least five seconds.",
+                        "COM18 still loses response bytes and produces native Windows error31 after cable change, direct USB connection, reset/no-reset tests, pacing, and verified power cycles.",
+                        "Adapter versus Windows driver root cause remains unresolved. No firmware fault inferred.",
+                        "Both PPK guards were restored; no acquisition campaign was started.",
+                        "Historical raw evidence in retired reports was deleted at user request; fresh diagnostic RAW is retained locally.",
+                        "Silicon unique IDs were not read during this diagnostic; voltage3.3V is operator-confirmed, not measured by PPK."
+                    ],
+    "next_check":  "Verify RF packet transfer without PPK acquisition; before energy campaign verify actual power wiring after operator hardware repair.",
+    "role_swap_diagnostic":  {
+                                 "tested_utc":  "2026-10-01T09:52:18.6641950Z",
+                                 "trials":  [
+                                                {
+                                                    "path":  ".tmp/e79_fresh_20261001/preflight-win32-COM18-tx-fast-124952_110837.json",
+                                                    "sha256":  "84056b0faca7cdaa9e6c29fd75bc34503eec4d9750efe5f7f4bb67eccd03fc87",
+                                                    "port":  "COM18",
+                                                    "role":  "tx",
+                                                    "completed_preflights":  24,
+                                                    "passed":  false,
+                                                    "error":  "SerialTimeoutException: Write timeout",
+                                                    "rf_transmissions_requested":  0,
+                                                    "failed_native_writes":  [
+                                                                                 {
+                                                                                     "command":  "AT+MARKER?",
+                                                                                     "requested_bytes":  12,
+                                                                                     "overlapped_last_error":  31,
+                                                                                     "overlapped_transferred":  0,
+                                                                                     "overlapped_elapsed_s":  0.00031110038980841637
+                                                                                 }
+                                                                             ]
+                                                },
+                                                {
+                                                    "path":  ".tmp/e79_fresh_20261001/preflight-win32-COM17-rx-fast-125013_455352.json",
+                                                    "sha256":  "934b42ddba9bb6c7631962d627499309e28dc112c2ce46b167f544a38054031e",
+                                                    "port":  "COM17",
+                                                    "role":  "rx",
+                                                    "completed_preflights":  60,
+                                                    "passed":  true,
+                                                    "error":  null,
+                                                    "rf_transmissions_requested":  0,
+                                                    "failed_native_writes":  [
+
+                                                                             ]
+                                                }
+                                            ],
+                                 "conclusion":  "Failure persists on COM18 configured as TX before RF transmission; not limited to RX role. Does not isolate the precise physical or driver root cause.",
+                                 "restore":  {
+                                                 "path":  ".tmp/e79_fresh_20261001/role-restore-20261001_125118_466127.json",
+                                                 "sha256":  "3e09b265bcee2bfa8921afe388c4d951873284498bcb4e4e9368cdfac7f1fef6",
+                                                 "tx_port":  "COM17",
+                                                 "tx_verified":  true,
+                                                 "rx_port":  "COM18",
+                                                 "rx_verified":  true
+                                             },
+                                 "campaign_pairs_added":  0
+                             },
+    "after_CH340_resolder_UART_only":  {
+                                           "tested_utc":  "2026-10-01T10:03:12.876134+00:00",
+                                           "operator_change":  "Operator reports CH340 resoldered",
+                                           "scope":  "UART-only quick check; no PPK access, control commands, sampling or RF transmissions",
+                                           "power_wiring_not_reverified":  true,
+                                           "port":  "COM18",
+                                           "role":  "rx",
+                                           "completed_preflights":  14,
+                                           "requested_preflights":  60,
+                                           "passed":  false,
+                                           "error":  "SerialTimeoutException: Write timeout",
+                                           "native_failures":  [
+                                                                   {
+                                                                       "command":  "AT+MARKER=RX",
+                                                                       "requested_bytes":  14,
+                                                                       "overlapped_last_error":  31,
+                                                                       "overlapped_transferred":  0,
+                                                                       "overlapped_elapsed_s":  0.0004569999873638153
+                                                                   }
+                                                               ],
+                                           "evidence_path":  ".tmp/e79_fresh_20261001/preflight-win32-COM18-rx-fast-130316_214466.json",
+                                           "evidence_sha256":  "53c4042336748f4936d2178f789d7c0e233ee954247536a4e2485f8cb9dfcaa0"
+                                       },
+    "latest_UART_recheck":  {
+                                "recorded_utc":  "2026-10-01T10:21:55.5116810Z",
+                                "checks":  [
+                                               {
+                                                   "path":  ".tmp/e79_fresh_20261001/preflight-win32-COM18-rx-fast-132012_102386.json",
+                                                   "sha256":  "58f3825f681a4a42ee8486e81d64c39070fc7f3db66b4c8700fdb70d172bbd2b",
+                                                   "created_utc":  "2026-10-01T10:20:06.786604+00:00",
+                                                   "port":  "COM18",
+                                                   "role":  "rx",
+                                                   "completed_preflights":  60,
+                                                   "passed":  true,
+                                                   "commands":  306,
+                                                   "native_writes":  307,
+                                                   "native_failures":  0
+                                               },
+                                               {
+                                                   "path":  ".tmp/e79_fresh_20261001/preflight-win32-COM18-rx-fast-132050_366741.json",
+                                                   "sha256":  "802fba0b604de468a90ec963a0df0dced35e14ceb6eef70a0684ef459e1de3c9",
+                                                   "created_utc":  "2026-10-01T10:20:32.342356+00:00",
+                                                   "port":  "COM18",
+                                                   "role":  "rx",
+                                                   "completed_preflights":  300,
+                                                   "passed":  true,
+                                                   "commands":  1506,
+                                                   "native_writes":  1507,
+                                                   "native_failures":  0
+                                               }
+                                           ],
+                                "total_preflights":  360,
+                                "passed":  true,
+                                "scope":  "UART only, no PPK control/acquisition or RF transmission",
+                                "limitations":  "Two finite passing runs do not establish long-term reliability or validate RF and energy measurements."
+                            }
+}

@@ -1,0 +1,505 @@
+{
+  "schema_version": 1,
+  "completed_utc": "2026-10-02T14:43:05Z",
+  "status": "complete_five_trial_numeric_batch",
+  "module": "CC1101 V2 868 MHz",
+  "profile_id": "RADIO_CC1101_V2_868",
+  "condition": {
+    "profile_id": "RADIO_CC1101_V2_868",
+    "rate_kbps": 250.0,
+    "bit_rate_kbps": 250.0,
+    "chip_drive_dbm": 10,
+    "tx_power_dbm": 10,
+    "frequency_mhz": 868.0,
+    "modulation": "2FSK",
+    "shaping": "NONE",
+    "encoding": "NRZ",
+    "deviation_khz": 127.0,
+    "bandwidth_khz": 541.67,
+    "preamble_bits": 128,
+    "sync_word": "D391",
+    "sync_error_bits": 1,
+    "crc": true,
+    "payload_bytes": 32,
+    "content_bytes": 30,
+    "line_overhead_bytes": 2,
+    "tx_success_lines": [
+      "[TX] 32 bytes, state: 0",
+      "[TX] 32 bytes"
+    ],
+    "expected_chip_version": 20,
+    "pre_s": 0.2,
+    "after_trigger_s": 0.5,
+    "minimum_tx_gap_s": 1.2,
+    "max_attempts": 20
+  },
+  "accepted_acquisition": "acquisition_retry_more",
+  "accepted_attempt": "attempt_001",
+  "accepted_pairs": 5,
+  "accepted_captures": 10,
+  "accepted_energy_conditions": 2,
+  "acquisition_attempts": 7,
+  "all_energy_attempts": [
+    {
+      "acquisition": "acquisition",
+      "attempt": "attempt_001",
+      "status": "incomplete_delivery",
+      "completed": true,
+      "accepted_energy_batch": false,
+      "report": {
+        "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/acquisition/attempt_001/report.json",
+        "bytes": 27723,
+        "sha256": "111b9318175c0346dfa57182668276acc1a6aeadd06ef893127ff477b53e4777"
+      },
+      "observations": {
+        "transfers_recorded": 5,
+        "tx_successes_observed": 5,
+        "rx_transfers_observed": 0,
+        "rx_payload_observations": 0,
+        "missing_tx_telemetry": 0,
+        "missing_rx_telemetry": 0
+      }
+    },
+    {
+      "acquisition": "acquisition",
+      "attempt": "attempt_002",
+      "status": "incomplete_delivery",
+      "completed": true,
+      "accepted_energy_batch": false,
+      "report": {
+        "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/acquisition/attempt_002/report.json",
+        "bytes": 27729,
+        "sha256": "2c9f9e4d6d4c597691ecda12cef758089edc1ce777dc8bf07cbb1c48e045b852"
+      },
+      "observations": {
+        "transfers_recorded": 5,
+        "tx_successes_observed": 5,
+        "rx_transfers_observed": 0,
+        "rx_payload_observations": 0,
+        "missing_tx_telemetry": 0,
+        "missing_rx_telemetry": 0
+      }
+    },
+    {
+      "acquisition": "acquisition",
+      "attempt": "attempt_003",
+      "status": "incomplete_delivery",
+      "completed": true,
+      "accepted_energy_batch": false,
+      "report": {
+        "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/acquisition/attempt_003/report.json",
+        "bytes": 27731,
+        "sha256": "34df09bf328d903a2f102de207bf19639b6f970062c05c2b7f45c3e904e2479c"
+      },
+      "observations": {
+        "transfers_recorded": 5,
+        "tx_successes_observed": 5,
+        "rx_transfers_observed": 0,
+        "rx_payload_observations": 0,
+        "missing_tx_telemetry": 0,
+        "missing_rx_telemetry": 0
+      }
+    },
+    {
+      "acquisition": "acquisition",
+      "attempt": "attempt_004",
+      "status": "failed",
+      "completed": false,
+      "accepted_energy_batch": false,
+      "report": {
+        "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/acquisition/attempt_004/report.json",
+        "bytes": 24241,
+        "sha256": "4e7b1909737d7f84d3d218ca87740e891022906aae262248cb9a8fe5570af12a"
+      },
+      "observations": {
+        "transfers_recorded": 5,
+        "tx_successes_observed": 5,
+        "rx_transfers_observed": 0,
+        "rx_payload_observations": 0,
+        "missing_tx_telemetry": 0,
+        "missing_rx_telemetry": 0
+      }
+    },
+    {
+      "acquisition": "acquisition_retry",
+      "attempt": "attempt_001",
+      "status": "incomplete_delivery",
+      "completed": true,
+      "accepted_energy_batch": false,
+      "report": {
+        "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/acquisition_retry/attempt_001/report.json",
+        "bytes": 28759,
+        "sha256": "dcb09d7a2dfbc47e9f6dee505187d0957301928515855c66dc8ea965d7b26a74"
+      },
+      "observations": {
+        "transfers_recorded": 5,
+        "tx_successes_observed": 5,
+        "rx_transfers_observed": 4,
+        "rx_payload_observations": 4,
+        "missing_tx_telemetry": 0,
+        "missing_rx_telemetry": 0
+      }
+    },
+    {
+      "acquisition": "acquisition_retry",
+      "attempt": "attempt_002",
+      "status": "incomplete_delivery",
+      "completed": true,
+      "accepted_energy_batch": false,
+      "report": {
+        "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/acquisition_retry/attempt_002/report.json",
+        "bytes": 28512,
+        "sha256": "66f258f746d452c26473e5c21313058d2df1e85a061984ca24794288d113d551"
+      },
+      "observations": {
+        "transfers_recorded": 5,
+        "tx_successes_observed": 5,
+        "rx_transfers_observed": 3,
+        "rx_payload_observations": 3,
+        "missing_tx_telemetry": 0,
+        "missing_rx_telemetry": 0
+      }
+    },
+    {
+      "acquisition": "acquisition_retry_more",
+      "attempt": "attempt_001",
+      "status": "candidate",
+      "completed": true,
+      "accepted_energy_batch": true,
+      "report": {
+        "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/acquisition_retry_more/attempt_001/report.json",
+        "bytes": 29001,
+        "sha256": "a308327895c97fe9c22becafb78cd2cc43bae66a7a8c8be1991e3b224fdc8c23"
+      },
+      "observations": {
+        "transfers_recorded": 5,
+        "tx_successes_observed": 5,
+        "rx_transfers_observed": 5,
+        "rx_payload_observations": 5,
+        "missing_tx_telemetry": 0,
+        "missing_rx_telemetry": 0
+      }
+    }
+  ],
+  "all_energy_observations": {
+    "transfers_recorded": 35,
+    "tx_successes_observed": 35,
+    "rx_transfers_observed": 12,
+    "rx_payload_observations": 12,
+    "missing_tx_telemetry": 0,
+    "missing_rx_telemetry": 0
+  },
+  "energy_observations_by_acquisition": {
+    "acquisition": {
+      "transfers_recorded": 20,
+      "tx_successes_observed": 20,
+      "rx_transfers_observed": 0,
+      "rx_payload_observations": 0,
+      "missing_tx_telemetry": 0,
+      "missing_rx_telemetry": 0
+    },
+    "acquisition_retry": {
+      "transfers_recorded": 10,
+      "tx_successes_observed": 10,
+      "rx_transfers_observed": 7,
+      "rx_payload_observations": 7,
+      "missing_tx_telemetry": 0,
+      "missing_rx_telemetry": 0
+    },
+    "acquisition_retry_more": {
+      "transfers_recorded": 5,
+      "tx_successes_observed": 5,
+      "rx_transfers_observed": 5,
+      "rx_payload_observations": 5,
+      "missing_tx_telemetry": 0,
+      "missing_rx_telemetry": 0
+    }
+  },
+  "rf_only_diagnostics": [
+    {
+      "report": {
+        "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/rf_controls.json",
+        "bytes": 80300,
+        "sha256": "f12f0973f710a5a9bc3cbbd52b8faa26bbab181915cb02af246927bf6a2f4ba3"
+      },
+      "completed": false,
+      "batch_count": 1,
+      "observations": {
+        "transfers_recorded": 0,
+        "tx_successes_observed": 0,
+        "rx_transfers_observed": 0,
+        "rx_payload_observations": 0,
+        "missing_tx_telemetry": 0,
+        "missing_rx_telemetry": 0
+      }
+    },
+    {
+      "report": {
+        "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/rf_controls_02.json",
+        "bytes": 558316,
+        "sha256": "72b3cc5b593888034e68671916cc2562483f8663b054b00a1fdfb54563932aa3"
+      },
+      "completed": true,
+      "batch_count": 7,
+      "observations": {
+        "transfers_recorded": 14,
+        "tx_successes_observed": 14,
+        "rx_transfers_observed": 0,
+        "rx_payload_observations": 0,
+        "missing_tx_telemetry": 0,
+        "missing_rx_telemetry": 0
+      }
+    },
+    {
+      "report": {
+        "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/rf_retry_03.json",
+        "bytes": 135808,
+        "sha256": "952535a3e1fd82dc729f8dc40a9a005b8bf35db1d2a5b51481738f816935f402"
+      },
+      "completed": true,
+      "batch_count": 1,
+      "observations": {
+        "transfers_recorded": 5,
+        "tx_successes_observed": 5,
+        "rx_transfers_observed": 0,
+        "rx_payload_observations": 0,
+        "missing_tx_telemetry": 0,
+        "missing_rx_telemetry": 0
+      }
+    },
+    {
+      "report": {
+        "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/rf_retry_after_esp_reset_04.json",
+        "bytes": 1586,
+        "sha256": "2464e3a688dff11e32c64fced62e2f3612cae963e6e48dcd6c425b2b2bd57acb"
+      },
+      "completed": false,
+      "batch_count": 0,
+      "observations": {
+        "transfers_recorded": 0,
+        "tx_successes_observed": 0,
+        "rx_transfers_observed": 0,
+        "rx_payload_observations": 0,
+        "missing_tx_telemetry": 0,
+        "missing_rx_telemetry": 0
+      }
+    },
+    {
+      "report": {
+        "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/rf_retry_after_esp_reset_04b.json",
+        "bytes": 47273,
+        "sha256": "5b30f51a9da391ab03799b2953a4615e7007a060b4afb215ed618c415d672711"
+      },
+      "completed": true,
+      "batch_count": 1,
+      "observations": {
+        "transfers_recorded": 5,
+        "tx_successes_observed": 5,
+        "rx_transfers_observed": 1,
+        "rx_payload_observations": 1,
+        "missing_tx_telemetry": 0,
+        "missing_rx_telemetry": 0
+      }
+    },
+    {
+      "report": {
+        "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/rf_rx_rearm_controls_05.json",
+        "bytes": 197522,
+        "sha256": "4a6a1736f71cb02a1ed15299f48191db6d498dba743b511c344191ebdfcb80c5"
+      },
+      "completed": true,
+      "batch_count": 5,
+      "observations": {
+        "transfers_recorded": 25,
+        "tx_successes_observed": 25,
+        "rx_transfers_observed": 11,
+        "rx_payload_observations": 11,
+        "missing_tx_telemetry": 0,
+        "missing_rx_telemetry": 0
+      }
+    }
+  ],
+  "rf_only_observations": {
+    "transfers_recorded": 49,
+    "tx_successes_observed": 49,
+    "rx_transfers_observed": 12,
+    "rx_payload_observations": 12,
+    "missing_tx_telemetry": 0,
+    "missing_rx_telemetry": 0
+  },
+  "cleanup_receipts": [
+    {
+      "receipt": {
+        "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/failed_capture_cleanup_execution.json",
+        "bytes": 92430,
+        "sha256": "c88548f1f0586a74eac9a5c48c06a98a46206bd2f6bc847f4f41ba3227e18a86"
+      },
+      "plan": {
+        "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/failed_capture_cleanup_plan.json",
+        "bytes": 81830,
+        "sha256": "1d78720b2c820a51b8e5cf04e8268751c8a02e4a4a19fc0ad0ea3424f7d71d08"
+      },
+      "deleted_files": 80,
+      "deleted_bytes": 28027057
+    },
+    {
+      "receipt": {
+        "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/retry_failed_capture_cleanup_execution.json",
+        "bytes": 44064,
+        "sha256": "c90aa12a1db0fba91be91322607b16239d1530e957cdff71ded5c2689cef3057"
+      },
+      "plan": {
+        "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/retry_failed_capture_cleanup_plan.json",
+        "bytes": 39006,
+        "sha256": "6ce3c47f185778d41ac17e92e334515193221ecc124643074f3464618404454e"
+      },
+      "deleted_files": 40,
+      "deleted_bytes": 13984183
+    }
+  ],
+  "retention": "Only the entire accepted five-transfer RAW/WIRE set remains. All preceding rejected attempts, successful prefixes, RF-only observations and cleanup receipts remain as archived metadata; no selected transfers were merged.",
+  "voltage_mv": 3300,
+  "voltage_provenance": "Operator_confirmed_external_3.3V_unchanged_supply",
+  "voltage_simultaneously_recorded": false,
+  "measured_rail": "CC1101 module; ESP32 host excluded",
+  "ports": {
+    "ppk": {
+      "tx": [
+        "COM10",
+        "E753C4E81F3D"
+      ],
+      "rx": [
+        "COM11",
+        "CD2D332DB09A"
+      ]
+    },
+    "radio": {
+      "rx": "COM31",
+      "tx": "COM32"
+    }
+  },
+  "radio_usb_identities": {
+    "COM31": {
+      "serial": "08:92:72:9A:D4:B4",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM32": {
+      "serial": "08:92:72:9A:C8:C8",
+      "vid": 12346,
+      "pid": 4097
+    }
+  },
+  "mapping_evidence": {
+    "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/provenance/preparation.json",
+    "bytes": 12364,
+    "sha256": "7f0e1b4ca4aa5cadb0b55b541e636dbc0bfc4954854ce5df59eb4f426c71d2af"
+  },
+  "staged_start": {
+    "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/provenance/START.json",
+    "bytes": 421,
+    "sha256": "46bb6fa3a01fee0565cef363fcab929d2b7fcdd1f7fd90048a82c84df6a5653d"
+  },
+  "configuration_verification": "SPI chip version0x14 before/after and explicit firmware parameter readbacks; no full hardware RF-register dump.",
+  "hardware_synchronized": false,
+  "sample_rate_hz_per_ppk": 100000,
+  "numeric_audit": {
+    "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/analysis/audit.json",
+    "bytes": 37171,
+    "sha256": "d2a83b0bd8b27f6a3dc4e6bc7bc7df8563e55228448f92d73d88f1c561ba537f"
+  },
+  "initial_history_audit": {
+    "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/analysis/window_history_audit.json",
+    "bytes": 13818,
+    "sha256": "3cbe638eb74ac7f0dec32d9d8415abc776c84f48e40274ffc764ce4351559919"
+  },
+  "independent_evidence_review": {
+    "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/independent_evidence_review.json",
+    "bytes": 15680,
+    "sha256": "05e3cb38102db1ad5ae6ded0f3e3677aef2fe30431a8bfd0ed0b07090334064b"
+  },
+  "source_manifest": {
+    "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/source_manifest.json",
+    "bytes": 38435,
+    "sha256": "32d82ac7cb667a6e496c42fb915eae6f014b535d956da6a123886f65f1830a97"
+  },
+  "audit_summary": {
+    "captures": 10,
+    "computed_trials": 10,
+    "total_samples": 724992,
+    "counter_transition_faults": 0,
+    "maximum_replay_difference_uA": 0.0,
+    "valid_complete_five_trial_numeric_batch": true
+  },
+  "aggregates": [
+    {
+      "role": "tx",
+      "trial_count": 5,
+      "valid_complete_five_trial_numeric_batch": true,
+      "scope": "TX threshold event",
+      "sample_sd_ddof": 1,
+      "energy_total_uJ_mean": 198.77541183641,
+      "energy_total_uJ_sd": 3.3761713938957887,
+      "charge_total_uC_mean": 60.23497328376061,
+      "charge_total_uC_sd": 1.0230822405744844,
+      "duration_ms_mean": 3.9800000000000004,
+      "duration_ms_sd": 0.39837168574084186,
+      "mean_current_uA_mean": 15253.845152802945,
+      "mean_current_uA_sd": 1495.9061260019341,
+      "energy_excess_uJ_mean": 178.12657738714032,
+      "energy_excess_uJ_sd": 2.32271902778892
+    },
+    {
+      "role": "rx",
+      "trial_count": 5,
+      "valid_complete_five_trial_numeric_batch": true,
+      "scope": "RX listening, complementary fixed modeled4.69ms; not historical RX controlled-window",
+      "sample_sd_ddof": 1,
+      "energy_total_uJ_mean": 264.3633454391527,
+      "energy_total_uJ_sd": 0.8942587678810667,
+      "charge_total_uC_mean": 80.11010467853112,
+      "charge_total_uC_sd": 0.27098750541850325,
+      "duration_ms_mean": 4.6899999999999995,
+      "duration_ms_sd": 0.0,
+      "mean_current_uA_mean": 17081.045773674035,
+      "mean_current_uA_sd": 57.7798519016006,
+      "energy_excess_uJ_mean": 1.2701631504767552,
+      "energy_excess_uJ_sd": 0.43685923556666567
+    }
+  ],
+  "max_initial_history_relative_bound": 1.0792691367382907e-15,
+  "transmit_protocol": "Bridge sends a unique30-byte ASCII identifier plus CRLF as one32-byte RF frame. Historical TXBURST=32,32 used a fixed payload pattern. RF length and TX threshold integration are preserved; new PHY is explicitly read back as2FSK/NONE/NRZ. Historical setup did not archive MOD/SHAPE readback, so identical historical PHY is not independently certified.",
+  "definitions": {
+    "TX": "Largest rectified-excess threshold group; threshold=pretrigger median+max(500uA,8*1.4826*MAD); merge gap20ms; minimum0.05ms; padding0.1ms each side.",
+    "RX": "Complementary listening energy in a fixed modeled4.696ms interval quantized to469samples(4.69ms), beginning at the local software trigger. Not an independently delimited RF reception and not numerically comparable to historical controlled RX enable/restore windows(112.746ms mean at this condition).",
+    "energy": "V * sum(max(0,I_uA))/100000; ordinary Python sum to reproduce existing analysis.py.",
+    "sd": "Sample SD, ddof=1, n=5; not instrument absolute uncertainty."
+  },
+  "limitations": [
+    "RX is complementary listening energy in a modeled4.69ms interval (469 samples), not exclusive RF reception. The historical RX metric used a different controlled interval and is not directly comparable.",
+    "TX is a current-threshold event; no hardware RF marker.",
+    "Initial-history interval applies to selected software windows; it does not establish invariance of TX threshold selection.",
+    "No simultaneous voltage measurement or analog-accuracy calibration claim.",
+    "This is the complete passing batch selected after earlier failed/incomplete batches, not an unbiased delivery-rate estimate. All observed trial counts are reported separately; no causal remedy is inferred.",
+    "RF-only controls used multiple settings and are separate from the energy cohort; their observations are not a single-condition reliability estimate.",
+    "Five successful transfers do not prove a general100percent delivery probability. Historical TX receipt telemetry was absent, not evidence of failed delivery."
+  ],
+  "power_hold": {
+    "worker_pid": 51788,
+    "status_path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/acquisition_retry_more/status.json",
+    "stop_file": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/acquisition_retry_more/STOP",
+    "state_at_finalization": "Both PPK ports open, DUT paths ON, measurement streams drained continuously."
+  },
+  "calculation_files": {
+    "trials.csv": {
+      "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/analysis/trials.csv",
+      "bytes": 3102,
+      "sha256": "8da3df04d6515341ea8b1abd02e21bcf161573b69c70a0468fdf8b71f54a1d3b"
+    },
+    "aggregates.csv": {
+      "path": "power_profiler/web_sessions/20261002_163643_130385_cc1101_v2_868_paired/analysis/aggregates.csv",
+      "bytes": 763,
+      "sha256": "ea1aa7b66e2ed81c2b4a32c9099590a9b4cd649d19ed86497199de5910e3c029"
+    }
+  }
+}

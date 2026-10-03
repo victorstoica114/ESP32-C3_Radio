@@ -1,0 +1,29 @@
+{
+  "fixture": "CH340; not CH9340C",
+  "runs": 315,
+  "status_counts": {
+    "ok": 245,
+    "rx_missing": 70
+  },
+  "sample_count": 55967744,
+  "sample_loss_percent_max": 0.8336842105263158,
+  "energy_reproduced_from_raw": 315,
+  "max_abs_reproduction_error_uJ": 0.0,
+  "current_analyzer_valid": 315,
+  "unchanged_windows": 315,
+  "consensus_modes": {
+    "primary_4_MAD": 312,
+    "long_frame_low_signal_fallback": 2,
+    "high_signal_5_MAD_fallback": 1
+  },
+  "primary_frame_count_mismatch": 1,
+  "max_abs_energy_change_percent": 7.012168623532489e-11,
+  "code_sha256": {
+    "analysis.py": "2c7af5ba570300494fb1c55e7ec964ede7c33049b21c73a8763cca0b5956060c",
+    "frame_detection.py": "13219d8843a93fdcd075cb92a9aa9c0d8102c34de2ebb13fd125c43b61c2dc09",
+    "frame_windows.py": "08d7b8f307c2a0b0e0c9a9fdfd9da0237480cfbc99a455420c8e533919347879",
+    "planning.py": "7630fb57f463eb1a22851a2852518a27ac51f5dae72170d6515e3734cc89660c",
+    "models.py": "9558573d7b4d17c17b05bb76720b743f4e4ce4ec9a5163e094f1e2d35e392acf"
+  },
+  "note": "Arithmetic reproduction does not by itself validate RF timing or fixture equivalence. Threshold-dependent count cases require explicit review."
+}

@@ -1,0 +1,816 @@
+{
+  "attempt": 4,
+  "status": "failed",
+  "completed": false,
+  "runs": [
+    {
+      "run_id": "run_00001",
+      "payload": "CC2_763ce8bf_04_01_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30345f30315f58585858585858585858580d0a",
+      "physical_payload_bytes": 32,
+      "before_uart": {
+        "lines": {
+          "COM31": [],
+          "COM32": []
+        },
+        "raw": []
+      },
+      "send_perf_counter_ns": 3072894544473100,
+      "previous_tx_gap_s": 4.8780248,
+      "during_uart": {
+        "lines": {
+          "COM31": [],
+          "COM32": [
+            "[TX] 32 bytes, state: 0",
+            "[TX] 32 bytes"
+          ]
+        },
+        "raw": [
+          {
+            "port": "COM32",
+            "perf_counter_ns": 3072894549987300,
+            "hex": "5b54585d2033322062797465732c2073746174653a20300d0a5b54585d2033322062797465730d0a"
+          }
+        ]
+      },
+      "timing": {
+        "synchronization": "host_coordinated_independent_sample_clocks",
+        "hardware_synchronized": false,
+        "sample_rate_hz": 100000,
+        "requested_pre_s": 0.2,
+        "requested_after_trigger_s": 0.5,
+        "devices": {
+          "tx": {
+            "start_command_host_ns": 3072894319333600,
+            "first_data_host_ns": 3072894330137800,
+            "marker_host_ns": 3072894542855300,
+            "trigger_index": 21504,
+            "stop_command_host_ns": 3072895044353900,
+            "wire_bytes": 288768,
+            "trailing_bytes": 0
+          },
+          "rx": {
+            "start_command_host_ns": 3072894319490200,
+            "first_data_host_ns": 3072894344885000,
+            "marker_host_ns": 3072894543057500,
+            "trigger_index": 21504,
+            "stop_command_host_ns": 3072895044415300,
+            "wire_bytes": 288768,
+            "trailing_bytes": 0
+          }
+        },
+        "host_trigger_ns": 3072894543146500,
+        "trigger_callback_started_host_ns": 3072894543811700,
+        "trigger_callback_finished_host_ns": 3072894990972800,
+        "host_marker_skew_ms": 0.2022
+      },
+      "capture_errors": {},
+      "captures": {
+        "tx": {
+          "raw_path": "raw\\tx\\run_00001.csv.gz",
+          "samples": 72192,
+          "trigger_index": 21504,
+          "elapsed_s": 0.7250203,
+          "expected_samples": 71504,
+          "sample_loss_percent": 0.0
+        },
+        "rx": {
+          "raw_path": "raw\\rx\\run_00001.csv.gz",
+          "samples": 72192,
+          "trigger_index": 21504,
+          "elapsed_s": 0.7249251,
+          "expected_samples": 71504,
+          "sample_loss_percent": 0.0
+        }
+      },
+      "wire_paths": {
+        "tx": "wire\\run_00001\\tx.ppk2.bin",
+        "rx": "wire\\run_00001\\rx.ppk2.bin"
+      },
+      "save_errors": [],
+      "after_uart": {
+        "lines": {
+          "COM31": [],
+          "COM32": []
+        },
+        "raw": []
+      },
+      "tx_state_ok_count": 1,
+      "tx_bridge_ack_count": 1,
+      "tx_ok_count": 1,
+      "tx_ok": true,
+      "rx_exact_count": 0,
+      "capture_ok": true,
+      "candidate": false
+    },
+    {
+      "run_id": "run_00002",
+      "payload": "CC2_763ce8bf_04_02_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30345f30325f58585858585858585858580d0a",
+      "physical_payload_bytes": 32,
+      "before_uart": {
+        "lines": {
+          "COM31": [],
+          "COM32": []
+        },
+        "raw": []
+      },
+      "send_perf_counter_ns": 3072896893529600,
+      "previous_tx_gap_s": 2.3490565,
+      "during_uart": {
+        "lines": {
+          "COM31": [],
+          "COM32": [
+            "[TX] 32 bytes, state: 0",
+            "[TX] 32 bytes"
+          ]
+        },
+        "raw": [
+          {
+            "port": "COM32",
+            "perf_counter_ns": 3072896898065600,
+            "hex": "5b54585d203332"
+          },
+          {
+            "port": "COM32",
+            "perf_counter_ns": 3072896899579000,
+            "hex": "2062797465732c2073746174653a20300d0a5b54585d2033322062797465730d0a"
+          }
+        ]
+      },
+      "timing": {
+        "synchronization": "host_coordinated_independent_sample_clocks",
+        "hardware_synchronized": false,
+        "sample_rate_hz": 100000,
+        "requested_pre_s": 0.2,
+        "requested_after_trigger_s": 0.5,
+        "devices": {
+          "tx": {
+            "start_command_host_ns": 3072896665520800,
+            "first_data_host_ns": 3072896676576000,
+            "marker_host_ns": 3072896892976800,
+            "trigger_index": 22016,
+            "stop_command_host_ns": 3072897393989300,
+            "wire_bytes": 290816,
+            "trailing_bytes": 0
+          },
+          "rx": {
+            "start_command_host_ns": 3072896665786100,
+            "first_data_host_ns": 3072896676599800,
+            "marker_host_ns": 3072896892989600,
+            "trigger_index": 22016,
+            "stop_command_host_ns": 3072897394051700,
+            "wire_bytes": 290816,
+            "trailing_bytes": 0
+          }
+        },
+        "host_trigger_ns": 3072896892996600,
+        "trigger_callback_started_host_ns": 3072896893279800,
+        "trigger_callback_finished_host_ns": 3072897334048700,
+        "host_marker_skew_ms": 0.0128
+      },
+      "capture_errors": {},
+      "captures": {
+        "tx": {
+          "raw_path": "raw\\tx\\run_00002.csv.gz",
+          "samples": 72704,
+          "trigger_index": 22016,
+          "elapsed_s": 0.7284685,
+          "expected_samples": 72016,
+          "sample_loss_percent": 0.0
+        },
+        "rx": {
+          "raw_path": "raw\\rx\\run_00002.csv.gz",
+          "samples": 72704,
+          "trigger_index": 22016,
+          "elapsed_s": 0.7282656,
+          "expected_samples": 72016,
+          "sample_loss_percent": 0.0
+        }
+      },
+      "wire_paths": {
+        "tx": "wire\\run_00002\\tx.ppk2.bin",
+        "rx": "wire\\run_00002\\rx.ppk2.bin"
+      },
+      "save_errors": [],
+      "after_uart": {
+        "lines": {
+          "COM31": [],
+          "COM32": []
+        },
+        "raw": []
+      },
+      "tx_state_ok_count": 1,
+      "tx_bridge_ack_count": 1,
+      "tx_ok_count": 1,
+      "tx_ok": true,
+      "rx_exact_count": 0,
+      "capture_ok": true,
+      "candidate": false
+    },
+    {
+      "run_id": "run_00003",
+      "payload": "CC2_763ce8bf_04_03_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30345f30335f58585858585858585858580d0a",
+      "physical_payload_bytes": 32,
+      "before_uart": {
+        "lines": {
+          "COM31": [],
+          "COM32": []
+        },
+        "raw": []
+      },
+      "send_perf_counter_ns": 3072899444538400,
+      "previous_tx_gap_s": 2.5510088,
+      "during_uart": {
+        "lines": {
+          "COM31": [],
+          "COM32": [
+            "[TX] 32 bytes, state: 0",
+            "[TX] 32 bytes"
+          ]
+        },
+        "raw": [
+          {
+            "port": "COM32",
+            "perf_counter_ns": 3072899449148600,
+            "hex": "5b54585d2033322062797465732c2073746174653a20300d0a5b54585d2033322062797465730d0a"
+          }
+        ]
+      },
+      "timing": {
+        "synchronization": "host_coordinated_independent_sample_clocks",
+        "hardware_synchronized": false,
+        "sample_rate_hz": 100000,
+        "requested_pre_s": 0.2,
+        "requested_after_trigger_s": 0.5,
+        "devices": {
+          "tx": {
+            "start_command_host_ns": 3072899225123300,
+            "first_data_host_ns": 3072899243159700,
+            "marker_host_ns": 3072899443701800,
+            "trigger_index": 20992,
+            "stop_command_host_ns": 3072899945099000,
+            "wire_bytes": 286720,
+            "trailing_bytes": 0
+          },
+          "rx": {
+            "start_command_host_ns": 3072899225362700,
+            "first_data_host_ns": 3072899243114200,
+            "marker_host_ns": 3072899443751900,
+            "trigger_index": 20992,
+            "stop_command_host_ns": 3072899945109700,
+            "wire_bytes": 286720,
+            "trailing_bytes": 0
+          }
+        },
+        "host_trigger_ns": 3072899443820600,
+        "trigger_callback_started_host_ns": 3072899444325900,
+        "trigger_callback_finished_host_ns": 3072899896423900,
+        "host_marker_skew_ms": 0.0501
+      },
+      "capture_errors": {},
+      "captures": {
+        "tx": {
+          "raw_path": "raw\\tx\\run_00003.csv.gz",
+          "samples": 71680,
+          "trigger_index": 20992,
+          "elapsed_s": 0.7199757,
+          "expected_samples": 70992,
+          "sample_loss_percent": 0.0
+        },
+        "rx": {
+          "raw_path": "raw\\rx\\run_00003.csv.gz",
+          "samples": 71680,
+          "trigger_index": 20992,
+          "elapsed_s": 0.719747,
+          "expected_samples": 70992,
+          "sample_loss_percent": 0.0
+        }
+      },
+      "wire_paths": {
+        "tx": "wire\\run_00003\\tx.ppk2.bin",
+        "rx": "wire\\run_00003\\rx.ppk2.bin"
+      },
+      "save_errors": [],
+      "after_uart": {
+        "lines": {
+          "COM31": [],
+          "COM32": []
+        },
+        "raw": []
+      },
+      "tx_state_ok_count": 1,
+      "tx_bridge_ack_count": 1,
+      "tx_ok_count": 1,
+      "tx_ok": true,
+      "rx_exact_count": 0,
+      "capture_ok": true,
+      "candidate": false
+    },
+    {
+      "run_id": "run_00004",
+      "payload": "CC2_763ce8bf_04_04_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30345f30345f58585858585858585858580d0a",
+      "physical_payload_bytes": 32,
+      "before_uart": {
+        "lines": {
+          "COM31": [],
+          "COM32": []
+        },
+        "raw": []
+      },
+      "send_perf_counter_ns": 3072902036038000,
+      "previous_tx_gap_s": 2.5914996,
+      "during_uart": {
+        "lines": {
+          "COM31": [],
+          "COM32": [
+            "[TX] 32 bytes, state: 0",
+            "[TX] 32 bytes"
+          ]
+        },
+        "raw": [
+          {
+            "port": "COM32",
+            "perf_counter_ns": 3072902040518500,
+            "hex": "5b54585d2033322062797465732c2073746174653a20300d0a5b54585d2033322062797465730d0a"
+          }
+        ]
+      },
+      "timing": {
+        "synchronization": "host_coordinated_independent_sample_clocks",
+        "hardware_synchronized": false,
+        "sample_rate_hz": 100000,
+        "requested_pre_s": 0.2,
+        "requested_after_trigger_s": 0.5,
+        "devices": {
+          "tx": {
+            "start_command_host_ns": 3072901805404300,
+            "first_data_host_ns": 3072901819448800,
+            "marker_host_ns": 3072902035584500,
+            "trigger_index": 22016,
+            "stop_command_host_ns": 3072902537015600,
+            "wire_bytes": 290816,
+            "trailing_bytes": 0
+          },
+          "rx": {
+            "start_command_host_ns": 3072901805868800,
+            "first_data_host_ns": 3072901818512900,
+            "marker_host_ns": 3072902035604500,
+            "trigger_index": 22016,
+            "stop_command_host_ns": 3072902537058200,
+            "wire_bytes": 290816,
+            "trailing_bytes": 0
+          }
+        },
+        "host_trigger_ns": 3072902035613500,
+        "trigger_callback_started_host_ns": 3072902035860600,
+        "trigger_callback_finished_host_ns": 3072902474466000,
+        "host_marker_skew_ms": 0.02
+      },
+      "capture_errors": {},
+      "captures": {
+        "tx": {
+          "raw_path": "raw\\tx\\run_00004.csv.gz",
+          "samples": 72704,
+          "trigger_index": 22016,
+          "elapsed_s": 0.7316113,
+          "expected_samples": 72016,
+          "sample_loss_percent": 0.0
+        },
+        "rx": {
+          "raw_path": "raw\\rx\\run_00004.csv.gz",
+          "samples": 72704,
+          "trigger_index": 22016,
+          "elapsed_s": 0.7311894,
+          "expected_samples": 72016,
+          "sample_loss_percent": 0.0
+        }
+      },
+      "wire_paths": {
+        "tx": "wire\\run_00004\\tx.ppk2.bin",
+        "rx": "wire\\run_00004\\rx.ppk2.bin"
+      },
+      "save_errors": [],
+      "after_uart": {
+        "lines": {
+          "COM31": [],
+          "COM32": []
+        },
+        "raw": []
+      },
+      "tx_state_ok_count": 1,
+      "tx_bridge_ack_count": 1,
+      "tx_ok_count": 1,
+      "tx_ok": true,
+      "rx_exact_count": 0,
+      "capture_ok": true,
+      "candidate": false
+    },
+    {
+      "run_id": "run_00005",
+      "payload": "CC2_763ce8bf_04_05_XXXXXXXXXXX",
+      "sent_rf_hex": "4343325f37363363653862665f30345f30355f58585858585858585858580d0a",
+      "physical_payload_bytes": 32,
+      "before_uart": {
+        "lines": {
+          "COM31": [],
+          "COM32": []
+        },
+        "raw": []
+      },
+      "send_perf_counter_ns": 3072904479049900,
+      "previous_tx_gap_s": 2.4430119,
+      "during_uart": {
+        "lines": {
+          "COM31": [],
+          "COM32": [
+            "[TX] 32 bytes, state: 0",
+            "[TX] 32 bytes"
+          ]
+        },
+        "raw": [
+          {
+            "port": "COM32",
+            "perf_counter_ns": 3072904483953300,
+            "hex": "5b54585d2033322062797465732c2073746174653a20300d0a5b54585d2033322062797465730d0a"
+          }
+        ]
+      },
+      "timing": {
+        "synchronization": "host_coordinated_independent_sample_clocks",
+        "hardware_synchronized": false,
+        "sample_rate_hz": 100000,
+        "requested_pre_s": 0.2,
+        "requested_after_trigger_s": 0.5,
+        "devices": {
+          "tx": {
+            "start_command_host_ns": 3072904260550700,
+            "first_data_host_ns": 3072904276454500,
+            "marker_host_ns": 3072904478630300,
+            "trigger_index": 20992,
+            "stop_command_host_ns": 3072904979388000,
+            "wire_bytes": 286720,
+            "trailing_bytes": 0
+          },
+          "rx": {
+            "start_command_host_ns": 3072904261354900,
+            "first_data_host_ns": 3072904276430600,
+            "marker_host_ns": 3072904478646600,
+            "trigger_index": 20992,
+            "stop_command_host_ns": 3072904979325900,
+            "wire_bytes": 286720,
+            "trailing_bytes": 0
+          }
+        },
+        "host_trigger_ns": 3072904478652000,
+        "trigger_callback_started_host_ns": 3072904478868800,
+        "trigger_callback_finished_host_ns": 3072904927856300,
+        "host_marker_skew_ms": 0.0163
+      },
+      "capture_errors": {},
+      "captures": {
+        "tx": {
+          "raw_path": "raw\\tx\\run_00005.csv.gz",
+          "samples": 71680,
+          "trigger_index": 20992,
+          "elapsed_s": 0.7188373,
+          "expected_samples": 70992,
+          "sample_loss_percent": 0.0
+        },
+        "rx": {
+          "raw_path": "raw\\rx\\run_00005.csv.gz",
+          "samples": 71680,
+          "trigger_index": 20992,
+          "elapsed_s": 0.717971,
+          "expected_samples": 70992,
+          "sample_loss_percent": 0.0
+        }
+      },
+      "wire_paths": {
+        "tx": "wire\\run_00005\\tx.ppk2.bin",
+        "rx": "wire\\run_00005\\rx.ppk2.bin"
+      },
+      "save_errors": [],
+      "after_uart": {
+        "lines": {
+          "COM31": [],
+          "COM32": []
+        },
+        "raw": []
+      },
+      "tx_state_ok_count": 1,
+      "tx_bridge_ack_count": 1,
+      "tx_ok_count": 1,
+      "tx_ok": true,
+      "rx_exact_count": 0,
+      "capture_ok": true,
+      "candidate": false
+    }
+  ],
+  "kind": "diagnostic_only",
+  "accepted_energy_points": 0,
+  "radio_ports": {
+    "rx": "COM31",
+    "tx": "COM32"
+  },
+  "sample_rate_hz": 100000,
+  "radio_usb_identities": {
+    "COM31": {
+      "serial": "08:92:72:9A:D4:B4",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM32": {
+      "serial": "08:92:72:9A:C8:C8",
+      "vid": 12346,
+      "pid": 4097
+    }
+  },
+  "mapping_provenance": "Physical RXOFF/RXON current mapping in preparation.json sha256=7f0e1b4ca4aa5cadb0b55b541e636dbc0bfc4954854ce5df59eb4f426c71d2af; TX COM32 responds on PPK COM10; RX COM31 responds on PPK COM11; radio UARTs closed before START",
+  "setup_commands": [
+    "AT+RESET",
+    "AT+DEFAULT",
+    "AT+DEBUG=OFF",
+    "AT+BRIDGE=ON",
+    "AT+CS=OFF",
+    "AT+FREQ=868.0",
+    "AT+MOD=2FSK",
+    "AT+SHAPE=NONE",
+    "AT+PRE=128",
+    "AT+SYNC=D391",
+    "AT+SYNCERR=1",
+    "AT+CRC=ON",
+    "AT+ENC=NRZ",
+    "AT+PKT=VARIABLE,64",
+    "AT+ADDR=OFF",
+    "AT+PROMISC=OFF",
+    "AT+BR=250",
+    "AT+DEV=127",
+    "AT+BW=541.67",
+    "AT+PWR=10"
+  ],
+  "voltage_mv_for_decoder": 3300,
+  "voltage_provenance": "Operator_confirmed_external_3.3V_unchanged_supply",
+  "calibrations": {
+    "tx": {
+      "Calibrated": "0",
+      "HW": "59154",
+      "IA": "60",
+      "R": {
+        "0": 1004.4283447265625,
+        "1": 102.09636688232422,
+        "2": 10.294670104980469,
+        "3": 0.9710896611213684,
+        "4": 0.056259121745824814
+      },
+      "O": {
+        "0": 128.43923950195312,
+        "1": 89.05178833007812,
+        "2": 75.92266082763672,
+        "3": 59.65896224975586,
+        "4": 102.51764678955078
+      },
+      "GS": {
+        "0": 1e-19,
+        "1": 135.05462646484375,
+        "2": 21.440528869628906,
+        "3": 2.752481460571289,
+        "4": 0.08300972729921341
+      },
+      "GI": {
+        "0": 1.0,
+        "1": 0.9633749127388,
+        "2": 0.9545890688896179,
+        "3": 0.9477665424346924,
+        "4": 0.9539828896522522
+      },
+      "S": {
+        "0": -5.040802975032e-08,
+        "1": -3.6705580441776e-07,
+        "2": -2.99367843581422e-06,
+        "3": -3.209787610103376e-05,
+        "4": 0.0016125940019264817
+      },
+      "I": {
+        "0": 1.8602490570174e-07,
+        "1": 1.21383050100121e-06,
+        "2": 7.046380778774619e-05,
+        "3": -0.00014766653475817293,
+        "4": -0.00523310387507081
+      },
+      "UG": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 1.0
+      }
+    },
+    "rx": {
+      "Calibrated": "0",
+      "HW": "21994",
+      "IA": "60",
+      "R": {
+        "0": 1000.5957641601562,
+        "1": 101.40058135986328,
+        "2": 10.28022289276123,
+        "3": 0.9653185606002808,
+        "4": 0.05632902681827545
+      },
+      "O": {
+        "0": 119.50615692138672,
+        "1": 81.77458953857422,
+        "2": 70.12054443359375,
+        "3": 54.01410675048828,
+        "4": 93.50475311279297
+      },
+      "GS": {
+        "0": 1e-19,
+        "1": 119.2336196899414,
+        "2": 17.985504150390625,
+        "3": 2.5476224422454834,
+        "4": 0.07415920495986938
+      },
+      "GI": {
+        "0": 1.0,
+        "1": 0.9664102792739868,
+        "2": 0.9626902937889099,
+        "3": 0.951231837272644,
+        "4": 0.9594330191612244
+      },
+      "S": {
+        "0": 6.495847770793e-08,
+        "1": 7.9617404935561e-07,
+        "2": 8.46630064188503e-06,
+        "3": 8.544084266759455e-05,
+        "4": 0.0037396331317722797
+      },
+      "I": {
+        "0": -8.608763124585e-08,
+        "1": -1.84591544893919e-06,
+        "2": 3.143193680443801e-05,
+        "3": -0.00041445178794674575,
+        "4": -0.011407100595533848
+      },
+      "UG": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 1.0
+      }
+    }
+  },
+  "settings": {
+    "profile_id": "RADIO_CC1101_V2_868",
+    "rate_kbps": 250.0,
+    "bit_rate_kbps": 250.0,
+    "chip_drive_dbm": 10,
+    "tx_power_dbm": 10,
+    "frequency_mhz": 868.0,
+    "modulation": "2FSK",
+    "shaping": "NONE",
+    "encoding": "NRZ",
+    "deviation_khz": 127.0,
+    "bandwidth_khz": 541.67,
+    "preamble_bits": 128,
+    "sync_word": "D391",
+    "sync_error_bits": 1,
+    "crc": true,
+    "payload_bytes": 32,
+    "content_bytes": 30,
+    "line_overhead_bytes": 2,
+    "tx_success_lines": [
+      "[TX] 32 bytes, state: 0",
+      "[TX] 32 bytes"
+    ],
+    "expected_chip_version": 20,
+    "pre_s": 0.2,
+    "after_trigger_s": 0.5,
+    "minimum_tx_gap_s": 1.2,
+    "max_attempts": 20
+  },
+  "hardware_before": {
+    "rx": {
+      "configuration_queries": {
+        "FREQ": "868.000",
+        "BR": "250.000",
+        "DEV": "127.000",
+        "BW": "541.67",
+        "PWR": "10",
+        "PRE": "128",
+        "SYNCERR": "1",
+        "SYNC": "0xD391",
+        "CRC": "ON",
+        "MOD": "2FSK",
+        "SHAPE": "NONE",
+        "ENC": "NRZ",
+        "PKT": "VARIABLE,64",
+        "ADDR": "OFF",
+        "PROMISC": "OFF",
+        "CS": "OFF",
+        "BRIDGE": "ON",
+        "DEBUG": "OFF"
+      },
+      "status": {
+        "CHIP_VERSION": "0x14",
+        "RSSI": "-75.50",
+        "LQI": "37",
+        "MODE": "2FSK",
+        "RX": "ON",
+        "SLEEP": "NO",
+        "BRIDGE": "ON"
+      },
+      "configuration": [
+        "====== CC1101 868 MHz CONFIGURATION ======",
+        "Module:       CC1101 868 MHz",
+        "Module max TX:10 dBm nominal",
+        "Frequency:    868.00 MHz",
+        "Bit Rate:     250.0 kbps",
+        "Freq Dev:     127.0 kHz",
+        "RX Bandwidth: 541.67 kHz",
+        "TX Power:     10 dBm",
+        "Preamble:     128 bits",
+        "Sync Word:    0xD391",
+        "CRC:          Enabled",
+        "Modulation:   2FSK",
+        "Data shaping: NONE",
+        "Encoding:     NRZ",
+        "Packet mode:  VARIABLE",
+        "Packet len:   64",
+        "Address filt: OFF",
+        "Node addr:    0x01",
+        "Broadcasts:   1",
+        "Promiscuous:  OFF",
+        "Carrier sense:OFF",
+        "Sync err bits:1",
+        "Sleep:        NO",
+        "==================================",
+        "OK"
+      ],
+      "limitation": "Chip version is a hardware read; RSSI/LQI are cached by the driver from its last FIFO read. RF settings and RX mode are firmware configuration/state readbacks, not a complete hardware register dump."
+    },
+    "tx": {
+      "configuration_queries": {
+        "FREQ": "868.000",
+        "BR": "250.000",
+        "DEV": "127.000",
+        "BW": "541.67",
+        "PWR": "10",
+        "PRE": "128",
+        "SYNCERR": "1",
+        "SYNC": "0xD391",
+        "CRC": "ON",
+        "MOD": "2FSK",
+        "SHAPE": "NONE",
+        "ENC": "NRZ",
+        "PKT": "VARIABLE,64",
+        "ADDR": "OFF",
+        "PROMISC": "OFF",
+        "CS": "OFF",
+        "BRIDGE": "ON",
+        "DEBUG": "ON"
+      },
+      "status": {
+        "CHIP_VERSION": "0x14",
+        "RSSI": "-74.00",
+        "LQI": "0",
+        "MODE": "2FSK",
+        "RX": "OFF",
+        "SLEEP": "NO",
+        "BRIDGE": "ON"
+      },
+      "configuration": [
+        "====== CC1101 868 MHz CONFIGURATION ======",
+        "Module:       CC1101 868 MHz",
+        "Module max TX:10 dBm nominal",
+        "Frequency:    868.00 MHz",
+        "Bit Rate:     250.0 kbps",
+        "Freq Dev:     127.0 kHz",
+        "RX Bandwidth: 541.67 kHz",
+        "TX Power:     10 dBm",
+        "Preamble:     128 bits",
+        "Sync Word:    0xD391",
+        "CRC:          Enabled",
+        "Modulation:   2FSK",
+        "Data shaping: NONE",
+        "Encoding:     NRZ",
+        "Packet mode:  VARIABLE",
+        "Packet len:   64",
+        "Address filt: OFF",
+        "Node addr:    0x01",
+        "Broadcasts:   1",
+        "Promiscuous:  OFF",
+        "Carrier sense:OFF",
+        "Sync err bits:1",
+        "Sleep:        NO",
+        "==================================",
+        "OK"
+      ],
+      "limitation": "Chip version is a hardware read; RSSI/LQI are cached by the driver from its last FIFO read. RF settings and RX mode are firmware configuration/state readbacks, not a complete hardware register dump."
+    }
+  },
+  "error": "InterruptedError('Explicit STOP file received')"
+}

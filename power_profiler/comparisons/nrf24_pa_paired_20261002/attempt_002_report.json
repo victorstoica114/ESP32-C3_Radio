@@ -1,0 +1,731 @@
+{
+  "attempt": 2,
+  "status": "candidate",
+  "completed": true,
+  "runs": [
+    {
+      "run_id": "run_00001",
+      "payload": "NRF_3e4f563d_02_01_XXXXXXXXXXXXX",
+      "before_uart": {
+        "lines": {
+          "COM25": [],
+          "COM26": []
+        },
+        "raw": []
+      },
+      "send_perf_counter_ns": 3063490989407400,
+      "previous_tx_gap_s": 2.5564474,
+      "during_uart": {
+        "lines": {
+          "COM25": [
+            "[nRF24] TX -> NRF_3e4f563d_02_01_XXXXXXXXXXXXX",
+            "[nRF24] TX OK"
+          ],
+          "COM26": [
+            "NRF_3e4f563d_02_01_XXXXXXXXXXXXX"
+          ]
+        },
+        "raw": [
+          {
+            "port": "COM25",
+            "perf_counter_ns": 3063490990785200,
+            "hex": "5b6e524632345d205458202d3e204e52465f33653466353633645f30325f30315f585858585858585858585858580d0a"
+          },
+          {
+            "port": "COM26",
+            "perf_counter_ns": 3063490993918500,
+            "hex": "4e52465f33653466353633645f30325f30315f585858585858585858585858580d0a"
+          },
+          {
+            "port": "COM25",
+            "perf_counter_ns": 3063490997031200,
+            "hex": "5b6e524632345d205458204f4b0d0a"
+          }
+        ]
+      },
+      "timing": {
+        "synchronization": "host_coordinated_independent_sample_clocks",
+        "hardware_synchronized": false,
+        "sample_rate_hz": 100000,
+        "requested_pre_s": 0.2,
+        "requested_after_trigger_s": 0.5,
+        "devices": {
+          "tx": {
+            "start_command_host_ns": 3063490760087800,
+            "first_data_host_ns": 3063490772227400,
+            "marker_host_ns": 3063490989007000,
+            "trigger_index": 22016,
+            "stop_command_host_ns": 3063491490589100,
+            "wire_bytes": 290816,
+            "trailing_bytes": 0
+          },
+          "rx": {
+            "start_command_host_ns": 3063490760283200,
+            "first_data_host_ns": 3063490772212100,
+            "marker_host_ns": 3063490989023200,
+            "trigger_index": 22016,
+            "stop_command_host_ns": 3063491490738900,
+            "wire_bytes": 290816,
+            "trailing_bytes": 0
+          }
+        },
+        "host_trigger_ns": 3063490989028900,
+        "trigger_callback_started_host_ns": 3063490989239900,
+        "trigger_callback_finished_host_ns": 3063491428004500,
+        "host_marker_skew_ms": 0.0162
+      },
+      "capture_errors": {},
+      "captures": {
+        "tx": {
+          "raw_path": "raw\\tx\\run_00001.csv.gz",
+          "samples": 72704,
+          "trigger_index": 22016,
+          "elapsed_s": 0.7305013,
+          "expected_samples": 72016,
+          "sample_loss_percent": 0.0
+        },
+        "rx": {
+          "raw_path": "raw\\rx\\run_00001.csv.gz",
+          "samples": 72704,
+          "trigger_index": 22016,
+          "elapsed_s": 0.7304557,
+          "expected_samples": 72016,
+          "sample_loss_percent": 0.0
+        }
+      },
+      "wire_paths": {
+        "tx": "wire\\run_00001\\tx.ppk2.bin",
+        "rx": "wire\\run_00001\\rx.ppk2.bin"
+      },
+      "save_errors": [],
+      "after_uart": {
+        "lines": {
+          "COM25": [],
+          "COM26": []
+        },
+        "raw": []
+      },
+      "tx_ok_count": 1,
+      "tx_ok": true,
+      "rx_exact_count": 1,
+      "capture_ok": true,
+      "candidate": true
+    },
+    {
+      "run_id": "run_00002",
+      "payload": "NRF_3e4f563d_02_02_XXXXXXXXXXXXX",
+      "before_uart": {
+        "lines": {
+          "COM25": [],
+          "COM26": []
+        },
+        "raw": []
+      },
+      "send_perf_counter_ns": 3063493425875300,
+      "previous_tx_gap_s": 2.4364679,
+      "during_uart": {
+        "lines": {
+          "COM25": [
+            "[nRF24] TX -> NRF_3e4f563d_02_02_XXXXXXXXXXXXX",
+            "[nRF24] TX OK"
+          ],
+          "COM26": [
+            "NRF_3e4f563d_02_02_XXXXXXXXXXXXX"
+          ]
+        },
+        "raw": [
+          {
+            "port": "COM25",
+            "perf_counter_ns": 3063493427755900,
+            "hex": "5b6e524632345d205458202d3e204e52465f33653466353633645f30325f30325f585858585858585858585858580d0a"
+          },
+          {
+            "port": "COM26",
+            "perf_counter_ns": 3063493430893000,
+            "hex": "4e52465f33653466353633645f30325f30325f585858585858585858585858580d0a"
+          },
+          {
+            "port": "COM25",
+            "perf_counter_ns": 3063493432521400,
+            "hex": "5b6e524632345d205458204f4b"
+          },
+          {
+            "port": "COM25",
+            "perf_counter_ns": 3063493434122800,
+            "hex": "0d0a"
+          }
+        ]
+      },
+      "timing": {
+        "synchronization": "host_coordinated_independent_sample_clocks",
+        "hardware_synchronized": false,
+        "sample_rate_hz": 100000,
+        "requested_pre_s": 0.2,
+        "requested_after_trigger_s": 0.5,
+        "devices": {
+          "tx": {
+            "start_command_host_ns": 3063493198430000,
+            "first_data_host_ns": 3063493224608500,
+            "marker_host_ns": 3063493425354000,
+            "trigger_index": 22016,
+            "stop_command_host_ns": 3063493926007000,
+            "wire_bytes": 290816,
+            "trailing_bytes": 0
+          },
+          "rx": {
+            "start_command_host_ns": 3063493198634800,
+            "first_data_host_ns": 3063493224625900,
+            "marker_host_ns": 3063493425383100,
+            "trigger_index": 22016,
+            "stop_command_host_ns": 3063493926050700,
+            "wire_bytes": 290816,
+            "trailing_bytes": 0
+          }
+        },
+        "host_trigger_ns": 3063493425392400,
+        "trigger_callback_started_host_ns": 3063493425666100,
+        "trigger_callback_finished_host_ns": 3063493864517000,
+        "host_marker_skew_ms": 0.0291
+      },
+      "capture_errors": {},
+      "captures": {
+        "tx": {
+          "raw_path": "raw\\tx\\run_00002.csv.gz",
+          "samples": 72704,
+          "trigger_index": 22016,
+          "elapsed_s": 0.727577,
+          "expected_samples": 72016,
+          "sample_loss_percent": 0.0
+        },
+        "rx": {
+          "raw_path": "raw\\rx\\run_00002.csv.gz",
+          "samples": 72704,
+          "trigger_index": 22016,
+          "elapsed_s": 0.7274159,
+          "expected_samples": 72016,
+          "sample_loss_percent": 0.0
+        }
+      },
+      "wire_paths": {
+        "tx": "wire\\run_00002\\tx.ppk2.bin",
+        "rx": "wire\\run_00002\\rx.ppk2.bin"
+      },
+      "save_errors": [],
+      "after_uart": {
+        "lines": {
+          "COM25": [],
+          "COM26": []
+        },
+        "raw": []
+      },
+      "tx_ok_count": 1,
+      "tx_ok": true,
+      "rx_exact_count": 1,
+      "capture_ok": true,
+      "candidate": true
+    },
+    {
+      "run_id": "run_00003",
+      "payload": "NRF_3e4f563d_02_03_XXXXXXXXXXXXX",
+      "before_uart": {
+        "lines": {
+          "COM25": [],
+          "COM26": []
+        },
+        "raw": []
+      },
+      "send_perf_counter_ns": 3063496095359100,
+      "previous_tx_gap_s": 2.6694838,
+      "during_uart": {
+        "lines": {
+          "COM25": [
+            "[nRF24] TX -> NRF_3e4f563d_02_03_XXXXXXXXXXXXX",
+            "[nRF24] TX OK"
+          ],
+          "COM26": [
+            "NRF_3e4f563d_02_03_XXXXXXXXXXXXX"
+          ]
+        },
+        "raw": [
+          {
+            "port": "COM25",
+            "perf_counter_ns": 3063496096714500,
+            "hex": "5b6e524632345d205458202d3e204e52465f33653466353633645f30325f30335f585858585858585858585858580d0a"
+          },
+          {
+            "port": "COM26",
+            "perf_counter_ns": 3063496100006900,
+            "hex": "4e52465f33653466353633645f30325f30335f585858585858585858585858580d0a"
+          },
+          {
+            "port": "COM25",
+            "perf_counter_ns": 3063496101464600,
+            "hex": "5b6e524632345d205458204f4b"
+          },
+          {
+            "port": "COM25",
+            "perf_counter_ns": 3063496103127600,
+            "hex": "0d0a"
+          }
+        ]
+      },
+      "timing": {
+        "synchronization": "host_coordinated_independent_sample_clocks",
+        "hardware_synchronized": false,
+        "sample_rate_hz": 100000,
+        "requested_pre_s": 0.2,
+        "requested_after_trigger_s": 0.5,
+        "devices": {
+          "tx": {
+            "start_command_host_ns": 3063495869222200,
+            "first_data_host_ns": 3063495893905800,
+            "marker_host_ns": 3063496094882700,
+            "trigger_index": 22016,
+            "stop_command_host_ns": 3063496595801900,
+            "wire_bytes": 288768,
+            "trailing_bytes": 0
+          },
+          "rx": {
+            "start_command_host_ns": 3063495869446700,
+            "first_data_host_ns": 3063495893760500,
+            "marker_host_ns": 3063496094895300,
+            "trigger_index": 22016,
+            "stop_command_host_ns": 3063496595770300,
+            "wire_bytes": 288768,
+            "trailing_bytes": 0
+          }
+        },
+        "host_trigger_ns": 3063496094916600,
+        "trigger_callback_started_host_ns": 3063496095167100,
+        "trigger_callback_finished_host_ns": 3063496537663000,
+        "host_marker_skew_ms": 0.0126
+      },
+      "capture_errors": {},
+      "captures": {
+        "tx": {
+          "raw_path": "raw\\tx\\run_00003.csv.gz",
+          "samples": 72192,
+          "trigger_index": 22016,
+          "elapsed_s": 0.7265797,
+          "expected_samples": 72016,
+          "sample_loss_percent": 0.0
+        },
+        "rx": {
+          "raw_path": "raw\\rx\\run_00003.csv.gz",
+          "samples": 72192,
+          "trigger_index": 22016,
+          "elapsed_s": 0.7263236,
+          "expected_samples": 72016,
+          "sample_loss_percent": 0.0
+        }
+      },
+      "wire_paths": {
+        "tx": "wire\\run_00003\\tx.ppk2.bin",
+        "rx": "wire\\run_00003\\rx.ppk2.bin"
+      },
+      "save_errors": [],
+      "after_uart": {
+        "lines": {
+          "COM25": [],
+          "COM26": []
+        },
+        "raw": []
+      },
+      "tx_ok_count": 1,
+      "tx_ok": true,
+      "rx_exact_count": 1,
+      "capture_ok": true,
+      "candidate": true
+    },
+    {
+      "run_id": "run_00004",
+      "payload": "NRF_3e4f563d_02_04_XXXXXXXXXXXXX",
+      "before_uart": {
+        "lines": {
+          "COM25": [],
+          "COM26": []
+        },
+        "raw": []
+      },
+      "send_perf_counter_ns": 3063498524947700,
+      "previous_tx_gap_s": 2.4295886,
+      "during_uart": {
+        "lines": {
+          "COM25": [
+            "[nRF24] TX -> NRF_3e4f563d_02_04_XXXXXXXXXXXXX",
+            "[nRF24] TX OK"
+          ],
+          "COM26": [
+            "NRF_3e4f563d_02_04_XXXXXXXXXXXXX"
+          ]
+        },
+        "raw": [
+          {
+            "port": "COM25",
+            "perf_counter_ns": 3063498526312200,
+            "hex": "5b6e524632345d205458202d3e204e52465f33653466353633645f30325f30345f585858585858585858585858580d0a"
+          },
+          {
+            "port": "COM26",
+            "perf_counter_ns": 3063498529433100,
+            "hex": "4e52465f33653466353633645f30325f30345f585858585858585858585858580d0a"
+          },
+          {
+            "port": "COM25",
+            "perf_counter_ns": 3063498532497600,
+            "hex": "5b6e524632345d205458204f4b0d0a"
+          }
+        ]
+      },
+      "timing": {
+        "synchronization": "host_coordinated_independent_sample_clocks",
+        "hardware_synchronized": false,
+        "sample_rate_hz": 100000,
+        "requested_pre_s": 0.2,
+        "requested_after_trigger_s": 0.5,
+        "devices": {
+          "tx": {
+            "start_command_host_ns": 3063498307081900,
+            "first_data_host_ns": 3063498323626000,
+            "marker_host_ns": 3063498524291600,
+            "trigger_index": 20992,
+            "stop_command_host_ns": 3063499025418800,
+            "wire_bytes": 286720,
+            "trailing_bytes": 0
+          },
+          "rx": {
+            "start_command_host_ns": 3063498307417700,
+            "first_data_host_ns": 3063498323580900,
+            "marker_host_ns": 3063498524352300,
+            "trigger_index": 20992,
+            "stop_command_host_ns": 3063499025408500,
+            "wire_bytes": 286720,
+            "trailing_bytes": 0
+          }
+        },
+        "host_trigger_ns": 3063498524365000,
+        "trigger_callback_started_host_ns": 3063498524706400,
+        "trigger_callback_finished_host_ns": 3063498974643900,
+        "host_marker_skew_ms": 0.0607
+      },
+      "capture_errors": {},
+      "captures": {
+        "tx": {
+          "raw_path": "raw\\tx\\run_00004.csv.gz",
+          "samples": 71680,
+          "trigger_index": 20992,
+          "elapsed_s": 0.7183369,
+          "expected_samples": 70992,
+          "sample_loss_percent": 0.0
+        },
+        "rx": {
+          "raw_path": "raw\\rx\\run_00004.csv.gz",
+          "samples": 71680,
+          "trigger_index": 20992,
+          "elapsed_s": 0.7179908,
+          "expected_samples": 70992,
+          "sample_loss_percent": 0.0
+        }
+      },
+      "wire_paths": {
+        "tx": "wire\\run_00004\\tx.ppk2.bin",
+        "rx": "wire\\run_00004\\rx.ppk2.bin"
+      },
+      "save_errors": [],
+      "after_uart": {
+        "lines": {
+          "COM25": [],
+          "COM26": []
+        },
+        "raw": []
+      },
+      "tx_ok_count": 1,
+      "tx_ok": true,
+      "rx_exact_count": 1,
+      "capture_ok": true,
+      "candidate": true
+    },
+    {
+      "run_id": "run_00005",
+      "payload": "NRF_3e4f563d_02_05_XXXXXXXXXXXXX",
+      "before_uart": {
+        "lines": {
+          "COM25": [],
+          "COM26": []
+        },
+        "raw": []
+      },
+      "send_perf_counter_ns": 3063500952047800,
+      "previous_tx_gap_s": 2.4271001,
+      "during_uart": {
+        "lines": {
+          "COM25": [
+            "[nRF24] TX -> NRF_3e4f563d_02_05_XXXXXXXXXXXXX",
+            "[nRF24] TX OK"
+          ],
+          "COM26": [
+            "NRF_3e4f563d_02_05_XXXXXXXXXXXXX"
+          ]
+        },
+        "raw": [
+          {
+            "port": "COM25",
+            "perf_counter_ns": 3063500953328400,
+            "hex": "5b6e524632345d205458202d3e204e52465f33653466353633645f30325f30355f585858585858585858585858580d0a"
+          },
+          {
+            "port": "COM26",
+            "perf_counter_ns": 3063500956622000,
+            "hex": "4e52465f33653466353633645f30325f30355f585858585858585858585858580d0a"
+          },
+          {
+            "port": "COM25",
+            "perf_counter_ns": 3063500959796900,
+            "hex": "5b6e524632345d205458204f4b0d0a"
+          }
+        ]
+      },
+      "timing": {
+        "synchronization": "host_coordinated_independent_sample_clocks",
+        "hardware_synchronized": false,
+        "sample_rate_hz": 100000,
+        "requested_pre_s": 0.2,
+        "requested_after_trigger_s": 0.5,
+        "devices": {
+          "tx": {
+            "start_command_host_ns": 3063500729161100,
+            "first_data_host_ns": 3063500750198900,
+            "marker_host_ns": 3063500951641700,
+            "trigger_index": 21504,
+            "stop_command_host_ns": 3063501452952800,
+            "wire_bytes": 288768,
+            "trailing_bytes": 0
+          },
+          "rx": {
+            "start_command_host_ns": 3063500729406000,
+            "first_data_host_ns": 3063500750162200,
+            "marker_host_ns": 3063500951655100,
+            "trigger_index": 21504,
+            "stop_command_host_ns": 3063501453374200,
+            "wire_bytes": 288768,
+            "trailing_bytes": 0
+          }
+        },
+        "host_trigger_ns": 3063500951660300,
+        "trigger_callback_started_host_ns": 3063500951884100,
+        "trigger_callback_finished_host_ns": 3063501396054500,
+        "host_marker_skew_ms": 0.0134
+      },
+      "capture_errors": {},
+      "captures": {
+        "tx": {
+          "raw_path": "raw\\tx\\run_00005.csv.gz",
+          "samples": 72192,
+          "trigger_index": 21504,
+          "elapsed_s": 0.7237917,
+          "expected_samples": 71504,
+          "sample_loss_percent": 0.0
+        },
+        "rx": {
+          "raw_path": "raw\\rx\\run_00005.csv.gz",
+          "samples": 72192,
+          "trigger_index": 21504,
+          "elapsed_s": 0.7239682,
+          "expected_samples": 71504,
+          "sample_loss_percent": 0.0
+        }
+      },
+      "wire_paths": {
+        "tx": "wire\\run_00005\\tx.ppk2.bin",
+        "rx": "wire\\run_00005\\rx.ppk2.bin"
+      },
+      "save_errors": [],
+      "after_uart": {
+        "lines": {
+          "COM25": [],
+          "COM26": []
+        },
+        "raw": []
+      },
+      "tx_ok_count": 1,
+      "tx_ok": true,
+      "rx_exact_count": 1,
+      "capture_ok": true,
+      "candidate": true
+    }
+  ],
+  "kind": "diagnostic_only",
+  "accepted_energy_points": 0,
+  "radio_ports": {
+    "tx": "COM25",
+    "rx": "COM26"
+  },
+  "sample_rate_hz": 100000,
+  "radio_usb_identities": {
+    "COM25": {
+      "serial": "08:92:72:9A:C2:80",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM26": {
+      "serial": "08:92:72:9A:BF:58",
+      "vid": 12346,
+      "pid": 4097
+    }
+  },
+  "voltage_mv_for_decoder": 3300,
+  "voltage_provenance": "Operator confirmed external 3.3 V",
+  "calibrations": {
+    "tx": {
+      "Calibrated": "0",
+      "HW": "59154",
+      "IA": "58",
+      "R": {
+        "0": 1004.4283447265625,
+        "1": 102.09636688232422,
+        "2": 10.294670104980469,
+        "3": 0.9710896611213684,
+        "4": 0.056259121745824814
+      },
+      "O": {
+        "0": 128.43923950195312,
+        "1": 89.05178833007812,
+        "2": 75.92266082763672,
+        "3": 59.65896224975586,
+        "4": 102.51764678955078
+      },
+      "GS": {
+        "0": 1e-19,
+        "1": 135.05462646484375,
+        "2": 21.440528869628906,
+        "3": 2.752481460571289,
+        "4": 0.08300972729921341
+      },
+      "GI": {
+        "0": 1.0,
+        "1": 0.9633749127388,
+        "2": 0.9545890688896179,
+        "3": 0.9477665424346924,
+        "4": 0.9539828896522522
+      },
+      "S": {
+        "0": -5.040802975032e-08,
+        "1": -3.6705580441776e-07,
+        "2": -2.99367843581422e-06,
+        "3": -3.209787610103376e-05,
+        "4": 0.0016125940019264817
+      },
+      "I": {
+        "0": 1.8602490570174e-07,
+        "1": 1.21383050100121e-06,
+        "2": 7.046380778774619e-05,
+        "3": -0.00014766653475817293,
+        "4": -0.00523310387507081
+      },
+      "UG": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 1.0
+      }
+    },
+    "rx": {
+      "Calibrated": "0",
+      "HW": "21994",
+      "IA": "58",
+      "R": {
+        "0": 1000.5957641601562,
+        "1": 101.40058135986328,
+        "2": 10.28022289276123,
+        "3": 0.9653185606002808,
+        "4": 0.05632902681827545
+      },
+      "O": {
+        "0": 119.50615692138672,
+        "1": 81.77458953857422,
+        "2": 70.12054443359375,
+        "3": 54.01410675048828,
+        "4": 93.50475311279297
+      },
+      "GS": {
+        "0": 1e-19,
+        "1": 119.2336196899414,
+        "2": 17.985504150390625,
+        "3": 2.5476224422454834,
+        "4": 0.07415920495986938
+      },
+      "GI": {
+        "0": 1.0,
+        "1": 0.9664102792739868,
+        "2": 0.9626902937889099,
+        "3": 0.951231837272644,
+        "4": 0.9594330191612244
+      },
+      "S": {
+        "0": 6.495847770793e-08,
+        "1": 7.9617404935561e-07,
+        "2": 8.46630064188503e-06,
+        "3": 8.544084266759455e-05,
+        "4": 0.0037396331317722797
+      },
+      "I": {
+        "0": -8.608763124585e-08,
+        "1": -1.84591544893919e-06,
+        "2": 3.143193680443801e-05,
+        "3": -0.00041445178794674575,
+        "4": -0.011407100595533848
+      },
+      "UG": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 1.0
+      }
+    }
+  },
+  "settings": {
+    "rate_kbps": 2000,
+    "chip_drive_dbm": 0,
+    "channel": 80,
+    "payload_bytes": 32,
+    "auto_ack": false,
+    "pre_s": 0.2,
+    "after_trigger_s": 0.5,
+    "minimum_tx_gap_s": 1.2,
+    "max_attempts": 20
+  },
+  "hardware_before": {
+    "tx": {
+      "RF_CH": 80,
+      "RF_SETUP": 15,
+      "EN_AA": 0,
+      "FEATURE": 4,
+      "DYNPD": 63
+    },
+    "rx": {
+      "RF_CH": 80,
+      "RF_SETUP": 15,
+      "EN_AA": 0,
+      "FEATURE": 4,
+      "DYNPD": 63
+    }
+  },
+  "hardware_after": {
+    "tx": {
+      "RF_CH": 80,
+      "RF_SETUP": 15,
+      "EN_AA": 0,
+      "FEATURE": 4,
+      "DYNPD": 63
+    },
+    "rx": {
+      "RF_CH": 80,
+      "RF_SETUP": 15,
+      "EN_AA": 0,
+      "FEATURE": 4,
+      "DYNPD": 63
+    }
+  }
+}

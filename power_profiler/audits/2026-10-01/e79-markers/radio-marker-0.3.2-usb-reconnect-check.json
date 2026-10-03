@@ -1,0 +1,136 @@
+{
+    "created_utc":  "2026-10-01T08:46:44.9557402Z",
+    "operator_usb_reconnection_confirmed":  true,
+    "receiver_port":  "COM13",
+    "receiver_usb_location":  "1-8.1.2:x.1",
+    "location_changed":  false,
+    "campaign_accepted_pairs":  15,
+    "campaign_new_captures":  0,
+    "diagnostic_rf_transmissions":  0,
+    "paired_guard_active":  true,
+    "checks":  [
+                   {
+                       "path":  ".tmp\\e79_radio_markers_20261001\\preflight-win32-fast-114358.json",
+                       "sha256":  "cb60117ff9a83e0333f6232a1b1fa061cbbfc54e71c6d7d8afb0e38f35109cf4",
+                       "completed_preflights":  24,
+                       "passed":  false,
+                       "command":  "AT+MARKER=RX",
+                       "native_error":  31,
+                       "transferred_bytes":  0,
+                       "elapsed_s":  0.0004004999063909054
+                   },
+                   {
+                       "path":  ".tmp\\e79_radio_markers_20261001\\preflight-win32-fast-114546.json",
+                       "sha256":  "3b1d62c8bd55780e442ad55d92626d4146724146c561128657462d27c77f0505",
+                       "completed_preflights":  5,
+                       "passed":  false,
+                       "command":  "AT+MARKER?",
+                       "native_error":  31,
+                       "transferred_bytes":  0,
+                       "elapsed_s":  0.0005807001143693924
+                   }
+               ],
+    "quiet_ppk_check":  "Second check held both 3.3 V external DUT paths ON but did not start PPK sampling; same USB error occurred.",
+    "pending_operator_clarification":  "Was only the receiver CH340 USB moved or the entire hub reconnected?",
+    "result":  "Do not resume campaign until receiver USB transport passes verification.",
+    "software_cleanup_fix":  {
+                                 "tests_passed":  302,
+                                 "active_in_ui":  true,
+                                 "accepted_artifact_hashes_unchanged":  129,
+                                 "does_not_resolve_receiver_usb_transport":  true
+                             },
+    "second_recheck":  {
+                           "created_utc":  "2026-10-01T08:52:53.478483+00:00",
+                           "port":  "COM13",
+                           "completed_preflights":  4,
+                           "passed":  false,
+                           "failed_command":  "AT+VERSION?",
+                           "native_error":  31,
+                           "transferred_bytes":  0,
+                           "elapsed_ms":  0.5879001691937447000,
+                           "rf_transmissions_requested":  0,
+                           "campaign_accepted_pairs":  15,
+                           "new_campaign_captures":  0,
+                           "paired_guard_active":  true,
+                           "evidence":  ".tmp/e79_radio_markers_20261001/preflight-win32-fast-115256.json",
+                           "sha256":  "f0383357af5b0d180d89e2fa5c034d29d14ff5a7ca2817667df9d5e0e457305e"
+                       },
+    "new_ports_recheck":  {
+                              "checked_utc":  "2026-10-01T08:58:46.1151403Z",
+                              "radio_mapping":  {
+                                                    "rx_current_increase_uA":  2570.834789251875,
+                                                    "method":  "Each UART enables RX separately; only its supplying PPK current rises. No RF transmissions requested.",
+                                                    "rx_radio_port":  "COM14",
+                                                    "tx_radio_port":  "COM16",
+                                                    "tx_ppk_port":  "COM10",
+                                                    "new_silicon_id_readout":  false,
+                                                    "tx_current_increase_uA":  2570.5625254199485,
+                                                    "rx_ppk_port":  "COM11"
+                                                },
+                              "checks":  [
+                                             {
+                                                 "port":  "COM14",
+                                                 "passed":  false,
+                                                 "completed_preflights":  6,
+                                                 "evidence":  "preflight-win32-COM14-fast-115533.json",
+                                                 "sha256":  "f421a495aa26032d961e2ef2679c3d01a78ff421a80064c7e509d7dc943cc79d",
+                                                 "failure_native_error":  31
+                                             },
+                                             {
+                                                 "port":  "COM16",
+                                                 "passed":  true,
+                                                 "completed_preflights":  60,
+                                                 "evidence":  "preflight-win32-COM16-fast-115535.json",
+                                                 "sha256":  "daf4d932fadddc50823e6677fd08fa30177b7981e271ea659ee9504eceef006a",
+                                                 "failure_native_error":  null
+                                             },
+                                             {
+                                                 "port":  "COM14",
+                                                 "passed":  false,
+                                                 "completed_preflights":  37,
+                                                 "evidence":  "preflight-win32-COM14-fast-115640.json",
+                                                 "sha256":  "b59d547c013c224220320e8b6e74e6faa3ee6c20ca0e7fe3c2265e672ddf14c6",
+                                                 "failure_native_error":  31
+                                             }
+                                         ],
+                              "mapping_evidence":  "e79-ppk-mapping-115751.json",
+                              "mapping_sha256":  "2bdcaf1b55370bdecee2afb54a3994baa1e4c830329e9afb3c85422aef7b8927",
+                              "accepted_campaign_pairs":  15,
+                              "new_campaign_captures":  0,
+                              "status":  "Receiver USB on COM14 remains unreliable; campaign not resumed"
+                          },
+    "new_usb_ports_check":  {
+                                "created_utc":  "2026-10-01T09:05:47.0009029Z",
+                                "mapping_evidence":  ".tmp/e79_radio_markers_20261001/e79-ppk-mapping-115751.json",
+                                "tx_radio_port":  "COM16",
+                                "rx_radio_port":  "COM14",
+                                "tx_ppk_port":  "COM10",
+                                "rx_ppk_port":  "COM11",
+                                "checks":  [
+                                               {
+                                                   "path":  ".tmp\\e79_radio_markers_20261001\\preflight-win32-COM14-fast-120112.json",
+                                                   "sha256":  "879bc70f4193b234bc9bdd1d3e922aa8f7bfd8b11fc4d04487cb617a3844119d",
+                                                   "port":  "COM14",
+                                                   "completed_preflights":  60,
+                                                   "passed":  true,
+                                                   "error":  null,
+                                                   "last_write_completed":  true,
+                                                   "last_write_native_error":  0,
+                                                   "last_write_transferred_bytes":  9
+                                               },
+                                               {
+                                                   "path":  ".tmp\\e79_radio_markers_20261001\\preflight-win32-COM16-fast-120233.json",
+                                                   "sha256":  "5c78fbe017f7127b0e17671f830bd3348eb3312a1f8c29ca98509f1e70053b55",
+                                                   "port":  "COM16",
+                                                   "completed_preflights":  6,
+                                                   "passed":  false,
+                                                   "error":  "SerialTimeoutException: Write timeout",
+                                                   "last_write_completed":  false,
+                                                   "last_write_native_error":  31,
+                                                   "last_write_transferred_bytes":  0
+                                               }
+                                           ],
+                                "new_campaign_captures":  0,
+                                "pending_action":  "Return only TX UART USB to its former working port; RX COM14 passed 60 checks."
+                            }
+}

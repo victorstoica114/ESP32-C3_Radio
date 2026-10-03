@@ -1,0 +1,7469 @@
+{
+  "kind": "diagnostic_only",
+  "accepted_energy_points": 0,
+  "candidate": null,
+  "argv": [
+    ".tmp/cc1101_v2_retry_capture_worker.py",
+    "--output",
+    "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition_retry",
+    "--voltage-provenance",
+    "Operator_confirmed_external_3.3V_unchanged_supply",
+    "--max-attempts",
+    "2"
+  ],
+  "created_utc": "2026-10-02T13:46:08Z",
+  "ports": {
+    "ppk": {
+      "tx": [
+        "COM10",
+        "E753C4E81F3D"
+      ],
+      "rx": [
+        "COM11",
+        "CD2D332DB09A"
+      ]
+    },
+    "radio": {
+      "rx": "COM31",
+      "tx": "COM32"
+    }
+  },
+  "sample_rate_hz": 100000,
+  "voltage_mv_for_decoder": 3300,
+  "mode": "ampere",
+  "voltage_provenance": "Operator_confirmed_external_3.3V_unchanged_supply",
+  "mapping_provenance": "Physical RX ON/OFF mapping in preparation.json sha256=7f0e1b4ca4aa5cadb0b55b541e636dbc0bfc4954854ce5df59eb4f426c71d2af unchanged; both ESP32 reset and application banners verified in esp_restart_04.json; target restored and UART closed after RF controls",
+  "settings": {
+    "profile_id": "RADIO_CC1101_V2_868",
+    "rate_kbps": 250.0,
+    "bit_rate_kbps": 250.0,
+    "chip_drive_dbm": 10,
+    "tx_power_dbm": 10,
+    "frequency_mhz": 868.0,
+    "modulation": "2FSK",
+    "shaping": "NONE",
+    "encoding": "NRZ",
+    "deviation_khz": 127.0,
+    "bandwidth_khz": 541.67,
+    "preamble_bits": 128,
+    "sync_word": "D391",
+    "sync_error_bits": 1,
+    "crc": true,
+    "payload_bytes": 32,
+    "content_bytes": 30,
+    "line_overhead_bytes": 2,
+    "tx_success_lines": [
+      "[TX] 32 bytes, state: 0",
+      "[TX] 32 bytes"
+    ],
+    "expected_chip_version": 20,
+    "pre_s": 0.2,
+    "after_trigger_s": 0.5,
+    "minimum_tx_gap_s": 1.2,
+    "max_attempts": 2
+  },
+  "script_sha256": "f13af75db7dcf48abbaec1397ae49a458d6153f60542b22962e034c423803c49",
+  "commands": [
+    {
+      "port": "COM31",
+      "command": "AT+RESET",
+      "lines": [
+        "[RADIO] Resetting... OK",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075863967104300,
+              "hex": "5b524144494f5d20526573657474696e672e2e2e20"
+            }
+          ]
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [
+              "[RADIO] Resetting... OK",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075864241498900,
+              "hex": "4f4b0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+DEFAULT",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075864469437000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+DEBUG=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075864491173600,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+BRIDGE=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075864523570300,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+CS=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075864733904300,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+FREQ=868.0",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075864917776300,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+MOD=2FSK",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075865113746200,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+SHAPE=NONE",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075865293362300,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PRE=128",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075865488499300,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+SYNC=D391",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075865666173600,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+SYNCERR=1",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075865857824100,
+              "hex": "4f4b"
+            },
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075865862413000,
+              "hex": "0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+CRC=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075866043086300,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+ENC=NRZ",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075866231924500,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PKT=VARIABLE,64",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075866418823100,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+ADDR=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075866610025700,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PROMISC=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075866794995700,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+BR=250",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075866985602400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+DEV=127",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075867170576600,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+BW=541.67",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075867360044400,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PWR=10",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075867546575300,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+RESET",
+      "lines": [
+        "[RADIO] Resetting... OK",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075867554379700,
+              "hex": "5b524144494f5d20526573657474696e672e2e2e20"
+            }
+          ]
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "[RADIO] Resetting... OK",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075867830095400,
+              "hex": "4f4b0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+DEFAULT",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075868012335100,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+DEBUG=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075868022706900,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+BRIDGE=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075868053821200,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+CS=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075868261998700,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+FREQ=868.0",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075868450997900,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+MOD=2FSK",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075868638113500,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+SHAPE=NONE",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075868827419800,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PRE=128",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075869033195100,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+SYNC=D391",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075869228441300,
+              "hex": "4f4b"
+            },
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075869230013600,
+              "hex": "0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+SYNCERR=1",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075869422147700,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+CRC=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075869605700200,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+ENC=NRZ",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075869793169800,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PKT=VARIABLE,64",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075869981781700,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+ADDR=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075870170785000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PROMISC=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075870357872000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+BR=250",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075870549296500,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+DEV=127",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075870734461000,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+BW=541.67",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075870923173300,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PWR=10",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": []
+          },
+          "raw": []
+        },
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075871105691900,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+DEBUG=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075871117103800,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+RX=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075871148231100,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+DEBUG=OFF",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871179032700,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+RX=ON",
+      "lines": [
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871210606500,
+              "hex": "4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+CFG?",
+      "lines": [
+        "====== CC1101 868 MHz CONFIGURATION ======",
+        "Module:       CC1101 868 MHz",
+        "Module max TX:10 dBm nominal",
+        "Frequency:    868.00 MHz",
+        "Bit Rate:     250.0 kbps",
+        "Freq Dev:     127.0 kHz",
+        "RX Bandwidth: 541.67 kHz",
+        "TX Power:     10 dBm",
+        "Preamble:     128 bits",
+        "Sync Word:    0xD391",
+        "CRC:          Enabled",
+        "Modulation:   2FSK",
+        "Data shaping: NONE",
+        "Encoding:     NRZ",
+        "Packet mode:  VARIABLE",
+        "Packet len:   64",
+        "Address filt: OFF",
+        "Node addr:    0x01",
+        "Broadcasts:   1",
+        "Promiscuous:  OFF",
+        "Carrier sense:OFF",
+        "Sync err bits:1",
+        "Sleep:        NO",
+        "==================================",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "====== CC1101 868 MHz CONFIGURATION ======",
+              "Module:       CC1101 868 MHz",
+              "Module max TX:10 dBm nominal",
+              "Frequency:    868.00 MHz",
+              "Bit Rate:     250.0 kbps",
+              "Freq Dev:     127.0 kHz",
+              "RX Bandwidth: 541.67 kHz",
+              "TX Power:     10 dBm",
+              "Preamble:     128 bits",
+              "Sync Word:    0xD391",
+              "CRC:          Enabled",
+              "Modulation:   2FSK",
+              "Data shaping: NONE",
+              "Encoding:     NRZ",
+              "Packet mode:  VARIABLE",
+              "Packet len:   64",
+              "Address filt: OFF",
+              "Node addr:    0x01",
+              "Broadcasts:   1",
+              "Promiscuous:  OFF",
+              "Carrier sense:OFF",
+              "Sync err bits:1",
+              "Sleep:        NO",
+              "==================================",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871242213100,
+              "hex": "3d3d3d3d3d3d2043433131303120383638204d487a20434f4e46494755524154494f4e203d3d3d3d3d3d0d0a4d6f64756c653a2020202020202043433131303120383638204d487a0d0a4d6f64756c65206d61782054583a31302064426d206e6f6d696e616c0d0a4672657175656e63793a202020203836382e3030204d487a0d0a42697420526174653a20202020203235302e30206b6270730d0a46726571204465763a20202020203132372e30206b487a0d0a52582042616e6477696474683a203534312e3637206b487a0d0a545820506f7765723a202020202031302064426d0d0a507265616d626c653a202020202031323820626974730d0a53796e6320576f72643a202020203078443339310d0a4352433a20202020202020202020456e61626c65640d0a4d6f64756c6174696f6e3a2020203246534b0d0a446174612073686170696e673a204e4f4e450d0a456e636f64696e673a20202020204e525a0d0a5061636b6574206d6f64653a20205641524941424c450d0a5061636b6574206c656e3a20202036340d0a416464726573732066696c743a204f46460d0a4e6f646520616464723a20202020307830310d0a42726f616463617374733a202020310d0a50726f6d697363756f75733a20204f4646"
+            },
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871243912300,
+              "hex": "0d0a436172726965722073656e73653a4f46460d0a53796e632065727220626974733a310d0a536c6565703a20202020202020204e4f0d0a3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+CFG?",
+      "lines": [
+        "====== CC1101 868 MHz CONFIGURATION ======",
+        "Module:       CC1101 868 MHz",
+        "Module max TX:10 dBm nominal",
+        "Frequency:    868.00 MHz",
+        "Bit Rate:     250.0 kbps",
+        "Freq Dev:     127.0 kHz",
+        "RX Bandwidth: 541.67 kHz",
+        "TX Power:     10 dBm",
+        "Preamble:     128 bits",
+        "Sync Word:    0xD391",
+        "CRC:          Enabled",
+        "Modulation:   2FSK",
+        "Data shaping: NONE",
+        "Encoding:     NRZ",
+        "Packet mode:  VARIABLE",
+        "Packet len:   64",
+        "Address filt: OFF",
+        "Node addr:    0x01",
+        "Broadcasts:   1",
+        "Promiscuous:  OFF",
+        "Carrier sense:OFF",
+        "Sync err bits:1",
+        "Sleep:        NO",
+        "==================================",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "====== CC1101 868 MHz CONFIGURATION ======",
+              "Module:       CC1101 868 MHz",
+              "Module max TX:10 dBm nominal",
+              "Frequency:    868.00 MHz",
+              "Bit Rate:     250.0 kbps",
+              "Freq Dev:     127.0 kHz",
+              "RX Bandwidth: 541.67 kHz",
+              "TX Power:     10 dBm",
+              "Preamble:     128 bits",
+              "Sync Word:    0xD391",
+              "CRC:          Enabled",
+              "Modulation:   2FSK",
+              "Data shaping: NONE",
+              "Encoding:     NRZ",
+              "Packet mode:  VARIABLE",
+              "Packet len:   64",
+              "Address filt: OFF",
+              "Node addr:    0x01",
+              "Broadcasts:   1",
+              "Promiscuous:  OFF",
+              "Carrier sense:OFF",
+              "Sync err bits:1",
+              "Sleep:        NO",
+              "==================================",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075871272635200,
+              "hex": "3d3d3d3d3d3d2043433131303120383638204d487a20434f4e46494755524154494f4e203d3d3d3d3d3d0d0a4d6f64756c653a2020202020202043433131303120383638204d487a0d0a4d6f64756c65206d61782054583a31302064426d206e6f6d696e616c0d0a4672657175656e63793a202020203836382e3030204d487a0d0a42697420526174653a20202020203235302e30206b6270730d0a46726571204465763a20202020203132372e30206b487a0d0a52582042616e6477696474683a203534312e3637206b487a0d0a545820506f7765723a202020202031302064426d0d0a507265616d626c653a202020202031323820626974730d0a53796e6320576f72643a202020203078443339310d0a4352433a20202020202020202020456e61626c65640d0a4d6f64756c6174696f6e3a2020203246534b0d0a446174612073686170696e673a204e4f4e450d0a456e636f64696e673a20202020204e525a0d0a5061636b6574206d6f64653a20205641524941424c450d0a5061636b6574206c656e3a20202036340d0a416464726573732066696c743a204f46460d0a4e6f646520616464723a2020202030783031"
+            },
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075871274240900,
+              "hex": "0d0a42726f616463617374733a202020310d0a50726f6d697363756f75733a20204f46460d0a436172726965722073656e73653a4f46460d0a53796e632065727220626974733a310d0a536c6565703a20202020202020204e4f0d0a3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+CFG?",
+      "lines": [
+        "====== CC1101 868 MHz CONFIGURATION ======",
+        "Module:       CC1101 868 MHz",
+        "Module max TX:10 dBm nominal",
+        "Frequency:    868.00 MHz",
+        "Bit Rate:     250.0 kbps",
+        "Freq Dev:     127.0 kHz",
+        "RX Bandwidth: 541.67 kHz",
+        "TX Power:     10 dBm",
+        "Preamble:     128 bits",
+        "Sync Word:    0xD391",
+        "CRC:          Enabled",
+        "Modulation:   2FSK",
+        "Data shaping: NONE",
+        "Encoding:     NRZ",
+        "Packet mode:  VARIABLE",
+        "Packet len:   64",
+        "Address filt: OFF",
+        "Node addr:    0x01",
+        "Broadcasts:   1",
+        "Promiscuous:  OFF",
+        "Carrier sense:OFF",
+        "Sync err bits:1",
+        "Sleep:        NO",
+        "==================================",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "====== CC1101 868 MHz CONFIGURATION ======",
+              "Module:       CC1101 868 MHz",
+              "Module max TX:10 dBm nominal",
+              "Frequency:    868.00 MHz",
+              "Bit Rate:     250.0 kbps",
+              "Freq Dev:     127.0 kHz",
+              "RX Bandwidth: 541.67 kHz",
+              "TX Power:     10 dBm",
+              "Preamble:     128 bits",
+              "Sync Word:    0xD391",
+              "CRC:          Enabled",
+              "Modulation:   2FSK",
+              "Data shaping: NONE",
+              "Encoding:     NRZ",
+              "Packet mode:  VARIABLE",
+              "Packet len:   64",
+              "Address filt: OFF",
+              "Node addr:    0x01",
+              "Broadcasts:   1",
+              "Promiscuous:  OFF",
+              "Carrier sense:OFF",
+              "Sync err bits:1",
+              "Sleep:        NO",
+              "==================================",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871316225400,
+              "hex": "3d3d3d3d3d3d2043433131303120383638204d487a20434f4e46494755524154494f4e203d3d3d3d3d3d0d0a4d6f64756c653a2020202020202043433131303120383638204d487a0d0a4d6f64756c65206d61782054583a31302064426d206e6f6d696e616c0d0a4672657175656e63793a202020203836382e3030204d487a0d0a42697420526174653a20202020203235302e30206b6270730d0a46726571204465763a20202020203132372e30206b487a0d0a52582042616e6477696474683a203534312e3637206b487a0d0a545820506f7765723a202020202031302064426d0d0a507265616d626c653a202020202031323820626974730d0a53796e6320576f72643a202020203078443339310d0a4352433a20202020202020202020456e61626c65640d0a4d6f64756c6174696f6e3a2020203246534b0d0a446174612073686170696e673a204e4f4e450d0a456e636f64696e673a20202020204e525a0d0a5061636b6574206d6f64653a20205641524941424c450d0a5061636b6574206c656e3a20202036340d0a416464726573732066696c743a204f46460d0a4e6f646520616464723a20202020307830310d0a42726f616463617374733a202020310d0a50726f6d697363756f75733a20204f46460d0a436172726965722073656e73653a4f46460d0a53796e632065727220626974733a310d0a536c6565703a20202020202020204e4f0d0a3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+FREQ?",
+      "lines": [
+        "FREQ=868.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "FREQ=868.000",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871336308600,
+              "hex": "465245513d3836382e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+BR?",
+      "lines": [
+        "BR=250.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "BR=250.000",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871367804000,
+              "hex": "42523d3235302e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+DEV?",
+      "lines": [
+        "DEV=127.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "DEV=127.000",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871402889500,
+              "hex": "4445563d3132372e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+BW?",
+      "lines": [
+        "BW=541.67",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "BW=541.67",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871431443100,
+              "hex": "42573d3534312e36370d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PWR?",
+      "lines": [
+        "PWR=10",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "PWR=10",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871463220000,
+              "hex": "5057523d31300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PRE?",
+      "lines": [
+        "PRE=128",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "PRE=128",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871494506100,
+              "hex": "5052453d3132380d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+SYNCERR?",
+      "lines": [
+        "SYNCERR=1",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "SYNCERR=1",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871523580100,
+              "hex": "53594e434552523d310d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+SYNC?",
+      "lines": [
+        "SYNC=0xD391",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "SYNC=0xD391",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871556375900,
+              "hex": "53594e433d3078443339310d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+CRC?",
+      "lines": [
+        "CRC=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "CRC=ON",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871585891900,
+              "hex": "4352433d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+MOD?",
+      "lines": [
+        "MOD=2FSK",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "MOD=2FSK",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871616174100,
+              "hex": "4d4f443d3246534b0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+SHAPE?",
+      "lines": [
+        "SHAPE=NONE",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "SHAPE=NONE",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871649614900,
+              "hex": "53484150453d4e4f4e450d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+ENC?",
+      "lines": [
+        "ENC=NRZ",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "ENC=NRZ",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871679496800,
+              "hex": "454e433d4e525a0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PKT?",
+      "lines": [
+        "PKT=VARIABLE,64",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "PKT=VARIABLE,64",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871711318100,
+              "hex": "504b543d5641524941424c452c36340d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+ADDR?",
+      "lines": [
+        "ADDR=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "ADDR=OFF",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871743176600,
+              "hex": "414444523d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PROMISC?",
+      "lines": [
+        "PROMISC=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "PROMISC=OFF",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871773594100,
+              "hex": "50524f4d4953433d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+CS?",
+      "lines": [
+        "CS=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "CS=OFF",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871805503700,
+              "hex": "43533d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+BRIDGE?",
+      "lines": [
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "BRIDGE=ON",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871838269800,
+              "hex": "4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+DEBUG?",
+      "lines": [
+        "DEBUG=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "DEBUG=OFF",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871872684200,
+              "hex": "44454255473d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+STATUS?",
+      "lines": [
+        "CHIP_VERSION=0x14",
+        "RSSI=-66.00",
+        "LQI=25",
+        "MODE=2FSK",
+        "RX=ON",
+        "SLEEP=NO",
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "CHIP_VERSION=0x14",
+              "RSSI=-66.00",
+              "LQI=25",
+              "MODE=2FSK",
+              "RX=ON",
+              "SLEEP=NO",
+              "BRIDGE=ON",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075871903637200,
+              "hex": "434849505f56455253494f4e3d307831340d0a525353493d2d36362e30300d0a4c51493d32350d0a4d4f44453d3246534b0d0a52583d4f4e0d0a534c4545503d4e4f0d0a4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+CFG?",
+      "lines": [
+        "====== CC1101 868 MHz CONFIGURATION ======",
+        "Module:       CC1101 868 MHz",
+        "Module max TX:10 dBm nominal",
+        "Frequency:    868.00 MHz",
+        "Bit Rate:     250.0 kbps",
+        "Freq Dev:     127.0 kHz",
+        "RX Bandwidth: 541.67 kHz",
+        "TX Power:     10 dBm",
+        "Preamble:     128 bits",
+        "Sync Word:    0xD391",
+        "CRC:          Enabled",
+        "Modulation:   2FSK",
+        "Data shaping: NONE",
+        "Encoding:     NRZ",
+        "Packet mode:  VARIABLE",
+        "Packet len:   64",
+        "Address filt: OFF",
+        "Node addr:    0x01",
+        "Broadcasts:   1",
+        "Promiscuous:  OFF",
+        "Carrier sense:OFF",
+        "Sync err bits:1",
+        "Sleep:        NO",
+        "==================================",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "====== CC1101 868 MHz CONFIGURATION ======",
+              "Module:       CC1101 868 MHz",
+              "Module max TX:10 dBm nominal",
+              "Frequency:    868.00 MHz",
+              "Bit Rate:     250.0 kbps",
+              "Freq Dev:     127.0 kHz",
+              "RX Bandwidth: 541.67 kHz",
+              "TX Power:     10 dBm",
+              "Preamble:     128 bits",
+              "Sync Word:    0xD391",
+              "CRC:          Enabled",
+              "Modulation:   2FSK",
+              "Data shaping: NONE",
+              "Encoding:     NRZ",
+              "Packet mode:  VARIABLE",
+              "Packet len:   64",
+              "Address filt: OFF",
+              "Node addr:    0x01",
+              "Broadcasts:   1",
+              "Promiscuous:  OFF",
+              "Carrier sense:OFF",
+              "Sync err bits:1",
+              "Sleep:        NO",
+              "==================================",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075871932772600,
+              "hex": "3d3d3d3d3d3d2043433131303120383638204d487a20434f4e46494755524154494f4e203d3d3d3d3d3d0d0a4d6f64756c653a2020202020202043433131303120383638204d487a0d0a4d6f64756c65206d61782054583a31302064426d206e6f6d696e616c0d0a4672657175656e63793a202020203836382e3030204d487a0d0a42697420526174653a20202020203235302e30206b6270730d0a46726571204465763a20202020203132372e30206b487a0d0a52582042616e6477696474683a203534312e3637206b487a0d0a545820506f7765723a202020202031302064426d0d0a507265616d626c653a202020202031323820626974730d0a53796e6320576f72643a202020203078443339310d0a4352433a20202020202020202020456e61626c65640d0a4d6f64756c6174696f6e3a2020203246534b0d0a446174612073686170696e673a204e4f4e450d0a456e636f64696e673a20202020204e525a0d0a5061636b6574206d6f64653a20205641524941424c450d0a5061636b6574206c656e3a20202036340d0a416464726573732066696c743a204f46460d0a4e6f646520616464723a20202020307830310d0a42726f616463617374733a202020310d0a50726f6d697363756f75733a20204f46460d0a436172726965722073656e73653a4f46460d0a53796e632065727220626974733a310d0a536c6565703a20202020202020204e4f0d0a3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+FREQ?",
+      "lines": [
+        "FREQ=868.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "FREQ=868.000",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075871963591800,
+              "hex": "465245513d3836382e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+BR?",
+      "lines": [
+        "BR=250.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "BR=250.000",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075871995159700,
+              "hex": "42523d3235302e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+DEV?",
+      "lines": [
+        "DEV=127.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "DEV=127.000",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075872022317400,
+              "hex": "4445563d"
+            },
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075872026675100,
+              "hex": "3132372e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+BW?",
+      "lines": [
+        "BW=541.67",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "BW=541.67",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075872063470300,
+              "hex": "42573d3534312e36370d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PWR?",
+      "lines": [
+        "PWR=10",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "PWR=10",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075872095713800,
+              "hex": "5057523d31300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PRE?",
+      "lines": [
+        "PRE=128",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "PRE=128",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075872121945900,
+              "hex": "5052453d3132380d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+SYNCERR?",
+      "lines": [
+        "SYNCERR=1",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "SYNCERR=1",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075872153959000,
+              "hex": "53594e434552523d310d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+SYNC?",
+      "lines": [
+        "SYNC=0xD391",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "SYNC=0xD391",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075872182868400,
+              "hex": "53594e433d3078443339310d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+CRC?",
+      "lines": [
+        "CRC=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "CRC=ON",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075872211288500,
+              "hex": "4352433d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+MOD?",
+      "lines": [
+        "MOD=2FSK",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "MOD=2FSK",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075872247198700,
+              "hex": "4d4f443d3246534b0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+SHAPE?",
+      "lines": [
+        "SHAPE=NONE",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "SHAPE=NONE",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075872276164600,
+              "hex": "53484150453d4e4f4e450d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+ENC?",
+      "lines": [
+        "ENC=NRZ",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "ENC=NRZ",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075872308592300,
+              "hex": "454e433d4e525a0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PKT?",
+      "lines": [
+        "PKT=VARIABLE,64",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "PKT=VARIABLE,64",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075872339661600,
+              "hex": "504b543d5641524941424c452c36340d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+ADDR?",
+      "lines": [
+        "ADDR=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "ADDR=OFF",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075872370015500,
+              "hex": "414444523d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PROMISC?",
+      "lines": [
+        "PROMISC=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "PROMISC=OFF",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075872403667400,
+              "hex": "50524f4d4953433d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+CS?",
+      "lines": [
+        "CS=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "CS=OFF",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075872434816900,
+              "hex": "43533d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+BRIDGE?",
+      "lines": [
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "BRIDGE=ON",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075872460154200,
+              "hex": "4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+DEBUG?",
+      "lines": [
+        "DEBUG=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "DEBUG=ON",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075872495769800,
+              "hex": "44454255473d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+STATUS?",
+      "lines": [
+        "CHIP_VERSION=0x14",
+        "RSSI=-74.00",
+        "LQI=0",
+        "MODE=2FSK",
+        "RX=OFF",
+        "SLEEP=NO",
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "CHIP_VERSION=0x14",
+              "RSSI=-74.00",
+              "LQI=0",
+              "MODE=2FSK",
+              "RX=OFF",
+              "SLEEP=NO",
+              "BRIDGE=ON",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075872523159400,
+              "hex": "434849505f56455253494f4e3d307831340d0a525353493d2d37342e30300d0a4c51493d300d0a4d4f44453d3246534b0d0a52583d4f46460d0a534c4545503d4e4f0d0a4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+CFG?",
+      "lines": [
+        "====== CC1101 868 MHz CONFIGURATION ======",
+        "Module:       CC1101 868 MHz",
+        "Module max TX:10 dBm nominal",
+        "Frequency:    868.00 MHz",
+        "Bit Rate:     250.0 kbps",
+        "Freq Dev:     127.0 kHz",
+        "RX Bandwidth: 541.67 kHz",
+        "TX Power:     10 dBm",
+        "Preamble:     128 bits",
+        "Sync Word:    0xD391",
+        "CRC:          Enabled",
+        "Modulation:   2FSK",
+        "Data shaping: NONE",
+        "Encoding:     NRZ",
+        "Packet mode:  VARIABLE",
+        "Packet len:   64",
+        "Address filt: OFF",
+        "Node addr:    0x01",
+        "Broadcasts:   1",
+        "Promiscuous:  OFF",
+        "Carrier sense:OFF",
+        "Sync err bits:1",
+        "Sleep:        NO",
+        "==================================",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "====== CC1101 868 MHz CONFIGURATION ======",
+              "Module:       CC1101 868 MHz",
+              "Module max TX:10 dBm nominal",
+              "Frequency:    868.00 MHz",
+              "Bit Rate:     250.0 kbps",
+              "Freq Dev:     127.0 kHz",
+              "RX Bandwidth: 541.67 kHz",
+              "TX Power:     10 dBm",
+              "Preamble:     128 bits",
+              "Sync Word:    0xD391",
+              "CRC:          Enabled",
+              "Modulation:   2FSK",
+              "Data shaping: NONE",
+              "Encoding:     NRZ",
+              "Packet mode:  VARIABLE",
+              "Packet len:   64",
+              "Address filt: OFF",
+              "Node addr:    0x01",
+              "Broadcasts:   1",
+              "Promiscuous:  OFF",
+              "Carrier sense:OFF",
+              "Sync err bits:1",
+              "Sleep:        NO",
+              "==================================",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075884419606200,
+              "hex": "3d3d3d3d3d3d2043433131303120383638204d487a20434f4e46494755524154494f4e203d3d3d3d3d3d0d0a4d6f64756c653a2020202020202043433131303120383638204d487a0d0a4d6f64756c65206d61782054583a31302064426d206e6f6d696e616c0d0a4672657175656e63793a202020203836382e3030204d487a0d0a42697420526174653a20202020203235302e30206b6270730d0a46726571204465763a20202020203132372e30206b487a0d0a52582042616e6477696474683a203534312e3637206b487a0d0a545820506f7765723a202020202031302064426d0d0a507265616d626c653a202020202031323820626974730d0a53796e6320576f72643a202020203078443339310d0a4352433a20202020202020202020456e61626c65640d0a4d6f64756c6174696f6e3a2020203246534b0d0a446174612073686170696e673a204e4f4e450d0a456e63"
+            },
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075884421263700,
+              "hex": "6f64696e673a20202020204e525a0d0a5061636b6574206d6f64653a20205641524941424c450d0a5061636b6574206c656e3a20202036340d0a416464726573732066696c743a204f46460d0a4e6f646520616464723a20202020307830310d0a42726f616463617374733a202020310d0a50726f6d697363756f75733a20204f46460d0a436172726965722073656e73653a4f46460d0a53796e632065727220626974733a310d0a536c6565703a20202020202020204e4f0d0a3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+FREQ?",
+      "lines": [
+        "FREQ=868.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "FREQ=868.000",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075884448164500,
+              "hex": "465245513d3836382e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+BR?",
+      "lines": [
+        "BR=250.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "BR=250.000",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075884477556800,
+              "hex": "42523d3235302e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+DEV?",
+      "lines": [
+        "DEV=127.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "DEV=127.000",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075884506773800,
+              "hex": "4445563d3132372e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+BW?",
+      "lines": [
+        "BW=541.67",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "BW=541.67",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075884539585900,
+              "hex": "42573d3534312e36370d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PWR?",
+      "lines": [
+        "PWR=10",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "PWR=10",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075884573091500,
+              "hex": "5057523d31300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PRE?",
+      "lines": [
+        "PRE=128",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "PRE=128",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075884601993400,
+              "hex": "5052453d3132380d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+SYNCERR?",
+      "lines": [
+        "SYNCERR=1",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "SYNCERR=1",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075884638397700,
+              "hex": "53594e434552523d310d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+SYNC?",
+      "lines": [
+        "SYNC=0xD391",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "SYNC=0xD391",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075884670181200,
+              "hex": "53594e433d3078443339310d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+CRC?",
+      "lines": [
+        "CRC=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "CRC=ON",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075884695382500,
+              "hex": "4352433d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+MOD?",
+      "lines": [
+        "MOD=2FSK",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "MOD=2FSK",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075884732311700,
+              "hex": "4d4f443d3246534b0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+SHAPE?",
+      "lines": [
+        "SHAPE=NONE",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "SHAPE=NONE",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075884757703800,
+              "hex": "53484150453d4e4f4e450d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+ENC?",
+      "lines": [
+        "ENC=NRZ",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "ENC=NRZ",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075884788651200,
+              "hex": "454e433d4e525a0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PKT?",
+      "lines": [
+        "PKT=VARIABLE,64",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "PKT=VARIABLE,64",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075884820010700,
+              "hex": "504b543d5641524941424c452c36340d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+ADDR?",
+      "lines": [
+        "ADDR=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "ADDR=OFF",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075884851252700,
+              "hex": "414444523d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PROMISC?",
+      "lines": [
+        "PROMISC=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "PROMISC=OFF",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075884886919500,
+              "hex": "50524f4d4953433d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+CS?",
+      "lines": [
+        "CS=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "CS=OFF",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075884914408800,
+              "hex": "43533d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+BRIDGE?",
+      "lines": [
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "BRIDGE=ON",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075884946010300,
+              "hex": "4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+DEBUG?",
+      "lines": [
+        "DEBUG=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "DEBUG=OFF",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075884975892100,
+              "hex": "44454255473d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+STATUS?",
+      "lines": [
+        "CHIP_VERSION=0x14",
+        "RSSI=-66.50",
+        "LQI=21",
+        "MODE=2FSK",
+        "RX=ON",
+        "SLEEP=NO",
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "CHIP_VERSION=0x14",
+              "RSSI=-66.50",
+              "LQI=21",
+              "MODE=2FSK",
+              "RX=ON",
+              "SLEEP=NO",
+              "BRIDGE=ON",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075885008118500,
+              "hex": "434849505f56455253494f4e3d307831340d0a525353493d2d36362e35300d0a4c51493d32310d0a4d4f44453d3246534b0d0a52583d4f4e0d0a534c4545503d4e4f0d0a4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+CFG?",
+      "lines": [
+        "====== CC1101 868 MHz CONFIGURATION ======",
+        "Module:       CC1101 868 MHz",
+        "Module max TX:10 dBm nominal",
+        "Frequency:    868.00 MHz",
+        "Bit Rate:     250.0 kbps",
+        "Freq Dev:     127.0 kHz",
+        "RX Bandwidth: 541.67 kHz",
+        "TX Power:     10 dBm",
+        "Preamble:     128 bits",
+        "Sync Word:    0xD391",
+        "CRC:          Enabled",
+        "Modulation:   2FSK",
+        "Data shaping: NONE",
+        "Encoding:     NRZ",
+        "Packet mode:  VARIABLE",
+        "Packet len:   64",
+        "Address filt: OFF",
+        "Node addr:    0x01",
+        "Broadcasts:   1",
+        "Promiscuous:  OFF",
+        "Carrier sense:OFF",
+        "Sync err bits:1",
+        "Sleep:        NO",
+        "==================================",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "====== CC1101 868 MHz CONFIGURATION ======",
+              "Module:       CC1101 868 MHz",
+              "Module max TX:10 dBm nominal",
+              "Frequency:    868.00 MHz",
+              "Bit Rate:     250.0 kbps",
+              "Freq Dev:     127.0 kHz",
+              "RX Bandwidth: 541.67 kHz",
+              "TX Power:     10 dBm",
+              "Preamble:     128 bits",
+              "Sync Word:    0xD391",
+              "CRC:          Enabled",
+              "Modulation:   2FSK",
+              "Data shaping: NONE",
+              "Encoding:     NRZ",
+              "Packet mode:  VARIABLE",
+              "Packet len:   64",
+              "Address filt: OFF",
+              "Node addr:    0x01",
+              "Broadcasts:   1",
+              "Promiscuous:  OFF",
+              "Carrier sense:OFF",
+              "Sync err bits:1",
+              "Sleep:        NO",
+              "==================================",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885038727100,
+              "hex": "3d3d3d3d3d3d2043433131303120383638204d487a20434f4e46494755524154494f4e203d3d3d3d3d3d0d0a4d6f64756c653a2020202020202043433131303120383638204d487a0d0a4d6f64756c65206d61782054583a31302064426d206e6f6d696e616c0d0a4672657175656e63793a202020203836382e3030204d487a0d0a42697420526174653a20202020203235302e30206b6270730d0a46726571204465763a20202020203132372e30206b487a0d0a52582042616e6477696474683a203534312e3637206b487a0d0a545820506f7765723a202020202031302064426d0d0a507265616d626c653a202020202031323820626974730d0a53796e6320576f72643a202020203078443339310d0a4352433a20202020202020202020456e61626c65640d0a4d6f64756c6174696f6e3a2020203246534b0d0a446174612073686170696e673a204e4f4e450d0a456e636f64696e673a20202020204e525a0d0a5061636b6574206d6f64653a20205641524941424c450d0a5061636b6574206c656e3a20202036340d0a416464726573732066696c743a204f46460d0a4e6f646520616464723a20202020307830310d0a42726f616463617374733a202020310d0a50726f6d697363756f75733a20204f46460d0a436172726965722073656e73653a4f46460d0a53796e632065727220626974733a310d0a536c6565703a20202020202020204e4f0d0a"
+            },
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885040452500,
+              "hex": "3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+FREQ?",
+      "lines": [
+        "FREQ=868.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "FREQ=868.000",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885069126500,
+              "hex": "465245513d3836382e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+BR?",
+      "lines": [
+        "BR=250.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "BR=250.000",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885100927700,
+              "hex": "42523d3235302e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+DEV?",
+      "lines": [
+        "DEV=127.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "DEV=127.000",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885131322300,
+              "hex": "4445563d"
+            },
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885132704700,
+              "hex": "3132372e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+BW?",
+      "lines": [
+        "BW=541.67",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "BW=541.67",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885163764600,
+              "hex": "42573d3534312e36370d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PWR?",
+      "lines": [
+        "PWR=10",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "PWR=10",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885194540200,
+              "hex": "5057523d31300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PRE?",
+      "lines": [
+        "PRE=128",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "PRE=128",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885226309000,
+              "hex": "5052453d3132380d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+SYNCERR?",
+      "lines": [
+        "SYNCERR=1",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "SYNCERR=1",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885256620100,
+              "hex": "53594e434552523d310d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+SYNC?",
+      "lines": [
+        "SYNC=0xD391",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "SYNC=0xD391",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885288465000,
+              "hex": "53594e433d3078443339310d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+CRC?",
+      "lines": [
+        "CRC=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "CRC=ON",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885320370600,
+              "hex": "4352433d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+MOD?",
+      "lines": [
+        "MOD=2FSK",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "MOD=2FSK",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885351412000,
+              "hex": "4d4f443d3246534b0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+SHAPE?",
+      "lines": [
+        "SHAPE=NONE",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "SHAPE=NONE",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885381514900,
+              "hex": "53484150453d4e4f4e450d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+ENC?",
+      "lines": [
+        "ENC=NRZ",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "ENC=NRZ",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885413821800,
+              "hex": "454e433d4e525a0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PKT?",
+      "lines": [
+        "PKT=VARIABLE,64",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "PKT=VARIABLE,64",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885444777000,
+              "hex": "504b543d5641524941424c452c36340d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+ADDR?",
+      "lines": [
+        "ADDR=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "ADDR=OFF",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885476119900,
+              "hex": "414444523d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PROMISC?",
+      "lines": [
+        "PROMISC=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "PROMISC=OFF",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885506689100,
+              "hex": "50524f4d4953433d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+CS?",
+      "lines": [
+        "CS=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "CS=OFF",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885537763300,
+              "hex": "43533d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+BRIDGE?",
+      "lines": [
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "BRIDGE=ON",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885569935700,
+              "hex": "4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+DEBUG?",
+      "lines": [
+        "DEBUG=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "DEBUG=ON",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885600506800,
+              "hex": "44454255473d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+STATUS?",
+      "lines": [
+        "CHIP_VERSION=0x14",
+        "RSSI=-74.00",
+        "LQI=0",
+        "MODE=2FSK",
+        "RX=OFF",
+        "SLEEP=NO",
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "CHIP_VERSION=0x14",
+              "RSSI=-74.00",
+              "LQI=0",
+              "MODE=2FSK",
+              "RX=OFF",
+              "SLEEP=NO",
+              "BRIDGE=ON",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885631605500,
+              "hex": "434849505f56455253494f4e3d30"
+            },
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075885632781600,
+              "hex": "7831340d0a525353493d2d37342e30300d0a4c51493d300d0a4d4f44453d3246534b0d0a52583d4f46460d0a534c4545503d4e4f0d0a4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+CFG?",
+      "lines": [
+        "====== CC1101 868 MHz CONFIGURATION ======",
+        "Module:       CC1101 868 MHz",
+        "Module max TX:10 dBm nominal",
+        "Frequency:    868.00 MHz",
+        "Bit Rate:     250.0 kbps",
+        "Freq Dev:     127.0 kHz",
+        "RX Bandwidth: 541.67 kHz",
+        "TX Power:     10 dBm",
+        "Preamble:     128 bits",
+        "Sync Word:    0xD391",
+        "CRC:          Enabled",
+        "Modulation:   2FSK",
+        "Data shaping: NONE",
+        "Encoding:     NRZ",
+        "Packet mode:  VARIABLE",
+        "Packet len:   64",
+        "Address filt: OFF",
+        "Node addr:    0x01",
+        "Broadcasts:   1",
+        "Promiscuous:  OFF",
+        "Carrier sense:OFF",
+        "Sync err bits:1",
+        "Sleep:        NO",
+        "==================================",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "====== CC1101 868 MHz CONFIGURATION ======",
+              "Module:       CC1101 868 MHz",
+              "Module max TX:10 dBm nominal",
+              "Frequency:    868.00 MHz",
+              "Bit Rate:     250.0 kbps",
+              "Freq Dev:     127.0 kHz",
+              "RX Bandwidth: 541.67 kHz",
+              "TX Power:     10 dBm",
+              "Preamble:     128 bits",
+              "Sync Word:    0xD391",
+              "CRC:          Enabled",
+              "Modulation:   2FSK",
+              "Data shaping: NONE",
+              "Encoding:     NRZ",
+              "Packet mode:  VARIABLE",
+              "Packet len:   64",
+              "Address filt: OFF",
+              "Node addr:    0x01",
+              "Broadcasts:   1",
+              "Promiscuous:  OFF",
+              "Carrier sense:OFF",
+              "Sync err bits:1",
+              "Sleep:        NO",
+              "==================================",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075885686711000,
+              "hex": "3d3d3d3d3d3d2043433131303120383638204d487a20434f4e46494755524154494f4e203d3d3d3d3d3d0d0a4d6f64756c653a2020202020202043433131303120383638204d487a0d0a4d6f64756c65206d61782054583a31302064426d206e6f6d696e616c0d0a4672657175656e63793a202020203836382e3030204d487a0d0a42697420526174653a20202020203235302e30206b6270730d0a46726571204465763a20202020203132372e30206b487a0d0a52582042616e6477696474683a203534312e3637206b487a0d0a545820506f7765723a202020202031302064426d0d0a507265616d626c653a202020202031323820626974730d0a53796e6320576f72643a202020203078443339310d0a4352433a20202020202020202020456e61626c65640d0a4d6f64756c6174696f6e3a2020203246534b0d0a446174612073686170696e673a204e4f4e450d0a456e636f64696e673a20202020204e525a0d0a5061636b6574206d6f64653a20205641524941424c450d0a5061636b6574206c656e3a20202036340d0a416464726573732066696c743a204f46460d0a4e6f646520616464723a20202020307830310d0a42726f616463617374733a202020310d0a50726f6d697363756f75733a20204f46460d0a436172726965722073656e73653a4f46460d0a53796e632065727220626974733a310d0a536c6565703a20202020202020204e4f0d0a3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+FREQ?",
+      "lines": [
+        "FREQ=868.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "FREQ=868.000",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075885710049400,
+              "hex": "465245513d3836382e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+BR?",
+      "lines": [
+        "BR=250.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "BR=250.000",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075885741752100,
+              "hex": "42523d3235302e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+DEV?",
+      "lines": [
+        "DEV=127.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "DEV=127.000",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075885779732600,
+              "hex": "4445563d3132372e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+BW?",
+      "lines": [
+        "BW=541.67",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "BW=541.67",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075885807816600,
+              "hex": "42573d3534312e36370d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PWR?",
+      "lines": [
+        "PWR=10",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "PWR=10",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075885836646500,
+              "hex": "5057523d31300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PRE?",
+      "lines": [
+        "PRE=128",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "PRE=128",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075885867293000,
+              "hex": "5052453d3132380d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+SYNCERR?",
+      "lines": [
+        "SYNCERR=1",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "SYNCERR=1",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075885900313000,
+              "hex": "53594e434552523d310d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+SYNC?",
+      "lines": [
+        "SYNC=0xD391",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "SYNC=0xD391",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075885931744100,
+              "hex": "53594e433d3078443339310d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+CRC?",
+      "lines": [
+        "CRC=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "CRC=ON",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075885962304100,
+              "hex": "4352433d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+MOD?",
+      "lines": [
+        "MOD=2FSK",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "MOD=2FSK",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075885996918300,
+              "hex": "4d4f443d3246534b0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+SHAPE?",
+      "lines": [
+        "SHAPE=NONE",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "SHAPE=NONE",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075886028092400,
+              "hex": "53484150453d4e4f4e450d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+ENC?",
+      "lines": [
+        "ENC=NRZ",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "ENC=NRZ",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075886058265700,
+              "hex": "454e433d4e525a0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PKT?",
+      "lines": [
+        "PKT=VARIABLE,64",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "PKT=VARIABLE,64",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075886093387900,
+              "hex": "504b543d5641524941424c452c36340d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+ADDR?",
+      "lines": [
+        "ADDR=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "ADDR=OFF",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075886119459200,
+              "hex": "414444523d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PROMISC?",
+      "lines": [
+        "PROMISC=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "PROMISC=OFF",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075886151587600,
+              "hex": "50524f4d4953433d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+CS?",
+      "lines": [
+        "CS=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "CS=OFF",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075886179662900,
+              "hex": "43533d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+BRIDGE?",
+      "lines": [
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "BRIDGE=ON",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075886210103600,
+              "hex": "4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+DEBUG?",
+      "lines": [
+        "DEBUG=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "DEBUG=OFF",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075886244737300,
+              "hex": "44454255473d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+STATUS?",
+      "lines": [
+        "CHIP_VERSION=0x14",
+        "RSSI=-66.50",
+        "LQI=21",
+        "MODE=2FSK",
+        "RX=ON",
+        "SLEEP=NO",
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "CHIP_VERSION=0x14",
+              "RSSI=-66.50",
+              "LQI=21",
+              "MODE=2FSK",
+              "RX=ON",
+              "SLEEP=NO",
+              "BRIDGE=ON",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075886287595500,
+              "hex": "434849505f56455253494f4e3d307831340d0a525353493d2d36362e35300d0a4c51493d32310d0a4d4f44453d3246534b0d0a52583d4f4e0d0a534c4545503d4e4f0d0a4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+CFG?",
+      "lines": [
+        "====== CC1101 868 MHz CONFIGURATION ======",
+        "Module:       CC1101 868 MHz",
+        "Module max TX:10 dBm nominal",
+        "Frequency:    868.00 MHz",
+        "Bit Rate:     250.0 kbps",
+        "Freq Dev:     127.0 kHz",
+        "RX Bandwidth: 541.67 kHz",
+        "TX Power:     10 dBm",
+        "Preamble:     128 bits",
+        "Sync Word:    0xD391",
+        "CRC:          Enabled",
+        "Modulation:   2FSK",
+        "Data shaping: NONE",
+        "Encoding:     NRZ",
+        "Packet mode:  VARIABLE",
+        "Packet len:   64",
+        "Address filt: OFF",
+        "Node addr:    0x01",
+        "Broadcasts:   1",
+        "Promiscuous:  OFF",
+        "Carrier sense:OFF",
+        "Sync err bits:1",
+        "Sleep:        NO",
+        "==================================",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "====== CC1101 868 MHz CONFIGURATION ======",
+              "Module:       CC1101 868 MHz",
+              "Module max TX:10 dBm nominal",
+              "Frequency:    868.00 MHz",
+              "Bit Rate:     250.0 kbps",
+              "Freq Dev:     127.0 kHz",
+              "RX Bandwidth: 541.67 kHz",
+              "TX Power:     10 dBm",
+              "Preamble:     128 bits",
+              "Sync Word:    0xD391",
+              "CRC:          Enabled",
+              "Modulation:   2FSK",
+              "Data shaping: NONE",
+              "Encoding:     NRZ",
+              "Packet mode:  VARIABLE",
+              "Packet len:   64",
+              "Address filt: OFF",
+              "Node addr:    0x01",
+              "Broadcasts:   1",
+              "Promiscuous:  OFF",
+              "Carrier sense:OFF",
+              "Sync err bits:1",
+              "Sleep:        NO",
+              "==================================",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075886319541500,
+              "hex": "3d3d3d3d3d3d2043433131303120383638204d487a20434f4e46494755524154494f4e203d3d3d3d3d3d0d0a4d6f64756c653a2020202020202043433131303120383638204d487a0d0a4d6f64756c65206d61782054583a31302064426d206e6f6d696e616c0d0a4672657175656e63793a202020203836382e3030204d487a0d0a42697420526174653a20202020203235302e30206b6270730d0a46726571204465763a20202020203132372e30206b487a0d0a52582042616e6477696474683a203534312e3637206b487a0d0a545820506f7765723a202020202031302064426d0d0a507265616d626c653a202020202031323820626974730d0a53796e6320576f72643a202020203078443339310d0a4352433a20202020202020202020456e61626c65640d0a4d6f64756c6174696f6e3a2020203246534b0d0a446174612073686170696e673a204e4f4e450d0a456e636f64696e673a20202020204e525a0d0a5061636b6574206d6f64653a20205641524941424c450d0a5061636b6574206c656e3a20202036340d0a416464726573732066696c743a204f46460d0a4e6f646520616464723a20202020307830310d0a42726f616463617374733a202020310d0a50726f6d697363756f75733a20204f46460d0a436172726965722073656e73653a4f46460d0a53796e632065727220626974733a310d0a536c6565703a20202020202020204e4f0d0a3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+FREQ?",
+      "lines": [
+        "FREQ=868.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "FREQ=868.000",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075886352476000,
+              "hex": "465245513d3836382e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+BR?",
+      "lines": [
+        "BR=250.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "BR=250.000",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075886385323700,
+              "hex": "42523d3235302e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+DEV?",
+      "lines": [
+        "DEV=127.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "DEV=127.000",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075886417094900,
+              "hex": "4445563d3132372e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+BW?",
+      "lines": [
+        "BW=541.67",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "BW=541.67",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075886448900500,
+              "hex": "42573d3534312e36370d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PWR?",
+      "lines": [
+        "PWR=10",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "PWR=10",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075886480204400,
+              "hex": "5057523d31300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PRE?",
+      "lines": [
+        "PRE=128",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "PRE=128",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075886514107100,
+              "hex": "5052453d3132380d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+SYNCERR?",
+      "lines": [
+        "SYNCERR=1",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "SYNCERR=1",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075886542814000,
+              "hex": "53594e434552523d310d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+SYNC?",
+      "lines": [
+        "SYNC=0xD391",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "SYNC=0xD391",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075886571930500,
+              "hex": "53594e433d3078443339310d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+CRC?",
+      "lines": [
+        "CRC=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "CRC=ON",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075886603582300,
+              "hex": "4352433d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+MOD?",
+      "lines": [
+        "MOD=2FSK",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "MOD=2FSK",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075886632753700,
+              "hex": "4d4f443d3246534b0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+SHAPE?",
+      "lines": [
+        "SHAPE=NONE",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "SHAPE=NONE",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075886664726300,
+              "hex": "53484150453d4e4f4e450d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+ENC?",
+      "lines": [
+        "ENC=NRZ",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "ENC=NRZ",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075886700854300,
+              "hex": "454e433d4e525a0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PKT?",
+      "lines": [
+        "PKT=VARIABLE,64",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "PKT=VARIABLE,64",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075886733298600,
+              "hex": "504b543d5641524941424c452c36340d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+ADDR?",
+      "lines": [
+        "ADDR=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "ADDR=OFF",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075886761608200,
+              "hex": "414444523d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PROMISC?",
+      "lines": [
+        "PROMISC=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "PROMISC=OFF",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075886790874400,
+              "hex": "50524f4d4953433d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+CS?",
+      "lines": [
+        "CS=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "CS=OFF",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075886819401100,
+              "hex": "43533d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+BRIDGE?",
+      "lines": [
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "BRIDGE=ON",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075886851541100,
+              "hex": "4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+DEBUG?",
+      "lines": [
+        "DEBUG=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "DEBUG=ON",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075886886845900,
+              "hex": "44454255473d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+STATUS?",
+      "lines": [
+        "CHIP_VERSION=0x14",
+        "RSSI=-74.00",
+        "LQI=0",
+        "MODE=2FSK",
+        "RX=OFF",
+        "SLEEP=NO",
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "CHIP_VERSION=0x14",
+              "RSSI=-74.00",
+              "LQI=0",
+              "MODE=2FSK",
+              "RX=OFF",
+              "SLEEP=NO",
+              "BRIDGE=ON",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075886913562900,
+              "hex": "434849505f56455253494f4e3d307831340d0a525353493d2d37342e30300d0a4c51493d300d0a4d4f44453d3246534b0d0a52583d4f46460d0a534c4545503d4e4f0d0a4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+CFG?",
+      "lines": [
+        "====== CC1101 868 MHz CONFIGURATION ======",
+        "Module:       CC1101 868 MHz",
+        "Module max TX:10 dBm nominal",
+        "Frequency:    868.00 MHz",
+        "Bit Rate:     250.0 kbps",
+        "Freq Dev:     127.0 kHz",
+        "RX Bandwidth: 541.67 kHz",
+        "TX Power:     10 dBm",
+        "Preamble:     128 bits",
+        "Sync Word:    0xD391",
+        "CRC:          Enabled",
+        "Modulation:   2FSK",
+        "Data shaping: NONE",
+        "Encoding:     NRZ",
+        "Packet mode:  VARIABLE",
+        "Packet len:   64",
+        "Address filt: OFF",
+        "Node addr:    0x01",
+        "Broadcasts:   1",
+        "Promiscuous:  OFF",
+        "Carrier sense:OFF",
+        "Sync err bits:1",
+        "Sleep:        NO",
+        "==================================",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "====== CC1101 868 MHz CONFIGURATION ======",
+              "Module:       CC1101 868 MHz",
+              "Module max TX:10 dBm nominal",
+              "Frequency:    868.00 MHz",
+              "Bit Rate:     250.0 kbps",
+              "Freq Dev:     127.0 kHz",
+              "RX Bandwidth: 541.67 kHz",
+              "TX Power:     10 dBm",
+              "Preamble:     128 bits",
+              "Sync Word:    0xD391",
+              "CRC:          Enabled",
+              "Modulation:   2FSK",
+              "Data shaping: NONE",
+              "Encoding:     NRZ",
+              "Packet mode:  VARIABLE",
+              "Packet len:   64",
+              "Address filt: OFF",
+              "Node addr:    0x01",
+              "Broadcasts:   1",
+              "Promiscuous:  OFF",
+              "Carrier sense:OFF",
+              "Sync err bits:1",
+              "Sleep:        NO",
+              "==================================",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075898906070700,
+              "hex": "3d3d3d3d3d3d2043433131303120383638204d487a20434f4e46494755524154494f4e203d3d3d3d3d3d0d0a4d6f64756c653a2020202020202043433131303120383638204d487a0d0a4d6f64756c65206d61782054583a31302064426d206e6f6d696e616c0d0a4672657175656e63793a202020203836382e3030204d487a0d0a42697420526174653a20202020203235302e30206b6270730d0a46726571204465763a20202020203132372e30206b487a0d0a52582042616e6477696474683a203534312e3637206b487a0d0a545820506f7765723a202020202031302064426d0d0a507265616d626c653a202020202031323820626974730d0a53796e6320576f72643a20202020307844333931"
+            },
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075898907690300,
+              "hex": "0d0a4352433a20202020202020202020456e61626c65640d0a4d6f64756c6174696f6e3a2020203246534b0d0a446174612073686170696e673a204e4f4e450d0a456e636f64696e673a20202020204e525a0d0a5061636b6574206d6f64653a20205641524941424c450d0a5061636b6574206c656e3a20202036340d0a416464726573732066696c743a204f46460d0a4e6f646520616464723a20202020307830310d0a42726f616463617374733a202020310d0a50726f6d697363756f75733a20204f46460d0a436172726965722073656e73653a4f46460d0a53796e632065727220626974733a310d0a536c6565703a20202020202020204e4f0d0a3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+FREQ?",
+      "lines": [
+        "FREQ=868.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "FREQ=868.000",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075898929294700,
+              "hex": "465245513d3836382e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+BR?",
+      "lines": [
+        "BR=250.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "BR=250.000",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075898960760900,
+              "hex": "42523d3235302e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+DEV?",
+      "lines": [
+        "DEV=127.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "DEV=127.000",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075898992910900,
+              "hex": "4445563d3132372e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+BW?",
+      "lines": [
+        "BW=541.67",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "BW=541.67",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075899023457800,
+              "hex": "42573d3534312e36370d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PWR?",
+      "lines": [
+        "PWR=10",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "PWR=10",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075899054141300,
+              "hex": "5057523d31300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PRE?",
+      "lines": [
+        "PRE=128",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "PRE=128",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075899086361300,
+              "hex": "5052453d3132380d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+SYNCERR?",
+      "lines": [
+        "SYNCERR=1",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "SYNCERR=1",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075899116267100,
+              "hex": "53594e434552523d310d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+SYNC?",
+      "lines": [
+        "SYNC=0xD391",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "SYNC=0xD391",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075899148502100,
+              "hex": "53594e433d3078443339310d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+CRC?",
+      "lines": [
+        "CRC=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "CRC=ON",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075899182029100,
+              "hex": "4352433d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+MOD?",
+      "lines": [
+        "MOD=2FSK",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "MOD=2FSK",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075899212443800,
+              "hex": "4d4f443d3246534b0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+SHAPE?",
+      "lines": [
+        "SHAPE=NONE",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "SHAPE=NONE",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075899243717700,
+              "hex": "53484150453d4e4f4e450d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+ENC?",
+      "lines": [
+        "ENC=NRZ",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "ENC=NRZ",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075899273672700,
+              "hex": "454e433d4e525a0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PKT?",
+      "lines": [
+        "PKT=VARIABLE,64",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "PKT=VARIABLE,64",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075899304019600,
+              "hex": "504b543d5641524941424c452c36340d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+ADDR?",
+      "lines": [
+        "ADDR=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "ADDR=OFF",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075899335744400,
+              "hex": "414444523d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+PROMISC?",
+      "lines": [
+        "PROMISC=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "PROMISC=OFF",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075899366608900,
+              "hex": "50524f4d4953433d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+CS?",
+      "lines": [
+        "CS=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "CS=OFF",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075899398535500,
+              "hex": "43533d"
+            },
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075899399762100,
+              "hex": "4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+BRIDGE?",
+      "lines": [
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "BRIDGE=ON",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075899430399700,
+              "hex": "4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+DEBUG?",
+      "lines": [
+        "DEBUG=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "DEBUG=OFF",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075899461994500,
+              "hex": "44454255473d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM31",
+      "command": "AT+STATUS?",
+      "lines": [
+        "CHIP_VERSION=0x14",
+        "RSSI=-66.50",
+        "LQI=24",
+        "MODE=2FSK",
+        "RX=ON",
+        "SLEEP=NO",
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [
+              "CHIP_VERSION=0x14",
+              "RSSI=-66.50",
+              "LQI=24",
+              "MODE=2FSK",
+              "RX=ON",
+              "SLEEP=NO",
+              "BRIDGE=ON",
+              "OK"
+            ],
+            "COM32": []
+          },
+          "raw": [
+            {
+              "port": "COM31",
+              "perf_counter_ns": 3075899495262300,
+              "hex": "434849505f56455253494f4e3d307831340d0a525353493d2d36362e35300d0a4c51493d32340d0a4d4f44453d3246534b0d0a52583d4f4e0d0a534c4545503d4e4f0d0a4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+CFG?",
+      "lines": [
+        "====== CC1101 868 MHz CONFIGURATION ======",
+        "Module:       CC1101 868 MHz",
+        "Module max TX:10 dBm nominal",
+        "Frequency:    868.00 MHz",
+        "Bit Rate:     250.0 kbps",
+        "Freq Dev:     127.0 kHz",
+        "RX Bandwidth: 541.67 kHz",
+        "TX Power:     10 dBm",
+        "Preamble:     128 bits",
+        "Sync Word:    0xD391",
+        "CRC:          Enabled",
+        "Modulation:   2FSK",
+        "Data shaping: NONE",
+        "Encoding:     NRZ",
+        "Packet mode:  VARIABLE",
+        "Packet len:   64",
+        "Address filt: OFF",
+        "Node addr:    0x01",
+        "Broadcasts:   1",
+        "Promiscuous:  OFF",
+        "Carrier sense:OFF",
+        "Sync err bits:1",
+        "Sleep:        NO",
+        "==================================",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "====== CC1101 868 MHz CONFIGURATION ======",
+              "Module:       CC1101 868 MHz",
+              "Module max TX:10 dBm nominal",
+              "Frequency:    868.00 MHz",
+              "Bit Rate:     250.0 kbps",
+              "Freq Dev:     127.0 kHz",
+              "RX Bandwidth: 541.67 kHz",
+              "TX Power:     10 dBm",
+              "Preamble:     128 bits",
+              "Sync Word:    0xD391",
+              "CRC:          Enabled",
+              "Modulation:   2FSK",
+              "Data shaping: NONE",
+              "Encoding:     NRZ",
+              "Packet mode:  VARIABLE",
+              "Packet len:   64",
+              "Address filt: OFF",
+              "Node addr:    0x01",
+              "Broadcasts:   1",
+              "Promiscuous:  OFF",
+              "Carrier sense:OFF",
+              "Sync err bits:1",
+              "Sleep:        NO",
+              "==================================",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075899525996300,
+              "hex": "3d3d3d3d3d3d2043433131303120383638204d487a20434f4e46494755524154494f4e203d3d3d3d3d3d0d0a4d6f64756c653a2020202020202043433131303120383638204d487a0d0a4d6f64756c65206d61782054583a31302064426d206e6f6d696e616c0d0a4672657175656e63793a202020203836382e3030204d487a0d0a42697420526174653a20202020203235302e30206b6270730d0a46726571204465763a20202020203132372e30206b487a0d0a52582042616e6477696474683a203534312e3637206b487a0d0a545820506f7765723a202020202031302064426d0d0a507265616d626c653a202020202031323820626974730d0a53796e6320576f72643a202020203078443339310d0a4352433a20202020202020202020456e61626c65640d0a4d6f64756c6174696f6e3a2020203246534b0d0a446174612073686170696e673a204e4f4e450d0a456e636f64696e673a20202020204e525a0d0a5061636b6574206d6f64653a20205641524941424c450d0a5061636b6574206c656e3a20202036340d0a416464726573732066696c743a204f46460d0a4e6f646520616464723a20202020307830310d0a42726f616463617374733a202020310d0a50726f6d697363756f75733a20204f46460d0a436172726965722073656e73653a4f46460d0a53796e632065727220626974733a310d0a536c6565703a20202020202020204e4f0d0a3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+FREQ?",
+      "lines": [
+        "FREQ=868.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "FREQ=868.000",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075899555032700,
+              "hex": "465245513d3836382e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+BR?",
+      "lines": [
+        "BR=250.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "BR=250.000",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075899586486900,
+              "hex": "42523d3235302e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+DEV?",
+      "lines": [
+        "DEV=127.000",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "DEV=127.000",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075899617033900,
+              "hex": "4445563d3132372e3030300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+BW?",
+      "lines": [
+        "BW=541.67",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "BW=541.67",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075899647946100,
+              "hex": "42573d"
+            },
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075899649026200,
+              "hex": "3534312e36370d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PWR?",
+      "lines": [
+        "PWR=10",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "PWR=10",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075899680313000,
+              "hex": "5057523d31300d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PRE?",
+      "lines": [
+        "PRE=128",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "PRE=128",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075899713954900,
+              "hex": "5052453d3132380d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+SYNCERR?",
+      "lines": [
+        "SYNCERR=1",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "SYNCERR=1",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075899742557300,
+              "hex": "53594e434552523d310d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+SYNC?",
+      "lines": [
+        "SYNC=0xD391",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "SYNC=0xD391",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075899774462300,
+              "hex": "53594e433d3078443339310d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+CRC?",
+      "lines": [
+        "CRC=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "CRC=ON",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075899807597300,
+              "hex": "4352433d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+MOD?",
+      "lines": [
+        "MOD=2FSK",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "MOD=2FSK",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075899838971400,
+              "hex": "4d4f443d3246534b0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+SHAPE?",
+      "lines": [
+        "SHAPE=NONE",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "SHAPE=NONE",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075899868976000,
+              "hex": "53484150453d4e4f4e450d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+ENC?",
+      "lines": [
+        "ENC=NRZ",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "ENC=NRZ",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075899898115400,
+              "hex": "454e433d4e525a0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PKT?",
+      "lines": [
+        "PKT=VARIABLE,64",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "PKT=VARIABLE,64",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075899933213600,
+              "hex": "504b543d5641524941424c452c36340d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+ADDR?",
+      "lines": [
+        "ADDR=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "ADDR=OFF",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075899963831700,
+              "hex": "414444523d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+PROMISC?",
+      "lines": [
+        "PROMISC=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "PROMISC=OFF",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075899994937400,
+              "hex": "50524f4d4953433d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+CS?",
+      "lines": [
+        "CS=OFF",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "CS=OFF",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075900025163700,
+              "hex": "43533d4f46460d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+BRIDGE?",
+      "lines": [
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "BRIDGE=ON",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075900055347100,
+              "hex": "4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+DEBUG?",
+      "lines": [
+        "DEBUG=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "DEBUG=ON",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075900087505400,
+              "hex": "44454255473d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": "COM32",
+      "command": "AT+STATUS?",
+      "lines": [
+        "CHIP_VERSION=0x14",
+        "RSSI=-74.00",
+        "LQI=0",
+        "MODE=2FSK",
+        "RX=OFF",
+        "SLEEP=NO",
+        "BRIDGE=ON",
+        "OK"
+      ],
+      "uart": [
+        {
+          "lines": {
+            "COM31": [],
+            "COM32": [
+              "CHIP_VERSION=0x14",
+              "RSSI=-74.00",
+              "LQI=0",
+              "MODE=2FSK",
+              "RX=OFF",
+              "SLEEP=NO",
+              "BRIDGE=ON",
+              "OK"
+            ]
+          },
+          "raw": [
+            {
+              "port": "COM32",
+              "perf_counter_ns": 3075900119368400,
+              "hex": "434849505f56455253494f4e3d307831340d0a525353493d2d37342e30300d0a4c51493d300d0a4d4f44453d3246534b0d0a52583d4f46460d0a534c4545503d4e4f0d0a4252494447453d4f4e0d0a4f4b0d0a"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "path": "attempt_001",
+      "status": "incomplete_delivery"
+    },
+    {
+      "path": "attempt_002",
+      "status": "incomplete_delivery"
+    }
+  ],
+  "errors": [],
+  "cleanup": {
+    "COM31": "closed",
+    "COM32": "closed",
+    "tx": "closed_keep_power_on_requested",
+    "rx": "closed_keep_power_on_requested"
+  },
+  "calibrations": {
+    "tx": {
+      "Calibrated": "0",
+      "HW": "59154",
+      "IA": "60",
+      "R": {
+        "0": 1004.4283447265625,
+        "1": 102.09636688232422,
+        "2": 10.294670104980469,
+        "3": 0.9710896611213684,
+        "4": 0.056259121745824814
+      },
+      "O": {
+        "0": 128.43923950195312,
+        "1": 89.05178833007812,
+        "2": 75.92266082763672,
+        "3": 59.65896224975586,
+        "4": 102.51764678955078
+      },
+      "GS": {
+        "0": 1e-19,
+        "1": 135.05462646484375,
+        "2": 21.440528869628906,
+        "3": 2.752481460571289,
+        "4": 0.08300972729921341
+      },
+      "GI": {
+        "0": 1.0,
+        "1": 0.9633749127388,
+        "2": 0.9545890688896179,
+        "3": 0.9477665424346924,
+        "4": 0.9539828896522522
+      },
+      "S": {
+        "0": -5.040802975032e-08,
+        "1": -3.6705580441776e-07,
+        "2": -2.99367843581422e-06,
+        "3": -3.209787610103376e-05,
+        "4": 0.0016125940019264817
+      },
+      "I": {
+        "0": 1.8602490570174e-07,
+        "1": 1.21383050100121e-06,
+        "2": 7.046380778774619e-05,
+        "3": -0.00014766653475817293,
+        "4": -0.00523310387507081
+      },
+      "UG": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 1.0
+      }
+    },
+    "rx": {
+      "Calibrated": "0",
+      "HW": "21994",
+      "IA": "60",
+      "R": {
+        "0": 1000.5957641601562,
+        "1": 101.40058135986328,
+        "2": 10.28022289276123,
+        "3": 0.9653185606002808,
+        "4": 0.05632902681827545
+      },
+      "O": {
+        "0": 119.50615692138672,
+        "1": 81.77458953857422,
+        "2": 70.12054443359375,
+        "3": 54.01410675048828,
+        "4": 93.50475311279297
+      },
+      "GS": {
+        "0": 1e-19,
+        "1": 119.2336196899414,
+        "2": 17.985504150390625,
+        "3": 2.5476224422454834,
+        "4": 0.07415920495986938
+      },
+      "GI": {
+        "0": 1.0,
+        "1": 0.9664102792739868,
+        "2": 0.9626902937889099,
+        "3": 0.951231837272644,
+        "4": 0.9594330191612244
+      },
+      "S": {
+        "0": 6.495847770793e-08,
+        "1": 7.9617404935561e-07,
+        "2": 8.46630064188503e-06,
+        "3": 8.544084266759455e-05,
+        "4": 0.0037396331317722797
+      },
+      "I": {
+        "0": -8.608763124585e-08,
+        "1": -1.84591544893919e-06,
+        "2": 3.143193680443801e-05,
+        "3": -0.00041445178794674575,
+        "4": -0.011407100595533848
+      },
+      "UG": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 1.0,
+        "3": 1.0,
+        "4": 1.0
+      }
+    }
+  },
+  "partial_uart_hex": {
+    "COM31": "",
+    "COM32": ""
+  },
+  "staged_start": {
+    "path": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20261002_163643_130385_cc1101_v2_868_paired\\acquisition_retry\\START.json",
+    "bytes": 421,
+    "sha256": "46bb6fa3a01fee0565cef363fcab929d2b7fcdd1f7fd90048a82c84df6a5653d",
+    "request": {
+      "radio_ports": {
+        "rx": "COM31",
+        "tx": "COM32"
+      },
+      "mapping_provenance": "Physical RX ON/OFF mapping in preparation.json sha256=7f0e1b4ca4aa5cadb0b55b541e636dbc0bfc4954854ce5df59eb4f426c71d2af unchanged; both ESP32 reset and application banners verified in esp_restart_04.json; target restored and UART closed after RF controls"
+    },
+    "read_perf_counter_ns": 3075862769069200
+  },
+  "radio_usb_identities": {
+    "COM31": {
+      "serial": "08:92:72:9A:D4:B4",
+      "vid": 12346,
+      "pid": 4097
+    },
+    "COM32": {
+      "serial": "08:92:72:9A:C8:C8",
+      "vid": 12346,
+      "pid": 4097
+    }
+  },
+  "setup_commands": [
+    "AT+RESET",
+    "AT+DEFAULT",
+    "AT+DEBUG=OFF",
+    "AT+BRIDGE=ON",
+    "AT+CS=OFF",
+    "AT+FREQ=868.0",
+    "AT+MOD=2FSK",
+    "AT+SHAPE=NONE",
+    "AT+PRE=128",
+    "AT+SYNC=D391",
+    "AT+SYNCERR=1",
+    "AT+CRC=ON",
+    "AT+ENC=NRZ",
+    "AT+PKT=VARIABLE,64",
+    "AT+ADDR=OFF",
+    "AT+PROMISC=OFF",
+    "AT+BR=250",
+    "AT+DEV=127",
+    "AT+BW=541.67",
+    "AT+PWR=10"
+  ]
+}

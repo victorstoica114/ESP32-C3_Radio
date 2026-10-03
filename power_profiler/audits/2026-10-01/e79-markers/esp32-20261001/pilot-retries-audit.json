@@ -1,0 +1,617 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-01T14:05:43.779903+00:00",
+  "scope": "Independent read-only audit of ESP32 pilot attempts 2 and 3; direct stdlib gzip/CSV and little-endian wire decoding. No production analyzer imported.",
+  "first_attempt_report": {
+    "path": "pilot-marker-audit.json",
+    "sha256": "c13f02b5c434424037900a7a83d81436c916d2262678bf9813f5ace7f2eedbea"
+  },
+  "channel_order": [
+    "D0",
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D5",
+    "D6",
+    "D7"
+  ],
+  "attempts": [
+    {
+      "attempt_number": 2,
+      "result_path": "power_profiler/web_sessions/20261001_165955_843697_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_165956_010265_e79_paired_pilot",
+      "status": "failed",
+      "sample_rate_hz": 100000,
+      "condition": {
+        "interface_label": "ESP32",
+        "payload_bytes": 32,
+        "rf_profile": "GFSK200",
+        "tx_power_dbm": 13,
+        "integration_mode": "radio_markers",
+        "energy_policy": "total_only_with_direct_adc_proof"
+      },
+      "run_id": "run_00001",
+      "packet_received": true,
+      "capture_errors": {},
+      "marker_reasons": [
+        "tx: Marker HIGH at capture boundary; pulse is truncated",
+        "rx: Marker HIGH at capture boundary; pulse is truncated"
+      ],
+      "roles": {
+        "tx": {
+          "radio_port": "COM20",
+          "ppk_port": "COM10",
+          "ppk_serial": "E753C4E81F3D",
+          "voltage_mv": 3300,
+          "firmware_version": "0.3.2",
+          "marker_command": "AT+MARKER=TX",
+          "marker_set_reply": [
+            "OK"
+          ],
+          "marker_reply": [
+            "+MARKER:ROLE=TX,DIO=17,SOURCE=RAT_GPO0,ACTIVE=HIGH",
+            "OK"
+          ],
+          "wire_bytes": 389120,
+          "wire_samples": 97280,
+          "csv_samples": 97280,
+          "software_trigger_index": 22528,
+          "capture_duration_ms": 972.8,
+          "pretrigger_duration_ms": 225.28,
+          "posttrigger_duration_ms": 747.52,
+          "logic_byte_counts": {
+            "255": 97280
+          },
+          "high_samples_by_channel": [
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280
+          ],
+          "low_samples_by_channel": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "transitions_by_channel": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "rising_edges_by_channel": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "falling_edges_by_channel": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "high_pretrigger_by_channel": [
+            22528,
+            22528,
+            22528,
+            22528,
+            22528,
+            22528,
+            22528,
+            22528
+          ],
+          "high_posttrigger_by_channel": [
+            74752,
+            74752,
+            74752,
+            74752,
+            74752,
+            74752,
+            74752,
+            74752
+          ],
+          "csv_wire_logic_mismatch_count": 0,
+          "csv_index_error_count": 0,
+          "csv_trigger_indices": [
+            22528
+          ],
+          "gzip_read_to_eof_crc_valid": true,
+          "summary_status": "analysis_review_required",
+          "summary_energy_total_uJ": "",
+          "summary_analysis_error": "tx: Marker HIGH at capture boundary; pulse is truncated; rx: Marker HIGH at capture boundary; pulse is truncated"
+        },
+        "rx": {
+          "radio_port": "COM19",
+          "ppk_port": "COM11",
+          "ppk_serial": "CD2D332DB09A",
+          "voltage_mv": 3300,
+          "firmware_version": "0.3.2",
+          "marker_command": "AT+MARKER=RX",
+          "marker_set_reply": [
+            "OK"
+          ],
+          "marker_reply": [
+            "+MARKER:ROLE=RX,DIO=17,SOURCE=RAT_GPO1,ACTIVE=HIGH",
+            "OK"
+          ],
+          "wire_bytes": 389120,
+          "wire_samples": 97280,
+          "csv_samples": 97280,
+          "software_trigger_index": 21504,
+          "capture_duration_ms": 972.8,
+          "pretrigger_duration_ms": 215.04,
+          "posttrigger_duration_ms": 757.76,
+          "logic_byte_counts": {
+            "255": 97280
+          },
+          "high_samples_by_channel": [
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280,
+            97280
+          ],
+          "low_samples_by_channel": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "transitions_by_channel": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "rising_edges_by_channel": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "falling_edges_by_channel": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "high_pretrigger_by_channel": [
+            21504,
+            21504,
+            21504,
+            21504,
+            21504,
+            21504,
+            21504,
+            21504
+          ],
+          "high_posttrigger_by_channel": [
+            75776,
+            75776,
+            75776,
+            75776,
+            75776,
+            75776,
+            75776,
+            75776
+          ],
+          "csv_wire_logic_mismatch_count": 0,
+          "csv_index_error_count": 0,
+          "csv_trigger_indices": [
+            21504
+          ],
+          "gzip_read_to_eof_crc_valid": true,
+          "summary_status": "analysis_review_required",
+          "summary_energy_total_uJ": "",
+          "summary_analysis_error": "tx: Marker HIGH at capture boundary; pulse is truncated; rx: Marker HIGH at capture boundary; pulse is truncated"
+        }
+      },
+      "source_files": {
+        "pairing.json": {
+          "bytes": 13576,
+          "sha256": "2953f544a45b7b68b8b8ef9f3c5dd8118aa05280fcb9a64d4207e169efbec7e3"
+        },
+        "rx/aggregates.csv": {
+          "bytes": 875,
+          "sha256": "ea0addc3ea5aba683d4d1764388d52d5d1d9ae663bd622e2c599756a62b25c65"
+        },
+        "rx/analysis/run_00001.json": {
+          "bytes": 2310,
+          "sha256": "f7dd71f1883f247f5b3417ace5c3b6eee0402f12c8c7a549c66569cce469d575"
+        },
+        "rx/metadata.json": {
+          "bytes": 15671,
+          "sha256": "069078231d487d5c7bad9ffeb1d314e67fbd4464970aa74256804d393fbdd432"
+        },
+        "rx/raw/run_00001.csv.gz": {
+          "bytes": 802289,
+          "sha256": "eec9cbfb1f4012d7bdbeea27d874ab129ef8c3b677d53668f926fd4b6091efe7"
+        },
+        "rx/summary.csv": {
+          "bytes": 1419,
+          "sha256": "500761cf4e90e3002dd1ddddb6ffc508bc772b2ea32a5a17cf9da25c3bbcf1bf"
+        },
+        "summary.csv": {
+          "bytes": 193,
+          "sha256": "0cc05e4bc8fe1502da13616be285523d8186f3572e70e696fbdcf478a6f9d328"
+        },
+        "tx/aggregates.csv": {
+          "bytes": 875,
+          "sha256": "197c78409f12d8211d3a44b7ce2d95d7a3a62eea528ffcb2d127d7e65ca48742"
+        },
+        "tx/analysis/run_00001.json": {
+          "bytes": 2310,
+          "sha256": "f7dd71f1883f247f5b3417ace5c3b6eee0402f12c8c7a549c66569cce469d575"
+        },
+        "tx/metadata.json": {
+          "bytes": 15647,
+          "sha256": "d72f38aa42e1f5d9fffb87f26734c770023dea4a3a27caddc98d3156b07aca72"
+        },
+        "tx/raw/run_00001.csv.gz": {
+          "bytes": 768203,
+          "sha256": "71377086b3a28a5add01ee16a9ee2d902c44b037f7e04ff66506f759726a5041"
+        },
+        "tx/summary.csv": {
+          "bytes": 1416,
+          "sha256": "edc0c6b7afdc44cb93eec7ec61f175a1c54add81f009aa9ab802b808e2ad9cbb"
+        },
+        "wire/run_00001/rx.ppk2.bin": {
+          "bytes": 389120,
+          "sha256": "1ccc0da3f3887061615df138269d9c4cdfd77982e285bf7768302aaf9eaf4022"
+        },
+        "wire/run_00001/timing.json": {
+          "bytes": 1127,
+          "sha256": "43703bb518bef8425ff194f79285f163aeb434be7839e95d5500b67974ba7b01"
+        },
+        "wire/run_00001/tx.ppk2.bin": {
+          "bytes": 389120,
+          "sha256": "95ef86ccf0ff5e1c2f14ac53e0c48ed3edaaf0e91f517a1b8599fe39034f5282"
+        }
+      }
+    },
+    {
+      "attempt_number": 3,
+      "result_path": "power_profiler/web_sessions/20261001_170350_404433_paired_pilot_radio_ebyte_e79_cc1352p/paired_result/20261001_170350_573241_e79_paired_pilot",
+      "status": "failed",
+      "sample_rate_hz": 100000,
+      "condition": {
+        "interface_label": "ESP32",
+        "payload_bytes": 32,
+        "rf_profile": "GFSK200",
+        "tx_power_dbm": 13,
+        "integration_mode": "radio_markers",
+        "energy_policy": "total_only_with_direct_adc_proof"
+      },
+      "run_id": "run_00001",
+      "packet_received": true,
+      "capture_errors": {},
+      "marker_reasons": [
+        "tx: Marker HIGH at capture boundary; pulse is truncated",
+        "rx: Marker HIGH at capture boundary; pulse is truncated"
+      ],
+      "roles": {
+        "tx": {
+          "radio_port": "COM20",
+          "ppk_port": "COM10",
+          "ppk_serial": "E753C4E81F3D",
+          "voltage_mv": 3300,
+          "firmware_version": "0.3.2",
+          "marker_command": "AT+MARKER=TX",
+          "marker_set_reply": [
+            "OK"
+          ],
+          "marker_reply": [
+            "+MARKER:ROLE=TX,DIO=17,SOURCE=RAT_GPO0,ACTIVE=HIGH",
+            "OK"
+          ],
+          "wire_bytes": 385024,
+          "wire_samples": 96256,
+          "csv_samples": 96256,
+          "software_trigger_index": 20480,
+          "capture_duration_ms": 962.56,
+          "pretrigger_duration_ms": 204.8,
+          "posttrigger_duration_ms": 757.76,
+          "logic_byte_counts": {
+            "255": 96256
+          },
+          "high_samples_by_channel": [
+            96256,
+            96256,
+            96256,
+            96256,
+            96256,
+            96256,
+            96256,
+            96256
+          ],
+          "low_samples_by_channel": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "transitions_by_channel": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "rising_edges_by_channel": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "falling_edges_by_channel": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "high_pretrigger_by_channel": [
+            20480,
+            20480,
+            20480,
+            20480,
+            20480,
+            20480,
+            20480,
+            20480
+          ],
+          "high_posttrigger_by_channel": [
+            75776,
+            75776,
+            75776,
+            75776,
+            75776,
+            75776,
+            75776,
+            75776
+          ],
+          "csv_wire_logic_mismatch_count": 0,
+          "csv_index_error_count": 0,
+          "csv_trigger_indices": [
+            20480
+          ],
+          "gzip_read_to_eof_crc_valid": true,
+          "summary_status": "analysis_review_required",
+          "summary_energy_total_uJ": "",
+          "summary_analysis_error": "tx: Marker HIGH at capture boundary; pulse is truncated; rx: Marker HIGH at capture boundary; pulse is truncated"
+        },
+        "rx": {
+          "radio_port": "COM19",
+          "ppk_port": "COM11",
+          "ppk_serial": "CD2D332DB09A",
+          "voltage_mv": 3300,
+          "firmware_version": "0.3.2",
+          "marker_command": "AT+MARKER=RX",
+          "marker_set_reply": [
+            "OK"
+          ],
+          "marker_reply": [
+            "+MARKER:ROLE=RX,DIO=17,SOURCE=RAT_GPO1,ACTIVE=HIGH",
+            "OK"
+          ],
+          "wire_bytes": 385024,
+          "wire_samples": 96256,
+          "csv_samples": 96256,
+          "software_trigger_index": 20480,
+          "capture_duration_ms": 962.56,
+          "pretrigger_duration_ms": 204.8,
+          "posttrigger_duration_ms": 757.76,
+          "logic_byte_counts": {
+            "255": 96256
+          },
+          "high_samples_by_channel": [
+            96256,
+            96256,
+            96256,
+            96256,
+            96256,
+            96256,
+            96256,
+            96256
+          ],
+          "low_samples_by_channel": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "transitions_by_channel": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "rising_edges_by_channel": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "falling_edges_by_channel": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "high_pretrigger_by_channel": [
+            20480,
+            20480,
+            20480,
+            20480,
+            20480,
+            20480,
+            20480,
+            20480
+          ],
+          "high_posttrigger_by_channel": [
+            75776,
+            75776,
+            75776,
+            75776,
+            75776,
+            75776,
+            75776,
+            75776
+          ],
+          "csv_wire_logic_mismatch_count": 0,
+          "csv_index_error_count": 0,
+          "csv_trigger_indices": [
+            20480
+          ],
+          "gzip_read_to_eof_crc_valid": true,
+          "summary_status": "analysis_review_required",
+          "summary_energy_total_uJ": "",
+          "summary_analysis_error": "tx: Marker HIGH at capture boundary; pulse is truncated; rx: Marker HIGH at capture boundary; pulse is truncated"
+        }
+      },
+      "source_files": {
+        "pairing.json": {
+          "bytes": 13701,
+          "sha256": "00e3acd5302fa1d755b5bccc29818c2465048e22cf2da44ddbf90edbb23ed74f"
+        },
+        "rx/aggregates.csv": {
+          "bytes": 875,
+          "sha256": "ea0addc3ea5aba683d4d1764388d52d5d1d9ae663bd622e2c599756a62b25c65"
+        },
+        "rx/analysis/run_00001.json": {
+          "bytes": 2310,
+          "sha256": "77919a4cafce4623762de129d5580806315ad12cbd1fe62ac992556788739704"
+        },
+        "rx/metadata.json": {
+          "bytes": 15795,
+          "sha256": "071f4ff684a84933064c93ba10d05e0f2aae739dba134d4b6e1d0cf4384b6c5b"
+        },
+        "rx/raw/run_00001.csv.gz": {
+          "bytes": 792858,
+          "sha256": "8c62a803d565e3dfaf1e2a5140a0de198ec06774931c11e6020f2117187af0de"
+        },
+        "rx/summary.csv": {
+          "bytes": 1419,
+          "sha256": "f4c39f6dce97497be38a6b0e8627a2b1757ce81aaaa294210c467c6d8ffa1953"
+        },
+        "summary.csv": {
+          "bytes": 193,
+          "sha256": "776287be12cef4d9922bd95c71da0c3b88ee3d3c0fba1608ad674f82605e76a7"
+        },
+        "tx/aggregates.csv": {
+          "bytes": 875,
+          "sha256": "197c78409f12d8211d3a44b7ce2d95d7a3a62eea528ffcb2d127d7e65ca48742"
+        },
+        "tx/analysis/run_00001.json": {
+          "bytes": 2310,
+          "sha256": "77919a4cafce4623762de129d5580806315ad12cbd1fe62ac992556788739704"
+        },
+        "tx/metadata.json": {
+          "bytes": 15771,
+          "sha256": "5dc09a13637e9360b69e45d4b16e72dccea6715ae0f88f116e9996f865ee9492"
+        },
+        "tx/raw/run_00001.csv.gz": {
+          "bytes": 758125,
+          "sha256": "f8c2d903e68069b8f54e6882b0cef5e698f0872a68f64e5bed57021b1f498d8e"
+        },
+        "tx/summary.csv": {
+          "bytes": 1401,
+          "sha256": "80ba1c47563e435dabc49f7eec8a56bfd6eedd6a3a3f7ba6d86ee6e43d19de1e"
+        },
+        "wire/run_00001/rx.ppk2.bin": {
+          "bytes": 385024,
+          "sha256": "b2fd1218dd218432e7d2fb874c902f80a318ebb9216737a428542ff2bc55e2b3"
+        },
+        "wire/run_00001/timing.json": {
+          "bytes": 1128,
+          "sha256": "4b7ec7c812b05831388169c3b04f4e4db8bd1471411282af670cbd812f0041f9"
+        },
+        "wire/run_00001/tx.ppk2.bin": {
+          "bytes": 385024,
+          "sha256": "441e29ba9636b8caf81fbde67804d8bd8da504f971b60d1837d0755d1fac4936"
+        }
+      }
+    }
+  ],
+  "conclusions": {
+    "accepted_pairs_across_all_three_attempts": 0,
+    "delivered_packets_in_attempts_2_and_3": 2,
+    "digital_result": "Both retries have 0xFF on every recorded wire word and every CSV logic value: D0-D7 HIGH before and after the software trigger, zero edges. No complete marker pulse can be measured.",
+    "csv_conversion_issue_found": false,
+    "firmware_configuration": "Both retries report firmware0.3.2 and correct local TX/RX DIO17 roles. This confirms settings, not electrical connectivity.",
+    "cause": "Undetermined; no wiring or firmware cause inferred from constant-HIGH alone.",
+    "campaign_105": "Not started, per root campaign controller status supplied with this task; no hardware or API used by this audit."
+  },
+  "source_preservation": "No RAW, wire, metadata, prior report, README, or acceptance changed."
+}

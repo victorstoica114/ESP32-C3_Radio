@@ -1,0 +1,351 @@
+{
+  "method": "Independent rectangular sample integration; signed delta with no clipping; each role uses own trigger marker",
+  "baseline_ms_half_open": [
+    -180,
+    -20
+  ],
+  "observation_ms_half_open": [
+    0,
+    200
+  ],
+  "sd_definition": "sample standard deviation, n-1",
+  "source_root": "D:\\Documente\\ESP32-C3_Radio\\power_profiler\\web_sessions\\20260930_213239_043901_paired_pilot_radio_ebyte_e79_cc1352p\\paired_result\\20260930_213239_188258_e79_paired_pilot",
+  "independent_script_sha256": "c18aa9496e91e2b4bb8f5e8941507e73d9b1a11e5300e321635dd9b7515ec42e",
+  "roles": [
+    {
+      "run_id": "run_00001",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00001",
+      "role": "tx",
+      "raw": "tx/raw/run_00001.csv.gz",
+      "raw_sha256": "6712ef4567c6e0046a17a74bc493aab642bea3472c3b90b8e32fdb841816e7d2",
+      "sample_count": 97280,
+      "sample_rate_hz": 100000,
+      "trigger_index": 21504,
+      "baseline_start_index": 3504,
+      "baseline_end_index_exclusive": 19504,
+      "observation_start_index": 21504,
+      "observation_end_index_exclusive": 41504,
+      "voltage_v": 3.3,
+      "baseline_mean_uA": 4824.926775636134,
+      "baseline_power_mW": 15.922258359599242,
+      "observation_mean_uA": 4894.367559917119,
+      "charge_total_uC": 978.8735119834238,
+      "charge_signed_delta_uC": 13.888156856196938,
+      "energy_total_uJ": 3230.2825895452984,
+      "energy_signed_delta_uJ": 45.83091762544989,
+      "baseline_equivalent_energy_uJ": 3184.4516719198486
+    },
+    {
+      "run_id": "run_00001",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00001",
+      "role": "rx",
+      "raw": "rx/raw/run_00001.csv.gz",
+      "raw_sha256": "1d89f53cd10987307e0f4005a10410abeb1655c563863423499e47ed9ef79555",
+      "sample_count": 96256,
+      "sample_rate_hz": 100000,
+      "trigger_index": 20480,
+      "baseline_start_index": 2480,
+      "baseline_end_index_exclusive": 18480,
+      "observation_start_index": 20480,
+      "observation_end_index_exclusive": 40480,
+      "voltage_v": 3.3,
+      "baseline_mean_uA": 7421.367546735459,
+      "baseline_power_mW": 24.490512904227014,
+      "observation_mean_uA": 7426.554716083692,
+      "charge_total_uC": 1485.3109432167385,
+      "charge_signed_delta_uC": 1.037433869646654,
+      "energy_total_uJ": 4901.526112615236,
+      "energy_signed_delta_uJ": 3.4235317698339585,
+      "baseline_equivalent_energy_uJ": 4898.102580845402
+    },
+    {
+      "run_id": "run_00002",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00002",
+      "role": "tx",
+      "raw": "tx/raw/run_00002.csv.gz",
+      "raw_sha256": "fb7ba7f15d980fb0f47d8f99d3c4d5cf7cf67e8ee02b8728fc6d4fc4c62c5929",
+      "sample_count": 96256,
+      "sample_rate_hz": 100000,
+      "trigger_index": 20480,
+      "baseline_start_index": 2480,
+      "baseline_end_index_exclusive": 18480,
+      "observation_start_index": 20480,
+      "observation_end_index_exclusive": 40480,
+      "voltage_v": 3.3,
+      "baseline_mean_uA": 4844.311932281393,
+      "baseline_power_mW": 15.986229376528597,
+      "observation_mean_uA": 4901.954265106667,
+      "charge_total_uC": 980.3908530213333,
+      "charge_signed_delta_uC": 11.528466565054774,
+      "energy_total_uJ": 3235.2898149703997,
+      "energy_signed_delta_uJ": 38.04393966468076,
+      "baseline_equivalent_energy_uJ": 3197.2458753057194
+    },
+    {
+      "run_id": "run_00002",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00002",
+      "role": "rx",
+      "raw": "rx/raw/run_00002.csv.gz",
+      "raw_sha256": "ea7d4dc05d73e7cd7eb9c6fa2a6f65d6cae904603cbaa260d7c6c20ba60646b5",
+      "sample_count": 96256,
+      "sample_rate_hz": 100000,
+      "trigger_index": 20480,
+      "baseline_start_index": 2480,
+      "baseline_end_index_exclusive": 18480,
+      "observation_start_index": 20480,
+      "observation_end_index_exclusive": 40480,
+      "voltage_v": 3.3,
+      "baseline_mean_uA": 7429.804021961433,
+      "baseline_power_mW": 24.518353272472726,
+      "observation_mean_uA": 7418.621647746551,
+      "charge_total_uC": 1483.7243295493101,
+      "charge_signed_delta_uC": -2.236474842976421,
+      "energy_total_uJ": 4896.290287512723,
+      "energy_signed_delta_uJ": -7.380366981822188,
+      "baseline_equivalent_energy_uJ": 4903.6706544945455
+    },
+    {
+      "run_id": "run_00003",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00003",
+      "role": "tx",
+      "raw": "tx/raw/run_00003.csv.gz",
+      "raw_sha256": "608899628d7fc7bff4afda3bd724f6d7329d873bd1a7fd3038b56dfa6d446836",
+      "sample_count": 97280,
+      "sample_rate_hz": 100000,
+      "trigger_index": 22528,
+      "baseline_start_index": 4528,
+      "baseline_end_index_exclusive": 20528,
+      "observation_start_index": 22528,
+      "observation_end_index_exclusive": 42528,
+      "voltage_v": 3.3,
+      "baseline_mean_uA": 4818.975922182761,
+      "baseline_power_mW": 15.90262054320311,
+      "observation_mean_uA": 4893.9902021075,
+      "charge_total_uC": 978.7980404215001,
+      "charge_signed_delta_uC": 15.00285598494797,
+      "energy_total_uJ": 3230.03353339095,
+      "energy_signed_delta_uJ": 49.5094247503283,
+      "baseline_equivalent_energy_uJ": 3180.524108640622
+    },
+    {
+      "run_id": "run_00003",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00003",
+      "role": "rx",
+      "raw": "rx/raw/run_00003.csv.gz",
+      "raw_sha256": "9f4b7e4f88be8232b42e24c0d140ae0564f8e118efaedf42b171229d1cb307f1",
+      "sample_count": 97280,
+      "sample_rate_hz": 100000,
+      "trigger_index": 21504,
+      "baseline_start_index": 3504,
+      "baseline_end_index_exclusive": 19504,
+      "observation_start_index": 21504,
+      "observation_end_index_exclusive": 41504,
+      "voltage_v": 3.3,
+      "baseline_mean_uA": 7419.953395149604,
+      "baseline_power_mW": 24.48584620399369,
+      "observation_mean_uA": 7426.534984872394,
+      "charge_total_uC": 1485.3069969744786,
+      "charge_signed_delta_uC": 1.3163179445578896,
+      "energy_total_uJ": 4901.513090015779,
+      "energy_signed_delta_uJ": 4.343849217041035,
+      "baseline_equivalent_energy_uJ": 4897.169240798738
+    },
+    {
+      "run_id": "run_00004",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00004",
+      "role": "tx",
+      "raw": "tx/raw/run_00004.csv.gz",
+      "raw_sha256": "3fc842b333d1324af6ea92f15405c88ee5778b411fd7fb95fde0132c59d89cb8",
+      "sample_count": 97280,
+      "sample_rate_hz": 100000,
+      "trigger_index": 21504,
+      "baseline_start_index": 3504,
+      "baseline_end_index_exclusive": 19504,
+      "observation_start_index": 21504,
+      "observation_end_index_exclusive": 41504,
+      "voltage_v": 3.3,
+      "baseline_mean_uA": 4838.2102491636,
+      "baseline_power_mW": 15.966093822239879,
+      "observation_mean_uA": 4889.722641263812,
+      "charge_total_uC": 977.9445282527624,
+      "charge_signed_delta_uC": 10.302478420042462,
+      "energy_total_uJ": 3227.2169432341157,
+      "energy_signed_delta_uJ": 33.99817878614012,
+      "baseline_equivalent_energy_uJ": 3193.218764447976
+    },
+    {
+      "run_id": "run_00004",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00004",
+      "role": "rx",
+      "raw": "rx/raw/run_00004.csv.gz",
+      "raw_sha256": "003592960a9ae31179e180e9ce8024abf87ee913b61a69d3c2edf8941482f0d1",
+      "sample_count": 97280,
+      "sample_rate_hz": 100000,
+      "trigger_index": 21504,
+      "baseline_start_index": 3504,
+      "baseline_end_index_exclusive": 19504,
+      "observation_start_index": 21504,
+      "observation_end_index_exclusive": 41504,
+      "voltage_v": 3.3,
+      "baseline_mean_uA": 7424.486497905906,
+      "baseline_power_mW": 24.500805443089487,
+      "observation_mean_uA": 7415.930801654788,
+      "charge_total_uC": 1483.1861603309578,
+      "charge_signed_delta_uC": -1.7111392502232228,
+      "energy_total_uJ": 4894.514329092161,
+      "energy_signed_delta_uJ": -5.646759525736635,
+      "baseline_equivalent_energy_uJ": 4900.161088617898
+    },
+    {
+      "run_id": "run_00005",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00005",
+      "role": "tx",
+      "raw": "tx/raw/run_00005.csv.gz",
+      "raw_sha256": "8e167667196fcf8f9d1ce7c1e27398356eed1aacc0d65666884386b9908fb883",
+      "sample_count": 98304,
+      "sample_rate_hz": 100000,
+      "trigger_index": 22528,
+      "baseline_start_index": 4528,
+      "baseline_end_index_exclusive": 20528,
+      "observation_start_index": 22528,
+      "observation_end_index_exclusive": 42528,
+      "voltage_v": 3.3,
+      "baseline_mean_uA": 4825.80965453212,
+      "baseline_power_mW": 15.925171859955993,
+      "observation_mean_uA": 4894.32938160969,
+      "charge_total_uC": 978.865876321938,
+      "charge_signed_delta_uC": 13.703945415514138,
+      "energy_total_uJ": 3230.2573918623953,
+      "energy_signed_delta_uJ": 45.223019871196655,
+      "baseline_equivalent_energy_uJ": 3185.034371991199
+    },
+    {
+      "run_id": "run_00005",
+      "paired_transfer_id": "20260930_213239_188258_e79_paired_pilot:run_00005",
+      "role": "rx",
+      "raw": "rx/raw/run_00005.csv.gz",
+      "raw_sha256": "9ad08c329c669d72babb0f481e4a844a2a0bb0be2d7f211de566b87eae257e36",
+      "sample_count": 97280,
+      "sample_rate_hz": 100000,
+      "trigger_index": 21504,
+      "baseline_start_index": 3504,
+      "baseline_end_index_exclusive": 19504,
+      "observation_start_index": 21504,
+      "observation_end_index_exclusive": 41504,
+      "voltage_v": 3.3,
+      "baseline_mean_uA": 7423.809597532509,
+      "baseline_power_mW": 24.498571671857277,
+      "observation_mean_uA": 7415.725616622569,
+      "charge_total_uC": 1483.1451233245136,
+      "charge_signed_delta_uC": -1.6167961819880552,
+      "energy_total_uJ": 4894.378906970895,
+      "energy_signed_delta_uJ": -5.335427400560582,
+      "baseline_equivalent_energy_uJ": 4899.714334371455
+    }
+  ],
+  "pairs": [
+    {
+      "run_id": "run_00001",
+      "tx_energy_total_uJ": 3230.2825895452984,
+      "rx_energy_total_uJ": 4901.526112615236,
+      "pair_energy_total_uJ": 8131.808702160535,
+      "tx_energy_signed_delta_uJ": 45.83091762544989,
+      "rx_energy_signed_delta_uJ": 3.4235317698339585,
+      "pair_energy_signed_delta_uJ": 49.25444939528385
+    },
+    {
+      "run_id": "run_00002",
+      "tx_energy_total_uJ": 3235.2898149703997,
+      "rx_energy_total_uJ": 4896.290287512723,
+      "pair_energy_total_uJ": 8131.580102483123,
+      "tx_energy_signed_delta_uJ": 38.04393966468076,
+      "rx_energy_signed_delta_uJ": -7.380366981822188,
+      "pair_energy_signed_delta_uJ": 30.663572682858568
+    },
+    {
+      "run_id": "run_00003",
+      "tx_energy_total_uJ": 3230.03353339095,
+      "rx_energy_total_uJ": 4901.513090015779,
+      "pair_energy_total_uJ": 8131.54662340673,
+      "tx_energy_signed_delta_uJ": 49.5094247503283,
+      "rx_energy_signed_delta_uJ": 4.343849217041035,
+      "pair_energy_signed_delta_uJ": 53.85327396736933
+    },
+    {
+      "run_id": "run_00004",
+      "tx_energy_total_uJ": 3227.2169432341157,
+      "rx_energy_total_uJ": 4894.514329092161,
+      "pair_energy_total_uJ": 8121.731272326277,
+      "tx_energy_signed_delta_uJ": 33.99817878614012,
+      "rx_energy_signed_delta_uJ": -5.646759525736635,
+      "pair_energy_signed_delta_uJ": 28.35141926040349
+    },
+    {
+      "run_id": "run_00005",
+      "tx_energy_total_uJ": 3230.2573918623953,
+      "rx_energy_total_uJ": 4894.378906970895,
+      "pair_energy_total_uJ": 8124.636298833289,
+      "tx_energy_signed_delta_uJ": 45.223019871196655,
+      "rx_energy_signed_delta_uJ": -5.335427400560582,
+      "pair_energy_signed_delta_uJ": 39.88759247063607
+    }
+  ],
+  "aggregate": {
+    "tx": {
+      "baseline_mean_uA": {
+        "n": 5,
+        "mean": 4830.446906759202,
+        "sample_sd": 10.441118965481081
+      },
+      "baseline_power_mW": {
+        "n": 5,
+        "mean": 15.940474792305363,
+        "sample_sd": 0.03445569258608814
+      },
+      "energy_total_uJ": {
+        "n": 5,
+        "mean": 3230.6160546006317,
+        "sample_sd": 2.9144966520245283
+      },
+      "energy_signed_delta_uJ": {
+        "n": 5,
+        "mean": 42.52109613955914,
+        "sample_sd": 6.320148281605055
+      }
+    },
+    "rx": {
+      "baseline_mean_uA": {
+        "n": 5,
+        "mean": 7423.884211856983,
+        "sample_sd": 3.781447830388482
+      },
+      "baseline_power_mW": {
+        "n": 5,
+        "mean": 24.49881789912804,
+        "sample_sd": 0.012478777840281261
+      },
+      "energy_total_uJ": {
+        "n": 5,
+        "mean": 4897.644545241359,
+        "sample_sd": 3.6169346275346874
+      },
+      "energy_signed_delta_uJ": {
+        "n": 5,
+        "mean": -2.1190345842488822,
+        "sample_sd": 5.54437898749169
+      }
+    },
+    "pair": {
+      "pair_energy_total_uJ": {
+        "n": 5,
+        "mean": 8128.260599841991,
+        "sample_sd": 4.747993110896877
+      },
+      "pair_energy_signed_delta_uJ": {
+        "n": 5,
+        "mean": 40.40206155531026,
+        "sample_sd": 11.176098486294213
+      }
+    }
+  }
+}

@@ -1,0 +1,190 @@
+{
+    "updated_utc":  "2026-10-01T08:06:12.2765747Z",
+    "firmware_version":  "0.3.2",
+    "image_sha256":  "6a369175134d5fe9d3647767ee26061b42c9a2275da4cb111e11719c61f0ddb6",
+    "programmer":  "J-Link PLUS 603000869, cJTAG, CC1352P1F3, 1000 kHz",
+    "tx":  {
+               "port":  "COM12",
+               "silicon_ieee":  "00124B0022929BE4",
+               "bl_config":  "C5FE0FC5",
+               "full_360448_byte_verifybin_passed":  true,
+               "programmed":  true,
+               "uart":  {
+                            "created_utc":  "2026-10-01T07:47:00.117135+00:00",
+                            "port":  "COM12",
+                            "role":  "TX",
+                            "passed":  true,
+                            "commands":  [
+                                             {
+                                                 "command":  "AT+VERSION?",
+                                                 "lines":  [
+                                                               "+VERSION:E79_AT_MODEM,0.3.2,SimpleLink-LPF2-SDK 8.33.00.16",
+                                                               "OK"
+                                                           ]
+                                             },
+                                             {
+                                                 "command":  "AT+MARKER=TX",
+                                                 "lines":  [
+                                                               "OK"
+                                                           ]
+                                             },
+                                             {
+                                                 "command":  "AT+MARKER?",
+                                                 "lines":  [
+                                                               "+MARKER:ROLE=TX,DIO=17,SOURCE=RAT_GPO0,ACTIVE=HIGH",
+                                                               "OK"
+                                                           ]
+                                             },
+                                             {
+                                                 "command":  "AT+PROFILE=GFSK200",
+                                                 "lines":  [
+                                                               "OK"
+                                                           ]
+                                             },
+                                             {
+                                                 "command":  "AT+MARKER?",
+                                                 "lines":  [
+                                                               "+MARKER:ROLE=TX,DIO=17,SOURCE=RAT_GPO0,ACTIVE=HIGH",
+                                                               "OK"
+                                                           ]
+                                             },
+                                             {
+                                                 "command":  "AT+SLEEP",
+                                                 "lines":  [
+                                                               "OK"
+                                                           ]
+                                             },
+                                             {
+                                                 "command":  "AT+WAKE",
+                                                 "lines":  [
+                                                               "OK"
+                                                           ]
+                                             },
+                                             {
+                                                 "command":  "AT+MARKER?",
+                                                 "lines":  [
+                                                               "+MARKER:ROLE=TX,DIO=17,SOURCE=RAT_GPO0,ACTIVE=HIGH",
+                                                               "OK"
+                                                           ]
+                                             },
+                                             {
+                                                 "command":  "AT+CFG?",
+                                                 "lines":  [
+                                                               "+CFG:PROFILE=GFSK200,FREQ=433920000,RATE=200000,PWR=13,MOD=2GFSK,SYNC=0x930B51DE,ADDR=N/A,CHAN=N/A,RX=ON,SLEEP=NO,DEBUG=OFF,MARKER=TX",
+                                                               "OK"
+                                                           ]
+                                             },
+                                             {
+                                                 "command":  "AT+STATUS?",
+                                                 "lines":  [
+                                                               "+STATUS:PROFILE=GFSK200,SLEEP=NO,RX=ON,RF=OPEN,TXCNT=0,RXCNT=0,ERRCNT=0,UPTIME=2",
+                                                               "OK"
+                                                           ]
+                                             }
+                                         ],
+                            "rf_transmissions_requested":  0
+                        }
+           },
+    "rx":  {
+               "port":  "COM13",
+               "silicon_ieee":  "00124B002292A310",
+               "state":  "Programmed; debugger removed by operator; local RX marker observed in paired pilot",
+               "bl_config":  "C5FE0FC5",
+               "full_360448_byte_verifybin_passed":  true,
+               "programmed":  true,
+               "uart":  {
+                            "created_utc":  "2026-10-01T07:48:54.199029+00:00",
+                            "port":  "COM13",
+                            "role":  "RX",
+                            "passed":  true,
+                            "commands":  [
+                                             {
+                                                 "command":  "AT+VERSION?",
+                                                 "lines":  [
+                                                               "+VERSION:E79_AT_MODEM,0.3.2,SimpleLink-LPF2-SDK 8.33.00.16",
+                                                               "OK"
+                                                           ]
+                                             },
+                                             {
+                                                 "command":  "AT+MARKER=RX",
+                                                 "lines":  [
+                                                               "OK"
+                                                           ]
+                                             },
+                                             {
+                                                 "command":  "AT+MARKER?",
+                                                 "lines":  [
+                                                               "+MARKER:ROLE=RX,DIO=17,SOURCE=RAT_GPO1,ACTIVE=HIGH",
+                                                               "OK"
+                                                           ]
+                                             },
+                                             {
+                                                 "command":  "AT+PROFILE=GFSK200",
+                                                 "lines":  [
+                                                               "OK"
+                                                           ]
+                                             },
+                                             {
+                                                 "command":  "AT+MARKER?",
+                                                 "lines":  [
+                                                               "+MARKER:ROLE=RX,DIO=17,SOURCE=RAT_GPO1,ACTIVE=HIGH",
+                                                               "OK"
+                                                           ]
+                                             },
+                                             {
+                                                 "command":  "AT+SLEEP",
+                                                 "lines":  [
+                                                               "OK"
+                                                           ]
+                                             },
+                                             {
+                                                 "command":  "AT+WAKE",
+                                                 "lines":  [
+                                                               "OK"
+                                                           ]
+                                             },
+                                             {
+                                                 "command":  "AT+MARKER?",
+                                                 "lines":  [
+                                                               "+MARKER:ROLE=RX,DIO=17,SOURCE=RAT_GPO1,ACTIVE=HIGH",
+                                                               "OK"
+                                                           ]
+                                             },
+                                             {
+                                                 "command":  "AT+CFG?",
+                                                 "lines":  [
+                                                               "+CFG:PROFILE=GFSK200,FREQ=433920000,RATE=200000,PWR=13,MOD=2GFSK,SYNC=0x930B51DE,ADDR=N/A,CHAN=N/A,RX=ON,SLEEP=NO,DEBUG=OFF,MARKER=RX",
+                                                               "OK"
+                                                           ]
+                                             },
+                                             {
+                                                 "command":  "AT+STATUS?",
+                                                 "lines":  [
+                                                               "+STATUS:PROFILE=GFSK200,SLEEP=NO,RX=ON,RF=OPEN,TXCNT=0,RXCNT=0,ERRCNT=0,UPTIME=2",
+                                                               "OK"
+                                                           ]
+                                             }
+                                         ],
+                            "rf_transmissions_requested":  0
+                        }
+           },
+    "wiring":  "Operator confirmed separate TX DIO17 to PPK COM10 D0 and RX DIO17 to PPK COM11 D0; no connection between radio output pins",
+    "physical_rx_marker_validated":  true,
+    "device_firmware_backup_created":  false,
+    "voltage_mv":  3300,
+    "ppks_active":  true,
+    "physical_marker_pilot":  {
+                                  "packet_received":  true,
+                                  "measured_transfers":  1,
+                                  "tx_duration_ms":  1.79,
+                                  "independent_total_tx_uJ":  57.644399451731189,
+                                  "rx_duration_ms":  1.42,
+                                  "official_status":  "failed_due_to_TX_baseline_counter_QA",
+                                  "independent_proof":  "both pulses have clean constant valid range with 3 preceding samples, clean counter and exact independently calibrated ADC agreement",
+                                  "audit":  ".tmp/e79_radio_markers_20261001/pilot-local-marker-independent-audit.json",
+                                  "independent_total_rx_uJ":  34.651977184344261,
+                                  "continuous_rx_five_transfer_validation_pending":  true,
+                                  "session":  "20261001_110234_196026_paired_pilot_radio_ebyte_e79_cc1352p",
+                                  "result":  "20261001_110234_367104_e79_paired_pilot"
+                              }
+}
